@@ -1,26 +1,191 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   Evan — 3D Portfolio · Design tokens (Tailwind v4)
+   Dark green ground · single lime accent, keyed to the "Evan" wordmark
+   (lime #d7f24a ink on deep green). Fonts arrive as CSS vars from next/font
+   (see layout.tsx): --font-fredoka / --font-inter / --font-jetbrains-mono.
+   ============================================================================ */
+
+@theme {
+  /* Fonts — rounded display (Fredoka) to echo the monoline wordmark */
+  --font-display: var(--font-fredoka), ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", monospace;
+
+  /* Editorial type scale — oversized hero "spine" (feature 002). Generates the
+     `text-hero` utility; paired tokens set its leading/tracking. */
+  --text-hero: clamp(3.5rem, 13vw, 11rem);
+  --text-hero--line-height: 0.9;
+  --text-hero--letter-spacing: -0.03em;
+
+  /* Backgrounds & surfaces — deep green-black, warmed toward the wordmark */
+  --color-deep: #060d09;
+  --color-base: #0b1510;
+  --color-surface: #121e17;
+  --color-surface-raised: #18271d;
+  --color-line: #26382c;
+
+  /* Text — near-white with a faint green cast */
+  --color-fg: #e9f1e6;
+  --color-fg-muted: #a3b2a1;
+  --color-fg-subtle: #6f7d69;
+
+  /* Accent (lime — the wordmark ink, the single brand color) */
+  --color-accent: #d7f24a;
+  --color-accent-bright: #e7fb6d;
+  --color-accent-dim: #b4d840;
+  --color-on-accent: #0b1510;
+
+  /* Soft lime flourish (gradients only) */
+  --color-lime-soft: #9ae05a;
+
+  /* Semantic */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Shadows & glows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-glow-accent: 0 0 24px rgba(215, 242, 74, 0.35), 0 0 4px rgba(215, 242, 74, 0.55);
+  --shadow-glow-ambient: 0 0 120px rgba(215, 242, 74, 0.14);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 200ms;
+  --dur-reveal: 600ms;
+}
+
+/* Non-token helpers reused by JS/GSAP and background layers */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent-glow-rgba: rgba(215, 242, 74, 0.3);
+  --ring-focus: 0 0 0 2px #0b1510, 0 0 0 4px #d7f24a;
+  --glass-bg: rgba(18, 30, 23, 0.6);
+  --glass-blur: blur(12px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---- Base ---- */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Anchored sections clear the fixed nav (+ its scrim) when jumped to, so a
+   heading never lands hidden behind the bar. */
+section[id] {
+  scroll-margin-top: 6.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-base);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display headings: rounded Fredoka, tight — matches the wordmark's soft forms.
+   Weight 700 (feature 002) for a heavier editorial voice; Fredoka caps here. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.95;
+}
+
+/* Hero display — the type-as-spine (feature 002): oversized and tighter than
+   .display so the name reads as the page's single largest element. */
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--text-hero);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+/* Editorial "runner" label — small mono marks pinned to the hero corners
+   (©year · / ENGINEERING SINCE · monogram). Subtle, decorative. */
+.runner-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--color-fg-subtle);
+  white-space: nowrap;
+}
+
+/* Eyebrow / label / kicker: mono, spaced, upper */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+}
+
+/* Keyboard focus — never remove */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* Glassmorphic surface (nav/header) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-line);
+}
+
+/* Ember glow — soft halo around the burning-fuse timeline dot. Centered via the
+   keyframe transform, so don't also apply translate utilities to it. */
+@keyframes emberGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+.ember-glow {
+  animation: emberGlow 2.4s ease-in-out infinite;
+}
+
+/* Ambient background glow blob — position/animate per instance */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent-glow-rgba) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ---- Reduced motion: kill decorative motion, keep content usable ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,0 +1,147 @@
+/* ============================================================================
+   Huy Le — 3D Portfolio · Design Tokens (Tailwind v4)
+   Generated 2026-08-11 via ui-ux-pro-max. Dark & moody · teal accent.
+   Drop into src/app/globals.css (or import). Tailwind v4 uses @theme so these
+   become utilities: bg-base, text-fg, text-accent, shadow-glow-accent, etc.
+   Fonts are wired via next/font (see note at bottom) → --font-display / -body / -mono.
+   ============================================================================ */
+
+@theme {
+  /* ---- Fonts (values set by next/font variables; fallbacks here) ---- */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  /* ---- Backgrounds & surfaces ---- */
+  --color-bg-deep: #05070e;
+  --color-bg-base: #0a0e1a;
+  --color-surface: #111725;
+  --color-surface-raised: #161d2e;
+  --color-border: #1e2a3d;
+
+  /* ---- Text ---- */
+  --color-fg: #e6edf6;
+  --color-fg-muted: #8a97ac;
+  --color-fg-subtle: #5a6678;
+
+  /* ---- Accent (teal — the single brand color) ---- */
+  --color-accent: #2dd4bf;
+  --color-accent-bright: #5eead4;
+  --color-accent-dim: #14b8a6;
+  --color-on-accent: #04120f;
+
+  /* ---- Optional AI-native flourish (gradients only, keep teal dominant) ---- */
+  --color-violet: #818cf8;
+
+  /* ---- Semantic (used sparingly) ---- */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+
+  /* ---- Radii ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ---- Shadows & glows ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-glow-accent: 0 0 24px rgba(45, 212, 191, 0.35), 0 0 4px rgba(45, 212, 191, 0.55);
+  --shadow-glow-ambient: 0 0 120px rgba(45, 212, 191, 0.14);
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 200ms;
+  --dur-reveal: 600ms;
+}
+
+/* Non-token helpers (values reused by JS/GSAP and background layers) */
+:root {
+  --accent-glow-rgba: rgba(45, 212, 191, 0.3);
+  --ring-focus: 0 0 0 2px #0a0e1a, 0 0 0 4px #2dd4bf;
+  --glass-bg: rgba(17, 23, 37, 0.6);
+  --glass-blur: blur(12px);
+}
+
+/* ---- Base ---- */
+html {
+  color-scheme: dark;
+}
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display headings: uppercase Space Grotesk, tight */
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+/* Eyebrow / label / kicker: mono, spaced, upper */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+}
+
+/* Keyboard focus — never remove */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+  border-radius: var(--radius-sm);
+}
+
+/* Glassmorphic surface (nav/header) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+}
+
+/* Ambient background glow blob — position/animate per instance */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent-glow-rgba) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ---- Reduced motion: kill decorative motion, keep content usable ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   next/font wiring (in layout.tsx) — expose the CSS variables the tokens expect:
+
+     import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+     const display = Space_Grotesk({ subsets:["latin"], weight:["500","700"],
+       variable:"--font-display-src" });
+     const body = Inter({ subsets:["latin"], weight:["400","500","600"],
+       variable:"--font-body-src" });
+     const mono = JetBrains_Mono({ subsets:["latin"], weight:["400","500"],
+       variable:"--font-mono-src" });
+     // apply `${display.variable} ${body.variable} ${mono.variable}` on <html>,
+     // then point --font-display/-body/-mono at the *-src vars, OR just name the
+     // @theme font vars directly as the next/font `variable`.
+   ============================================================================ */
