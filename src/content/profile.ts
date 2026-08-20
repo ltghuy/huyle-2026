@@ -13,6 +13,10 @@ export interface Profile {
   location: string;
   /** Monogram used by the nav */
   monogram: string;
+  /** Canonical production URL, no trailing slash — the single source of truth
+   *  for SEO metadata (`metadataBase`, canonical, OpenGraph), robots.txt, and
+   *  the sitemap. */
+  url: string;
 }
 
 export const profile: Profile = {
@@ -24,4 +28,5 @@ export const profile: Profile = {
     "Frontend engineer with 4+ years building production-grade web platforms across healthcare, legal-tech, and enterprise-event domains in React, Next.js (App Router, RSC, Streaming), and TypeScript. Technical lead and primary developer on core Naver Care tools, with end-to-end ownership from product spec to production observability — focused on scalable monorepo architecture, design-system standardization, and integrating AI/LLM-assisted product features.",
   location: "Ho Chi Minh City, Vietnam",
   monogram: "HL",
+  url: "https://huyle.blog",
 };

@@ -1,0 +1,29 @@
+# Huy Le — Software Engineer
+
+> Le Tran Gia Huy (Huy Le) is a frontend engineer with 4+ years building
+> production-grade web platforms in React, Next.js (App Router, RSC, Streaming),
+> and TypeScript across healthcare, legal-tech, and enterprise-event domains.
+> Technical lead and primary developer on core Naver Care tools, focused on
+> scalable monorepo architecture, design-system standardization, and AI-native /
+> LLM-assisted product features. Based in Ho Chi Minh City, Vietnam.
+
+This is Huy Le's personal portfolio — a single-page site at https://huyle.blog.
+Its sections are in-page anchors (not separate URLs): an intro/hero, an about
+section, a mission statement, an "Off the clock" photo gallery (an interactive
+WebGL globe), capabilities, experience, selected work, and contact.
+
+## Site
+
+- [Portfolio home](https://huyle.blog): Hero, About, Capabilities ("What I Do"), Experience, selected Work, the "Off the clock" gallery, and Contact — all on one page.
+
+## Profile & contact
+
+- [LinkedIn](https://www.linkedin.com/in/ltghuy/): Professional profile and history.
+- [GitHub](https://github.com/ltghuy): Open-source and project code.
+- [Email](mailto:letrangiahuy0507@gmail.com): Direct contact.
+
+## Optional
+
+- [Instagram](https://www.instagram.com/_ltghuy/): Personal photos.
+- [Facebook](https://www.facebook.com/letranxgiahuy): Personal profile.
+- Stack: Next.js 16 (App Router) + TypeScript + Tailwind CSS; the gallery uses React Three Fiber / Three.js (WebGL) with a static fallback under reduced motion or no WebGL.
