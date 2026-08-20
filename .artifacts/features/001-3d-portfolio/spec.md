@@ -3,12 +3,22 @@ id: 001
 feature: 3d-portfolio
 type: greenfield
 scope: complex
-status: in-progress
+status: superseded
 branch: main
 created: 2026-08-11
 ---
 
 # Feature: 3D Interactive Portfolio Website
+
+> **⚠ SUPERSEDED — 2026-08-20.** This feature's interactive 3D hero (the `Scene`
+> with character/cat/desk GLB models, `HeroExperience`/`HeroPoster` WebGL +
+> fallback, and the Meshy model pipeline) was never completed and has been
+> **removed from the codebase**. The live site uses the 002 editorial re-style: a
+> static `HeroPortrait` hero and a WebGL wireframe photo-globe gallery. The
+> palette/fonts here (navy + teal + Space Grotesk) are also stale — shipped is
+> dark green `#0b1510` + lime `#d7f24a` + Fredoka/Inter/JetBrains Mono. Kept as
+> historical record only; its acceptance criteria are **not live**. Current
+> truth: the code + `.agents/knowledge.md`.
 
 ## Overview
 

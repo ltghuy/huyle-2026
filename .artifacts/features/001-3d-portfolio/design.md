@@ -4,6 +4,14 @@ feature: 3d-portfolio
 created: 2026-08-11
 ---
 
+> **⚠ SUPERSEDED — 2026-08-20.** The interactive 3D hero this document designs
+> (`Scene`, `CharacterModel`/`CatModel`/`CameraRig`, `HeroExperience`/`HeroPoster`,
+> `content/scene.ts`, the Meshy asset pipeline + `MESHY_API_KEY`, and the
+> `placeholder-character.glb`) has been **removed from the codebase** — roughly
+> 70% of this file describes code that no longer exists. The `Space_Grotesk`
+> font and navy/teal palette are also stale (shipped: Fredoka + green/lime). Kept
+> as historical record only. Current truth: the code + `.agents/knowledge.md`.
+
 # Technical Design: 3D Interactive Portfolio
 
 > Sources of truth: `spec.md` (WHAT), `inputs/idea/concept.md` (experience),

@@ -42,24 +42,23 @@ export function ScrambleText({
     let raf = 0;
     let start = 0;
 
-    const scrambleOnce = () => {
-      let out = "";
-      for (const ch of chars) out += ch === " " ? " " : GLYPHS[(Math.random() * GLYPHS.length) | 0];
-      return out;
-    };
+    // Per-character decode: each glyph resolves at its own randomized threshold
+    // (à la the "text decode" reference), so the string clears in a scattered
+    // order rather than a straight left-to-right wipe. Spaces stay fixed.
+    const thresholds = chars.map(() => 0.15 + Math.random() * 0.7);
+    const glyph = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
 
     // Paint a fully-scrambled frame immediately to avoid a flash of final text.
-    el.textContent = scrambleOnce();
+    el.textContent = chars.map((ch) => (ch === " " ? " " : glyph())).join("");
 
     const frame = (now: number) => {
       if (!start) start = now;
       const progress = Math.min((now - start) / duration, 1);
-      const revealCount = Math.floor(progress * chars.length);
       let out = "";
       for (let i = 0; i < chars.length; i++) {
         if (chars[i] === " ") out += " ";
-        else if (i < revealCount) out += chars[i];
-        else out += GLYPHS[(Math.random() * GLYPHS.length) | 0];
+        else if (progress >= thresholds[i]) out += chars[i];
+        else out += glyph();
       }
       el.textContent = out;
       if (progress < 1) raf = requestAnimationFrame(frame);

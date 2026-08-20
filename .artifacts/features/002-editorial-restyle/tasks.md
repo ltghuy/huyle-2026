@@ -4,6 +4,14 @@ feature: editorial-restyle
 created: 2026-08-14
 ---
 
+> **⚠ PARTIALLY SUPERSEDED — 2026-08-20.** The nav-pill, Statement, token, and
+> page-order tasks (T001–T003, T005, T009–T011, T013) are accurate. The
+> hero-scene tasks are **not**: T004 (`HeroWordmark` scale prop), T006 (move
+> `HeroExperience` into `Hero`), T007 (**pin** the hero — the shipped
+> `HeroScrollSpine` deliberately does NOT pin), and T008 (`HeroPoster` no-WebGL
+> path) describe code that shipped as a static `HeroPortrait` and was later
+> removed. Treat them as historical. Current truth: the code + `.agents/knowledge.md`.
+
 # Tasks: Editorial Re-style Layer
 
 ## Summary

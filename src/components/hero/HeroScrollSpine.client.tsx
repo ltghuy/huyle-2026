@@ -12,9 +12,8 @@ import { useIntroComplete } from "@/lib/useIntroComplete";
  * As the hero scrolls away it drifts its layers at different rates — the
  * oversized name (`.hero-drift-slow`) lags, the runner labels / ambient glow
  * (`.hero-drift-fast`) lead — for a subtle editorial parallax. Deliberately
- * NOT a ScrollTrigger *pin*: the scene already stages off a shared scroll
- * scrubber (`useScrollProgress`), and pinning the hero would shift every
- * downstream scroll position and fight that system. A plain scrub is additive
+ * NOT a ScrollTrigger *pin*: pinning the hero would shift every downstream
+ * scroll position and fight the rest of the page. A plain scrub is additive
  * and safe.
  *
  * Gated on `prefers-reduced-motion` (off entirely) and `intro-complete` (so it

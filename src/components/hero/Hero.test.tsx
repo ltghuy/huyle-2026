@@ -35,18 +35,26 @@ describe("Hero (editorial type-as-spine)", () => {
     expect(container.querySelector("section#hero")).toBeTruthy();
   });
 
-  it("renders decorative runner labels marked aria-hidden", () => {
+  it("renders the two decorative corner elements, aria-hidden", () => {
     const { container } = render(<Hero />);
-    const runners = [...container.querySelectorAll(".runner-label")];
-    expect(runners.length).toBeGreaterThanOrEqual(1);
-    const monogram = runners.find((el) => el.textContent === profile.monogram);
-    expect(monogram).toBeTruthy();
-    expect(monogram?.getAttribute("aria-hidden")).toBe("true");
+    const copyright = container.querySelector("[data-hero-copyright]");
+    const since = container.querySelector(".runner-label");
+    expect(copyright?.textContent).toMatch(/©\d{4}/);
+    expect(copyright?.getAttribute("aria-hidden")).toBe("true");
+    expect(since?.textContent).toMatch(/engineering since/i);
+    expect(since?.getAttribute("aria-hidden")).toBe("true");
   });
 
-  it("renders without WebGL (static fallback path, no scene crash)", () => {
-    // happy-dom has no WebGL context, so HeroExperience must take the poster
-    // branch rather than importing the Three.js Scene.
-    expect(() => render(<Hero />)).not.toThrow();
+  it("does not render the removed center identity block", () => {
+    const { container } = render(<Hero />);
+    // Name/title live in the sr-only h1 + nav now; no visible eyebrow duplicate.
+    expect(container.querySelector(".eyebrow")).toBeNull();
+  });
+
+  it("renders the interim portrait centerpiece", () => {
+    // The static portrait stands in for the 3D scene; it needs no WebGL and must
+    // always render inside the hero.
+    const { container } = render(<Hero />);
+    expect(container.querySelector("#hero img")).toBeTruthy();
   });
 });

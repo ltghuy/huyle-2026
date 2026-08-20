@@ -5,7 +5,7 @@
  * the top into the n's arch, which finishes on a curling tail. Drawn as a
  * stroked path (fill: none), so a dash reveal reads as a single pen stroke.
  *
- * Shared by the first-visit intro (IntroOverlay) and the hero (HeroWordmark) so
+ * Shared by the first-visit intro (IntroOverlay) and the nav wordmark (Nav) so
  * both render the exact same artwork.
  */
 export const EVAN_MARK = {

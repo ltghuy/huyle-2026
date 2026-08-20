@@ -1,7 +1,7 @@
 import { profile } from "@/content/profile";
-import { HeroWordmark } from "@/components/hero/HeroWordmark";
-import { HeroExperience } from "@/components/hero/HeroExperience.client";
+import { HeroPortrait } from "@/components/hero/HeroPortrait";
 import { HeroScrollSpine } from "@/components/hero/HeroScrollSpine.client";
+import { HeroDoodles } from "@/components/hero/HeroDoodles.client";
 import { ScrambleText } from "@/components/motion/ScrambleText";
 
 /** Runner-label copy. `SINCE_YEAR` = start of the professional timeline (4+ yrs). */
@@ -9,18 +9,14 @@ const SINCE_YEAR = 2021;
 const COPYRIGHT_YEAR = 2026;
 
 /**
- * The type-as-spine hero (feature 002 — editorial re-style).
+ * The type-as-spine hero (feature 002 — editorial re-style, majd-modeled).
  *
- * The oversized "Evan" wordmark is the page's single largest element (the
- * "spine"); the interactive 3D scene is stacked in the same grid cell so the
- * character overlaps the letterforms. Real, server-rendered text carries the
- * accessible identity (name + title) for SEO / no-JS / screen readers, while the
- * wordmark and scene are decorative (`aria-hidden`). Editorial "runner" labels
- * are pinned to the corners.
- *
- * Fallback: `HeroExperience` swaps to the static `HeroPoster` when WebGL is
- * unavailable or motion is reduced, so the cell is never empty. `min-h` reserves
- * space to keep layout shift small while fonts/scene load.
+ * The oversized role ("SOFTWARE ENGINEER") is the page's single largest element;
+ * the interim portrait is pulled up to straddle its lower line (in front) and
+ * extend below, threading through the type. The visible name lives in the nav
+ * (à la Majd) — this section's only real text is an sr-only h1 carrying the name
+ * + title for SEO / no-JS / screen readers. Two editorial corner "runner" labels
+ * are kept; everything else is intentionally stripped.
  */
 export function Hero() {
   return (
@@ -28,51 +24,60 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-[100svh] items-center overflow-hidden px-6 py-28 sm:px-12 lg:px-20"
     >
+      {/* Hand-drawn white doodles that sketch into the empty flanks (DrawSVG) */}
+      <HeroDoodles />
+
       <HeroScrollSpine className="relative mx-auto w-full max-w-6xl">
-        {/* Stacked visual: wordmark spine + overlapping scene, same grid cell */}
-        <div className="relative grid place-items-center">
+        {/* Accessible identity — the visible name is the nav logo (Majd-style);
+            this sr-only h1 carries name + title for SEO / no-JS / screen readers. */}
+        <h1 className="sr-only">
+          {profile.display} — {profile.title}
+        </h1>
+
+        {/* Visual stack: the oversized role as the two-line "spine", with the
+            portrait pulled up to straddle its lower line (in front) and hang
+            below it. Tuned so the word stays readable — nothing important hidden. */}
+        <div className="relative flex flex-col items-center">
           <div className="glow-blob left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 opacity-60 hero-drift-fast" />
 
-          {/* The name as the spine — oversized, drawn-on, decorative */}
-          <HeroWordmark
-            className="hero-drift-slow relative z-10 col-start-1 row-start-1"
-            widthClamp="min(100%, 72rem)"
-          />
+          {/* The oversized role decodes from static immediately on mount (à la
+              the "text decode" reference), one word after the other. */}
+          <p
+            aria-hidden
+            data-hero-title
+            className="display-hero hero-drift-slow relative z-10 text-center text-fg"
+          >
+            <ScrambleText
+              text="Software"
+              duration={1100}
+              waitForIntro
+              className="block"
+            />
+            <ScrambleText
+              text="Engineer"
+              delay={220}
+              duration={1100}
+              waitForIntro
+              className="block"
+            />
+          </p>
 
-          {/* The interactive scene overlaps the letterforms (transparent canvas) */}
-          <div className="pointer-events-none col-start-1 row-start-1 h-[24rem] w-full sm:h-[30rem] lg:h-[34rem] z-20">
-            <HeroExperience />
-          </div>
+          {/* Portrait sits BELOW the type (Majd-style), centered — not overlapping */}
+          <HeroPortrait className="relative z-20 mt-4 sm:mt-8" />
         </div>
 
-        {/* Accessible identity — real text (SEO / no-JS / screen readers). The
-            oversized wordmark is the *visual* name; this is the semantic one: a
-            single h1 with the name, the title as its readable subtitle. */}
-        <div className="relative z-30 mt-8 text-center">
-          <h1 className="eyebrow mb-3">{profile.display}</h1>
-          <ScrambleText
-            waitForIntro
-            text={profile.title}
-            className="display block text-xl text-fg sm:text-2xl"
-          />
-          <p className="mt-4 text-sm text-fg-muted">{profile.tagline}</p>
-        </div>
-
-        {/* Editorial runner labels — decorative, pinned to the hero corners */}
-        <span aria-hidden className="runner-label hero-drift-fast absolute left-0 top-0">
-          {profile.monogram}
-        </span>
-        {/* Bottom runners are decorative editorial flourish — hidden on small
-            screens where they would collide with the centered identity text. */}
+        {/* Editorial corner runners (à la Majd): a large bold ©year bottom-left,
+            a small mono "since" label bottom-right. */}
         <span
           aria-hidden
-          className="runner-label hero-drift-fast absolute bottom-0 left-0 hidden sm:block"
+          data-hero-copyright
+          className="display hero-drift-fast absolute bottom-0 left-0 text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none"
         >
           ©{COPYRIGHT_YEAR}
         </span>
         <span
           aria-hidden
-          className="runner-label hero-drift-fast absolute bottom-0 right-0 hidden sm:block"
+          className="runner-label hero-drift-fast absolute bottom-1 right-0 hidden sm:block"
         >
           / Engineering since {SINCE_YEAR}
         </span>

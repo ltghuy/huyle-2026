@@ -4,6 +4,16 @@ feature: editorial-restyle
 created: 2026-08-14
 ---
 
+> **⚠ PARTIALLY SUPERSEDED — 2026-08-20.** The nav pill, Statement, `.display`
+> 600→700, `--text-hero` clamp, and palette reconciliation (green/lime/Fredoka)
+> below are accurate. The **hero-composition core is not** — mounting
+> `HeroWordmark` and composing `HeroExperience`(+`HeroPoster`) "over the name"
+> with a pinned `HeroScrollSpine` never shipped: the hero is a static
+> `HeroPortrait` below the type, `HeroScrollSpine` is a **no-pin** parallax, and
+> `HeroExperience`/`HeroWordmark`/`HeroPoster`/`useScrollProgress` were later
+> removed. Treat those rows/decisions/traceability entries as historical. Current
+> truth: the code + `.agents/knowledge.md`.
+
 # Technical Design: Editorial Re-style Layer
 
 ## Scope

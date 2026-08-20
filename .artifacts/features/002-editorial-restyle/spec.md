@@ -10,6 +10,17 @@ created: 2026-08-14
 
 # Feature: Editorial Re-style Layer
 
+> **⚠ PARTIALLY SUPERSEDED — 2026-08-20.** The type-led opening, glass-pill nav,
+> centered Statement, and token/typography changes shipped and remain accurate.
+> But the hero's defining premise — the interactive 3D scene composed *over /
+> through* the oversized name (**AC-002**, **AC-012**) — did **not** land: the
+> hero shipped as a static `HeroPortrait` sitting *below* the type (no scene, no
+> overlap, no WebGL fallback), and `HeroExperience`/`HeroWordmark`/`HeroPoster`/
+> `useScrollProgress`/Meshy were later removed. AC-002 and AC-012 are therefore
+> **no longer true**, and AC-011's "pinning" is moot (`HeroScrollSpine` is a
+> no-pin parallax). The gallery is now a WebGL wireframe photo globe. See
+> `.agents/knowledge.md` for current behaviour.
+
 ## Overview
 
 The portfolio (feature 001) is shipped and functional, but its opening reads as a

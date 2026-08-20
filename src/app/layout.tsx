@@ -3,6 +3,10 @@ import { Fredoka, Inter, JetBrains_Mono } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { IntroOverlay } from "@/components/intro/IntroOverlay";
+import { IntroVortex } from "@/components/intro/IntroVortex.client";
+import { SmoothScroll } from "@/components/layout/SmoothScroll.client";
+import { ScrollPortrait } from "@/components/hero/ScrollPortrait.client";
+import { OrbField } from "@/components/motion/OrbField.client";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -42,12 +46,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fredoka.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body>
+        {/* Fixed / viewport-anchored layers live OUTSIDE #smooth-content — a
+            transformed ancestor would otherwise break their position:fixed. */}
+        {/* Single page-level ambient orb field — the backmost layer, behind all
+            (transparent) sections, so the glow is continuous across the page. */}
+        <OrbField />
         <IntroOverlay />
-        <div id="site-content">
-          <Nav />
+        <IntroVortex />
+        <Nav />
+        <ScrollPortrait />
+        {/* Everything that scrolls goes inside the smoother's content wrapper. */}
+        <SmoothScroll>
           {children}
           <Footer />
-        </div>
+        </SmoothScroll>
       </body>
     </html>
   );

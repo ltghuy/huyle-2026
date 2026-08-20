@@ -35,16 +35,15 @@ describe("navigation & contact links", () => {
     expect(navs[0].getAttribute("aria-label")).toBe("Primary");
   });
 
-  it("Footer renders each social with the correct href, and external links carry rel=noopener", () => {
+  it("Footer is a colophon: credit + back-to-top, with no duplicate social row", () => {
     const { container } = render(<Footer />);
-    socials.forEach((s) => {
-      const a = container.querySelector<HTMLAnchorElement>(`a[href="${s.href}"]`);
-      expect(a).toBeTruthy();
-      if (s.icon !== "mail") {
-        expect(a?.getAttribute("rel")).toContain("noopener");
-        expect(a?.getAttribute("target")).toBe("_blank");
-      }
-    });
+    // Colophon content
+    expect(container.textContent).toContain("Huy Le");
+    expect(container.querySelector('a[href="#hero"]')).toBeTruthy();
+    // Social profiles live in Contact now — the footer no longer repeats them
+    socials.forEach((s) =>
+      expect(container.querySelector(`a[href="${s.href}"]`)).toBeNull(),
+    );
   });
 
   it("Contact surfaces the email and social profiles", () => {

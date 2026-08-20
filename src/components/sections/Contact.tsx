@@ -1,24 +1,8 @@
-import type { ComponentType, SVGProps } from "react";
 import { Mail } from "lucide-react";
-import { socials, type SocialLink } from "@/content/socials";
-import {
-  GithubIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  FacebookIcon,
-} from "@/components/icons/BrandIcons";
+import { socials } from "@/content/socials";
+import { SocialLinks } from "@/components/social/SocialLinks";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticLink } from "@/components/motion/MagneticLink";
-
-type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
-
-const ICONS: Record<SocialLink["icon"], IconComponent> = {
-  mail: Mail,
-  linkedin: LinkedinIcon,
-  github: GithubIcon,
-  instagram: InstagramIcon,
-  facebook: FacebookIcon,
-};
 
 export function Contact() {
   const email = socials.find((s) => s.icon === "mail");
@@ -56,25 +40,8 @@ export function Contact() {
           </Reveal>
         )}
 
-        <Reveal className="mt-12 flex items-center justify-center gap-3">
-          {socials
-            .filter((s) => s.icon !== "mail")
-            .map((social) => {
-              const Icon = ICONS[social.icon];
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  title={social.label}
-                  className="grid size-11 place-items-center rounded-full border border-line text-fg-muted transition-colors duration-200 hover:border-accent hover:text-accent"
-                >
-                  <Icon className="size-4" />
-                </a>
-              );
-            })}
+        <Reveal className="mt-12">
+          <SocialLinks className="justify-center" />
         </Reveal>
       </div>
     </section>

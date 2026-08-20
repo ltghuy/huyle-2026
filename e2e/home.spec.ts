@@ -13,8 +13,8 @@ test.describe("home page smoke", () => {
       { timeout: 15_000 },
     );
 
-    // Identity
-    await expect(page.getByRole("heading", { name: "Huy Le", level: 1 })).toBeVisible();
+    // Identity — the accessible name is an sr-only h1 (visible name is the nav logo).
+    await expect(page.getByRole("heading", { name: /Huy Le/i, level: 1 })).toHaveCount(1);
     await expect(page.locator("#hero")).toContainText("Software Engineer · AI-Native Development");
 
     // Sections present
@@ -31,21 +31,26 @@ test.describe("home page smoke", () => {
     ).toHaveAttribute("rel", /noopener/);
   });
 
-  test("work carousel advances between projects", async ({ page }) => {
+  test("work renders the full project deck", async ({ page }) => {
     await page.goto("/");
     const work = page.locator("#work");
-    await work.scrollIntoViewIfNeeded();
-    await expect(work.getByRole("heading", { name: "Naver Care" })).toBeVisible();
-    await work.getByRole("button", { name: "Next project" }).click();
-    await expect(work.getByRole("heading", { name: "InjuryEx" })).toBeVisible();
+    // The Scroll Stack Cards deck renders every project as a stacked card.
+    for (const name of [
+      "Naver Care",
+      "InjuryEx",
+      "Australian Epilepsy Project",
+      "ETech",
+    ]) {
+      await expect(work.getByRole("heading", { name })).toHaveCount(1);
+    }
   });
 
   test("falls back to the poster (no canvas) under reduced motion", async ({ browser }) => {
     const context = await browser.newContext({ reducedMotion: "reduce" });
     const page = await context.newPage();
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Huy Le", level: 1 })).toBeVisible();
-    // 3D canvas must not render when motion is reduced
+    await expect(page.getByRole("heading", { name: /Huy Le/i, level: 1 })).toHaveCount(1);
+    // 3D canvas must not render (interim static portrait; no WebGL)
     await expect(page.locator("canvas")).toHaveCount(0);
     await context.close();
   });

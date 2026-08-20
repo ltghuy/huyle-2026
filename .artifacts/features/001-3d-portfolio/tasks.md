@@ -4,6 +4,14 @@ feature: 3d-portfolio
 created: 2026-08-11
 ---
 
+> **⚠ SUPERSEDED — 2026-08-20.** The tasks here for the 3D scene and Meshy swap
+> (T008 `scene.ts`, T021 `useScrollProgress`, T022 `HeroPoster`, T023–T027
+> `HeroExperience`/`Scene`/models, T028, T038 Meshy swap-readiness) are marked
+> VERIFIED but describe code that has since been **removed**. The T001/T002
+> "VERIFIED" palette/font notes (navy + teal + Space Grotesk) are false vs the
+> shipped green/lime/Fredoka. The foundation/content/2D-section tasks still hold.
+> Kept as historical record only. Current truth: the code + `.agents/knowledge.md`.
+
 # Tasks: 3D Interactive Portfolio
 
 ## Summary

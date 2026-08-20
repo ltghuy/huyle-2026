@@ -4,7 +4,6 @@ import { socials } from "./socials";
 import { skillGroups } from "./skills";
 import { experience } from "./experience";
 import { projects } from "./projects";
-import { scene } from "./scene";
 
 describe("content model", () => {
   it("profile has all required identity fields", () => {
@@ -45,12 +44,5 @@ describe("content model", () => {
       expect(p.tech.length).toBeGreaterThan(0);
       expect(p.links).toBeDefined();
     });
-  });
-
-  it("scene points at the placeholder GLB and maps all clips", () => {
-    expect(scene.character).toContain("placeholder-character.glb");
-    (["seated", "stand", "idle", "walk", "wave"] as const).forEach((k) =>
-      expect(scene.clips[k]).toBeTruthy(),
-    );
   });
 });

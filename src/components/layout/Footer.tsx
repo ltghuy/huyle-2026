@@ -1,23 +1,5 @@
-import type { ComponentType, SVGProps } from "react";
-import { Mail } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { profile } from "@/content/profile";
-import { socials, type SocialLink } from "@/content/socials";
-import {
-  GithubIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  FacebookIcon,
-} from "@/components/icons/BrandIcons";
-
-type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
-
-const ICONS: Record<SocialLink["icon"], IconComponent> = {
-  mail: Mail,
-  linkedin: LinkedinIcon,
-  github: GithubIcon,
-  instagram: InstagramIcon,
-  facebook: FacebookIcon,
-};
 
 export function Footer() {
   const year = 2026;
@@ -30,25 +12,13 @@ export function Footer() {
           <span className="text-fg-muted">{profile.display}</span> · {year}
         </p>
 
-        <ul className="flex items-center gap-3">
-          {socials.map((social) => {
-            const Icon = ICONS[social.icon];
-            return (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target={social.icon === "mail" ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  title={social.label}
-                  className="grid size-9 place-items-center rounded-full border border-line text-fg-muted transition-colors duration-200 hover:border-accent hover:text-accent"
-                >
-                  <Icon className="size-4" />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <a
+          href="#hero"
+          className="group inline-flex items-center gap-2 text-sm text-fg-muted transition-colors duration-200 hover:text-accent"
+        >
+          Back to top
+          <ArrowUp className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
+        </a>
       </div>
     </footer>
   );
