@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-line px-6 py-12 sm:px-12 lg:px-20">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
         <p className="text-sm text-fg-subtle">
-          Designed &amp; built by{" "}
+          Designed, built &amp; slightly over-thought by{" "}
           <span className="text-fg-muted">{profile.display}</span> · {year}
         </p>
 

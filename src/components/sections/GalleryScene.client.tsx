@@ -10,7 +10,7 @@ import { galleryImages } from "@/content/gallery";
  * "Off the clock" — the WebGL gallery as a rotating GLOBE of photo tiles.
  *
  * The photos are spread evenly across a sphere (a Fibonacci lattice), each an
- * upright rounded card facing outward, floating above a green perspective floor
+ * upright rounded photo card facing outward, floating above a green perspective floor
  * grid. Grab and drag to spin the globe on both axes; it coasts to a stop and
  * idles with a slow drift. Hovering a tile runs a water-ripple through it from
  * the cursor. Tiles fade out as they turn toward the silhouette, so the far
@@ -22,14 +22,17 @@ import { galleryImages } from "@/content/gallery";
 
 // --- Globe / tile geometry (world units) -----------------------------------
 const N = galleryImages.length;
-const TILE_COUNT = 16; // photo tiles inside the cage — few + large + spaced, so
-//                        the wireframe stays legible between them (not a clump)
+const TILE_COUNT = 6; // photo tiles inside the cage — few + large + well spaced.
+//   Each curved card spans a wide angle on the sphere, so the count, TILE_H and
+//   PHOTO_R below are balanced (see the geometry note) so cards never overlap:
+//   the ~53° gap between neighbours clears each card's ~46° width with margin.
 const SPHERE_R = 2.6; // radius of the outer wireframe cage
-const PHOTO_R = SPHERE_R * 0.66; // photos live on a smaller sphere INSIDE the cage
-const TILE_H = 0.92; // tile height
+const PHOTO_R = SPHERE_R * 0.9; // photos live on a sphere just inside the cage —
+//                                 pushed out so the large cards stay clear of each other
+const TILE_H = 1.5; // tile height — larger cards read more clearly
 const TILE_W = TILE_H * (4 / 3); // 4:3 cards
 const TILE_ASPECT = TILE_W / TILE_H;
-const CARD_RADIUS = 0.08; // rounded-corner radius (in tile-height units)
+const CARD_RADIUS = 0.08; // rounded-corner radius of the card (tile-height units)
 
 // --- Wireframe vector globe (the outer lat/long cage the photos float inside) --
 const WIRE_R = SPHERE_R; // the outer cage; photos orbit on the inner PHOTO_R sphere
@@ -58,13 +61,20 @@ const FADE_START = 0.34; // facing dot below which a tile fades toward the rim
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
-// A plain textured quad; the rounded corners + ripple live in the fragment
-// shader, and the sphere placement is handled per-mesh (no per-vertex bow).
+// A textured quad bent onto the photo sphere so the tile CURVES along the
+// globe's surface instead of sitting flat/tangent. The mesh's local +Z is the
+// outward normal, so the sphere centre lives at local (0,0,-uPhotoR); every
+// vertex of the flat plane is re-projected onto that sphere (its corners recede
+// around the curve). The rounded corners + ripple still live in the fragment
+// shader; the plane just needs enough segments (below) for a smooth bow.
 const TILE_VERT = /* glsl */ `
+  uniform float uPhotoR;   // radius of the sphere the tile wraps onto
   varying vec2 vUv;
   void main() {
     vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    vec3 center = vec3(0.0, 0.0, -uPhotoR);
+    vec3 curved = center + uPhotoR * normalize(vec3(position.x, position.y, uPhotoR));
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(curved, 1.0);
   }
 `;
 
@@ -99,9 +109,11 @@ const TILE_FRAG = /* glsl */ `
     // wet specular lift on the crests
     col.rgb += ring * 5.0 * 0.16;
 
-    // rounded-corner mask, in tile-height units so all four corners match
+    // Rounded-card mask, in tile-height units. A hair of inset from the quad
+    // edge leaves room for the anti-aliased border.
     vec2 p = (uv - 0.5) * vec2(uAspect, 1.0);
-    float sdf = roundedRectSDF(p, vec2(uAspect, 1.0) * 0.5, uRadius);
+    vec2 halfSize = vec2(uAspect, 1.0) * 0.5 - 0.01;
+    float sdf = roundedRectSDF(p, halfSize, uRadius);
     float aa = fwidth(sdf) + 1e-4;
     float mask = 1.0 - smoothstep(-aa, aa, sdf);
 
@@ -272,7 +284,8 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
   // One shared quad for every tile (share geometry across meshes — critical for
   // draw-call / VRAM budget), disposed alongside the materials on unmount.
   const geometry = useMemo(
-    () => new THREE.PlaneGeometry(TILE_W, TILE_H, 1, 1),
+    // Subdivided so the vertex shader can bow the tile smoothly onto the sphere.
+    () => new THREE.PlaneGeometry(TILE_W, TILE_H, 20, 16),
     [],
   );
 
@@ -296,6 +309,7 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
           uHover: { value: 0 },
           uTime: { value: 0 },
           uOpacity: { value: 1 },
+          uPhotoR: { value: PHOTO_R },
           uAspect: { value: TILE_ASPECT },
           uRadius: { value: CARD_RADIUS },
         },
@@ -496,12 +510,18 @@ function CameraRig() {
 
 export function GalleryScene({
   onActive,
+  active = true,
 }: {
   onActive?: (index: number) => void;
+  /** Drive the render loop only while the gallery is on-screen — a globe that
+   *  keeps rendering at 60fps behind other sections wastes the GPU and steals
+   *  frames from scrolling. `never` freezes the last frame (unseen off-screen). */
+  active?: boolean;
 }) {
   return (
     <Canvas
       dpr={[1, 2]}
+      frameloop={active ? "always" : "never"}
       camera={{ position: [0, CAM_LIFT, CAM_DIST], fov: FOV }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
     >

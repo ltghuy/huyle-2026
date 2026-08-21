@@ -23,7 +23,8 @@ export function Contact() {
             Let&apos;s talk
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-fg-muted sm:text-lg">
-            Have a role, a project, or just want to say hi? My inbox is open.
+            Have a role, a project, or just want to talk shop over coffee? My
+            inbox is open — and I actually reply.
           </p>
         </Reveal>
 

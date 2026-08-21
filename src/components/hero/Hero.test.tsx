@@ -1,18 +1,27 @@
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/react";
 
-// Inert gsap so HeroScrollSpine's effect doesn't touch the real engine.
-vi.mock("gsap", () => ({
-  default: {
-    registerPlugin: vi.fn(),
-    context: (fn: () => void) => {
-      fn();
-      return { revert: vi.fn() };
+// Inert gsap so HeroScrollSpine's and SpringInText's effects don't touch the
+// real engine (SpringInText uses utils.toArray + a chainable timeline.fromTo).
+vi.mock("gsap", () => {
+  const timeline = () => {
+    const tl = { fromTo: vi.fn(() => tl), to: vi.fn(() => tl), kill: vi.fn() };
+    return tl;
+  };
+  return {
+    default: {
+      registerPlugin: vi.fn(),
+      context: (fn: () => void) => {
+        fn();
+        return { revert: vi.fn() };
+      },
+      set: vi.fn(),
+      to: vi.fn(),
+      timeline: vi.fn(timeline),
+      utils: { toArray: (x: ArrayLike<unknown>) => Array.from(x ?? []) },
     },
-    set: vi.fn(),
-    to: vi.fn(),
-  },
-}));
+  };
+});
 vi.mock("gsap/ScrollTrigger", () => ({ ScrollTrigger: { refresh: vi.fn() } }));
 
 import { Hero } from "./Hero";

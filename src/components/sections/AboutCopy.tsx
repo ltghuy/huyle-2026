@@ -25,7 +25,7 @@ const ACCENT_WORDS = new Set([
   "architecture",
   "interfaces",
   "anime",
-  "music",
+  "coffee",
 ]);
 
 export interface Chapter {
@@ -41,16 +41,16 @@ export const ABOUT_CHAPTERS: Chapter[] = [
   {
     kicker: "The Person",
     heading: "The Person",
-    body: "I'm Huy — born and raised in Vietnam, now building software in Ho Chi Minh City.",
+    body: "I'm Huy — born and raised in Vietnam, now building software in Ho Chi Minh City, powered mostly by coffee.",
   },
   {
-    body: "Over the last 4+ years I've shipped production web platforms across healthcare, legal-tech, and enterprise-event domains, most recently leading frontend on AI-native healthcare products at Naver.",
+    body: "Over the last 4+ years I've shipped production web platforms across healthcare, legal-tech, and enterprise-event domains — most recently leading frontend on AI-native healthcare products at Naver, where the bugs are fewer but the stakes are much higher.",
   },
   {
-    body: "I care about the craft: scalable architecture, design systems that teams actually adopt, and interfaces that feel considered down to the motion. This site is a little proof of that.",
+    body: "I care, maybe a little too much, about the craft: scalable architecture, design systems teams actually adopt, and interfaces considered right down to the motion. This whole site is me quietly showing off.",
   },
   {
-    body: "Off the clock you'll find me with anime, music, and my tuxedo cat Bông — who, if you look closely, may have wandered into this page too. 🐱",
+    body: "Off the clock you'll find me deep in anime, chasing a good playlist, or losing an argument with Bông — my tuxedo cat and unpaid code reviewer, who, if you look closely, may have wandered into this page too. 🐱",
   },
 ];
 

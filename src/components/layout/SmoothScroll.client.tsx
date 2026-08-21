@@ -28,6 +28,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (reduced) return;
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    // Mobile browsers fire resize as the URL bar shows/hides while scrolling;
+    // letting ScrollTrigger refresh on every one causes visible jank. Ignore it —
+    // the layout doesn't depend on that transient viewport-height change.
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",

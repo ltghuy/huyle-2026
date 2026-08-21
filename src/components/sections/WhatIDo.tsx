@@ -118,6 +118,10 @@ function CapabilitiesLoop() {
   // Shared angular velocity: both rings read it, spinning in opposite directions,
   // so the pointer steers the whole pair at once (always-positive → never stops).
   const velRef = useRef({ v: BASE_VELOCITY });
+  // Shared run flag: the per-frame ring rotation only advances while the section
+  // is on-screen, so a continuous 60fps SVG rewrite doesn't run (and steal frames
+  // from scrolling) while the rings are scrolled away.
+  const runningRef = useRef(true);
 
   useEffect(() => {
     const stage = stageRef.current;
@@ -134,19 +138,32 @@ function CapabilitiesLoop() {
     const onLeave = () => velTo(BASE_VELOCITY);
     stage.addEventListener("pointermove", onMove);
     stage.addEventListener("pointerleave", onLeave);
+
+    const io =
+      typeof IntersectionObserver !== "undefined"
+        ? new IntersectionObserver(
+            ([entry]) => {
+              runningRef.current = entry.isIntersecting;
+            },
+            { rootMargin: "200px 0px" },
+          )
+        : null;
+    io?.observe(stage);
+
     return () => {
       stage.removeEventListener("pointermove", onMove);
       stage.removeEventListener("pointerleave", onLeave);
+      io?.disconnect();
     };
   }, []);
 
   return (
     <div
       ref={stageRef}
-      className="relative mt-6 h-[82vh] min-h-[620px] w-full"
+      className="relative mt-6 h-[56vh] min-h-[360px] w-full sm:h-[82vh] sm:min-h-[620px]"
     >
       {RINGS.map((ring) => (
-        <Ring key={ring.id} {...ring} velRef={velRef} />
+        <Ring key={ring.id} {...ring} velRef={velRef} runningRef={runningRef} />
       ))}
     </div>
   );
@@ -158,12 +175,14 @@ function Ring({
   tilt,
   outline,
   velRef,
+  runningRef,
 }: Readonly<{
   id: string;
   direction: number;
   tilt: number;
   outline: boolean;
   velRef: React.RefObject<{ v: number }>;
+  runningRef: React.RefObject<boolean>;
 }>) {
   const pathRef = useRef<SVGPathElement>(null);
   const textRef = useRef<SVGTextElement>(null);
@@ -214,13 +233,14 @@ function Ring({
     const degPerSec = 360 / LOOP_SECONDS;
     let angle = 0;
     const tick = (_t: number, deltaMs: number) => {
+      if (!runningRef.current) return; // paused while the section is off-screen
       const dt = Math.min(deltaMs, 50) / 1000;
       angle = (angle + direction * velRef.current.v * degPerSec * dt + 360) % 360;
       group.setAttribute("transform", `rotate(${angle} ${CENTER} ${CENTER})`);
     };
     gsap.ticker.add(tick);
     return () => gsap.ticker.remove(tick);
-  }, [ready, direction, velRef]);
+  }, [ready, direction, velRef, runningRef]);
 
   // Each unit is a WORD (in its cycled cream/lime · solid/outline style) followed
   // by an accent star, so every join ("… ✳ WORD") matches — including the

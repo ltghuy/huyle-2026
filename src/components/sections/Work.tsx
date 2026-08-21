@@ -8,6 +8,7 @@ import { projects, type Project } from "@/content/projects";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import { Reveal } from "@/components/motion/Reveal";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 /**
  * Projects — a Scroll Stack Cards deck (à la
@@ -129,9 +130,15 @@ export function Work() {
   const pinRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
+  // The pinned scroll-stack deck is a desktop delight. On mobile/tablet a pinned
+  // element inside ScrollSmoother's transformed wrapper mis-positions (it drifts
+  // off-screen with a tall empty track), so below `lg` we render the plain,
+  // robust vertical card stack instead — same content, no fragile pin.
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const deck = !reduced && isDesktop;
 
   useEffect(() => {
-    if (reduced) return;
+    if (!deck) return;
     const section = sectionRef.current;
     const pin = pinRef.current;
     const frame = frameRef.current;
@@ -219,9 +226,9 @@ export function Work() {
       cards.forEach((c) => gsap.set(c, { clearProps: "all" }));
       dims.forEach((d) => d && gsap.set(d, { clearProps: "all" }));
     };
-  }, [reduced]);
+  }, [deck]);
 
-  if (reduced) {
+  if (!deck) {
     return (
       <section id="work" className="px-6 py-28 sm:px-12 lg:px-20">
         <div className="mx-auto max-w-6xl">

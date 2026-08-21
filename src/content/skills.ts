@@ -18,7 +18,7 @@ export const skillGroups: SkillGroup[] = [
     id: "frontend",
     label: "Frontend",
     blurb:
-      "Building interactive, production-grade UIs — from RSC-streamed apps to design systems.",
+      "Interactive, production-grade UIs — from RSC-streamed apps to design systems teams actually adopt.",
     items: [
       { name: "React", icon: "react" },
       { name: "Next.js", icon: "nextdotjs" },
@@ -40,7 +40,7 @@ export const skillGroups: SkillGroup[] = [
     id: "ai-native",
     label: "AI-Native",
     blurb:
-      "Shipping AI/LLM-assisted product features and building with AI-native tooling.",
+      "Shipping AI/LLM features that earn their place in the product — not just the demo — and building with AI-native tooling.",
     items: [
       { name: "AI symptom matching" },
       { name: "AI-assisted authoring" },
@@ -54,7 +54,7 @@ export const skillGroups: SkillGroup[] = [
     id: "backend",
     label: "Backend / APIs",
     blurb:
-      "Full-stack when velocity requires — typed APIs, GraphQL, and monorepo tooling.",
+      "Full-stack when velocity demands it — typed APIs, GraphQL, and monorepo tooling that behaves.",
     items: [
       { name: "Node.js", icon: "nodedotjs" },
       { name: "Fastify", icon: "fastify" },
@@ -73,7 +73,7 @@ export const skillGroups: SkillGroup[] = [
     id: "quality",
     label: "Testing & Quality",
     blurb:
-      "Owning the quality bar — automated testing, static analysis, and observability.",
+      "Owning the quality bar — automated testing, static analysis, and observability, so I sleep at night.",
     items: [
       { name: "Vitest", icon: "vitest" },
       { name: "Playwright", icon: "playwright" },

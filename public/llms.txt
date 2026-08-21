@@ -1,24 +1,51 @@
-# Huy Le — Software Engineer
+# Le Tran Gia Huy (Huy Le) — Software Engineer
 
-> Le Tran Gia Huy (Huy Le) is a frontend engineer with 4+ years building
-> production-grade web platforms in React, Next.js (App Router, RSC, Streaming),
-> and TypeScript across healthcare, legal-tech, and enterprise-event domains.
-> Technical lead and primary developer on core Naver Care tools, focused on
-> scalable monorepo architecture, design-system standardization, and AI-native /
-> LLM-assisted product features. Based in Ho Chi Minh City, Vietnam.
+> Le Tran Gia Huy (also known as Huy Le) is a Software Engineer specializing in
+> frontend and AI-native web development, based in Ho Chi Minh City, Vietnam.
+> He has 4+ years of experience building production-grade web platforms in
+> React, Next.js (App Router, React Server Components, Streaming), and
+> TypeScript across the healthcare, legal-tech, and enterprise-event domains.
+> He is the primary developer on core Naver Care tools,
+> owning work end-to-end from initial specification to production observability.
+> His focus areas are scalable monorepo architecture, widely-adopted design
+> systems, and pragmatic AI/LLM product features that earn their place in the
+> product rather than serving only as demos.
 
-This is Huy Le's personal portfolio — a single-page site at https://huyle.blog.
-Its sections are in-page anchors (not separate URLs): an intro/hero, an about
-section, a mission statement, an "Off the clock" photo gallery (an interactive
-WebGL globe), capabilities, experience, selected work, and contact.
+- **Name:** Le Tran Gia Huy (Huy Le)
+- **Title:** Software Engineer · AI-Native Development
+- **Location:** Ho Chi Minh City, Vietnam
+- **Experience:** 4+ years
+- **Core stack:** React, Next.js, TypeScript, Node.js
+- **Domains:** Healthcare, legal-tech, enterprise events
+- **Website:** https://huyle.work
 
 ## Site
 
-- [Portfolio home](https://huyle.blog): Hero, About, Capabilities ("What I Do"), Experience, selected Work, the "Off the clock" gallery, and Contact — all on one page.
+This is Huy Le's personal portfolio — a single-page site at https://huyle.work.
+Its sections are in-page anchors (not separate URLs): an intro/hero, an about
+section, a mission statement, a "What I Do" capabilities overview, a
+professional experience timeline, selected work, an "Off the clock" photo
+gallery (an interactive WebGL globe), and contact.
+
+- [Portfolio home](https://huyle.work): Hero, About, Capabilities ("What I Do"), Experience, selected Work, the "Off the clock" gallery, and Contact — all on one page.
+
+## Professional experience
+
+- **Naver Care** — Frontend Engineer, Naver Vietnam (2025 – Present). Core tools for Naver's AI symptom-triage product. Built the Symptom Editor Admin — a drag-and-drop authoring tool with path validation, a patient-preview simulation mode, and review-then-activate version history — plus the user-facing adaptive Symptom Checker serving public and hospital-partner flows in Korean and English. Stack: Next.js, React 19, TypeScript, React Flow, Apollo GraphQL, Ant Design.
+- **InjuryEx** — Frontend Engineer / Team Lead, PTN Global (2024 – 2025). A legal-tech and healthcare workflow platform coordinating patients, lawyers, doctors, and pharmacies. Bootstrapped from an empty repository into the team's blueprint: defined the frontend stack and conventions, led the team, and designed complex multi-party workflows including automated ANZ and Xero payments with SMS/email notifications. Stack: Next.js, TypeScript, Redux Toolkit, Material UI, Auth0, FastAPI.
+- **Australian Epilepsy Project** — Frontend Engineer, PTN Global (Florey Institute) (2023 – 2024). A government-funded diagnostic-imaging platform for a national epilepsy-diagnosis network. Translated clinical requirements into production-grade React features and integrated OHIF for advanced medical-imaging visualization, with full unit, integration, and end-to-end test coverage. Stack: React.js, TypeScript, Redux Toolkit, OHIF, Material UI, AWS.
+- **ETech** — Frontend Engineer, Skyblaze Studios (2022 – 2023). An enterprise conference and event-management platform used by Burger King, Herbalife, JSEA, and Switch Production. Implemented WebSocket-based real-time virtual meeting rooms with live global stats and a reusable Vue component library, plus web and React Native features. Stack: Vue.js, TypeScript, Tailwind CSS, WebSocket, React Native, AWS.
+
+## Skills & capabilities
+
+- **Frontend:** React, Next.js, TypeScript, React Native, Vue.js, Tailwind CSS, Redux Toolkit, TanStack Query, Zustand, React Hook Form, Ant Design, Material UI, React Flow, Storybook.
+- **AI-Native:** AI symptom matching, AI-assisted authoring, LLM report briefings, Claude Code, Cursor, GitHub Copilot.
+- **Backend / APIs:** Node.js, Fastify, TypeBox, Orval, FastAPI, Python, REST, GraphQL, Apollo, Auth0, Turborepo.
+- **Testing & Quality:** Vitest, Playwright, React Testing Library, MSW, SonarQube, Docker, AWS, Grafana.
 
 ## Profile & contact
 
-- [LinkedIn](https://www.linkedin.com/in/ltghuy/): Professional profile and history.
+- [LinkedIn](https://www.linkedin.com/in/ltghuy/): Professional profile and career history.
 - [GitHub](https://github.com/ltghuy): Open-source and project code.
 - [Email](mailto:letrangiahuy0507@gmail.com): Direct contact.
 
@@ -26,4 +53,4 @@ WebGL globe), capabilities, experience, selected work, and contact.
 
 - [Instagram](https://www.instagram.com/_ltghuy/): Personal photos.
 - [Facebook](https://www.facebook.com/letranxgiahuy): Personal profile.
-- Stack: Next.js 16 (App Router) + TypeScript + Tailwind CSS; the gallery uses React Three Fiber / Three.js (WebGL) with a static fallback under reduced motion or no WebGL.
+- **This site's stack:** Next.js 16 (App Router) with TypeScript and Tailwind CSS. The "Off the clock" gallery uses React Three Fiber / Three.js (WebGL) with a static fallback under reduced-motion preferences or when WebGL is unavailable.

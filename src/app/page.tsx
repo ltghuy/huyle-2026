@@ -9,7 +9,7 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main" tabIndex={-1}>
       <Hero />
       <About />
       <Statement />

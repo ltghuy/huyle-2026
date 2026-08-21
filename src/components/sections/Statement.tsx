@@ -17,7 +17,7 @@ export function Statement() {
     >
       <ScrollHighlightText
         className="mx-auto max-w-5xl text-center display text-3xl leading-tight text-fg sm:text-5xl"
-        text="“ I build production web platforms that stay fast, accessible, and considered — from product spec to production observability, with AI woven in where it earns its place. ”"
+        text="“ I build production web platforms that stay fast, accessible, and considered — from the first product spec to production observability, with AI woven in only where it earns its place. The rest is caffeine and stubbornness. ”"
         accentPhrase="fast, accessible, and considered"
       />
     </section>

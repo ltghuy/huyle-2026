@@ -2,11 +2,17 @@ import { profile } from "@/content/profile";
 import { HeroPortrait } from "@/components/hero/HeroPortrait";
 import { HeroScrollSpine } from "@/components/hero/HeroScrollSpine.client";
 import { HeroDoodles } from "@/components/hero/HeroDoodles.client";
-import { ScrambleText } from "@/components/motion/ScrambleText";
+import { SpringInText } from "@/components/motion/SpringInText";
 
 /** Runner-label copy. `SINCE_YEAR` = start of the professional timeline (4+ yrs). */
 const SINCE_YEAR = 2021;
 const COPYRIGHT_YEAR = 2026;
+
+/** Letter cascade timing (must mirror SpringInText's default `stagger`). The
+ *  second line ("Engineer") starts once the first line's letters have all been
+ *  dealt, so the whole phrase springs in as one continuous left-to-right run. */
+const LETTER_STAGGER = 0.07; // seconds between letters
+const LINE_TWO_DELAY_MS = "Software".length * LETTER_STAGGER * 1000;
 
 /**
  * The type-as-spine hero (feature 002 — editorial re-style, majd-modeled).
@@ -40,23 +46,24 @@ export function Hero() {
         <div className="relative flex flex-col items-center">
           <div className="glow-blob left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 opacity-60 hero-drift-fast" />
 
-          {/* The oversized role decodes from static immediately on mount (à la
-              the "text decode" reference), one word after the other. */}
+          {/* The oversized role springs in letter-by-letter (à la the NODECK
+              wordmark): each glyph tumbles in from the right and bounces into
+              place, cascading across the first line, then the second. */}
           <p
             aria-hidden
             data-hero-title
             className="display-hero hero-drift-slow relative z-10 text-center text-fg"
           >
-            <ScrambleText
+            <SpringInText
               text="Software"
-              duration={1100}
+              stagger={LETTER_STAGGER}
               waitForIntro
               className="block"
             />
-            <ScrambleText
+            <SpringInText
               text="Engineer"
-              delay={220}
-              duration={1100}
+              delay={LINE_TWO_DELAY_MS}
+              stagger={LETTER_STAGGER}
               waitForIntro
               className="block"
             />
@@ -67,11 +74,12 @@ export function Hero() {
         </div>
 
         {/* Editorial corner runners (à la Majd): a large bold ©year bottom-left,
-            a small mono "since" label bottom-right. */}
+            a small mono "since" label bottom-right. Anchored to the type-spine's
+            corners on sm+ (where the spine fills the frame). */}
         <span
           aria-hidden
           data-hero-copyright
-          className="display hero-drift-fast absolute bottom-0 left-0 text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none"
+          className="display hero-drift-fast absolute bottom-0 left-0 hidden text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none sm:block"
         >
           ©{COPYRIGHT_YEAR}
         </span>
@@ -82,6 +90,16 @@ export function Hero() {
           / Engineering since {SINCE_YEAR}
         </span>
       </HeroScrollSpine>
+
+      {/* On mobile the centered type-spine is shorter than the viewport, so the
+          spine-anchored ©year would float mid-screen. Pin it to the hero
+          section's bottom-left instead (matching the section's px-6 gutter). */}
+      <span
+        aria-hidden
+        className="display absolute bottom-8 left-1/2 -translate-x-1/2 text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none sm:hidden"
+      >
+        ©{COPYRIGHT_YEAR}
+      </span>
     </section>
   );
 }
