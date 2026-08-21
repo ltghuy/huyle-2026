@@ -103,7 +103,8 @@ function StaticList() {
         <Fragment key={label}>
           {i > 0 && (
             <span aria-hidden className="text-accent">
-              ✳
+              {/* U+2733 pinned to text presentation (U+FE0E) — special char, not emoji. */}
+              ✳︎
             </span>
           )}
           <span>{label}</span>
@@ -249,7 +250,9 @@ function Ring({
   const content = RING_LABELS.map((label, i) => (
     <Fragment key={`${i}-${label}`}>
       <tspan style={styles[i % styles.length]}>{label}</tspan>
-      <tspan fill="var(--color-accent)">{" ✳ "}</tspan>
+      {/* U+2733 + U+FE0E (text variation selector): pin the star to its
+          monochrome special-character glyph so it never renders as a color emoji. */}
+      <tspan fill="var(--color-accent)">{" ✳︎ "}</tspan>
     </Fragment>
   ));
 

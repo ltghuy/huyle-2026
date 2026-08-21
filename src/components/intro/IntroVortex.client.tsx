@@ -286,8 +286,9 @@ export function IntroVortex() {
 
   // Bold "caught in the vortex" swirl. The whole page is wound up (rotated + zoomed
   // + blurred) behind the opaque vortex page, then spun down with INCREASING speed
-  // as the hero is revealed — three turns in all: two accelerating in, then a final
-  // turn easing to a complete stop. It deliberately runs on PAST the vortex clear,
+  // as the hero is revealed — ONE turn in all (was three): most of it accelerating
+  // in, then easing to a complete stop. Fewer full-viewport blurred rotations keeps
+  // low-end devices from dropping frames. It deliberately runs on PAST the vortex clear,
   // so several of those turns land on the fully-revealed hero page. Driven on
   // #smooth-wrapper (the outer, viewport-sized frame): ScrollSmoother owns
   // #smooth-content's transform and would fight ours.
@@ -322,13 +323,13 @@ export function IntroVortex() {
     const tl = gsap.timeline();
     swirlTl.current = tl;
     tl
-      // Three turns wound up, held under the opaque page until the reveal.
-      .set(targets, { rotation: -1080, scale: 1.4, filter: "blur(12px)" })
-      // Increasing speed: two turns accelerating in as the hero appears...
+      // One turn wound up, held under the opaque page until the reveal.
+      .set(targets, { rotation: -360, scale: 1.4, filter: "blur(12px)" })
+      // Increasing speed: most of the turn accelerating in as the hero appears...
       .to(
         targets,
         {
-          rotation: -360,
+          rotation: -120,
           scale: 1.08,
           filter: "blur(5px)",
           duration: 1.2,
@@ -336,7 +337,7 @@ export function IntroVortex() {
         },
         reveal - 0.1,
       )
-      // ...then the last turn eases to a complete stop, out on the revealed hero.
+      // ...then the final stretch eases to a complete stop, out on the revealed hero.
       .to(targets, {
         rotation: 0,
         scale: 1,

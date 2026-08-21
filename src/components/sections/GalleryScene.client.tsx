@@ -182,12 +182,14 @@ function GridFloor() {
 }
 
 // Evenly-spaced unit points on a sphere (Fibonacci lattice — no clustering at
-// the poles like a naive lat/long grid).
+// the poles like a naive lat/long grid). Latitudes are sampled at cell MIDPOINTS
+// ((i + 0.5) / count) so `y` spans (1 − 1/count) → (−1 + 1/count) and no tile ever
+// lands on a pole — a pole tile would face straight up/down and read edge-on.
 function fibonacciSphere(count: number): THREE.Vector3[] {
   const pts: THREE.Vector3[] = [];
   const golden = Math.PI * (3 - Math.sqrt(5));
   for (let i = 0; i < count; i++) {
-    const y = 1 - (i / (count - 1)) * 2; // 1 → -1
+    const y = 1 - ((i + 0.5) / count) * 2; // (1 − 1/count) → (−1 + 1/count)
     const r = Math.sqrt(Math.max(0, 1 - y * y));
     const theta = golden * i;
     pts.push(new THREE.Vector3(Math.cos(theta) * r, y, Math.sin(theta) * r));
