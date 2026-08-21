@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Huy Le — Portfolio
+
+The personal portfolio of **Le Tran Gia Huy (Huy Le)**, a software engineer focused
+on AI-native web development. Live at **[huyle.work](https://huyle.work)**.
+
+Built with Next.js 16 (App Router, Turbopack), React 19, TypeScript, and Tailwind
+CSS v4, with WebGL/Three.js visuals and GSAP-driven motion.
+
+## Stack
+
+- **Framework:** Next.js 16.3 (App Router, RSC, Streaming, Turbopack)
+- **UI:** React 19, Tailwind CSS v4
+- **3D / motion:** Three.js, `@react-three/fiber`, `@react-three/drei`, GSAP
+- **Language:** TypeScript
+- **Testing:** Vitest + Testing Library (unit), Playwright (e2e)
+- **Linting:** ESLint (`eslint-config-next`)
+- **Package manager:** Yarn
+- **Import alias:** `@/*` → `src/*`
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site. The page
+auto-updates as you edit files.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `yarn dev` | Start the dev server (Turbopack) |
+| `yarn build` | Production build |
+| `yarn start` | Serve the production build |
+| `yarn lint` | Run ESLint |
+| `yarn test` | Run unit tests once (Vitest) |
+| `yarn test:watch` | Run unit tests in watch mode |
+| `yarn e2e` | Run end-to-end tests (Playwright) |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/           # App Router entry, layout, SEO (sitemap, robots, OG images)
+├── components/     # UI components grouped by area
+│   ├── hero/       #   editorial hero + scroll-driven portrait
+│   ├── intro/      #   intro overlay / vortex
+│   ├── sections/   #   About, Work, Experience, Gallery, Contact
+│   ├── motion/     #   reusable motion primitives (reveal, scramble, magnetic)
+│   ├── layout/     #   nav, footer, smooth scroll, skip link
+│   └── social/     #   social links + brand icons
+├── content/        # Site content (profile, projects, experience, skills, gallery)
+└── lib/            # Hooks & utilities (viewport, media query, WebGL, reduced motion)
+public/             # Static assets, llms.txt
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Site content lives in `src/content/` — edit `profile.ts`, `projects.ts`,
+`experience.ts`, `skills.ts`, `gallery.ts`, and `socials.ts` to update the page
+without touching component code.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on [Vercel](https://vercel.com). The canonical production URL is defined
+once in `src/content/profile.ts` (`profile.url`) and drives SEO metadata,
+`robots.txt`, and the sitemap.
