@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber"
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { galleryImages } from "@/content/gallery";
+import { GridFloor } from "@/components/three/GridFloor";
 
 /**
  * "Off the clock" — the WebGL gallery as a rotating GLOBE of photo tiles.
@@ -121,65 +122,9 @@ const TILE_FRAG = /* glsl */ `
   }
 `;
 
-// --- Perspective floor grid (à la jesperlandberg.com) ----------------------
-// A horizontal plane on the "ground" below the globe, drawn as an anti-aliased
-// line grid that recedes toward the vanishing point and fades into the dark
-// background with distance — tinted to the site's accent green.
-const GRID_VERT = /* glsl */ `
-  varying vec3 vWorld;
-  void main() {
-    vec4 w = modelMatrix * vec4(position, 1.0);
-    vWorld = w.xyz;
-    gl_Position = projectionMatrix * viewMatrix * w;
-  }
-`;
-const GRID_FRAG = /* glsl */ `
-  precision highp float;
-  varying vec3 vWorld;
-  uniform vec3 uColor;
-  uniform float uSpacing; // grid cell size (world units)
-  uniform float uNear;    // distance where the grid is at full strength
-  uniform float uFar;     // distance where the grid has faded to nothing
-  void main() {
-    vec2 coord = vWorld.xz / uSpacing;
-    vec2 g = abs(fract(coord - 0.5) - 0.5) / fwidth(coord);
-    float line = 1.0 - min(min(g.x, g.y), 1.0);
-    float fade = smoothstep(uFar, uNear, length(vWorld.xz));
-    float alpha = line * fade * 0.5;
-    if (alpha < 0.003) discard;
-    gl_FragColor = vec4(uColor, alpha);
-  }
-`;
-
-function GridFloor() {
-  const material = useMemo(
-    () =>
-      new THREE.ShaderMaterial({
-        vertexShader: GRID_VERT,
-        fragmentShader: GRID_FRAG,
-        transparent: true,
-        depthWrite: false,
-        uniforms: {
-          uColor: { value: new THREE.Color("#c8e85a") }, // faint accent green
-          uSpacing: { value: 1.4 },
-          uNear: { value: 6 },
-          uFar: { value: 80 },
-        },
-      }),
-    [],
-  );
-  useEffect(() => () => material.dispose(), [material]);
-  return (
-    <mesh
-      material={material}
-      rotation-x={-Math.PI / 2}
-      position={[0, -FLOOR_Y, 0]}
-      renderOrder={-1}
-    >
-      <planeGeometry args={[220, 220]} />
-    </mesh>
-  );
-}
+// The perspective floor grid beneath the globe lives in the shared
+// <GridFloor> component (src/components/three/GridFloor.tsx); it's placed in the
+// scene below (position y = -FLOOR_Y).
 
 // Evenly-spaced unit points on a sphere (Fibonacci lattice — no clustering at
 // the poles like a naive lat/long grid). Latitudes are sampled at cell MIDPOINTS
@@ -529,7 +474,7 @@ export function GalleryScene({
     >
       <CameraRig />
       <Suspense fallback={null}>
-        <GridFloor />
+        <GridFloor position={[0, -FLOOR_Y, 0]} />
         <Globe onActive={onActive} />
       </Suspense>
     </Canvas>

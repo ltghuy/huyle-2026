@@ -9,6 +9,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 import type { ExperienceItem } from "@/content/experience";
 
 /**
@@ -59,13 +60,14 @@ function xAtY(path: SVGPathElement, y: number, len: number) {
 }
 
 function ItemCard({ item }: { item: ExperienceItem }) {
+  const { t } = useLocale();
   return (
     <div>
       <p data-curve-row className="font-mono text-sm uppercase tracking-[0.14em] text-fg-muted">
         {item.period}
         {item.current && (
           <span className="ml-2 inline-block rounded-full bg-accent/10 px-2 py-0.5 text-[0.6rem] tracking-[0.16em] text-accent">
-            NOW
+            {t.experience.now}
           </span>
         )}
       </p>

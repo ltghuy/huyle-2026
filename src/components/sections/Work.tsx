@@ -4,11 +4,13 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink } from "lucide-react";
-import { projects, type Project } from "@/content/projects";
+import { type Project } from "@/content/projects";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import { Reveal } from "@/components/motion/Reveal";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { useMediaQuery } from "@/lib/useMediaQuery";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import { useContent } from "@/lib/i18n/useContent.client";
 
 /**
  * Projects — a Scroll Stack Cards deck (à la
@@ -36,6 +38,7 @@ function ProjectCard({
   project: Project;
   stacked?: boolean;
 }) {
+  const { t } = useLocale();
   return (
     <article
       data-stack-card
@@ -80,7 +83,7 @@ function ProjectCard({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-fg transition-colors hover:text-accent"
                 >
-                  <ExternalLink className="size-4" /> Live demo
+                  <ExternalLink className="size-4" /> {t.work.liveDemo}
                 </a>
               )}
               {project.links.source && (
@@ -90,7 +93,7 @@ function ProjectCard({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-fg transition-colors hover:text-accent"
                 >
-                  <GithubIcon className="size-4" /> Source
+                  <GithubIcon className="size-4" /> {t.work.source}
                 </a>
               )}
             </div>
@@ -126,6 +129,8 @@ function ProjectCard({
 }
 
 export function Work() {
+  const { t } = useLocale();
+  const { projects } = useContent();
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
@@ -233,8 +238,10 @@ export function Work() {
       <section id="work" className="px-6 py-28 sm:px-12 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="eyebrow mb-3">Selected Work</p>
-            <h2 className="display text-4xl text-fg sm:text-6xl">Projects</h2>
+            <p className="eyebrow mb-3">{t.work.eyebrow}</p>
+            <h2 className="display text-4xl text-fg sm:text-6xl">
+              {t.work.heading}
+            </h2>
           </Reveal>
           <div className="mt-12 flex flex-col gap-6">
             {projects.map((p) => (
@@ -262,8 +269,10 @@ export function Work() {
       >
         <div className="mx-auto w-full max-w-6xl">
           <Reveal>
-            <p className="eyebrow mb-3">Selected Work</p>
-            <h2 className="display text-4xl text-fg sm:text-6xl">Projects</h2>
+            <p className="eyebrow mb-3">{t.work.eyebrow}</p>
+            <h2 className="display text-4xl text-fg sm:text-6xl">
+              {t.work.heading}
+            </h2>
           </Reveal>
 
           {/* Deck frame — cards ride up from below and stack. */}

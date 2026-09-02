@@ -1,4 +1,7 @@
+"use client";
+
 import { ScrollHighlightText } from "@/components/motion/ScrollHighlightText";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 
 /**
  * A single quiet, centered "breath" beat between the hero and the capabilities
@@ -10,15 +13,19 @@ import { ScrollHighlightText } from "@/components/motion/ScrollHighlightText";
  * settling the key phrase to accent and the rest to `fg`.
  */
 export function Statement() {
+  const { t, locale } = useLocale();
   return (
     <section
       id="statement"
       className="relative px-6 py-32 sm:px-12 sm:py-40 lg:px-20"
     >
+      {/* Remount on locale change: ScrollHighlightText splits the text into word
+          spans on mount and won't re-split from a prop change alone. */}
       <ScrollHighlightText
+        key={locale}
         className="mx-auto max-w-5xl text-center display text-3xl leading-tight text-fg sm:text-5xl"
-        text="“ I build production web platforms that stay fast, accessible, and considered — from the first product spec to production observability, with AI woven in only where it earns its place. The rest is caffeine and stubbornness. ”"
-        accentPhrase="fast, accessible, and considered"
+        text={t.statement.text}
+        accentPhrase={t.statement.accentPhrase}
       />
     </section>
   );

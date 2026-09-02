@@ -17,31 +17,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { profile } from "@/content/profile";
 import { EVAN_MARK } from "@/lib/evanMark";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 // Editorial re-style (feature 002): one centered floating glass pill. It now
 // behaves like an Apple "dynamic island" (à la smoothui.dev) — a status segment
 // in the middle reflects the section you're currently viewing and morphs (width
 // springs, icon + label crossfade, the pill pops) as you scroll between them.
 const LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-] as const;
+  { key: "work", href: "#work" },
+  { key: "about", href: "#about" },
+  { key: "contact", href: "#contact" },
+] as const satisfies { key: keyof Dictionary["nav"]["links"]; href: string }[];
 
 /**
  * Sections the island reflects, in document order. Each `id` must match a real
  * `<section id>` on the page; the scroll-spy activates whichever owns the
- * viewport centre.
+ * viewport centre. `key` indexes the active-locale section labels.
  */
-const SECTIONS: { id: string; label: string; Icon: LucideIcon }[] = [
-  { id: "hero", label: "Home", Icon: Home },
-  { id: "about", label: "About", Icon: User },
-  { id: "statement", label: "Ethos", Icon: Quote },
-  { id: "gallery", label: "Gallery", Icon: Camera },
-  { id: "what-i-do", label: "Capabilities", Icon: Layers },
-  { id: "experience", label: "Career", Icon: Briefcase },
-  { id: "work", label: "Work", Icon: Rocket },
-  { id: "contact", label: "Contact", Icon: Mail },
+const SECTIONS: {
+  id: string;
+  key: keyof Dictionary["nav"]["sections"];
+  Icon: LucideIcon;
+}[] = [
+  { id: "hero", key: "home", Icon: Home },
+  { id: "about", key: "about", Icon: User },
+  { id: "statement", key: "ethos", Icon: Quote },
+  { id: "gallery", key: "gallery", Icon: Camera },
+  { id: "what-i-do", key: "capabilities", Icon: Layers },
+  { id: "experience", key: "career", Icon: Briefcase },
+  { id: "work", key: "work", Icon: Rocket },
+  { id: "contact", key: "contact", Icon: Mail },
 ];
 
 const linkClass =
@@ -52,12 +58,13 @@ const useIsomorphicLayoutEffect =
 
 export function Nav() {
   const reduced = usePrefersReducedMotion();
+  const { t } = useLocale();
   const [active, setActive] = useState(0);
 
   const islandRef = useRef<HTMLElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const prevWidth = useRef(0);
+  const hasMounted = useRef(false);
 
   // Scroll-spy: activate whichever section currently spans the viewport centre.
   // Runs through ScrollTrigger, so it stays in sync with ScrollSmoother.
@@ -78,27 +85,21 @@ export function Nav() {
     return () => triggers.forEach((t) => t?.kill());
   }, []);
 
-  // Dynamic-island morph on section change: the status width springs from its
-  // previous size to the new content, the icon + label crossfade in, and the
-  // whole pill gives a subtle pop. Skipped (instant swap) under reduced motion.
+  // Dynamic-island morph on section change: the icon + label crossfade in and
+  // the whole pill gives a subtle pop. The status segment keeps its natural
+  // `width: auto`, so it still hugs each label — but we no longer *animate* the
+  // width. Animating a layout property re-centered the fixed pill every frame,
+  // nudging the logo/links horizontally (a scroll-driven CLS source, since
+  // scroll shifts aren't exempt). Transform (scale) + opacity don't affect
+  // layout, so the morph now costs zero layout shift. Reduced motion: instant.
   useIsomorphicLayoutEffect(() => {
-    const status = statusRef.current;
-    if (!status) return;
-    const next = status.offsetWidth;
-    const prev = prevWidth.current;
-    prevWidth.current = next;
-    if (reduced || prev === 0 || prev === next) return;
+    if (reduced) return;
+    // Skip the first commit so the pill doesn't flash a morph on initial mount.
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
 
-    gsap.fromTo(
-      status,
-      { width: prev },
-      {
-        width: next,
-        duration: 0.5,
-        ease: "back.out(1.6)",
-        onComplete: () => gsap.set(status, { width: "auto" }),
-      },
-    );
     gsap.fromTo(
       contentRef.current,
       { autoAlpha: 0, yPercent: 45, filter: "blur(4px)" },
@@ -111,7 +112,8 @@ export function Nav() {
     );
   }, [active, reduced]);
 
-  const { label, Icon } = SECTIONS[active];
+  const { key: activeKey, Icon } = SECTIONS[active];
+  const label = t.nav.sections[activeKey];
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-4 py-4 sm:py-6">
@@ -123,7 +125,7 @@ export function Nav() {
         {/* The Evan wordmark — home */}
         <a
           href="#hero"
-          aria-label={`${profile.display} — home`}
+          aria-label={`${profile.display} — ${t.nav.logoHome}`}
           className="shrink-0 transition-opacity duration-200 hover:opacity-80"
         >
           <svg
@@ -175,7 +177,7 @@ export function Nav() {
             {LINKS.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className={linkClass}>
-                  {link.label}
+                  {t.nav.links[link.key]}
                 </a>
               </li>
             ))}

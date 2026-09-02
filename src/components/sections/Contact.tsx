@@ -1,7 +1,10 @@
+"use client";
+
 import type { ComponentType, SVGProps } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { socials, type SocialLink } from "@/content/socials";
 import { Reveal } from "@/components/motion/Reveal";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 import { EmailActions } from "./EmailActions.client";
 import {
   GithubIcon,
@@ -23,6 +26,7 @@ const CHANNEL_ICONS: Partial<Record<SocialLink["icon"], IconComponent>> = {
 const CHANNELS = socials.filter((s) => s.icon !== "mail");
 
 export function Contact() {
+  const { t } = useLocale();
   const email = socials.find((s) => s.icon === "mail");
 
   return (
@@ -48,16 +52,15 @@ export function Contact() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex size-2 rounded-full bg-accent" />
             </span>
-            Open to opportunities
+            {t.contact.availability}
           </span>
 
-          <p className="eyebrow mb-4 mt-6">Get in touch</p>
+          <p className="eyebrow mb-4 mt-6">{t.contact.eyebrow}</p>
           <h2 className="display text-5xl text-fg sm:text-7xl lg:text-8xl">
-            Let&apos;s talk
+            {t.contact.heading}
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-fg-muted sm:text-lg">
-            Have a role, a project, or just want to talk shop over coffee? My
-            inbox is open — and I actually reply.
+            {t.contact.body}
           </p>
         </Reveal>
 
@@ -69,7 +72,7 @@ export function Contact() {
 
         <Reveal className="mt-16">
           <p className="mb-6 font-mono text-xs uppercase tracking-widest text-fg-subtle">
-            Find me elsewhere
+            {t.contact.findElsewhere}
           </p>
           <ul className="mx-auto grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
             {CHANNELS.map((channel) => {

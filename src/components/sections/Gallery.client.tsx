@@ -7,7 +7,8 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { useWebGLAvailable } from "@/lib/useWebGLAvailable";
 import { useInViewport } from "@/lib/useInViewport";
 import { Reveal } from "@/components/motion/Reveal";
-import { galleryImages } from "@/content/gallery";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import { useContent } from "@/lib/i18n/useContent.client";
 
 /**
  * "Off the clock" — a full-bleed WebGL photo GLOBE. The photos are spread over
@@ -58,6 +59,7 @@ const GalleryScene = dynamic(
 
 /** No-JS / reduced-motion / no-WebGL fallback: a native scroll-snap row. */
 function ScrollRow() {
+  const { galleryImages } = useContent();
   return (
     <ul className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:thin] sm:px-12 lg:px-20">
       {galleryImages.map((img) => (
@@ -79,6 +81,8 @@ function ScrollRow() {
 }
 
 export function Gallery() {
+  const { t } = useLocale();
+  const { galleryImages } = useContent();
   const reduced = usePrefersReducedMotion();
   const webgl = useWebGLAvailable();
   const live = webgl && !reduced;
@@ -86,6 +90,16 @@ export function Gallery() {
   // Only run the WebGL render loop while the globe is on (or near) screen — it
   // wakes ~300px before entering view so there's no blank first frame.
   const [stageRef, inView] = useInViewport<HTMLDivElement>("300px 0px");
+
+  // Defer *mounting* the scene (and thus downloading the ~130 KiB three.js
+  // chunk) until the gallery is near the viewport — otherwise the dynamic import
+  // fires right after hydration for a section far down the page, counting as
+  // unused initial JS. Latched: once in view it stays mounted (the render loop
+  // still pauses off-screen via `active`), so scrolling away doesn't re-init
+  // WebGL. React's "adjust state during render" pattern — the guarded setState
+  // re-renders in place, no effect / commit round-trip.
+  const [sceneMounted, setSceneMounted] = useState(false);
+  if (inView && !sceneMounted) setSceneMounted(true);
 
   // Front-most photo, reported by the WebGL scene as the wall spins.
   const [active, setActive] = useState(0);
@@ -96,12 +110,11 @@ export function Gallery() {
     <section id="gallery" className="relative overflow-hidden py-28">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 lg:px-20">
         <Reveal className="text-center">
-          <p className="eyebrow mb-3">Gallery</p>
-          <h2 className="display text-4xl text-fg sm:text-6xl">Off the clock</h2>
-          <p className="mx-auto mt-4 max-w-md text-fg-muted">
-            A few frames from life away from the keyboard — gym, coffee, and a
-            cat who runs the place.
-          </p>
+          <p className="eyebrow mb-3">{t.gallery.eyebrow}</p>
+          <h2 className="display text-4xl text-fg sm:text-6xl">
+            {t.gallery.heading}
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-fg-muted">{t.gallery.body}</p>
         </Reveal>
       </div>
 
@@ -110,7 +123,11 @@ export function Gallery() {
           ref={stageRef}
           className="relative mt-12 h-[70vh] min-h-[26rem] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing sm:h-[80vh] lg:h-[88vh]"
         >
-          <GalleryScene onActive={setActive} active={inView} />
+          {sceneMounted ? (
+            <GalleryScene onActive={setActive} active={inView} />
+          ) : (
+            <SceneLoader />
+          )}
 
           {/* Editorial overlay — index + caption (left) and drag cue (right),
               pinned to the band's lower edge. pointer-events-none so it never
@@ -127,7 +144,7 @@ export function Gallery() {
             </div>
             <div className="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-fg-subtle">
               <DragCue />
-              <span className="hidden sm:inline">Drag to explore</span>
+              <span className="hidden sm:inline">{t.gallery.drag}</span>
             </div>
           </div>
         </div>

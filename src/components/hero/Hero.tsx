@@ -1,8 +1,11 @@
-import { profile } from "@/content/profile";
+"use client";
+
 import { HeroPortrait } from "@/components/hero/HeroPortrait";
 import { HeroScrollSpine } from "@/components/hero/HeroScrollSpine.client";
 import { HeroDoodles } from "@/components/hero/HeroDoodles.client";
 import { SpringInText } from "@/components/motion/SpringInText";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import { useContent } from "@/lib/i18n/useContent.client";
 
 /** Runner-label copy. `SINCE_YEAR` = start of the professional timeline (4+ yrs). */
 const SINCE_YEAR = 2021;
@@ -25,6 +28,8 @@ const LINE_TWO_DELAY_MS = "Software".length * LETTER_STAGGER * 1000;
  * are kept; everything else is intentionally stripped.
  */
 export function Hero() {
+  const { t } = useLocale();
+  const { profile } = useContent();
   return (
     <section
       id="hero"
@@ -79,15 +84,17 @@ export function Hero() {
         <span
           aria-hidden
           data-hero-copyright
+          data-fonts-gate
           className="display hero-drift-fast absolute bottom-0 left-0 hidden text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none sm:block"
         >
           ©{COPYRIGHT_YEAR}
         </span>
         <span
           aria-hidden
+          data-fonts-gate
           className="runner-label hero-drift-fast absolute bottom-1 right-0 hidden sm:block"
         >
-          / Engineering since {SINCE_YEAR}
+          / {t.hero.runnerSince} {SINCE_YEAR}
         </span>
       </HeroScrollSpine>
 
@@ -96,6 +103,7 @@ export function Hero() {
           section's bottom-left instead (matching the section's px-6 gutter). */}
       <span
         aria-hidden
+        data-fonts-gate
         className="display absolute bottom-8 left-1/2 -translate-x-1/2 text-fg text-[clamp(1.75rem,4vw,3rem)] leading-none sm:hidden"
       >
         ©{COPYRIGHT_YEAR}

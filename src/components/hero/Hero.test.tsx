@@ -25,11 +25,12 @@ vi.mock("gsap", () => {
 vi.mock("gsap/ScrollTrigger", () => ({ ScrollTrigger: { refresh: vi.fn() } }));
 
 import { Hero } from "./Hero";
+import { LocaleProvider } from "@/lib/i18n/LocaleProvider.client";
 import { profile } from "@/content/profile";
 
 describe("Hero (editorial type-as-spine)", () => {
   it("exposes a single h1 with the accessible name, and the title as text", () => {
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero />, { wrapper: LocaleProvider });
     const h1s = container.querySelectorAll("h1");
     expect(h1s).toHaveLength(1);
     expect(h1s[0].textContent).toContain(profile.display);
@@ -40,12 +41,12 @@ describe("Hero (editorial type-as-spine)", () => {
   });
 
   it("is a reachable in-page destination (#hero anchor target)", () => {
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero />, { wrapper: LocaleProvider });
     expect(container.querySelector("section#hero")).toBeTruthy();
   });
 
   it("renders the two decorative corner elements, aria-hidden", () => {
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero />, { wrapper: LocaleProvider });
     const copyright = container.querySelector("[data-hero-copyright]");
     const since = container.querySelector(".runner-label");
     expect(copyright?.textContent).toMatch(/©\d{4}/);
@@ -55,7 +56,7 @@ describe("Hero (editorial type-as-spine)", () => {
   });
 
   it("does not render the removed center identity block", () => {
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero />, { wrapper: LocaleProvider });
     // Name/title live in the sr-only h1 + nav now; no visible eyebrow duplicate.
     expect(container.querySelector(".eyebrow")).toBeNull();
   });
@@ -63,7 +64,7 @@ describe("Hero (editorial type-as-spine)", () => {
   it("renders the interim portrait centerpiece", () => {
     // The static portrait stands in for the 3D scene; it needs no WebGL and must
     // always render inside the hero.
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero />, { wrapper: LocaleProvider });
     expect(container.querySelector("#hero img")).toBeTruthy();
   });
 });

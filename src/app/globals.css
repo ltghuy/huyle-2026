@@ -140,6 +140,20 @@ body {
   color: var(--color-accent);
 }
 
+/* Font-swap CLS guard (see the inline flag script in layout.tsx). Decorative
+   labels marked `data-fonts-gate` stay transparent until the web fonts load, so
+   their fallback→web-font reflow happens while invisible and never counts toward
+   CLS. Default (no-JS / class absent) is visible. */
+[data-fonts-gate] {
+  transition: opacity 0.3s ease;
+}
+html.fonts-pending [data-fonts-gate] {
+  opacity: 0;
+}
+html.fonts-ready [data-fonts-gate] {
+  opacity: 1;
+}
+
 /* Keyboard focus — never remove */
 :focus-visible {
   outline: none;

@@ -6,11 +6,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import {
-  ABOUT_CHAPTERS,
   ChapterBlock,
   NAME_LEFT,
   NAME_RIGHT,
 } from "@/components/sections/AboutCopy";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 
 /**
  * Scroll Zoom Portal (à la the majd reference + gsapvault.com/effects/scroll-zoom-portal).
@@ -46,30 +46,6 @@ const WORD_CLASS =
   "display absolute top-1/2 text-fg text-[clamp(2.5rem,11vw,9rem)] leading-none will-change-transform";
 
 /**
- * Group a chapter's [data-word] spans by the line they actually render on
- * (à la the gsapvault "Scroll Hijack Sections" effect), so the reveal staggers
- * per line at any viewport width. Words are in DOM order, so offsetTop only ever
- * jumps forward at a line break.
- */
-function lineGroups(panel: HTMLElement): HTMLElement[][] {
-  const words = Array.from(panel.querySelectorAll<HTMLElement>("[data-word]"));
-  const groups: HTMLElement[][] = [];
-  let lineTop = -Infinity;
-  // Threshold sits between the baseline offset a scaled-up accent word adds
-  // (~10px) and the gap to the next line (~40px+), so a bigger word stays on its
-  // own line's group instead of splitting off.
-  for (const w of words) {
-    const top = w.offsetTop;
-    if (groups.length === 0 || top - lineTop > 20) {
-      groups.push([]);
-      lineTop = top;
-    }
-    groups[groups.length - 1].push(w);
-  }
-  return groups;
-}
-
-/**
  * The portrait — a single image filling the card (no split). Grayscale (--pg,
  * set on the stage during the entrance) resolves to colour as it docks; the
  * zoom-through portal then scales the whole card as one and dissolves it.
@@ -84,6 +60,12 @@ function Portrait() {
         src="/assets/evan.png"
         alt=""
         fill
+        // This docked clone is the page's LCP element (it scales up centre-stage
+        // after the intro). Its larger `sizes` picks a different srcset candidate
+        // than the tiny hero portrait, so without `priority` it loaded lazily with
+        // no fetchpriority — the exact LCP-request warning. Eager + high priority
+        // here preloads the actual LCP resource from the initial HTML.
+        priority
         sizes="(max-width: 640px) 60vw, 420px"
         className="object-cover"
       />
@@ -93,15 +75,16 @@ function Portrait() {
 
 export function ScrollPortrait() {
   const reduced = usePrefersReducedMotion();
+  const { t } = useLocale();
 
   useEffect(() => {
     if (reduced) return;
     let cancelled = false;
     let teardown: (() => void) | undefined;
 
-    // Build only once the web fonts have settled: per-line grouping reads each
-    // word's rendered line via offsetTop, and fallback-font metrics wrap text
-    // differently — building too early splits a line's words across beats.
+    // Build only once the web fonts have settled: the entrance measures the
+    // hero portrait's position, and fallback-font metrics shift layout — building
+    // too early would anchor the docked clone to the wrong spot.
     const setup = () => {
       if (cancelled) return;
     const source = document.querySelector<HTMLElement>("[data-hero-portrait]");
@@ -295,30 +278,28 @@ export function ScrollPortrait() {
         portal.to(chip, { yPercent: -140, autoAlpha: 0, duration: 0.18 }, 0.06);
 
       // Scroll-hijack chapters (à la gsapvault "Scroll Hijack Sections"): each
-      // holds the stage while its text assembles LINE BY LINE — words on a line
-      // rise + de-blur together, lines cascade — then a HOLD keeps the finished
-      // statement still before it releases to the next. Timeline fractions are
-      // scrubbed to #about's height, so each beat consumes ~a viewport.
+      // holds the stage while its text simply FADES IN, word by word, in DOM
+      // order — which is reading order, so the fade sweeps top → bottom (and
+      // left → right within a line). Pure opacity: no rise, no blur, no line
+      // re-measuring, so spacing never shifts and the cascade can't scramble.
+      // Then a HOLD keeps the finished statement still before the whole block
+      // fades out and releases to the next. Timeline fractions are scrubbed to
+      // #about's height, so each beat consumes ~a viewport.
       const REVEAL = CH_STEP * 0.5; // scroll fraction spent assembling a chapter
       chapters.forEach((panel, i) => {
         const s = CH_START + i * CH_STEP;
-        const lines = lineGroups(panel);
-        const lineStep = (REVEAL * 0.82) / Math.max(lines.length, 1);
+        const words = panel.querySelectorAll<HTMLElement>("[data-word]");
         portal.to(panel, { autoAlpha: 1, duration: 0.02 }, s);
-        lines.forEach((line, li) => {
-          portal.from(
-            line,
-            {
-              autoAlpha: 0,
-              yPercent: 120,
-              filter: "blur(10px)",
-              duration: REVEAL * 0.55,
-              // A whisper of intra-line stagger for texture; the line reads as one.
-              stagger: { each: (lineStep * 0.35) / line.length, from: "start" },
-            },
-            s + li * lineStep,
-          );
-        });
+        portal.from(
+          words,
+          {
+            autoAlpha: 0,
+            ease: "none",
+            duration: REVEAL * 0.4,
+            stagger: (REVEAL * 0.6) / Math.max(words.length, 1),
+          },
+          s,
+        );
         // HOLD (data-hold analogue): the completed statement sits still, then the
         // chapter releases before the next begins (and, for the last, before
         // #about ends so the Gallery arrives clean).
@@ -369,6 +350,10 @@ export function ScrollPortrait() {
       cancelled = true;
       teardown?.();
     };
+    // NOT keyed on `locale`: rebuilding on a language switch would tear down and
+    // re-apply #about's 780vh scroll track, yanking the page (it jumped to the
+    // Experience section). The chapter text updates in place via React — GSAP
+    // keeps animating the reused word spans — so a rebuild isn't needed.
   }, [reduced]);
 
   return (
@@ -380,7 +365,7 @@ export function ScrollPortrait() {
     >
       {/* "About" chip */}
       <p data-pp-chip className="eyebrow absolute left-1/2 top-24 sm:top-28">
-        About
+        {t.about.chip}
       </p>
 
       {/* Name — flanks the portrait (using the measured --dock-w), parts outward */}
@@ -438,15 +423,16 @@ export function ScrollPortrait() {
         className="absolute inset-0"
         style={{ willChange: "transform" }}
       >
-        {ABOUT_CHAPTERS.map((chapter, i) => (
+        {t.about.chapters.map((chapter, i) => (
           <div
             key={i}
             data-pp-chapter
             className="absolute inset-0 flex items-center justify-center px-6 sm:px-12 lg:px-20"
           >
-            <div className="w-full max-w-4xl">
+            <div className="w-full max-w-4xl text-center">
               <ChapterBlock
                 chapter={chapter}
+                accentWords={t.about.accentWords}
                 bodyClassName="text-3xl leading-snug text-fg sm:text-5xl sm:leading-[1.15]"
               />
             </div>

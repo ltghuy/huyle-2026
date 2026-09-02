@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { AboutBio, NAME_LEFT, NAME_RIGHT } from "./AboutCopy";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 
 /**
  * "The Person" — a Scroll Zoom Portal (à la gsapvault.com/effects/scroll-zoom-portal).
@@ -19,6 +22,7 @@ import { AboutBio, NAME_LEFT, NAME_RIGHT } from "./AboutCopy";
  *    motion lives in that one fixed layer and nothing can overlap the next section.
  */
 export function About() {
+  const { t } = useLocale();
   return (
     <section id="about" className="relative overflow-hidden">
       {/* Static fallback + accessible copy. JS hides it visually (see data-portal-js)
@@ -60,7 +64,11 @@ export function About() {
             </span>
           </div>
 
-          <AboutBio className="mx-auto max-w-2xl space-y-5 text-center sm:text-left" />
+          <AboutBio
+            chapters={t.about.chapters}
+            person={t.about.person}
+            className="mx-auto max-w-2xl space-y-5 text-center sm:text-left"
+          />
         </div>
       </div>
     </section>

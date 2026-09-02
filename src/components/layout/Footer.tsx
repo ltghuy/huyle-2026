@@ -1,7 +1,13 @@
+"use client";
+
 import { ArrowUp } from "lucide-react";
-import { profile } from "@/content/profile";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import { useContent } from "@/lib/i18n/useContent.client";
+import { LanguageSwitcher } from "./LanguageSwitcher.client";
 
 export function Footer() {
+  const { t } = useLocale();
+  const { profile } = useContent();
   const year = 2026;
 
   return (
@@ -24,33 +30,37 @@ export function Footer() {
         <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <a
             href="#hero"
-            aria-label={`${profile.display} — back to top`}
+            aria-label={`${profile.display} — ${t.footer.backToTopSuffix}`}
             className="display block leading-[0.85] tracking-tight text-fg transition-colors duration-200 hover:text-accent text-[clamp(2.5rem,8vw,6rem)]"
           >
             {profile.display}
           </a>
           <p className="line-clamp-2 max-w-md text-sm text-fg-muted md:mb-2 md:text-right">
-            Shipping fast, accessible web things since 2021 — fueled by coffee,
-            supervised by one very judgmental cat.
+            {t.footer.personality}
           </p>
         </div>
 
-        {/* Colophon bar */}
+        {/* Colophon bar — copyright/credit (left) balanced by the language
+            switcher + back-to-top (right). */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 sm:flex-row">
           <p className="text-sm text-fg-subtle">
-            Designed, built &amp; slightly over-thought · {year}
+            {t.footer.colophon} · {year}
           </p>
 
-          <a
-            href="#hero"
-            className="group inline-flex items-center gap-2 text-sm text-fg-muted transition-colors duration-200 hover:text-accent"
-          >
-            Back to top
-            <ArrowUp
-              aria-hidden
-              className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5"
-            />
-          </a>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+
+            <a
+              href="#hero"
+              className="group inline-flex items-center gap-2 text-sm text-fg-muted transition-colors duration-200 hover:text-accent"
+            >
+              {t.footer.backToTop}
+              <ArrowUp
+                aria-hidden
+                className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -27,14 +27,15 @@ vi.mock("gsap", () => {
 vi.mock("gsap/ScrollTrigger", () => ({ ScrollTrigger: {} }));
 
 import { Statement } from "./Statement";
+import { LocaleProvider } from "@/lib/i18n/LocaleProvider.client";
 
 describe("Statement (mission-statement beat)", () => {
   it("renders a single centered statement passage", () => {
-    const { container } = render(<Statement />);
+    const { container } = render(<Statement />, { wrapper: LocaleProvider });
     const section = container.querySelector("section#statement");
     expect(section).toBeTruthy();
     const paras = section?.querySelectorAll("p") ?? [];
     expect(paras).toHaveLength(1);
-    expect(paras[0].textContent).toMatch(/production web platforms/i);
+    expect(paras[0].textContent).toMatch(/fast, accessible, and considered/i);
   });
 });

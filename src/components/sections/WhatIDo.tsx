@@ -2,9 +2,10 @@
 
 import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { skillGroups } from "@/content/skills";
 import { Reveal } from "@/components/motion/Reveal";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
+import { useContent } from "@/lib/i18n/useContent.client";
 
 /** Seconds for a ring to complete one full revolution (at v = 1). */
 const LOOP_SECONDS = 15;
@@ -12,13 +13,6 @@ const LOOP_SECONDS = 15;
 const BASE_VELOCITY = 0.6;
 /** Starting font size (user units); auto-shrunk so the copy fills the ring once. */
 const BASE_FONT = 220;
-
-/** The four capability areas, uppercased (full names for the accessible list). */
-const CATEGORIES = skillGroups.map((g) => g.label.toUpperCase());
-/** Shorter forms shown ON the ring so the type can be much larger; the full
- *  names stay in the sr-only list and the reduced-motion fallback. Order matches
- *  `skillGroups` (frontend · ai-native · backend/apis · testing & quality). */
-const RING_LABELS = ["FRONTEND", "AI", "BACKEND", "QUALITY"];
 
 /** Per-word look on the SOLID ring, cycled: cream/lime × solid/outline so no two
  *  neighbours match (there are four areas → each gets a distinct treatment). */
@@ -74,32 +68,46 @@ const CIRCLE_PATH = `M ${PAD},${CENTER} a ${R},${R} 0 1,1 ${R * 2},0 a ${R},${R}
  */
 export function WhatIDo() {
   const reduced = usePrefersReducedMotion();
+  const { t, locale } = useLocale();
+  const { skillGroups } = useContent();
+  // Full names (uppercased) for the accessible list + reduced-motion fallback.
+  const categories = skillGroups.map((g) => g.label.toUpperCase());
+  // Shorter forms shown ON the ring so the type can be much larger; order matches
+  // `skillGroups` (frontend · ai-native · backend/apis · testing & quality).
+  const ringLabels = t.whatIDo.ring;
 
   return (
     <section id="what-i-do" className="overflow-hidden py-28">
       <div className="mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
         <Reveal>
-          <p className="eyebrow mb-3">What I Do</p>
-          <h2 className="display text-4xl text-fg sm:text-6xl">Capabilities</h2>
+          <p className="eyebrow mb-3">{t.whatIDo.eyebrow}</p>
+          <h2 className="display text-4xl text-fg sm:text-6xl">
+            {t.whatIDo.heading}
+          </h2>
         </Reveal>
 
         {/* The moving loop is decorative to AT; expose the areas as a list. */}
         <ul className="sr-only">
-          {CATEGORIES.map((label) => (
+          {categories.map((label) => (
             <li key={label}>{label}</li>
           ))}
         </ul>
       </div>
 
-      {reduced ? <StaticList /> : <CapabilitiesLoop />}
+      {/* Remount the measured ring on locale change (textLength is fit on mount). */}
+      {reduced ? (
+        <StaticList categories={categories} />
+      ) : (
+        <CapabilitiesLoop key={locale} ringLabels={ringLabels} />
+      )}
     </section>
   );
 }
 
-function StaticList() {
+function StaticList({ categories }: { categories: string[] }) {
   return (
     <div className="mx-auto mt-10 flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 text-center display text-4xl uppercase leading-none tracking-tight text-fg sm:text-6xl">
-      {CATEGORIES.map((label, i) => (
+      {categories.map((label, i) => (
         <Fragment key={label}>
           {i > 0 && (
             <span aria-hidden className="text-accent">
@@ -114,7 +122,7 @@ function StaticList() {
   );
 }
 
-function CapabilitiesLoop() {
+function CapabilitiesLoop({ ringLabels }: { ringLabels: string[] }) {
   const stageRef = useRef<HTMLDivElement>(null);
   // Shared angular velocity: both rings read it, spinning in opposite directions,
   // so the pointer steers the whole pair at once (always-positive → never stops).
@@ -164,7 +172,13 @@ function CapabilitiesLoop() {
       className="relative mt-6 h-[56vh] min-h-[360px] w-full sm:h-[82vh] sm:min-h-[620px]"
     >
       {RINGS.map((ring) => (
-        <Ring key={ring.id} {...ring} velRef={velRef} runningRef={runningRef} />
+        <Ring
+          key={ring.id}
+          {...ring}
+          ringLabels={ringLabels}
+          velRef={velRef}
+          runningRef={runningRef}
+        />
       ))}
     </div>
   );
@@ -175,6 +189,7 @@ function Ring({
   direction,
   tilt,
   outline,
+  ringLabels,
   velRef,
   runningRef,
 }: Readonly<{
@@ -182,6 +197,7 @@ function Ring({
   direction: number;
   tilt: number;
   outline: boolean;
+  ringLabels: string[];
   velRef: React.RefObject<{ v: number }>;
   runningRef: React.RefObject<boolean>;
 }>) {
@@ -236,7 +252,8 @@ function Ring({
     const tick = (_t: number, deltaMs: number) => {
       if (!runningRef.current) return; // paused while the section is off-screen
       const dt = Math.min(deltaMs, 50) / 1000;
-      angle = (angle + direction * velRef.current.v * degPerSec * dt + 360) % 360;
+      angle =
+        (angle + direction * velRef.current.v * degPerSec * dt + 360) % 360;
       group.setAttribute("transform", `rotate(${angle} ${CENTER} ${CENTER})`);
     };
     gsap.ticker.add(tick);
@@ -247,12 +264,9 @@ function Ring({
   // by an accent star, so every join ("… ✳ WORD") matches — including the
   // wrap-around at the circle's start/end point.
   const styles = outline ? WORD_STYLES_OUTLINE : WORD_STYLES;
-  const content = RING_LABELS.map((label, i) => (
+  const content = ringLabels.map((label, i) => (
     <Fragment key={`${i}-${label}`}>
       <tspan style={styles[i % styles.length]}>{label}</tspan>
-      {/* U+2733 + U+FE0E (text variation selector): pin the star to its
-          monochrome special-character glyph so it never renders as a color emoji. */}
-      <tspan fill="var(--color-accent)">{" ✳︎ "}</tspan>
     </Fragment>
   ));
 

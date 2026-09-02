@@ -56,6 +56,11 @@ export function LineReveal({
         type: "lines",
         // wraps each line in an overflow-clip mask so the rise is revealed
         mask: "lines",
+        // Don't let SplitText stamp an `aria-label` on the element: on a <p>
+        // (paragraph role) authored names are prohibited (axe/Lighthouse flag
+        // it). We split by *lines* — the real words stay in DOM order — so the
+        // native text remains fully readable to assistive tech without it.
+        aria: "none",
         autoSplit: true,
         onSplit: (self) =>
           gsap.from(self.lines, {

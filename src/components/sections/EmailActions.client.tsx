@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, Copy, Mail } from "lucide-react";
 import { MagneticLink } from "@/components/motion/MagneticLink";
+import { useLocale } from "@/lib/i18n/LocaleProvider.client";
 
 /**
  * The contact section's primary action: a magnetic `mailto:` pill paired with a
@@ -11,6 +12,7 @@ import { MagneticLink } from "@/components/motion/MagneticLink";
  * flipping to a "Copied" confirmation for a couple of seconds.
  */
 export function EmailActions({ href, value }: { href: string; value: string }) {
+  const { t } = useLocale();
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -37,7 +39,7 @@ export function EmailActions({ href, value }: { href: string; value: string }) {
       <MagneticLink
         href={href}
         strength={0.3}
-        className="inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 text-lg font-medium text-on-accent shadow-glow-accent transition-colors duration-200 hover:bg-accent-bright"
+        className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-7 py-4 text-lg font-medium text-on-accent shadow-glow-accent transition-colors duration-200 hover:bg-accent-bright sm:w-auto"
       >
         <Mail className="size-5" aria-hidden />
         {value}
@@ -46,15 +48,15 @@ export function EmailActions({ href, value }: { href: string; value: string }) {
       <button
         type="button"
         onClick={copy}
-        aria-label={copied ? "Email address copied" : "Copy email address"}
-        className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line px-5 py-4 text-sm font-medium text-fg-muted transition-colors duration-200 hover:border-accent hover:text-accent"
+        aria-label={copied ? t.email.copiedAria : t.email.copyAria}
+        className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-line px-5 py-4 text-sm font-medium text-fg-muted transition-colors duration-200 hover:border-accent hover:text-accent sm:w-auto"
       >
         {copied ? (
           <Check className="size-4 text-accent" aria-hidden />
         ) : (
           <Copy className="size-4" aria-hidden />
         )}
-        {copied ? "Copied" : "Copy"}
+        {copied ? t.email.copied : t.email.copy}
       </button>
     </div>
   );
