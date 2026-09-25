@@ -12,6 +12,7 @@
 > product rather than serving only as demos.
 
 - **Name:** Le Tran Gia Huy (Huy Le)
+- **Also known as:** Lê Trần Gia Huy (Vietnamese spelling), Gia Huy Le, Huy Le
 - **Title:** Software Engineer · AI-Native Development
 - **Location:** Ho Chi Minh City, Vietnam
 - **Experience:** 4+ years

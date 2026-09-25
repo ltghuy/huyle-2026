@@ -90,14 +90,14 @@ function GitBranch() {
 /**
  * Each doodle: the shape + where it frames the two-line title (lg+ only).
  * Positioned within the same centered `max-w-6xl` column as the type, so they
- * hug the four corners of "Software / Engineer" at any width. Asymmetric
- * rotations keep it hand-scattered; faint + behind the type so it never competes.
+ * hug the four corners of "Software / Engineer" at any width. Axis-aligned
+ * (no tilt); faint + behind the type so it never competes.
  */
 const DOODLES = [
-  { Shape: CodeTag, className: "left-[12%] top-[14%] w-32 xl:w-40 -rotate-[10deg]" },
-  { Shape: Terminal, className: "right-[12%] top-[13%] w-32 xl:w-40 rotate-[7deg]" },
-  { Shape: Bug, className: "left-[14%] top-[41%] w-24 xl:w-28 rotate-[9deg]" },
-  { Shape: GitBranch, className: "right-[14%] top-[42%] w-24 xl:w-28 -rotate-[8deg]" },
+  { Shape: CodeTag, className: "left-[12%] top-[14%] w-32 xl:w-40" },
+  { Shape: Terminal, className: "right-[12%] top-[13%] w-32 xl:w-40" },
+  { Shape: Bug, className: "left-[14%] top-[41%] w-24 xl:w-28" },
+  { Shape: GitBranch, className: "right-[14%] top-[42%] w-24 xl:w-28" },
 ];
 
 export function HeroDoodles() {

@@ -43,8 +43,10 @@ export function Footer() {
         {/* Colophon bar — copyright/credit (left) balanced by the language
             switcher + back-to-top (right). */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 sm:flex-row">
+          {/* Full legal name in the colophon: always-visible on-page text so
+              the site ranks for "Le Tran Gia Huy" searches, not just "Huy Le". */}
           <p className="text-sm text-fg-subtle">
-            {t.footer.colophon} · {year}
+            © {year} {profile.name} · {t.footer.colophon}
           </p>
 
           <div className="flex items-center gap-4">

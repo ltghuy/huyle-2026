@@ -4,7 +4,6 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { IntroOverlay } from "@/components/intro/IntroOverlay";
-import { IntroVortex } from "@/components/intro/IntroVortex.client";
 import { SmoothScroll } from "@/components/layout/SmoothScroll.client";
 import { ScrollPortrait } from "@/components/hero/ScrollPortrait.client";
 import { OrbField } from "@/components/motion/OrbField.client";
@@ -44,14 +43,31 @@ export const metadata: Metadata = {
   // Absolute base for canonical / OpenGraph / Twitter URLs (crawlers + social
   // embeds require absolute URLs). Single source of truth: profile.url.
   metadataBase: new URL(profile.url),
-  title: "Huy Le — Software Engineer · AI-Native Development",
+  // Front-load the full legal name so the page ranks for "Le Tran Gia Huy"
+  // queries (the display name "Huy Le" already ranks). The name is first, so
+  // any title truncation only trims the tail, not the name.
+  title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
   description:
-    "Le Tran Gia Huy (Huy Le) — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
+    "Le Tran Gia Huy (Huy Le), also Lê Trần Gia Huy — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Ho Chi Minh City, Vietnam.",
+  // Ignored by Google but used by some engines; carries the name variants.
+  keywords: [
+    "Le Tran Gia Huy",
+    "Lê Trần Gia Huy",
+    "Huy Le",
+    "Gia Huy Le",
+    "Software Engineer",
+    "Frontend Engineer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "AI-Native Development",
+    "Vietnam",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Huy Le — Software Engineer · AI-Native Development",
+    title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
     description:
-      "Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
+      "Le Tran Gia Huy (Huy Le) — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
     url: profile.url,
     siteName: profile.display,
     type: "website",
@@ -59,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Huy Le — Software Engineer · AI-Native Development",
+    title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
     description:
-      "Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
+      "Le Tran Gia Huy (Huy Le) — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
   },
   verification: {
     // Google Search Console ownership: set GOOGLE_SITE_VERIFICATION in the deploy
@@ -85,12 +101,28 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  alternateName: profile.display,
+  // Every name form people search for — the diacritic Vietnamese spelling
+  // (used by Google's VN index and knowledge panel), the display name, and the
+  // common Western-order variant — so the entity resolves to this page.
+  alternateName: ["Huy Le", "Lê Trần Gia Huy", "Gia Huy Le"],
+  givenName: "Huy",
+  familyName: "Le",
   url: profile.url,
+  mainEntityOfPage: profile.url,
   image: `${profile.url}/assets/evan.png`,
   jobTitle: "Software Engineer",
   description: profile.summary,
   email: "letrangiahuy0507@gmail.com",
+  nationality: { "@type": "Country", name: "Vietnam" },
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Frontend engineering",
+    "AI-native development",
+    "Web performance",
+    "Design systems",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Ho Chi Minh City",
@@ -148,7 +180,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               (transparent) sections, so the glow is continuous across the page. */}
           <OrbField />
           <IntroOverlay />
-          <IntroVortex />
           <Nav />
           <ScrollPortrait />
           {/* Everything that scrolls goes inside the smoother's content wrapper. */}

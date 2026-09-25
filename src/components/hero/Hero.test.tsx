@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/react";
 
-// Inert gsap so HeroScrollSpine's and SpringInText's effects don't touch the
-// real engine (SpringInText uses utils.toArray + a chainable timeline.fromTo).
+// Inert gsap so HeroScrollSpine's scroll-parallax effect doesn't touch the real
+// engine during the render-only assertions below.
 vi.mock("gsap", () => {
   const timeline = () => {
     const tl = { fromTo: vi.fn(() => tl), to: vi.fn(() => tl), kill: vi.fn() };

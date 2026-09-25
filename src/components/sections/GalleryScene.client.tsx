@@ -1,8 +1,14 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useRef, type RefObject } from "react";
-import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
+import {
+  Canvas,
+  useFrame,
+  useThree,
+  type ThreeEvent,
+} from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import * as THREE from "three";
 import { galleryImages } from "@/content/gallery";
 import { GridFloor } from "@/components/three/GridFloor";
@@ -37,6 +43,7 @@ const CARD_RADIUS = 0.08; // rounded-corner radius of the card (tile-height unit
 
 // --- Wireframe vector globe (the outer lat/long cage the photos float inside) --
 const WIRE_R = SPHERE_R; // the outer cage; photos orbit on the inner PHOTO_R sphere
+const MID_R = SPHERE_R * 0.58; // a middle wireframe layer, between the cage + core
 const WIRE_LAT = 9; // latitude rings
 const WIRE_MERIDIANS = 18; // longitude meridians
 const WIRE_SEG = 64; // segments per ring / meridian (silhouette smoothness)
@@ -52,6 +59,18 @@ const CAM_LIFT = 1.9; // raise the camera and look down slightly, to reveal the 
 // --- Floor grid ------------------------------------------------------------
 const FLOOR_Y = SPHERE_R + 1.0; // the grid sits this far below the globe centre
 
+// --- Binary "data" backdrop (a band of 0/1 digits behind the globe) ---------
+const BINARY_COLOR = "150,224,90"; // faint lime-green digits (rgb)
+const BINARY_COLS = 128; // digit columns across the texture
+const BINARY_ROWS = 10; // digit rows — a short band (soft-faded top/bottom)
+// The backdrop is a wide, short plane placed behind the globe. Its on-screen
+// height ≈ half the globe's; tweak BINARY_PLANE_H / _Y / _Z to re-frame the band.
+const BINARY_PLANE_W = 80; // plane width (world units) — wide enough to fill across
+const BINARY_PLANE_H = 10; // plane height — short, so the band reads ~½ globe tall
+const BINARY_Y = -12.5; // vertical centre — low, so the band sits over the BOTTOM
+//                        of the grid (more negative = lower on screen)
+const BINARY_Z = -14; // distance behind the globe
+
 // --- Interaction -----------------------------------------------------------
 const DRAG_SPEED = 0.006; // radians the globe turns per pixel of drag
 const FRICTION = 0.94; // per-frame decay of fling momentum
@@ -59,6 +78,13 @@ const IDLE_SPIN = 0.0016; // gentle drift (rad/frame) when left alone
 const MAX_PITCH = 1.15; // clamp vertical tilt so the globe never flips over
 const HOVER_EASE = 0.12; // how fast the ripple fades in / out
 const FADE_START = 0.34; // facing dot below which a tile fades toward the rim
+
+// --- Globe core (a yellow dot at the centre — the "Earth's core" — with a line
+//     connecting each photo tile back to it) -----------------------------------
+const CORE_COLOR = "#ffd23f"; // connecting lines' colour (yellow)
+const CORE_WIRE_COLOR = "#eee7bf"; // core mini-globe — pale, soft yellow (not too saturated)
+const CORE_RADIUS = 0.45; // radius of the central miniature wireframe globe (world units)
+const CORE_LINE_OPACITY = 0.35; // connecting lines' base opacity (× tile facing)
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
 
@@ -167,8 +193,12 @@ function wireframeSphereGeometry(radius: number): THREE.BufferGeometry {
       const a0 = (2 * Math.PI * s) / WIRE_SEG;
       const a1 = (2 * Math.PI * (s + 1)) / WIRE_SEG;
       pos.push(
-        r * Math.cos(a0), y, r * Math.sin(a0),
-        r * Math.cos(a1), y, r * Math.sin(a1),
+        r * Math.cos(a0),
+        y,
+        r * Math.sin(a0),
+        r * Math.cos(a1),
+        y,
+        r * Math.sin(a1),
       );
     }
   }
@@ -181,30 +211,45 @@ function wireframeSphereGeometry(radius: number): THREE.BufferGeometry {
       const p0 = (Math.PI * s) / WIRE_SEG;
       const p1 = (Math.PI * (s + 1)) / WIRE_SEG;
       pos.push(
-        radius * Math.sin(p0) * ct, radius * Math.cos(p0), radius * Math.sin(p0) * st,
-        radius * Math.sin(p1) * ct, radius * Math.cos(p1), radius * Math.sin(p1) * st,
+        radius * Math.sin(p0) * ct,
+        radius * Math.cos(p0),
+        radius * Math.sin(p0) * st,
+        radius * Math.sin(p1) * ct,
+        radius * Math.cos(p1),
+        radius * Math.sin(p1) * st,
       );
     }
   }
   const geo = new THREE.BufferGeometry();
-  geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(pos), 3));
+  geo.setAttribute(
+    "position",
+    new THREE.BufferAttribute(new Float32Array(pos), 3),
+  );
   return geo;
 }
 
 /** The thin accent-green lat/long wireframe sphere — the globe's vector surface.
  *  Lines don't write depth, so both hemispheres read faintly through each other
  *  (a see-through vector globe); the opaque photo tiles occlude the near lines. */
-function WireframeGlobe() {
-  const geometry = useMemo(() => wireframeSphereGeometry(WIRE_R), []);
+function WireframeGlobe({
+  radius = WIRE_R,
+  color = "#c8e85a",
+  opacity = 0.24,
+}: {
+  radius?: number;
+  color?: string;
+  opacity?: number;
+}) {
+  const geometry = useMemo(() => wireframeSphereGeometry(radius), [radius]);
   const material = useMemo(
     () =>
       new THREE.LineBasicMaterial({
-        color: new THREE.Color("#c8e85a"),
+        color: new THREE.Color(color),
         transparent: true,
-        opacity: 0.24,
+        opacity,
         depthWrite: false,
       }),
-    [],
+    [color, opacity],
   );
   useEffect(() => {
     return () => {
@@ -221,6 +266,104 @@ interface Tile {
   quaternion: THREE.Quaternion;
   normal: THREE.Vector3; // base (un-rotated) outward normal
   imageIndex: number;
+}
+
+/** The globe's core: a single yellow dot at the centre (the "Earth's core") with
+ *  a thin line connecting each photo tile back to it. The core gently flashes;
+ *  each line fades with its tile toward the rim / far hemisphere. Rendered inside
+ *  the globe group, so it all spins with the tiles. */
+function Core({ tiles }: { tiles: Tile[] }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const { camera } = useThree();
+  const lineRefs = useRef<(THREE.LineSegments | null)[]>([]);
+
+  // One 2-point geometry per tile: core (origin) → tile position.
+  const lineGeoms = useMemo(
+    () =>
+      tiles.map((tile) => {
+        const g = new THREE.BufferGeometry();
+        g.setAttribute(
+          "position",
+          new THREE.BufferAttribute(
+            new Float32Array([
+              0,
+              0,
+              0,
+              tile.position.x,
+              tile.position.y,
+              tile.position.z,
+            ]),
+            3,
+          ),
+        );
+        return g;
+      }),
+    [tiles],
+  );
+  useEffect(() => () => lineGeoms.forEach((g) => g.dispose()), [lineGeoms]);
+
+  // The core itself: a miniature lat/long wireframe globe at the centre.
+  const coreGeo = useMemo(() => wireframeSphereGeometry(CORE_RADIUS), []);
+  useEffect(() => () => coreGeo.dispose(), [coreGeo]);
+
+  // Scratch objects reused every frame (never allocate inside useFrame).
+  const camPos = useMemo(() => new THREE.Vector3(), []);
+  const quat = useMemo(() => new THREE.Quaternion(), []);
+  const wN = useMemo(() => new THREE.Vector3(), []);
+  const wP = useMemo(() => new THREE.Vector3(), []);
+  const toCam = useMemo(() => new THREE.Vector3(), []);
+
+  useFrame(() => {
+    const grp = groupRef.current;
+    if (!grp?.parent) return;
+    grp.parent.getWorldQuaternion(quat); // the globe group's live rotation
+    camera.getWorldPosition(camPos);
+
+    // Connecting lines — fade with their tile's facing (hidden on the far side).
+    for (let i = 0; i < tiles.length; i++) {
+      const ln = lineRefs.current[i];
+      if (!ln) continue;
+      wN.copy(tiles[i].normal).applyQuaternion(quat);
+      wP.copy(tiles[i].position).applyQuaternion(quat);
+      toCam.copy(camPos).sub(wP).normalize();
+      const facing = clamp01(wN.dot(toCam) / FADE_START);
+      ln.visible = facing > 0.02;
+      if (ln.visible) {
+        (ln.material as THREE.LineBasicMaterial).opacity =
+          facing * CORE_LINE_OPACITY;
+      }
+    }
+  });
+
+  return (
+    <group ref={groupRef}>
+      {tiles.map((_, i) => (
+        <lineSegments
+          key={i}
+          ref={(el) => {
+            lineRefs.current[i] = el;
+          }}
+          geometry={lineGeoms[i]}
+          raycast={() => null}
+        >
+          <lineBasicMaterial
+            color={CORE_COLOR}
+            transparent
+            depthWrite={false}
+          />
+        </lineSegments>
+      ))}
+      {/* The core — a miniature pale wireframe globe at the centre. */}
+      <lineSegments geometry={coreGeo} raycast={() => null}>
+        <lineBasicMaterial
+          color={CORE_WIRE_COLOR}
+          transparent
+          opacity={0.5}
+          depthWrite={false}
+        />
+      </lineSegments>
+    </group>
+  );
 }
 
 function Globe({ onActive }: { onActive?: (index: number) => void }) {
@@ -320,8 +463,8 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
     camera.getWorldPosition(camPos);
     for (let i = 0; i < g.children.length; i++) {
       const mesh = g.children[i] as THREE.Mesh;
-      const mat = mesh.material as THREE.ShaderMaterial;
-      if (!mat.uniforms) continue;
+      const mat = mesh.material as THREE.ShaderMaterial | undefined;
+      if (!mat || !mat.uniforms) continue; // skip wireframe / markers group / etc.
       const n0 = mesh.userData.normal as THREE.Vector3;
       // Tile's live outward normal + world position (group rotates about origin).
       worldNormal.copy(n0).applyQuaternion(g.quaternion);
@@ -330,7 +473,10 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
       const facing = worldNormal.dot(toCam); // 1 = square-on, ≤0 = turned away
       mat.uniforms.uOpacity.value = clamp01(facing / FADE_START);
       mat.uniforms.uTime.value = t;
-      const hovered = hoverRef.current === i ? 1 : 0;
+      // Match on the tile's own index (userData), NOT the child index — the group
+      // also holds the wireframe + markers, so child index ≠ tile index.
+      const hovered =
+        hoverRef.current === (mesh.userData.index as number) ? 1 : 0;
       mat.uniforms.uHover.value +=
         (hovered - mat.uniforms.uHover.value) * HOVER_EASE;
       mesh.visible = facing > 0.02; // cull the back hemisphere from raycast + draw
@@ -355,7 +501,11 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
 
   return (
     <group ref={groupRef}>
+      {/* Three nested globe layers: the outer cage, a fainter middle layer, and
+          the yellow core mini-globe (rendered inside <Core>). */}
       <WireframeGlobe />
+      <WireframeGlobe radius={MID_R} opacity={0.16} />
+      <Core tiles={tiles} />
       {tiles.map((tile, i) => (
         <mesh
           key={i}
@@ -363,7 +513,11 @@ function Globe({ onActive }: { onActive?: (index: number) => void }) {
           material={tile.material}
           position={tile.position}
           quaternion={tile.quaternion}
-          userData={{ index: i, imageIndex: tile.imageIndex, normal: tile.normal }}
+          userData={{
+            index: i,
+            imageIndex: tile.imageIndex,
+            normal: tile.normal,
+          }}
           onPointerMove={onMove}
           onPointerOut={onOut}
         />
@@ -455,6 +609,68 @@ function CameraRig() {
   return null;
 }
 
+/** A band of random 0/1 digits (a "matrix"/data strip), faint lime-green on a
+ *  transparent ground, softly faded to nothing at the top and bottom rows — so it
+ *  reads as a horizontal band, not a full wall. Mapped onto the backdrop plane. */
+function makeBinaryTexture(): THREE.CanvasTexture {
+  const cell = 14; // px per digit cell
+  const c = document.createElement("canvas");
+  c.width = BINARY_COLS * cell;
+  c.height = BINARY_ROWS * cell;
+  const ctx = c.getContext("2d");
+  if (!ctx) return new THREE.CanvasTexture(c);
+  ctx.font = `${Math.floor(cell * 0.78)}px "JetBrains Mono", ui-monospace, monospace`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  // smoothstep 0→1 across the first `e` fraction — used to fade the band's edges.
+  const ramp = (e: number, x: number) => {
+    const t = Math.min(1, Math.max(0, x / e));
+    return t * t * (3 - 2 * t);
+  };
+  const EDGE = 0.28; // top/bottom fraction over which the band fades out
+  for (let y = 0; y < BINARY_ROWS; y++) {
+    const vy = BINARY_ROWS <= 1 ? 1 : y / (BINARY_ROWS - 1);
+    const win = Math.min(ramp(EDGE, vy), ramp(EDGE, 1 - vy)); // 0 at edges → 1 mid
+    for (let x = 0; x < BINARY_COLS; x++) {
+      const ch = Math.random() < 0.5 ? "0" : "1";
+      const a = (0.12 + Math.random() * 0.5) * win; // per-digit twinkle × band fade
+      if (a < 0.02) continue;
+      ctx.fillStyle = `rgba(${BINARY_COLOR},${a.toFixed(3)})`;
+      ctx.fillText(ch, x * cell + cell / 2, y * cell + cell / 2);
+    }
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = THREE.RepeatWrapping; // horizontal drift wraps; band stays put (no T wrap)
+  tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+
+/** The binary "data" band behind the globe — a wide, short plane that slowly
+ *  drifts sideways, faint so the green glow still reads through it. Fixed (not in
+ *  the spinning group), so it stays put as the globe turns. */
+function BinaryBackdrop() {
+  const ref = useRef<THREE.Mesh>(null);
+  const tex = useMemo(() => makeBinaryTexture(), []);
+  useEffect(() => () => tex.dispose(), [tex]);
+  useFrame((_, delta) => {
+    // Drift via the live material's map (not the memoized `tex` directly).
+    const mat = ref.current?.material as THREE.MeshBasicMaterial | null;
+    if (mat?.map) mat.map.offset.x -= delta * 0.006; // slow sideways data drift
+  });
+  return (
+    <mesh ref={ref} position={[0, BINARY_Y, BINARY_Z]} raycast={() => null}>
+      <planeGeometry args={[BINARY_PLANE_W, BINARY_PLANE_H]} />
+      <meshBasicMaterial
+        map={tex}
+        transparent
+        opacity={0.6}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
 export function GalleryScene({
   onActive,
   active = true,
@@ -465,6 +681,9 @@ export function GalleryScene({
    *  frames from scrolling. `never` freezes the last frame (unseen off-screen). */
   active?: boolean;
 }) {
+  // The binary "data" backdrop is a desktop-only flourish — hidden on mobile,
+  // where it's busy on a small viewport (and the safe default before hydration).
+  const showBinary = useMediaQuery("(min-width: 1024px)");
   return (
     <Canvas
       dpr={[1, 2]}
@@ -473,6 +692,7 @@ export function GalleryScene({
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
     >
       <CameraRig />
+      {showBinary && <BinaryBackdrop />}
       <Suspense fallback={null}>
         <GridFloor position={[0, -FLOOR_Y, 0]} />
         <Globe onActive={onActive} />

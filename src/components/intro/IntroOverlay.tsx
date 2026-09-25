@@ -7,24 +7,22 @@ import { markIntroComplete } from "@/lib/useIntroComplete";
 import { EVAN_MARK } from "@/lib/evanMark";
 
 /**
- * First-load intro — the "Evan" wordmark becomes the core of the vortex.
+ * First-load intro — the "Evan" wordmark is drawn on, then bows out.
  *
  * An opaque tint covers the Hero while the "Evan" wordmark is written on in one
  * continuous pen stroke (a single dash sweep across the joined path, so the tip
- * never lifts). When the draw finishes it hands off to the vortex (IntroVortex):
- * the wordmark stays centred, spinning and spiralling inward while it GRADUALLY
- * fades out — gone by the time the vortex reveals the Hero. The page itself is
- * caught in the same swirl, spinning several turns to a stop on the revealed Hero.
- * One continuous motion, intro → vortex → hero.
+ * never lifts). When the draw finishes, the wordmark fades out (no spin, no zoom)
+ * while the tint still hides the Hero — so "EVAN" is never seen over the page —
+ * and only then does the tint fade to reveal the clean Hero.
  * Plays on every load; skipped entirely under reduced motion and with JS disabled
  * (nothing is server-rendered, so the site is never blocked).
  */
 
-// Mirror IntroVortex's own DURATION so the wordmark's exit lines up with the vortex
-// fading to reveal the hero. The wordmark spins, spirals inward and fades away
-// entirely within that window, so it's gone by the time the hero is revealed.
-const VORTEX_DURATION = 2.2;
-const WORDMARK_EXIT = VORTEX_DURATION; // 2.2s
+// Intro exit timing: "EVAN" fades out first (while the tint still hides the Hero),
+// then the tint fades to reveal the clean Hero — so the wordmark is never seen
+// over the page.
+const EVAN_FADE = 0.4; // seconds — wordmark fade-out (on the opaque tint)
+const TINT_FADE = 0.5; // seconds — tint fade-out (reveals the Hero)
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -69,40 +67,27 @@ export function IntroOverlay() {
       setShow(false);
     };
 
-    // Hand off from the drawn wordmark to the vortex: arm the vortex and fade the
-    // tint so the shapes spiralling behind it show through (the vortex's own opaque
-    // page — same colour — keeps the hero covered until it reveals). The spin/shrink
-    // exit itself lives on the timeline. Idempotent, so skip can't double it.
+    // Hand off once the name is drawn: mark the intro complete and release input +
+    // the scroll lock so the revealed Hero is immediately interactive. The visual
+    // reveal (tint fade) lives in the exit timeline below. Idempotent.
     const handOff = () => {
       if (handedOff) return;
       handedOff = true;
       markIntroComplete();
-      // The vortex now owns the screen; the overlay is just the spinning core
-      // dissolving out — stop it trapping input and release the scroll lock.
       overlay.style.pointerEvents = "none";
       document.body.style.overflow = "";
-      // Delay a touch so the vortex canvas has mounted and painted opaque before
-      // the tint thins — the hero never peeks through the crossfade.
-      gsap.to(scrim, { autoAlpha: 0, duration: 0.4, delay: 0.15, ease: "power1.out" });
     };
 
-    // The wordmark's exit, positioned against a "drawn" label (shared by the play
-    // and skip paths): the spin accelerates (power-in ease) while the mark spirals
-    // inward, shrinking to nothing about its own centre, and it GRADUALLY fades the
-    // whole way — starting soon after the draw and gone before the hero settles in.
-    const spinOut = (t: gsap.core.Timeline) => {
-      t.to(
-        svg,
-        { rotation: "+=1080", duration: WORDMARK_EXIT, ease: "power1.in" },
-        "drawn",
-      )
-        .to(svg, { scale: 0, duration: WORDMARK_EXIT, ease: "none" }, "drawn")
-        // Linear, gradual fade from 0.5s in to 0.2s before the reveal completes.
-        .to(
-          svg,
-          { autoAlpha: 0, duration: WORDMARK_EXIT - 0.7, ease: "none" },
-          "drawn+=0.5",
-        );
+    // The intro's exit, anchored at the "drawn" label (shared by the play + skip
+    // paths):
+    //  1) "EVAN" fades out while the tint STILL HIDES the Hero, so it is never seen
+    //     over the page (this was the complaint: the wordmark fading over the hero);
+    //  2) hand off (mark complete, release input/scroll);
+    //  3) the tint fades to reveal the clean Hero.
+    const buildExit = (t: gsap.core.Timeline) => {
+      t.to(svg, { autoAlpha: 0, duration: EVAN_FADE, ease: "power1.out" }, "drawn")
+        .add(handOff)
+        .to(scrim, { autoAlpha: 0, duration: TINT_FADE, ease: "power1.out" });
     };
 
     document.body.style.overflow = "hidden";
@@ -116,10 +101,9 @@ export function IntroOverlay() {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
     const ctx = gsap.context(() => {
-      // Prime: hide the stroke; spin/shrink about the wordmark's own centre.
+      // Prime: hide the stroke, ready to be drawn on.
       const markLen = mark.getTotalLength();
       gsap.set(mark, { strokeDasharray: markLen, strokeDashoffset: markLen });
-      gsap.set(svg, { transformOrigin: "center center" });
 
       const timeline = gsap.timeline({ onComplete: finish });
       tl = timeline;
@@ -127,10 +111,9 @@ export function IntroOverlay() {
       timeline
         // 1) Write the whole name in one continuous pen stroke.
         .to(mark, { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" })
-        .addLabel("drawn", "+=0.2")
-        // 2) Hand off, then spin/shrink into the vortex core.
-        .add(handOff, "drawn");
-      spinOut(timeline);
+        .addLabel("drawn", "+=0.2");
+      // 2) Fade "EVAN" out (tint still hiding the Hero), then reveal the Hero.
+      buildExit(timeline);
     });
 
     // Let visitors skip the draw. Once handed off, the vortex plays out on its own.
@@ -138,10 +121,11 @@ export function IntroOverlay() {
       if (finished || handedOff) return;
       tl?.kill();
       gsap.set(mark, { strokeDashoffset: 0 }); // finish the draw instantly
-      handOff();
+      handOff(); // set the guard now so a second skip can't re-enter (idempotent)
       const rt = gsap.timeline({ onComplete: finish });
       rt.addLabel("drawn", 0);
-      spinOut(rt);
+      // Same exit as the play path: "EVAN" fades on the tint, then the Hero reveals.
+      buildExit(rt);
       tl = rt;
     };
     overlay.addEventListener("pointerdown", skip);
@@ -174,14 +158,14 @@ export function IntroOverlay() {
         style={{ background: "var(--color-base, #0b1510)" }}
       />
 
-      {/* The wordmark: one continuous open stroke; drawn on, then spun and shrunk into the vortex core */}
+      {/* The wordmark: one continuous open stroke; drawn on, then faded out */}
       <svg
         ref={svgRef}
         viewBox={EVAN_MARK.viewBox}
         aria-hidden
         style={{
           position: "relative",
-          width: "min(84vw, 820px)",
+          width: "min(92vw, 960px)",
           height: "auto",
           overflow: "visible",
           filter: "drop-shadow(0 0 16px rgba(215,242,74,0.22))",

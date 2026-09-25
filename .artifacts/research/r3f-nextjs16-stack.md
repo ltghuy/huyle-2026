@@ -8,17 +8,15 @@
 
 Read from local `package.json` and `node_modules/*/package.json`:
 
-| Package | Version |
-|---|---|
-| `next` | 16.3.0 |
-| `react` | 19.2.8 |
-| `react-dom` | 19.2.8 |
+| Package       | Version                         |
+| ------------- | ------------------------------- |
+| `next`        | 16.3.0                          |
+| `react`       | 19.2.8                          |
+| `react-dom`   | 19.2.8                          |
 | `tailwindcss` | ^4 (via `@tailwindcss/postcss`) |
-| `typescript` | ^5 |
+| `typescript`  | ^5                              |
 
 Package manager: `yarn@1.22.22`. Import alias `@/*` -> `src/*`. App Router (`src/app`).
-
-Sources: `/Users/evan.letrangiahuy/Documents/Personal/evan-le/package.json`, `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/next/package.json`, `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/react/package.json`.
 
 ---
 
@@ -45,17 +43,16 @@ export default function Page() { return <SceneClient />; }
 
 Key rules confirmed from the Next 16 local doc (`.../02-guides/lazy-loading.md`):
 
-- Verbatim from the doc: *"`ssr: false` option is not supported in Server Components. You will see an error if you try to use it in Server Components. `ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component."* This is the same restriction that landed in Next 15 and it **still applies in Next 16** — so the Next-15 assumption holds; verified against local docs.
-- Verbatim: *"`ssr: false` option will only work for Client Components, move it into Client Components ensure the client code-splitting working properly."*
+- Verbatim from the doc: _"`ssr: false` option is not supported in Server Components. You will see an error if you try to use it in Server Components. `ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component."_ This is the same restriction that landed in Next 15 and it **still applies in Next 16** — so the Next-15 assumption holds; verified against local docs.
+- Verbatim: _"`ssr: false` option will only work for Client Components, move it into Client Components ensure the client code-splitting working properly."_
 - The dynamic import path must be a literal string inside the `dynamic()` call (no variables/template strings) so the bundler can match and preload the chunk.
 - `React.lazy()` + `<Suspense>` is the other supported option, but it prerenders (SSRs) the Client Component by default, which is exactly what we must avoid for WebGL — so `next/dynamic` with `ssr:false` is the cleaner fit for `<Canvas>`.
 
 **App Router gotchas:**
+
 - Any component using r3f hooks (`useThree`, `useFrame`, `useGLTF`) or the `<Canvas>` itself must live under a `"use client"` boundary; these hooks touch `window`/WebGL and cannot run on the server.
 - Do not add `ssr:false` in the `page.tsx` (Server Component) directly — wrap it as shown.
 - `dynamic()` must be called at module top level, not inside render.
-
-Sources: `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/next/dist/docs/01-app/02-guides/lazy-loading.md` (lines 60–95); server/client split guide `.../01-getting-started/05-server-and-client-components.md`.
 
 ---
 
@@ -82,6 +79,7 @@ yarn add -D @types/three
 ```
 
 **React 19 peer-dep notes / how to resolve:**
+
 - r3f v9 and drei v10 declare React 19 peers, so a clean `yarn add` should not fight React 19.2.8. If a transitive dep still pins React 18 and yarn errors, add a Yarn 1 `resolutions` block in `package.json`, e.g. `"resolutions": { "react": "19.2.8", "react-dom": "19.2.8" }`, or install with `--ignore-engines` only as a last resort.
 - Do **not** downgrade to r3f v8 / drei v9 — those target React 18 and will misbehave on React 19.
 - UNVERIFIED: exact latest `three` version number at install time — reasoning: three ships frequently; `yarn add three` resolves the current release, and r3f v9's `three` peer is a wide range, so take latest.
@@ -95,11 +93,13 @@ Sources: [@react-three/fiber npm](https://www.npmjs.com/package/@react-three/fib
 **Recommendation:** Load rigged GLBs with drei `useGLTF` inside a `<Suspense>` boundary, drive animations with `useAnimations`, preload with `useGLTF.preload(url)` / drei `<Preload all />`, and ship Draco- or meshopt-compressed GLBs. Clamp `dpr`, use on-demand `frameloop`, lazy-mount the Canvas, and show a poster until the scene is interactive. Put static GLBs in `public/`.
 
 Loading + animation pattern:
+
 - `const { scene, animations } = useGLTF('/assets/models/hero.glb')` then `const { actions } = useAnimations(animations, groupRef)`; play/crossfade actions in an effect. Wrap the model component in `<Suspense fallback={...}>` so the Canvas can render while the GLB streams in.
 - Preload: call `useGLTF.preload('/assets/models/hero.glb')` at module scope, and/or add drei `<Preload all />` inside the Canvas to warm GPU uploads. This avoids a stall on first reveal.
 - Compression: prefer **meshopt** or **Draco**. drei's `useGLTF` auto-wires the Draco decoder (accepts a decoder path) and supports meshopt via three's `MeshoptDecoder`. Compress at export time with `gltf-transform` (Draco/meshopt) or `gltfpack`. Note: the local `meshyai` skill's `optimize-glb.mjs` already applies **meshopt** compression + 1024px WebP textures and reduces GLBs ~80–95%; those optimized GLBs require `MeshoptDecoder` at runtime.
 
 Keeping payload small + smooth FPS:
+
 - **dpr clamping:** `<Canvas dpr={[1, 2]} />` (cap at 2, or 1.5 on mobile). Add drei `<AdaptiveDpr pixelated />` to drop resolution under load.
 - **On-demand render:** `<Canvas frameloop="demand" />` so the scene only renders on change/interaction (great for a mostly-static hero); switch to `"always"` only while an animation/scroll is active. `invalidate()` triggers a frame when needed.
 - **Lazy-mount the Canvas:** dynamic import with `ssr:false` (topic 1) keeps ~three+r3f JS out of the initial bundle; optionally mount only when the hero scrolls into view (IntersectionObserver) to defer WebGL init.
@@ -108,7 +108,7 @@ Keeping payload small + smooth FPS:
 
 **Where 3D assets live:** In `public/` — Next serves anything in `public` from the base URL `/`. Convention (matching the meshyai skill) is `public/assets/models/*.glb`, referenced as `/assets/models/hero.glb`. Note the default `Cache-Control: public, max-age=0` on `public` assets; for large GLBs consider a hashed filename + CDN/long-cache header at deploy if load time matters.
 
-Sources: `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/public-folder.md`; drei docs (`useGLTF`, `useAnimations`, `Preload`, `AdaptiveDpr`, `PerformanceMonitor`) — https://drei.docs.pmnd.rs/ ; r3f performance docs — https://r3f.docs.pmnd.rs/advanced/scaling-performance ; local `meshyai` skill `SKILL.md` (optimize-glb / meshopt notes).
+Sources: drei docs (`useGLTF`, `useAnimations`, `Preload`, `AdaptiveDpr`, `PerformanceMonitor`) — https://drei.docs.pmnd.rs/ ; r3f performance docs — https://r3f.docs.pmnd.rs/advanced/scaling-performance ; local `meshyai` skill `SKILL.md` (optimize-glb / meshopt notes).
 
 ---
 
@@ -129,6 +129,7 @@ Sources: MDN WebGL context detection — https://developer.mozilla.org/docs/Web/
 **Recommendation:** Generate the character with the local `meshyai` skill's `scripts/meshy-generate.mjs`; for a rigged/animated humanoid, chain **image-to-3D -> rig -> animate** and let the script auto-optimize and write GLBs into `public/assets/models/`.
 
 Pipeline shape (from the `meshyai` skill):
+
 1. **Image-to-3D** (or text-to-3D) — `--mode image-to-3d --image ./photo.png --slug hero` produces a textured GLB. (Preview = geometry only; refine = textured. Rigging needs the textured mesh.)
 2. **Auto-rig** (humanoids, mandatory) — `--mode rig --task-id <id> --height 1.8 --slug hero` adds a skeleton and **auto-downloads walk + run animation GLBs**. Output: `hero.glb` (rigged) + `hero-walk.glb` + `hero-run.glb`.
 3. **Animate** — `--mode animate --task-id <rig-id> --action-id N --slug hero-<clip>` applies additional named clips.
@@ -136,7 +137,7 @@ Pipeline shape (from the `meshyai` skill):
 
 **Outputs/formats to expect:** GLB (`.glb`) files plus a `.meta.json` (task IDs for traceability). Rigged models carry a skeleton + animation clips; integrate via SkeletonUtils clone (drei `useGLTF`/`useAnimations` handle this). **Caveats:** rig only works on textured **bipedal humanoid** meshes; Meshy retains remote assets for **only ~3 days**, so download immediately and keep the GLB in `public/`. Requires `MESHY_API_KEY` (present in `.env`).
 
-Sources: `/Users/evan.letrangiahuy/.agents/skills/meshyai/SKILL.md`; companion `api-reference.md`, `rigging-pipeline.md`, `verification-patterns.md` in the same skill dir.
+Sources: companion `api-reference.md`, `rigging-pipeline.md`, `verification-patterns.md` in the same skill dir.
 
 ---
 
@@ -150,13 +151,28 @@ Pattern (mirrors the current `Geist({ variable })` usage, extended):
 // src/app/layout.tsx
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 
-const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], display: "swap" });
-const inter        = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const jetbrainsMono= JetBrains_Mono({ variable: "--font-jetbrains-mono", subsets: ["latin"], display: "swap" });
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+    >
       <body>{children}</body>
     </html>
   );
@@ -164,12 +180,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 ```
 
 Notes:
+
 - Multi-word Google font names use underscores in the import (`Space_Grotesk`, `JetBrains_Mono`).
 - `variable` exposes a CSS custom property; wire it into Tailwind v4 via `@theme` (e.g. `--font-sans: var(--font-inter)`) or use the vars directly in `globals.css`. Variable fonts need no `weight`; a non-variable font would require `weight`.
 - `display: 'swap'` is the recommended default; `preload` defaults on for fonts with `subsets`.
 - Existing `layout.tsx` already uses `LayoutProps<"/">` (Next 16 typed layout props) — keep that.
-
-Sources: `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/next/dist/docs/01-app/01-getting-started/13-fonts.md`; `/Users/evan.letrangiahuy/Documents/Personal/evan-le/node_modules/next/dist/docs/01-app/03-api-reference/02-components/font.md` (options table incl. `variable`, `subsets`, `display`, `weight`); existing `/Users/evan.letrangiahuy/Documents/Personal/evan-le/src/app/layout.tsx`.
 
 ---
 

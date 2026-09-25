@@ -20,8 +20,8 @@ import { useLocale } from "@/lib/i18n/LocaleProvider.client";
  * single stacking context — no pinning, and nothing the next section can overlap.
  *
  *  1. ENTRANCE (hero → #about top): a clone of the hero portrait flies from its
- *     hero spot to centre-stage — rising, scaling up, a slight tilt straightening,
- *     B&W → colour — while "HUY" / "LE" and the "About" chip fade in to flank it.
+ *     hero spot to centre-stage — rising, scaling up, B&W → colour — while
+ *     "HUY" / "LE" and the "About" chip fade in to flank it.
  *
  *  2. PORTAL + HIJACK (scrubbed over #about's height): the portrait SPLITS
  *     vertically down the middle and the two halves travel outward — the left half
@@ -36,7 +36,6 @@ import { useLocale } from "@/lib/i18n/LocaleProvider.client";
  */
 
 const DOCK_SCALE = 1.7; // docked size, relative to the hero portrait size
-const START_TILT = -6; // deg — a slight 2D tilt at the hero, straightening as it docks
 // #about scroll length driving the whole scrub: the split intro + one beat per
 // bio chapter. The taller this track, the more you scroll per beat — so raising
 // it slows the whole portal effect down (more scroll distance per animation).
@@ -195,8 +194,8 @@ export function ScrollPortrait() {
       });
       entrance.fromTo(
         stage,
-        { y: () => startY, scale: 1, rotation: START_TILT, "--pg": 1 },
-        { y: 0, scale: DOCK_SCALE, rotation: 0, "--pg": 0, duration: 1 },
+        { y: () => startY, scale: 1, "--pg": 1 },
+        { y: 0, scale: DOCK_SCALE, "--pg": 0, duration: 1 },
         0,
       );
       // NOTE: the name + chip lifecycle lives ENTIRELY in the portal timeline
