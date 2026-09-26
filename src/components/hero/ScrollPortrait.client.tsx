@@ -198,6 +198,11 @@ export function ScrollPortrait() {
         { y: 0, scale: DOCK_SCALE, "--pg": 0, duration: 1 },
         0,
       );
+      // The resting 15° tilt (set in CSS on the card, and on the hero source)
+      // straightens to 0 across the entrance, so the portrait is upright by the
+      // time it docks and HUY / LE flank it. Rotates the CARD (not the stage, which
+      // owns scale/position), composing cleanly with the magnetic-hover x/y.
+      entrance.fromTo(card, { rotation: 15 }, { rotation: 0, duration: 1 }, 0);
       // NOTE: the name + chip lifecycle lives ENTIRELY in the portal timeline
       // (below), not here — so a single timeline owns their opacity. If the
       // entrance also faded them in, scrubbing back to the top (e.g. clicking the
@@ -400,7 +405,7 @@ export function ScrollPortrait() {
       <div id="scroll-portrait-stage" className="absolute left-1/2 top-1/2">
         <div
           id="scroll-portrait-card"
-          className="pointer-events-auto relative aspect-[700/959] w-full shadow-lg"
+          className="pointer-events-auto relative aspect-[700/959] w-full rotate-[15deg] shadow-lg"
         >
           <Portrait />
 

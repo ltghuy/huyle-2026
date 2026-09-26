@@ -15,7 +15,9 @@
 
   /* Editorial type scale — oversized hero "spine" (feature 002). Generates the
      `text-hero` utility; paired tokens set its leading/tracking. */
-  --text-hero: clamp(3.5rem, 13vw, 11rem);
+  /* Floor raised (was 3.5rem) so the wordmark fills more of small screens —
+     the min only binds below ~554px (phones); vw/max govern tablet & up. */
+  --text-hero: clamp(4.5rem, 13vw, 11rem);
   --text-hero--line-height: 0.9;
   --text-hero--letter-spacing: -0.03em;
 
