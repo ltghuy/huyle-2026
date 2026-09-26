@@ -78,6 +78,7 @@ export const vi: Dictionary = {
   work: {
     eyebrow: "Dự án tiêu biểu",
     heading: "Dự án",
+    hint: "Di chuột vào từng bảng để khám phá",
     liveDemo: "Xem demo",
     source: "Mã nguồn",
   },

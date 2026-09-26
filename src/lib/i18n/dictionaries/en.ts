@@ -96,6 +96,7 @@ export const en = {
   work: {
     eyebrow: "Selected Work",
     heading: "Projects",
+    hint: "Hover a panel to explore",
     liveDemo: "Live demo",
     source: "Source",
   },
