@@ -77,7 +77,7 @@ export function WhatIDo() {
   const ringLabels = t.whatIDo.ring;
 
   return (
-    <section id="what-i-do" className="overflow-hidden py-28">
+    <section id="what-i-do" className="overflow-hidden py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
         <Reveal>
           <p className="eyebrow mb-3">{t.whatIDo.eyebrow}</p>
@@ -169,7 +169,7 @@ function CapabilitiesLoop({ ringLabels }: { ringLabels: string[] }) {
   return (
     <div
       ref={stageRef}
-      className="relative mt-6 h-[56vh] min-h-[360px] w-full sm:h-[82vh] sm:min-h-[620px]"
+      className="relative mt-6 h-[34vh] min-h-[260px] w-full sm:h-[82vh] sm:min-h-[620px]"
     >
       {RINGS.map((ring) => (
         <Ring
