@@ -16,7 +16,7 @@ export const practices = [
     number: 1,
     title: "Toast / Notification System",
     summary: "Queued, auto-dismissing notifications with pause on hover and stacking.",
-    built: false,
+    built: true,
   },
   {
     slug: "searchable-accordion",

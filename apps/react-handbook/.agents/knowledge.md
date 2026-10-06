@@ -6,6 +6,7 @@
 - Practice features (002–015) hand-build their core logic with no third-party runtime libraries; basic shadcn primitives (Button, Input, Card) are allowed for styling, but shadcn's version of the practiced pattern (Dialog, Toast, Accordion…) is never used in that practice -- the point is to practice the hard part <!-- feature:001 date:2026-10-06 -->
 - Practice demo data comes from this repo's own mock API routes (generated data, configurable latency + error injection); chat uses SSE + POST; uploads hit a real endpoint for real progress -- real network behavior without external dependencies <!-- feature:001 date:2026-10-06 -->
 - Every practice page = title/summary, explanation panel, optional demo controls, live demo; one URL per practice -- consistent frame, refresh-safe, per-practice code loading <!-- feature:001 date:2026-10-06 -->
+- The toast service from practice 002 is the playground's app-wide notification system: other practices raise toasts with the `toast` API from `src/practices/toast-notifications/toast-store.ts`; `<Toaster />` is mounted once in the playground layout (the one intended shell exception) <!-- feature:002 date:2026-10-06 -->
 
 ## Gotchas
 
@@ -19,8 +20,10 @@
 - Deleting or moving route/module files while `next dev` (Turbopack) runs can leave a stale module graph: "Module ... was instantiated ... but the module factory is not available". Restart dev with `rm -rf .next && pnpm dev`; only one `next dev` per project is allowed, so verify structural changes with `pnpm build && pnpm start` on another port <!-- feature:001 date:2026-10-06 -->
 - shadcn neutral `--ring`/`--sidebar-ring` in light mode (L 0.708) gives only ~2:1 focus-ring contrast on near-white surfaces (WCAG needs 3:1); the sidebar ring was darkened to 0.556. Check ring contrast for any new focusable surface <!-- feature:001 date:2026-10-06 -->
 - Headless Chrome doesn't apply `:focus-visible` to scripted `.focus()`; verify focus rings by computed tokens/contrast or with a real Tab key press <!-- feature:001 date:2026-10-06 -->
+- Puppeteer screenshots call `setViewport`; if the page was opened with `isMobile`/`hasTouch`, that change reloads the page and wipes client state (e.g. the toast store). Test narrow layouts with a plain 360 px `defaultViewport` instead <!-- feature:002 date:2026-10-06 -->
 
 ## Codebase Feedback
 
 - Each built practice owns a route `src/app/(playground)/practices/{slug}/page.tsx` rendering `PracticeFrame` with its `explanation`/`demo`, plus `built: true` in `src/practices/catalog.ts`; `[slug]` serves only placeholders and 404s <!-- feature:001 target:architecture date:2026-10-06 -->
 - Practice demos compose `<DemoControls>` (optional) + `<DemoStage>` (error boundary) from `src/components/playground/` <!-- feature:001 target:conventions date:2026-10-06 -->
+- App-wide client services use a module-level store + `useSyncExternalStore` with a constant server snapshot (see the toast store); mutate only from events/effects <!-- feature:002 target:conventions date:2026-10-06 -->

@@ -1,6 +1,7 @@
 import { AppSidebar } from "@/components/playground/app-sidebar";
 import { TopBar } from "@/components/playground/top-bar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/practices/toast-notifications/toaster";
 
 export default function PlaygroundLayout({ children }: LayoutProps<"/">) {
   return (
@@ -12,6 +13,7 @@ export default function PlaygroundLayout({ children }: LayoutProps<"/">) {
           {children}
         </div>
       </SidebarInset>
+      <Toaster />
     </SidebarProvider>
   );
 }
