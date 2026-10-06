@@ -28,6 +28,10 @@ export function PracticeNav({ items }: { items: PracticeNavItem[] }) {
   const { isMobile, setOpenMobile } = useSidebar();
   const [query, setQuery] = useState("");
 
+  function handleNavigate() {
+    if (isMobile) setOpenMobile(false);
+  }
+
   const needle = query.trim().toLowerCase();
   const visible = needle
     ? items.filter((item) => item.title.toLowerCase().includes(needle))
@@ -70,12 +74,7 @@ export function PracticeNav({ items }: { items: PracticeNavItem[] }) {
                       aria-current={active ? "page" : undefined}
                       title={item.title}
                       render={
-                        <Link
-                          href={href}
-                          onClick={() => {
-                            if (isMobile) setOpenMobile(false);
-                          }}
-                        />
+                        <Link href={href} onClick={handleNavigate} />
                       }
                     >
                       <span

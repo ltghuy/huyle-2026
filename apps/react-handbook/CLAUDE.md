@@ -20,3 +20,4 @@ Detailed rules live in `.claude/rules/` (loaded automatically):
 - `02-ui-implementation.md`: shadcn/ui usage, RSC boundaries
 - `03-new-page-design.md`: new page workflow
 - `04-architecture.md`: FE/BE layering and API conventions
+- `05-event-handlers.md`: inline JSX handlers only for one-line calls; extract the rest
