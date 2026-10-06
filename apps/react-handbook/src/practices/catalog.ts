@@ -30,7 +30,7 @@ export const practices = [
     number: 3,
     title: "Infinite Scroll",
     summary: "Load the next page as the user nears the end of the list.",
-    built: false,
+    built: true,
   },
   {
     slug: "data-fetching-hook",
