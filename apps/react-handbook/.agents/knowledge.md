@@ -7,6 +7,7 @@
 - Practice demo data comes from this repo's own mock API routes (generated data, configurable latency + error injection); chat uses SSE + POST; uploads hit a real endpoint for real progress -- real network behavior without external dependencies <!-- feature:001 date:2026-10-06 -->
 - Every practice page = title/summary, explanation panel, optional demo controls, live demo; one URL per practice -- consistent frame, refresh-safe, per-practice code loading <!-- feature:001 date:2026-10-06 -->
 - The toast service from practice 002 is the playground's app-wide notification system: other practices raise toasts with the `toast` API from `src/practices/toast-notifications/toast-store.ts`; `<Toaster />` is mounted once in the playground layout (the one intended shell exception) <!-- feature:002 date:2026-10-06 -->
+- Accordion panels use `aria-labelledby` without `role="region"` when many panels can be open (APG warns about landmark proliferation above ~6) <!-- feature:003 date:2026-10-06 -->
 
 ## Gotchas
 
@@ -21,6 +22,7 @@
 - shadcn neutral `--ring`/`--sidebar-ring` in light mode (L 0.708) gives only ~2:1 focus-ring contrast on near-white surfaces (WCAG needs 3:1); the sidebar ring was darkened to 0.556. Check ring contrast for any new focusable surface <!-- feature:001 date:2026-10-06 -->
 - Headless Chrome doesn't apply `:focus-visible` to scripted `.focus()`; verify focus rings by computed tokens/contrast or with a real Tab key press <!-- feature:001 date:2026-10-06 -->
 - Puppeteer screenshots call `setViewport`; if the page was opened with `isMobile`/`hasTouch`, that change reloads the page and wipes client state (e.g. the toast store). Test narrow layouts with a plain 360 px `defaultViewport` instead <!-- feature:002 date:2026-10-06 -->
+- Accent-insensitive search must fold per character and keep an index map back to the original string; folding the whole string first breaks highlight positions because NFD and lowercasing can change length <!-- feature:003 date:2026-10-06 -->
 
 ## Codebase Feedback
 

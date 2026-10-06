@@ -23,7 +23,7 @@ export const practices = [
     number: 2,
     title: "Searchable Accordion",
     summary: "Expandable sections filtered by a search query, with match highlighting.",
-    built: false,
+    built: true,
   },
   {
     slug: "infinite-scroll",
