@@ -3,7 +3,7 @@ id: "002"
 feature: toast-notifications
 type: greenfield
 scope: large
-status: to-review
+status: done
 branch: main
 created: 2026-10-06
 ---
@@ -30,10 +30,10 @@ from the project's own mock endpoints, explanation panel + demo controls).
 
 ## Goals
 
-- [ ] Any part of the playground can raise a toast with one call, and the toast stays visible across navigation between practices.
-- [ ] Auto-dismiss timing is exact and fair: a toast is visible for its full duration of *unpaused* time, within ±100 ms.
-- [ ] Screen reader users are told about every toast, with errors announced with higher urgency than other types.
-- [ ] The demo page lets the learner trigger and tune every behavior (types, actions, async, queue size, duration, position, bursts) without editing code.
+- [x] Any part of the playground can raise a toast with one call, and the toast stays visible across navigation between practices.
+- [x] Auto-dismiss timing is exact and fair: a toast is visible for its full duration of *unpaused* time, within ±100 ms.
+- [x] Screen reader users are told about every toast, with errors announced with higher urgency than other types.
+- [x] The demo page lets the learner trigger and tune every behavior (types, actions, async, queue size, duration, position, bursts) without editing code.
 
 ## Out of Scope
 
@@ -60,8 +60,8 @@ from the project's own mock endpoints, explanation panel + demo controls).
 - [x] AC-002: WHEN a success, info, or warning toast without an action is shown THEN system SHALL dismiss it automatically after the configured duration (default 5 seconds).
 - [x] AC-003: WHEN an error toast is shown THEN system SHALL keep it visible until the user dismisses it.
 - [x] AC-004: WHEN the user activates a toast's close button THEN system SHALL dismiss that toast immediately; every toast SHALL have a close button with an accessible name.
-- [ ] AC-005: WHEN a toast appears or is dismissed THEN system SHALL animate it in and out (enter from the edge it is anchored to, exit by fading), without moving any page content outside the toast area.
-- [ ] AC-006: WHEN a toast is dismissed THEN the remaining toasts SHALL move smoothly into the freed space rather than jumping.
+- [x] AC-005: WHEN a toast appears or is dismissed THEN system SHALL animate it in and out (enter from the edge it is anchored to, exit by fading), without moving any page content outside the toast area.
+- [x] AC-006: WHEN a toast is dismissed THEN the remaining toasts SHALL move smoothly into the freed space rather than jumping.
 
 ### P1: Queue with a maximum visible count
 
@@ -176,11 +176,11 @@ from the project's own mock endpoints, explanation panel + demo controls).
 
 ## Success Criteria
 
-- [ ] Auto-dismiss fires within ±100 ms of the configured duration of unpaused time, measured across 10 toasts including hover, keyboard-focus and tab-hidden pauses.
-- [ ] A burst of 50 toasts raised in one go causes no long main-thread task over 50 ms, and all 50 are eventually shown and dismissed with none lost.
-- [ ] Zero serious or critical issues in an automated accessibility audit of the practice page with toasts visible.
-- [ ] Every toast type, the action, the async flow, the queue, all six positions, and duplicate merging can be demonstrated from the demo controls alone, in under 2 minutes.
-- [ ] Toasts raised on the practice page remain visible and on time after navigating to another practice.
+- [x] Auto-dismiss fires within ±100 ms of the configured duration of unpaused time, measured across 10 toasts including hover, keyboard-focus and tab-hidden pauses.
+- [x] A burst of 50 toasts raised in one go causes no long main-thread task over 50 ms, and all 50 are eventually shown and dismissed with none lost.
+- [x] Zero serious or critical issues in an automated accessibility audit of the practice page with toasts visible.
+- [x] Every toast type, the action, the async flow, the queue, all six positions, and duplicate merging can be demonstrated from the demo controls alone, in under 2 minutes.
+- [x] Toasts raised on the practice page remain visible and on time after navigating to another practice.
 
 ## Open Questions
 
