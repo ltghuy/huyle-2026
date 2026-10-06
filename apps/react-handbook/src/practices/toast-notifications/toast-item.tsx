@@ -88,7 +88,7 @@ export const ToastItem = memo(function ToastItem({
                 <span className="sr-only">{style.label}: </span>
                 {item.title}
                 {item.count > 1 ? (
-                  <span className="ml-2 rounded-full bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground tabular-nums">
+                  <span className="ml-2 rounded-full bg-muted px-1.5 py-0.5 font-mono text-xs text-foreground/75 tabular-nums">
                     <span aria-hidden>×{item.count}</span>
                     <span className="sr-only">, {item.count} times</span>
                   </span>

@@ -53,7 +53,6 @@ The practice catalog, in sidebar order:
 | Showing source code inside the app | Not requested; the source is in the repository |
 | Automated test suite | Not requested for this phase |
 | Internationalization | English only |
-| Light/dark theme toggle | The app follows the system theme; an explicit toggle isn't needed |
 
 ## User Stories
 
@@ -129,6 +128,18 @@ The practice catalog, in sidebar order:
 
 - [x] AC-021: WHEN the user types in the sidebar filter THEN system SHALL show only the practices whose name contains the text, ignoring case.
 - [x] AC-022: WHEN no practice matches the filter THEN system SHALL show a "no matches" message and a way to clear the filter.
+
+### P3: Choose a theme (added 2026-10-06, quick task 001-theme-toggle)
+
+- As a learner, I want to pick light, dark, or the system theme so that the playground is comfortable in any lighting.
+- **Why P3:** Comfort; the app already follows the system theme by default.
+
+**Acceptance Criteria:**
+
+- [x] AC-023: WHEN the playground is first opened THEN system SHALL follow the operating system's theme and update live when it changes.
+- [x] AC-024: WHEN the user activates the theme control in the top bar THEN system SHALL cycle Light → Dark → System, and the control SHALL state the current and next theme to assistive technology.
+- [x] AC-025: WHEN a theme was chosen THEN system SHALL keep it across navigation and reloads, applying it before the page first paints (no flash of the other theme).
+- [x] AC-026: WHEN the browser blocks storage THEN the control SHALL still switch the theme for the current page.
 
 ## Edge Cases
 

@@ -100,6 +100,7 @@ None. The shell has no endpoints.
 | Filter: client state in the nav island, case-insensitive `includes` on the title, "No matches" + Clear button | AC-021/022; 14 items need no debounce or memoization |
 | Truncate titles with `truncate` + `title` attribute; full text stays in the DOM | Edge case: long names (screen readers read full text) |
 | Theme follows the OS: change `@custom-variant dark` to `@media (prefers-color-scheme: dark)` and move the `.dark` block under that media query | Spec's no-toggle decision; today dark mode never activates because nothing sets `.dark` |
+| **Superseded (quick task 001-theme-toggle):** dark tokens keyed on a `.dark` class set by a pre-paint inline script from the saved choice (Light / Dark / System) | User asked for a theme toggle; System keeps the original OS-following default |
 | Fix `--font-sans` (currently self-referencing) to `var(--font-geist-sans)` | Today the body silently falls back to the system font |
 | Typography: Geist Sans body, Geist Mono for practice numbers, slugs and code-ish labels | Same role as ui-ux-pro-max's dev pairing (Plex + JetBrains) but already self-hosted via `next/font`: zero extra requests |
 | Palette: keep shadcn neutral tokens; add one `--success` token (green, AA contrast in both themes) for "built" badges and the progress count | Minimal color, one semantic accent; "coming soon" uses `muted` (status also shown as text, not color alone) |

@@ -79,7 +79,7 @@ export function PracticeNav({ items }: { items: PracticeNavItem[] }) {
                     >
                       <span
                         aria-hidden
-                        className="w-5 shrink-0 font-mono text-xs text-muted-foreground tabular-nums"
+                        className="w-5 shrink-0 font-mono text-xs text-muted-foreground tabular-nums in-data-active:text-sidebar-accent-foreground"
                       >
                         {String(item.number).padStart(2, "0")}
                       </span>

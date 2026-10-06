@@ -15,7 +15,7 @@ export function StatusBadge({
         "inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
         built
           ? "bg-success/10 text-success"
-          : "bg-muted text-muted-foreground",
+          : "bg-muted text-foreground/75",
         className,
       )}
     >
