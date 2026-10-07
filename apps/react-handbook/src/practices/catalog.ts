@@ -65,7 +65,7 @@ export const practices = [
     number: 8,
     title: "Accessible Modal",
     summary: "A dialog with focus trap, Escape to close, and focus restore.",
-    built: false,
+    built: true,
   },
   {
     slug: "context-reducer",

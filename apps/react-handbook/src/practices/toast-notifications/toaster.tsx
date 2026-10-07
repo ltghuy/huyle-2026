@@ -145,6 +145,7 @@ export function Toaster() {
     <section
       ref={sectionRef}
       aria-label="Notifications (F8)"
+      data-modal-keep
       className={cn(
         "pointer-events-none fixed inset-x-4 z-50 flex sm:w-[22rem]",
         edge === "bottom" ? "flex-col" : "flex-col-reverse",
