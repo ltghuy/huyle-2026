@@ -26,6 +26,8 @@
 - Headless Chrome doesn't apply `:focus-visible` to scripted `.focus()`; verify focus rings by computed tokens/contrast or with a real Tab key press <!-- feature:001 date:2026-10-06 -->
 - Puppeteer screenshots call `setViewport`; if the page was opened with `isMobile`/`hasTouch`, that change reloads the page and wipes client state (e.g. the toast store). Test narrow layouts with a plain 360 px `defaultViewport` instead <!-- feature:002 date:2026-10-06 -->
 - Accent-insensitive search must fold per character and keep an index map back to the original string; folding the whole string first breaks highlight positions because NFD and lowercasing can change length <!-- feature:003 date:2026-10-06 -->
+- React applies updates from click handlers in a microtask: tests that call `el.click()` must `await` before reading the DOM, and wait a tick before polling after an action that resets UI (otherwise they read the old DOM) <!-- feature:005 date:2026-10-07 -->
+- The playground's shared data layer is `useQuery` / `queryClient` in `src/practices/data-fetching-hook/` (module-level cache, survives navigation); later practices may use it, except practice 12 <!-- feature:005 date:2026-10-07 -->
 
 ## Codebase Feedback
 

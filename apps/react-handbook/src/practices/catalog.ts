@@ -37,7 +37,7 @@ export const practices = [
     number: 4,
     title: "Custom Data-Fetching Hook with Caching",
     summary: "A reusable fetch hook with caching, deduplication, and stale data handling.",
-    built: false,
+    built: true,
   },
   {
     slug: "realtime-chat",
