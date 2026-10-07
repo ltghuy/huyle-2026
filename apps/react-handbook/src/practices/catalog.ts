@@ -58,7 +58,7 @@ export const practices = [
     number: 7,
     title: "Virtualized Large Lists",
     summary: "Render only the visible rows of a very large list.",
-    built: false,
+    built: true,
   },
   {
     slug: "accessible-modal",

@@ -10,6 +10,7 @@
 - Accordion panels use `aria-labelledby` without `role="region"` when many panels can be open (APG warns about landmark proliferation above ~6) <!-- feature:003 date:2026-10-06 -->
 - Long-lived mock server state with timers (chat room, simulated participants) lives on `globalThis` so dev HMR doesn't duplicate timers and every route module in the process shares it; the stream is SSE from a route handler (`ReadableStream`), read on the client with `fetch` + a hand-built parser instead of `EventSource` so reconnect/backoff is practiced, not hidden <!-- feature:006 date:2026-10-07 -->
 - Every practice's "How it works" panel is a guide built from `src/components/playground/practice-guide.tsx`: always-visible What it is + Key ideas, then `ReadMore` with Where you'd use it, How we built it, Best practices, Try it with the demo controls, Trade-offs and limits. Content comes from that feature's spec/decisions/design/audit (SSOT); new practices write their guide in this shape <!-- quick:002 date:2026-10-07 -->
+- Virtualized lists in the playground use the framework-free `Virtualizer` (`src/practices/virtualized-list/virtualizer.ts`): sizes by item key in a Fenwick tree, anchor-based scroll correction in a layout effect followed by a synchronous `useSyncExternalStore` notification, reveal targets that persist until the user scrolls, and a pinned focusable row (roving tabindex). Practices 13/14 can reuse it instead of re-deriving the math <!-- feature:008 date:2026-10-07 -->
 
 ## Gotchas
 
@@ -38,6 +39,10 @@
 - `next build` imports route modules in its own worker processes: server modules must not do I/O at import (the upload store emptied its temp folder on import and wiped a running server's files during a build). Do side effects lazily on first request <!-- feature:007 date:2026-10-07 -->
 - Request bodies stream into Node route handlers with real backpressure (reading slowly slows the sender), but the first ~2 MB go into socket buffers instantly: XHR upload progress races ahead of what the server has. Base speed/ETA on server-confirmed bytes <!-- feature:007 date:2026-10-07 -->
 - Resumable pieces: let a newer request for the same upload supersede an abandoned one; refusing it as "busy" made every pause cost two pieces <!-- feature:007 date:2026-10-07 -->
+- Virtual scroll corrections must happen before paint: measure rows and set `scrollTop` in `useLayoutEffect`, grow the spacer imperatively first (the browser clamps `scrollTop` to the old height), and turn off native scroll anchoring with `overflow-anchor: none` or it corrects a second time <!-- feature:008 date:2026-10-07 -->
+- Don't observe every virtual row with one ResizeObserver and re-render from its callback: adding same-depth rows during delivery raises "ResizeObserver loop completed with undelivered notifications". Measure rendered rows in the layout effect; observe only the scroll box; re-sync on `document.fonts` `loadingdone` <!-- feature:008 date:2026-10-07 -->
+- React `<Profiler>` `onRender` doesn't fire in production builds, so render timings shown in demos must be measured from the triggering event to the list's layout effect (after a forced layout), not from Profiler <!-- feature:008 date:2026-10-07 -->
+- Test scripts that query `input[type=search]` hit the sidebar's "Filter practices" box first; scope demo queries to `section[aria-label="Live demo"]` <!-- feature:008 date:2026-10-07 -->
 
 ## Codebase Feedback
 
