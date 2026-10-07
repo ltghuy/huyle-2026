@@ -79,7 +79,7 @@ export const practices = [
     number: 10,
     title: "Multi-Step Form",
     summary: "A wizard with per-step validation, back navigation, and a review step.",
-    built: false,
+    built: true,
   },
   {
     slug: "lazy-images",

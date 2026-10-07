@@ -55,6 +55,10 @@
 - Puppeteer: `el.blur()`/`focus()` don't fire focus events when the headless page lacks window focus (`document.hasFocus()` false); dispatch `focusout`/`focusin` to test blur handlers. Dispatched `input` events aren't processed as discrete, so pause before the next event that reads that state <!-- feature:010 date:2026-10-07 -->
 - Background flashes (Web Animations on `background-color`) can fail axe contrast while they run; flash a ring (`box-shadow`) or run audits after animations end <!-- feature:010 date:2026-10-07 -->
 - Claude in Chrome test tabs report `visibilityState: "hidden"`: `requestAnimationFrame` and CSS transitions pause and timers are throttled until long scripts time out. Use the Puppeteer MCP (visible page) for timing, frame-based or animation checks <!-- feature:010 date:2026-10-07 -->
+- `useSearchParams` in a Client Component on a prerendered route needs a `<Suspense>` boundary; dev renders on demand and doesn't show the problem, only `pnpm build` does. Keep step/filter state in the address with `history.pushState`/`replaceState` (Next 16 keeps `useSearchParams` in sync) instead of `router.push` <!-- feature:011 date:2026-10-07 -->
+- Puppeteer MCP `puppeteer_fill` inserts its text as the value (a `\t` becomes a literal tab), it doesn't press keys; keyboard-only checks still need emulated sequential focus. `history.length` caps at 50 in a long-lived test browser, so count `pushState`/`replaceState` calls (wrap them) to prove "no extra history entry" <!-- feature:011 date:2026-10-08 -->
+- Base UI radio groups move focus with arrow keys and select on focus only after their own keyboard handling; dispatched `ArrowRight` moves focus without selecting, so verify radio choice with Space (click) when real keys aren't available <!-- feature:011 date:2026-10-08 -->
+- Claude Code agent worktrees live in `.claude/worktrees/` inside the repo; without ignoring `.claude/**` in ESLint and `tsconfig.json` `exclude`, the main checkout's lint and typecheck scan every agent's in-progress copy <!-- feature:011 date:2026-10-08 -->
 
 ## Codebase Feedback
 
