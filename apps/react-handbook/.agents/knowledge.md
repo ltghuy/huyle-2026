@@ -8,6 +8,7 @@
 - Every practice page = title/summary, explanation panel, optional demo controls, live demo; one URL per practice -- consistent frame, refresh-safe, per-practice code loading <!-- feature:001 date:2026-10-06 -->
 - The toast service from practice 002 is the playground's app-wide notification system: other practices raise toasts with the `toast` API from `src/practices/toast-notifications/toast-store.ts`; `<Toaster />` is mounted once in the playground layout (the one intended shell exception) <!-- feature:002 date:2026-10-06 -->
 - Accordion panels use `aria-labelledby` without `role="region"` when many panels can be open (APG warns about landmark proliferation above ~6) <!-- feature:003 date:2026-10-06 -->
+- Long-lived mock server state with timers (chat room, simulated participants) lives on `globalThis` so dev HMR doesn't duplicate timers and every route module in the process shares it; the stream is SSE from a route handler (`ReadableStream`), read on the client with `fetch` + a hand-built parser instead of `EventSource` so reconnect/backoff is practiced, not hidden <!-- feature:006 date:2026-10-07 -->
 
 ## Gotchas
 
@@ -28,6 +29,10 @@
 - Accent-insensitive search must fold per character and keep an index map back to the original string; folding the whole string first breaks highlight positions because NFD and lowercasing can change length <!-- feature:003 date:2026-10-06 -->
 - React applies updates from click handlers in a microtask: tests that call `el.click()` must `await` before reading the DOM, and wait a tick before polling after an action that resets UI (otherwise they read the old DOM) <!-- feature:005 date:2026-10-07 -->
 - The playground's shared data layer is `useQuery` / `queryClient` in `src/practices/data-fetching-hook/` (module-level cache, survives navigation); later practices may use it, except practice 12 <!-- feature:005 date:2026-10-07 -->
+- `sessionStorage` is copied into tabs opened with `window.open` or duplicated, so a per-tab id persisted at load time is shared by two open tabs; give each page load a fresh id and persist history only on `pagehide` (see chat `identity.ts`) <!-- feature:006 date:2026-10-07 -->
+- When the server assigns order on arrival (chat `seq`), parallel optimistic sends with different latencies overtake each other; send through a serial outbox to keep typed order <!-- feature:006 date:2026-10-07 -->
+- Puppeteer MCP: closing a window opened with `window.open` can detach the tool's page handle ("detached Frame"); relaunch with `launchOptions` on the next navigate <!-- feature:006 date:2026-10-07 -->
+- Headless Chrome: after `window.open`, the opener tab is `hidden`, so `requestAnimationFrame` and `IntersectionObserver` callbacks stop there; run scroll/observer checks in a single-tab browser <!-- feature:006 date:2026-10-07 -->
 
 ## Codebase Feedback
 

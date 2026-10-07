@@ -44,7 +44,7 @@ export const practices = [
     number: 5,
     title: "Real-Time Chat UI",
     summary: "Live message stream with optimistic sends and auto-scroll.",
-    built: false,
+    built: true,
   },
   {
     slug: "file-upload",
