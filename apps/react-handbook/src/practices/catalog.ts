@@ -86,7 +86,7 @@ export const practices = [
     number: 11,
     title: "Lazy-Loaded Images",
     summary: "Load images only when they approach the viewport, with placeholders.",
-    built: false,
+    built: true,
   },
   {
     slug: "debounced-search",
