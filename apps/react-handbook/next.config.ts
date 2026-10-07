@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Practices moved into the React Practices section; old links keep working
+  // (query strings, like a wizard's ?step=, are passed through).
+  redirects() {
+    return [
+      { source: "/practices", destination: "/react-practices", permanent: true },
+      { source: "/practices/:slug", destination: "/react-practices/:slug", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

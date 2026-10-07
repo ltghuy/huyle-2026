@@ -20,6 +20,11 @@ shell**: one place where every practice is listed in a left sidebar and the
 selected practice's live demo is shown on the right. Each practice is then
 built as its own follow-up feature (002–015) and plugs into this shell.
 
+The shell is the **Frontend Interview Handbook** (quick task 004): content is
+grouped into sections. "React Practices" holds the 14 practices below; other
+sections (Browser & Web Platform, Performance & Accessibility, Frontend
+System Design) are listed as coming soon until they get their own features.
+
 The practice catalog, in sidebar order:
 
 1. Toast / Notification System
@@ -64,7 +69,7 @@ The practice catalog, in sidebar order:
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN the playground opens THEN system SHALL show a left sidebar listing all 14 practices in catalog order, each with its number and name.
+- [x] AC-001: WHEN the playground opens THEN system SHALL show a left sidebar with the handbook's sections; the React Practices section SHALL be a folder that opens to list all 14 practices in catalog order, each with its number and name (open whenever a practice is shown), and sections without content SHALL be listed as coming soon.
 - [x] AC-002: WHEN the user selects a sidebar item THEN system SHALL show that practice in the right-hand area without a full page reload.
 - [x] AC-003: WHEN a practice is open THEN system SHALL visually mark its sidebar item as the current one and expose it as the current page to assistive technology.
 - [x] AC-004: WHEN a practice isn't built yet THEN system SHALL still list it in the sidebar, marked "coming soon", and selecting it SHALL show a placeholder with its title and description.
@@ -78,9 +83,9 @@ The practice catalog, in sidebar order:
 
 **Acceptance Criteria:**
 
-- [x] AC-006: WHEN the user opens a practice's address directly THEN system SHALL show that practice with its sidebar item marked current.
+- [x] AC-006: WHEN the user opens a practice's address directly (under its section, `/react-practices/{practice}`) THEN system SHALL show that practice with its sidebar item marked current; WHEN an older address (`/practices/{practice}`) is opened THEN system SHALL permanently redirect to the new one, keeping any query string.
 - [x] AC-007: WHEN the user uses browser back/forward THEN system SHALL show the matching previously viewed practice.
-- [x] AC-008: WHEN the user opens an address for a practice that doesn't exist THEN system SHALL show a not-found message with a way back to the overview.
+- [x] AC-008: WHEN the user opens an address for a practice that doesn't exist THEN system SHALL show a not-found message with a way back to the home page.
 - [x] AC-009: WHEN a practice page is open THEN system SHALL use the practice's name as the browser tab title.
 
 ### P1: Consistent practice page layout
@@ -98,14 +103,14 @@ The practice catalog, in sidebar order:
 
 ### P2: Overview landing view
 
-- As a learner, I want a landing view summarizing every practice and its build status so that I can see my progress and pick what to do next.
+- As a learner, I want a home page introducing the handbook and its sections, and a section page summarizing every practice and its build status, so that I can see my progress and pick what to do next.
 - **Why P2:** Useful orientation, but the sidebar alone already makes every practice reachable.
 
 **Acceptance Criteria:**
 
-- [x] AC-014: WHEN the user opens the playground without choosing a practice THEN system SHALL show an overview listing all 14 practices with name, one-line description, and status (built / coming soon).
-- [x] AC-015: WHEN the user selects a practice on the overview THEN system SHALL open that practice.
-- [x] AC-016: WHEN the overview is shown THEN system SHALL show how many of the 14 practices are built.
+- [x] AC-014: WHEN the user opens the home page THEN system SHALL introduce the handbook and show a card per section (title, summary, status); WHEN the user opens the React Practices section THEN system SHALL list all 14 practices with name, one-line description, and status (built / coming soon).
+- [x] AC-015: WHEN the user selects a section on the home page THEN system SHALL open it (coming-soon sections aren't links); WHEN the user selects a practice on the section page THEN system SHALL open that practice; a practice page SHALL show where it sits (Handbook › React Practices).
+- [x] AC-016: WHEN the home page or the React Practices section is shown THEN system SHALL show how many of the 14 practices are built.
 
 ### P2: Small-screen layout
 

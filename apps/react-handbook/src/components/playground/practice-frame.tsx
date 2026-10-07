@@ -1,7 +1,8 @@
 import { BookOpen } from "lucide-react";
 
-import type { Practice } from "@/practices/catalog";
+import { PRACTICES_PATH, type Practice } from "@/practices/catalog";
 
+import { Breadcrumbs } from "./breadcrumbs";
 import { PracticePlaceholder } from "./practice-placeholder";
 import { StatusBadge } from "./status-badge";
 
@@ -19,6 +20,7 @@ export function PracticeFrame({
   return (
     <article className="flex min-w-0 flex-col gap-6">
       <header className="flex flex-col gap-2">
+        <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: "React Practices", href: PRACTICES_PATH }, { label: practice.title }]} />
         <div className="flex items-center gap-3">
           <span className="font-mono text-sm text-muted-foreground tabular-nums">
             {String(practice.number).padStart(2, "0")}

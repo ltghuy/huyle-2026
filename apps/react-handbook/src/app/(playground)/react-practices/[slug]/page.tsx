@@ -12,7 +12,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/practices/[slug]">): Promise<Metadata> {
+}: PageProps<"/react-practices/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const practice = getPractice(slug);
   return practice
@@ -22,13 +22,13 @@ export async function generateMetadata({
 
 export default async function PracticePage({
   params,
-}: PageProps<"/practices/[slug]">) {
+}: PageProps<"/react-practices/[slug]">) {
   const { slug } = await params;
   const practice = getPractice(slug);
   if (!practice) notFound();
   if (practice.built) {
     throw new Error(
-      `Practice "${slug}" is marked built but has no route at app/(playground)/practices/${slug}/page.tsx.`,
+      `Practice "${slug}" is marked built but has no route at app/(playground)/react-practices/${slug}/page.tsx.`,
     );
   }
   return <PracticeFrame practice={practice} />;

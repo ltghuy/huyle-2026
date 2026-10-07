@@ -15,6 +15,7 @@
 - Shared client state pattern for later practices: a pure reducer with a typed action union + exhaustive `never` check, shared through a store in context and `useShopSelector`-style hooks (`useSyncExternalStore` + memoized, equality-checked selection); see `src/practices/context-reducer/shop-context.tsx`. Avoid a single context holding `{ state, dispatch }` for widely read state <!-- feature:010 date:2026-10-07 -->
 - Demos that compare loading strategies count requests on the server, keyed by a per-run id carried in every URL (requests, bytes, failures, cancellations via `request.signal`), and push the numbers over SSE; the page can't see native/eager fetches or cancelled ones. Per-run latency/failure live on the server so changing them doesn't change URLs (and re-request `<img>`s); see `src/server/practices/lazy-images/` <!-- feature:012 date:2026-10-08 -->
 - Input-driven requests in the playground (search, filters) use the run-id pattern from `src/practices/debounced-search/search-engine.ts`: every search start increments a run id and a response may update the screen only if its run id is current; `AbortController` is added to save work, never relied on for correctness. Query text is normalized with the shared `normalizeQuery` (client and server) before it becomes a cache key <!-- feature:013 date:2026-10-08 -->
+- The site is the Frontend Interview Handbook: content is grouped into sections listed in `sections` (`src/practices/catalog.ts`), each with its own URL prefix and sidebar folder. React Practices (`/react-practices`, the 14 practices) is the first; a new section adds its entry there (href set once it has content), a route folder under `src/app/(playground)/{section}/`, and a sidebar folder. Practice code stays in `src/practices/*` and APIs under `/api/practices/*` <!-- quick:004 date:2026-10-08 -->
 
 ## Gotchas
 
@@ -73,7 +74,7 @@
 
 ## Codebase Feedback
 
-- Each built practice owns a route `src/app/(playground)/practices/{slug}/page.tsx` rendering `PracticeFrame` with its `explanation`/`demo`, plus `built: true` in `src/practices/catalog.ts`; `[slug]` serves only placeholders and 404s <!-- feature:001 target:architecture date:2026-10-06 -->
+- Each built practice owns a route `src/app/(playground)/react-practices/{slug}/page.tsx` (URL `/react-practices/{slug}`; old `/practices/*` links 308-redirect via `next.config.ts`) rendering `PracticeFrame` with its `explanation`/`demo`, plus `built: true` in `src/practices/catalog.ts`; `[slug]` serves only placeholders and 404s <!-- feature:001 target:architecture date:2026-10-06 -->
 - Practice demos compose `<DemoControls>` (optional) + `<DemoStage>` (error boundary) from `src/components/playground/` <!-- feature:001 target:conventions date:2026-10-06 -->
 - App-wide client services use a module-level store + `useSyncExternalStore` with a constant server snapshot (see the toast store); mutate only from events/effects <!-- feature:002 target:conventions date:2026-10-06 -->
 - Practice dialogs portal into `#modal-root` (created on first use at the end of `<body>`, z-40, below the toaster at z-50); the engine inerts every other branch of `<body>` <!-- feature:009 target:architecture date:2026-10-07 -->

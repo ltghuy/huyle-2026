@@ -9,7 +9,7 @@ export const metadata = practiceMetadata("debounced-search");
 // Reads `?q=` on the server so a shared link renders with the box filled.
 export default async function DebouncedSearchPage({
   searchParams,
-}: PageProps<"/practices/debounced-search">) {
+}: PageProps<"/react-practices/debounced-search">) {
   const { q } = await searchParams;
   const initialQuery = typeof q === "string" ? q.slice(0, MAX_QUERY_LENGTH) : "";
 

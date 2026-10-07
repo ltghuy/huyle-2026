@@ -1,6 +1,52 @@
-// Client-safe practice metadata. A built practice sets `built: true` here and
-// adds its own route at app/(playground)/practices/{slug}/page.tsx, so Next
+// Client-safe handbook metadata: the sections, and the React Practices
+// section's practices. A built practice sets `built: true` here and adds its
+// own route at app/(playground)/react-practices/{slug}/page.tsx, so Next
 // code-splits each practice. Unbuilt practices fall through to [slug].
+
+export const SITE_NAME = "Frontend Interview Handbook";
+
+export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "system-design";
+
+export type Section = {
+  id: SectionId;
+  title: string;
+  summary: string;
+  /** Null until the section has content (shown as coming soon). */
+  href: string | null;
+};
+
+export const PRACTICES_PATH = "/react-practices";
+
+export const sections: Section[] = [
+  {
+    id: "react-practices",
+    title: "React Practices",
+    summary: "Fourteen classic UI problems built from scratch, with the reasoning behind each: notifications, infinite lists, forms, caching, real-time and more.",
+    href: PRACTICES_PATH,
+  },
+  {
+    id: "browser-platform",
+    title: "Browser & Web Platform",
+    summary: "How a page is loaded, rendered and secured: the rendering pipeline, networking and caching, storage, and XSS, CSP and CORS.",
+    href: null,
+  },
+  {
+    id: "performance-accessibility",
+    title: "Performance & Accessibility",
+    summary: "Measuring and fixing Core Web Vitals, profiling and bundle size, and building for keyboard and screen-reader users.",
+    href: null,
+  },
+  {
+    id: "system-design",
+    title: "Frontend System Design",
+    summary: "Design a news feed, autocomplete, chat or design system the way interviews ask: requirements, architecture and trade-offs.",
+    href: null,
+  },
+];
+
+export function practiceHref(slug: string) {
+  return `${PRACTICES_PATH}/${slug}`;
+}
 
 export type PracticeMeta = {
   slug: string;

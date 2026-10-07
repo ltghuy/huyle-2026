@@ -1,4 +1,4 @@
-import { Atom } from "lucide-react";
+import { BookOpenText } from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { builtCount, practices } from "@/practices/catalog";
+import { builtCount, practices, SITE_NAME } from "@/practices/catalog";
 
 import { PracticeNav, type PracticeNavItem } from "./practice-nav";
 
@@ -22,18 +22,18 @@ export function AppSidebar() {
   }));
 
   return (
-    <Sidebar aria-label="Practice navigation">
+    <Sidebar aria-label="Handbook navigation">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<Link href="/" />}>
+            <SidebarMenuButton size="lg" className="h-auto min-h-12 py-2" render={<Link href="/" />}>
               <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                <Atom aria-hidden className="size-4" />
+                <BookOpenText aria-hidden className="size-4" />
               </span>
-              <span className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold">React Practices</span>
+              <span className="flex min-w-0 flex-col gap-1 leading-none">
+                <span className="leading-tight font-semibold">{SITE_NAME}</span>
                 <span className="text-xs text-muted-foreground">
-                  {builtCount} of {practices.length} built
+                  {builtCount} of {practices.length} practices built
                 </span>
               </span>
             </SidebarMenuButton>
