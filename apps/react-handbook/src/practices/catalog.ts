@@ -72,7 +72,7 @@ export const practices = [
     number: 9,
     title: "Context + useReducer State Management",
     summary: "App state with a reducer, typed actions, and context without extra re-renders.",
-    built: false,
+    built: true,
   },
   {
     slug: "multi-step-form",

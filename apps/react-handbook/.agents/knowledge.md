@@ -12,6 +12,7 @@
 - Every practice's "How it works" panel is a guide built from `src/components/playground/practice-guide.tsx`: always-visible What it is + Key ideas, then `ReadMore` with Where you'd use it, How we built it, Best practices, Try it with the demo controls, Trade-offs and limits. Content comes from that feature's spec/decisions/design/audit (SSOT); new practices write their guide in this shape <!-- quick:002 date:2026-10-07 -->
 - Virtualized lists in the playground use the framework-free `Virtualizer` (`src/practices/virtualized-list/virtualizer.ts`): sizes by item key in a Fenwick tree, anchor-based scroll correction in a layout effect followed by a synchronous `useSyncExternalStore` notification, reveal targets that persist until the user scrolls, and a pinned focusable row (roving tabindex). Practices 13/14 can reuse it instead of re-deriving the math <!-- feature:008 date:2026-10-07 -->
 - The playground's shared modal is `<Modal>` (controlled: `open` + `onRequestClose(reason)`) and `await confirm()` from `src/practices/accessible-modal/`; `<ModalHost />` is mounted once in the playground layout (second intended shell exception after the toaster). Anything that must stay usable above an open dialog gets `data-modal-keep` (the toaster has it); do not use shadcn Dialog/Sheet for new dialogs <!-- feature:009 date:2026-10-07 -->
+- Shared client state pattern for later practices: a pure reducer with a typed action union + exhaustive `never` check, shared through a store in context and `useShopSelector`-style hooks (`useSyncExternalStore` + memoized, equality-checked selection); see `src/practices/context-reducer/shop-context.tsx`. Avoid a single context holding `{ state, dispatch }` for widely read state <!-- feature:010 date:2026-10-07 -->
 
 ## Gotchas
 
@@ -49,6 +50,11 @@
 - Headless Chrome uses overlay scrollbars (`innerWidth === clientWidth`) even with `--disable-features=OverlayScrollbar`, so layout-shift checks for scrollbar removal can't be reproduced headless; verify the `scrollbar-gutter` path by inspection or in a headed browser <!-- feature:009 date:2026-10-07 -->
 - Return focus after a dialog one frame after closing starts, and let callers remove the opener synchronously (`flushSync`) when they act on the result; otherwise focus is sent to a button that disappears a moment later and drops to the body <!-- feature:009 date:2026-10-07 -->
 - The Puppeteer MCP has no real keyboard: dispatched `Tab` keydowns don't move focus, so tests must emulate sequential focus navigation (next focusable in document order, skipping `[inert]`) whenever the page doesn't `preventDefault` <!-- feature:009 date:2026-10-07 -->
+- The shared `useQuery` result's `error` is `null` (not `undefined`) before a result arrives; use `status !== "loading"` to know a query has settled <!-- feature:010 date:2026-10-07 -->
+- Grid children default to `min-width: auto`: one long unbreakable line (a `truncate` span of component names) widened the page to 6,493 px at 360 px. Give grid items holding truncated or long text `min-w-0` <!-- feature:010 date:2026-10-07 -->
+- Puppeteer: `el.blur()`/`focus()` don't fire focus events when the headless page lacks window focus (`document.hasFocus()` false); dispatch `focusout`/`focusin` to test blur handlers. Dispatched `input` events aren't processed as discrete, so pause before the next event that reads that state <!-- feature:010 date:2026-10-07 -->
+- Background flashes (Web Animations on `background-color`) can fail axe contrast while they run; flash a ring (`box-shadow`) or run audits after animations end <!-- feature:010 date:2026-10-07 -->
+- Claude in Chrome test tabs report `visibilityState: "hidden"`: `requestAnimationFrame` and CSS transitions pause and timers are throttled until long scripts time out. Use the Puppeteer MCP (visible page) for timing, frame-based or animation checks <!-- feature:010 date:2026-10-07 -->
 
 ## Codebase Feedback
 
