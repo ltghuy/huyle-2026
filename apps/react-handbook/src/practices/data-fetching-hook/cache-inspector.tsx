@@ -55,7 +55,7 @@ export function CacheInspector() {
           </Button>
         </div>
       </div>
-      <div className="overflow-x-auto rounded-lg border">
+      <div className="relative overflow-x-auto rounded-lg border">
         <table className="w-full min-w-[44rem] text-left font-mono text-xs tabular-nums">
           <caption className="sr-only">Cache entries and their state</caption>
           <thead className="bg-muted/50 text-foreground/80">

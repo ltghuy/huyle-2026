@@ -34,6 +34,7 @@
 - When the server assigns order on arrival (chat `seq`), parallel optimistic sends with different latencies overtake each other; send through a serial outbox to keep typed order <!-- feature:006 date:2026-10-07 -->
 - Puppeteer MCP: closing a window opened with `window.open` can detach the tool's page handle ("detached Frame"); relaunch with `launchOptions` on the next navigate <!-- feature:006 date:2026-10-07 -->
 - Headless Chrome: after `window.open`, the opener tab is `hidden`, so `requestAnimationFrame` and `IntersectionObserver` callbacks stop there; run scroll/observer checks in a single-tab browser <!-- feature:006 date:2026-10-07 -->
+- Scroll containers (`overflow-*-auto`) must be `relative` when they hold `sr-only` or other absolutely positioned content: otherwise that content's containing block is outside the scroller, it escapes the clipping and widens the page (the cache inspector's hidden "Actions" header made the page 653 px wide at 360 px) <!-- quick:003 date:2026-10-07 -->
 
 ## Codebase Feedback
 
