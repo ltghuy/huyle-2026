@@ -35,6 +35,9 @@
 - Puppeteer MCP: closing a window opened with `window.open` can detach the tool's page handle ("detached Frame"); relaunch with `launchOptions` on the next navigate <!-- feature:006 date:2026-10-07 -->
 - Headless Chrome: after `window.open`, the opener tab is `hidden`, so `requestAnimationFrame` and `IntersectionObserver` callbacks stop there; run scroll/observer checks in a single-tab browser <!-- feature:006 date:2026-10-07 -->
 - Scroll containers (`overflow-*-auto`) must be `relative` when they hold `sr-only` or other absolutely positioned content: otherwise that content's containing block is outside the scroller, it escapes the clipping and widens the page (the cache inspector's hidden "Actions" header made the page 653 px wide at 360 px) <!-- quick:003 date:2026-10-07 -->
+- `next build` imports route modules in its own worker processes: server modules must not do I/O at import (the upload store emptied its temp folder on import and wiped a running server's files during a build). Do side effects lazily on first request <!-- feature:007 date:2026-10-07 -->
+- Request bodies stream into Node route handlers with real backpressure (reading slowly slows the sender), but the first ~2 MB go into socket buffers instantly: XHR upload progress races ahead of what the server has. Base speed/ETA on server-confirmed bytes <!-- feature:007 date:2026-10-07 -->
+- Resumable pieces: let a newer request for the same upload supersede an abandoned one; refusing it as "busy" made every pause cost two pieces <!-- feature:007 date:2026-10-07 -->
 
 ## Codebase Feedback
 

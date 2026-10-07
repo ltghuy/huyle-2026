@@ -51,7 +51,7 @@ export const practices = [
     number: 6,
     title: "File Upload with Progress",
     summary: "Drag-and-drop uploads with per-file progress, cancel, and retry.",
-    built: false,
+    built: true,
   },
   {
     slug: "virtualized-list",
