@@ -14,6 +14,7 @@
 - The playground's shared modal is `<Modal>` (controlled: `open` + `onRequestClose(reason)`) and `await confirm()` from `src/practices/accessible-modal/`; `<ModalHost />` is mounted once in the playground layout (second intended shell exception after the toaster). Anything that must stay usable above an open dialog gets `data-modal-keep` (the toaster has it); do not use shadcn Dialog/Sheet for new dialogs <!-- feature:009 date:2026-10-07 -->
 - Shared client state pattern for later practices: a pure reducer with a typed action union + exhaustive `never` check, shared through a store in context and `useShopSelector`-style hooks (`useSyncExternalStore` + memoized, equality-checked selection); see `src/practices/context-reducer/shop-context.tsx`. Avoid a single context holding `{ state, dispatch }` for widely read state <!-- feature:010 date:2026-10-07 -->
 - Demos that compare loading strategies count requests on the server, keyed by a per-run id carried in every URL (requests, bytes, failures, cancellations via `request.signal`), and push the numbers over SSE; the page can't see native/eager fetches or cancelled ones. Per-run latency/failure live on the server so changing them doesn't change URLs (and re-request `<img>`s); see `src/server/practices/lazy-images/` <!-- feature:012 date:2026-10-08 -->
+- Input-driven requests in the playground (search, filters) use the run-id pattern from `src/practices/debounced-search/search-engine.ts`: every search start increments a run id and a response may update the screen only if its run id is current; `AbortController` is added to save work, never relied on for correctness. Query text is normalized with the shared `normalizeQuery` (client and server) before it becomes a cache key <!-- feature:013 date:2026-10-08 -->
 
 ## Gotchas
 
@@ -66,6 +67,9 @@
 - IntersectionObserver `rootMargin` only grows the root: with the default (viewport) root, a scroll container still clips its children, so nothing preloads below its fold. Use the scroller as `root` <!-- feature:012 date:2026-10-08 -->
 - A per-element dwell timer doesn't skip fast scrolls (a ~1000 px preload band is crossed in ~300 ms); to skip what the user flies past, start loads only once scrolling has paused <!-- feature:012 date:2026-10-08 -->
 - `@next/next/no-img-element` warns on raw `<img>`; practices that hand-build image loading disable it per file with a reason instead of switching to `next/image` <!-- feature:012 date:2026-10-08 -->
+- A fresh cache hit should skip the debounce: debounce only saves requests, and a hit sends none; checking the cache after the timer made going back to a cached query wait ~350 ms for nothing. Stale (SWR) entries should still wait, or each keystroke starts a refresh <!-- feature:013 date:2026-10-08 -->
+- Abort alone hides the out-of-order bug in demos (aborted `fetch`es never resolve), so a "no stale guard" comparison must also switch abort off to reproduce it <!-- feature:013 date:2026-10-08 -->
+- Reading `searchParams` in a practice page makes the route dynamic (ƒ in the build output); fine for the playground, but a static page would need `useSearchParams` under Suspense instead <!-- feature:013 date:2026-10-08 -->
 
 ## Codebase Feedback
 
@@ -74,3 +78,4 @@
 - App-wide client services use a module-level store + `useSyncExternalStore` with a constant server snapshot (see the toast store); mutate only from events/effects <!-- feature:002 target:conventions date:2026-10-06 -->
 - Practice dialogs portal into `#modal-root` (created on first use at the end of `<body>`, z-40, below the toaster at z-50); the engine inerts every other branch of `<body>` <!-- feature:009 target:architecture date:2026-10-07 -->
 - Practice 11 (lazy images): framework-free `LazyLoader` (`src/practices/lazy-images/lazy-loader.ts`, per-key `useSyncExternalStore` subscriptions, scroller-rooted observer, decode before reveal, cancel) and generated SVG photos at four widths from `/api/practices/lazy-images/images/[id]`; reusable for any later practice that needs images <!-- feature:012 target:architecture date:2026-10-08 -->
+- Practices that need reproducible timing races drive the same code path as the user through a scripted "typing robot" (`setInterval` calling the engine's `setInput`); tests click its button instead of dispatching per-key input events, which Puppeteer can't pace reliably <!-- feature:013 target:testing date:2026-10-08 -->

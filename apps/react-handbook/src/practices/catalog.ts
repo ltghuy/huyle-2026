@@ -93,7 +93,7 @@ export const practices = [
     number: 12,
     title: "Debounced Search + API Cache",
     summary: "Search-as-you-type that debounces input, caches results, and drops stale responses.",
-    built: false,
+    built: true,
   },
   {
     slug: "data-grid",
