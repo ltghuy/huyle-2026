@@ -108,7 +108,7 @@ No AC enumerates fields from existing code.
 | Token per fetch; store result only if `token === entry.token`; `cancel` = `token++` + `abort()` | Late or cancelled responses are ignored (AC-010–012, AC-029) |
 | Observers drop to 0 → after a 0 ms delay, if still 0: cancel the running fetch (unless it was a prefetch) and schedule gc at `gcTime` | AC-011, AC-023; the delay absorbs StrictMode/remount churn |
 | Observer added → clear the gc timer | AC-024 |
-| Retry loop: up to `retry` extra attempts, wait `min(1000·2ⁿ, 30 000) × (0.75–1.25)`; 404 (`HttpError` with status) is not retried; offline (`navigator.onLine === false`) → `fetchStatus: "paused"` until `online` | AC-013–016, 404 edge case |
+| Retry loop: up to `retry` extra attempts, wait `min(1000·2ⁿ, 30 000) × (0.75–1.25)`; 4xx (`HttpError` with status 400–499, e.g. 404) is not retried; offline (`navigator.onLine === false`) → `fetchStatus: "paused"` until `online` | AC-013–016, 404 edge case |
 | `status` stays "loading" (no data) through retries; `attempt` reported | AC-014 |
 | Background refresh failure keeps `data`, sets `error` and `status: "error"`; the hook exposes both | AC-009 (UI shows stale data + error badge) |
 | Focus/online listeners attached once, lazily on first subscribe; refresh entries with `observers > 0`, stale, and `now − lastFocusRefetch ≥ 5 s`; skipped when `refetchOnFocus` is off; `online` also resumes paused fetches | AC-020–022 |

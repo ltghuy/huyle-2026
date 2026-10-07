@@ -91,7 +91,7 @@ The practice catalog, in sidebar order:
 
 **Acceptance Criteria:**
 
-- [x] AC-010: WHEN a practice page is open THEN system SHALL show, in order: the title and one-line summary, a short explanation of the key techniques and trade-offs, a demo-controls area, and the live demo area.
+- [x] AC-010: WHEN a practice page is open THEN system SHALL show, in order: the title and one-line summary, a practice guide (a short intro to the pattern and its key ideas, with a "Read more" control that expands the full guide: use cases, approach, best practices, how to use the demo controls, trade-offs), a demo-controls area, and the live demo area. *(Guide format updated by quick task 002-practice-guides.)*
 - [x] AC-011: WHEN a practice defines no demo controls THEN system SHALL hide the controls area instead of showing it empty.
 - [x] AC-012: WHEN the user switches between practices THEN system SHALL only load the content of the practice being opened, not all 14.
 - [x] AC-013: WHEN a practice's demo hits an unexpected error THEN system SHALL show an error message with a retry action inside the demo area, while the sidebar and the rest of the playground keep working.

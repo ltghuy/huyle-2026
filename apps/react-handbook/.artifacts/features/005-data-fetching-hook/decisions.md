@@ -39,7 +39,7 @@ created: 2026-10-06
 
 ### Retry defaults
 
-- **Tentative Decision:** 3 retries, waits of ~1 s / 2 s / 4 s with ±25% jitter, capped at 30 s; 404 responses are not retried.
+- **Tentative Decision:** 3 retries, waits of ~1 s / 2 s / 4 s with ±25% jitter, capped at 30 s; 4xx responses (including 404) are not retried: client errors don't fix themselves. *(Wording synced with the code by quick task 002.)*
 - **Revisit when:** Demos feel too slow to reach the error state.
 
 ### Focus throttle

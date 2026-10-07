@@ -9,6 +9,7 @@
 - The toast service from practice 002 is the playground's app-wide notification system: other practices raise toasts with the `toast` API from `src/practices/toast-notifications/toast-store.ts`; `<Toaster />` is mounted once in the playground layout (the one intended shell exception) <!-- feature:002 date:2026-10-06 -->
 - Accordion panels use `aria-labelledby` without `role="region"` when many panels can be open (APG warns about landmark proliferation above ~6) <!-- feature:003 date:2026-10-06 -->
 - Long-lived mock server state with timers (chat room, simulated participants) lives on `globalThis` so dev HMR doesn't duplicate timers and every route module in the process shares it; the stream is SSE from a route handler (`ReadableStream`), read on the client with `fetch` + a hand-built parser instead of `EventSource` so reconnect/backoff is practiced, not hidden <!-- feature:006 date:2026-10-07 -->
+- Every practice's "How it works" panel is a guide built from `src/components/playground/practice-guide.tsx`: always-visible What it is + Key ideas, then `ReadMore` with Where you'd use it, How we built it, Best practices, Try it with the demo controls, Trade-offs and limits. Content comes from that feature's spec/decisions/design/audit (SSOT); new practices write their guide in this shape <!-- quick:002 date:2026-10-07 -->
 
 ## Gotchas
 
