@@ -153,7 +153,7 @@ export const practices = [
     number: 14,
     title: "Large Dataset Performance Optimization",
     summary: "Measure and fix slow renders on big datasets, naive vs optimized.",
-    built: false,
+    built: true,
   },
 ] as const satisfies readonly PracticeMeta[];
 
