@@ -4,9 +4,12 @@ import { cn } from "@/lib/utils";
 
 export function StatusBadge({
   built,
+  readyLabel = "Built",
   className,
 }: {
   built: boolean;
+  /** Label when ready, e.g. "Written" for handbook pages. */
+  readyLabel?: string;
   className?: string;
 }) {
   return (
@@ -24,7 +27,7 @@ export function StatusBadge({
       ) : (
         <Clock aria-hidden className="size-3" />
       )}
-      {built ? "Built" : "Coming soon"}
+      {built ? readyLabel : "Coming soon"}
     </span>
   );
 }

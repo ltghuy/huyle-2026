@@ -1,7 +1,10 @@
-// Client-safe handbook metadata: the sections, and the React Practices
-// section's practices. A built practice sets `built: true` here and adds its
-// own route at app/(playground)/react-practices/{slug}/page.tsx, so Next
-// code-splits each practice. Unbuilt practices fall through to [slug].
+// Client-safe handbook metadata: the sections, the React Practices section's
+// practices, and the Performance & Accessibility section's pages. A built
+// practice sets `built: true` here and adds its own route at
+// app/(playground)/react-practices/{slug}/page.tsx, so Next code-splits each
+// practice. Unbuilt practices fall through to [slug]. Each Performance &
+// Accessibility page has its own route under
+// app/(playground)/performance-accessibility/{slug}/page.tsx.
 
 export const SITE_NAME = "Frontend Handbook";
 
@@ -16,6 +19,7 @@ export type Section = {
 };
 
 export const PRACTICES_PATH = "/react-practices";
+export const PERF_A11Y_PATH = "/performance-accessibility";
 
 export const sections: Section[] = [
   {
@@ -34,7 +38,7 @@ export const sections: Section[] = [
     id: "performance-accessibility",
     title: "Performance & Accessibility",
     summary: "Measuring and fixing Core Web Vitals, profiling and bundle size, and building for keyboard and screen-reader users.",
-    href: null,
+    href: PERF_A11Y_PATH,
   },
   {
     id: "system-design",
@@ -171,4 +175,54 @@ export function getPractice(slug: string): Practice | undefined {
 export function practiceMetadata(slug: PracticeSlug) {
   const practice = getPractice(slug)!;
   return { title: practice.title, description: practice.summary };
+}
+
+// Performance & Accessibility pages. `written` turns true once a page's
+// content ships.
+
+export type TopicPageMeta = {
+  slug: string;
+  title: string;
+  summary: string;
+  written: boolean;
+};
+
+export const perfA11yPages = [
+  {
+    slug: "performance",
+    title: "Performance",
+    summary: "Core Web Vitals, HTML delivery and CDNs, the critical path, images, fonts, code splitting and web workers, each with a live demo.",
+    written: true,
+  },
+  {
+    slug: "accessibility",
+    title: "Accessibility",
+    summary: "Semantics, keyboard and focus, screen readers, and how to test them.",
+    written: false,
+  },
+] as const satisfies readonly TopicPageMeta[];
+
+export type TopicPage = (typeof perfA11yPages)[number];
+export type TopicSlug = TopicPage["slug"];
+
+export function topicHref(slug: TopicSlug) {
+  return `${PERF_A11Y_PATH}/${slug}`;
+}
+
+export function getTopicPage(slug: TopicSlug): TopicPage {
+  return perfA11yPages.find((p) => p.slug === slug)!;
+}
+
+export function topicMetadata(slug: TopicSlug) {
+  const page = getTopicPage(slug);
+  return { title: page.title, description: page.summary };
+}
+
+/** How much of a section has content, for its home card. Null for coming-soon sections. */
+export function sectionProgress(id: SectionId): { done: number; total: number; noun: string } | null {
+  if (id === "react-practices") return { done: builtCount, total: practices.length, noun: "practices built" };
+  if (id === "performance-accessibility") {
+    return { done: perfA11yPages.filter((p) => p.written).length, total: perfA11yPages.length, noun: "pages written" };
+  }
+  return null;
 }

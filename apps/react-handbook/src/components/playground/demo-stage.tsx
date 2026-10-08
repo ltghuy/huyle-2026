@@ -31,13 +31,16 @@ const StageBoundary = catchError(StageFallback);
 export function DemoStage({
   children,
   className,
+  label = "Live demo",
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Accessible name; pages with several demos give each its own. */
+  label?: string;
 }) {
   return (
     <section
-      aria-label="Live demo"
+      aria-label={label}
       className={cn("min-w-0 rounded-xl border bg-background p-4 md:p-6", className)}
     >
       <StageBoundary>{children}</StageBoundary>

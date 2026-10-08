@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { SectionIcon } from "@/components/playground/section-icon";
 import { Progress } from "@/components/ui/progress";
-import { builtCount, practices, sections, SITE_NAME, type Section } from "@/practices/catalog";
+import { sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
 
 const HOW_TO = [
   { title: "Build it", text: "Each practice is a classic frontend problem built from scratch, with a live demo and controls that break it on purpose." },
@@ -12,6 +12,7 @@ const HOW_TO = [
 ];
 
 function SectionCard({ section }: { section: Section }) {
+  const progress = sectionProgress(section.id);
   const body = (
     <>
       <div className="flex items-center justify-between gap-2">
@@ -22,15 +23,15 @@ function SectionCard({ section }: { section: Section }) {
       </div>
       <h3 className="font-medium">{section.title}</h3>
       <p className="text-sm text-muted-foreground">{section.summary}</p>
-      {section.href ? (
+      {section.href && progress ? (
         <div className="mt-auto flex flex-col gap-2 pt-2">
-          <Progress value={(builtCount / practices.length) * 100} aria-label={`${builtCount} of ${practices.length} practices built`} />
+          <Progress value={(progress.done / progress.total) * 100} aria-label={`${progress.done} of ${progress.total} ${progress.noun}`} />
           <p className="flex items-center justify-between gap-2 text-sm">
             <span className="text-muted-foreground">
               <span className="font-mono font-medium text-foreground tabular-nums">
-                {builtCount} of {practices.length}
+                {progress.done} of {progress.total}
               </span>{" "}
-              practices built
+              {progress.noun}
             </span>
             <span className="inline-flex items-center gap-1 font-medium">
               Open <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
@@ -61,7 +62,7 @@ export default function HomePage() {
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
         <p className="max-w-2xl text-muted-foreground">
           Hands-on builds and the notes behind them, organised by the topics senior frontend work goes deep on. Start with the React
-          Practices; the other sections are on the way.
+          Practices, then Performance &amp; Accessibility; the other sections are on the way.
         </p>
       </header>
 
