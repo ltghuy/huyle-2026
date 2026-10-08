@@ -146,7 +146,7 @@ export const practices = [
     number: 13,
     title: "Advanced Data Grid",
     summary: "Sorting, filtering, pagination, column resizing, and row selection.",
-    built: false,
+    built: true,
   },
   {
     slug: "large-dataset-performance",
