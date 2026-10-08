@@ -20,7 +20,7 @@ shell**: one place where every practice is listed in a left sidebar and the
 selected practice's live demo is shown on the right. Each practice is then
 built as its own follow-up feature (002–015) and plugs into this shell.
 
-The shell is the **Frontend Interview Handbook** (quick task 004): content is
+The shell is the **Frontend Handbook** (quick task 004; renamed from "Frontend Interview Handbook" in quick task 005): content is
 grouped into sections. "React Practices" holds the 14 practices below; other
 sections (Browser & Web Platform, Performance & Accessibility, Frontend
 System Design) are listed as coming soon until they get their own features.

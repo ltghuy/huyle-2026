@@ -6,9 +6,9 @@ import { Progress } from "@/components/ui/progress";
 import { builtCount, practices, sections, SITE_NAME, type Section } from "@/practices/catalog";
 
 const HOW_TO = [
-  { title: "Build it", text: "Each practice is a classic interview problem built from scratch, with a live demo and controls that break it on purpose." },
-  { title: "Explain it", text: "Every page has a guide: the key ideas, how it was built, best practices and trade-offs you'd be asked to defend." },
-  { title: "Stretch it", text: "The other sections cover what senior interviews add around the code: the browser, performance, accessibility and system design." },
+  { title: "Build it", text: "Each practice is a classic frontend problem built from scratch, with a live demo and controls that break it on purpose." },
+  { title: "Explain it", text: "Every page has a guide: the key ideas, how it was built, best practices and trade-offs behind each choice." },
+  { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility and system design." },
 ];
 
 function SectionCard({ section }: { section: Section }) {
@@ -57,10 +57,10 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <p className="text-sm font-medium text-muted-foreground">Senior frontend interview preparation</p>
+        <p className="text-sm font-medium text-muted-foreground">Notes and builds for senior frontend engineers</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
         <p className="max-w-2xl text-muted-foreground">
-          Hands-on builds and the notes behind them, organised by the topics senior frontend interviews go deep on. Start with the React
+          Hands-on builds and the notes behind them, organised by the topics senior frontend work goes deep on. Start with the React
           Practices; the other sections are on the way.
         </p>
       </header>

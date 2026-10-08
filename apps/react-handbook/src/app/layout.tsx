@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Frontend Interview Handbook",
-    template: "%s · Frontend Interview Handbook",
+    default: "Frontend Handbook",
+    template: "%s · Frontend Handbook",
   },
   description:
-    "Senior frontend interview preparation: hands-on React practices built from scratch, plus the browser, performance, accessibility and system design topics around them.",
+    "Hands-on React practices built from scratch, plus the browser, performance, accessibility and system design topics around them.",
 };
 
 // Runs before first paint: applies the saved theme (or the OS theme for

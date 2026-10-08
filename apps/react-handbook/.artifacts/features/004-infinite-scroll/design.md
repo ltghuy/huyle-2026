@@ -39,7 +39,7 @@ automated tests.
 |---------|-------------|-------|-----------|
 | Practice registration | Own route + `built: true` | Touching `[slug]` | src/app/(playground)/practices/searchable-accordion/page.tsx |
 | API | Thin routes → Zod → `server-only` service; `{ error: { message } }` | Logic in routes | src/app/api/practices/searchable-accordion/faq/route.ts |
-| Mock data store | Module-level in-memory store, like the todos service | Per-request globals | src/server/todos/todo.service.ts:5 |
+| Mock data store | Module-level in-memory store | Per-request globals | src/server/practices/infinite-scroll/feed.store.ts |
 | Data loading | Fetch with `AbortController`; "loading" set in handlers, not synchronously in effects | setState-in-effect | src/practices/searchable-accordion/demo.tsx |
 | JSX handlers | Named `handleX` unless a one-line call | Multi-line inline handlers | .claude/rules/05-event-handlers.md |
 | Client singleton state | Module-level store with no server mutations | Server-shared mutable state | src/practices/toast-notifications/toast-store.ts |

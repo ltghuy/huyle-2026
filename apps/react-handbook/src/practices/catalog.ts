@@ -3,7 +3,7 @@
 // own route at app/(playground)/react-practices/{slug}/page.tsx, so Next
 // code-splits each practice. Unbuilt practices fall through to [slug].
 
-export const SITE_NAME = "Frontend Interview Handbook";
+export const SITE_NAME = "Frontend Handbook";
 
 export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "system-design";
 
@@ -39,7 +39,7 @@ export const sections: Section[] = [
   {
     id: "system-design",
     title: "Frontend System Design",
-    summary: "Design a news feed, autocomplete, chat or design system the way interviews ask: requirements, architecture and trade-offs.",
+    summary: "Design a news feed, autocomplete, chat or design system from requirements through, architecture and trade-offs.",
     href: null,
   },
 ];

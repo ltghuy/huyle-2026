@@ -1,6 +1,6 @@
 ---
 area: api-scaffold
-scope: Initial backend scaffold: health check, todos API, env validation, HTTP helpers
+scope: Initial backend scaffold: health check, env validation, HTTP helpers (todos sample removed in quick 005)
 captured: 2026-10-06
 ---
 
@@ -9,7 +9,7 @@ captured: 2026-10-06
 ## Scope
 
 The backend that existed before SDD was adopted: a liveness endpoint, a
-sample todos resource, environment validation, and shared HTTP response
+sample todos resource (since removed), environment validation, and shared HTTP response
 helpers. The frontend home page is still the default `create-next-app`
 page and is out of scope.
 
@@ -23,17 +23,11 @@ page and is out of scope.
   name, and the current server timestamp (ISO 8601).
 - Rendered on every request, never cached.
 
-### Todos resource
+### Todos resource (removed)
 
-- `GET /api/todos` returns `200` with `{ data: Todo[] }`, newest first.
-- `POST /api/todos` with JSON `{ title }` creates a todo and returns `201`
-  with `{ data: Todo }`.
-- A todo has: a generated UUID id, the title, `completed: false` on
-  creation, and an ISO `createdAt` timestamp.
-- The title is trimmed and must be 1–200 characters after trimming.
-- There are no update, delete, or toggle operations.
-- Storage is in process memory: data is lost on restart and isn't shared
-  between server instances.
+- The sample `/api/todos` resource (`src/app/api/todos`, `src/server/todos`)
+  was deleted in quick task 005. `/api/todos` now returns `404`. Practice
+  APIs under `/api/practices/*` follow the same thin-route → service pattern.
 
 ### Error contract
 
@@ -76,23 +70,17 @@ page and is out of scope.
 
 - No persistence layer (database).
 - No authentication or authorization on any endpoint.
-- No update/delete operations for todos.
 - No automated tests.
 
 ## Risks
 
-- Anyone can create todos without limit (no auth, no rate limit), and the
-  in-memory store grows without bound.
 - In-memory state appears to behave inconsistently in serverless or
   multi-instance deployments.
 
 ## Tech Debt
 
-- The todos resource is a placeholder pattern; replace or delete it once
-  the first real domain feature is specified.
 - No test runner is configured.
 
 ## Notes
 
-The first real feature spec should be `001`. Use this baseline as the
-"before" state when evolving or replacing the todos resource.
+The first real feature spec should be `001`.

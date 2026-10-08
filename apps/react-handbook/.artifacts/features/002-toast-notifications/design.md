@@ -37,8 +37,8 @@ rich content (spec Out of Scope); automated tests (cross-practice decision).
 | Practice registration | Own route file + `built: true` | Touching the `[slug]` page | .artifacts/features/001-practice-playground/design.md (Deviations) |
 | Practice layout | `PracticeFrame` with `explanation` + `demo` | Custom page chrome | src/components/playground/practice-frame.tsx:7 |
 | Demo composition | `DemoControls` then `DemoStage` | Unbounded demo errors | src/components/playground/demo-controls.tsx:5, demo-stage.tsx:34 |
-| API handlers | Thin route → Zod `parseBody` → service; `{ error: { message } }` | Logic in route files | src/app/api/todos/route.ts:9, src/lib/http.ts:16 |
-| Server logic | `import "server-only"` services in `src/server/` | Importing server code in client | src/server/todos/todo.service.ts:1 |
+| API handlers | Thin route → Zod `parseBody` → service; `{ error: { message } }` | Logic in route files | src/app/api/practices/multi-step-form/email-check/route.ts:13, src/lib/http.ts:16 |
+| Server logic | `import "server-only"` services in `src/server/` | Importing server code in client | src/server/practices/searchable-accordion/faq.service.ts:1 |
 | Theme colors | Tokens (`text-success`, `text-destructive`, `bg-card`) | Raw colors | src/app/globals.css:31 |
 | Global listeners | One listener per event, attached in one place | Per-toast `keydown`/`visibilitychange` listeners | vercel `client-event-listeners` |
 

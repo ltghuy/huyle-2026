@@ -37,7 +37,7 @@ automated tests (per decisions.md).
 | Path alias | `@/*` → `src/*` | relative `../../` chains | tsconfig.json:22 |
 | Class merging | `cn()` | string concat of classes | src/lib/utils.ts |
 | Typed route props | global `LayoutProps<'/'>` / `PageProps<…>` | hand-written param types | src/app/layout.tsx:21 |
-| Server-only code | `import "server-only"` in `src/server/*` | importing server modules in client files | src/server/todos/todo.service.ts:1 |
+| Server-only code | `import "server-only"` in `src/server/*` | importing server modules in client files | src/server/practices/searchable-accordion/faq.service.ts:1 |
 | UI primitives | shadcn components in `src/components/ui` | hand-rolled buttons/inputs, a 2nd UI lib | components.json |
 | Theme colors | shadcn CSS variables (`bg-background`, `text-muted-foreground`) | raw hex/oklch in components | src/app/globals.css:51 |
 
