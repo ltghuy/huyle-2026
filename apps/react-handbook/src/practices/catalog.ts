@@ -197,8 +197,8 @@ export const perfA11yPages = [
   {
     slug: "accessibility",
     title: "Accessibility",
-    summary: "Semantics, keyboard and focus, screen readers, and how to test them.",
-    written: false,
+    summary: "Semantic HTML and ARIA, structure, keyboard focus, dynamic content, images and media, contrast, type, motion, forms and inclusive design, each with a live demo.",
+    written: true,
   },
 ] as const satisfies readonly TopicPageMeta[];
 

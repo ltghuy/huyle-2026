@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Toc } from "@/handbook/toc";
+import { Topic } from "@/handbook/topic";
 import { practiceHref } from "@/practices/catalog";
 
 import { CodeSplitDemo } from "./code-split-demo";
@@ -8,7 +10,6 @@ import { FontDisplayDemo } from "./font-display-demo";
 import { HtmlDeliveryDemo } from "./html-delivery-demo";
 import { LayoutShiftDemo } from "./layout-shift-demo";
 import { LongTaskDemo } from "./long-task-demo";
-import { Topic } from "./topic";
 import { VitalsMeter } from "./vitals-meter";
 
 const LEARN = "https://web.dev/learn/performance";
@@ -43,21 +44,7 @@ export function PerformanceHandbook() {
         </p>
       </div>
 
-      <nav aria-labelledby="toc-heading" className="rounded-xl border bg-card p-4">
-        <h2 id="toc-heading" className="text-sm font-medium">
-          On this page
-        </h2>
-        <ol className="mt-2 grid gap-1 text-sm sm:grid-cols-2">
-          {TOPICS.map((topic, i) => (
-            <li key={topic.id}>
-              <a href={`#${topic.id}`} className="flex gap-2 rounded-sm py-1 underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50">
-                <span className="font-mono text-xs leading-5 text-muted-foreground tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                {topic.title}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
+      <Toc items={TOPICS} />
 
       <Topic
         id={TOPICS[0].id}
