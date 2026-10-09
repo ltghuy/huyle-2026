@@ -1,16 +1,15 @@
-import { PERF_A11Y_PATH, sections, type TopicPage } from "@/practices/catalog";
+import { sectionPath, sections, type TopicPage } from "@/practices/catalog";
 
 import { Breadcrumbs } from "./breadcrumbs";
 import { StatusBadge } from "./status-badge";
 
-const section = sections.find((s) => s.id === "performance-accessibility")!;
-
-/** Header for a Performance & Accessibility page; the page's content follows. */
+/** Header for a topic page (breadcrumbs through its section); the page's content follows. */
 export function TopicFrame({ page, children }: { page: TopicPage; children: React.ReactNode }) {
+  const section = sections.find((s) => s.id === page.section)!;
   return (
     <article className="flex min-w-0 flex-col gap-8">
       <header className="flex flex-col gap-2">
-        <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title, href: PERF_A11Y_PATH }, { label: page.title }]} />
+        <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title, href: sectionPath(page.section) }, { label: page.title }]} />
         <div>
           <StatusBadge built={page.written} readyLabel="Written" />
         </div>

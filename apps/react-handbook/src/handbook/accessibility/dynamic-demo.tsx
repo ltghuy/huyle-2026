@@ -6,9 +6,10 @@ import { flushSync } from "react-dom";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Toggle } from "@/handbook/ui";
 
 import { announce } from "./a11y-reader";
-import { ReaderBox, Toggle, WrongWay } from "./ui";
+import { ReaderBox, WrongWay } from "./ui";
 
 type LogLine = { id: number; text: string; silent?: boolean };
 

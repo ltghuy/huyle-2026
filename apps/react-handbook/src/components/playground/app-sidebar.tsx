@@ -11,14 +11,15 @@ import {
 } from "@/components/ui/sidebar";
 import {
   builtCount,
-  PERF_A11Y_PATH,
-  perfA11yPages,
   practiceHref,
   practices,
   PRACTICES_PATH,
+  sectionPages,
+  sectionPath,
   sections,
   SITE_NAME,
   topicHref,
+  type TopicSectionId,
 } from "@/practices/catalog";
 
 import { type NavFolder, PracticeNav } from "./practice-nav";
@@ -33,14 +34,19 @@ const FOLDERS: NavFolder[] = [
     itemsLabel: "Practices",
     items: practices.map((p) => ({ href: practiceHref(p.slug), title: p.title, prefix: String(p.number).padStart(2, "0"), ready: p.built })),
   },
-  {
-    id: "performance-accessibility",
-    title: sectionTitle("performance-accessibility"),
-    href: PERF_A11Y_PATH,
-    itemsLabel: "Pages",
-    items: perfA11yPages.map((p) => ({ href: topicHref(p.slug), title: p.title, ready: p.written })),
-  },
+  topicFolder("browser-platform"),
+  topicFolder("performance-accessibility"),
 ];
+
+function topicFolder(id: TopicSectionId): NavFolder {
+  return {
+    id,
+    title: sectionTitle(id),
+    href: sectionPath(id),
+    itemsLabel: "Pages",
+    items: sectionPages(id).map((p) => ({ href: topicHref(p.slug), title: p.title, ready: p.written })),
+  };
+}
 
 export function AppSidebar() {
   return (

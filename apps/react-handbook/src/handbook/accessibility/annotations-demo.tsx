@@ -6,9 +6,10 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { Toggle } from "@/handbook/ui";
 
 import { LANDMARK_ROLES, read, roleWord } from "./a11y-reader";
-import { Toggle, useDomSnapshot } from "./ui";
+import { useDomSnapshot } from "./ui";
 
 type Row = { order: number | null; role: string; name: string; from: string };
 

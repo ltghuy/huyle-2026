@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { Toggle, Verdict } from "@/handbook/ui";
 
-import { Toggle, Verdict, WrongWay } from "./ui";
+import { WrongWay } from "./ui";
 
 type Settings = { zoom: boolean; spacing: boolean; justify: boolean };
 

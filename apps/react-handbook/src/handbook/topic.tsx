@@ -16,6 +16,7 @@ export function Topic({
   demo,
   advice,
   links,
+  linksLabel = "Read more on web.dev:",
 }: {
   id: string;
   number: number;
@@ -26,6 +27,7 @@ export function Topic({
   demo: React.ReactNode;
   advice: { do: React.ReactNode; avoid: React.ReactNode }[];
   links: TopicLink[];
+  linksLabel?: string;
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className="flex scroll-mt-16 flex-col gap-4 border-t pt-8">
@@ -53,7 +55,7 @@ export function Topic({
         <DoAvoid items={advice} />
       </div>
       <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-        <span className="text-muted-foreground">Read more on web.dev:</span>
+        <span className="text-muted-foreground">{linksLabel}</span>
         {links.map((link) => (
           <a
             key={link.href}

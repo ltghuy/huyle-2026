@@ -4,8 +4,7 @@ import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
-
-import { Toggle, Verdict } from "./ui";
+import { Toggle, Verdict } from "@/handbook/ui";
 
 const QUERY = "(prefers-reduced-motion: reduce)";
 const ITEMS = ["Fresh croissants every morning", "Rye with caraway on Fridays", "Order cakes two days ahead", "Free coffee with any loaf"];

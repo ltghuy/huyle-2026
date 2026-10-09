@@ -1,10 +1,9 @@
 // Client-safe handbook metadata: the sections, the React Practices section's
-// practices, and the Performance & Accessibility section's pages. A built
-// practice sets `built: true` here and adds its own route at
+// practices, and the topic pages of the other sections. A built practice sets
+// `built: true` here and adds its own route at
 // app/(playground)/react-practices/{slug}/page.tsx, so Next code-splits each
-// practice. Unbuilt practices fall through to [slug]. Each Performance &
-// Accessibility page has its own route under
-// app/(playground)/performance-accessibility/{slug}/page.tsx.
+// practice. Unbuilt practices fall through to [slug]. Each topic page has its
+// own route under app/(playground)/{section path}/{slug}/page.tsx.
 
 export const SITE_NAME = "Frontend Handbook";
 
@@ -19,6 +18,7 @@ export type Section = {
 };
 
 export const PRACTICES_PATH = "/react-practices";
+export const BROWSER_PATH = "/browser-platform";
 export const PERF_A11Y_PATH = "/performance-accessibility";
 
 export const sections: Section[] = [
@@ -32,7 +32,7 @@ export const sections: Section[] = [
     id: "browser-platform",
     title: "Browser & Web Platform",
     summary: "How a page is loaded, rendered and secured: the rendering pipeline, networking and caching, storage, and XSS, CSP and CORS.",
-    href: null,
+    href: BROWSER_PATH,
   },
   {
     id: "performance-accessibility",
@@ -177,24 +177,43 @@ export function practiceMetadata(slug: PracticeSlug) {
   return { title: practice.title, description: practice.summary };
 }
 
-// Performance & Accessibility pages. `written` turns true once a page's
-// content ships.
+// Topic pages of the sections other than React Practices. Slugs are unique
+// across sections; `written` turns true once a page's content ships.
+
+export type TopicSectionId = Exclude<SectionId, "react-practices" | "system-design">;
 
 export type TopicPageMeta = {
+  section: TopicSectionId;
   slug: string;
   title: string;
   summary: string;
   written: boolean;
 };
 
-export const perfA11yPages = [
+export const topicPages = [
   {
+    section: "browser-platform",
+    slug: "networking",
+    title: "Networking",
+    summary: "How a request reaches the server and back: DNS, TCP, TLS, HTTP messages and caching, HTTP/1.1 to HTTP/3, and what HTTPS protects, each with a live demo.",
+    written: true,
+  },
+  {
+    section: "browser-platform",
+    slug: "origins-and-cors",
+    title: "Origins, DNS and CORS",
+    summary: "The parts of a URL, how DNS finds a host, what an origin and a site are, and how CORS lets a server share responses across origins, each with a live demo.",
+    written: true,
+  },
+  {
+    section: "performance-accessibility",
     slug: "performance",
     title: "Performance",
     summary: "Core Web Vitals, HTML delivery and CDNs, the critical path, images, fonts, code splitting and web workers, each with a live demo.",
     written: true,
   },
   {
+    section: "performance-accessibility",
     slug: "accessibility",
     title: "Accessibility",
     summary: "Semantic HTML and ARIA, structure, keyboard focus, dynamic content, images and media, contrast, type, motion, forms and inclusive design, each with a live demo.",
@@ -202,15 +221,29 @@ export const perfA11yPages = [
   },
 ] as const satisfies readonly TopicPageMeta[];
 
-export type TopicPage = (typeof perfA11yPages)[number];
+export type TopicPage = (typeof topicPages)[number];
 export type TopicSlug = TopicPage["slug"];
 
-export function topicHref(slug: TopicSlug) {
-  return `${PERF_A11Y_PATH}/${slug}`;
+const SECTION_PATH: Record<TopicSectionId, string> = {
+  "browser-platform": BROWSER_PATH,
+  "performance-accessibility": PERF_A11Y_PATH,
+};
+
+export function sectionPath(id: TopicSectionId) {
+  return SECTION_PATH[id];
+}
+
+export function sectionPages(id: TopicSectionId): TopicPage[] {
+  return topicPages.filter((p) => p.section === id);
 }
 
 export function getTopicPage(slug: TopicSlug): TopicPage {
-  return perfA11yPages.find((p) => p.slug === slug)!;
+  return topicPages.find((p) => p.slug === slug)!;
+}
+
+export function topicHref(slug: TopicSlug) {
+  const page = getTopicPage(slug);
+  return `${SECTION_PATH[page.section]}/${slug}`;
 }
 
 export function topicMetadata(slug: TopicSlug) {
@@ -221,8 +254,7 @@ export function topicMetadata(slug: TopicSlug) {
 /** How much of a section has content, for its home card. Null for coming-soon sections. */
 export function sectionProgress(id: SectionId): { done: number; total: number; noun: string } | null {
   if (id === "react-practices") return { done: builtCount, total: practices.length, noun: "practices built" };
-  if (id === "performance-accessibility") {
-    return { done: perfA11yPages.filter((p) => p.written).length, total: perfA11yPages.length, noun: "pages written" };
-  }
-  return null;
+  if (id === "system-design") return null;
+  const pages = sectionPages(id);
+  return { done: pages.filter((p) => p.written).length, total: pages.length, noun: pages.length === 1 ? "page written" : "pages written" };
 }

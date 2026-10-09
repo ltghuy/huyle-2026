@@ -4,9 +4,10 @@ import { useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Toggle } from "@/handbook/ui";
 
 import { accessibleName } from "./a11y-reader";
-import { ReaderBox, Toggle, useDomSnapshot, WrongWay } from "./ui";
+import { ReaderBox, useDomSnapshot, WrongWay } from "./ui";
 
 const RING = "rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-ring";
 const NO_RING = "rounded-sm outline-none";

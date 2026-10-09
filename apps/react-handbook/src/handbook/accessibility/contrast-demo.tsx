@@ -5,9 +5,10 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Toggle, Verdict } from "@/handbook/ui";
 
 import { contrastRatio, formatRatio, LEVELS } from "./contrast";
-import { Toggle, Verdict, WrongWay } from "./ui";
+import { WrongWay } from "./ui";
 
 const PRESETS = [
   { label: "Light gray on white", fg: "#949494", bg: "#ffffff" },
