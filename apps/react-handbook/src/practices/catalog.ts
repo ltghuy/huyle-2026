@@ -206,6 +206,13 @@ export const topicPages = [
     written: true,
   },
   {
+    section: "browser-platform",
+    slug: "rendering",
+    title: "How the browser renders a page",
+    summary: "Parsing into the DOM and CSSOM, what blocks parsing and rendering, layout, paint and composite, and layout thrashing, each with a live demo.",
+    written: true,
+  },
+  {
     section: "performance-accessibility",
     slug: "performance",
     title: "Performance",

@@ -22,7 +22,7 @@ built as its own follow-up feature (002–015) and plugs into this shell.
 
 The shell is the **Frontend Handbook** (quick task 004; renamed from "Frontend Interview Handbook" in quick task 005): content is
 grouped into sections. "React Practices" holds the 14 practices below;
-"Browser & Web Platform" (features 018 and 019: Networking; Origins, DNS and CORS) and "Performance &
+"Browser & Web Platform" (features 018–020: Networking; Origins, DNS and CORS; How the browser renders a page) and "Performance &
 Accessibility" (features 016 and 017: Performance, Accessibility) are folders
 of handbook pages; Frontend System Design is listed as coming soon until it
 gets its own feature.

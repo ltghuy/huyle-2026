@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Toc } from "@/handbook/toc";
 import { Topic } from "@/handbook/topic";
-import { practiceHref } from "@/practices/catalog";
+import { practiceHref, topicHref } from "@/practices/catalog";
 
 import { CodeSplitDemo } from "./code-split-demo";
 import { CriticalPathDemo } from "./critical-path-demo";
@@ -119,7 +119,7 @@ export function PerformanceHandbook() {
         }
         points={[
           <>The clock starts with the HTML itself (see <a href="#html-delivery" className={inline}>HTML delivery and CDNs</a>); everything below can only begin once it arrives.</>,
-          <>CSS blocks rendering and classic scripts block parsing. Use <code>defer</code> (or <code>async</code> for independent scripts), and inline the small CSS needed above the fold.</>,
+          <>CSS blocks rendering and classic scripts block parsing (see <Link href={topicHref("rendering")} className={inline}>How the browser renders a page</Link>). Use <code>defer</code> (or <code>async</code> for independent scripts), and inline the small CSS needed above the fold.</>,
           <>The browser can only fetch what it has found. <code>preload</code> resources it finds late (CSS backgrounds, fonts), <code>preconnect</code> to the one or two other origins you will need right away, and use the cheaper <code>dns-prefetch</code> for origins needed later.</>,
           <><code>fetchpriority=&quot;high&quot;</code> tells the browser which image is the LCP, so it isn&apos;t queued behind less important ones.</>,
         ]}
