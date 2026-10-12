@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Agent worktrees (git worktrees of this repo) live here.
     ".claude/**",
+    // Cloudflare adapter build output (OpenNext + wrangler).
+    ".open-next/**",
+    ".wrangler/**",
   ]),
 ]);
 
