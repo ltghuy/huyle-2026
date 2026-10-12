@@ -174,7 +174,11 @@ export function JwtHandbook() {
             <strong>An <code>HttpOnly</code> cookie</strong> can&apos;t be read by JavaScript, so XSS can&apos;t steal the token — but the browser attaches it automatically, so you need <code>SameSite</code> (and CSRF defences) to control cross-site sends. Note XSS is still game over: a script can still <em>make</em> authenticated requests, it just can&apos;t take the token away.
           </>,
           <>
-            <strong>In memory</strong> (a variable, not storage) survives neither a reload nor XSS reading it — but a script can still patch <code>fetch</code> and ride along on the next call. Nothing in the page truly resists a script running <em>in</em> the page.
+            <strong>In memory</strong> (a variable, not storage) survives neither a reload nor XSS reading it — but a script can still patch <code>fetch</code> and ride along on the next call. Nothing in the page truly resists a script running <em>in</em> the page, which is why{" "}
+            <Link href={topicHref("xss-csp-csrf")} className={inline}>
+              stopping XSS
+            </Link>{" "}
+            comes first.
           </>,
           <>
             <strong>Sessions and the BFF.</strong> A plain server session (an opaque <code>HttpOnly</code> cookie, state on the server) is often the simplest safe choice for a first-party web app. A <strong>backend-for-frontend</strong> keeps the real tokens on the server and gives the browser only a session cookie — the browser never holds a JWT at all.

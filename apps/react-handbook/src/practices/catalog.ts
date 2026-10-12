@@ -240,6 +240,13 @@ export const topicPages = [
     summary: "What a JWT proves and who can read it, the verifier mistakes behind real attacks, expiry, refresh and revocation, where to keep tokens in the browser, and key rotation, each with a live demo.",
     written: true,
   },
+  {
+    section: "security",
+    slug: "xss-csp-csrf",
+    title: "XSS, CSP and CSRF",
+    summary: "How untrusted content becomes running script and how encoding stops it, what a Content-Security-Policy does as a second wall, and how another site makes a request as the logged-in user, each with a live demo.",
+    written: true,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
