@@ -80,8 +80,11 @@ export function serverKeyList(): ServerKey[] {
 function signBytes(alg: Alg, material: SigningMaterial, data: Buffer): Buffer {
   if (alg === "HS256") return createHmac("sha256", material.secret!).update(data).digest();
   if (alg === "RS256") return sign("sha256", data, material.privateKey!);
-  // JWS wants ECDSA as raw r‖s (64 bytes for P-256), not DER.
-  return sign("sha256", data, { key: material.privateKey!, dsaEncoding: "ieee-p1363" });
+  // JWS wants ECDSA as raw r‖s (64 bytes for P-256), not DER. The key must be
+  // passed as a PEM string here, not a KeyObject: the Cloudflare Workers
+  // runtime rejects a KeyObject inside the options object alongside dsaEncoding.
+  const pem = material.privateKey!.export({ type: "pkcs8", format: "pem" }) as string;
+  return sign("sha256", data, { key: pem, dsaEncoding: "ieee-p1363" });
 }
 
 /** Signs header + payload as given; `alg: "none"` yields an empty signature. */
@@ -104,7 +107,9 @@ function verifyBytes(alg: Alg, key: { secret?: Buffer | string; publicKey?: KeyO
   if (!key.publicKey) return false;
   try {
     if (alg === "RS256") return verify("sha256", data, key.publicKey, signature);
-    return verify("sha256", data, { key: key.publicKey, dsaEncoding: "ieee-p1363" }, signature);
+    // PEM string, not a KeyObject, for the same Workers-runtime reason as signing.
+    const pem = key.publicKey.export({ type: "spki", format: "pem" }) as string;
+    return verify("sha256", data, { key: pem, dsaEncoding: "ieee-p1363" }, signature);
   } catch {
     return false; // wrong key type for the algorithm, malformed signature…
   }
