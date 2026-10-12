@@ -62,7 +62,7 @@ export default function HomePage() {
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
         <p className="max-w-2xl text-muted-foreground">
           Hands-on builds and the notes behind them, organised by the topics senior frontend work goes deep on. Start with the React
-          Practices, then the Browser, Performance &amp; Accessibility and Security handbooks; System Design is on the way.
+          Practices, then the Browser, Performance &amp; Accessibility, Security and Frontend System Design handbooks.
         </p>
       </header>
 

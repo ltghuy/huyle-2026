@@ -21,6 +21,7 @@ export const PRACTICES_PATH = "/react-practices";
 export const BROWSER_PATH = "/browser-platform";
 export const PERF_A11Y_PATH = "/performance-accessibility";
 export const SECURITY_PATH = "/security";
+export const SYSTEM_DESIGN_PATH = "/system-design";
 
 export const sections: Section[] = [
   {
@@ -50,8 +51,8 @@ export const sections: Section[] = [
   {
     id: "system-design",
     title: "Frontend System Design",
-    summary: "Design a news feed, autocomplete, chat or design system from requirements through, architecture and trade-offs.",
-    href: null,
+    summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, autocomplete, chat or design system.",
+    href: SYSTEM_DESIGN_PATH,
   },
 ];
 
@@ -187,7 +188,7 @@ export function practiceMetadata(slug: PracticeSlug) {
 // Topic pages of the sections other than React Practices. Slugs are unique
 // across sections; `written` turns true once a page's content ships.
 
-export type TopicSectionId = Exclude<SectionId, "react-practices" | "system-design">;
+export type TopicSectionId = Exclude<SectionId, "react-practices">;
 
 export type TopicPageMeta = {
   section: TopicSectionId;
@@ -247,6 +248,13 @@ export const topicPages = [
     summary: "How untrusted content becomes running script and how encoding stops it, what a Content-Security-Policy does as a second wall, and how another site makes a request as the logged-in user, each with a live demo.",
     written: true,
   },
+  {
+    section: "system-design",
+    slug: "method",
+    title: "The design method",
+    summary: "A repeatable way to run any frontend design prompt: clarify requirements, shape the architecture and data model, define the interface, go deep on the hard parts, and defend the trade-offs \u2014 with interactive references.",
+    written: true,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
@@ -256,6 +264,7 @@ const SECTION_PATH: Record<TopicSectionId, string> = {
   "browser-platform": BROWSER_PATH,
   "performance-accessibility": PERF_A11Y_PATH,
   security: SECURITY_PATH,
+  "system-design": SYSTEM_DESIGN_PATH,
 };
 
 export function sectionPath(id: TopicSectionId) {
@@ -283,7 +292,6 @@ export function topicMetadata(slug: TopicSlug) {
 /** How much of a section has content, for its home card. Null for coming-soon sections. */
 export function sectionProgress(id: SectionId): { done: number; total: number; noun: string } | null {
   if (id === "react-practices") return { done: builtCount, total: practices.length, noun: "practices built" };
-  if (id === "system-design") return null;
   const pages = sectionPages(id);
   return { done: pages.filter((p) => p.written).length, total: pages.length, noun: pages.length === 1 ? "page written" : "pages written" };
 }

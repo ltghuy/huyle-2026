@@ -24,8 +24,8 @@ The shell is the **Frontend Handbook** (quick task 004; renamed from "Frontend I
 grouped into sections. "React Practices" holds the 14 practices below;
 "Browser & Web Platform" (features 018–020: Networking; Origins, DNS and CORS; How the browser renders a page) and "Performance &
 Accessibility" (features 016 and 017: Performance, Accessibility) and "Security"
-(features 021–022: JSON Web Tokens; XSS, CSP and CSRF) are folders of handbook pages; Frontend System Design is listed as coming soon until it
-gets its own feature.
+(features 021–022: JSON Web Tokens; XSS, CSP and CSRF) and "Frontend System Design"
+(feature 023: The design method) are folders of handbook pages.
 
 The practice catalog, in sidebar order:
 
