@@ -143,7 +143,7 @@ function SectionFolder({
         isActive={sectionActive}
         aria-current={sectionActive ? "page" : undefined}
         title={folder.title}
-        render={<Link href={folder.href} onClick={onNavigate} />}
+        render={<Link href={folder.href} prefetch={false} onClick={onNavigate} />}
       >
         <SectionIcon id={folder.id} />
         <span className="truncate">{folder.title}</span>
@@ -165,7 +165,7 @@ function SectionFolder({
                   isActive={active}
                   aria-current={active ? "page" : undefined}
                   title={item.title}
-                  render={<Link href={item.href} onClick={onNavigate} />}
+                  render={<Link href={item.href} prefetch={false} onClick={onNavigate} />}
                 >
                   {item.prefix ? (
                     <span
