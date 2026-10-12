@@ -1,10 +1,6 @@
 import "server-only";
 
 import { createHash, randomUUID } from "node:crypto";
-import { createReadStream } from "node:fs";
-import { appendFile, mkdir, rename, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
 
 import {
   DEFAULT_SETTINGS,
@@ -21,11 +17,13 @@ import {
 } from "./upload.schema";
 
 // Resumable uploads: the client creates an upload, sends pieces at the offset
-// the server confirms, then completes with a checksum. State lives on
-// globalThis so dev reloads and every route module share it; files live in a
-// temp directory that is emptied on the first request a server process
-// handles. Never on import: `next build` imports route modules in its own
-// worker processes, and would wipe the files of a server that is running.
+// the server confirms, then completes with a checksum. State and the uploaded
+// bytes live on globalThis so dev reloads and every route module share them.
+// Bytes are held in memory (not on a filesystem) because this runs on
+// Cloudflare Workers, which have no disk; the stored total is capped by
+// STORAGE_LIMIT and the oldest files are evicted first. Note: on Workers the
+// state is per-isolate, so a multi-request upload only resumes while its
+// requests land on the same isolate.
 
 type Session = {
   id: string;
@@ -36,6 +34,8 @@ type Session = {
   fingerprint: string;
   /** Bytes stored so far: the confirmed offset. */
   offset: number;
+  /** The confirmed bytes, one entry per stored piece. */
+  data: Uint8Array[];
   status: "uploading" | "complete";
   /** A piece is being received. */
   busy: boolean;
@@ -48,9 +48,6 @@ type Session = {
 };
 
 type State = {
-  dir: string;
-  /** Set on first use, not on import. */
-  ready: Promise<void> | null;
   sessions: Map<string, Session>;
   settings: UploadSettings;
   /** Shared bandwidth: when the "network" is next free (epoch ms). */
@@ -68,23 +65,11 @@ export class UploadError extends Error {
 }
 
 function init(): State {
-  const dir = join(tmpdir(), "react-practices-uploads");
-  return { dir, ready: null, sessions: new Map(), settings: { ...DEFAULT_SETTINGS }, nextFree: 0 };
+  return { sessions: new Map(), settings: { ...DEFAULT_SETTINGS }, nextFree: 0 };
 }
 
 const globalUploads = globalThis as typeof globalThis & { __uploads?: State };
 const state = (globalUploads.__uploads ??= init());
-
-/** Empties the directory once per server process, on the first request. */
-function ready() {
-  state.ready ??= rm(state.dir, { recursive: true, force: true }).then(async () => {
-    await mkdir(state.dir, { recursive: true });
-  });
-  return state.ready;
-}
-
-const partPath = (id: string) => join(state.dir, `${id}.part`);
-const binPath = (id: string) => join(state.dir, `${id}.bin`);
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -115,7 +100,6 @@ export function updateSettings(changes: Partial<UploadSettings>) {
 
 /** Re-checks the rules; resumes an unfinished upload of the same file (by fingerprint). */
 export async function createUpload(body: CreateBody): Promise<{ upload: UploadInfo; resumed: boolean }> {
-  await ready();
   const { settings } = state;
   const kind = kindOf(body.name, body.type);
   if (!kind || !settings.allowedKinds.includes(kind)) {
@@ -141,6 +125,7 @@ export async function createUpload(body: CreateBody): Promise<{ upload: UploadIn
     type: body.type,
     fingerprint: body.fingerprint,
     offset: 0,
+    data: [],
     status: "uploading",
     busy: false,
     ticket: 0,
@@ -149,13 +134,11 @@ export async function createUpload(body: CreateBody): Promise<{ upload: UploadIn
     updatedAt: Date.now(),
     completedAt: null,
   };
-  await writeFile(partPath(session.id), new Uint8Array());
   state.sessions.set(session.id, session);
   return { upload: info(session), resumed: false };
 }
 
 export async function getUpload(id: string) {
-  await ready();
   return info(get(id));
 }
 
@@ -181,7 +164,6 @@ export async function appendPiece(
   body: ReadableStream<Uint8Array> | null,
   signal: AbortSignal,
 ): Promise<UploadInfo> {
-  await ready();
   const session = get(id);
   if (session.status !== "uploading") throw new UploadError(409, "Upload already complete", session.offset);
   if (offset !== session.offset) throw new UploadError(409, "Offset mismatch", session.offset);
@@ -222,7 +204,7 @@ export async function appendPiece(
     // The upload may have been cancelled, or another piece stored, while this one was arriving.
     if (state.sessions.get(id) !== session) throw new UploadError(404, "Upload not found (it was cancelled)");
     if (!current() || offset !== session.offset) throw new UploadError(409, "Offset mismatch", session.offset);
-    await appendFile(partPath(id), Buffer.concat(chunks));
+    session.data.push(Buffer.concat(chunks));
     session.offset += received;
     session.updatedAt = Date.now();
     await enforceLimit(id);
@@ -232,30 +214,24 @@ export async function appendPiece(
   }
 }
 
-function hashFile(path: string) {
-  return new Promise<string>((resolve, reject) => {
-    const hash = createHash("sha256");
-    createReadStream(path)
-      .on("data", (chunk) => hash.update(chunk))
-      .on("end", () => resolve(hash.digest("hex")))
-      .on("error", reject);
-  });
+function hashSession(session: Session) {
+  const hash = createHash("sha256");
+  for (const chunk of session.data) hash.update(chunk);
+  return hash.digest("hex");
 }
 
 /** Verifies the checksum; a mismatch deletes the upload. */
 export async function completeUpload(id: string, sha256: string): Promise<StoredFile> {
-  await ready();
   const session = get(id);
   if (session.status === "complete") return stored(session);
   if (session.offset !== session.size) {
     throw new UploadError(409, "Not all bytes have been received", session.offset);
   }
-  const actual = await hashFile(partPath(id));
+  const actual = hashSession(session);
   if (actual !== sha256) {
     await deleteUpload(id);
     throw new UploadError(422, "Checksum mismatch: the file changed during upload");
   }
-  await rename(partPath(id), binPath(id));
   session.status = "complete";
   session.sha256 = actual;
   session.verified = true;
@@ -265,11 +241,10 @@ export async function completeUpload(id: string, sha256: string): Promise<Stored
 }
 
 export async function deleteUpload(id: string) {
-  await ready();
   const session = get(id);
   state.sessions.delete(id);
-  const path = session.status === "complete" ? binPath(id) : partPath(id);
-  await rm(path, { force: true });
+  // Drop the bytes so they can be garbage-collected.
+  session.data = [];
 }
 
 function stored(session: Session): StoredFile {
@@ -306,7 +281,6 @@ async function enforceLimit(keepId: string) {
 }
 
 export async function listFiles(): Promise<FilesResponse> {
-  await ready();
   const files = [...state.sessions.values()]
     .filter((s) => s.status === "complete")
     .sort((a, b) => (b.completedAt ?? "").localeCompare(a.completedAt ?? ""))
