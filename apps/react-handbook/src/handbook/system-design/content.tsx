@@ -129,7 +129,11 @@ export function DesignMethodHandbook() {
           <Link href={topicHref("news-feed")} className="rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
             Design a news feed
           </Link>
-          , picks up where this framework&apos;s worked example leaves off; an autocomplete, a chat app and a design system follow.
+          , picks up where this framework&apos;s worked example leaves off, followed by{" "}
+          <Link href={topicHref("autocomplete")} className="rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+            Design an autocomplete
+          </Link>
+          ; a chat app and a design system follow.
         </p>
       </div>
     </div>
