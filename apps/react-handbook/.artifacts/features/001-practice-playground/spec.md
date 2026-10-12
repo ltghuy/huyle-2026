@@ -110,7 +110,7 @@ The practice catalog, in sidebar order:
 
 **Acceptance Criteria:**
 
-- [x] AC-014: WHEN the user opens the home page THEN system SHALL introduce the handbook and show a card per section (title, summary, status); WHEN the user opens the React Practices section THEN system SHALL list all 14 practices with name, one-line description, and status (built / coming soon).
+- [x] AC-014: WHEN the user opens the home page THEN system SHALL introduce the handbook (what it is, why it was made, what the reader gets, how to use it), show a card per section (title, summary, status), explain how the site itself is built, list external references that open in a new tab, and end with the author's signature (HUY LE); *(Home content expanded by quick tasks 009-home-page-content and 010-home-signature.)* WHEN the user opens the React Practices section THEN system SHALL list all 14 practices with name, one-line description, and status (built / coming soon).
 - [x] AC-015: WHEN the user selects a section on the home page THEN system SHALL open it (coming-soon sections aren't links); WHEN the user selects a practice on the section page THEN system SHALL open that practice; a practice page SHALL show where it sits (Handbook › React Practices).
 - [x] AC-016: WHEN the home page or the React Practices section is shown THEN system SHALL show how many of the 14 practices are built.
 

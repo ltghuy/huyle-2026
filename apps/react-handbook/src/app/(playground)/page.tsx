@@ -1,15 +1,84 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 import { SectionIcon } from "@/components/playground/section-icon";
+import { Signature } from "@/components/playground/signature";
 import { Progress } from "@/components/ui/progress";
 import { sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
+
+const WHY = [
+  "Tutorials stop at the happy path. Real frontend work starts when the network is slow, the list has 100,000 rows, the user is on a keyboard, or the token has just expired.",
+  "The knowledge behind those cases is spread across MDN, web.dev, RFCs and blog posts. This handbook pulls it together, next to code that uses it.",
+  "Building each piece from scratch, then writing down why it works, is the fastest way to really understand it, and leaves a reference worth coming back to.",
+];
+
+const BENEFITS = [
+  { title: "Working code, not snippets", text: "Each practice is a complete feature with its own API route, built without a library doing the hard part." },
+  { title: "Failure on purpose", text: "Demo controls add latency, errors and load, so you see the loading, empty, error and retry states, not just the happy path." },
+  { title: "The why behind each choice", text: "Guides spell out the approach, best practices, what to avoid and the trade-offs, so you can defend the design." },
+  { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security and system design, each with an interactive demo." },
+];
+
+const BUILT_WITH = [
+  { label: "Framework", text: "Next.js 16 App Router on React 19. Pages are Server Components; client code lives only in the interactive leaves." },
+  { label: "Backend", text: "Every demo talks to real route handlers under /api in the same repo. Input is validated with Zod and logic sits in server-only services." },
+  { label: "UI", text: "Tailwind CSS v4 and shadcn/ui on Base UI primitives, lucide icons, and theme tokens so light and dark mode both work." },
+  { label: "Process", text: "Spec-driven: each feature starts as a spec with acceptance criteria, then design, tasks, implementation and verification against those criteria." },
+  { label: "Hosting", text: "Deployed to Cloudflare Workers with the OpenNext adapter." },
+];
+
+const REFERENCES = [
+  {
+    group: "React and Next.js",
+    links: [
+      { label: "react.dev", href: "https://react.dev/learn" },
+      { label: "Next.js docs", href: "https://nextjs.org/docs" },
+      { label: "shadcn/ui", href: "https://ui.shadcn.com" },
+    ],
+  },
+  {
+    group: "Browser and performance",
+    links: [
+      { label: "MDN Web Docs", href: "https://developer.mozilla.org/en-US/docs/Web" },
+      { label: "web.dev: Learn Performance", href: "https://web.dev/learn/performance" },
+      { label: "RenderingNG architecture", href: "https://developer.chrome.com/docs/chromium/renderingng-architecture" },
+    ],
+  },
+  {
+    group: "Accessibility and security",
+    links: [
+      { label: "web.dev: Learn Accessibility", href: "https://web.dev/learn/accessibility" },
+      { label: "WAI-ARIA Authoring Practices", href: "https://www.w3.org/WAI/ARIA/apg/" },
+      { label: "OWASP Cheat Sheet Series", href: "https://cheatsheetseries.owasp.org/" },
+      { label: "RFC 7519: JSON Web Token", href: "https://www.rfc-editor.org/rfc/rfc7519" },
+    ],
+  },
+  {
+    group: "System design",
+    links: [{ label: "GreatFrontEnd system design playbook", href: "https://www.greatfrontend.com/front-end-system-design-playbook" }],
+  },
+];
 
 const HOW_TO = [
   { title: "Build it", text: "Each practice is a classic frontend problem built from scratch, with a live demo and controls that break it on purpose." },
   { title: "Explain it", text: "Every page has a guide: the key ideas, how it was built, best practices and trade-offs behind each choice." },
   { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility and system design." },
 ];
+
+function ExternalAnchor({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-1 rounded-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+    >
+      {children}
+      <ExternalLink aria-hidden className="size-3.5" />
+      <span className="sr-only">(opens in a new tab)</span>
+    </a>
+  );
+}
 
 function SectionCard({ section }: { section: Section }) {
   const progress = sectionProgress(section.id);
@@ -61,10 +130,36 @@ export default function HomePage() {
         <p className="text-sm font-medium text-muted-foreground">Notes and builds for senior frontend engineers</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
         <p className="max-w-2xl text-muted-foreground">
-          Hands-on builds and the notes behind them, organised by the topics senior frontend work goes deep on. Start with the React
-          Practices, then the Browser, Performance &amp; Accessibility, Security and Frontend System Design handbooks.
+          A working notebook for frontend engineering: classic UI problems built from scratch, plus the browser, performance,
+          accessibility, security and system design knowledge around them. Every page pairs short notes with a live demo you can break on
+          purpose. Start with the React Practices, then move on to the other handbooks.
         </p>
       </header>
+
+      <section aria-labelledby="why-heading" className="flex flex-col gap-4">
+        <h2 id="why-heading" className="text-lg font-semibold">
+          Why it exists
+        </h2>
+        <div className="flex max-w-3xl flex-col gap-3 text-sm leading-relaxed text-foreground/85">
+          {WHY.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="benefits-heading" className="flex flex-col gap-4">
+        <h2 id="benefits-heading" className="text-lg font-semibold">
+          What you get
+        </h2>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {BENEFITS.map((benefit) => (
+            <li key={benefit.title} className="flex flex-col gap-1 rounded-xl border p-4">
+              <span className="font-medium">{benefit.title}</span>
+              <span className="text-sm text-muted-foreground">{benefit.text}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section aria-labelledby="how-heading" className="flex flex-col gap-4">
         <h2 id="how-heading" className="text-lg font-semibold">
@@ -93,6 +188,43 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      <section aria-labelledby="built-heading" className="flex flex-col gap-4">
+        <h2 id="built-heading" className="text-lg font-semibold">
+          How this site is built
+        </h2>
+        <dl className="grid max-w-3xl gap-x-6 gap-y-3 text-sm sm:grid-cols-[8rem_1fr]">
+          {BUILT_WITH.map((item) => (
+            <div key={item.label} className="contents">
+              <dt className="font-medium">{item.label}</dt>
+              <dd className="text-muted-foreground">{item.text}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section aria-labelledby="references-heading" className="flex flex-col gap-4">
+        <h2 id="references-heading" className="text-lg font-semibold">
+          References
+        </h2>
+        <p className="max-w-3xl text-sm text-muted-foreground">The sources these pages lean on most. Each topic page links to the specific articles it draws from.</p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {REFERENCES.map((reference) => (
+            <div key={reference.group} className="flex flex-col gap-2">
+              <h3 className="text-sm font-medium text-muted-foreground">{reference.group}</h3>
+              <ul className="flex flex-col gap-1.5 text-sm">
+                {reference.links.map((link) => (
+                  <li key={link.href}>
+                    <ExternalAnchor href={link.href}>{link.label}</ExternalAnchor>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Signature />
     </div>
   );
 }
