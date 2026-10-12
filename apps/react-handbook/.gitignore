@@ -43,3 +43,8 @@ next-env.d.ts
 
 # spec-driven ephemeral session notes
 .artifacts/.session-dump.md
+
+# cloudflare (opennext + wrangler)
+/.open-next/
+/.wrangler/
+.dev.vars*
