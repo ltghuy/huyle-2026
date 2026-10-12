@@ -73,7 +73,7 @@ The practice catalog, in sidebar order:
 
 - [x] AC-001: WHEN the playground opens THEN system SHALL show a left sidebar with the handbook's sections; the React Practices section SHALL be a folder that opens to list all 14 practices in catalog order, each with its number and name (open whenever a practice is shown), and sections without content SHALL be listed as coming soon.
 - [x] AC-002: WHEN the user selects a sidebar item THEN system SHALL show that practice in the right-hand area without a full page reload.
-- [x] AC-003: WHEN a practice is open THEN system SHALL visually mark its sidebar item as the current one and expose it as the current page to assistive technology.
+- [x] AC-003: WHEN a practice or topic page is open THEN system SHALL visually mark its sidebar item as the current one (highlight and a dot; only the current item has a dot) and expose it as the current page to assistive technology; the sidebar header SHALL show the site name over the content totals ("14 practices · 10 topics"). *(Updated by quick task 011-sidebar-active-dot.)*
 - [x] AC-004: WHEN a practice isn't built yet THEN system SHALL still list it in the sidebar, marked "coming soon", and selecting it SHALL show a placeholder with its title and description.
 - [x] AC-005: WHEN the user navigates the sidebar with the keyboard only THEN system SHALL let them reach and open every item with visible focus.
 

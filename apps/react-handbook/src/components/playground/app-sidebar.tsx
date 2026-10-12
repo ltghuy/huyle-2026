@@ -10,7 +10,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  builtCount,
   practiceHref,
   practices,
   PRACTICES_PATH,
@@ -19,6 +18,7 @@ import {
   sections,
   SITE_NAME,
   topicHref,
+  topicPages,
   type TopicSectionId,
 } from "@/practices/catalog";
 
@@ -63,7 +63,7 @@ export function AppSidebar() {
               <span className="flex min-w-0 flex-col gap-1 leading-none">
                 <span className="leading-tight font-semibold">{SITE_NAME}</span>
                 <span className="text-xs text-muted-foreground">
-                  {builtCount} of {practices.length} practices built
+                  {practices.length} practices · {topicPages.length} topics
                 </span>
               </span>
             </SidebarMenuButton>

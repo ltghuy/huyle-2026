@@ -175,8 +175,9 @@ function SectionFolder({
                       {item.prefix}
                     </span>
                   ) : null}
-                  <span aria-hidden className={cn("size-1.5 shrink-0 rounded-full", item.ready ? "bg-success" : "bg-border")} />
-                  <span className="truncate">
+                  {/* Only the current page gets a dot; the others keep its space so titles stay aligned. */}
+                  <span aria-hidden className={cn("size-1.5 shrink-0 rounded-full", active ? "bg-success" : "bg-transparent")} />
+                  <span className={cn("truncate", !item.ready && "text-muted-foreground")}>
                     {item.title}
                     {item.ready ? null : <span className="sr-only"> (coming soon)</span>}
                   </span>
