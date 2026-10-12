@@ -23,5 +23,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   // Run on page routes only; skip the API, Next internals and static files.
-  matcher: [String.raw`/((?!api/|_next/|favicon.ico|.*\.[a-zA-Z0-9]+$).*)`],
+  // Must be a plain string literal: Next statically analyses the matcher at
+  // build time and rejects anything it can't evaluate (e.g. String.raw`…`).
+  matcher: ["/((?!api/|_next/|favicon.ico|.*\\.[a-zA-Z0-9]+$).*)"],
 };
