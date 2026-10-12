@@ -1,4 +1,4 @@
-import { Atom, Gauge, Globe, Network, type LucideIcon } from "lucide-react";
+import { Atom, Gauge, Globe, Network, ShieldCheck, type LucideIcon } from "lucide-react";
 
 import type { SectionId } from "@/practices/catalog";
 
@@ -6,6 +6,7 @@ const ICONS: Record<SectionId, LucideIcon> = {
   "react-practices": Atom,
   "browser-platform": Globe,
   "performance-accessibility": Gauge,
+  security: ShieldCheck,
   "system-design": Network,
 };
 

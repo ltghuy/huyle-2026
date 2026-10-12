@@ -7,7 +7,7 @@
 
 export const SITE_NAME = "Frontend Handbook";
 
-export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "system-design";
+export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design";
 
 export type Section = {
   id: SectionId;
@@ -20,6 +20,7 @@ export type Section = {
 export const PRACTICES_PATH = "/react-practices";
 export const BROWSER_PATH = "/browser-platform";
 export const PERF_A11Y_PATH = "/performance-accessibility";
+export const SECURITY_PATH = "/security";
 
 export const sections: Section[] = [
   {
@@ -39,6 +40,12 @@ export const sections: Section[] = [
     title: "Performance & Accessibility",
     summary: "Measuring and fixing Core Web Vitals, profiling and bundle size, and building for keyboard and screen-reader users.",
     href: PERF_A11Y_PATH,
+  },
+  {
+    id: "security",
+    title: "Security",
+    summary: "How a web app proves who is calling and keeps it that way: tokens and sessions first, with XSS, CSP and CSRF to follow.",
+    href: SECURITY_PATH,
   },
   {
     id: "system-design",
@@ -226,6 +233,13 @@ export const topicPages = [
     summary: "Semantic HTML and ARIA, structure, keyboard focus, dynamic content, images and media, contrast, type, motion, forms and inclusive design, each with a live demo.",
     written: true,
   },
+  {
+    section: "security",
+    slug: "jwt",
+    title: "JSON Web Tokens",
+    summary: "What a JWT proves and who can read it, the verifier mistakes behind real attacks, expiry, refresh and revocation, where to keep tokens in the browser, and key rotation, each with a live demo.",
+    written: true,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
@@ -234,6 +248,7 @@ export type TopicSlug = TopicPage["slug"];
 const SECTION_PATH: Record<TopicSectionId, string> = {
   "browser-platform": BROWSER_PATH,
   "performance-accessibility": PERF_A11Y_PATH,
+  security: SECURITY_PATH,
 };
 
 export function sectionPath(id: TopicSectionId) {
