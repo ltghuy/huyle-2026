@@ -1,5 +1,8 @@
+import Link from "next/link";
+
 import { Toc } from "@/handbook/toc";
 import { Topic } from "@/handbook/topic";
+import { topicHref } from "@/practices/catalog";
 
 import { FrameworkDemo } from "./framework-demo";
 import { RequirementsDemo } from "./requirements-demo";
@@ -122,8 +125,11 @@ export function DesignMethodHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next:</strong> the case-study pages apply this method to concrete prompts — a news feed, an autocomplete, a chat app and
-          a design system. Each one picks up where this framework&apos;s worked example leaves off.
+          <strong>Next:</strong> the case-study pages apply this method to concrete prompts. The first,{" "}
+          <Link href={topicHref("news-feed")} className="rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+            Design a news feed
+          </Link>
+          , picks up where this framework&apos;s worked example leaves off; an autocomplete, a chat app and a design system follow.
         </p>
       </div>
     </div>

@@ -25,7 +25,7 @@ grouped into sections. "React Practices" holds the 14 practices below;
 "Browser & Web Platform" (features 018–020: Networking; Origins, DNS and CORS; How the browser renders a page) and "Performance &
 Accessibility" (features 016 and 017: Performance, Accessibility) and "Security"
 (features 021–022: JSON Web Tokens; XSS, CSP and CSRF) and "Frontend System Design"
-(feature 023: The design method) are folders of handbook pages.
+(features 023–024: The design method; Design a news feed) are folders of handbook pages.
 
 The practice catalog, in sidebar order:
 

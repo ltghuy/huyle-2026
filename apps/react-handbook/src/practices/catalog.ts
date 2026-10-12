@@ -255,6 +255,13 @@ export const topicPages = [
     summary: "A repeatable way to run any frontend design prompt: clarify requirements, shape the architecture and data model, define the interface, go deep on the hard parts, and defend the trade-offs \u2014 with interactive references.",
     written: true,
   },
+  {
+    section: "system-design",
+    slug: "news-feed",
+    title: "Design a news feed",
+    summary: "The method applied end to end to an infinite, personalised feed: requirements and architecture, the data model and why feeds need cursor pagination, and the deep dives \u2014 virtualization, media, optimistic likes and freshness.",
+    written: true,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
