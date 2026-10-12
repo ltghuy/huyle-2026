@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Handbook
 
-## Getting Started
+A hands-on handbook for frontend engineering. Each page explains a topic and
+backs it with a live demo, often talking to a real API route in the same app.
+Live at [learn.huyle.work](https://learn.huyle.work).
 
-First, run the development server:
+## Sections
+
+| Section | Path | Pages |
+|---------|------|-------|
+| React Practices | `/react-practices` | 14 classic UI problems built from scratch: toasts, searchable accordion, infinite scroll, data-fetching hook with caching, real-time chat, file upload with progress, virtualized lists, accessible modal, Context + `useReducer`, multi-step form, lazy images, debounced search, data grid, large-dataset performance |
+| Browser & Web Platform | `/browser-platform` | Networking, Origins/DNS/CORS, how the browser renders a page |
+| Performance & Accessibility | `/performance-accessibility` | Performance (Core Web Vitals, code splitting, long tasks), Accessibility |
+| Security | `/security` | JSON Web Tokens, XSS/CSP/CSRF |
+| Frontend System Design | `/system-design` | The design method, design a news feed, design an autocomplete |
+
+The section and page list lives in `src/practices/catalog.ts`.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + React 19 + TypeScript
+- Tailwind CSS v4 + [shadcn/ui](https://ui.shadcn.com) (`base-nova` style, Base UI primitives) + `lucide-react`
+- Zod for input validation and env parsing
+- pnpm
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | What it does |
+|---------|--------------|
+| `pnpm dev` | Dev server |
+| `pnpm build` / `pnpm start` | Production build and Node server |
+| `pnpm lint` | ESLint |
+| `pnpm typecheck` | `next typegen` + `tsc --noEmit` |
+| `pnpm preview` | Build for Cloudflare and run locally on workerd |
+| `pnpm run deploy` | Build and deploy to Cloudflare Workers |
+| `pnpm cf-typegen` | Generate Cloudflare binding types |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project layout
 
-## Learn More
+```
+src/
+├── app/
+│   ├── (playground)/        pages, one route per practice/topic
+│   └── api/                 route handlers (thin: parse → service → respond)
+│       ├── practices/       backends for the React practices
+│       ├── handbook/        backends for the handbook demos (CORS, cache, JWT, CSP, …)
+│       └── health/          health check
+├── practices/{slug}/        React practice components + catalog.ts
+├── handbook/{topic}/        handbook topic content and demos
+├── components/              playground shell + shadcn/ui primitives (ui/)
+├── server/                  server-only services, Zod schemas, env.ts
+├── hooks/
+└── lib/                     client/server-safe helpers (http.ts, utils.ts)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How this repo is built
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Development is spec-first. Every feature has a spec under
+`.artifacts/features/{ID}-{name}/`, small changes are recorded under
+`.artifacts/quick/`, and cross-feature decisions and gotchas live in
+`.agents/knowledge.md`. Agent rules are in `CLAUDE.md`, `AGENTS.md` and
+`.claude/rules/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Minimum quality gate before a change is done:
 
-## Deploy on Vercel
+```bash
+pnpm typecheck && pnpm lint && pnpm build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Cloudflare Workers** via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
+  config in `wrangler.jsonc` and `open-next.config.ts`, routed to the custom
+  domain `learn.huyle.work`. The first deploy needs `wrangler login`.
+- **Railway**: `railway.json` builds with `pnpm build` and runs `pnpm start` as
+  a single Node instance.
+
+Some demos keep state in memory (`globalThis`), so on Workers that state is
+per-isolate and cross-request logs can be inconsistent. A single Node instance
+doesn't have that problem.
