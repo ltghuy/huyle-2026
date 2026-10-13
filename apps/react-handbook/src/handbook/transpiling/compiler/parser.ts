@@ -891,6 +891,8 @@ export class Parser {
         const property = this.parseIdentifier(true);
         callee = { type: "MemberExpression", start, end: this.end(), object: callee, property, computed: false, optional: false };
       }
+      // `new Map<string, number>()`: type arguments, erased like any other type.
+      if (this.is("<")) this.tryParse(() => this.parseTypeArguments());
       const args = this.is("(") ? this.parseArguments() : [];
       expression = { type: "NewExpression", start, end: this.end(), callee, arguments: args };
     } else expression = this.parsePrimary();

@@ -294,8 +294,8 @@ export const topicPages = [
     section: "under-the-hood",
     slug: "bundlers",
     title: "Bundlers: graph, runtime, chunks and dev servers",
-    summary: "How a bundler resolves imports into a module graph, the runtime that links modules, tree shaking and side effects, code splitting, and why webpack, Vite and Turbopack run dev differently.",
-    written: false,
+    summary: "How a bundler resolves imports into a module graph, the runtime that links modules, tree shaking and side effects, code splitting, and why webpack, Vite and Turbopack run dev differently, each with a live demo.",
+    written: true,
   },
   {
     section: "under-the-hood",
