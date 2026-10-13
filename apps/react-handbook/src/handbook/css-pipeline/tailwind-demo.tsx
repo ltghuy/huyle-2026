@@ -1,0 +1,120 @@
+"use client";
+
+import { useDeferredValue, useEffect, useState } from "react";
+
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { CodePanel } from "@/handbook/build-pipeline/code-panel";
+import { cn } from "@/lib/utils";
+
+import { buildUtilities, loadTailwind, scanCandidates } from "./tailwind";
+import { TAILWIND_VERSION } from "./tailwind-theme";
+import { useNearViewport } from "./use-near-viewport";
+
+const SAMPLE = `export function Product({ name, color }: { name: string; color: string }) {
+  return (
+    <article className="rounded-xl bg-white p-4 shadow-md hover:shadow-lg md:flex md:gap-4">
+      <h3 className="text-lg font-semibold text-slate-900">{name}</h3>
+      <p className="text-sm text-slate-500">In stock</p>
+      {/* Built from pieces at runtime, so the full class name is never written out */}
+      <span className={\`bg-\${color}-500 rounded px-2 text-white\`}>Sale</span>
+      <button className="btn-primary mt-2">Add to cart</button>
+    </article>
+  );
+}
+`;
+
+type Output = { ok: true; css: string; candidates: string[]; generated: Set<string> } | { ok: false; message: string };
+
+/** Turns the JSX into HTML for the preview: className becomes class, expressions are dropped. */
+function previewHtml(jsx: string) {
+  const body = /return \(([\s\S]*)\);/.exec(jsx)?.[1] ?? jsx;
+  return body
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, "")
+    .replace(/className=\{`([^`]*)`\}/g, 'class="$1"')
+    .replace(/className=/g, "class=")
+    .replace(/\{[^}]*\}/g, "Example");
+}
+
+function cssEscape(name: string) {
+  return typeof CSS !== "undefined" && CSS.escape ? CSS.escape(name) : name;
+}
+
+export function TailwindDemo() {
+  const [source, setSource] = useState(SAMPLE);
+  const deferred = useDeferredValue(source);
+  const [output, setOutput] = useState<Output | null>(null);
+  const { ref, near } = useNearViewport<HTMLDivElement>();
+
+  // The Tailwind compiler (about 60 kB gzipped) is downloaded once the demo is near the screen.
+  useEffect(() => {
+    if (!near) return;
+    let current = true;
+    const candidates = scanCandidates(deferred);
+    loadTailwind()
+      .then((compile) => buildUtilities(compile, candidates))
+      .then((css) => {
+        if (!current) return;
+        const generated = new Set(candidates.filter((c) => css.includes("." + cssEscape(c))));
+        setOutput({ ok: true, css, candidates, generated });
+      })
+      .catch((error: unknown) => {
+        if (current) setOutput({ ok: false, message: error instanceof Error ? error.message : "Tailwind couldn't be loaded." });
+      });
+    return () => {
+      current = false;
+    };
+  }, [deferred, near]);
+
+  const ok = output?.ok ? output : null;
+
+  return (
+    <div ref={ref} className="flex flex-col gap-4">
+      <div className="grid min-w-0 gap-3 lg:grid-cols-2">
+        <div className="flex min-w-0 flex-col gap-1.5">
+          <Label htmlFor="tw-source" className="font-mono text-xs">
+            Product.tsx (edit me)
+          </Label>
+          <Textarea id="tw-source" value={source} onChange={(e) => setSource(e.target.value)} spellCheck={false} wrap="off" className="min-h-72 font-mono text-xs leading-relaxed" />
+        </div>
+        <div className="flex min-w-0 flex-col gap-2">
+          <p className="text-xs text-muted-foreground">Preview, styled only by the CSS Tailwind generated:</p>
+          {ok ? (
+            <iframe
+              title="Preview with the generated utilities"
+              sandbox=""
+              srcDoc={`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Preview</title><style>body{margin:0;padding:12px;font:14px system-ui,sans-serif;background:#f1f5f9}${ok.css}</style></head><body>${previewHtml(deferred)}</body></html>`}
+              className="h-56 w-full rounded-lg border bg-white"
+            />
+          ) : (
+            <p aria-live="polite" className="text-sm text-muted-foreground">
+              {output && !output.ok ? output.message : `Loading Tailwind ${TAILWIND_VERSION}…`}
+            </p>
+          )}
+        </div>
+      </div>
+      {ok ? (
+        <>
+          <div className="flex flex-col gap-1.5">
+            <p aria-live="polite" className="text-sm">
+              {ok.candidates.length} candidates found; {ok.generated.size} are utilities Tailwind generated CSS for, the rest it ignored.
+            </p>
+            <ul className="flex flex-wrap gap-1.5 font-mono text-xs" aria-label="Class candidates">
+              {ok.candidates.map((c) => (
+                <li key={c} className={cn("rounded-sm border px-1.5", ok.generated.has(c) ? "border-success/50 bg-success/10" : "border-dashed text-foreground/70")}>
+                  {c}
+                  <span className="sr-only">{ok.generated.has(c) ? " (generated)" : " (ignored)"}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <CodePanel title={`Generated by Tailwind ${TAILWIND_VERSION}`} code={ok.css} />
+        </>
+      ) : null}
+      <p className="text-xs text-muted-foreground">
+        The real Tailwind compiler runs in your browser on the candidates. The candidate scanner here is simplified; Tailwind&apos;s own (Oxide) follows the same rule:
+        a class name must appear whole somewhere in your files.
+      </p>
+    </div>
+  );
+}

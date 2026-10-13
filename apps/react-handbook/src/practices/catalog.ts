@@ -301,8 +301,8 @@ export const topicPages = [
     section: "under-the-hood",
     slug: "css-pipeline",
     title: "The CSS pipeline",
-    summary: "How CSS gets into the bundle, what Sass compiles to, PostCSS plugins, how CSS Modules scope class names, and how Tailwind generates only the utilities you use.",
-    written: false,
+    summary: "How CSS gets into the bundle, what Sass compiles to, PostCSS plugins, how CSS Modules scope class names, and how Tailwind generates only the utilities you use, each with a live demo.",
+    written: true,
   },
   {
     section: "under-the-hood",
