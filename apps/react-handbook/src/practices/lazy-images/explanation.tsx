@@ -17,14 +17,14 @@ export function Explanation() {
           decoded. The gallery below loads generated photos from this
           project&apos;s mock API; switch between the hand-built loader, the
           browser&apos;s <code>loading=&quot;lazy&quot;</code> and eager
-          loading, and compare what the server actually received.
+          loading, and compare what the server received.
         </p>
       </Intro>
       <KeyIdeas
         items={[
           { title: "Observe with a margin", text: "an IntersectionObserver whose root is the scroller, grown by a preload band, says when a tile is close." },
           { title: "Reserve the space", text: "give every tile its final aspect ratio before the image exists, so nothing moves when it arrives." },
-          { title: "Decode, then reveal", text: "preload off-screen, await decode(), then show the same URL: no half-painted image, no second request." },
+          { title: "Decode, then reveal", text: "preload off-screen, await decode(), then show the same URL, so the image never paints half-decoded and is requested only once." },
           { title: "Don't lazy-load what's visible first", text: "the first images load at once with high priority; fast scrolls skip or cancel the rest." },
         ]}
       />
@@ -131,7 +131,7 @@ export function Explanation() {
 
         <GuideSection title="Trade-offs and limits">
           <ul>
-            <li>Native <code>loading=&quot;lazy&quot;</code> is the right default for most pages: no JavaScript, works before hydration. Its distance is fixed by the browser and it never cancels; a hand-built loader earns its keep when you need those controls.</li>
+            <li>Native <code>loading=&quot;lazy&quot;</code> is the right default for most pages: no JavaScript, works before hydration. Its distance is fixed by the browser and it never cancels; a hand-built loader is worth it when you need those controls.</li>
             <li>JavaScript-driven images need the script to run first; for content that must show without it, render native lazy images or a <code>&lt;noscript&gt;</code> fallback.</li>
             <li>Cancelling on leave saves connections but costs a repeat request if the visitor scrolls back; on very slow networks keeping started downloads can be better.</li>
             <li>The browser allows about six connections per host over HTTP/1.1, so eager images queue behind each other (and would delay any other request, which is why the counters arrive over one stream opened before the images). That contention is what lazy loading and priority avoid.</li>

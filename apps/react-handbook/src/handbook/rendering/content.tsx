@@ -49,7 +49,7 @@ export function RenderingHandbook() {
           <>
             The browser reads HTML as a stream of tokens and builds the <strong>DOM</strong>, a tree of nodes that scripts can read and
             change. CSS is parsed into the <strong>CSSOM</strong>. Combining the two gives the <strong>render tree</strong>: only what
-            will actually be drawn, with its final styles.
+            will be drawn, with its final styles.
           </>
         }
         points={[
@@ -141,8 +141,8 @@ export function RenderingHandbook() {
         intro={
           <>
             The browser normally batches style changes and lays out once, just before the next frame. Reading a layout value such as{" "}
-            <code>offsetWidth</code> after a change forces it to lay out <strong>now</strong>, a <strong>forced synchronous layout</strong>.
-            Doing that in a loop is <strong>layout thrashing</strong>.
+            <code>offsetWidth</code> after a change forces it to lay out immediately. This is a <strong>forced synchronous layout</strong>,
+            and doing it in a loop is <strong>layout thrashing</strong>.
           </>
         }
         points={[

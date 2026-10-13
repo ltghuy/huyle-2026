@@ -32,8 +32,8 @@ export function PerformanceHandbook() {
       <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
         <p>
           Web performance is how fast a page loads and how quickly it responds to the user. Slow pages lose people: they leave before
-          the content shows, give up on a form that lags, or tap the wrong button when the layout jumps. This page covers the ideas
-          that matter most, each with a demo you can measure in your own browser.
+          the content shows, give up on a form that lags, or tap the wrong button when the layout jumps. Each topic below has a
+          demo you can measure in your own browser.
         </p>
         <p className="text-sm text-muted-foreground">
           Based on web.dev&apos;s{" "}
@@ -52,7 +52,7 @@ export function PerformanceHandbook() {
         title={TOPICS[0].title}
         intro={
           <>
-            Speed is part of the experience, and it&apos;s measured from the user&apos;s side. Google&apos;s <strong>Core Web Vitals</strong>{" "}
+            Speed is measured from the user&apos;s side. Google&apos;s <strong>Core Web Vitals</strong>{" "}
             name the three things users feel most, each judged at the 75th percentile of real visits.
           </>
         }
@@ -89,8 +89,8 @@ export function PerformanceHandbook() {
         points={[
           <><strong>Avoid redirects</strong>: each one is another request, often on a new connection (<code>http</code> → <code>https</code>, a missing <code>www</code>, a trailing slash). Link to the final address.</>,
           <><strong>Cache HTML briefly</strong>: a short <code>Cache-Control</code> lifetime plus <code>ETag</code> or <code>Last-Modified</code> lets browsers and CDNs revalidate cheaply. Never cache personalised pages in a shared cache.</>,
-          <><strong>Compress text</strong>: Brotli (about 15–20% smaller than gzip) with gzip as a fallback; pre-compress static CSS and JS at build time, compress HTML on the fly.</>,
-          <><strong>Use a CDN</strong>: edge servers near your users cut every round trip, cache static files (and HTML when allowed), and bring HTTP/2–3, TLS 1.3 and compression by default.</>,
+          <><strong>Compress text</strong>: Brotli (about 15 to 20% smaller than gzip) with gzip as a fallback; pre-compress static CSS and JS at build time, compress HTML on the fly.</>,
+          <><strong>Use a CDN</strong>: edge servers near your users cut every round trip, cache static files (and HTML when allowed), and bring HTTP/2 and HTTP/3, TLS 1.3 and compression by default.</>,
           <><strong>Measure the server</strong>: the <code>Server-Timing</code> header shows where TTFB goes (database, rendering); stream the HTML so the <code>&lt;head&gt;</code> leaves early.</>,
         ]}
         demoTitle="switch on a CDN, edge caching, compression and a direct link (simulated)"
@@ -246,7 +246,7 @@ export function PerformanceHandbook() {
         points={[
           <>Break long work into chunks and yield between them so input and painting can happen in between: <code>scheduler.yield()</code> resumes first (good for input), a new task (<code>setTimeout</code>, <code>MessageChannel</code>) lets rendering go first.</>,
           <>Move pure computation (parsing, filtering, image processing) to a <strong>web worker</strong>. Workers have no DOM access and messages are copied, unless you <strong>transfer</strong> an <code>ArrayBuffer</code>, which moves it between threads for free.</>,
-          <>A concrete use case: the course reads Exif metadata from JPEGs in a worker; the demo below blurs a photo there, sending its pixels both ways as a transferable.</>,
+          <>The course&apos;s worker example reads Exif metadata from JPEGs; the demo below blurs a photo there, sending its pixels both ways as a transferable.</>,
           <>In React, keep input urgent with <code>useTransition</code> or <code>useDeferredValue</code> and render less (see <Link href={practiceHref("large-dataset-performance")} className={inline}>practice 14</Link>).</>,
         ]}
         demoTitle="blur a photo in one go, in chunks, and in a worker"

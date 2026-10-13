@@ -24,7 +24,7 @@ export function Explanation() {
       <KeyIdeas
         items={[
           { title: "One form, many steps", text: "one store holds every answer; a step is just which fields you see and which rules must pass to leave it." },
-          { title: "Derive, don't store", text: "errors, applicable steps and which steps can be opened are computed from the answers, so they can't go stale." },
+          { title: "Computed from the answers", text: "errors, applicable steps and which steps can be opened are computed from the answers instead of stored, so they can't go stale." },
           { title: "The address is the step", text: "Next adds a history entry, corrections replace it, so Back, Forward, refresh and links work per step." },
           { title: "Same rules, both sides", text: "the server re-runs the browser's schemas plus its own checks, and its errors land on the right step and field." },
         ]}
@@ -36,7 +36,7 @@ export function Explanation() {
             <li>Applications, onboarding, checkout, insurance quotes, tax forms: anything too long for one screen.</li>
             <li>Forms where later questions depend on earlier answers.</li>
             <li>Long forms people fill in over several visits, or on flaky connections.</li>
-            <li>Before reaching for a form library: this is the engine those libraries hide.</li>
+            <li>Learning what a form library does for you before you adopt one: this is the engine it hides.</li>
           </ul>
         </GuideSection>
 
@@ -48,7 +48,7 @@ export function Explanation() {
             <code>useSyncExternalStore</code> with an equality-checked
             selection, so a keystroke re-renders that field and the
             inspector, not the form. Next to the values, the store keeps
-            what&apos;s <em>known</em> about them: visited fields, steps where
+            what&apos;s known about them: visited fields, steps where
             Next was tried, server errors and the furthest step reached.
           </p>
           <p>
@@ -147,7 +147,7 @@ export function Explanation() {
             <li>The draft lives in one browser; two tabs editing at once overwrite each other, and files can&apos;t be saved in a draft at all.</li>
             <li>Answers for steps that stopped applying are gone after a reload, by design.</li>
             <li>Month rules use the month the visit started; a form left open across midnight on the last day of a month keeps the old &quot;today&quot;.</li>
-            <li>No JavaScript, no wizard: a real app might fall back to a long single-page form.</li>
+            <li>The wizard needs JavaScript; a real app might fall back to a long single-page form.</li>
           </ul>
         </GuideSection>
       </ReadMore>

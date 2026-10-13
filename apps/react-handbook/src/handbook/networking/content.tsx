@@ -15,7 +15,7 @@ const MDN = "https://developer.mozilla.org/en-US/docs";
 
 const TOPICS = [
   { id: "how-a-request-travels", title: "How a request travels" },
-  { id: "tcp", title: "TCP: reliable, ordered, and careful" },
+  { id: "tcp", title: "TCP: reliable, ordered delivery" },
   { id: "http-messages", title: "HTTP messages: methods, status codes, headers" },
   { id: "http-caching", title: "HTTP caching" },
   { id: "http-versions", title: "HTTP/1.1, HTTP/2 and HTTP/3" },
@@ -83,9 +83,9 @@ export function NetworkingHandbook() {
         {...topic(1)}
         intro={
           <>
-            IP only does its best: packets can be lost, duplicated or arrive out of order. <strong>TCP</strong> numbers every byte, waits
-            for acknowledgements, resends what is missing and hands the data over <strong>in order</strong>. <strong>UDP</strong> skips all
-            that: no connection, no guarantees, less delay.
+            IP only does its best: packets can be lost, duplicated or arrive out of order. TCP numbers every byte, waits for
+            acknowledgements, resends what is missing and hands the data over in order. <strong>UDP</strong> skips all of that: it has no
+            connection and no guarantees, and so less delay.
           </>
         }
         points={[
@@ -143,14 +143,15 @@ export function NetworkingHandbook() {
         {...topic(3)}
         intro={
           <>
-            The fastest request is the one never sent. The server says with <code>Cache-Control</code> how long a response stays{" "}
-            <strong>fresh</strong>; after that the browser <strong>revalidates</strong> it cheaply instead of downloading it again.
+            With <code>Cache-Control</code> the server says how long a response stays <strong>fresh</strong>, and while it is fresh the
+            browser reuses it without sending a request. After that the browser <strong>revalidates</strong> it cheaply instead of
+            downloading it again.
           </>
         }
         points={[
           <><code>max-age=N</code>: reuse without asking for N seconds. <code>no-cache</code>: may store, but must check first. <code>no-store</code>: never store (private data). <code>private</code> keeps it out of shared caches like CDNs.</>,
-          <>Revalidation: the response carries an <code>ETag</code> (or <code>Last-Modified</code>); the browser asks with <code>If-None-Match</code>, and <strong>304 Not Modified</strong> means &quot;keep your copy&quot;, with no body.</>,
-          <>Best pattern: hashed file names (<code>app.3f9c.js</code>) with <code>max-age=31536000, immutable</code>, and HTML with <code>no-cache</code> so a deploy is picked up at once.</>,
+          <>Revalidation: the response carries an <code>ETag</code> (or <code>Last-Modified</code>); the browser asks with <code>If-None-Match</code>, and 304 Not Modified means &quot;keep your copy&quot;, with no body.</>,
+          <>The usual pattern: hashed file names (<code>app.3f9c.js</code>) with <code>max-age=31536000, immutable</code>, and HTML with <code>no-cache</code> so a deploy is picked up at once.</>,
           <>Scripts can&apos;t see a 304: <code>fetch()</code> reports the cached 200. DevTools shows &quot;(disk cache)&quot; or 304.</>,
         ]}
         demoTitle="fetch the same resource under three caching rules"
@@ -178,7 +179,7 @@ export function NetworkingHandbook() {
         points={[
           <><strong>HTTP/1.1</strong>: text messages, one request at a time per connection. Browsers open up to 6 connections per host, which is why bundling and domain sharding were invented.</>,
           <><strong>HTTP/2</strong>: binary frames, many requests at once (<strong>multiplexing</strong>) on one connection, compressed headers (HPACK). But it still rides on TCP, so one lost packet stalls every stream.</>,
-          <><strong>HTTP/3</strong>: runs on <strong>QUIC</strong> over UDP. Streams are independent, the handshake includes TLS, and connections survive a network change (Wi-Fi to mobile).</>,
+          <><strong>HTTP/3</strong>: runs on QUIC over UDP. Streams are independent, the handshake includes TLS, and connections survive a network change (Wi-Fi to mobile).</>,
           <>With HTTP/2 and later, many small files are cheap again; bundle for caching and compression, not to save connections.</>,
         ]}
         demoTitle="load twelve files with each version (simulated)"
@@ -199,7 +200,7 @@ export function NetworkingHandbook() {
         {...topic(5)}
         intro={
           <>
-            HTTPS is HTTP inside <strong>TLS</strong>. It gives three guarantees: <strong>confidentiality</strong> (nobody on the path can
+            HTTPS is HTTP inside TLS. It gives three guarantees: <strong>confidentiality</strong> (nobody on the path can
             read it), <strong>integrity</strong> (nobody can change it unnoticed) and <strong>authenticity</strong> (you are talking to the
             real site).
           </>

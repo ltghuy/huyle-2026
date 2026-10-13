@@ -29,10 +29,9 @@ export function OriginsHandbook() {
     <div className="flex flex-col gap-8">
       <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
         <p>
-          The browser decides what a page may do by <strong>where it came from</strong>. A URL names a host; DNS turns the host into
-          an address; the scheme, host and port together form the page&apos;s <strong>origin</strong>, and the browser keeps origins
-          apart unless a server explicitly shares with another one through <strong>CORS</strong>. This page builds that model step
-          by step; the DNS lookups and cross-origin requests in the demos are real. It follows{" "}
+          The browser decides what a page may do by where it came from. A URL names a host, DNS turns the host into an address, and
+          the scheme, host and port together form the page&apos;s origin. The browser keeps origins apart unless a server explicitly
+          shares with another one through CORS. The DNS lookups and cross-origin requests in the demos are real. This topic follows{" "}
           <Link href={topicHref("networking")} className={inline}>
             Networking
           </Link>
@@ -138,7 +137,7 @@ export function OriginsHandbook() {
           </>
         }
         points={[
-          <>The browser adds an <code>Origin</code> header; the server answers with <code>Access-Control-Allow-Origin</code> naming that origin (or <code>*</code>). No match: the response is hidden from the page, but <strong>the request was still sent and handled</strong>.</>,
+          <>The browser adds an <code>Origin</code> header; the server answers with <code>Access-Control-Allow-Origin</code> naming that origin (or <code>*</code>). No match: the response is hidden from the page, but the request was still sent and handled.</>,
           <><strong>Simple requests</strong> (GET, HEAD, POST with a form or text body and no custom headers) go straight out. Anything else first sends a <strong>preflight</strong>: an <code>OPTIONS</code> request asking about the method and headers, answered with <code>Access-Control-Allow-Methods</code> / <code>-Headers</code>; <code>Access-Control-Max-Age</code> caches the answer.</>,
           <><strong>Credentials</strong> (cookies, auth) need <code>credentials: &quot;include&quot;</code> on the request and <code>Access-Control-Allow-Credentials: true</code> plus the exact origin (never <code>*</code>) on the response.</>,
           <>Fix CORS on the server (or with a same-origin proxy), not in the browser: <code>mode: &quot;no-cors&quot;</code> only gives you an unreadable, opaque response.</>,

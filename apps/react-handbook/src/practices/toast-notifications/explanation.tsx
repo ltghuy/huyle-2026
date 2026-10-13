@@ -14,17 +14,17 @@ export function Explanation() {
         <p>
           Toasts are short messages that pop up in a corner, stack, disappear on
           their own, and can carry an action like Undo or follow a slow request
-          from “Saving…” to its result. They look simple, but the pattern combines
-          app-wide state, timers that pause and resume, a queue, motion and
-          screen-reader announcements in one small surface.
+          from “Saving…” to its result. That small surface combines app-wide
+          state, timers that pause and resume, a queue, motion and screen-reader
+          announcements.
         </p>
       </Intro>
       <KeyIdeas
         items={[
           { title: "One store, no provider", text: <>any code can call <code>toast.success()</code>, and toasts survive navigation.</> },
-          { title: "Fair timers", text: "a toast is visible for its full duration of time you could actually see it." },
-          { title: "A queue, not a pile", text: "only a few toasts show at once; the rest wait their turn." },
-          { title: "Announced, never focus-stealing", text: "screen readers hear every toast; errors more urgently." },
+          { title: "Fair timers", text: "a toast’s duration counts only the time you could see it." },
+          { title: "Extra toasts queue", text: "only a few toasts show at once; the rest wait their turn." },
+          { title: "Announced without stealing focus", text: "screen readers hear every toast; errors more urgently." },
         ]}
       />
 

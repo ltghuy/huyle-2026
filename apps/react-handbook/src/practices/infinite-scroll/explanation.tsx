@@ -14,17 +14,17 @@ export function Explanation() {
         <p>
           Infinite scroll loads the next page of a long list as the reader nears
           its end, so they can keep reading without clicking through pages. The
-          hard parts hide behind that simple idea: never firing two requests at
-          once, never showing a post twice or skipping one when new posts
-          arrive, and never moving the text someone is reading.
+          harder parts are firing only one request at a time, showing each post
+          exactly once when new posts arrive, and keeping the text someone is
+          reading in place.
         </p>
       </Intro>
       <KeyIdeas
         items={[
-          { title: "Observe, don't listen", text: <>an <code>IntersectionObserver</code> watches a marker after the last post; no scroll handler decides when to load.</> },
+          { title: "An observer triggers loading", text: <>an <code>IntersectionObserver</code> watches a marker after the last post; no scroll handler decides when to load.</> },
           { title: "One request at a time", text: "a ref blocks a second request before React state could." },
-          { title: "Cursors, not page numbers", text: "new posts never shift older pages, so nothing is duplicated or skipped." },
-          { title: "Content never moves on its own", text: "pages only append below; new posts wait behind a pill until you ask." },
+          { title: "Cursor paging", text: "new posts never shift older pages, so nothing is duplicated or skipped." },
+          { title: "Content stays in place", text: "pages only append below; new posts wait behind a pill until you ask." },
         ]}
       />
 

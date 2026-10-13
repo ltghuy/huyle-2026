@@ -31,8 +31,8 @@ export function CssPipelineHandbook() {
         <p>
           A bundler only understands JavaScript, so <code className="font-mono text-[0.9em]">import &quot;./styles.css&quot;</code> needs help: a CSS step that
           compiles languages such as Sass, rewrites the CSS with PostCSS plugins, scopes class names, generates utilities, minifies, and finally decides how the
-          result reaches the browser. In Next.js 16 most of this is Lightning CSS and PostCSS behind Turbopack; in Vite and webpack it is a chain of plugins or
-          loaders. The jobs are the same.
+          result reaches the browser. In Next.js 16 most of this is Lightning CSS and PostCSS behind Turbopack; in Vite and webpack the same jobs are done by a
+          chain of plugins or loaders.
         </p>
         <p>
           Where the real tool can run in a browser, the demos use it: PostCSS and the Tailwind compiler are downloaded when you reach them (code splitting, from{" "}
@@ -49,8 +49,8 @@ export function CssPipelineHandbook() {
         {...topic(0)}
         intro={
           <>
-            A bundler can deliver CSS in two ways. In <strong>development</strong> it usually turns each CSS file into a JavaScript module that inserts a{" "}
-            <code>&lt;style&gt;</code> tag, so it can hot-swap styles without a reload. In <strong>production</strong> it <strong>extracts</strong> the CSS into
+            A bundler can deliver CSS in two ways. In development it usually turns each CSS file into a JavaScript module that inserts a{" "}
+            <code>&lt;style&gt;</code> tag, so it can hot-swap styles without a reload. In production it <strong>extracts</strong> the CSS into
             real <code>.css</code> files linked from the HTML.
           </>
         }
@@ -68,7 +68,7 @@ export function CssPipelineHandbook() {
             <strong>flash of unstyled content</strong> (FOUC). Runtime CSS-in-JS libraries have the same problem unless they also render the styles on the server.
           </>,
           <>
-            CSS keeps <strong>import order</strong>: the bundler concatenates files in the order the modules import them, and with equal specificity the later rule
+            CSS keeps import order: the bundler concatenates files in the order the modules import them, and with equal specificity the later rule
             wins. Reordering imports can change how a page looks.
           </>,
           <>
@@ -94,7 +94,7 @@ export function CssPipelineHandbook() {
         {...topic(1)}
         intro={
           <>
-            <strong>Sass</strong> (SCSS syntax) is a language that compiles to CSS. Everything it adds exists only at build time: the browser never sees a variable,
+            Sass (SCSS syntax) is a language that compiles to CSS. Everything it adds exists only at build time: the browser never sees a variable,
             a mixin or a nested rule, just the flat CSS they produce.
           </>
         }
@@ -111,7 +111,7 @@ export function CssPipelineHandbook() {
             Mixins paste their declarations wherever they are included: convenient, but each <code>@include</code> repeats the CSS.
           </>,
           <>
-            Browsers now support <strong>CSS nesting</strong> natively, so for many projects the main reason to use Sass is gone; build tools can still flatten
+            Browsers now support CSS nesting natively, so for many projects the main reason to use Sass is gone; build tools can still flatten
             nesting for older browsers (next topic).
           </>,
         ]}
@@ -133,8 +133,8 @@ export function CssPipelineHandbook() {
         {...topic(2)}
         intro={
           <>
-            <strong>PostCSS</strong> does to CSS what Babel does to JavaScript: it parses the stylesheet into a syntax tree, hands the tree to a list of{" "}
-            <strong>plugins</strong> in order, and prints the result. PostCSS itself changes nothing; every behavior comes from a plugin.
+            PostCSS does to CSS what Babel does to JavaScript: it parses the stylesheet into a syntax tree, hands the tree to a list of
+            plugins in order, and prints the result. PostCSS itself changes nothing; every behavior comes from a plugin.
           </>
         }
         points={[
@@ -158,7 +158,7 @@ export function CssPipelineHandbook() {
         demo={<PostcssDemo />}
         advice={[
           {
-            do: "Let your browserslist decide prefixes and lowering, and keep the PostCSS config to the plugins you actually need.",
+            do: "Let your browserslist decide prefixes and lowering, and keep the PostCSS config to the plugins you need.",
             avoid: "Writing vendor prefixes by hand: they go stale and drift from what your targets need.",
           },
         ]}
@@ -173,8 +173,8 @@ export function CssPipelineHandbook() {
         {...topic(3)}
         intro={
           <>
-            Every class in plain CSS is <strong>global</strong>: two components that both define <code>.title</code> fight, and whichever stylesheet loads later
-            wins for both. <strong>CSS Modules</strong> fix this at build time by renaming each class to something unique to its file.
+            Every class in plain CSS is global: two components that both define <code>.title</code> fight, and whichever stylesheet loads later
+            wins for both. CSS Modules fix this at build time by renaming each class to something unique to its file.
           </>
         }
         points={[
@@ -218,7 +218,7 @@ export function CssPipelineHandbook() {
         }
         points={[
           <>
-            Anything that isn&apos;t a utility (<code>className</code>, <code>div</code>, <code>btn-primary</code>) is simply ignored, which is why scanning
+            Anything that isn&apos;t a utility (<code>className</code>, <code>div</code>, <code>btn-primary</code>) is ignored, which is why scanning
             everything as text is safe.
           </>,
           <>

@@ -110,7 +110,7 @@ export function Explanation() {
         <GuideSection title="Try it with the demo controls">
           <ControlGuide
             items={[
-              { control: "Sharing strategy", watch: "Add a product in each mode: the scoreboard at the top keeps the latest count per strategy (Single ≈ 35 of 35, Split ≈ 22, Selectors 5–6), and the parts that re-rendered flash briefly." },
+              { control: "Sharing strategy", watch: "Add a product in each mode: the scoreboard at the top keeps the latest count per strategy (Single ≈ 35 of 35, Split ≈ 22, Selectors 5 to 6), and the parts that re-rendered flash briefly." },
               { control: "Undo / Redo", watch: "Ctrl/⌘+Z and Shift+Ctrl/⌘+Z (or Ctrl+Y) work anywhere except inside text fields, which keep their own undo." },
               { control: "Action log", watch: "Select an older cart change: the cart and totals jump to that moment; later entries are marked “undone” and get discarded by the next change." },
               { control: "Reload the page", watch: "The cart comes back exactly; history and log start fresh." },
@@ -126,7 +126,7 @@ export function Explanation() {
         <GuideSection title="Trade-offs and limits">
           <ul>
             <li>The selector hook re-implements what <code>use-sync-external-store/with-selector</code> or a state library gives you; it is short, but each selector must be stable or cheap.</li>
-            <li>Undo history and the log live in memory only; a reload keeps the cart, not the past.</li>
+            <li>Undo history and the log live in memory only; a reload keeps the cart but starts both fresh.</li>
             <li>Cross-tab sync is last-write-wins on the whole cart; merging concurrent edits would need per-line versions.</li>
             <li>Optimistic checkout hides the cart while waiting; if the tab closes mid-order, the saved cart still holds the items and the order may or may not exist.</li>
             <li>Render counts measure committed renders in this build; React may render more in development (Strict Mode double renders).</li>

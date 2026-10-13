@@ -13,8 +13,8 @@ const WHY = [
 ];
 
 const BENEFITS = [
-  { title: "Working code, not snippets", text: "Each practice is a complete feature with its own API route, built without a library doing the hard part." },
-  { title: "Failure on purpose", text: "Demo controls add latency, errors and load, so you see the loading, empty, error and retry states, not just the happy path." },
+  { title: "Complete, working features", text: "Each practice is a complete feature with its own API route, built without a library doing the hard part." },
+  { title: "Failure on purpose", text: "Demo controls add latency, errors and load, so you see the loading, empty, error and retry states as well as the happy path." },
   { title: "The why behind each choice", text: "Guides spell out the approach, best practices, what to avoid and the trade-offs, so you can defend the design." },
   { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security, system design and the build tools behind it all, each with an interactive demo." },
 ];

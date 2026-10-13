@@ -259,14 +259,14 @@ export const topicPages = [
     section: "system-design",
     slug: "method",
     title: "The design method",
-    summary: "A repeatable way to run any frontend design prompt: clarify requirements, shape the architecture and data model, define the interface, go deep on the hard parts, and defend the trade-offs — with interactive references.",
+    summary: "A repeatable way to run any frontend design prompt: clarify requirements, shape the architecture and data model, define the interface, go deep on the hard parts, and defend the trade-offs, with interactive references.",
     written: true,
   },
   {
     section: "system-design",
     slug: "news-feed",
     title: "Design a news feed",
-    summary: "The method applied end to end to an infinite, personalised feed: requirements and architecture, the data model and why feeds need cursor pagination, and the deep dives — virtualization, media, optimistic likes and freshness.",
+    summary: "The method applied end to end to an infinite, personalised feed: requirements and architecture, the data model and why feeds need cursor pagination, and deep dives on virtualization, media, optimistic likes and freshness.",
     written: true,
   },
   {
@@ -280,7 +280,7 @@ export const topicPages = [
     section: "under-the-hood",
     slug: "build-pipeline",
     title: "From source to bundle",
-    summary: "What one build command really runs: which tool does each job in Create React App, Vite and Next.js, the resolve, transform, bundle, optimize and emit stages, dev vs production builds, and content hashes, each with a live demo.",
+    summary: "What one build command runs: which tool does each job in Create React App, Vite and Next.js, the resolve, transform, bundle, optimize and emit stages, dev vs production builds, and content hashes, each with a live demo.",
     written: true,
   },
   {

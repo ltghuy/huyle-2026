@@ -12,8 +12,8 @@ export function Explanation() {
     <>
       <Intro>
         <p>
-          A live board of tens of thousands of rows is where “React is slow”
-          comes from, and the fix is never one trick. Measure first, find the
+          A live board of tens of thousands of rows is a common source of
+          “React is slow” complaints, and no single trick fixes it. Measure first, find the
           wasted work (rows nobody can see, rows that didn&apos;t change, the
           same sort on every render, typing that waits for the list, lookups
           that scan the whole list), then remove each cause. Switch the five
@@ -26,7 +26,7 @@ export function Explanation() {
           { title: "Render time ≈ rows rendered × cost per row", text: "windowing cuts the first factor, memoized rows cut how many re-render per update." },
           { title: "memo needs stable props", text: "a new callback or object per render, or an in-place mutation, silently turns it off." },
           { title: "Keep typing urgent", text: "a deferred filter lets the input paint first and the board catch up in an interruptible render." },
-          { title: "Measure, don't guess", text: "render time, rows re-rendered, typing delay, long tasks and frames tell you which fix matters." },
+          { title: "Measure before fixing", text: "render time, rows re-rendered, typing delay, long tasks and frames tell you which fix matters." },
         ]}
       />
 
@@ -85,8 +85,8 @@ export function Explanation() {
             above 20,000 rows asks first (with the playground&apos;s shared
             confirm dialog), and any update slower than one second pauses the
             feed. The benchmark replays the same seeded scenario through the
-            same handlers as you, so its numbers compare configurations, not
-            luck.
+            same handlers as you, so the configuration is the only thing that
+            differs between runs.
           </p>
         </GuideSection>
 

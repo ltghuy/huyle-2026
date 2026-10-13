@@ -27,11 +27,10 @@ export function DesignMethodHandbook() {
     <div className="flex flex-col gap-8">
       <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
         <p>
-          A frontend system-design prompt — &quot;design a news feed&quot;, &quot;design autocomplete&quot; — is open-ended on purpose. The skill
-          being tested isn&apos;t the feature; it&apos;s whether you can <strong>run the design</strong>: scope it, structure it, and defend
-          your choices, out loud, in order. This page is the method the rest of the section&apos;s case studies all apply. It teaches a
-          way of thinking, so its demos are interactive references, not server labs — and every worked example is one answer, not the
-          answer.
+          A frontend system-design prompt, such as &quot;design a news feed&quot; or &quot;design autocomplete&quot;, is open-ended on purpose.
+          What is being tested is whether you can <strong>run the design</strong>: scope it, structure it, and defend your choices out loud,
+          in order. The case studies in the rest of this section all apply the method described here. Because the method is a way of
+          thinking, its demos are interactive references rather than server labs, and each worked example is one possible answer.
         </p>
       </div>
 
@@ -49,15 +48,15 @@ export function DesignMethodHandbook() {
           <>
             <strong>Clarify requirements</strong> → <strong>architecture</strong> → <strong>data model</strong> → <strong>interface &amp; data flow</strong> → <strong>deep dives</strong> → <strong>trade-offs</strong>. (A common shorthand is <em>RADIO</em>.)
           </>,
-          <><strong>Budget your time.</strong> Spend the first fifth scoping and the middle on architecture and interface; leave room to go deep on the one or two genuinely hard parts rather than covering everything shallowly.</>,
-          <><strong>Think aloud and drive.</strong> State assumptions, write down what&apos;s out of scope, and lead the discussion through the stages instead of waiting to be asked.</>,
+          <>Budget your time: spend the first fifth scoping and the middle on architecture and interface, and leave room to go deep on the one or two hard parts instead of covering everything shallowly.</>,
+          <>Think aloud and drive: state assumptions, write down what&apos;s out of scope, and lead the discussion through the stages instead of waiting to be asked.</>,
           <>Step the framework through a sample product in the demo to see how each stage lands differently for a feed, a typeahead, a chat app or a design system.</>,
         ]}
         demoTitle="step the framework through a product"
         demo={<FrameworkDemo />}
         advice={[
           {
-            do: <>Follow the stages in order, timebox them, and go deep where the problem is actually hard.</>,
+            do: <>Follow the stages in order, timebox them, and go deep where the problem is hard.</>,
             avoid: <>Jumping to components or libraries before requirements, or spreading equally thin across every stage.</>,
           },
         ]}
@@ -71,14 +70,14 @@ export function DesignMethodHandbook() {
         {...topic(1)}
         intro={
           <>
-            Scoping is where seniors separate from mids. Before any design, split what the product <em>does</em> (functional) from how
+            Scoping is what separates senior candidates from mid-level ones. Before any design, split what the product <em>does</em> (functional) from how
             well it must do it (non-functional), and say out loud what you are <em>not</em> building.
           </>
         }
         points={[
-          <><strong>Functional requirements</strong> are the user-visible flows that must work. Keep the first pass small and prioritised — a working core beats a broad sketch.</>,
-          <><strong>Non-functional requirements</strong> — performance, accessibility, offline, internationalisation, security, device and network — usually decide the architecture more than the feature list does.</>,
-          <><strong>Scope cuts are requirements too.</strong> &quot;Out of scope: real-time, admin, i18n&quot; is a design decision; stating it shows judgement and buys time for the hard parts.</>,
+          <><strong>Functional requirements</strong> are the user-visible flows that must work. Keep the first pass small and prioritised: a working core is worth more than a broad sketch.</>,
+          <><strong>Non-functional requirements</strong> (performance, accessibility, offline, internationalisation, security, device and network) usually decide the architecture more than the feature list does.</>,
+          <>Scope cuts are requirements too. &quot;Out of scope: real-time, admin, i18n&quot; is a design decision, and stating it shows judgement and buys time for the hard parts.</>,
           <>The same prompt is a different build under different constraints: an offline-first feed, an SEO-critical feed and a watch feed share almost no architecture.</>,
         ]}
         demoTitle="scope a sample product"
@@ -99,15 +98,15 @@ export function DesignMethodHandbook() {
         {...topic(2)}
         intro={
           <>
-            Most of the design is a handful of recurring decisions. There is rarely a single right answer — the senior move is to name
-            the options, tie each to the non-functional bar it serves, and say which you&apos;d pick and why.
+            Most of the design is a handful of recurring decisions. There is rarely a single right answer. A senior candidate names
+            the options, ties each to the non-functional bar it serves, and says which they&apos;d pick and why.
           </>
         }
         points={[
           <><strong>Rendering strategy</strong> (CSR / SSR / SSG / streaming) trades first paint, SEO and freshness against complexity and cost.</>,
           <><strong>Data fetching &amp; caching</strong>, <strong>pagination</strong>, and <strong>state location</strong> each have a small menu of options with clear forces picking between them.</>,
           <><strong>Realtime transport</strong> (polling / SSE / WebSocket) follows from how live the data must be and what you can operate.</>,
-          <>Every decision should trace back to a requirement: you choose cursor pagination <em>because</em> the feed shifts, not because it&apos;s fashionable. Explore each decision&apos;s options in the demo.</>,
+          <>Every decision should trace back to a requirement: you choose cursor pagination because the feed shifts. Explore each decision&apos;s options in the demo.</>,
         ]}
         demoTitle="compare the options for a decision"
         demo={<TradeoffsDemo />}

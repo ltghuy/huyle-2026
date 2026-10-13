@@ -31,8 +31,8 @@ export function AutocompleteHandbook() {
     <div className="flex flex-col gap-8">
       <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
         <p>
-          &quot;Design an autocomplete&quot; sounds small and isn&apos;t. Suggesting results as the user types hides the decisions senior
-          interviews probe: debouncing, cancelling stale requests, dropping out-of-order responses, caching, and the full accessible
+          &quot;Design an autocomplete&quot; sounds like a small prompt, but suggesting results as the user types involves the decisions
+          senior interviews probe: debouncing, cancelling stale requests, dropping out-of-order responses, caching, and the full accessible
           combobox keyboard pattern. This page runs the prompt through{" "}
           <Link href={topicHref("method")} className={inline}>
             the design method
@@ -41,7 +41,7 @@ export function AutocompleteHandbook() {
           <Link href={practiceHref("debounced-search")} className={inline}>
             debounced-search
           </Link>{" "}
-          practice as the lifecycle implementation; the demos here make the race condition and the keyboard pattern concrete.
+          practice as the lifecycle implementation; the demos here show the race condition and the keyboard pattern.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export function AutocompleteHandbook() {
             <strong>Non-functional:</strong> suggestions within ~100ms of a pause, no jank per keystroke, the latest keystroke&apos;s results always win, and a full keyboard/screen-reader experience.
           </>,
           <>
-            <strong>Scope cuts:</strong> fix the corpus size and where it lives, pick prefix or fuzzy matching, and decide how many suggestions — each changes the design.
+            <strong>Scope cuts:</strong> fix the corpus size and where it lives, pick prefix or fuzzy matching, and decide how many suggestions. Each of these changes the design.
           </>,
           <>
             <strong>Architecture:</strong> keep a query engine between the input and the network so debounce, caching and the latest-request guard live in one place. An alternative pushes matching to an edge search index close to users.
@@ -82,20 +82,20 @@ export function AutocompleteHandbook() {
         {...topic(1)}
         intro={
           <>
-            The signature autocomplete bug is a <strong>race</strong>: you type, several requests are in flight, and a slow earlier one
-            resolves <em>after</em> a fast later one — leaving the box showing results for a query the user has already moved past. Three
+            The classic autocomplete bug is a <strong>race</strong>: you type, several requests are in flight, and a slow earlier one
+            resolves <em>after</em> a fast later one, so the box shows results for a query the user has already moved past. Three
             habits fix the lifecycle.
           </>
         }
         points={[
           <>
-            <strong>Debounce</strong> so a burst of keystrokes issues one request, not one per character.
+            Debounce so a burst of keystrokes issues one request, not one per character.
           </>,
           <>
-            <strong>Drop out-of-order responses.</strong> Tag each request and let only the latest one update the UI (cancel the rest where you can). A response for an old query must never win.
+            Drop out-of-order responses: tag each request and let only the latest one update the UI (cancel the rest where you can).
           </>,
           <>
-            <strong>Cache by the normalised query.</strong> A repeat query (including backspacing to a previous one) is served instantly with no request.
+            Cache by the normalised query, so a repeat query (including backspacing to a previous one) is served instantly with no request.
           </>,
           <>Run the demo with the guard off to see stale results win, then on; toggle debounce to watch the request count change.</>,
         ]}
@@ -123,13 +123,13 @@ export function AutocompleteHandbook() {
         }
         points={[
           <>
-            <strong>The combobox pattern.</strong> A <code>role=&quot;combobox&quot;</code> input exposes <code>aria-expanded</code>, <code>aria-controls</code> and <code>aria-activedescendant</code>; the popup is a <code>role=&quot;listbox&quot;</code> of <code>role=&quot;option&quot;</code> items. Arrow keys move the active option (wrapping), Enter selects, Escape closes — focus stays in the input throughout.
+            In the combobox pattern, a <code>role=&quot;combobox&quot;</code> input exposes <code>aria-expanded</code>, <code>aria-controls</code> and <code>aria-activedescendant</code>; the popup is a <code>role=&quot;listbox&quot;</code> of <code>role=&quot;option&quot;</code> items. Arrow keys move the active option (wrapping), Enter selects, Escape closes, and focus stays in the input throughout.
           </>,
           <>
-            <strong>Highlight the match</strong> so users see why each suggestion appeared, and keep the list short.
+            Highlight the match so users see why each suggestion appeared, and keep the list short.
           </>,
           <>
-            <strong>Ranking</strong> decides order: prefix matches before substring, shorter before longer, popularity if you have it. Prefix matching is cheap and predictable; fuzzy matching finds more but can surprise — and heavier ranking belongs on the server. Name the trade-off rather than claiming one is best.
+            Ranking decides the order: prefix matches before substring, shorter before longer, popularity if you have it. Prefix matching is cheap and predictable; fuzzy matching finds more but can surprise users. Heavier ranking belongs on the server. Name the trade-off rather than claiming one is best.
           </>,
           <>The request lifecycle above is implemented in the{" "}
             <Link href={practiceHref("debounced-search")} className={inline}>
@@ -154,7 +154,7 @@ export function AutocompleteHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next case studies:</strong> a chat application and a design system — each applying the same method to a different shape of
+          <strong>Next case studies:</strong> a chat application and a design system, each applying the same method to a different shape of
           problem.
         </p>
       </div>

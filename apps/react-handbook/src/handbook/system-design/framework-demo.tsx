@@ -95,7 +95,7 @@ export function FrameworkDemo() {
       </div>
 
       <p className="text-xs text-foreground/75">
-        One worked example; another team might render a {product.name.toLowerCase()} entirely on the client, or rank it differently — the method is the constant, the answers aren&apos;t.
+        This is one worked example. Another team might render a {product.name.toLowerCase()} entirely on the client, or rank it differently; the method stays the same while the answers vary.
       </p>
     </div>
   );

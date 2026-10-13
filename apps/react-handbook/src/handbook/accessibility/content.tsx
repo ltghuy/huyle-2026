@@ -45,8 +45,7 @@ export function AccessibilityHandbook() {
           Digital accessibility (a11y) means people with disabilities can use what you build in a meaningful and equivalent way:
           people who are blind and use a screen reader, who can&apos;t use a mouse, who have low vision, color blindness, hearing
           loss, motion sensitivity or a cognitive disability. Most of it comes from using HTML as intended and checking a few
-          rules. This page covers the ideas that matter most, each with a demo; the demos read their own markup to show what
-          assistive technology gets.
+          rules. Each topic below has a demo that reads its own markup to show what assistive technology gets.
         </p>
         <p className="text-sm text-muted-foreground">
           Based on the content-design modules of web.dev&apos;s{" "}
@@ -175,7 +174,7 @@ export function AccessibilityHandbook() {
         intro={
           <>
             Every image and media file needs a text alternative that does the same job for someone who can&apos;t see or hear it.
-            The right alt text depends on <strong>why</strong> the image is there.
+            The right alt text depends on why the image is there.
           </>
         }
         points={[
@@ -210,11 +209,11 @@ export function AccessibilityHandbook() {
         intro={
           <>
             Low vision and color blindness affect hundreds of millions of people, and everyone struggles to read in bright sunlight.
-            Text needs enough <strong>contrast</strong>, and meaning must never depend on <strong>color alone</strong>.
+            Text needs enough contrast, and meaning must never depend on color alone.
           </>
         }
         points={[
-          <>WCAG contrast ratios run from 1:1 to 21:1. Normal text needs <strong>4.5:1</strong>; large text (24px, or 18.5px bold) <strong>3:1</strong>; icons, borders and focus indicators <strong>3:1</strong>. The enhanced level is 7:1. Logos and disabled controls are exempt.</>,
+          <>WCAG contrast ratios run from 1:1 to 21:1. Normal text needs 4.5:1; large text (24px, or 18.5px bold) 3:1; icons, borders and focus indicators 3:1. The enhanced level is 7:1. Logos and disabled controls are exempt.</>,
           <>Pair color with something else: an icon and text for errors, underlines for links in text, patterns or labels in charts.</>,
           <>Respect user settings: <code>prefers-color-scheme</code> for dark mode, <code>prefers-contrast</code> and forced colors for high-contrast modes, and check both themes.</>,
           <>A grayscale view of a design is a quick test of &quot;color alone&quot;.</>,
@@ -234,8 +233,8 @@ export function AccessibilityHandbook() {
         {...topic(6)}
         intro={
           <>
-            Readable type helps people with low vision and dyslexia, and everyone else. Above all, text must be able to{" "}
-            <strong>grow</strong>: people zoom to 200% or more and change spacing, and the layout must keep up.
+            Readable type helps people with low vision and dyslexia, and everyone else. Above all, text must be able to grow:
+            people zoom to 200% or more and change spacing, and the layout must keep up.
           </>
         }
         points={[
@@ -264,8 +263,8 @@ export function AccessibilityHandbook() {
           </>
         }
         points={[
-          <>Never flash more than <strong>three times a second</strong>; check video and effects with a tool such as PEAT if in doubt.</>,
-          <>Anything that moves, blinks or scrolls on its own for more than <strong>5 seconds</strong> needs a pause, stop or hide control.</>,
+          <>Never flash more than three times a second; check video and effects with a tool such as PEAT if in doubt.</>,
+          <>Anything that moves, blinks or scrolls on its own for more than 5 seconds needs a pause, stop or hide control.</>,
           <>Honour <code>prefers-reduced-motion: reduce</code>: replace movement with a fade or no animation, and start parallax, auto-playing carousels and video only when motion is allowed.</>,
         ]}
         demoTitle="a moving banner that respects reduced motion"
@@ -283,7 +282,7 @@ export function AccessibilityHandbook() {
         {...topic(8)}
         intro={
           <>
-            Forms are where people get stuck: sign-up, checkout, search. Every field needs a visible <strong>label</strong>, and every
+            Forms are where people get stuck: sign-up, checkout, search. Every field needs a visible label, and every
             error must be found, understood and fixed without relying on sight or color.
           </>
         }
@@ -315,8 +314,8 @@ export function AccessibilityHandbook() {
         {...topic(9)}
         intro={
           <>
-            Accessibility scales through teams: build it into shared <strong>components</strong> once, and into{" "}
-            <strong>design</strong> before any code exists.
+            Accessibility scales through teams: build it once into shared components, and into the design before any code
+            exists.
           </>
         }
         points={[
@@ -330,7 +329,7 @@ export function AccessibilityHandbook() {
         demo={<AnnotationsDemo />}
         advice={[
           {
-            do: "Put accessibility notes in the design file and acceptance criteria, so they are built, not bolted on.",
+            do: "Put accessibility notes in the design file and acceptance criteria, so they are built in from the start.",
             avoid: "Treating a passing automated audit as proof that a page is accessible.",
           },
         ]}

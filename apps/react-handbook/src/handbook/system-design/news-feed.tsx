@@ -35,8 +35,8 @@ export function NewsFeedHandbook() {
           <Link href={topicHref("method")} className={inline}>
             the design method
           </Link>{" "}
-          end to end: scope it, architect it, model the data, and go deep on the parts a feed actually turns on. The hard parts are already
-          built as React practices, so the deep dives link to working code; the demos here cover the two feed-specific decisions those don&apos;t —
+          end to end: scope it, architect it, model the data, and go deep on the parts a feed turns on. The hard parts are already
+          built as React practices, so the deep dives link to working code; the demos here cover the two feed-specific decisions those don&apos;t:
           why a feed needs cursor pagination, and how an optimistic like rolls back.
         </p>
       </div>
@@ -51,13 +51,13 @@ export function NewsFeedHandbook() {
             <strong>Functional:</strong> {FEED.functional.join("; ").toLowerCase()}.
           </>,
           <>
-            <strong>Non-functional:</strong> {FEED.nonFunctional.map((nf) => nf.axis.toLowerCase()).join(", ")} — a fast first screen, smooth scroll over thousands of items, works on flaky mobile, and a clear freshness target.
+            <strong>Non-functional:</strong> {FEED.nonFunctional.map((nf) => nf.axis.toLowerCase()).join(", ")}: a fast first screen, smooth scroll over thousands of items, works on flaky mobile, and a clear freshness target.
           </>,
           <>
             <strong>Scope cuts</strong> make it tractable: fix the audience (say, mobile-first), defer admin/moderation, and name how personalised and how fresh before designing.
           </>,
           <>
-            <strong>Rendering:</strong> server-render the first screen for load and SEO, hydrate, then client-fetch further pages. An alternative is pure client rendering (simpler hosting, slower first paint and weaker SEO) — the right call depends on the freshness and SEO requirements above.
+            <strong>Rendering:</strong> server-render the first screen for load and SEO, hydrate, then client-fetch further pages. An alternative is pure client rendering (simpler hosting, slower first paint and weaker SEO). The right call depends on the freshness and SEO requirements above.
           </>,
         ]}
         demoTitle="the feed's architecture"
@@ -79,19 +79,19 @@ export function NewsFeedHandbook() {
         intro={
           <>
             Model the feed as an <strong>ordered list of post ids plus a cursor</strong>, with the posts themselves in a{" "}
-            <strong>normalised store keyed by id</strong>. Then a like updates one post object and every place showing it stays consistent —
-            and the choice of pagination stops being cosmetic.
+            <strong>normalised store keyed by id</strong>. Then a like updates one post object and every place showing it stays consistent,
+            and the choice of pagination is no longer cosmetic.
           </>
         }
         points={[
           <>
-            <strong>Normalise.</strong> One post, one entry keyed by id; the feed is just an ordered id list. No duplicated copies to keep in sync.
+            Normalise: one post is one entry keyed by id, and the feed is just an ordered id list, so there are no duplicated copies to keep in sync.
           </>,
           <>
-            <strong>Feeds shift under you.</strong> New posts arrive at the top between page loads. <strong>Offset</strong> pagination then re-counts from a moved start and repeats or skips items; <strong>cursor</strong> pagination points at the last post seen and is immune.
+            Feeds shift under you: new posts arrive at the top between page loads. <strong>Offset</strong> pagination then re-counts from a moved start and repeats or skips items; <strong>cursor</strong> pagination points at the last post seen and is immune.
           </>,
           <>
-            <strong>Pick cursor for an endless feed</strong> — it&apos;s stable and efficient; its cost is you can&apos;t jump to an arbitrary page, which a feed doesn&apos;t need anyway.
+            Pick cursor pagination for an endless feed. It is stable and efficient; its cost is that you can&apos;t jump to an arbitrary page, which a feed doesn&apos;t need anyway.
           </>,
           <>Try it: load a page, let new posts arrive, then load the next under each scheme.</>,
         ]}
@@ -113,13 +113,13 @@ export function NewsFeedHandbook() {
         {...topic(2)}
         intro={
           <>
-            A feed is won in a few deep dives: rendering a huge list cheaply, loading media without the page jumping, and making
-            interactions feel instant. Each is a built practice in this handbook — the reasoning here, the code a click away.
+            A feed design comes down to a few deep dives: rendering a huge list cheaply, loading media without the page jumping, and making
+            interactions feel instant. Each is a built practice in this handbook: the reasoning is here, and the code is a click away.
           </>
         }
         points={[
           <>
-            <strong>Render only what&apos;s visible.</strong> A feed of thousands of rows must be virtualized, with infinite scroll loading more near the end. See{" "}
+            Render only what&apos;s visible. A feed of thousands of rows must be virtualized, with infinite scroll loading more near the end. See{" "}
             <Link href={practiceHref("virtualized-list")} className={inline}>
               Virtualized Large Lists
             </Link>{" "}
@@ -130,28 +130,28 @@ export function NewsFeedHandbook() {
             .
           </>,
           <>
-            <strong>Load media without layout shift.</strong> Reserve each image&apos;s space and load lazily so arriving media doesn&apos;t shove content around. See{" "}
+            Load media without layout shift: reserve each image&apos;s space and load lazily so arriving media doesn&apos;t shove content around. See{" "}
             <Link href={practiceHref("lazy-images")} className={inline}>
               Lazy-Loaded Images
             </Link>
             .
           </>,
           <>
-            <strong>Cache and dedupe fetches.</strong> A shared data layer keeps the feed and post details consistent and avoids refetching. See{" "}
+            Cache and dedupe fetches. A shared data layer keeps the feed and post details consistent and avoids refetching. See{" "}
             <Link href={practiceHref("data-fetching-hook")} className={inline}>
               Custom Data-Fetching Hook with Caching
             </Link>
             .
           </>,
           <>
-            <strong>Interactions feel instant with optimistic UI</strong> — update immediately, reconcile with the server, and roll back on failure. The pattern also drives{" "}
+            Optimistic UI makes interactions feel instant: update immediately, reconcile with the server, and roll back on failure. The pattern also drives{" "}
             <Link href={practiceHref("realtime-chat")} className={inline}>
               Real-Time Chat
             </Link>
             .
           </>,
           <>
-            <strong>Freshness is a requirement, not an accident.</strong> Seconds-fresh (a &quot;new posts&quot; pill or a realtime push) costs more than minutes-fresh (refetch on focus) — choose it deliberately. And keep <strong>ranking on the server</strong>: the client renders the order it&apos;s given and layers in only local signals (a just-sent post, an optimistic like); re-ranking on the client fights the server and breaks pagination. At 10× scale the same design grows with windowed rendering, a media CDN and prefetching, not a rewrite.
+            Treat freshness as a requirement. Seconds-fresh (a &quot;new posts&quot; pill or a realtime push) costs more than minutes-fresh (refetch on focus), so choose it deliberately. Also keep ranking on the server: the client renders the order it&apos;s given and layers in only local signals (a just-sent post, an optimistic like); re-ranking on the client fights the server and breaks pagination. At 10× scale the same design grows with windowed rendering, a media CDN and prefetching, without a rewrite.
           </>,
         ]}
         demoTitle="an optimistic like with rollback"
@@ -171,7 +171,7 @@ export function NewsFeedHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next case studies:</strong> autocomplete, a chat application, and a design system — each applying the same method to a
+          <strong>Next case studies:</strong> autocomplete, a chat application, and a design system, each applying the same method to a
           different shape of problem.
         </p>
       </div>

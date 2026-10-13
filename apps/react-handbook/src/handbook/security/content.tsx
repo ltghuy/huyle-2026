@@ -35,7 +35,7 @@ export function WebAttacksHandbook() {
           <Link href={topicHref("jwt")} className={inline}>
             where you keep a token
           </Link>
-          . The attacks below really run, inside a sandbox that can&apos;t touch this page.
+          . The attacks in the demos run for real, inside a sandbox that can&apos;t touch this page.
         </p>
       </div>
 
@@ -46,22 +46,22 @@ export function WebAttacksHandbook() {
         intro={
           <>
             Cross-site scripting is an <strong>output-encoding bug</strong>: untrusted data is written into a page in a place where the
-            browser reads it as code instead of text. The fix is never &quot;filter the input&quot; — it is to encode every value for the
-            exact context it lands in.
+            browser reads it as code instead of text. Filtering the input never fixes it: encode every value for the exact
+            context it lands in.
           </>
         }
         points={[
           <>
-            <strong>Context decides danger.</strong> The same string is harmless as a text node, dangerous inside <code>innerHTML</code>, dangerous again when it breaks out of an attribute, and dangerous as a <code>javascript:</code> URL. Each context needs its own encoding.
+            The context decides the danger. The same string is harmless as a text node, dangerous inside <code>innerHTML</code>, dangerous again when it breaks out of an attribute, and dangerous as a <code>javascript:</code> URL. Each context needs its own encoding.
           </>,
           <>
-            <strong>Three shapes.</strong> <em>Stored</em> (the payload is saved and served to everyone), <em>reflected</em> (bounced back from a URL or form), and <em>DOM-based</em> (client code writes untrusted data into a sink). All three are the same root cause.
+            XSS comes in three shapes: <em>stored</em> (the payload is saved and served to everyone), <em>reflected</em> (bounced back from a URL or form), and <em>DOM-based</em> (client code writes untrusted data into a sink). All three have the same root cause.
           </>,
           <>
-            <strong>Frameworks escape by default — until you opt out.</strong> React escapes text in JSX, but <code>dangerouslySetInnerHTML</code>, an unchecked <code>href</code>, or injecting into markup it doesn&apos;t own all reopen the hole. <code>innerHTML</code> won&apos;t run a late <code>&lt;script&gt;</code>, but it will run an <code>&lt;img onerror&gt;</code>.
+            Frameworks escape by default until you opt out. React escapes text in JSX, but <code>dangerouslySetInnerHTML</code>, an unchecked <code>href</code>, or injecting into markup it doesn&apos;t own all reopen the hole. <code>innerHTML</code> won&apos;t run a late <code>&lt;script&gt;</code>, but it will run an <code>&lt;img onerror&gt;</code>.
           </>,
           <>
-            <strong>Then it&apos;s game over.</strong> A script in your page can read tokens, call your API as the user, and rewrite the page. That is why the token page kept saying to stop XSS first.
+            Once a script runs in your page, it can read tokens, call your API as the user, and rewrite the page. That is why the token page kept saying to stop XSS first.
           </>,
         ]}
         demoTitle="inject through different sinks, then encode"
@@ -90,16 +90,16 @@ export function WebAttacksHandbook() {
         }
         points={[
           <>
-            <strong>Allowlists by directive.</strong> <code>script-src</code>, <code>img-src</code>, <code>default-src</code> and the rest each say what that kind of resource may come from. Start from <code>default-src &apos;none&apos;</code> and open only what you need.
+            Each directive is an allowlist: <code>script-src</code>, <code>img-src</code>, <code>default-src</code> and the rest each say what that kind of resource may come from. Start from <code>default-src &apos;none&apos;</code> and open only what you need.
           </>,
           <>
-            <strong>Nonces and hashes beat <code>unsafe-inline</code>.</strong> <code>&apos;unsafe-inline&apos;</code> allows <em>every</em> inline script, which defeats the point. A per-response <code>nonce</code> (or a hash of the script) allows only the scripts you marked. If a nonce or hash is present, the browser ignores <code>&apos;unsafe-inline&apos;</code>.
+            <code>&apos;unsafe-inline&apos;</code> allows every inline script, which defeats the point. A per-response <code>nonce</code> (or a hash of the script) allows only the scripts you marked, so nonces and hashes are the better choice. If a nonce or hash is present, the browser ignores <code>&apos;unsafe-inline&apos;</code>.
           </>,
           <>
-            <strong><code>strict-dynamic</code></strong> lets a trusted (nonced) script load more scripts without maintaining host allowlists — the modern recommended shape, with a nonce as the anchor.
+            <code>strict-dynamic</code> lets a trusted (nonced) script load more scripts without maintaining host allowlists. This is the currently recommended shape, with a nonce as the anchor.
           </>,
           <>
-            <strong>Report-only first.</strong> <code>Content-Security-Policy-Report-Only</code> reports violations without blocking, so you can tighten a policy on a live site safely. CSP is a second wall, not a substitute for encoding.
+            Start in report-only mode: <code>Content-Security-Policy-Report-Only</code> reports violations without blocking, so you can tighten a policy on a live site safely. CSP is a second wall; you still need encoding.
           </>,
         ]}
         demoTitle="build a policy and watch it block"
@@ -120,23 +120,23 @@ export function WebAttacksHandbook() {
         {...topic(2)}
         intro={
           <>
-            Cross-site request forgery abuses the fact that the browser attaches your cookies to a request <strong>automatically</strong>,
+            Cross-site request forgery abuses the fact that the browser attaches your cookies to a request automatically,
             wherever it comes from. Another site can make your browser POST to an app you&apos;re logged into, and the server, seeing a valid
             session cookie, acts on it.
           </>
         }
         points={[
           <>
-            <strong>It rides on ambient credentials.</strong> The attacker never sees your cookie; they just cause a request, and the browser adds the cookie. So CSRF targets cookie sessions, not tokens a script must add by hand.
+            CSRF rides on ambient credentials. The attacker never sees your cookie; they cause a request, and the browser adds the cookie. So CSRF targets cookie sessions, and tokens a script must add by hand are out of its reach.
           </>,
           <>
-            <strong><code>SameSite</code>, and now third-party-cookie blocking, are the first line.</strong> <code>Lax</code> (today&apos;s default) and <code>Strict</code> keep the cookie off cross-site requests, and modern browsers increasingly block third-party cookies outright — so the classic cross-site attack often fails before it starts. But <code>Lax</code> still allows top-level GET navigations, a <em>same-site</em> subdomain can still send the cookie, and older clients don&apos;t enforce it — so this is not a complete defence.
+            <code>SameSite</code>, and now third-party-cookie blocking, are the first line of defence. <code>Lax</code> (today&apos;s default) and <code>Strict</code> keep the cookie off cross-site requests, and modern browsers increasingly block third-party cookies outright, so the classic cross-site attack often fails before it starts. It is not a complete defence: <code>Lax</code> still allows top-level GET navigations, a <em>same-site</em> subdomain can still send the cookie, and older clients don&apos;t enforce it.
           </>,
           <>
-            <strong>Tokens the attacker can&apos;t guess or send.</strong> A synchronizer token in the form body, or a custom header the server requires — a cross-site <code>&lt;form&gt;</code> can&apos;t set a custom header, and a cross-site <code>fetch</code> can only after the server opts in through CORS.
+            The next defence is something the attacker can&apos;t guess or send: a synchronizer token in the form body, or a custom header the server requires. A cross-site <code>&lt;form&gt;</code> can&apos;t set a custom header, and a cross-site <code>fetch</code> can only after the server opts in through CORS.
           </>,
           <>
-            <strong>Why a bearer token sidesteps classic CSRF.</strong> A JWT in an <code>Authorization</code> header is added by your code, not the browser, so a forged cross-site request simply arrives without it — the trade-off that sends you back to the XSS risk of storing it.
+            A bearer token sidesteps classic CSRF. A JWT in an <code>Authorization</code> header is added by your code, not the browser, so a forged cross-site request arrives without it. The trade-off is that you are back to the XSS risk of storing it.
           </>,
         ]}
         demoTitle="forge a request from another site, then defend"

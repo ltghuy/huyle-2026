@@ -95,7 +95,7 @@ export function Explanation() {
           <DoAvoid
             items={[
               {
-                do: "Debounce input-driven requests (trailing edge, ~250–400 ms) and let Enter search immediately.",
+                do: "Debounce input-driven requests (trailing edge, ~250 to 400 ms) and let Enter search immediately.",
                 avoid: "Fetching on every keystroke, or throttling: throttle fires mid-word at a fixed rate; debounce waits for the pause.",
               },
               {

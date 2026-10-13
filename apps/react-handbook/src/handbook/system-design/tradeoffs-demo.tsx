@@ -47,7 +47,7 @@ export function TradeoffsDemo() {
       </ul>
 
       <p className="text-xs text-foreground/75">
-        There&apos;s no single winner — each option serves the {decision.servesAxes.join(", ").toLowerCase()} bar differently. The senior answer names the assumption and the alternative, not just a pick.
+        No option wins outright: each serves the {decision.servesAxes.join(", ").toLowerCase()} bar differently. A senior answer names the assumption and the alternative along with the pick.
       </p>
     </div>
   );

@@ -61,7 +61,7 @@ export function TranspilingHandbook() {
           </>,
           <>
             What a token is depends on context: in <code>&lt;p&gt;Hi there&lt;/p&gt;</code> the scanner reads text, not two names, and <code>/x/g</code> is a regular
-            expression only where an expression can start. Real scanners are driven by the parser for exactly this reason.
+            expression only where an expression can start. This is why real scanners are driven by the parser.
           </>,
           <>
             Type annotations are ordinary nodes in the tree (<code>TSTypeAnnotation</code>, <code>TSTypeAliasDeclaration</code>…). Transpiling TypeScript is mostly
@@ -94,7 +94,7 @@ export function TranspilingHandbook() {
         {...topic(1)}
         intro={
           <>
-            Babel, SWC, Oxc and esbuild compile <strong>one file at a time</strong> and never look at types. That is why they are fast, and why a type error never
+            Babel, SWC, Oxc and esbuild compile one file at a time and never look at types. That is why they are fast, and why a type error never
             stops your dev server. Only a TypeScript <strong>program</strong> (<code>tsc</code>), which reads every file and its dependencies, can check types.
           </>
         }
@@ -148,7 +148,7 @@ export function TranspilingHandbook() {
             <code>react/jsx-runtime</code> itself. Children travel inside props, and the key is a separate argument.
           </>,
           <>
-            Lowercase tags become strings (<code>&quot;div&quot;</code>); capitalized ones stay variables (<code>Card</code>). That&apos;s the whole reason components
+            Lowercase tags become strings (<code>&quot;div&quot;</code>); capitalized ones stay variables (<code>Card</code>). That is why components
             must start with a capital letter.
           </>,
           <>

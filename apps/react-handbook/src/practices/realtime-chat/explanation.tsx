@@ -24,7 +24,7 @@ export function Explanation() {
           { title: "One order for everyone", text: <>the server numbers every message (<code>seq</code>); every tab sorts and de-duplicates by it.</> },
           { title: "Optimistic, but honest", text: "your message appears instantly, and a failed send stays visible with Retry." },
           { title: "Resume, don't restart", text: "after a drop the client asks for “everything after my last message”." },
-          { title: "Scroll that respects the reader", text: "follow new messages only at the bottom; older history loads without a jump." },
+          { title: "Scrolling that keeps your place", text: "follow new messages only at the bottom; older history loads without a jump." },
         ]}
       />
 
@@ -99,7 +99,7 @@ export function Explanation() {
         <GuideSection title="Try it with the demo controls">
           <ControlGuide
             items={[
-              { control: "Latency", watch: "Set 5000 ms and send: your message appears instantly as “Sending…”, then turns “Delivered” in place, never twice." },
+              { control: "Latency", watch: "Set 5000 ms and send: your message appears instantly as “Sending…”, then turns “Delivered” in place without appearing twice." },
               { control: "Send / history failure", watch: "At 100%, some sends show “Not sent” with Retry and Discard; others still succeed because the server stored them but the response was lost. Retry at 0% delivers each exactly once." },
               { control: "Simulated people", watch: "Normal: bots type, post, reply to you and mark your messages “Seen”. Off: a quiet room for testing on your own." },
               { control: "Burst (50 messages)", watch: "Scroll up first: the view doesn't move, an “N new messages” button appears, and the “New” divider marks where unread starts." },
@@ -108,7 +108,7 @@ export function Explanation() {
               { control: "Clear conversation", watch: "Empties the room for everyone. Every tab shows “Conversation cleared by …” and a toast, including a tab that was offline when it happened." },
               { control: "Open another tab", watch: "Put the tabs side by side: messages, typing and “Seen” cross between them, and each tab shows only its own messages as “You”." },
               { control: "Scroll to the top", watch: "Older messages load in pages of 30 without moving what you're reading, until “Beginning of conversation”." },
-              { control: "Stream stats", watch: "Live counters for messages received, replayed after a reconnect, duplicates dropped and resets: the numbers behind each experiment." },
+              { control: "Stream stats", watch: "Live counters for messages received, replayed after a reconnect, duplicates dropped and resets, for checking the result of each experiment." },
             ]}
           />
         </GuideSection>

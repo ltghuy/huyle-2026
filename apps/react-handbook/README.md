@@ -78,10 +78,10 @@ pnpm typecheck && pnpm lint && pnpm build
 
 ## Deployment
 
-- **Cloudflare Workers** via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
+- Cloudflare Workers via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
   config in `wrangler.jsonc` and `open-next.config.ts`, routed to the custom
   domain `learn.huyle.work`. The first deploy needs `wrangler login`.
-- **Railway**: `railway.json` builds with `pnpm build` and runs `pnpm start` as
+- Railway: `railway.json` builds with `pnpm build` and runs `pnpm start` as
   a single Node instance.
 
 Some demos keep state in memory (`globalThis`), so on Workers that state is

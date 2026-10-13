@@ -37,7 +37,7 @@ export function ReactInternalsHandbook() {
           stays responsive.
         </p>
         <p>
-          Every demo runs the React this site ships (19.2, its production build) and reports what it actually did. Where a demo reads React&apos;s internal
+          Every demo runs the React this site ships (19.2, its production build) and reports what it did. Where a demo reads React&apos;s internal
           fields, it says so: they are useful for learning and never for application code.
         </p>
       </div>
@@ -97,7 +97,7 @@ export function ReactInternalsHandbook() {
             each hook&apos;s state by its position in that list.
           </>,
           <>
-            React keeps <strong>two copies</strong> of the tree. The <em>current</em> one matches the screen; a render builds the next version in the other copy (the
+            React keeps two copies of the tree. The <em>current</em> one matches the screen; a render builds the next version in the other copy (the
             work-in-progress), and committing swaps them. Copies are reused, so renders don&apos;t allocate a whole new tree.
           </>,
           <>
@@ -126,7 +126,7 @@ export function ReactInternalsHandbook() {
         intro={
           <>
             Comparing two trees in general is expensive, so React uses two cheap rules instead. Elements of a <strong>different type</strong> produce different
-            trees, and among siblings, the <strong>key</strong> says which element is which. Everything else follows from those rules.
+            trees, and among siblings, the <strong>key</strong> says which element is which.
           </>
         }
         points={[

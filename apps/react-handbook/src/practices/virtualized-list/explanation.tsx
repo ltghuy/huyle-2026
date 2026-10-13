@@ -21,7 +21,7 @@ export function Explanation() {
       </Intro>
       <KeyIdeas
         items={[
-          { title: "A window, not a list", text: "render the visible rows plus a few above and below (overscan); everything else is empty space." },
+          { title: "Render a window", text: "render the visible rows plus a few above and below (overscan); everything else is empty space." },
           { title: "Estimate, then measure", text: "unknown rows use a guessed height; drawn rows report their real one." },
           { title: "Anchor the view", text: "when heights change, put the first visible row back where it was before the frame is painted." },
           { title: "Keep the active row alive", text: "the focused row stays on the page even when scrolled away, so keyboard and screen reader users never lose their place." },
@@ -115,7 +115,7 @@ export function Explanation() {
         <GuideSection title="Try it with the demo controls">
           <ControlGuide
             items={[
-              { control: "Rows", watch: "At 100,000 the scrollbar is tiny but “Rows on page” stays around 20–30; the same row number always shows the same ticket." },
+              { control: "Rows", watch: "At 100,000 the scrollbar is tiny but “Rows on page” stays around 20 to 30; the same row number always shows the same ticket." },
               { control: "Rendering: Naive", watch: "At 10,000 rows “Rows on page” jumps to 10,000 and “Last update” to hundreds of ms; switch back and both drop while the top row stays put (that switch also pays for removing the 10,000 rows). Disabled above 20,000." },
               { control: "Overscan", watch: "0 can flash blank space on fast flings; 20 renders more rows per frame. Watch “Rows on page”." },
               { control: "Estimated height", watch: "Set it to 40 or 200 and drag the scrollbar: the thumb resizes as rows are measured, but the rows you're looking at never move." },

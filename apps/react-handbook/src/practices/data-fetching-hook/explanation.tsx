@@ -107,7 +107,7 @@ export function Explanation() {
               { control: "Save failure", watch: "Set it to 100 % and edit a user: the change shows instantly, then rolls back in the list and the detail with a “Couldn't save the change” toast." },
               { control: "Stale time", watch: "At 0 s every revisit shows cached data and refreshes it in the background. At 30 s or Never, revisits make no request until the data turns stale or you invalidate it." },
               { control: "Removal time", watch: "Leave a user and watch its “Removal in” countdown in the inspector. Open it again before it ends and the entry is kept. A new value applies to countdowns that start afterwards." },
-              { control: "Retries", watch: "How many retries follow a failed request (0–5). At 0, one failure shows the error straight away." },
+              { control: "Retries", watch: "How many retries follow a failed request (0 to 5). At 0, one failure shows the error straight away." },
               { control: "Refresh on focus / reconnect", watch: "Switch to another tab and back: stale keys in use refresh, at most once every 5 s per key. Untick it and nothing refreshes." },
               { control: "Detail panels (same key)", watch: "Show 2 or 3 panels of one user: the inspector shows several users for that key but a single request, and an edit updates every panel." },
               { control: "Hover a user (prefetch)", watch: "Rest the pointer on a name for 150 ms, or Tab onto it: its detail key appears in the inspector before you click, and opening it shows no loading state." },

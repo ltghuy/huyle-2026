@@ -12,19 +12,19 @@ export function Explanation() {
     <>
       <Intro>
         <p>
-          A serious uploader: drop, pick or paste files (or a whole folder),
-          see each one checked before anything is sent, and watch real
-          progress, speed and time left. Files go up in pieces, so a pause, a
-          failure or even a reload only costs the piece in flight, never the
-          whole file.
+          This uploader takes dropped, picked or pasted files (or a whole
+          folder), checks each one before anything is sent, and shows real
+          progress, speed and time left. Files go up in pieces, so after a
+          pause, a failure or even a reload only the piece in flight is sent
+          again.
         </p>
       </Intro>
       <KeyIdeas
         items={[
           { title: "Pieces at a confirmed offset", text: "the server says how much it has; the client only ever continues from there." },
-          { title: "Honest progress", text: "the solid bar is what the server stored; the light part is still in flight." },
-          { title: "A queue, not a stampede", text: "only a few files upload at once; pause, resume, cancel and retry each one." },
-          { title: "Trust, but verify", text: "a SHA-256 checksum proves the stored copy matches the original." },
+          { title: "Progress from stored bytes", text: "the solid bar is what the server stored; the light part is still in flight." },
+          { title: "A limited upload queue", text: "only a few files upload at once; pause, resume, cancel and retry each one." },
+          { title: "Checksum verification", text: "a SHA-256 checksum proves the stored copy matches the original." },
         ]}
       />
 

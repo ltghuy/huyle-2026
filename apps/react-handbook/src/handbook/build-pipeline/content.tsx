@@ -15,7 +15,7 @@ const TOPICS = [
   { id: "stages", title: "The stages: resolve, transform, bundle, optimize, emit" },
   { id: "modes", title: "Development and production builds" },
   { id: "content-hashes", title: "Content hashes and long-term caching" },
-  { id: "real-build", title: "What this page actually loaded" },
+  { id: "real-build", title: "What this page loaded" },
 ] as const;
 
 const inline = "rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
@@ -32,8 +32,8 @@ export function BuildPipelineHandbook() {
           <code className="font-mono text-[0.9em]">npx create-react-app</code>, <code className="font-mono text-[0.9em]">npm create vite</code> and{" "}
           <code className="font-mono text-[0.9em]">create-next-app</code> each hand you a project that just runs. Behind{" "}
           <code className="font-mono text-[0.9em]">npm run build</code> sits a chain of separate tools: one finds your files, one turns TypeScript and JSX into
-          JavaScript, one handles CSS, one joins everything into bundles, one shrinks them. This page names each tool, steps a small app through every stage, and
-          ends with this site&apos;s own build output, measured in your browser.
+          JavaScript, one handles CSS, one joins everything into bundles, one shrinks them. The sections below name each tool and step a small app through every
+          stage; the last one shows this site&apos;s own build output, measured in your browser.
         </p>
         <p>
           The next pages go deeper into each stage:{" "}
@@ -62,21 +62,21 @@ export function BuildPipelineHandbook() {
         {...topic(0)}
         intro={
           <>
-            A build tool is really a <strong>toolchain</strong>: separate programs, each doing one job, wired together by a configuration you may never see. The jobs
+            A build tool is a <strong>toolchain</strong>: separate programs, each doing one job, wired together by a configuration you may never see. The jobs
             are the same everywhere; setups differ in which tool fills each slot, and in which slots they leave empty on purpose.
           </>
         }
         points={[
           <>
-            <strong>Create React App</strong> wrapped webpack and Babel in one package, <code>react-scripts</code>, with a fixed configuration. Changing it meant{" "}
+            Create React App wrapped webpack and Babel in one package, <code>react-scripts</code>, with a fixed configuration. Changing it meant{" "}
             <code>npm run eject</code>, which copied hundreds of lines of webpack config into your project for good.
           </>,
           <>
-            <strong>Vite</strong> doesn&apos;t bundle your source in development: the browser loads each file as a native ES module, transformed on request. Only
+            Vite doesn&apos;t bundle your source in development: the browser loads each file as a native ES module, transformed on request. Only
             dependencies are pre-bundled. Production builds are bundled, with Rolldown since Vite 8.
           </>,
           <>
-            <strong>Next.js</strong> builds client and server code together, so its build also decides what renders on the server. Turbopack is its default
+            Next.js builds client and server code together, so its build also decides what renders on the server. Turbopack is its default
             bundler in both <code>next dev</code> and <code>next build</code>.
           </>,
           <>
@@ -157,8 +157,8 @@ export function BuildPipelineHandbook() {
         {...topic(2)}
         intro={
           <>
-            The same source builds two ways. A <strong>development</strong> build is tuned for how fast it rebuilds and how easy it is to debug; a{" "}
-            <strong>production</strong> build is tuned for how little the browser has to download and run. Most surprises (&quot;it works locally&quot;, a huge
+            The same source builds two ways. A development build is tuned for how fast it rebuilds and how easy it is to debug; a
+            production build is tuned for how little the browser has to download and run. Most surprises (&quot;it works locally&quot;, a huge
             dev bundle, warnings that vanish in production) come from that difference.
           </>
         }
@@ -217,7 +217,7 @@ export function BuildPipelineHandbook() {
             again.
           </>,
           <>
-            The <strong>runtime</strong> that loads lazy chunks contains their hashed names. Left inside <code>main</code>, editing a lazy page renames{" "}
+            The runtime that loads lazy chunks contains their hashed names. Left inside <code>main</code>, editing a lazy page renames{" "}
             <code>main</code> too; split into its own small chunk (webpack&apos;s <code>runtimeChunk</code>), the change stays local.
           </>,
           <>

@@ -40,12 +40,12 @@ export function BundlersHandbook() {
             transpiling
           </Link>
           , every file is plain JavaScript, but still hundreds of separate files importing each other. A bundler turns them into a few files the browser can load
-          fast: it <strong>resolves</strong> every import into a graph, <strong>links</strong> the modules with a small runtime, <strong>removes</strong> what
-          nothing uses, and <strong>splits</strong> what can wait into chunks loaded later.
+          fast: it resolves every import into a graph, links the modules with a small runtime, removes what nothing uses, and
+          splits what can wait into chunks loaded later.
         </p>
         <p>
           The demos on this page are driven by one small bundler that runs in your browser, built on the compiler from the previous page. Edit the sample files and
-          the graph, the bundle and what runs all change. It is simplified, but the bundles it produces really run, here in the page.
+          the graph, the bundle and what runs all change. It is simplified, but the bundles it produces do run, here in the page.
         </p>
       </div>
 
@@ -110,11 +110,11 @@ export function BundlersHandbook() {
         }
         points={[
           <>
-            Every module runs <strong>once</strong>. The second import of <code>format.ts</code> returns the cached exports, so its top-level code doesn&apos;t run
+            Every module runs once. The second import of <code>format.ts</code> returns the cached exports, so its top-level code doesn&apos;t run
             again.
           </>,
           <>
-            Exports are <strong>getters</strong> (webpack&apos;s <code>__webpack_require__.d</code>), so importers always read the current value: ES module bindings
+            Exports are getters (webpack&apos;s <code>__webpack_require__.d</code>), so importers always read the current value: ES module bindings
             are live. Real bundlers also call imported functions as <code>(0, _format.formatPrice)(x)</code>, so <code>this</code> is not the module object.
           </>,
           <>
@@ -206,7 +206,7 @@ export function BundlersHandbook() {
             change when a lazy chunk does.
           </>,
           <>
-            A module used by two lazy chunks is either <strong>duplicated</strong> (downloaded twice, run once) or moved to a <strong>shared chunk</strong> that
+            A module used by two lazy chunks is either duplicated (downloaded twice, run once) or moved to a <strong>shared chunk</strong> that
             both load in parallel. Bundlers split shared code by default above a size threshold.
           </>,
           <>
@@ -214,7 +214,7 @@ export function BundlersHandbook() {
             will be needed (Next.js prefetches visible links&apos; routes).
           </>,
           <>
-            In React, <code>lazy(() =&gt; import(&quot;./Page&quot;))</code> plus <code>&lt;Suspense&gt;</code> uses exactly this mechanism; Next.js splits every
+            In React, <code>lazy(() =&gt; import(&quot;./Page&quot;))</code> plus <code>&lt;Suspense&gt;</code> uses this mechanism; Next.js splits every
             route automatically.
           </>,
         ]}
