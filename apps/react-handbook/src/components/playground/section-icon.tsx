@@ -1,4 +1,4 @@
-import { Atom, Gauge, Globe, Network, ShieldCheck, type LucideIcon } from "lucide-react";
+import { Atom, Cog, Gauge, Globe, Network, ShieldCheck, type LucideIcon } from "lucide-react";
 
 import type { SectionId } from "@/practices/catalog";
 
@@ -8,6 +8,7 @@ const ICONS: Record<SectionId, LucideIcon> = {
   "performance-accessibility": Gauge,
   security: ShieldCheck,
   "system-design": Network,
+  "under-the-hood": Cog,
 };
 
 export function SectionIcon({ id, className }: { id: SectionId; className?: string }) {

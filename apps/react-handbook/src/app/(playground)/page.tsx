@@ -16,7 +16,7 @@ const BENEFITS = [
   { title: "Working code, not snippets", text: "Each practice is a complete feature with its own API route, built without a library doing the hard part." },
   { title: "Failure on purpose", text: "Demo controls add latency, errors and load, so you see the loading, empty, error and retry states, not just the happy path." },
   { title: "The why behind each choice", text: "Guides spell out the approach, best practices, what to avoid and the trade-offs, so you can defend the design." },
-  { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security and system design, each with an interactive demo." },
+  { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security, system design and the build tools behind it all, each with an interactive demo." },
 ];
 
 const BUILT_WITH = [
@@ -57,12 +57,20 @@ const REFERENCES = [
     group: "System design",
     links: [{ label: "GreatFrontEnd system design playbook", href: "https://www.greatfrontend.com/front-end-system-design-playbook" }],
   },
+  {
+    group: "Build tools",
+    links: [
+      { label: "webpack concepts", href: "https://webpack.js.org/concepts/" },
+      { label: "Vite guide", href: "https://vite.dev/guide/" },
+      { label: "Turbopack", href: "https://nextjs.org/docs/app/api-reference/turbopack" },
+    ],
+  },
 ];
 
 const HOW_TO = [
   { title: "Build it", text: "Each practice is a classic frontend problem built from scratch, with a live demo and controls that break it on purpose." },
   { title: "Explain it", text: "Every page has a guide: the key ideas, how it was built, best practices and trade-offs behind each choice." },
-  { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility and system design." },
+  { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility, system design, and the build tools under it." },
 ];
 
 function ExternalAnchor({ href, children }: { href: string; children: React.ReactNode }) {

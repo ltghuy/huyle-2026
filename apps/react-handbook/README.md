@@ -13,6 +13,7 @@ Live at [learn.huyle.work](https://learn.huyle.work).
 | Performance & Accessibility | `/performance-accessibility` | Performance (Core Web Vitals, code splitting, long tasks), Accessibility |
 | Security | `/security` | JSON Web Tokens, XSS/CSP/CSRF |
 | Frontend System Design | `/system-design` | The design method, design a news feed, design an autocomplete |
+| Under the Hood | `/under-the-hood` | From source to bundle (build pipeline, toolchains, dev vs prod, content hashes); planned: transpiling, bundlers, the CSS pipeline, React internals |
 
 The section and page list lives in `src/practices/catalog.ts`.
 

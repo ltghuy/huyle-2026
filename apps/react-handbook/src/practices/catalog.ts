@@ -7,7 +7,7 @@
 
 export const SITE_NAME = "Frontend Handbook";
 
-export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design";
+export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood";
 
 export type Section = {
   id: SectionId;
@@ -22,6 +22,7 @@ export const BROWSER_PATH = "/browser-platform";
 export const PERF_A11Y_PATH = "/performance-accessibility";
 export const SECURITY_PATH = "/security";
 export const SYSTEM_DESIGN_PATH = "/system-design";
+export const UNDER_THE_HOOD_PATH = "/under-the-hood";
 
 export const sections: Section[] = [
   {
@@ -53,6 +54,12 @@ export const sections: Section[] = [
     title: "Frontend System Design",
     summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, autocomplete, chat or design system.",
     href: SYSTEM_DESIGN_PATH,
+  },
+  {
+    id: "under-the-hood",
+    title: "Under the Hood",
+    summary: "What runs between your source and the screen: the build pipeline, transpilers, bundlers, the CSS toolchain, and how React turns JSX into DOM updates.",
+    href: UNDER_THE_HOOD_PATH,
   },
 ];
 
@@ -269,6 +276,41 @@ export const topicPages = [
     summary: "The method applied to a typeahead: requirements and architecture, the request lifecycle (debounce, cancel, and why the latest query must win), and the accessible combobox keyboard pattern, with live demos.",
     written: true,
   },
+  {
+    section: "under-the-hood",
+    slug: "build-pipeline",
+    title: "From source to bundle",
+    summary: "What one build command really runs: which tool does each job in Create React App, Vite and Next.js, the resolve, transform, bundle, optimize and emit stages, dev vs production builds, and content hashes, each with a live demo.",
+    written: true,
+  },
+  {
+    section: "under-the-hood",
+    slug: "transpiling",
+    title: "Transpiling: TypeScript and JSX to JavaScript",
+    summary: "Tokens, the syntax tree, transforms and code generation; stripping types vs checking them; the JSX runtimes; syntax lowering for older browsers; and source maps.",
+    written: false,
+  },
+  {
+    section: "under-the-hood",
+    slug: "bundlers",
+    title: "Bundlers: graph, runtime, chunks and dev servers",
+    summary: "How a bundler resolves imports into a module graph, the runtime that links modules, tree shaking and side effects, code splitting, and why webpack, Vite and Turbopack run dev differently.",
+    written: false,
+  },
+  {
+    section: "under-the-hood",
+    slug: "css-pipeline",
+    title: "The CSS pipeline",
+    summary: "How CSS gets into the bundle, what Sass compiles to, PostCSS plugins, how CSS Modules scope class names, and how Tailwind generates only the utilities you use.",
+    written: false,
+  },
+  {
+    section: "under-the-hood",
+    slug: "react-internals",
+    title: "Inside React: from JSX to DOM updates",
+    summary: "What JSX becomes, the element and fiber trees, how reconciliation diffs them and why keys matter, and the render and commit phases.",
+    written: false,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
@@ -279,6 +321,7 @@ const SECTION_PATH: Record<TopicSectionId, string> = {
   "performance-accessibility": PERF_A11Y_PATH,
   security: SECURITY_PATH,
   "system-design": SYSTEM_DESIGN_PATH,
+  "under-the-hood": UNDER_THE_HOOD_PATH,
 };
 
 export function sectionPath(id: TopicSectionId) {
@@ -291,6 +334,11 @@ export function sectionPages(id: TopicSectionId): TopicPage[] {
 
 export function getTopicPage(slug: TopicSlug): TopicPage {
   return topicPages.find((p) => p.slug === slug)!;
+}
+
+/** A section's page by URL slug, for dynamic routes. */
+export function findTopicPage(section: TopicSectionId, slug: string): TopicPage | undefined {
+  return topicPages.find((p) => p.section === section && p.slug === slug);
 }
 
 export function topicHref(slug: TopicSlug) {
