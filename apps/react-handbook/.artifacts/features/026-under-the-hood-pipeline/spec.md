@@ -132,3 +132,4 @@ developer who wants a precise, correct reference to teach from.
 
 - Planned section pages, in order: From source to bundle (this feature); Transpiling: from TypeScript and JSX to JavaScript (027); Bundlers: module graph, runtime, chunks and dev servers (028); The CSS pipeline (029); Inside React: from JSX to DOM updates (030).
 - Simplified demos are labelled "simplified", following the accessibility page's precedent.
+- Update (feature 030, 2026-10-13): all five pages are now written, so the placeholder for unwritten pages (AC-002) no longer appears; its route was removed. A future unwritten page in the section needs it back.

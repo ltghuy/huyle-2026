@@ -308,8 +308,8 @@ export const topicPages = [
     section: "under-the-hood",
     slug: "react-internals",
     title: "Inside React: from JSX to DOM updates",
-    summary: "What JSX becomes, the element and fiber trees, how reconciliation diffs them and why keys matter, and the render and commit phases.",
-    written: false,
+    summary: "What JSX becomes, the element and fiber trees, how reconciliation diffs them and why keys matter, the render and commit phases, and urgent vs deferred updates, each with a live demo.",
+    written: true,
   },
 ] as const satisfies readonly TopicPageMeta[];
 
@@ -334,11 +334,6 @@ export function sectionPages(id: TopicSectionId): TopicPage[] {
 
 export function getTopicPage(slug: TopicSlug): TopicPage {
   return topicPages.find((p) => p.slug === slug)!;
-}
-
-/** A section's page by URL slug, for dynamic routes. */
-export function findTopicPage(section: TopicSectionId, slug: string): TopicPage | undefined {
-  return topicPages.find((p) => p.section === section && p.slug === slug);
 }
 
 export function topicHref(slug: TopicSlug) {
