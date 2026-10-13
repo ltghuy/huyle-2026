@@ -287,8 +287,8 @@ export const topicPages = [
     section: "under-the-hood",
     slug: "transpiling",
     title: "Transpiling: TypeScript and JSX to JavaScript",
-    summary: "Tokens, the syntax tree, transforms and code generation; stripping types vs checking them; the JSX runtimes; syntax lowering for older browsers; and source maps.",
-    written: false,
+    summary: "Tokens, the syntax tree, transforms and code generation; stripping types vs checking them; the JSX runtimes; syntax lowering for older browsers; and source maps, each with a live demo.",
+    written: true,
   },
   {
     section: "under-the-hood",
