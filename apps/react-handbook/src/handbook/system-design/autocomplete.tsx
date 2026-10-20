@@ -154,11 +154,15 @@ export function AutocompleteHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next case study:</strong>{" "}
+          <strong>Next case studies:</strong>{" "}
           <Link href={topicHref("monorepo")} className={inline}>
             Design a frontend monorepo
           </Link>
-          , the same method applied to the codebase that several apps share instead of to a screen.
+          , the same method applied to the codebase that several apps share instead of to a screen, and{" "}
+          <Link href={topicHref("micro-frontends")} className={inline}>
+            Design micro frontends
+          </Link>
+          , applied to how several teams release one product.
         </p>
       </div>
     </div>

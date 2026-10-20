@@ -52,7 +52,7 @@ export const sections: Section[] = [
   {
     id: "system-design",
     title: "Frontend System Design",
-    summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, an autocomplete and a frontend monorepo.",
+    summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, an autocomplete, a frontend monorepo and micro frontends.",
     href: SYSTEM_DESIGN_PATH,
   },
   {
@@ -281,6 +281,13 @@ export const topicPages = [
     slug: "monorepo",
     title: "Design a frontend monorepo",
     summary: "The method applied to the codebase itself: several apps sharing UI and config, the tools compared, and deep dives on affected builds and task caching, module boundaries, dependency and release policy, and CI time as the repo grows, with live demos.",
+    written: true,
+  },
+  {
+    section: "system-design",
+    slug: "micro-frontends",
+    title: "Design micro frontends",
+    summary: "The method applied to a store built by four teams that release separately: when micro frontends are worth it, how the page is composed, shared dependencies, routing and event contracts, releases and failure isolation, and style isolation, with live demos.",
     written: true,
   },
   {

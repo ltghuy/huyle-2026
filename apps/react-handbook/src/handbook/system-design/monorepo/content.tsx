@@ -71,7 +71,11 @@ export function MonorepoHandbook() {
           <>
             <strong>Architecture:</strong> apps on top, then feature packages, then UI and data, then utilities, with config every project shares. Under them sit
             two pieces of tooling: the package manager&apos;s workspace (one install, local packages linked) and a task runner (task graph, cache, affected runs).
-            Name the alternatives: a polyrepo, or micro-frontends, which is a deploy strategy and works with either repo shape.
+            Name the alternatives: a polyrepo, or{" "}
+            <Link href={topicHref("micro-frontends")} className={inline}>
+              micro frontends
+            </Link>
+            , which is a deploy strategy and works with either repo shape.
           </>,
         ]}
         demoTitle="the sample repo and its alternatives"
@@ -364,7 +368,11 @@ export function MonorepoHandbook() {
           <Link href={topicHref("autocomplete")} className={inline}>
             the autocomplete
           </Link>
-          , but the users are engineers and the bars are CI time, ownership and release safety. Chat and design-system case studies are next.
+          , but the users are engineers and the bars are CI time, ownership and release safety. Next,{" "}
+          <Link href={topicHref("micro-frontends")} className={inline}>
+            Design micro frontends
+          </Link>{" "}
+          looks at the other half of the problem: letting each team release on its own.
         </p>
       </div>
     </div>

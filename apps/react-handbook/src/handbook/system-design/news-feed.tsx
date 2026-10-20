@@ -174,10 +174,14 @@ export function NewsFeedHandbook() {
           <strong>Next case studies:</strong>{" "}
           <Link href={topicHref("autocomplete")} className={inline}>
             Design an autocomplete
-          </Link>{" "}
-          and{" "}
+          </Link>
+          ,{" "}
           <Link href={topicHref("monorepo")} className={inline}>
             Design a frontend monorepo
+          </Link>{" "}
+          and{" "}
+          <Link href={topicHref("micro-frontends")} className={inline}>
+            Design micro frontends
           </Link>
           , each applying the same method to a different shape of problem.
         </p>
