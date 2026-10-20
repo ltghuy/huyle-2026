@@ -12,7 +12,7 @@ Live at [learn.huyle.work](https://learn.huyle.work).
 | Browser & Web Platform | `/browser-platform` | Networking, Origins/DNS/CORS, how the browser renders a page |
 | Performance & Accessibility | `/performance-accessibility` | Performance (Core Web Vitals, code splitting, long tasks), Accessibility |
 | Security | `/security` | JSON Web Tokens, XSS/CSP/CSRF |
-| Frontend System Design | `/system-design` | The design method, design a news feed, design an autocomplete |
+| Frontend System Design | `/system-design` | The design method, design a news feed, design an autocomplete, design a frontend monorepo |
 | Under the Hood | `/under-the-hood` | From source to bundle (build pipeline, toolchains, dev vs prod, content hashes), Transpiling (a live in-browser TS/JSX compiler, type stripping, JSX runtimes, targets, source maps), Bundlers (a working in-browser bundler: resolution, module graph, runtime, tree shaking, code splitting, dev servers and HMR), The CSS pipeline (CSS delivery and FOUC in a real frame, a Sass stand-in, real PostCSS and Tailwind running in the browser, CSS Modules), Inside React (real element objects, the fiber tree, reconciliation and keys from real DOM mutations, render/commit order, urgent vs deferred updates) |
 
 The section and page list lives in `src/practices/catalog.ts`.

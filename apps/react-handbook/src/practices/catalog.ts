@@ -52,7 +52,7 @@ export const sections: Section[] = [
   {
     id: "system-design",
     title: "Frontend System Design",
-    summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, autocomplete, chat or design system.",
+    summary: "How to run a frontend design: scope the requirements, shape an architecture and data model, choose the trade-offs, then apply it to a news feed, an autocomplete and a frontend monorepo.",
     href: SYSTEM_DESIGN_PATH,
   },
   {
@@ -274,6 +274,13 @@ export const topicPages = [
     slug: "autocomplete",
     title: "Design an autocomplete",
     summary: "The method applied to a typeahead: requirements and architecture, the request lifecycle (debounce, cancel, and why the latest query must win), and the accessible combobox keyboard pattern, with live demos.",
+    written: true,
+  },
+  {
+    section: "system-design",
+    slug: "monorepo",
+    title: "Design a frontend monorepo",
+    summary: "The method applied to the codebase itself: several apps sharing UI and config, the tools compared, and deep dives on affected builds and task caching, module boundaries, dependency and release policy, and CI time as the repo grows, with live demos.",
     written: true,
   },
   {

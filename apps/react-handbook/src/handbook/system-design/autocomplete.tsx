@@ -154,8 +154,11 @@ export function AutocompleteHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next case studies:</strong> a chat application and a design system, each applying the same method to a different shape of
-          problem.
+          <strong>Next case study:</strong>{" "}
+          <Link href={topicHref("monorepo")} className={inline}>
+            Design a frontend monorepo
+          </Link>
+          , the same method applied to the codebase that several apps share instead of to a screen.
         </p>
       </div>
     </div>

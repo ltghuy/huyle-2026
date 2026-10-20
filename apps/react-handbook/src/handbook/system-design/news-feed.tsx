@@ -171,8 +171,15 @@ export function NewsFeedHandbook() {
 
       <div className="rounded-xl border bg-muted/40 p-4 text-sm text-foreground/85">
         <p>
-          <strong>Next case studies:</strong> autocomplete, a chat application, and a design system, each applying the same method to a
-          different shape of problem.
+          <strong>Next case studies:</strong>{" "}
+          <Link href={topicHref("autocomplete")} className={inline}>
+            Design an autocomplete
+          </Link>{" "}
+          and{" "}
+          <Link href={topicHref("monorepo")} className={inline}>
+            Design a frontend monorepo
+          </Link>
+          , each applying the same method to a different shape of problem.
         </p>
       </div>
     </div>
