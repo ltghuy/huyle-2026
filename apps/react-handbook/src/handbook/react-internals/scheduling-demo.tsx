@@ -42,7 +42,8 @@ const SlowList = memo(function SlowList({ query }: { query: string }) {
   });
   const shown = ITEMS.filter((item) => item.includes(query));
   return (
-    <ul className="max-h-40 overflow-auto rounded-lg border p-2 font-mono text-xs" aria-label="Filtered list">
+    // Focusable so keyboard users can scroll it.
+    <ul tabIndex={0} className="relative max-h-40 overflow-auto rounded-lg border p-2 font-mono text-xs outline-none focus-visible:ring-3 focus-visible:ring-ring/50" aria-label="Filtered list">
       {shown.map((item) => (
         <SlowRow key={item} item={item} />
       ))}
