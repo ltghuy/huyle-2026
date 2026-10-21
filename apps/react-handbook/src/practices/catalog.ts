@@ -7,7 +7,7 @@
 
 export const SITE_NAME = "Frontend Handbook";
 
-export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood";
+export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood" | "testing";
 
 export type Section = {
   id: SectionId;
@@ -23,6 +23,7 @@ export const PERF_A11Y_PATH = "/performance-accessibility";
 export const SECURITY_PATH = "/security";
 export const SYSTEM_DESIGN_PATH = "/system-design";
 export const UNDER_THE_HOOD_PATH = "/under-the-hood";
+export const TESTING_PATH = "/testing";
 
 export const sections: Section[] = [
   {
@@ -60,6 +61,12 @@ export const sections: Section[] = [
     title: "Under the Hood",
     summary: "What runs between your source and the screen: the build pipeline, transpilers, bundlers, the CSS toolchain, and how React turns JSX into DOM updates.",
     href: UNDER_THE_HOOD_PATH,
+  },
+  {
+    id: "testing",
+    title: "Testing",
+    summary: "How to know the app still works: choosing what to test at which level, end-to-end tests with Playwright and page objects, behaviour-driven scenarios with Cucumber, and A/B experiments.",
+    href: TESTING_PATH,
   },
 ];
 
@@ -234,12 +241,16 @@ export type TopicPageMeta = {
   slug: string;
   title: string;
   summary: string;
-  written: boolean;
-  /** ISO date the page was first published. */
-  created: string;
-  /** ISO date of the page's latest content change. */
-  updated: string;
-};
+} & (
+  | {
+      written: true;
+      /** ISO date the page was first published. */
+      created: string;
+      /** ISO date of the page's latest content change. */
+      updated: string;
+    }
+  | { written: false }
+);
 
 export const topicPages = [
   {
@@ -395,6 +406,36 @@ export const topicPages = [
     created: "2026-10-13",
     updated: "2026-10-13",
   },
+  {
+    section: "testing",
+    slug: "strategy",
+    title: "Testing strategy",
+    summary: "What a test buys, the levels from static checks to end to end, pyramid and trophy, choosing the level for a case, test doubles, and where each check runs, each with a live demo.",
+    written: true,
+    created: "2026-10-21",
+    updated: "2026-10-21",
+  },
+  {
+    section: "testing",
+    slug: "e2e-playwright",
+    title: "End-to-end testing with Playwright",
+    summary: "A real end-to-end suite for this site: locators that survive redesigns, auto-waiting instead of sleeps, page objects and fixtures, and reading a failure from CI.",
+    written: false,
+  },
+  {
+    section: "testing",
+    slug: "bdd-cucumber",
+    title: "Behaviour-driven tests with Cucumber",
+    summary: "Gherkin scenarios that product owners can read and the suite can run: feature files, step definitions on top of page objects, and living documentation.",
+    written: false,
+  },
+  {
+    section: "testing",
+    slug: "ab-testing",
+    title: "A/B testing",
+    summary: "A real experiment on this site: sticky assignment without flicker, then sample size, significance, the cost of peeking, and the checks that catch a broken split.",
+    written: false,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
@@ -406,6 +447,7 @@ const SECTION_PATH: Record<TopicSectionId, string> = {
   security: SECURITY_PATH,
   "system-design": SYSTEM_DESIGN_PATH,
   "under-the-hood": UNDER_THE_HOOD_PATH,
+  testing: TESTING_PATH,
 };
 
 export function sectionPath(id: TopicSectionId) {
@@ -418,6 +460,11 @@ export function sectionPages(id: TopicSectionId): TopicPage[] {
 
 export function getTopicPage(slug: TopicSlug): TopicPage {
   return topicPages.find((p) => p.slug === slug)!;
+}
+
+/** A section's page by its slug, for routes that take the slug from the address. */
+export function findTopicPage(section: TopicSectionId, slug: string): TopicPage | undefined {
+  return topicPages.find((p) => p.section === section && p.slug === slug);
 }
 
 export function topicHref(slug: TopicSlug) {

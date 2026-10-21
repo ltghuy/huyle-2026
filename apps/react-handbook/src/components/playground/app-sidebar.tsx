@@ -39,6 +39,7 @@ const FOLDERS: NavFolder[] = [
   topicFolder("security"),
   topicFolder("system-design"),
   topicFolder("under-the-hood"),
+  topicFolder("testing"),
 ];
 
 function topicFolder(id: TopicSectionId): NavFolder {
