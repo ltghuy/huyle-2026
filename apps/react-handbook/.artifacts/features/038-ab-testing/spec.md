@@ -3,7 +3,7 @@ id: "038"
 feature: ab-testing
 type: brownfield
 scope: large
-status: draft
+status: done
 branch: main
 created: 2026-10-21
 ---
@@ -31,9 +31,9 @@ calculations.
 
 ## Goals
 
-- [ ] A visitor is assigned to a variant by the server, keeps that variant across reloads, and sees it in the first render with no flash of the other variant.
-- [ ] A learner can use the simulator to find, for a given baseline and effect, how many visitors an experiment needs, and see how checking early inflates false positives.
-- [ ] Each of the five topics fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
+- [x] A visitor is assigned to a variant by the server, keeps that variant across reloads, and sees it in the first render with no flash of the other variant.
+- [x] A learner can use the simulator to find, for a given baseline and effect, how many visitors an experiment needs, and see how checking early inflates false positives.
+- [x] Each of the five topics fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
 
 ## Out of Scope
 
@@ -53,7 +53,7 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-001: WHEN the page is written THEN the Testing section page, the sidebar and the home card SHALL list it (four of four pages written), and the strategy page SHALL link to it.
+- [x] AC-001: WHEN the page is written THEN the Testing section page, the sidebar and the home card SHALL list it (four of four pages written), and the strategy page SHALL link to it.
 
 ### P1: Anatomy of an experiment
 
@@ -63,7 +63,7 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-002: WHEN the learner fills in an experiment plan (hypothesis, control and variant, primary metric, guardrail metric, unit of assignment, traffic share) THEN the page SHALL write it back as a one-paragraph plan and warn about common gaps (no guardrail, a metric the variant cannot move, assigning per page view when the metric is per visitor).
+- [x] AC-002: WHEN the learner fills in an experiment plan (hypothesis, control and variant, primary metric, guardrail metric, unit of assignment, traffic share) THEN the page SHALL write it back as a one-paragraph plan and warn about common gaps (no guardrail, a metric the variant cannot move, assigning per page view when the metric is per visitor).
 
 ### P1: A real, sticky split
 
@@ -73,12 +73,12 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-003: WHEN a visitor without an id opens the page THEN the server SHALL give them an anonymous id, assign a variant from the id and the experiment name, remember both in the browser, and the first render SHALL already show that variant.
-- [ ] AC-004: WHEN the visitor reloads or comes back THEN they SHALL get the same variant; the page SHALL show the visitor id, the experiment name, the bucket number the assignment produced and the split that turned it into a variant.
-- [ ] AC-005: WHEN the visitor resets their id or changes the traffic split THEN the page SHALL show the new assignment and explain why a changed split moves some visitors between variants and how to avoid that.
-- [ ] AC-006: WHEN the visitor uses the sample variant (click the button the experiment changes) THEN the page SHALL count an exposure when the variant is shown and a conversion when it is used, for this visitor only, and show the events that would be sent.
-- [ ] AC-007: WHEN the topic is shown THEN it SHALL compare assignment on the server, at the edge and in the browser, and show, in a sample frame, the flash of the wrong variant that browser-only assignment causes on first load next to a server-assigned one that has none.
-- [ ] AC-008: WHEN the learner assigns many generated ids with the same method THEN the page SHALL show how evenly they spread across variants, so the learner sees the split is fair without any stored list of visitors.
+- [x] AC-003: WHEN a visitor without an id opens the page THEN the server SHALL give them an anonymous id, assign a variant from the id and the experiment name, remember both in the browser, and the first render SHALL already show that variant.
+- [x] AC-004: WHEN the visitor reloads or comes back THEN they SHALL get the same variant; the page SHALL show the visitor id, the experiment name, the bucket number the assignment produced and the split that turned it into a variant.
+- [x] AC-005: WHEN the visitor resets their id or changes the traffic split THEN the page SHALL show the new assignment and explain why a changed split moves some visitors between variants and how to avoid that.
+- [x] AC-006: WHEN the visitor uses the sample variant (click the button the experiment changes) THEN the page SHALL count an exposure when the variant is shown and a conversion when it is used, for this visitor only, and show the events that would be sent.
+- [x] AC-007: WHEN the topic is shown THEN it SHALL compare assignment on the server, at the edge and in the browser, and show, in a sample frame, the flash of the wrong variant that browser-only assignment causes on first load next to a server-assigned one that has none.
+- [x] AC-008: WHEN the learner assigns many generated ids with the same method THEN the page SHALL show how evenly they spread across variants, so the learner sees the split is fair without any stored list of visitors.
 
 ### P1: Sample size and significance
 
@@ -88,9 +88,9 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-009: WHEN the learner sets the baseline conversion rate, the minimum effect worth detecting, the significance level and the power THEN the page SHALL calculate the visitors needed per variant and the days it takes at the chosen traffic.
-- [ ] AC-010: WHEN the learner runs a simulated experiment with a true effect they choose THEN the page SHALL draw random visitors and conversions, and show per variant the visitors, conversions, rate and confidence interval, the observed difference and its p-value, day by day.
-- [ ] AC-011: WHEN the result is shown THEN the page SHALL say in plain words what it means and what it does not mean (a p-value is not the chance the variant is better).
+- [x] AC-009: WHEN the learner sets the baseline conversion rate, the minimum effect worth detecting, the significance level and the power THEN the page SHALL calculate the visitors needed per variant and the days it takes at the chosen traffic.
+- [x] AC-010: WHEN the learner runs a simulated experiment with a true effect they choose THEN the page SHALL draw random visitors and conversions, and show per variant the visitors, conversions, rate and confidence interval, the observed difference and its p-value, day by day.
+- [x] AC-011: WHEN the result is shown THEN the page SHALL say in plain words what it means and what it does not mean (a p-value is not the chance the variant is better).
 
 ### P1: Looking early
 
@@ -100,8 +100,8 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-012: WHEN the learner runs a batch of A/A experiments (no true difference) with and without stopping at the first significant daily check THEN the page SHALL show the share that falsely declared a winner in each mode next to the chosen significance level.
-- [ ] AC-013: WHEN the topic is shown THEN it SHALL explain the fixes (decide the sample size up front, or use a method designed for continuous monitoring) without requiring the learner to know the maths.
+- [x] AC-012: WHEN the learner runs a batch of A/A experiments (no true difference) with and without stopping at the first significant daily check THEN the page SHALL show the share that falsely declared a winner in each mode next to the chosen significance level.
+- [x] AC-013: WHEN the topic is shown THEN it SHALL explain the fixes (decide the sample size up front, or use a method designed for continuous monitoring) without requiring the learner to know the maths.
 
 ### P1: Pitfalls
 
@@ -111,8 +111,8 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-014: WHEN the learner enters the observed visitors per variant and the intended split THEN the page SHALL test for a sample ratio mismatch and, when it finds one, list the usual causes (a variant that crashes or loads slower, bots, redirects, assignment after a filter).
-- [ ] AC-015: WHEN the topic is shown THEN it SHALL cover the novelty effect, testing many metrics at once, interactions between experiments, the performance cost of the variant code, and removing the losing variant after the decision.
+- [x] AC-014: WHEN the learner enters the observed visitors per variant and the intended split THEN the page SHALL test for a sample ratio mismatch and, when it finds one, list the usual causes (a variant that crashes or loads slower, bots, redirects, assignment after a filter).
+- [x] AC-015: WHEN the topic is shown THEN it SHALL cover the novelty effect, testing many metrics at once, interactions between experiments, the performance cost of the variant code, and removing the losing variant after the decision.
 
 ### P2: Experiments and the test suite
 
@@ -120,7 +120,7 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-016: WHEN the end-to-end suite from feature 036 runs THEN it SHALL include a test that forces each variant of the site's experiment and checks it renders, and the page SHALL quote it and explain why tests must pin variants instead of getting a random one.
+- [x] AC-016: WHEN the end-to-end suite from feature 036 runs THEN it SHALL include a test that forces each variant of the site's experiment and checks it renders, and the page SHALL quote it and explain why tests must pin variants instead of getting a random one.
 
 ### P3: Notes and reading
 
@@ -128,7 +128,7 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [ ] AC-017: WHEN a topic is shown THEN it SHALL end with a short "read more" (sequential and Bayesian testing, bandits, feature flags versus experiments, holdouts) and links to the sources it draws from.
+- [x] AC-017: WHEN a topic is shown THEN it SHALL end with a short "read more" (sequential and Bayesian testing, bandits, feature flags versus experiments, holdouts) and links to the sources it draws from.
 
 ## Edge Cases
 
@@ -139,11 +139,11 @@ calculations.
 
 ## Success Criteria
 
-- [ ] Reloading the page ten times always shows the same variant, and the first paint already shows it.
-- [ ] Ten thousand generated ids split within one percentage point of the intended split.
-- [ ] A batch of A/A tests without peeking falsely declares a winner at about the chosen significance level; with daily peeking, clearly more often.
-- [ ] The page passes axe in light and dark themes, works at 360 px width without horizontal scroll, and every demo can be used with the keyboard.
-- [ ] `pnpm typecheck`, `pnpm lint` and `pnpm build` pass, and the suite command passes.
+- [x] Reloading the page ten times always shows the same variant, and the first paint already shows it.
+- [x] Ten thousand generated ids split within one percentage point of the intended split.
+- [x] A batch of A/A tests without peeking falsely declares a winner at about the chosen significance level; with daily peeking, clearly more often.
+- [x] The page passes axe in light and dark themes, works at 360 px width without horizontal scroll, and every demo can be used with the keyboard.
+- [x] `pnpm typecheck`, `pnpm lint` and `pnpm build` pass, and the suite command passes.
 
 ## Open Questions
 

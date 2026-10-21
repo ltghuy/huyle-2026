@@ -438,7 +438,9 @@ export const topicPages = [
     slug: "ab-testing",
     title: "A/B testing",
     summary: "A real experiment on this site: sticky assignment without flicker, then sample size, significance, the cost of peeking, and the checks that catch a broken split.",
-    written: false,
+    written: true,
+    created: "2026-10-21",
+    updated: "2026-10-21",
   },
 ] as const satisfies readonly TopicPageMeta[];
 

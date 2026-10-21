@@ -1,11 +1,11 @@
 {
-  "ranAt": "2026-10-21T04:23:17.257Z",
-  "durationMs": 13116,
+  "ranAt": "2026-10-21T05:41:17.495Z",
+  "durationMs": 14209,
   "status": "passed",
   "project": "chromium, scenarios",
   "playwright": "1.64.1",
   "totals": {
-    "passed": 21,
+    "passed": 24,
     "failed": 0,
     "flaky": 0,
     "skipped": 0
@@ -18,7 +18,7 @@
       "title": "SAVE10 gives 10% off",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1124,
+      "durationMs": 1126,
       "retries": 0
     },
     {
@@ -28,7 +28,7 @@
       "title": "BULK15 gives 15% off 5 or more items",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1137,
+      "durationMs": 1144,
       "retries": 0
     },
     {
@@ -38,7 +38,7 @@
       "title": "FREESHIP gives free shipping",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1150,
+      "durationMs": 1127,
       "retries": 0
     },
     {
@@ -48,7 +48,7 @@
       "title": "An unknown code is turned down",
       "describe": "Discount codes › A code that doesn't apply says why",
       "outcome": "expected",
-      "durationMs": 1173,
+      "durationMs": 1121,
       "retries": 0
     },
     {
@@ -58,7 +58,7 @@
       "title": "The bulk code needs enough items",
       "describe": "Discount codes › A code that doesn't apply says why",
       "outcome": "expected",
-      "durationMs": 1163,
+      "durationMs": 1091,
       "retries": 0
     },
     {
@@ -68,7 +68,7 @@
       "title": "Every missing answer is pointed out",
       "describe": "Applying for a job",
       "outcome": "expected",
-      "durationMs": 249,
+      "durationMs": 251,
       "retries": 0
     },
     {
@@ -78,7 +78,7 @@
       "title": "Example #1",
       "describe": "Applying for a job › The email has to be usable",
       "outcome": "expected",
-      "durationMs": 278,
+      "durationMs": 305,
       "retries": 0
     },
     {
@@ -88,7 +88,7 @@
       "title": "Example #2",
       "describe": "Applying for a job › The email has to be usable",
       "outcome": "expected",
-      "durationMs": 364,
+      "durationMs": 345,
       "retries": 0
     },
     {
@@ -98,7 +98,37 @@
       "title": "Going back keeps my answers",
       "describe": "Applying for a job",
       "outcome": "expected",
-      "durationMs": 349,
+      "durationMs": 364,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 10,
+      "title": "variant A renders \"Add to cart\"",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 1243,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 10,
+      "title": "variant B renders \"Buy now\"",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 844,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 20,
+      "title": "a returning visitor keeps their id and variant",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 1189,
       "retries": 0
     },
     {
@@ -108,7 +138,7 @@
       "title": "focus moves into the dialog, stays there, and returns to the opener",
       "describe": "Accessible modal",
       "outcome": "expected",
-      "durationMs": 1756,
+      "durationMs": 522,
       "retries": 0
     },
     {
@@ -118,7 +148,7 @@
       "title": "a delete confirmation starts on Cancel and keeps the project",
       "describe": "Accessible modal",
       "outcome": "expected",
-      "durationMs": 1003,
+      "durationMs": 323,
       "retries": 0
     },
     {
@@ -128,7 +158,7 @@
       "title": "without a guard, a late reply for an older query replaces newer results",
       "describe": "Debounced search",
       "outcome": "expected",
-      "durationMs": 2774,
+      "durationMs": 2078,
       "retries": 0
     },
     {
@@ -138,7 +168,7 @@
       "title": "the stale-response guard keeps the newest results",
       "describe": "Debounced search",
       "outcome": "expected",
-      "durationMs": 2543,
+      "durationMs": 1574,
       "retries": 0
     },
     {
@@ -148,7 +178,7 @@
       "title": "Next on an empty step shows each error on its field",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 305,
+      "durationMs": 1661,
       "retries": 0
     },
     {
@@ -158,7 +188,7 @@
       "title": "Back keeps the answers",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 404,
+      "durationMs": 1744,
       "retries": 0
     },
     {
@@ -168,7 +198,7 @@
       "title": "a step that isn't open yet sends you to the first unfinished one",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 236,
+      "durationMs": 1336,
       "retries": 0
     },
     {
@@ -178,7 +208,7 @@
       "title": "Next on an empty step shows each error on its field",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 1063,
+      "durationMs": 453,
       "retries": 0
     },
     {
@@ -188,7 +218,7 @@
       "title": "Back keeps the answers",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 2188,
+      "durationMs": 558,
       "retries": 0
     },
     {
@@ -198,7 +228,7 @@
       "title": "a step that isn't open yet sends you to the first unfinished one",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 1306,
+      "durationMs": 299,
       "retries": 0
     },
     {
@@ -208,7 +238,7 @@
       "title": "a toast waits while the pointer is over it",
       "describe": "Toast notifications",
       "outcome": "expected",
-      "durationMs": 304,
+      "durationMs": 536,
       "retries": 0
     },
     {
@@ -218,7 +248,7 @@
       "title": "an error toast stays until it is dismissed",
       "describe": "Toast notifications",
       "outcome": "expected",
-      "durationMs": 550,
+      "durationMs": 620,
       "retries": 0
     }
   ]
