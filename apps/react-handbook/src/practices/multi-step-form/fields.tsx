@@ -119,7 +119,9 @@ export function TextField({
         {...input}
       />
       {status ? (
-        <p id={statusId} className="text-sm text-muted-foreground" aria-live="polite">
+        // One line is kept for the status even while it's empty, so a status
+        // appearing mid-click can't push the buttons out from under the pointer.
+        <p id={statusId} className="flex min-h-5 items-center text-sm text-muted-foreground" aria-live="polite">
           {status}
         </p>
       ) : null}
