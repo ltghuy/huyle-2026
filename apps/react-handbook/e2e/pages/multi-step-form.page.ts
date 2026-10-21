@@ -29,6 +29,11 @@ export class MultiStepFormPage {
     await this.controls.setSlider(/^Server latency/, 0);
   }
 
+  /** Any field on the current step by its label. */
+  field(label: string) {
+    return this.page.getByLabel(label, { exact: true });
+  }
+
   /** The current step's heading, e.g. step("Personal details"). */
   step(title: string) {
     return this.page.getByRole("heading", { level: 2, name: new RegExp(title) });

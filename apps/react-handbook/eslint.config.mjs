@@ -17,6 +17,8 @@ const eslintConfig = defineConfig([
     // Cloudflare adapter build output (OpenNext + wrangler).
     ".open-next/**",
     ".wrangler/**",
+    // Tests generated from the Gherkin features by playwright-bdd.
+    ".features-gen/**",
   ]),
   {
     // Playwright fixtures call `use()`, which the React hooks rule mistakes for React's `use`.

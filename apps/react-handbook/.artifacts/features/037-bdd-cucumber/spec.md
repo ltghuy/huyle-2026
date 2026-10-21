@@ -3,7 +3,7 @@ id: "037"
 feature: bdd-cucumber
 type: brownfield
 scope: large
-status: draft
+status: done
 branch: main
 created: 2026-10-21
 ---
@@ -29,9 +29,9 @@ of its steps the suite already knows how to run.
 
 ## Goals
 
-- [ ] Real feature files for at least two flows of this site run with the end-to-end suite command and pass.
-- [ ] A reader who does not write code can open the page and read what each scenario checks and whether it passed in the latest run.
-- [ ] Each of the five topics fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
+- [x] Real feature files for at least two flows of this site run with the end-to-end suite command and pass.
+- [x] A reader who does not write code can open the page and read what each scenario checks and whether it passed in the latest run.
+- [x] Each of the five topics fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
 
 ## Out of Scope
 
@@ -53,9 +53,9 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-001: WHEN the suite command runs THEN the feature files SHALL run as part of it, each scenario reported as its own test with its feature and scenario name in the run summary.
-- [ ] AC-002: WHEN a scenario step runs THEN its step definition SHALL drive the page through the page objects from the end-to-end suite, with no element lookups of its own.
-- [ ] AC-003: WHEN the feature files are written THEN they SHALL cover at least two flows of this site (for example the multi-step form's rules and the shopping cart's discount codes) and use a background, a scenario outline with an examples table, and tags.
+- [x] AC-001: WHEN the suite command runs THEN the feature files SHALL run as part of it, each scenario reported as its own test with its feature and scenario name in the run summary.
+- [x] AC-002: WHEN a scenario step runs THEN its step definition SHALL drive the page through the page objects from the end-to-end suite, with no element lookups of its own.
+- [x] AC-003: WHEN the feature files are written THEN they SHALL cover at least two flows of this site (for example the multi-step form's rules and the shopping cart's discount codes) and use a background, a scenario outline with an examples table, and tags.
 
 ### P1: Reach the page
 
@@ -63,7 +63,7 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-004: WHEN the page is written THEN the Testing section page, the sidebar and the home card SHALL list it, and the strategy and end-to-end pages SHALL link to it.
+- [x] AC-004: WHEN the page is written THEN the Testing section page, the sidebar and the home card SHALL list it, and the strategy and end-to-end pages SHALL link to it.
 
 ### P1: Gherkin for everyone
 
@@ -73,8 +73,8 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-005: WHEN the topic is shown THEN it SHALL explain the parts of a feature file (feature, rule, background, scenario, scenario outline with examples, Given, When, Then, And, tags) using the repo's own files.
-- [ ] AC-006: WHEN the living documentation view is shown THEN it SHALL list every feature file from the repo as readable text, with each scenario's result, duration and run date from the latest recorded run, and a filter by tag; WHEN a scenario has no recorded result THEN it SHALL say so.
+- [x] AC-005: WHEN the topic is shown THEN it SHALL explain the parts of a feature file (feature, rule, background, scenario, scenario outline with examples, Given, When, Then, And, tags) using the repo's own files.
+- [x] AC-006: WHEN the living documentation view is shown THEN it SHALL list every feature file from the repo as readable text, with each scenario's result, duration and run date from the latest recorded run, and a filter by tag; WHEN a scenario has no recorded result THEN it SHALL say so.
 
 ### P1: From sentence to code
 
@@ -84,8 +84,8 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-007: WHEN the learner selects a step in a scenario THEN the page SHALL show the step definition it matches, the values it captured from the sentence, and the page object methods that step calls, quoted from the repo.
-- [ ] AC-008: WHEN the topic is shown THEN it SHALL explain parameters in step patterns, why one step should match exactly one definition, and how to share state between steps of one scenario without sharing it between scenarios.
+- [x] AC-007: WHEN the learner selects a step in a scenario THEN the page SHALL show the step definition it matches, the values it captured from the sentence, and the page object methods that step calls, quoted from the repo.
+- [x] AC-008: WHEN the topic is shown THEN it SHALL explain parameters in step patterns, why one step should match exactly one definition, and how to share state between steps of one scenario without sharing it between scenarios.
 
 ### P1: Write a scenario
 
@@ -95,9 +95,9 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-009: WHEN the learner types a scenario THEN the page SHALL check it as they type and report syntax errors in plain words with the line number.
-- [ ] AC-010: WHEN the scenario is valid THEN the page SHALL match each step against the suite's real step definitions and mark it as matched (with the captured values), undefined (with a suggested skeleton) or ambiguous (with the definitions that clash).
-- [ ] AC-011: WHEN the learner's scenario is a scenario outline THEN the page SHALL expand it into one scenario per examples row and check each.
+- [x] AC-009: WHEN the learner types a scenario THEN the page SHALL check it as they type and report syntax errors in plain words with the line number.
+- [x] AC-010: WHEN the scenario is valid THEN the page SHALL match each step against the suite's real step definitions and mark it as matched (with the captured values), undefined (with a suggested skeleton) or ambiguous (with the definitions that clash).
+- [x] AC-011: WHEN the learner's scenario is a scenario outline THEN the page SHALL expand it into one scenario per examples row and check each.
 
 ### P1: Writing good scenarios
 
@@ -107,8 +107,8 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-012: WHEN the learner's scenario names interface details (buttons, fields, pages), has more than one action step, has many steps, or checks things the user cannot see THEN the page SHALL point each out with a short reason.
-- [ ] AC-013: WHEN the topic is shown THEN it SHALL show the same rule written imperatively and declaratively, and explain when an end-to-end scenario is the wrong level for a rule (a pure calculation is better tested below the interface).
+- [x] AC-012: WHEN the learner's scenario names interface details (buttons, fields, pages), has more than one action step, has many steps, or checks things the user cannot see THEN the page SHALL point each out with a short reason.
+- [x] AC-013: WHEN the topic is shown THEN it SHALL show the same rule written imperatively and declaratively, and explain when an end-to-end scenario is the wrong level for a rule (a pure calculation is better tested below the interface).
 
 ### P2: When behaviour-driven development is worth it
 
@@ -116,7 +116,7 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-014: WHEN the topic is shown THEN it SHALL explain discovery with examples before code (the "three amigos" conversation), who reads and who writes the scenarios, and the signs that a team gets no value from the format (nobody outside engineering reads them, scenarios mirror the interface).
+- [x] AC-014: WHEN the topic is shown THEN it SHALL explain discovery with examples before code (the "three amigos" conversation), who reads and who writes the scenarios, and the signs that a team gets no value from the format (nobody outside engineering reads them, scenarios mirror the interface).
 
 ### P3: Notes and reading
 
@@ -124,7 +124,7 @@ of its steps the suite already knows how to run.
 
 **Acceptance Criteria:**
 
-- [ ] AC-015: WHEN a topic is shown THEN it SHALL end with a short "read more" (tag-based runs, data tables and doc strings, Gherkin in other languages, reports) and links to the sources it draws from.
+- [x] AC-015: WHEN a topic is shown THEN it SHALL end with a short "read more" (tag-based runs, data tables and doc strings, Gherkin in other languages, reports) and links to the sources it draws from.
 
 ## Edge Cases
 
@@ -134,10 +134,10 @@ of its steps the suite already knows how to run.
 
 ## Success Criteria
 
-- [ ] Every scenario in the repo passes with the suite command, and each appears in the run summary.
-- [ ] A step the suite already defines is never reported as undefined by the checker, and a step it does not define always is.
-- [ ] The page passes axe in light and dark themes, works at 360 px width without horizontal scroll, and every demo can be used with the keyboard.
-- [ ] `pnpm typecheck`, `pnpm lint` and `pnpm build` pass, and the suite command passes.
+- [x] Every scenario in the repo passes with the suite command, and each appears in the run summary.
+- [x] A step the suite already defines is never reported as undefined by the checker, and a step it does not define always is.
+- [x] The page passes axe in light and dark themes, works at 360 px width without horizontal scroll, and every demo can be used with the keyboard.
+- [x] `pnpm typecheck`, `pnpm lint` and `pnpm build` pass, and the suite command passes.
 
 ## Open Questions
 

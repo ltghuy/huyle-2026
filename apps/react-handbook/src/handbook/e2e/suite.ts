@@ -7,6 +7,7 @@ import suiteFiles from "./suite-files.json";
 export type Outcome = "expected" | "unexpected" | "flaky" | "skipped";
 
 export type RecordedTest = {
+  project: string;
   file: string;
   line: number;
   describe: string;

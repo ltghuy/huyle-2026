@@ -429,7 +429,9 @@ export const topicPages = [
     slug: "bdd-cucumber",
     title: "Behaviour-driven tests with Cucumber",
     summary: "Gherkin scenarios that product owners can read and the suite can run: feature files, step definitions on top of page objects, and living documentation.",
-    written: false,
+    written: true,
+    created: "2026-10-21",
+    updated: "2026-10-21",
   },
   {
     section: "testing",

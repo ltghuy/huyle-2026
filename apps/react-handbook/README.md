@@ -14,7 +14,7 @@ Live at [learn.huyle.work](https://learn.huyle.work).
 | Security | `/security` | JSON Web Tokens, XSS/CSP/CSRF |
 | Frontend System Design | `/system-design` | The design method, design a news feed, design an autocomplete, design a frontend monorepo, design micro frontends |
 | Under the Hood | `/under-the-hood` | From source to bundle (build pipeline, toolchains, dev vs prod, content hashes), Transpiling (a live in-browser TS/JSX compiler, type stripping, JSX runtimes, targets, source maps), Bundlers (a working in-browser bundler: resolution, module graph, runtime, tree shaking, code splitting, dev servers and HMR), The CSS pipeline (CSS delivery and FOUC in a real frame, a Sass stand-in, real PostCSS and Tailwind running in the browser, CSS Modules), Inside React (real element objects, the fiber tree, reconciliation and keys from real DOM mutations, render/commit order, urgent vs deferred updates) |
-| Testing | `/testing` | Testing strategy (what a test buys, levels and shapes, choosing the level, test doubles, where checks run), End-to-end testing with Playwright (the repo's own suite, locators, waiting, page objects, CI); behaviour-driven tests with Cucumber and A/B testing are being written |
+| Testing | `/testing` | Testing strategy (what a test buys, levels and shapes, choosing the level, test doubles, where checks run), End-to-end testing with Playwright (the repo's own suite, locators, waiting, page objects, CI), Behaviour-driven tests with Cucumber (the repo's feature files as living documentation, steps, a scenario checker); A/B testing is being written |
 
 The section and page list lives in `src/practices/catalog.ts`.
 
@@ -41,14 +41,14 @@ Open [http://localhost:3000](http://localhost:3000).
 | `pnpm build` / `pnpm start` | Production build and Node server |
 | `pnpm lint` | ESLint |
 | `pnpm typecheck` | `next typegen` + `tsc --noEmit` |
-| `pnpm test:e2e` | Build, serve on port 3100 and run the Playwright suite in `e2e/` |
+| `pnpm test:e2e` | Generate tests from the Gherkin features, build, serve on port 3100 and run the Playwright suite in `e2e/` |
 | `pnpm preview` | Build for Cloudflare and run locally on workerd |
 | `pnpm run deploy` | Build and deploy to Cloudflare Workers |
 | `pnpm cf-typegen` | Generate Cloudflare binding types |
 
 ### End-to-end tests
 
-The Playwright suite in `e2e/` tests four practice pages through page objects. Install its browser once, then run it:
+The Playwright suite in `e2e/` tests five practice pages through page objects: specs in `e2e/specs/`, and Gherkin scenarios in `e2e/features/` with their steps in `e2e/steps/`, which playwright-bdd turns into tests (`bddgen`). Install the browser once, then run it:
 
 ```bash
 pnpm exec playwright install chromium

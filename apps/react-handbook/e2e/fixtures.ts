@@ -1,4 +1,8 @@
-import { test as base } from "@playwright/test";
+// playwright-bdd's test is Playwright's test plus what the Gherkin scenarios
+// need, so the specs and the scenarios share these fixtures.
+import { test as base } from "playwright-bdd";
+
+import { CartPage } from "./pages/cart.page";
 
 import { AccessibleModalPage } from "./pages/accessible-modal.page";
 import { DebouncedSearchPage } from "./pages/debounced-search.page";
@@ -10,6 +14,7 @@ type Pages = {
   formPage: MultiStepFormPage;
   modalPage: AccessibleModalPage;
   toastPage: ToastPage;
+  cartPage: CartPage;
 };
 
 // Each fixture opens its page in the test's own fresh browser context and
@@ -36,6 +41,11 @@ export const test = base.extend<Pages>({
     const toastPage = new ToastPage(page);
     await toastPage.goto();
     await use(toastPage);
+  },
+  cartPage: async ({ page }, use) => {
+    const cartPage = new CartPage(page);
+    await cartPage.goto();
+    await use(cartPage);
   },
 });
 

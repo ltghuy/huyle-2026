@@ -10,6 +10,7 @@ const OUT_DIR = path.join(__dirname, "../../src/handbook/e2e");
 const SUITE_FILES = ["playwright.config.ts", "e2e"];
 
 type Recorded = {
+  project: string;
   file: string;
   line: number;
   title: string;
@@ -30,7 +31,7 @@ function listFiles(root: string, entry: string): string[] {
   return fs
     .readdirSync(full)
     .flatMap((name) => listFiles(root, path.join(entry, name)))
-    .filter((file) => file.endsWith(".ts"));
+    .filter((file) => file.endsWith(".ts") || file.endsWith(".feature"));
 }
 
 class HandbookReporter implements Reporter {
@@ -83,10 +84,14 @@ class HandbookReporter implements Reporter {
   }
 
   private record(test: TestCase): Recorded {
-    const [, , file, ...rest] = test.titlePath();
+    const [, project, file, ...rest] = test.titlePath();
+    const generated = path.relative(this.rootDir, test.location.file).split(path.sep).join("/");
     return {
-      file: path.relative(this.rootDir, test.location.file).split(path.sep).join("/"),
-      line: test.location.line,
+      project,
+      // Scenarios run from files generated out of the .feature files; point back at the source.
+      file: generated.replace(/^\.features-gen\//, "").replace(/\.spec\.js$/, ""),
+      // A generated test's line says nothing about the .feature file, so leave it out.
+      line: generated.startsWith(".features-gen/") ? 0 : test.location.line,
       title: test.title,
       describe: rest.slice(0, -1).join(" › ") || file,
       outcome: "skipped",

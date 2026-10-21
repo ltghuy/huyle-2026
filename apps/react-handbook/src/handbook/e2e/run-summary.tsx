@@ -39,14 +39,15 @@ export function RunSummary() {
           </thead>
           <tbody>
             {LAST_RUN.tests.map((t) => (
-              <tr key={`${t.file}:${t.line}`} className="border-b align-top last:border-0">
+              <tr key={`${t.project}|${t.file}|${t.describe}|${t.title}`} className="border-b align-top last:border-0">
                 <td className="py-1.5 pr-3">
                   <span className="block text-xs text-foreground/75">{t.describe}</span>
                   {t.title}
                   {t.error ? <span className="block font-mono text-xs text-destructive">{t.error}</span> : null}
                 </td>
                 <td className="py-1.5 pr-3 font-mono text-xs">
-                  {t.file.replace("e2e/specs/", "")}:{t.line}
+                  {t.file.replace("e2e/specs/", "").replace("e2e/features/", "")}
+                  {t.line > 0 ? `:${t.line}` : ""}
                 </td>
                 <td className="py-1.5 pr-3">
                   <Verdict pass={t.outcome === "expected" || t.outcome === "flaky"}>{OUTCOME_LABEL[t.outcome]}</Verdict>

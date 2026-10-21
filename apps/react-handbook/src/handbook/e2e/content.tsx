@@ -126,7 +126,7 @@ export function PlaywrightHandbook() {
           <Link href={practiceHref("toast-notifications")} className={inline}>
             toasts
           </Link>
-          , through page objects. Run it with <code className="font-mono text-sm">pnpm test:e2e</code> after a one-time{" "}
+          , through page objects, and its Gherkin scenarios cover the shopping cart too. Run it with <code className="font-mono text-sm">pnpm test:e2e</code> after a one-time{" "}
           <code className="font-mono text-sm">pnpm exec playwright install chromium</code>. Each run records its results and a copy of the suite&apos;s files, and this
           page shows that recording, so the code quoted here is the code that produced the results. A visitor&apos;s browser can&apos;t run the suite, so the
           demos cover the rest in the page. This page builds on{" "}
