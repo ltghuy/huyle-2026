@@ -27,7 +27,7 @@ function topic(i: number) {
 export function OriginsHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           The browser decides what a page may do by where it came from. A URL names a host, DNS turns the host into an address, and
           the scheme, host and port together form the page&apos;s origin. The browser keeps origins apart unless a server explicitly

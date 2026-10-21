@@ -14,7 +14,7 @@ export function TopicFrame({ page, children }: { page: TopicPage; children: Reac
           <StatusBadge built={page.written} readyLabel="Written" />
         </div>
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{page.title}</h1>
-        <p className="max-w-2xl text-muted-foreground">{page.summary}</p>
+        <p className="text-muted-foreground">{page.summary}</p>
       </header>
       {children}
     </article>

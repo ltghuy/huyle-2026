@@ -40,7 +40,7 @@ function topic(i: number) {
 export function AccessibilityHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           Digital accessibility (a11y) means people with disabilities can use what you build in a meaningful and equivalent way:
           people who are blind and use a screen reader, who can&apos;t use a mouse, who have low vision, color blindness, hearing

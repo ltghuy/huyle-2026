@@ -29,7 +29,7 @@ function topic(i: number) {
 export function AutocompleteHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           &quot;Design an autocomplete&quot; sounds like a small prompt, but suggesting results as the user types involves the decisions
           senior interviews probe: debouncing, cancelling stale requests, dropping out-of-order responses, caching, and the full accessible

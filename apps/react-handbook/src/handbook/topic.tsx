@@ -37,7 +37,7 @@ export function Topic({
           {title}
         </h2>
       </header>
-      <div className="flex max-w-3xl flex-col gap-3 text-sm leading-relaxed text-foreground/85 [&_code]:font-mono [&_code]:text-[0.8125rem] [&_code]:text-foreground">
+      <div className="flex flex-col gap-3 text-sm leading-relaxed text-foreground/85 [&_code]:font-mono [&_code]:text-[0.8125rem] [&_code]:text-foreground">
         <p>{intro}</p>
         <ul className="flex flex-col gap-1.5 pl-4">
           {points.map((point, i) => (

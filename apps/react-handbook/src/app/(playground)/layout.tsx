@@ -10,7 +10,7 @@ export default function PlaygroundLayout({ children }: LayoutProps<"/">) {
       <AppSidebar />
       <SidebarInset className="min-w-0">
         <TopBar />
-        <div className="mx-auto w-full max-w-5xl min-w-0 px-4 py-6 md:px-8 md:py-10">
+        <div className="mx-auto w-full max-w-7xl min-w-0 px-4 py-6 md:px-8 md:py-10">
           {children}
         </div>
       </SidebarInset>

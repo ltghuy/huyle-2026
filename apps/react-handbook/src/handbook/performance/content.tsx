@@ -29,7 +29,7 @@ const inline = "rounded-sm font-medium text-foreground underline underline-offse
 export function PerformanceHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           Web performance is how fast a page loads and how quickly it responds to the user. Slow pages lose people: they leave before
           the content shows, give up on a form that lags, or tap the wrong button when the layout jumps. Each topic below has a

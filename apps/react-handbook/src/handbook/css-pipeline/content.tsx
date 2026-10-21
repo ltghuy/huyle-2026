@@ -27,7 +27,7 @@ function topic(i: number) {
 export function CssPipelineHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           A bundler only understands JavaScript, so <code className="font-mono text-[0.9em]">import &quot;./styles.css&quot;</code> needs help: a CSS step that
           compiles languages such as Sass, rewrites the CSS with PostCSS plugins, scopes class names, generates utilities, minifies, and finally decides how the

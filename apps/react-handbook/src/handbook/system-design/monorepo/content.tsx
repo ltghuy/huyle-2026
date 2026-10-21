@@ -34,7 +34,7 @@ function topic(i: number) {
 export function MonorepoHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           &quot;We have a marketing site, a web app and an admin tool. They share a UI kit, an API client and a pile of config. Design the repository they live
           in.&quot; This prompt has no screen to draw. The product is the codebase, the users are the engineers, and the non-functional requirements are CI time,

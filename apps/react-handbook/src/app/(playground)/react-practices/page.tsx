@@ -16,7 +16,7 @@ export default function ReactPracticesPage() {
       <header className="flex flex-col gap-2">
         <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title }]} />
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{section.title}</h1>
-        <p className="max-w-2xl text-muted-foreground">
+        <p className="text-muted-foreground">
           Fourteen classic frontend problems, each built from scratch with no third-party libraries. Pick one to see the live demo and the
           notes behind it.
         </p>

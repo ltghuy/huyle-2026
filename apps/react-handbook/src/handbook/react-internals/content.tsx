@@ -27,7 +27,7 @@ function topic(i: number) {
 export function ReactInternalsHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           <Link href={topicHref("transpiling")} className={inline}>
             Transpiling

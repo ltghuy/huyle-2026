@@ -19,7 +19,7 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
       <header className="flex flex-col gap-2">
         <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title }]} />
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{section.title}</h1>
-        <p className="max-w-2xl text-muted-foreground">{intro}</p>
+        <p className="text-muted-foreground">{intro}</p>
         <p className="text-sm">
           <span className="font-mono font-medium tabular-nums">
             {progress.done} of {progress.total}
@@ -28,7 +28,7 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
         </p>
       </header>
 
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {sectionPages(id).map((page) => (
           <li key={page.slug} className="flex">
             <Link href={topicHref(page.slug)} className="group flex w-full rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50">

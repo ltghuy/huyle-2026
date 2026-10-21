@@ -32,7 +32,7 @@ function topic(i: number) {
 export function NetworkingHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           Every page, script, image and API call is a conversation over the network. The protocols are layered:{" "}
           <strong>IP</strong> moves packets between machines, <strong>TCP</strong> (or <strong>QUIC</strong> over UDP) turns them into a
@@ -227,7 +227,7 @@ export function NetworkingHandbook() {
         ]}
       />
 
-      <p className="max-w-3xl text-sm text-foreground/85">
+      <p className="text-sm text-foreground/85">
         Next: how these requests turn into a fast page in{" "}
         <Link href={topicHref("performance")} className={inline}>
           Performance

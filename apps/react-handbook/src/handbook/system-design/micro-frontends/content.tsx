@@ -35,7 +35,7 @@ function topic(i: number) {
 export function MicroFrontendsHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           &quot;Our store is built by four teams: a platform team and the catalog, checkout and account teams. Every release waits for all of them. Design a
           frontend that lets each team ship on its own.&quot; Micro frontends are the usual answer: split the frontend into pieces that are built, tested and

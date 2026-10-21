@@ -26,7 +26,7 @@ function topic(i: number) {
 export function WebAttacksHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           Three attacks sit at the centre of frontend security. <strong>XSS</strong> runs the attacker&apos;s script in your page;{" "}
           <strong>CSP</strong> is the browser-enforced wall that limits the damage when it slips through; and <strong>CSRF</strong> makes

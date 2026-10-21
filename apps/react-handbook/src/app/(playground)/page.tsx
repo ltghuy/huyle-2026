@@ -137,7 +137,7 @@ export default function HomePage() {
       <header className="flex flex-col gap-3">
         <p className="text-sm font-medium text-muted-foreground">Notes and builds for senior frontend engineers</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
-        <p className="max-w-2xl text-muted-foreground">
+        <p className="text-muted-foreground">
           A working notebook for frontend engineering: classic UI problems built from scratch, plus the browser, performance,
           accessibility, security and system design knowledge around them. Every page pairs short notes with a live demo you can break on
           purpose. Start with the React Practices, then move on to the other handbooks.
@@ -148,7 +148,7 @@ export default function HomePage() {
         <h2 id="why-heading" className="text-lg font-semibold">
           Why it exists
         </h2>
-        <div className="flex max-w-3xl flex-col gap-3 text-sm leading-relaxed text-foreground/85">
+        <div className="grid gap-3 text-sm leading-relaxed text-foreground/85 xl:grid-cols-3 xl:gap-6">
           {WHY.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -159,7 +159,7 @@ export default function HomePage() {
         <h2 id="benefits-heading" className="text-lg font-semibold">
           What you get
         </h2>
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <ul className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
           {BENEFITS.map((benefit) => (
             <li key={benefit.title} className="flex flex-col gap-1 rounded-xl border p-4">
               <span className="font-medium">{benefit.title}</span>
@@ -188,7 +188,7 @@ export default function HomePage() {
         <h2 id="sections-heading" className="text-lg font-semibold">
           Sections
         </h2>
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {sections.map((section) => (
             <li key={section.id}>
               <SectionCard section={section} />
@@ -197,40 +197,42 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section aria-labelledby="built-heading" className="flex flex-col gap-4">
-        <h2 id="built-heading" className="text-lg font-semibold">
-          How this site is built
-        </h2>
-        <dl className="grid max-w-3xl gap-x-6 gap-y-3 text-sm sm:grid-cols-[8rem_1fr]">
-          {BUILT_WITH.map((item) => (
-            <div key={item.label} className="contents">
-              <dt className="font-medium">{item.label}</dt>
-              <dd className="text-muted-foreground">{item.text}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      <div className="grid gap-10 xl:grid-cols-2">
+        <section aria-labelledby="built-heading" className="flex flex-col gap-4">
+          <h2 id="built-heading" className="text-lg font-semibold">
+            How this site is built
+          </h2>
+          <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-[8rem_1fr]">
+            {BUILT_WITH.map((item) => (
+              <div key={item.label} className="contents">
+                <dt className="font-medium">{item.label}</dt>
+                <dd className="text-muted-foreground">{item.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      <section aria-labelledby="references-heading" className="flex flex-col gap-4">
-        <h2 id="references-heading" className="text-lg font-semibold">
-          References
-        </h2>
-        <p className="max-w-3xl text-sm text-muted-foreground">The sources these pages lean on most. Each topic page links to the specific articles it draws from.</p>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {REFERENCES.map((reference) => (
-            <div key={reference.group} className="flex flex-col gap-2">
-              <h3 className="text-sm font-medium text-muted-foreground">{reference.group}</h3>
-              <ul className="flex flex-col gap-1.5 text-sm">
-                {reference.links.map((link) => (
-                  <li key={link.href}>
-                    <ExternalAnchor href={link.href}>{link.label}</ExternalAnchor>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section aria-labelledby="references-heading" className="flex flex-col gap-4">
+          <h2 id="references-heading" className="text-lg font-semibold">
+            References
+          </h2>
+          <p className="text-sm text-muted-foreground">The sources these pages lean on most. Each topic page links to the specific articles it draws from.</p>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {REFERENCES.map((reference) => (
+              <div key={reference.group} className="flex flex-col gap-2">
+                <h3 className="text-sm font-medium text-muted-foreground">{reference.group}</h3>
+                <ul className="flex flex-col gap-1.5 text-sm">
+                  {reference.links.map((link) => (
+                    <li key={link.href}>
+                      <ExternalAnchor href={link.href}>{link.label}</ExternalAnchor>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <Signature />
     </div>

@@ -27,7 +27,7 @@ function topic(i: number) {
 export function BuildPipelineHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           <code className="font-mono text-[0.9em]">npx create-react-app</code>, <code className="font-mono text-[0.9em]">npm create vite</code> and{" "}
           <code className="font-mono text-[0.9em]">create-next-app</code> each hand you a project that just runs. Behind{" "}

@@ -27,7 +27,7 @@ function topic(i: number) {
 export function RenderingHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           Once the bytes of a page arrive (see{" "}
           <Link href={topicHref("networking")} className={inline}>

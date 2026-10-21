@@ -25,7 +25,7 @@ function topic(i: number) {
 export function DesignMethodHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           A frontend system-design prompt, such as &quot;design a news feed&quot; or &quot;design autocomplete&quot;, is open-ended on purpose.
           What is being tested is whether you can <strong>run the design</strong>: scope it, structure it, and defend your choices out loud,

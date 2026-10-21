@@ -32,7 +32,7 @@ function topic(i: number) {
 export function JwtHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           A <strong>JSON Web Token</strong> is a signed statement a server hands to a client and later trusts because it recognises its
           own signature, without looking anything up. That makes JWTs convenient and easy to get wrong: anyone can read the token,

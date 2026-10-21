@@ -27,7 +27,7 @@ function topic(i: number) {
 export function TranspilingHandbook() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex max-w-3xl flex-col gap-3 text-foreground/85">
+      <div className="flex flex-col gap-3 text-foreground/85">
         <p>
           In{" "}
           <Link href={topicHref("build-pipeline")} className={inline}>
