@@ -420,7 +420,9 @@ export const topicPages = [
     slug: "e2e-playwright",
     title: "End-to-end testing with Playwright",
     summary: "A real end-to-end suite for this site: locators that survive redesigns, auto-waiting instead of sleeps, page objects and fixtures, and reading a failure from CI.",
-    written: false,
+    written: true,
+    created: "2026-10-21",
+    updated: "2026-10-21",
   },
   {
     section: "testing",

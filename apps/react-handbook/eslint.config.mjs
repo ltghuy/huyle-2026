@@ -18,6 +18,11 @@ const eslintConfig = defineConfig([
     ".open-next/**",
     ".wrangler/**",
   ]),
+  {
+    // Playwright fixtures call `use()`, which the React hooks rule mistakes for React's `use`.
+    files: ["e2e/**/*.ts"],
+    rules: { "react-hooks/rules-of-hooks": "off" },
+  },
 ]);
 
 export default eslintConfig;

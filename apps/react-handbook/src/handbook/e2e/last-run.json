@@ -1,0 +1,123 @@
+{
+  "ranAt": "2026-10-21T03:39:53.195Z",
+  "durationMs": 11659,
+  "status": "passed",
+  "project": "chromium",
+  "playwright": "1.64.1",
+  "totals": {
+    "passed": 12,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "file": "e2e/specs/accessible-modal.spec.ts",
+      "line": 4,
+      "title": "focus moves into the dialog, stays there, and returns to the opener",
+      "describe": "Accessible modal",
+      "outcome": "expected",
+      "durationMs": 1904,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/accessible-modal.spec.ts",
+      "line": 20,
+      "title": "a delete confirmation starts on Cancel and keeps the project",
+      "describe": "Accessible modal",
+      "outcome": "expected",
+      "durationMs": 2079,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/debounced-search.spec.ts",
+      "line": 4,
+      "title": "without a guard, a late reply for an older query replaces newer results",
+      "describe": "Debounced search",
+      "outcome": "expected",
+      "durationMs": 2727,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/debounced-search.spec.ts",
+      "line": 15,
+      "title": "the stale-response guard keeps the newest results",
+      "describe": "Debounced search",
+      "outcome": "expected",
+      "durationMs": 2510,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 7,
+      "title": "Next on an empty step shows each error on its field",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 935,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 19,
+      "title": "Back keeps the answers",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 943,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 35,
+      "title": "a step that isn't open yet sends you to the first unfinished one",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 1143,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 6,
+      "title": "Next on an empty step shows each error on its field",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 307,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 15,
+      "title": "Back keeps the answers",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 460,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 27,
+      "title": "a step that isn't open yet sends you to the first unfinished one",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 279,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/toast-notifications.spec.ts",
+      "line": 4,
+      "title": "a toast waits while the pointer is over it",
+      "describe": "Toast notifications",
+      "outcome": "expected",
+      "durationMs": 343,
+      "retries": 0
+    },
+    {
+      "file": "e2e/specs/toast-notifications.spec.ts",
+      "line": 19,
+      "title": "an error toast stays until it is dismissed",
+      "describe": "Toast notifications",
+      "outcome": "expected",
+      "durationMs": 570,
+      "retries": 0
+    }
+  ]
+}
