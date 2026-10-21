@@ -76,6 +76,49 @@ Minimum quality gate before a change is done:
 pnpm typecheck && pnpm lint && pnpm build
 ```
 
+### Agent skills
+
+The rules in `.claude/rules/` tell Claude Code to load four skills. Install
+them before you work on the repo with an agent, or the rules will point at
+skills that don't exist.
+
+| Skill | Used for | Rule |
+|-------|----------|------|
+| `spec-driven` | Every feature, change or fix: spec first, then code | `01-spec-driven-workflow.md` |
+| `vercel-react-best-practices` | Writing or reviewing React and Next.js UI | `02-ui-implementation.md` |
+| `ui-ux-pro-max` | Designing a new page or redesigning one | `03-new-page-design.md` |
+| `humanizer:humanizer` | Any prose: page text, UI copy, docs, specs, commits, PRs | `06-writing-content.md` |
+
+`spec-driven` and `vercel-react-best-practices` come from the
+[Skills CLI](https://skills.sh). `-g` installs them for every project:
+
+```bash
+npx skills add adeonir/agent-skills --skill spec-driven -g
+npx skills add vercel-labs/agent-skills --skill vercel-react-best-practices -g
+```
+
+`ui-ux-pro-max` has its own CLI. It runs Python scripts, so Python 3 must be
+on your `PATH`:
+
+```bash
+npm install -g ui-ux-pro-max-cli
+uipro init --ai claude --global
+```
+
+`humanizer` is a Claude Code plugin. Run these inside Claude Code (it needs
+version 2.1.142 or newer):
+
+```text
+/plugin marketplace add blader/humanizer
+/plugin install humanizer@humanizer
+```
+
+On an older Claude Code, use
+`npx skills add blader/humanizer --global --agent claude-code` instead. The
+skill is then named `humanizer` without the plugin prefix.
+
+Start a new Claude Code session afterwards so it picks up the new skills.
+
 ## Deployment
 
 - Cloudflare Workers via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
