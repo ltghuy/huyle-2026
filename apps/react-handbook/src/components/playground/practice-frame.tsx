@@ -3,6 +3,7 @@ import { BookOpen } from "lucide-react";
 import { PRACTICES_PATH, type Practice } from "@/practices/catalog";
 
 import { Breadcrumbs } from "./breadcrumbs";
+import { PageDates } from "./page-dates";
 import { PracticePlaceholder } from "./practice-placeholder";
 import { StatusBadge } from "./status-badge";
 
@@ -22,10 +23,10 @@ export function PracticeFrame({
       <header className="flex flex-col gap-2">
         <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: "React Practices", href: PRACTICES_PATH }, { label: practice.title }]} />
         <div className="flex items-center gap-3">
-          <span className="font-mono text-sm text-muted-foreground tabular-nums">
+          <span className="font-mono text-xs text-muted-foreground tabular-nums">
             {String(practice.number).padStart(2, "0")}
           </span>
-          <StatusBadge built={practice.built} />
+          {practice.built ? <PageDates created={practice.created} updated={practice.updated} /> : <StatusBadge built={false} />}
         </div>
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
           {practice.title}

@@ -73,6 +73,10 @@ export type PracticeMeta = {
   title: string;
   summary: string;
   built: boolean;
+  /** ISO date the page was first published. */
+  created: string;
+  /** ISO date of the page's latest content change. */
+  updated: string;
 };
 
 export const practices = [
@@ -82,6 +86,8 @@ export const practices = [
     title: "Toast / Notification System",
     summary: "Queued, auto-dismissing notifications with pause on hover and stacking.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "searchable-accordion",
@@ -89,6 +95,8 @@ export const practices = [
     title: "Searchable Accordion",
     summary: "Expandable sections filtered by a search query, with match highlighting.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-08",
   },
   {
     slug: "infinite-scroll",
@@ -96,6 +104,8 @@ export const practices = [
     title: "Infinite Scroll",
     summary: "Load the next page as the user nears the end of the list.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "data-fetching-hook",
@@ -103,6 +113,8 @@ export const practices = [
     title: "Custom Data-Fetching Hook with Caching",
     summary: "A reusable fetch hook with caching, deduplication, and stale data handling.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "realtime-chat",
@@ -110,6 +122,8 @@ export const practices = [
     title: "Real-Time Chat UI",
     summary: "Live message stream with optimistic sends and auto-scroll.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "file-upload",
@@ -117,6 +131,8 @@ export const practices = [
     title: "File Upload with Progress",
     summary: "Drag-and-drop uploads with per-file progress, cancel, and retry.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "virtualized-list",
@@ -124,6 +140,8 @@ export const practices = [
     title: "Virtualized Large Lists",
     summary: "Render only the visible rows of a very large list.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "accessible-modal",
@@ -131,6 +149,8 @@ export const practices = [
     title: "Accessible Modal",
     summary: "A dialog with focus trap, Escape to close, and focus restore.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-08",
   },
   {
     slug: "context-reducer",
@@ -138,6 +158,8 @@ export const practices = [
     title: "Context + useReducer State Management",
     summary: "App state with a reducer, typed actions, and context without extra re-renders.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "multi-step-form",
@@ -145,6 +167,8 @@ export const practices = [
     title: "Multi-Step Form",
     summary: "A wizard with per-step validation, back navigation, and a review step.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "lazy-images",
@@ -152,6 +176,8 @@ export const practices = [
     title: "Lazy-Loaded Images",
     summary: "Load images only when they approach the viewport, with placeholders.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "debounced-search",
@@ -159,6 +185,8 @@ export const practices = [
     title: "Debounced Search + API Cache",
     summary: "Search-as-you-type that debounces input, caches results, and drops stale responses.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     slug: "data-grid",
@@ -166,6 +194,8 @@ export const practices = [
     title: "Advanced Data Grid",
     summary: "Sorting, filtering, pagination, column resizing, and row selection.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-08",
   },
   {
     slug: "large-dataset-performance",
@@ -173,6 +203,8 @@ export const practices = [
     title: "Large Dataset Performance Optimization",
     summary: "Measure and fix slow renders on big datasets, naive vs optimized.",
     built: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
 ] as const satisfies readonly PracticeMeta[];
 
@@ -203,6 +235,10 @@ export type TopicPageMeta = {
   title: string;
   summary: string;
   written: boolean;
+  /** ISO date the page was first published. */
+  created: string;
+  /** ISO date of the page's latest content change. */
+  updated: string;
 };
 
 export const topicPages = [
@@ -212,6 +248,8 @@ export const topicPages = [
     title: "Networking",
     summary: "How a request reaches the server and back: DNS, TCP, TLS, HTTP messages and caching, HTTP/1.1 to HTTP/3, and what HTTPS protects, each with a live demo.",
     written: true,
+    created: "2026-10-09",
+    updated: "2026-10-13",
   },
   {
     section: "browser-platform",
@@ -219,6 +257,8 @@ export const topicPages = [
     title: "Origins, DNS and CORS",
     summary: "The parts of a URL, how DNS finds a host, what an origin and a site are, and how CORS lets a server share responses across origins, each with a live demo.",
     written: true,
+    created: "2026-10-09",
+    updated: "2026-10-13",
   },
   {
     section: "browser-platform",
@@ -226,6 +266,8 @@ export const topicPages = [
     title: "How the browser renders a page",
     summary: "Parsing into the DOM and CSSOM, what blocks parsing and rendering, layout, paint and composite, and layout thrashing, each with a live demo.",
     written: true,
+    created: "2026-10-09",
+    updated: "2026-10-13",
   },
   {
     section: "performance-accessibility",
@@ -233,6 +275,8 @@ export const topicPages = [
     title: "Performance",
     summary: "Core Web Vitals, HTML delivery and CDNs, the critical path, images, fonts, code splitting and web workers, each with a live demo.",
     written: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     section: "performance-accessibility",
@@ -240,6 +284,8 @@ export const topicPages = [
     title: "Accessibility",
     summary: "Semantic HTML and ARIA, structure, keyboard focus, dynamic content, images and media, contrast, type, motion, forms and inclusive design, each with a live demo.",
     written: true,
+    created: "2026-10-08",
+    updated: "2026-10-13",
   },
   {
     section: "security",
@@ -247,6 +293,8 @@ export const topicPages = [
     title: "JSON Web Tokens",
     summary: "What a JWT proves and who can read it, the verifier mistakes behind real attacks, expiry, refresh and revocation, where to keep tokens in the browser, and key rotation, each with a live demo.",
     written: true,
+    created: "2026-10-12",
+    updated: "2026-10-13",
   },
   {
     section: "security",
@@ -254,6 +302,8 @@ export const topicPages = [
     title: "XSS, CSP and CSRF",
     summary: "How untrusted content becomes running script and how encoding stops it, what a Content-Security-Policy does as a second wall, and how another site makes a request as the logged-in user, each with a live demo.",
     written: true,
+    created: "2026-10-12",
+    updated: "2026-10-13",
   },
   {
     section: "system-design",
@@ -261,6 +311,8 @@ export const topicPages = [
     title: "The design method",
     summary: "A repeatable way to run any frontend design prompt: clarify requirements, shape the architecture and data model, define the interface, go deep on the hard parts, and defend the trade-offs, with interactive references.",
     written: true,
+    created: "2026-10-12",
+    updated: "2026-10-20",
   },
   {
     section: "system-design",
@@ -268,6 +320,8 @@ export const topicPages = [
     title: "Design a news feed",
     summary: "The method applied end to end to an infinite, personalised feed: requirements and architecture, the data model and why feeds need cursor pagination, and deep dives on virtualization, media, optimistic likes and freshness.",
     written: true,
+    created: "2026-10-12",
+    updated: "2026-10-20",
   },
   {
     section: "system-design",
@@ -275,6 +329,8 @@ export const topicPages = [
     title: "Design an autocomplete",
     summary: "The method applied to a typeahead: requirements and architecture, the request lifecycle (debounce, cancel, and why the latest query must win), and the accessible combobox keyboard pattern, with live demos.",
     written: true,
+    created: "2026-10-12",
+    updated: "2026-10-20",
   },
   {
     section: "system-design",
@@ -282,6 +338,8 @@ export const topicPages = [
     title: "Design a frontend monorepo",
     summary: "The method applied to the codebase itself: several apps sharing UI and config, the tools compared, and deep dives on affected builds and task caching, module boundaries, dependency and release policy, and CI time as the repo grows, with live demos.",
     written: true,
+    created: "2026-10-20",
+    updated: "2026-10-20",
   },
   {
     section: "system-design",
@@ -289,6 +347,8 @@ export const topicPages = [
     title: "Design micro frontends",
     summary: "The method applied to a store built by four teams that release separately: when micro frontends are worth it, how the page is composed, shared dependencies, routing and event contracts, releases and failure isolation, and style isolation, with live demos.",
     written: true,
+    created: "2026-10-20",
+    updated: "2026-10-20",
   },
   {
     section: "under-the-hood",
@@ -296,6 +356,8 @@ export const topicPages = [
     title: "From source to bundle",
     summary: "What one build command runs: which tool does each job in Create React App, Vite and Next.js, the resolve, transform, bundle, optimize and emit stages, dev vs production builds, and content hashes, each with a live demo.",
     written: true,
+    created: "2026-10-13",
+    updated: "2026-10-13",
   },
   {
     section: "under-the-hood",
@@ -303,6 +365,8 @@ export const topicPages = [
     title: "Transpiling: TypeScript and JSX to JavaScript",
     summary: "Tokens, the syntax tree, transforms and code generation; stripping types vs checking them; the JSX runtimes; syntax lowering for older browsers; and source maps, each with a live demo.",
     written: true,
+    created: "2026-10-13",
+    updated: "2026-10-13",
   },
   {
     section: "under-the-hood",
@@ -310,6 +374,8 @@ export const topicPages = [
     title: "Bundlers: graph, runtime, chunks and dev servers",
     summary: "How a bundler resolves imports into a module graph, the runtime that links modules, tree shaking and side effects, code splitting, and why webpack, Vite and Turbopack run dev differently, each with a live demo.",
     written: true,
+    created: "2026-10-13",
+    updated: "2026-10-13",
   },
   {
     section: "under-the-hood",
@@ -317,6 +383,8 @@ export const topicPages = [
     title: "The CSS pipeline",
     summary: "How CSS gets into the bundle, what Sass compiles to, PostCSS plugins, how CSS Modules scope class names, and how Tailwind generates only the utilities you use, each with a live demo.",
     written: true,
+    created: "2026-10-13",
+    updated: "2026-10-13",
   },
   {
     section: "under-the-hood",
@@ -324,6 +392,8 @@ export const topicPages = [
     title: "Inside React: from JSX to DOM updates",
     summary: "What JSX becomes, the element and fiber trees, how reconciliation diffs them and why keys matter, the render and commit phases, and urgent vs deferred updates, each with a live demo.",
     written: true,
+    created: "2026-10-13",
+    updated: "2026-10-13",
   },
 ] as const satisfies readonly TopicPageMeta[];
 
