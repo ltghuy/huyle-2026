@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Code } from "@/components/playground/code";
 import { Choice } from "@/handbook/jwt/token-view";
 import { Verdict } from "@/handbook/ui";
 import { cn } from "@/lib/utils";
@@ -204,7 +205,7 @@ export function LocatorDemo() {
             tabIndex={0}
             aria-label="The form's HTML"
           >
-            {html.replace(/ data-key="[^"]*"/g, "")}
+            <Code code={html.replace(/ data-key="[^"]*"/g, "")} lang="html" />
           </pre>
         </div>
 

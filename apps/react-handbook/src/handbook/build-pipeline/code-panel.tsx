@@ -1,5 +1,6 @@
 "use client";
 
+import { Code, type CodeLang, langFor } from "@/components/playground/code";
 import { cn } from "@/lib/utils";
 
 import { sizeLabel, useSize } from "./sizes";
@@ -11,6 +12,7 @@ export function CodePanel({
   className,
   showSize = true,
   wrap = false,
+  lang,
 }: {
   title: string;
   code: string;
@@ -18,6 +20,8 @@ export function CodePanel({
   showSize?: boolean;
   /** Wrap long lines, for minified one-line output. */
   wrap?: boolean;
+  /** Colours to use; by default guessed from the title (styles.css, Greeting.js.map, …). */
+  lang?: CodeLang;
 }) {
   const size = useSize(code);
   return (
@@ -27,7 +31,9 @@ export function CodePanel({
         {showSize ? <span className="text-muted-foreground tabular-nums">{sizeLabel(size)}</span> : null}
       </figcaption>
       <pre tabIndex={0} aria-label={`Code: ${title}`} className={cn("max-h-80 overflow-auto p-3 font-mono text-xs leading-relaxed outline-none focus-visible:ring-3 focus-visible:ring-ring/50", wrap && "break-all whitespace-pre-wrap")}>
-        <code>{code}</code>
+        <code>
+          <Code code={code} lang={lang ?? langFor(title)} />
+        </code>
       </pre>
     </figure>
   );

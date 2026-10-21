@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { Choice } from "@/handbook/jwt/token-view";
 import { Toggle } from "@/handbook/ui";
 import { cn } from "@/lib/utils";
@@ -89,13 +89,13 @@ export function HashingDemo() {
           <Label htmlFor="hash-app" className="font-mono text-xs">
             App.tsx (in main)
           </Label>
-          <Textarea id="hash-app" value={input.app} onChange={handleAppChange} spellCheck={false} className="min-h-24 font-mono text-xs" />
+          <CodeEditor lang="ts" id="hash-app" value={input.app} onChange={handleAppChange} className="min-h-24" />
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="hash-about" className="font-mono text-xs">
             About.tsx (lazy chunk)
           </Label>
-          <Textarea id="hash-about" value={input.about} onChange={handleAboutChange} spellCheck={false} className="min-h-24 font-mono text-xs" />
+          <CodeEditor lang="ts" id="hash-about" value={input.about} onChange={handleAboutChange} className="min-h-24" />
         </div>
       </div>
       <Choice legend="Dependency version" value={input.reactVersion} options={VERSIONS} onChange={handleVersionChange} />

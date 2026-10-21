@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { cn } from "@/lib/utils";
 
 import { domTree, hasContent, type MatchedRule, matchedRules, nodeAt, renderTree, type TreeNode } from "./render-tree";
@@ -131,11 +131,11 @@ export function ParsingDemo() {
       <div className="grid gap-3 md:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="parse-html">HTML</Label>
-          <Textarea id="parse-html" value={html} onChange={(e) => setHtml(e.target.value)} spellCheck={false} className="min-h-28 font-mono text-xs" />
+          <CodeEditor lang="html" id="parse-html" value={html} onChange={(e) => setHtml(e.target.value)} className="min-h-28" />
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="parse-css">CSS</Label>
-          <Textarea id="parse-css" value={css} onChange={(e) => setCss(e.target.value)} spellCheck={false} className="min-h-28 font-mono text-xs" />
+          <CodeEditor lang="css" id="parse-css" value={css} onChange={(e) => setCss(e.target.value)} className="min-h-28" />
         </div>
       </div>
       <div className="flex flex-col gap-1">

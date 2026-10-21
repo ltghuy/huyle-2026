@@ -3,6 +3,7 @@
 import { Play } from "lucide-react";
 import { useRef, useState } from "react";
 
+import { Code } from "@/components/playground/code";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -103,7 +104,7 @@ export function ThrashDemo() {
           <div key={mode.title} className="flex min-w-0 flex-col gap-2 rounded-lg border p-3">
             <h4 className="text-sm font-medium">{mode.title}</h4>
             <pre tabIndex={0} aria-label={`Code: ${mode.title}`} className="overflow-x-auto rounded-md bg-muted p-2 font-mono text-[0.6875rem] leading-relaxed outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-              {mode.code}
+              <Code code={mode.code} />
             </pre>
             <p className="font-mono text-xs">
               {mode.ms === undefined

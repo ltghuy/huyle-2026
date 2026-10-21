@@ -74,6 +74,15 @@
   --info: oklch(0.546 0.245 262.881);
   --selection: oklch(0.527 0.154 150.069);
   --selection-foreground: oklch(0.985 0 0);
+  /* Code colours (light), editor-style; each keeps 4.5:1 on the code background. */
+  --code-keyword: #b31d28;
+  --code-string: #0a3069;
+  --code-function: #6639ba;
+  --code-type: #953800;
+  --code-tag: #116329;
+  --code-property: #0550ae;
+  --code-comment: #57606a;
+  --code-sign: #424a53;
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
@@ -115,6 +124,15 @@
   --info: oklch(0.707 0.165 254.624);
   --selection: oklch(0.792 0.209 151.711);
   --selection-foreground: oklch(0.145 0 0);
+  /* Code colours (dark), editor-style; each keeps 4.5:1 on the code background. */
+  --code-keyword: #ff7ac6;
+  --code-string: #ecc48d;
+  --code-function: #a5e075;
+  --code-type: #82aaff;
+  --code-tag: #6cb6ff;
+  --code-property: #7fdbca;
+  --code-comment: #8b949e;
+  --code-sign: #b4bcc6;
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);

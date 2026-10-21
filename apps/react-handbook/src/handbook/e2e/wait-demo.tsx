@@ -5,6 +5,7 @@ import { useId, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Code } from "@/components/playground/code";
 
 import {
   drawDelay,
@@ -164,7 +165,7 @@ export function WaitDemo() {
                 tabIndex={0}
                 aria-label={`${s.label}: test code`}
               >
-                {s.code}
+                <Code code={s.code} />
               </pre>
               <p className="font-mono text-xs tabular-nums">
                 {done}/{runs} run · {tally.pass} passed · {tally.fail} failed ·{" "}

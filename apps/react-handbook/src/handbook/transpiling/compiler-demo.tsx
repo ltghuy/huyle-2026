@@ -6,7 +6,7 @@ import { useDeferredValue, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { cn } from "@/lib/utils";
 
@@ -118,7 +118,7 @@ export function CompilerDemo() {
               Reset
             </Button>
           </div>
-          <Textarea id="compiler-source" value={source} onChange={handleSourceChange} spellCheck={false} wrap="off" className="min-h-72 font-mono text-xs leading-relaxed" />
+          <CodeEditor lang="ts" id="compiler-source" value={source} onChange={handleSourceChange} className="min-h-72" />
           <div aria-live="polite">
             {result.ok ? null : (
               <p className="flex items-start gap-2 rounded-lg border border-destructive/40 bg-destructive/5 p-2 text-xs">

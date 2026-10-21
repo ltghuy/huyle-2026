@@ -4,7 +4,8 @@ import { RotateCcw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
+import { langFor } from "@/components/playground/code";
 
 import type { Project } from "./projects";
 
@@ -43,13 +44,11 @@ export function FileEditor({
       </div>
       {paths.map((path) => (
         <TabsContent key={path} value={path}>
-          <Textarea
+          <CodeEditor lang={langFor(path)}
             aria-label={`Edit ${path}`}
             value={files[path] ?? ""}
             onChange={(e) => onChange(path, e.target.value)}
-            spellCheck={false}
-            wrap="off"
-            className="min-h-48 font-mono text-xs leading-relaxed"
+            className="min-h-48"
           />
         </TabsContent>
       ))}

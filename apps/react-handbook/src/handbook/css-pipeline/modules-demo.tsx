@@ -3,7 +3,7 @@
 import { useDeferredValue, useEffect, useState } from "react";
 
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { Choice } from "@/handbook/jwt/token-view";
 
@@ -93,13 +93,13 @@ export function ModulesDemo() {
           <Label htmlFor="mod-card" className="font-mono text-xs">
             Card{mode === "modules" ? ".module" : ""}.css
           </Label>
-          <Textarea id="mod-card" value={card} onChange={(e) => setCard(e.target.value)} spellCheck={false} wrap="off" className="min-h-40 font-mono text-xs" />
+          <CodeEditor lang="css" id="mod-card" value={card} onChange={(e) => setCard(e.target.value)} className="min-h-40" />
         </div>
         <div className="flex min-w-0 flex-col gap-1.5">
           <Label htmlFor="mod-banner" className="font-mono text-xs">
             Banner{mode === "modules" ? ".module" : ""}.css
           </Label>
-          <Textarea id="mod-banner" value={banner} onChange={(e) => setBanner(e.target.value)} spellCheck={false} wrap="off" className="min-h-40 font-mono text-xs" />
+          <CodeEditor lang="css" id="mod-banner" value={banner} onChange={(e) => setBanner(e.target.value)} className="min-h-40" />
         </div>
       </div>
       <div className="grid min-w-0 gap-3 lg:grid-cols-2">

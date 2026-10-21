@@ -3,7 +3,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { Choice } from "@/handbook/jwt/token-view";
 
@@ -77,7 +77,7 @@ export function JsxDemo() {
           <Label htmlFor="jsx-source" className="font-mono text-xs">
             Example.tsx (edit me)
           </Label>
-          <Textarea id="jsx-source" value={source} onChange={(e) => setSource(e.target.value)} spellCheck={false} wrap="off" className="min-h-56 font-mono text-xs leading-relaxed" />
+          <CodeEditor lang="ts" id="jsx-source" value={source} onChange={(e) => setSource(e.target.value)} className="min-h-56" />
         </div>
         <div aria-live="polite" className="min-w-0">
           {result.ok ? (

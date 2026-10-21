@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { Code } from "@/components/playground/code";
 import { Choice } from "@/handbook/jwt/token-view";
 import { Verdict } from "@/handbook/ui";
 
@@ -176,8 +177,11 @@ export function StylingDemo() {
           <figcaption className="text-xs text-foreground/75">The shell (header) and checkout&apos;s mini cart, rendered with the CSS on the right.</figcaption>
         </figure>
 
-        <pre className="max-h-72 overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-foreground/85" tabIndex={0} aria-label="CSS on the page">
-          {`/* shell */\n.title { font-weight: 600; color: var(--brand); }\n.button { background: var(--primary); border-radius: 6px; padding: 4px 12px; … }\n\n/* checkout${mode === "shadow" ? ", inside its own shadow root" : ""} */${PIECE_RULES(names.title, names.button)}`}
+        <pre className="max-h-72 overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap" tabIndex={0} aria-label="CSS on the page">
+          <Code
+            lang="css"
+            code={`/* shell */\n.title { font-weight: 600; color: var(--brand); }\n.button { background: var(--primary); border-radius: 6px; padding: 4px 12px; … }\n\n/* checkout${mode === "shadow" ? ", inside its own shadow root" : ""} */${PIECE_RULES(names.title, names.button)}`}
+          />
         </pre>
       </div>
 

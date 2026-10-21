@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 
 import { printValue, runJsx } from "./elements";
@@ -63,7 +63,7 @@ export function ElementsDemo() {
           <Label htmlFor="jsx-element" className="font-mono text-xs">
             element.tsx (edit me; the value of <code>element</code> is shown)
           </Label>
-          <Textarea id="jsx-element" value={source} onChange={(e) => setSource(e.target.value)} spellCheck={false} wrap="off" className="min-h-72 font-mono text-xs leading-relaxed" />
+          <CodeEditor lang="ts" id="jsx-element" value={source} onChange={(e) => setSource(e.target.value)} className="min-h-72" />
         </div>
         <div className="flex min-w-0 flex-col gap-2" aria-live="polite">
           {result.ok ? (

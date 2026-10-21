@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { Toggle } from "@/handbook/ui";
 import { AstTree } from "@/handbook/transpiling/ast-tree";
@@ -86,8 +86,8 @@ export function PostcssDemo() {
           <Label htmlFor="postcss-source" className="font-mono text-xs">
             card.css (edit me)
           </Label>
-          <Textarea id="postcss-source" value={source} onChange={handleSourceChange} spellCheck={false} wrap="off" className="min-h-72 font-mono text-xs leading-relaxed" />
-          {selected ? <SourceView source={source} highlight={selected} label="Source of the selected node" /> : <p className="text-xs text-muted-foreground">Pick a node in the tree to see its source.</p>}
+          <CodeEditor lang="css" id="postcss-source" value={source} onChange={handleSourceChange} className="min-h-72" />
+          {selected ? <SourceView source={source} highlight={selected} label="Source of the selected node" lang="css" /> : <p className="text-xs text-muted-foreground">Pick a node in the tree to see its source.</p>}
         </div>
         <div className="flex min-w-0 flex-col gap-1.5">
           <p className="text-xs text-muted-foreground">PostCSS&apos;s syntax tree (the real parser, version 8.5):</p>

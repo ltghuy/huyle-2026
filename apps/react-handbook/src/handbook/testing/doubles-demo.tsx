@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Code } from "@/components/playground/code";
 import { Choice } from "@/handbook/jwt/token-view";
 import { findProducts, type SearchShape, shapeReply } from "@/server/handbook/testing-search.schema";
 
@@ -142,7 +143,7 @@ export function DoublesDemo() {
         <div className="flex min-w-0 flex-col gap-2">
           <h4 className="text-sm font-medium">The app code and its test</h4>
           <pre className="relative overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label="App code and test">
-            {APP_SOURCE}
+            <Code code={APP_SOURCE} />
           </pre>
         </div>
         <div className="flex min-w-0 flex-col gap-3">
@@ -164,7 +165,7 @@ export function DoublesDemo() {
             <h4 className="text-sm font-medium">{cut.title}</h4>
             <p className="text-xs text-foreground/75">{cut.detail}</p>
             <pre className="relative overflow-auto rounded-md bg-muted/40 p-2 font-mono text-[0.6875rem] leading-relaxed" tabIndex={0} aria-label={`${cut.title}: test double`}>
-              {cut.source}
+              <Code code={cut.source} />
             </pre>
             <TestResults results={results[cut.id] ?? []} empty={running ? "Running…" : "Not run yet"} />
           </div>

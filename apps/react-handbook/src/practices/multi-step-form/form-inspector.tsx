@@ -1,5 +1,7 @@
 "use client";
 
+import { Code } from "@/components/playground/code";
+
 import { STEPS, applicableSteps, stepIssues } from "./steps";
 import { useFormState } from "./form-store";
 
@@ -13,7 +15,7 @@ function Block({ title, value, open }: { title: string; value: unknown; open?: b
         aria-label={title}
         className="max-h-72 overflow-auto border-t px-3 py-2 font-mono text-xs leading-relaxed outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
       >
-        {JSON.stringify(value, null, 2)}
+        <Code code={JSON.stringify(value, null, 2)} lang="json" />
       </pre>
     </details>
   );

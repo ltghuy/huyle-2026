@@ -3,7 +3,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { Choice } from "@/handbook/jwt/token-view";
 
@@ -36,7 +36,7 @@ export function SassDemo() {
           <Label htmlFor="sass-source" className="font-mono text-xs">
             styles.scss (edit me)
           </Label>
-          <Textarea id="sass-source" value={source} onChange={(e) => setSource(e.target.value)} spellCheck={false} wrap="off" className="min-h-80 font-mono text-xs leading-relaxed" />
+          <CodeEditor lang="css" id="sass-source" value={source} onChange={(e) => setSource(e.target.value)} className="min-h-80" />
         </div>
         <div className="flex min-w-0 flex-col gap-1.5">
           <div aria-live="polite">

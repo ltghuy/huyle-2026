@@ -47,7 +47,7 @@ function ResolveStage() {
     <div className="flex flex-col gap-3">
       <div className="grid min-w-0 gap-3 lg:grid-cols-2">
         <FileTabs label="Source files" files={SOURCE} />
-        <CodePanel title="Output: the module graph" code={GRAPH} showSize={false} />
+        <CodePanel title="Output: the module graph" code={GRAPH} showSize={false} lang="text" />
       </div>
       <ol className="grid gap-2 text-sm" aria-label="How each import was resolved">
         {RESOLUTIONS.map((r) => (
@@ -153,7 +153,7 @@ function StageBody({ index }: { index: number }) {
     case "bundle":
       return (
         <div className="grid min-w-0 gap-3 lg:grid-cols-2">
-          <CodePanel title="Input: the graph of transformed modules" code={GRAPH} showSize={false} />
+          <CodePanel title="Input: the graph of transformed modules" code={GRAPH} showSize={false} lang="text" />
           <CodePanel title="Output: one bundle (development-style)" code={BUNDLED} />
         </div>
       );

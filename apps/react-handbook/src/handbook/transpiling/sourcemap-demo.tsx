@@ -3,7 +3,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { CodeEditor } from "@/components/playground/code-editor";
 import { CodePanel } from "@/handbook/build-pipeline/code-panel";
 import { cn } from "@/lib/utils";
 
@@ -53,7 +53,7 @@ export function SourceMapDemo() {
         <Label htmlFor="map-source" className="font-mono text-xs">
           Greeting.tsx (edit me)
         </Label>
-        <Textarea id="map-source" value={source} onChange={handleSourceChange} spellCheck={false} wrap="off" className="min-h-40 font-mono text-xs" />
+        <CodeEditor lang="ts" id="map-source" value={source} onChange={handleSourceChange} className="min-h-40" />
         <p aria-live="polite" className="rounded-lg border border-destructive/40 bg-destructive/5 p-2 text-xs">
           Line {result.error.line + 1}, column {result.error.column + 1}: {result.error.message}
         </p>
@@ -75,7 +75,7 @@ export function SourceMapDemo() {
           <Label htmlFor="map-source" className="font-mono text-xs">
             Greeting.tsx (edit me)
           </Label>
-          <Textarea id="map-source" value={source} onChange={handleSourceChange} spellCheck={false} wrap="off" className="min-h-40 font-mono text-xs leading-relaxed" />
+          <CodeEditor lang="ts" id="map-source" value={source} onChange={handleSourceChange} className="min-h-40" />
           <p className="text-xs text-muted-foreground">The source, with the selected segment&apos;s original position marked:</p>
           <SourceView source={deferred} highlight={mapping ? { start: srcOffset, end: srcEnd } : null} label="Source with the mapped position highlighted" />
         </div>

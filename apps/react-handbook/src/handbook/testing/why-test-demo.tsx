@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { Code } from "@/components/playground/code";
 import { Choice } from "@/handbook/jwt/token-view";
 
 import { runTestsSync } from "./harness";
@@ -36,7 +37,7 @@ export function WhyTestDemo() {
       <div className="flex min-w-0 flex-col gap-2">
         <p className="text-sm text-foreground/85">{change.note}</p>
         <pre className="relative max-h-72 overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label={`Source after: ${change.label}`}>
-          {change.source}
+          <Code code={change.source} />
         </pre>
       </div>
 
@@ -63,10 +64,10 @@ export function WhyTestDemo() {
         <summary className="cursor-pointer rounded-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-ring/50">Show the test code</summary>
         <div className="mt-2 grid min-w-0 gap-3 md:grid-cols-2">
           <pre className="relative overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label="Implementation-detail tests">
-            {DETAIL_TESTS_SOURCE}
+            <Code code={DETAIL_TESTS_SOURCE} />
           </pre>
           <pre className="relative overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label="Behaviour tests">
-            {BEHAVIOUR_TESTS_SOURCE}
+            <Code code={BEHAVIOUR_TESTS_SOURCE} />
           </pre>
         </div>
       </details>
