@@ -5,7 +5,10 @@
 // practice. Unbuilt practices fall through to [slug]. Each topic page has its
 // own route under app/(playground)/{section path}/{slug}/page.tsx.
 
-export const SITE_NAME = "Frontend Handbook";
+import { SITE_NAME } from "@/lib/site";
+import { isoDate, pageMetadata } from "@/lib/social";
+
+export { SITE_NAME };
 
 export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood" | "testing" | "seo";
 
@@ -235,7 +238,13 @@ export function getPractice(slug: string): Practice | undefined {
 
 export function practiceMetadata(slug: PracticeSlug) {
   const practice = getPractice(slug)!;
-  return { title: practice.title, description: practice.summary, alternates: { canonical: practiceHref(slug) } };
+  return pageMetadata({
+    path: practiceHref(slug),
+    title: practice.title,
+    description: practice.summary,
+    card: `/og/practice/${slug}`,
+    article: { published: isoDate(practice.created), modified: isoDate(practice.updated) },
+  });
 }
 
 // Topic pages of the sections other than React Practices. Slugs are unique
@@ -489,7 +498,9 @@ export const topicPages = [
     title: "Metadata and structured data",
     summary: "Titles and descriptions that earn the click, social cards and their images, and JSON-LD for rich results, added to this site and checked.",
     level: "Intermediate",
-    written: false,
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
   },
   {
     section: "seo",
@@ -546,7 +557,13 @@ export function topicHref(slug: TopicSlug) {
 
 export function topicMetadata(slug: TopicSlug) {
   const page = getTopicPage(slug);
-  return { title: page.title, description: page.summary, alternates: { canonical: topicHref(slug) } };
+  return pageMetadata({
+    path: topicHref(slug),
+    title: page.title,
+    description: page.summary,
+    card: `/og/topic/${slug}`,
+    article: page.written ? { published: isoDate(page.created), modified: isoDate(page.updated) } : undefined,
+  });
 }
 
 /** How much of a section has content, for its home card. Null for coming-soon sections. */

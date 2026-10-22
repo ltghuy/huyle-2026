@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s · Frontend Handbook",
   },
   description:
-    "Hands-on React practices built from scratch, plus the browser, performance, accessibility and system design topics around them.",
+    "Hands-on React practices built from scratch, plus the browser, performance, accessibility, security, system design, testing and SEO topics around them.",
 };
 
 // Runs before first paint: applies the saved theme (or the OS theme for

@@ -150,6 +150,11 @@
 - Props passed from a server component to a client component are serialized into the server HTML's inline RSC payload. Text you mean to be "browser only" (lab content) must be imported inside the client module, not passed as props <!-- feature:043 date:2026-10-22 -->
 - React 19 replaces `href="javascript:..."` with a URL that throws, and Next.js lint rejects a plain `<a>` to an internal page (`no-html-link-for-pages`); use `<Link>` <!-- feature:043 date:2026-10-22 -->
 
+- A client component that measures text with canvas during render (the SERP preview's `measure`) breaks prerendering with `document is not defined`: "use client" components still render on the server. Return early for the empty initial state, or measure in an effect <!-- feature:044 date:2026-10-22 -->
+- The React Compiler lint rule `react-hooks/refs` fails a hook that returns `{ ref, width }` when render reads `width` from that object. Return a callback ref (`useState` setter) and the value as a tuple instead <!-- feature:044 date:2026-10-22 -->
+- Next's `ImageResponse` routes send no `content-length`, so a HEAD request can't give an image's size. Read `(await res.blob()).size` from a GET instead <!-- feature:044 date:2026-10-22 -->
+- Text like `\u003c` written into a file through the edit tools can come out as a literal `<` (seen in a JSX `<code>` and a comment in feature 044), which breaks the TSX parse. Write it as the JS string `{"\\u003c"}` in JSX and grep for a stray `<code><</code>` after editing <!-- feature:044 date:2026-10-22 -->
+
 ## Codebase Feedback
 
 - Each built practice owns a route `src/app/(playground)/react-practices/{slug}/page.tsx` (URL `/react-practices/{slug}`; old `/practices/*` links 308-redirect via `next.config.ts`) rendering `PracticeFrame` with its `explanation`/`demo`, plus `built: true` in `src/practices/catalog.ts`; `[slug]` serves only placeholders and 404s <!-- feature:001 target:architecture date:2026-10-06 -->

@@ -4,16 +4,19 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/playground/breadcrumbs";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/social";
 import { builtCount, practiceHref, practices, sections } from "@/practices/catalog";
 
 const section = sections.find((s) => s.id === "react-practices")!;
 
-export const metadata: Metadata = { title: section.title, description: section.summary, alternates: { canonical: section.href! } };
+export const metadata: Metadata = pageMetadata({ path: section.href!, title: section.title, description: section.summary, card: "/og/section/react-practices" });
 
 export default function ReactPracticesPage() {
   return (
     <div className="flex flex-col gap-8">
       <header className="flex flex-col gap-2">
+        <JsonLd data={breadcrumbLd([{ label: "Handbook", href: "/" }, { label: section.title }])} />
         <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title }]} />
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{section.title}</h1>
         <p className="text-muted-foreground">

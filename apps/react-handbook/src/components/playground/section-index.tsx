@@ -3,11 +3,13 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/playground/breadcrumbs";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/social";
 import { sectionPages, sectionProgress, sections, topicHref, type TopicSectionId } from "@/practices/catalog";
 
 export function sectionMetadata(id: TopicSectionId) {
   const section = sections.find((s) => s.id === id)!;
-  return { title: section.title, description: section.summary, alternates: { canonical: section.href! } };
+  return pageMetadata({ path: section.href!, title: section.title, description: section.summary, card: `/og/section/${id}` });
 }
 
 /** A topic section's page: title, intro, progress and a card per page. */
@@ -16,6 +18,7 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
   const progress = sectionProgress(id)!;
   return (
     <div className="flex flex-col gap-8">
+      <JsonLd data={breadcrumbLd([{ label: "Handbook", href: "/" }, { label: section.title }])} />
       <header className="flex flex-col gap-2">
         <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: section.title }]} />
         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{section.title}</h1>

@@ -148,3 +148,27 @@ Sources: https://developers.google.com/search/docs/crawling-indexing/javascript/
 - With async `generateMetadata`, Next.js streams the UI first and appends the metadata tags to `<body>` when they resolve; verified with bots that run JavaScript such as Googlebot.
 - For HTML-limited bots (detected by user agent; default list includes AdsBot-Google, Mediapartners-Google, Bingbot, Twitterbot, Slackbot), metadata blocks rendering and lands in `<head>`. `htmlLimitedBots` in next.config overrides the list; `/.*/` disables streaming metadata.
 - Static routes resolve metadata at build time, so it's in `<head>` for everyone.
+
+## Title links and snippets (Google)
+
+Sources: https://developers.google.com/search/docs/appearance/title-link, …/appearance/snippet (checked 2026-10-22)
+
+- Title link sources: `<title>`, the main visual title, headings such as `<h1>`, `og:title`, other large and prominent text, other page text, anchor text on the page, text of links pointing to the page, `WebSite` structured data.
+- No length limit; "truncated in Google Search results as needed, typically to fit the device width."
+- Rewrites happen for: half-empty titles, outdated dates, titles that don't match the page, repeated boilerplate, several big headings with no main title, a different language, a repeated site name.
+- Snippets: "Google primarily uses the content on the page"; it "sometimes uses the meta description". No length limit; cut to fit the device. Controls: `nosnippet`, `max-snippet`, `data-nosnippet`.
+
+## Structured data (Google)
+
+Sources: …/appearance/structured-data/article, …/structured-data/breadcrumb, …/structured-data/sd-policies, …/structured-data/search-gallery
+
+- Article types: Article, NewsArticle, BlogPosting. "There are no required properties"; recommended: author (name, url), dateModified, datePublished (ISO 8601 with time zone), headline, image (relevant images; 16x9, 4x3 and 1x1; at least 50K pixels).
+- BreadcrumbList: `itemListElement` of `ListItem` with `position` (1 is the start), `name`, `item` (URL); the last item may omit `item`.
+- Formats: JSON-LD (recommended), Microdata, RDFa. "Don't mark up content that is not visible to readers of the page." No guarantee of rich results. Spammy markup can bring a structured data manual action, which removes rich result eligibility.
+- Gallery on 2026-10-22: Article, Breadcrumb, Carousel, Course list, Dataset, Discussion forum, Education Q&A, Employer aggregate rating, Event, Image metadata, Job posting, Local business, Math solver, Movie, Organization, Product, Profile page, Q&A, Recipe, Review snippet, Software app, Speakable, Subscription and paywalled content, Vacation rental, Video. FAQ and HowTo aren't listed (cut back in August 2023: FAQ limited to well-known government and health sites, HowTo removed).
+
+## Next.js metadata, images, JSON-LD (bundled docs)
+
+- Metadata from segments is "shallowly merged"; nested fields such as `openGraph` and `robots` from a layout are "overwritten by the last segment to define them". Share them through a variable.
+- `ImageResponse` (next/og): Satori + Resvg, flexbox and a CSS subset (no grid), 500 KB bundle limit, ttf/otf/woff fonts, 1200 × 630 by default.
+- JSON-LD: render `<script type="application/ld+json">` in a page or layout; escape `<` as `<` because `JSON.stringify` doesn't sanitize.

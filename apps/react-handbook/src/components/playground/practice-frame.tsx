@@ -1,6 +1,7 @@
 import { BookOpen } from "lucide-react";
 
-import { PRACTICES_PATH, type Practice } from "@/practices/catalog";
+import { articleLd, breadcrumbLd, JsonLd } from "@/lib/json-ld";
+import { practiceHref, PRACTICES_PATH, type Practice } from "@/practices/catalog";
 
 import { Breadcrumbs } from "./breadcrumbs";
 import { PageDates } from "./page-dates";
@@ -18,10 +19,19 @@ export function PracticeFrame({
   /** Client demo: optional DemoControls, then a DemoStage. */
   demo?: React.ReactNode;
 }) {
+  const crumbs = [{ label: "Handbook", href: "/" }, { label: "React Practices", href: PRACTICES_PATH }, { label: practice.title }];
   return (
     <article className="flex min-w-0 flex-col gap-6">
+      {practice.built ? (
+        <>
+          <JsonLd
+            data={articleLd({ path: practiceHref(practice.slug), title: practice.title, description: practice.summary, card: `/og/practice/${practice.slug}`, created: practice.created, updated: practice.updated })}
+          />
+          <JsonLd data={breadcrumbLd(crumbs)} />
+        </>
+      ) : null}
       <header className="flex flex-col gap-2">
-        <Breadcrumbs items={[{ label: "Handbook", href: "/" }, { label: "React Practices", href: PRACTICES_PATH }, { label: practice.title }]} />
+        <Breadcrumbs items={crumbs} />
         <div className="flex items-center gap-3">
           <span className="font-mono text-xs text-muted-foreground tabular-nums">
             {String(practice.number).padStart(2, "0")}
