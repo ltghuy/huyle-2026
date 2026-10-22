@@ -153,7 +153,10 @@
 - A client component that measures text with canvas during render (the SERP preview's `measure`) breaks prerendering with `document is not defined`: "use client" components still render on the server. Return early for the empty initial state, or measure in an effect <!-- feature:044 date:2026-10-22 -->
 - The React Compiler lint rule `react-hooks/refs` fails a hook that returns `{ ref, width }` when render reads `width` from that object. Return a callback ref (`useState` setter) and the value as a tuple instead <!-- feature:044 date:2026-10-22 -->
 - Next's `ImageResponse` routes send no `content-length`, so a HEAD request can't give an image's size. Read `(await res.blob()).size` from a GET instead <!-- feature:044 date:2026-10-22 -->
-- Text like `\u003c` written into a file through the edit tools can come out as a literal `<` (seen in a JSX `<code>` and a comment in feature 044), which breaks the TSX parse. Write it as the JS string `{"\\u003c"}` in JSX and grep for a stray `<code><</code>` after editing <!-- feature:044 date:2026-10-22 -->
+- Text like `\u003c` or `\uFEFF` written into a file through the edit tools can come out as the literal character (a `<` in feature 044, an invisible BOM inside a regex in feature 045), which breaks the TSX parse. Write it as the JS string `{"\\u003c"}` in JSX and grep for a stray `<code><</code>` after editing <!-- feature:044 date:2026-10-22 -->
+
+- Next's `robots.ts` writes a `userAgent` array as consecutive `User-Agent` lines sharing one rule set, and has no way to emit comment lines. To document a robots policy, explain it on a page or in a code comment <!-- feature:045 date:2026-10-22 -->
+- The AI crawler list lives in `src/lib/ai-bots.ts` and feeds both `src/app/robots.ts` and the SEO demos; add or rename bots there only, with the vendor's source URL. `/llms.txt` is a `force-static` route built from the catalog with the sitemap's filters, so a newly written page appears in both <!-- feature:045 date:2026-10-22 -->
 
 ## Codebase Feedback
 

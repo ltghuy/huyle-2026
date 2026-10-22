@@ -508,7 +508,9 @@ export const topicPages = [
     title: "SEO for AI search and LLMs",
     summary: "How AI assistants and answer engines crawl and cite pages, rules for AI crawlers in robots.txt, and this site's llms.txt.",
     level: "Intermediate to senior",
-    written: false,
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
   },
   {
     section: "seo",

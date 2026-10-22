@@ -6,14 +6,12 @@ import { SectionIcon } from "@/components/playground/section-icon";
 import { Signature } from "@/components/playground/signature";
 import { Progress } from "@/components/ui/progress";
 import { websiteLd, JsonLd } from "@/lib/json-ld";
+import { SITE_DESCRIPTION } from "@/lib/site";
 import { pageMetadata } from "@/lib/social";
 import { sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
 
-const HOME_DESCRIPTION =
-  "Hands-on React practices built from scratch, plus the browser, performance, accessibility, security, system design, testing and SEO topics around them.";
-
 export const metadata: Metadata = {
-  ...pageMetadata({ path: "/", title: SITE_NAME, description: HOME_DESCRIPTION, card: "/og/site/home" }),
+  ...pageMetadata({ path: "/", title: SITE_NAME, description: SITE_DESCRIPTION, card: "/og/site/home" }),
   // The root layout's template would make it "Frontend Handbook · Frontend Handbook".
   title: { absolute: SITE_NAME },
 };
@@ -160,7 +158,7 @@ function SectionCard({ section }: { section: Section }) {
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-10">
-      <JsonLd data={websiteLd(HOME_DESCRIPTION)} />
+      <JsonLd data={websiteLd(SITE_DESCRIPTION)} />
       <header className="flex flex-col gap-3">
         <p className="text-sm font-medium text-muted-foreground">Notes and builds for senior frontend engineers</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
