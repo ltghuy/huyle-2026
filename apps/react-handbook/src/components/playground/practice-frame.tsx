@@ -5,6 +5,7 @@ import { practiceHref, PRACTICES_PATH, type Practice } from "@/practices/catalog
 
 import { Breadcrumbs } from "./breadcrumbs";
 import { PageDates } from "./page-dates";
+import { PageNav } from "./page-nav";
 import { PracticePlaceholder } from "./practice-placeholder";
 import { StatusBadge } from "./status-badge";
 
@@ -70,6 +71,7 @@ export function PracticeFrame({
           featureId={String(practice.number + 1).padStart(3, "0")}
         />
       )}
+      <PageNav href={practiceHref(practice.slug)} />
     </article>
   );
 }

@@ -3,6 +3,7 @@ import { sectionPath, sections, topicHref, type TopicPage } from "@/practices/ca
 
 import { Breadcrumbs } from "./breadcrumbs";
 import { PageDates } from "./page-dates";
+import { PageNav } from "./page-nav";
 import { StatusBadge } from "./status-badge";
 
 /** Header for a topic page (breadcrumbs through its section); the page's content follows. */
@@ -30,6 +31,7 @@ export function TopicFrame({ page, children }: { page: TopicPage; children: Reac
         <p className="text-muted-foreground">{page.summary}</p>
       </header>
       {children}
+      <PageNav href={topicHref(page.slug)} />
     </article>
   );
 }
