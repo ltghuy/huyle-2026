@@ -102,7 +102,7 @@ export function AnswerDemo() {
                   return (
                     <li key={m.page.path} className="flex min-w-0 flex-col gap-1.5 p-3 sm:flex-row sm:items-center sm:justify-between">
                       <div className="min-w-0">
-                        <Link href={m.page.path} className="text-sm font-medium underline-offset-4 hover:underline">
+                        <Link href={m.page.path} className="text-sm font-medium text-link underline-offset-4 hover:underline">
                           {m.page.title}
                         </Link>
                         <p className="text-xs text-foreground/75">Matches: {m.terms.join(", ")}</p>

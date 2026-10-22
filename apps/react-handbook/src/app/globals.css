@@ -28,6 +28,7 @@
   --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-success: var(--success);
+  --color-link: var(--link);
   --color-warning: var(--warning);
   --color-info: var(--info);
   --color-selection: var(--selection);
@@ -70,6 +71,8 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --success: oklch(0.47 0.14 150.069);
+  /* Text links in page content: the success green, 4.5:1 or more on the page and card backgrounds. */
+  --link: oklch(0.47 0.14 150.069);
   --warning: oklch(0.666 0.179 58.318);
   --info: oklch(0.546 0.245 262.881);
   --selection: oklch(0.527 0.154 150.069);
@@ -120,6 +123,7 @@
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --success: oklch(0.792 0.209 151.711);
+  --link: oklch(0.792 0.209 151.711);
   --warning: oklch(0.828 0.189 84.429);
   --info: oklch(0.707 0.165 254.624);
   --selection: oklch(0.792 0.209 151.711);

@@ -1,14 +1,15 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SectionIcon } from "@/components/playground/section-icon";
 import { Signature } from "@/components/playground/signature";
+import { buttonVariants } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { websiteLd, JsonLd } from "@/lib/json-ld";
 import { SITE_DESCRIPTION } from "@/lib/site";
 import { pageMetadata } from "@/lib/social";
-import { sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
+import { PRACTICES_PATH, sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
 
 export const metadata: Metadata = {
   ...pageMetadata({ path: "/", title: SITE_NAME, description: SITE_DESCRIPTION, card: "/og/site/home" }),
@@ -103,7 +104,7 @@ function ExternalAnchor({ href, children }: { href: string; children: React.Reac
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-1 rounded-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="inline-flex items-center gap-1 rounded-sm font-medium text-link underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {children}
       <ExternalLink aria-hidden className="size-3.5" />
@@ -157,60 +158,28 @@ function SectionCard({ section }: { section: Section }) {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-12">
       <JsonLd data={websiteLd(SITE_DESCRIPTION)} />
-      <header className="flex flex-col gap-3">
+      <header className="flex flex-col gap-4">
         <p className="text-sm font-medium text-muted-foreground">Notes and builds for senior frontend engineers</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
-        <p className="text-muted-foreground">
-          A working notebook for frontend engineering: classic UI problems built from scratch, plus the browser, performance,
-          accessibility, security, system design, testing and SEO knowledge around them. Every page pairs short notes with a live demo you can break on
-          purpose. Start with the React Practices, then move on to the other handbooks.
+        <p className="max-w-2xl text-muted-foreground">
+          Classic UI problems built from scratch, plus the browser, performance, accessibility, security, system design, testing and SEO around them.
+          Every page pairs short notes with a live demo you can break on purpose.
         </p>
+        <div className="flex flex-wrap gap-3 pt-1">
+          <Link href={PRACTICES_PATH} className={buttonVariants({ size: "lg" })}>
+            Start with React Practices <ArrowRight aria-hidden />
+          </Link>
+          {/* A plain anchor: native fragment navigation moves focus to the heading; next/link only scrolls. */}
+          <a href="#sections" className={buttonVariants({ size: "lg", variant: "outline" })}>
+            Browse sections
+          </a>
+        </div>
       </header>
 
-      <section aria-labelledby="why-heading" className="flex flex-col gap-4">
-        <h2 id="why-heading" className="text-lg font-semibold">
-          Why it exists
-        </h2>
-        <div className="grid gap-3 text-sm leading-relaxed text-foreground/85 xl:grid-cols-3 xl:gap-6">
-          {WHY.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-
-      <section aria-labelledby="benefits-heading" className="flex flex-col gap-4">
-        <h2 id="benefits-heading" className="text-lg font-semibold">
-          What you get
-        </h2>
-        <ul className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
-          {BENEFITS.map((benefit) => (
-            <li key={benefit.title} className="flex flex-col gap-1 rounded-xl border p-4">
-              <span className="font-medium">{benefit.title}</span>
-              <span className="text-sm text-muted-foreground">{benefit.text}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section aria-labelledby="how-heading" className="flex flex-col gap-4">
-        <h2 id="how-heading" className="text-lg font-semibold">
-          How to use it
-        </h2>
-        <ol className="grid gap-4 md:grid-cols-3">
-          {HOW_TO.map((step, i) => (
-            <li key={step.title} className="flex flex-col gap-1 rounded-xl border p-4">
-              <span className="font-mono text-xs text-muted-foreground tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-              <span className="font-medium">{step.title}</span>
-              <span className="text-sm text-muted-foreground">{step.text}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section aria-labelledby="sections-heading" className="flex flex-col gap-4">
-        <h2 id="sections-heading" className="text-lg font-semibold">
+      <section aria-labelledby="sections" className="flex flex-col gap-4">
+        <h2 id="sections" tabIndex={-1} className="scroll-mt-16 text-lg font-semibold outline-none">
           Sections
         </h2>
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -222,7 +191,53 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <div className="grid gap-10 xl:grid-cols-2">
+      <section aria-labelledby="how-heading" className="flex flex-col gap-4">
+        <h2 id="how-heading" className="text-lg font-semibold">
+          How to use it
+        </h2>
+        <ol className="grid gap-4 md:grid-cols-3">
+          {HOW_TO.map((step, i) => (
+            <li key={step.title} className="flex gap-3">
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full border font-mono text-xs tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+              <span className="flex flex-col gap-1">
+                <span className="font-medium">{step.title}</span>
+                <span className="text-sm text-muted-foreground">{step.text}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <div className="grid gap-10 border-t pt-10 xl:grid-cols-2">
+        <section aria-labelledby="why-heading" className="flex flex-col gap-3">
+          <h2 id="why-heading" className="text-lg font-semibold">
+            Why it exists
+          </h2>
+          <div className="flex flex-col gap-3 text-sm leading-relaxed text-foreground/85">
+            {WHY.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="benefits-heading" className="flex flex-col gap-3">
+          <h2 id="benefits-heading" className="text-lg font-semibold">
+            What you get
+          </h2>
+          <ul className="flex flex-col gap-3 text-sm">
+            {BENEFITS.map((benefit) => (
+              <li key={benefit.title} className="flex gap-2.5">
+                <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-success" />
+                <span>
+                  <span className="font-medium">{benefit.title}.</span> <span className="text-muted-foreground">{benefit.text}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <div className="grid gap-10 border-t pt-10 xl:grid-cols-2">
         <section aria-labelledby="built-heading" className="flex flex-col gap-4">
           <h2 id="built-heading" className="text-lg font-semibold">
             How this site is built
@@ -242,18 +257,24 @@ export default function HomePage() {
             References
           </h2>
           <p className="text-sm text-muted-foreground">The sources these pages lean on most. Each topic page links to the specific articles it draws from.</p>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="flex flex-col divide-y rounded-xl border">
             {REFERENCES.map((reference) => (
-              <div key={reference.group} className="flex flex-col gap-2">
-                <h3 className="text-sm font-medium text-muted-foreground">{reference.group}</h3>
-                <ul className="flex flex-col gap-1.5 text-sm">
+              <details key={reference.group} className="group/ref px-4 py-3">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-sm text-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-ring/50 [&::-webkit-details-marker]:hidden">
+                  {reference.group}
+                  <span className="flex items-center gap-2 text-xs font-normal text-muted-foreground">
+                    {reference.links.length} {reference.links.length === 1 ? "link" : "links"}
+                    <ChevronDown aria-hidden className="size-4 transition-transform group-open/ref:rotate-180 motion-reduce:transition-none" />
+                  </span>
+                </summary>
+                <ul className="mt-3 flex flex-col gap-1.5 text-sm">
                   {reference.links.map((link) => (
                     <li key={link.href}>
                       <ExternalAnchor href={link.href}>{link.label}</ExternalAnchor>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </details>
             ))}
           </div>
         </section>

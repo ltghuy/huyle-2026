@@ -24,7 +24,7 @@ const TOPICS = [
   { id: "long-tasks", title: "Long tasks and web workers" },
 ];
 
-const inline = "rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+const inline = "rounded-sm font-medium text-link underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 export function PerformanceHandbook() {
   return (

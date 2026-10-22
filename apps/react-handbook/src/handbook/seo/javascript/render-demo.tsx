@@ -42,7 +42,7 @@ export function RenderDemo() {
         <Button onClick={handleRun} disabled={run.state === "running"}>
           {run.state === "running" ? "Fetching and rendering…" : "Fetch and render"}
         </Button>
-        <a href={labPath(slug)} target="_blank" rel="noreferrer" className="text-sm underline underline-offset-4">
+        <a href={labPath(slug)} target="_blank" rel="noreferrer" className="text-sm text-link underline underline-offset-4">
           Open the lab page
         </a>
       </div>

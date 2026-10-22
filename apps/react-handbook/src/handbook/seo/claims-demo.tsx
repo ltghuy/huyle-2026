@@ -40,7 +40,7 @@ function ClaimCard({ item, number, answer, onChoose, onCheck }: { item: Claim; n
             href={item.source.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex w-fit items-center gap-1 rounded-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="inline-flex w-fit items-center gap-1 rounded-sm font-medium text-link underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             {item.source.label}
             <ExternalLink aria-hidden className="size-3.5" />

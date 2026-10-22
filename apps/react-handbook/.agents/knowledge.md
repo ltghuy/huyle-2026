@@ -44,6 +44,7 @@
 - The SEO section (`/seo`) builds one page per feature, and each later page adds to this site the real setup it explains (robots.txt, sitemap, canonical, metadata, JSON-LD, llms.txt, CI checks). The crawler view on How search works reads the live server HTML and links each missing field to the page that adds it via `ADDED_BY` in `src/handbook/seo/inspect.ts`, so update that map when a page ships. Topic pages can set an optional `level`, shown on section cards <!-- feature:041 date:2026-10-22 -->
 - Canonical URLs: `metadataBase` is set once in `src/app/layout.tsx` from `SITE_URL` (`src/lib/site.ts`), and each route gets `alternates.canonical` from the helper it already uses for its title (`topicMetadata`, `practiceMetadata`, `sectionMetadata`; the home page and the React Practices index set it themselves). Never put a canonical in a layout: it is inherited by every page below. Placeholder routes send `robots: { index: false, follow: true }` and stay out of `app/sitemap.ts`; `/api/*` gets `X-Robots-Tag: noindex` from `next.config` `headers()` and is deliberately not blocked in robots.txt <!-- feature:042 date:2026-10-22 -->
 - SEO lab pages live at `/seo-lab/[lab]` (`src/app/seo-lab/[lab]/page.tsx`, data in `src/handbook/seo/javascript/labs.ts`), outside the playground layout, kept out of search by an `X-Robots-Tag: noindex` header in next.config so each page's own robots meta can show its case. Demos read them with `inspectPage`/`snapshotHtml` (server HTML) and `renderInFrame` (a hidden same-origin iframe). Later SEO pages can add labs the same way <!-- feature:043 date:2026-10-22 -->
+- Text links in page content use the `text-link` token (`--link` in globals.css, the success green in both themes); navigation (sidebar, breadcrumbs, table of contents, cards, Previous/Next) stays neutral. New prose links copy the `inline` class string that already includes `text-link` <!-- feature:048 date:2026-10-22 -->
 
 ## Gotchas
 
@@ -160,6 +161,10 @@
 
 - `e2e/specs/seo.spec.ts` checks every sitemap URL (status, one h1, title, description, canonical, og:url, no noindex, JSON-LD) plus robots.txt, llms.txt, the /practices redirects and noindex headers, reading HTML as text through the `request` fixture. A new page that breaks any of these fails the suite with the URL in the message <!-- feature:046 date:2026-10-22 -->
 - Running one spec with the default reporters rewrites `src/handbook/e2e/last-run.json` with only that spec, which empties the Testing pages' recorded run. Run a single spec with `--reporter=list`, and record with the full `pnpm test:e2e`. Pages that import the record need a rebuild after a run. `reuseExistingServer` also means a server already on port 3100 is tested as is, so stop stale servers first <!-- feature:046 date:2026-10-22 -->
+
+- FNV-1a bucketing (`src/handbook/ab/assign.ts`) is independent across salts at scale (checked on 20,000 ids: about 50/50 at every cutoff), but a demo over ~100 sequential ids shows splits off by 20 points or more. Measure splits in demos over thousands of simulated visitors <!-- feature:047 date:2026-10-22 -->
+
+- An in-page `next/link` to `#id` only scrolls; it doesn't move focus. For a skip-style link that should move keyboard focus, use a plain `<a href="#id">` and give the target `tabIndex={-1}` <!-- feature:048 date:2026-10-22 -->
 
 ## Codebase Feedback
 

@@ -25,7 +25,7 @@ export function InteractionDemo() {
         <Button onClick={handleRun} disabled={run.state === "running"}>
           {run.state === "running" ? "Rendering, then clicking and scrolling…" : "Fetch, render, then interact"}
         </Button>
-        <a href={labPath("interaction")} target="_blank" rel="noreferrer" className="text-sm underline underline-offset-4">
+        <a href={labPath("interaction")} target="_blank" rel="noreferrer" className="text-sm text-link underline underline-offset-4">
           Open the lab page
         </a>
       </div>

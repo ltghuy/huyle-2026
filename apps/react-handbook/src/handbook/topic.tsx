@@ -62,7 +62,7 @@ export function Topic({
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1 rounded-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="inline-flex items-center gap-1 rounded-sm font-medium text-link underline-offset-4 outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             {link.label}
             <ExternalLink aria-hidden className="size-3.5" />

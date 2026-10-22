@@ -58,7 +58,7 @@ const AREAS: readonly Area[] = [
 
 const LEVELS = ["Basics", "Intermediate", "Senior and expert"] as const;
 
-const inline = "rounded-sm font-medium underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+const inline = "rounded-sm font-medium text-link underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 /** What SEO work covers, by area and level, and who usually owns it. */
 export function SkillMap() {

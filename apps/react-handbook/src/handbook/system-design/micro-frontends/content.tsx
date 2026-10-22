@@ -26,7 +26,7 @@ const TOPICS = [
   { id: "styling", title: "Deep dive: styling and consistency" },
 ] as const;
 
-const inline = "rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+const inline = "rounded-sm font-medium text-link underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 function topic(i: number) {
   return { id: TOPICS[i].id, number: i + 1, title: TOPICS[i].title, linksLabel: "Read more:" };

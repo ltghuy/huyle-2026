@@ -33,7 +33,7 @@ export default async function UnwrittenSeoPage({ params }: PageProps<"/seo/[slug
     <TopicFrame page={page}>
       <p className="rounded-xl border border-dashed p-5 text-sm text-muted-foreground">
         This page is being written. Until then, start with{" "}
-        <Link href={SEO_PATH} className="rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        <Link href={SEO_PATH} className="rounded-sm font-medium text-link underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
           the section overview
         </Link>
         .
