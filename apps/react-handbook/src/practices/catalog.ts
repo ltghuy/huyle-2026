@@ -457,10 +457,10 @@ export const topicPages = [
     section: "testing",
     slug: "ab-testing",
     title: "A/B testing",
-    summary: "A real experiment on this site: sticky assignment without flicker, then sample size, significance, the cost of peeking, and the checks that catch a broken split.",
+    summary: "A real experiment on this site: sticky assignment without flicker, then sample size, significance, the cost of peeking, the checks that catch a broken split, and feature flags for rollouts and kill switches.",
     written: true,
     created: "2026-10-21",
-    updated: "2026-10-21",
+    updated: "2026-10-22",
   },
   {
     section: "seo",

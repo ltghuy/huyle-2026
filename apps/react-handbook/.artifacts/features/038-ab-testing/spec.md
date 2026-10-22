@@ -33,7 +33,7 @@ calculations.
 
 - [x] A visitor is assigned to a variant by the server, keeps that variant across reloads, and sees it in the first render with no flash of the other variant.
 - [x] A learner can use the simulator to find, for a given baseline and effect, how many visitors an experiment needs, and see how checking early inflates false positives.
-- [x] Each of the five topics fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
+- [x] Each of the five topics (six since feature 047 added feature flags) fits on about one screen of reading (plus a "read more") and has a demo whose result changes with the learner's input.
 
 ## Out of Scope
 
@@ -128,7 +128,7 @@ calculations.
 
 **Acceptance Criteria:**
 
-- [x] AC-017: WHEN a topic is shown THEN it SHALL end with a short "read more" (sequential and Bayesian testing, bandits, feature flags versus experiments, holdouts) and links to the sources it draws from.
+- [x] AC-017: WHEN a topic is shown THEN it SHALL end with a short "read more" (sequential and Bayesian testing, bandits, holdouts; feature flags moved to their own topic in feature 047) and links to the sources it draws from.
 
 ## Edge Cases
 

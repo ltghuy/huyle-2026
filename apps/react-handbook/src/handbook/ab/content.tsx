@@ -6,6 +6,7 @@ import { Toc } from "@/handbook/toc";
 import { Topic } from "@/handbook/topic";
 import { topicHref } from "@/practices/catalog";
 
+import { FlagsDemo } from "./flags-demo";
 import { FlickerDemo } from "./flicker-demo";
 import { type Assignment, LiveExperiment } from "./live-experiment";
 import { PeekingDemo } from "./peeking-demo";
@@ -20,11 +21,12 @@ const TOPICS = [
   { id: "sample-size", title: "Sample size and significance" },
   { id: "peeking", title: "Looking early" },
   { id: "pitfalls", title: "Checks before you trust a result" },
+  { id: "feature-flags", title: "Feature flags" },
 ] as const;
 
 const SPEC = "e2e/specs/ab-testing.spec.ts";
 
-const inline = "rounded-sm font-medium text-foreground underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+const inline = "rounded-sm font-medium text-link underline underline-offset-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 
 function topic(i: number) {
   return { id: TOPICS[i].id, number: i + 1, title: TOPICS[i].title, linksLabel: "Read more:" };
@@ -237,8 +239,8 @@ export function AbHandbook({ assignment }: { assignment: Assignment }) {
             losing variant and its flag should be <strong>removed</strong> once the decision is made.
           </>,
           <>
-            Beyond fixed tests: sequential and Bayesian methods, multi-armed bandits that shift traffic to the better variant, feature flags for releases
-            that aren&apos;t experiments, and holdouts that measure a whole quarter of changes.
+            Beyond fixed tests: sequential and Bayesian methods, multi-armed bandits that shift traffic to the better variant, and holdouts that measure a
+            whole quarter of changes. Flags for plain releases are the next topic.
           </>,
         ]}
         demoTitle="check a split for sample ratio mismatch, and see how the suite pins variants"
@@ -252,6 +254,53 @@ export function AbHandbook({ assignment }: { assignment: Assignment }) {
         links={[
           { label: "Fabijan et al.: sample ratio mismatch", href: "https://exp-platform.com/Documents/2019_KDDFabijanGupchupFuptaOmhoverVermeerDmitriev.pdf" },
           { label: "Microsoft: experimentation pitfalls", href: "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/articles/" },
+        ]}
+      />
+
+      <Topic
+        {...topic(5)}
+        intro={
+          <>
+            A feature flag is a switch the code checks at run time, so a change can be deployed switched off and released later, to a few people at
+            first, without another deploy. An experiment is one use of a flag; most flags aren&apos;t experiments.
+          </>
+        }
+        points={[
+          <>
+            Pete Hodgson names four kinds. <strong>Release</strong> flags hide unfinished work and should live a week or two;{" "}
+            <strong>experiment</strong> flags last as long as the test; <strong>ops</strong> flags, such as kill switches, turn a feature off under
+            load and a few stay for good; <strong>permission</strong> flags give features to some users and can last years.
+          </>,
+          <>
+            Decide in one place that takes the visitor&apos;s context, and pass the result to the code that needs it. OpenFeature, the CNCF&apos;s
+            vendor-neutral standard, calls that input the evaluation context, with a targeting key for the visitor, and requires every evaluation to
+            return the caller&apos;s default instead of throwing. Evaluate on the server where you can, for the reason the split topic shows.
+          </>,
+          <>
+            A percentage rollout hashes the visitor&apos;s id with a salt into buckets, as this page&apos;s experiment does, and turns the flag on below a
+            cutoff. Raising the cutoff keeps everyone who already had the change. Each flag needs its own salt, or a rollout lines up with an
+            experiment&apos;s variants. A rollout isn&apos;t a test: it has no control group chosen at the same time, so its numbers mix the change with
+            the calendar.
+          </>,
+          <>
+            Test the configuration production runs, plus each flag about to ship both on and off; most flags don&apos;t interact, so every combination
+            isn&apos;t needed. Then remove the flag and the old path. Unused code left in a router cost Knight Capital more than $460 million in 45
+            minutes in 2012, when a faulty deploy set it off.
+          </>,
+        ]}
+        demoTitle="roll a change out, switch it off, and see how it meets the experiment"
+        demo={<FlagsDemo />}
+        advice={[
+          {
+            do: <>Give every flag an owner, a kind and a removal date, use a fresh salt per flag, and keep a kill switch on risky changes.</>,
+            avoid: <>Reading a gradual rollout as an experiment, reusing an experiment&apos;s hash, or keeping release flags after the release.</>,
+          },
+        ]}
+        links={[
+          { label: "Pete Hodgson: feature toggles", href: "https://martinfowler.com/articles/feature-toggles.html" },
+          { label: "OpenFeature: flag evaluation", href: "https://openfeature.dev/specification/sections/flag-evaluation" },
+          { label: "OpenFeature: evaluation context", href: "https://openfeature.dev/specification/sections/evaluation-context" },
+          { label: "SEC: Knight Capital", href: "https://www.sec.gov/newsroom/press-releases/2013-222" },
         ]}
       />
     </div>
