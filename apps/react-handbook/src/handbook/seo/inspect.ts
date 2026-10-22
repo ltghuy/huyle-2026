@@ -42,12 +42,10 @@ function meta(doc: Document, selector: string) {
   return doc.querySelector<HTMLMetaElement>(selector)?.content.trim() || null;
 }
 
-export async function inspectPage(path: string, signal: AbortSignal): Promise<Inspection> {
-  const res = await fetch(path, { headers: { accept: "text/html" }, cache: "no-store", signal });
-  const html = await res.text();
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const finalPath = new URL(res.url).pathname;
+export type DocumentFields = Omit<Inspection, "status" | "redirectedTo" | "xRobotsTag">;
 
+/** Reads the SEO fields from any document: parsed server HTML or a rendered page. */
+export function readDocument(doc: Document): DocumentFields {
   const body = doc.body.cloneNode(true) as HTMLElement;
   body.querySelectorAll("script, style, noscript, template").forEach((el) => el.remove());
 
@@ -55,19 +53,16 @@ export async function inspectPage(path: string, signal: AbortSignal): Promise<In
   let externalLinks = 0;
   doc.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
     const href = a.getAttribute("href")!;
-    if (href.startsWith("#")) return;
+    if (href.startsWith("#") || href.startsWith("javascript:")) return;
     if (new URL(href, location.origin).origin === location.origin) internalLinks += 1;
     else externalLinks += 1;
   });
 
   return {
-    status: res.status,
-    redirectedTo: res.redirected ? finalPath : null,
-    xRobotsTag: res.headers.get("x-robots-tag"),
     title: text(doc.querySelector("title")),
     description: meta(doc, 'meta[name="description"]'),
     canonical: doc.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.getAttribute("href") ?? null,
-    robots: meta(doc, 'meta[name="robots"]'),
+    robots: [...doc.querySelectorAll<HTMLMetaElement>('meta[name="robots"]')].map((m) => m.content.trim()).filter(Boolean).join(", ") || null,
     ogTitle: meta(doc, 'meta[property="og:title"]'),
     ogImage: meta(doc, 'meta[property="og:image"]'),
     jsonLd: doc.querySelectorAll('script[type="application/ld+json"]').length,
@@ -76,5 +71,17 @@ export async function inspectPage(path: string, signal: AbortSignal): Promise<In
     internalLinks,
     externalLinks,
     words: body.textContent?.match(WORD)?.length ?? 0,
+  };
+}
+
+export async function inspectPage(path: string, signal: AbortSignal): Promise<Inspection> {
+  const res = await fetch(path, { headers: { accept: "text/html" }, cache: "no-store", signal });
+  const html = await res.text();
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return {
+    status: res.status,
+    redirectedTo: res.redirected ? new URL(res.url).pathname : null,
+    xRobotsTag: res.headers.get("x-robots-tag"),
+    ...readDocument(doc),
   };
 }

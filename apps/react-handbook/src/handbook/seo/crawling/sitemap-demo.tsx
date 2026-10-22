@@ -8,21 +8,12 @@ import { Progress } from "@/components/ui/progress";
 
 import { inspectPage } from "../inspect";
 import { FetchError } from "./fetch-error";
+import { localPath, parseSitemap, runPool } from "./sitemap";
 import { useText } from "./use-text";
-
-type Entry = { loc: string; lastmod: string | null };
 
 type Audit = { loc: string; status: number | null; redirected: boolean; noindex: boolean; canonicalOk: boolean; error?: string };
 
 const PARALLEL = 4;
-
-function parseSitemap(xml: string): Entry[] {
-  const doc = new DOMParser().parseFromString(xml, "application/xml");
-  return [...doc.getElementsByTagName("url")].map((url) => ({
-    loc: url.getElementsByTagName("loc")[0]?.textContent?.trim() ?? "",
-    lastmod: url.getElementsByTagName("lastmod")[0]?.textContent?.trim() ?? null,
-  }));
-}
 
 function problems(a: Audit) {
   if (a.error) return [`fetch failed: ${a.error}`];
@@ -35,9 +26,8 @@ function problems(a: Audit) {
 }
 
 async function auditOne(loc: string): Promise<Audit> {
-  const url = new URL(loc);
   try {
-    const page = await inspectPage(url.pathname + url.search, new AbortController().signal);
+    const page = await inspectPage(localPath(loc), new AbortController().signal);
     return {
       loc,
       status: page.status,
@@ -59,14 +49,12 @@ export function SitemapDemo() {
   async function handleAudit() {
     setRunning(true);
     setResults([]);
-    const queue = entries.map((e) => e.loc);
-    async function worker() {
-      for (let loc = queue.shift(); loc !== undefined; loc = queue.shift()) {
-        const result = await auditOne(loc);
-        setResults((current) => [...current, result]);
-      }
-    }
-    await Promise.all(Array.from({ length: PARALLEL }, worker));
+    await runPool(
+      entries.map((e) => e.loc),
+      PARALLEL,
+      auditOne,
+      (result) => setResults((current) => [...current, result]),
+    );
     setRunning(false);
   }
 

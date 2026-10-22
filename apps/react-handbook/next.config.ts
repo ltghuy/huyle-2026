@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
   // API responses aren't pages: keep them out of search results without
   // blocking them in robots.txt, since pages fetch from them while rendering.
   headers() {
-    return Promise.resolve([{ source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] }]);
+    return Promise.resolve([
+      { source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
+      // The SEO lab pages reproduce crawling problems on purpose; they must never be indexed.
+      { source: "/seo-lab/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
+    ]);
   },
 };
 

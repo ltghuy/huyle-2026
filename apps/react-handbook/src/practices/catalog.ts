@@ -479,7 +479,9 @@ export const topicPages = [
     title: "JavaScript and rendering SEO",
     summary: "What client rendering costs in search, server and static rendering, soft 404s, crawlable links, and metadata that is in the HTML before any script runs.",
     level: "Intermediate",
-    written: false,
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
   },
   {
     section: "seo",

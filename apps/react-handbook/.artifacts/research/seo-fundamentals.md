@@ -127,3 +127,24 @@ Source: https://developers.google.com/search/docs/crawling-indexing/http-network
 - `app/robots.ts` and `app/sitemap.ts` are special route handlers, cached by default.
 - `metadataBase` lets URL fields such as `alternates.canonical` be relative; it's usually set in the root layout. A field set in a layout is inherited by every page below that doesn't set its own.
 - `notFound()`, `forbidden()` and `unauthorized()` inject `<meta name="robots" content="noindex">`; so does a streamed 404 that already sent a 200 status.
+
+## JavaScript SEO (Google)
+
+Sources: https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics, …/javascript/lazy-loading, …/javascript/fix-search-javascript, …/javascript/dynamic-rendering (checked 2026-10-22)
+
+- Three phases: crawling, rendering, indexing. "Googlebot queues pages for both crawling and rendering"; a page "may stay on this queue for a few seconds, but it can take longer than that."
+- "When Google encounters the `noindex` tag, it may skip rendering and JavaScript execution", so removing `noindex` with JavaScript may not work.
+- "Use the History API instead of fragments"; don't use fragments to load different content.
+- JavaScript can set or change the title and meta description (for Google).
+- Soft 404s in apps: redirect with JavaScript to a URL that returns 404, or add `noindex` to the error view with JavaScript.
+- "Googlebot caches aggressively"; WRS "may ignore caching headers"; fingerprint assets.
+- "server-side or pre-rendering is still a great idea" because "not all bots can run JavaScript."
+- "Expect Googlebot to decline user permission requests." Local and session storage and cookies "are cleared across page loads." No WebSockets or WebRTC.
+- Lazy loading: load content "whenever it is visible in the viewport" (IntersectionObserver works); methods "don't rely on user actions, such as scrolling or clicking", because "Google Search does not interact with your page." Infinite scroll: give each chunk "its own persistent, unique URL" and link them sequentially.
+- Dynamic rendering "was a workaround and not a long-term solution"; Google recommends "server-side rendering, static rendering, or hydration".
+
+## Next.js streaming metadata (bundled docs)
+
+- With async `generateMetadata`, Next.js streams the UI first and appends the metadata tags to `<body>` when they resolve; verified with bots that run JavaScript such as Googlebot.
+- For HTML-limited bots (detected by user agent; default list includes AdsBot-Google, Mediapartners-Google, Bingbot, Twitterbot, Slackbot), metadata blocks rendering and lands in `<head>`. `htmlLimitedBots` in next.config overrides the list; `/.*/` disables streaming metadata.
+- Static routes resolve metadata at build time, so it's in `<head>` for everyone.
