@@ -3,11 +3,17 @@
 import { useState } from "react";
 
 import { Code } from "@/components/playground/code";
+import { CodeTabs } from "@/handbook/e2e/code-tabs";
 import { Choice } from "@/handbook/jwt/token-view";
 
 import { runTestsSync } from "./harness";
 import { BEHAVIOUR_TESTS_SOURCE, behaviourTests, CHANGES, DETAIL_TESTS_SOURCE, detailTests } from "./price-sample";
 import { TestResults } from "./test-results";
+
+const TEST_FILES = [
+  { path: "Tests on implementation details", code: DETAIL_TESTS_SOURCE, lang: "ts" },
+  { path: "Tests on behaviour", code: BEHAVIOUR_TESTS_SOURCE, lang: "ts" },
+] as const;
 
 const OPTIONS = CHANGES.map((change) => ({ value: change.id, label: change.label }));
 
@@ -62,13 +68,8 @@ export function WhyTestDemo() {
 
       <details className="text-sm">
         <summary className="cursor-pointer rounded-sm font-medium outline-none focus-visible:ring-3 focus-visible:ring-ring/50">Show the test code</summary>
-        <div className="mt-2 grid min-w-0 gap-3 md:grid-cols-2">
-          <pre className="relative overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label="Implementation-detail tests">
-            <Code code={DETAIL_TESTS_SOURCE} />
-          </pre>
-          <pre className="relative overflow-auto rounded-lg border bg-muted/40 p-3 font-mono text-xs leading-relaxed" tabIndex={0} aria-label="Behaviour tests">
-            <Code code={BEHAVIOUR_TESTS_SOURCE} />
-          </pre>
+        <div className="mt-2">
+          <CodeTabs label="Test code" files={TEST_FILES} />
         </div>
       </details>
     </div>

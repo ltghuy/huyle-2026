@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CodeBlock } from "@/handbook/e2e/code-block";
+import { CodeTabs } from "@/handbook/e2e/code-tabs";
 import { LAST_RUN, suiteFile } from "@/handbook/e2e/suite";
 import { Toc } from "@/handbook/toc";
 import { Topic } from "@/handbook/topic";
@@ -278,11 +278,7 @@ export function BddHandbook() {
 
       <div className="flex flex-col gap-2">
         <h2 className="text-sm font-medium">The step files, as recorded</h2>
-        <div className="grid min-w-0 gap-3 xl:grid-cols-2">
-          {STEP_FILES.map((f) => (
-            <CodeBlock key={f} path={f} code={suiteFile(f)} />
-          ))}
-        </div>
+        <CodeTabs label="Step files" files={STEP_FILES.map((f) => ({ path: f, code: suiteFile(f) }))} />
       </div>
     </div>
   );

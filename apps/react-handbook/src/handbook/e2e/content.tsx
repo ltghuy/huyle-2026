@@ -5,7 +5,7 @@ import { Topic } from "@/handbook/topic";
 import { practiceHref, topicHref } from "@/practices/catalog";
 
 import { CiDemo } from "./ci-demo";
-import { CodeBlock } from "./code-block";
+import { CodeTabs } from "./code-tabs";
 import { LocatorDemo } from "./locator-demo";
 import { PomDemo } from "./pom-demo";
 import { RunSummary } from "./run-summary";
@@ -66,10 +66,13 @@ function ProvesDemo() {
             : "This test has no recorded result yet."}{" "}
           It turns the search&apos;s safeguards off, makes short queries answer slowly, types &quot;walnut&quot; and checks that the late reply for &quot;wa&quot; wins.
         </p>
-        <div className="grid min-w-0 gap-3 xl:grid-cols-2">
-          <CodeBlock path={file} code={suiteFile(file)} />
-          <CodeBlock path="e2e/pages/debounced-search.page.ts" code={suiteFile("e2e/pages/debounced-search.page.ts")} />
-        </div>
+        <CodeTabs
+          label="The test and its page object"
+          files={[
+            { path: file, code: suiteFile(file) },
+            { path: "e2e/pages/debounced-search.page.ts", code: suiteFile("e2e/pages/debounced-search.page.ts") },
+          ]}
+        />
       </div>
     </div>
   );
@@ -84,10 +87,13 @@ function PageObjectsDemo() {
         <p className="text-sm text-foreground/85">
           The controls panel is a component object that three page objects reuse, and the fixtures open each page and hand its page object to the test.
         </p>
-        <div className="grid min-w-0 gap-3 xl:grid-cols-2">
-          <CodeBlock path="e2e/components/demo-controls.ts" code={suiteFile("e2e/components/demo-controls.ts")} />
-          <CodeBlock path="e2e/fixtures.ts" code={suiteFile("e2e/fixtures.ts")} />
-        </div>
+        <CodeTabs
+          label="The component object and the fixtures"
+          files={[
+            { path: "e2e/components/demo-controls.ts", code: suiteFile("e2e/components/demo-controls.ts") },
+            { path: "e2e/fixtures.ts", code: suiteFile("e2e/fixtures.ts") },
+          ]}
+        />
       </div>
     </div>
   );
@@ -97,10 +103,13 @@ function CiTopicDemo() {
   return (
     <div className="flex min-w-0 flex-col gap-4">
       <CiDemo />
-      <div className="grid min-w-0 gap-3 xl:grid-cols-2">
-        <CodeBlock path="playwright.config.ts" code={suiteFile("playwright.config.ts")} />
-        <CodeBlock path=".github/workflows/e2e.yml (example)" code={CI_EXAMPLE} />
-      </div>
+      <CodeTabs
+        label="The config and a CI workflow"
+        files={[
+          { path: "playwright.config.ts", code: suiteFile("playwright.config.ts") },
+          { path: ".github/workflows/e2e.yml (example)", code: CI_EXAMPLE },
+        ]}
+      />
     </div>
   );
 }

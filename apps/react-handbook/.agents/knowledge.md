@@ -39,6 +39,7 @@
 - Quoted code is coloured with `src/components/playground/code.tsx` (sugar-high `core` + the TypeScript, HTML, CSS, JSON and YAML presets): `CodeBlock`, `CodePanel`, `SourceView` and `<Code>` render its tokens as spans, on the server or in the browser. `CodePanel` picks the language from its title, so pass `lang` when the title doesn't say, or `lang="text"` for diagrams drawn in text. Colours are the `--code-*` tokens in `globals.css` (light and dark), each at least 4.5:1 on the code background including marked lines. Calls are detected as a name followed by `(`, which sugar-high leaves plain <!-- feature:039 date:2026-10-21 -->
 - Editable code uses `CodeEditor` (`src/components/playground/code-editor.tsx`): a textarea with transparent text and a visible caret over a coloured `<pre>` in the same grid cell, so they share size and only `scrollLeft` is mirrored. Both must keep identical font, size, line height, padding, `white-space: pre` and tab size, or the caret drifts from the text; the textarea uses `wrap="off"` and a semi-transparent selection colour so the coloured text shows through <!-- feature:039 date:2026-10-21 -->
 - The A/B testing page is the only Testing page rendered per request: it reads the visitor's `rp-ab-id` cookie with `cookies()`, assigns on the server (FNV-1a of `experiment:id` into 10,000 buckets) and lets the browser write the cookie after hydration, so there is no flicker and no proxy (see the reverted proxy above). End-to-end tests pin a variant with the `rp-ab-force` cookie <!-- feature:038 date:2026-10-21 -->
+- Groups of two or more quoted files on the Testing pages use `CodeTabs` (`src/handbook/e2e/code-tabs.tsx`): one tab per file at full width, never two columns of code. A tab can carry a custom label, which the page-object demo uses to show each file's count of marked lines <!-- feature:040 date:2026-10-22 -->
 
 ## Gotchas
 
@@ -139,6 +140,7 @@
 - A constant exported from a `"use client"` module is a client reference on the server, not its value: `POM_PATHS.pageObject` read in a server component was undefined, so the quoted files went missing silently. Keep shared constants in a plain module (`src/handbook/e2e/pom-paths.ts`) and don't import big data modules into client components <!-- feature:036 date:2026-10-21 -->
 - `text-foreground/50` fails light-mode contrast (3.66:1 on `bg-muted/40`) even for `aria-hidden` line numbers, which axe still checks; use `/70` <!-- feature:036 date:2026-10-21 -->
 - playwright-bdd titles outline rows "Example #n" unless the outline name has `<placeholders>`; results are matched to the documentation by feature name and that title, so two outlines in one feature without placeholders would collide. Generated test line numbers don't map to the `.feature`; the reporter records 0 for them <!-- feature:037 date:2026-10-21 -->
+- The shadcn `TabsList` sets `group-data-horizontal/tabs:h-8`, so a plain `h-auto` loses and a wrapped tab bar overlaps the panel below it. Override it with `group-data-horizontal/tabs:h-auto` (`CodeTabs` does; `FileEditor` in the bundlers pages still has the plain `h-auto`) <!-- feature:040 date:2026-10-22 -->
 
 ## Codebase Feedback
 

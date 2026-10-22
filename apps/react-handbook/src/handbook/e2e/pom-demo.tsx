@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Choice } from "@/handbook/jwt/token-view";
 
-import { CodeBlock } from "./code-block";
+import { CodeTabs } from "./code-tabs";
 import { POM_PATHS as PATHS } from "./pom-paths";
 
 // For each UI change, the lines each version of the tests must edit, found by
@@ -48,6 +48,24 @@ const CHANGES: readonly Change[] = [
 
 const OPTIONS = CHANGES.map((c) => ({ value: c.id, label: c.label }));
 
+const FILE_TABS: readonly { key: keyof PomFiles; side: string }[] = [
+  { key: "pageObject", side: "With a page object" },
+  { key: "pomSpec", side: "With a page object" },
+  { key: "rawSpec", side: "Without one" },
+];
+
+function PomTab({ side, path, count }: { side: string; path: string; count: number }) {
+  return (
+    <>
+      <span className="font-sans text-foreground/75">{side}</span> {path.split("/").pop()}{" "}
+      <span className="rounded-sm bg-primary/10 px-1.5 tabular-nums">
+        {count}
+        <span className="sr-only"> {count === 1 ? "line" : "lines"} to edit</span>
+      </span>
+    </>
+  );
+}
+
 function markedLines(code: string | null, patterns: RegExp[]) {
   const marked = new Set<number>();
   code?.split("\n").forEach((line, i) => {
@@ -83,18 +101,16 @@ export function PomDemo({ files }: { files: PomFiles }) {
       </div>
       <p className="rounded-lg bg-muted/40 p-3 text-sm">{change.lesson}</p>
 
-      <div className="grid min-w-0 gap-4 xl:grid-cols-2">
-        <div className="flex min-w-0 flex-col gap-3">
-          <h4 className="text-sm font-medium">With a page object</h4>
-          <CodeBlock path={PATHS.pageObject} code={files.pageObject} marked={marks.pageObject} />
-          <CodeBlock path={PATHS.pomSpec} code={files.pomSpec} marked={marks.pomSpec} />
-        </div>
-        <div className="flex min-w-0 flex-col gap-3">
-          <h4 className="text-sm font-medium">Without one</h4>
-          <CodeBlock path={PATHS.rawSpec} code={files.rawSpec} marked={marks.rawSpec} />
-        </div>
-      </div>
-      <p className="text-xs text-foreground/75">Marked lines are found by matching each change&apos;s locators and steps in the files of the latest recorded run.</p>
+      <CodeTabs
+        label="Files to edit"
+        files={FILE_TABS.map(({ key, side }) => ({
+          path: PATHS[key],
+          code: files[key],
+          marked: marks[key],
+          tab: <PomTab side={side} path={PATHS[key]} count={marks[key].size} />,
+        }))}
+      />
+      <p className="text-xs text-foreground/75">Each tab counts its marked lines. Marked lines are found by matching each change&apos;s locators and steps in the files of the latest recorded run.</p>
     </div>
   );
 }
