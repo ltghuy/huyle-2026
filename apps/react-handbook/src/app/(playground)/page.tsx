@@ -16,7 +16,7 @@ const BENEFITS = [
   { title: "Complete, working features", text: "Each practice is a complete feature with its own API route, built without a library doing the hard part." },
   { title: "Failure on purpose", text: "Demo controls add latency, errors and load, so you see the loading, empty, error and retry states as well as the happy path." },
   { title: "The why behind each choice", text: "Guides spell out the approach, best practices, what to avoid and the trade-offs, so you can defend the design." },
-  { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security, system design, the build tools behind it all, and how to test it, each with an interactive demo." },
+  { title: "The platform under React", text: "Networking, rendering, Core Web Vitals, accessibility, security, system design, the build tools behind it all, how to test it and how search finds it, each with an interactive demo." },
 ];
 
 const BUILT_WITH = [
@@ -72,12 +72,19 @@ const REFERENCES = [
       { label: "Testing Library: guiding principles", href: "https://testing-library.com/docs/guiding-principles" },
     ],
   },
+  {
+    group: "SEO",
+    links: [
+      { label: "Google Search Central documentation", href: "https://developers.google.com/search/docs" },
+      { label: "How Google Search works", href: "https://developers.google.com/search/docs/fundamentals/how-search-works" },
+    ],
+  },
 ];
 
 const HOW_TO = [
   { title: "Build it", text: "Each practice is a classic frontend problem built from scratch, with a live demo and controls that break it on purpose." },
   { title: "Explain it", text: "Every page has a guide: the key ideas, how it was built, best practices and trade-offs behind each choice." },
-  { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility, system design, the build tools under it, and testing." },
+  { title: "Stretch it", text: "The other sections cover what sits around the code: the browser, performance, accessibility, system design, the build tools under it, testing and SEO." },
 ];
 
 function ExternalAnchor({ href, children }: { href: string; children: React.ReactNode }) {
@@ -146,7 +153,7 @@ export default function HomePage() {
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{SITE_NAME}</h1>
         <p className="text-muted-foreground">
           A working notebook for frontend engineering: classic UI problems built from scratch, plus the browser, performance,
-          accessibility, security, system design and testing knowledge around them. Every page pairs short notes with a live demo you can break on
+          accessibility, security, system design, testing and SEO knowledge around them. Every page pairs short notes with a live demo you can break on
           purpose. Start with the React Practices, then move on to the other handbooks.
         </p>
       </header>

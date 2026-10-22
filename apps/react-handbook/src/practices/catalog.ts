@@ -7,7 +7,7 @@
 
 export const SITE_NAME = "Frontend Handbook";
 
-export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood" | "testing";
+export type SectionId = "react-practices" | "browser-platform" | "performance-accessibility" | "security" | "system-design" | "under-the-hood" | "testing" | "seo";
 
 export type Section = {
   id: SectionId;
@@ -24,6 +24,7 @@ export const SECURITY_PATH = "/security";
 export const SYSTEM_DESIGN_PATH = "/system-design";
 export const UNDER_THE_HOOD_PATH = "/under-the-hood";
 export const TESTING_PATH = "/testing";
+export const SEO_PATH = "/seo";
 
 export const sections: Section[] = [
   {
@@ -67,6 +68,12 @@ export const sections: Section[] = [
     title: "Testing",
     summary: "How to know the app still works: choosing what to test at which level, end-to-end tests with Playwright and page objects, behaviour-driven scenarios with Cucumber, and A/B experiments.",
     href: TESTING_PATH,
+  },
+  {
+    id: "seo",
+    title: "SEO",
+    summary: "How search engines and AI assistants find, read and rank a site, from the crawl pipeline to robots.txt, sitemaps, metadata, llms.txt and SEO at scale, set up for real on this site.",
+    href: SEO_PATH,
   },
 ];
 
@@ -236,11 +243,15 @@ export function practiceMetadata(slug: PracticeSlug) {
 
 export type TopicSectionId = Exclude<SectionId, "react-practices">;
 
+/** How advanced a page is, shown on its section card when set. */
+export type PageLevel = "Basics" | "Basics to intermediate" | "Intermediate" | "Intermediate to senior" | "Senior to expert";
+
 export type TopicPageMeta = {
   section: TopicSectionId;
   slug: string;
   title: string;
   summary: string;
+  level?: PageLevel;
 } & (
   | {
       written: true;
@@ -442,6 +453,56 @@ export const topicPages = [
     created: "2026-10-21",
     updated: "2026-10-21",
   },
+  {
+    section: "seo",
+    slug: "how-search-works",
+    title: "How search works",
+    summary: "What happens between a URL and a search result: the crawl, render, index and serve pipeline, how pages are found, what a crawler reads, duplicate URLs, and what ranking and Search Console numbers mean.",
+    level: "Basics",
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
+  },
+  {
+    section: "seo",
+    slug: "crawling-indexing",
+    title: "Crawling and indexing control",
+    summary: "This site's own robots.txt, sitemap and canonical URLs, plus meta robots, X-Robots-Tag, status codes, redirects and crawl budget.",
+    level: "Basics to intermediate",
+    written: false,
+  },
+  {
+    section: "seo",
+    slug: "javascript-seo",
+    title: "JavaScript and rendering SEO",
+    summary: "What client rendering costs in search, server and static rendering, soft 404s, crawlable links, and metadata that is in the HTML before any script runs.",
+    level: "Intermediate",
+    written: false,
+  },
+  {
+    section: "seo",
+    slug: "metadata-structured-data",
+    title: "Metadata and structured data",
+    summary: "Titles and descriptions that earn the click, social cards and their images, and JSON-LD for rich results, added to this site and checked.",
+    level: "Intermediate",
+    written: false,
+  },
+  {
+    section: "seo",
+    slug: "ai-search",
+    title: "SEO for AI search and LLMs",
+    summary: "How AI assistants and answer engines crawl and cite pages, rules for AI crawlers in robots.txt, and this site's llms.txt.",
+    level: "Intermediate to senior",
+    written: false,
+  },
+  {
+    section: "seo",
+    slug: "seo-at-scale",
+    title: "SEO at scale",
+    summary: "International sites and hreflang, migrations without lost traffic, faceted navigation, programmatic pages, log analysis, and SEO checks in the end-to-end suite.",
+    level: "Senior to expert",
+    written: false,
+  },
 ] as const satisfies readonly TopicPageMeta[];
 
 export type TopicPage = (typeof topicPages)[number];
@@ -454,6 +515,7 @@ const SECTION_PATH: Record<TopicSectionId, string> = {
   "system-design": SYSTEM_DESIGN_PATH,
   "under-the-hood": UNDER_THE_HOOD_PATH,
   testing: TESTING_PATH,
+  seo: SEO_PATH,
 };
 
 export function sectionPath(id: TopicSectionId) {

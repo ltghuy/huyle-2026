@@ -64,4 +64,5 @@ export const NAV_FOLDERS: NavFolder[] = [
   topicFolder("system-design"),
   topicFolder("under-the-hood"),
   topicFolder("testing"),
+  topicFolder("seo"),
 ];

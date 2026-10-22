@@ -34,8 +34,9 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
             <Link href={topicHref(page.slug)} className="group flex w-full rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
               <Card className="w-full transition-colors group-hover:bg-muted/50">
                 <CardHeader>
-                  <div>
+                  <div className="flex flex-wrap items-center gap-2">
                     <StatusBadge built={page.written} readyLabel="Written" />
+                    {"level" in page ? <span className="rounded-md border px-2 py-0.5 text-xs text-muted-foreground">{page.level}</span> : null}
                   </div>
                   <CardTitle className="leading-snug">{page.title}</CardTitle>
                   <CardDescription>{page.summary}</CardDescription>
