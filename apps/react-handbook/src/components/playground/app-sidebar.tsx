@@ -9,48 +9,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import {
-  practiceHref,
-  practices,
-  PRACTICES_PATH,
-  sectionPages,
-  sectionPath,
-  sections,
-  SITE_NAME,
-  topicHref,
-  topicPages,
-  type TopicSectionId,
-} from "@/practices/catalog";
+import { practices, SITE_NAME, topicPages } from "@/practices/catalog";
 
-import { type NavFolder, PracticeNav } from "./practice-nav";
-
-const sectionTitle = (id: NavFolder["id"]) => sections.find((s) => s.id === id)!.title;
-
-const FOLDERS: NavFolder[] = [
-  {
-    id: "react-practices",
-    title: sectionTitle("react-practices"),
-    href: PRACTICES_PATH,
-    itemsLabel: "Practices",
-    items: practices.map((p) => ({ href: practiceHref(p.slug), title: p.title, prefix: String(p.number).padStart(2, "0"), ready: p.built })),
-  },
-  topicFolder("browser-platform"),
-  topicFolder("performance-accessibility"),
-  topicFolder("security"),
-  topicFolder("system-design"),
-  topicFolder("under-the-hood"),
-  topicFolder("testing"),
-];
-
-function topicFolder(id: TopicSectionId): NavFolder {
-  return {
-    id,
-    title: sectionTitle(id),
-    href: sectionPath(id),
-    itemsLabel: "Pages",
-    items: sectionPages(id).map((p) => ({ href: topicHref(p.slug), title: p.title, ready: p.written })),
-  };
-}
+import { PracticeNav } from "./practice-nav";
 
 export function AppSidebar() {
   return (
@@ -73,7 +34,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <PracticeNav folders={FOLDERS} />
+        <PracticeNav />
       </SidebarContent>
     </Sidebar>
   );

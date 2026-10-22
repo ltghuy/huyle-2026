@@ -49,7 +49,7 @@ page is listed in the folder as coming soon.
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN the sidebar is shown THEN system SHALL show Performance & Accessibility as a folder (not marked coming soon) listing Performance and Accessibility (Accessibility marked coming soon); the folder SHALL be open whenever one of its pages is shown, the current page SHALL be marked, and the sidebar filter SHALL match these page titles too.
+- [x] AC-001: WHEN the sidebar is shown THEN system SHALL show Performance & Accessibility as a folder (not marked coming soon) listing Performance and Accessibility (Accessibility marked coming soon); the folder SHALL be open whenever one of its pages is shown, the current page SHALL be marked, and the page search SHALL match these page titles too.
 - [x] AC-002: WHEN the user opens the section's address THEN system SHALL show its title, summary and a card per page (title, one-line summary, status) linking to each page; WHEN the home page is shown THEN the section's card SHALL link there and show how many of its pages are written.
 - [x] AC-003: WHEN the Performance page is opened directly or refreshed THEN system SHALL show breadcrumbs (Handbook › Performance & Accessibility › Performance), the title, a one-paragraph intro, a list of its topics that jumps to each, and a credit linking to web.dev's *Learn Performance*; the Accessibility address SHALL show a coming-soon placeholder.
 

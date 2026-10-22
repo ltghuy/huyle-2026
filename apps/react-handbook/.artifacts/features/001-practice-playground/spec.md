@@ -126,15 +126,15 @@ The practice catalog, in sidebar order:
 - [x] AC-019: WHEN the user picks a practice from the slide-in list THEN system SHALL close the list and show the practice.
 - [x] AC-020: WHEN the page is shown at a 360px wide viewport THEN system SHALL have no horizontal page scrolling.
 
-### P3: Quick filter in the sidebar
+### P3: Quick search for a page
 
-- As a learner, I want to type into a filter above the sidebar list so that I can jump to a practice by name.
+- As a learner, I want to search the pages by name from the top bar so that I can jump to one quickly.
 - **Why P3:** 14 items fit on one screen, so filtering is a convenience.
 
 **Acceptance Criteria:**
 
-- [x] AC-021: WHEN the user types in the sidebar filter THEN system SHALL show only the practices whose name contains the text, ignoring case.
-- [x] AC-022: WHEN no practice matches the filter THEN system SHALL show a "no matches" message and a way to clear the filter.
+- [x] AC-021: WHEN the user types in the page search THEN system SHALL show only the pages whose title or summary contains every word, ignoring case and accents. (Changed 2026-10-22, quick task 022-appbar-site-search: the filter moved from the sidebar to a search modal opened from the top bar.)
+- [x] AC-022: WHEN no page matches the search THEN system SHALL show a "no matches" message and a way to clear the search.
 
 ### P3: Choose a theme (added 2026-10-06, quick task 001-theme-toggle)
 
