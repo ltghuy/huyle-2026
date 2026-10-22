@@ -7,7 +7,7 @@ import { sectionPages, sectionProgress, sections, topicHref, type TopicSectionId
 
 export function sectionMetadata(id: TopicSectionId) {
   const section = sections.find((s) => s.id === id)!;
-  return { title: section.title, description: section.summary };
+  return { title: section.title, description: section.summary, alternates: { canonical: section.href! } };
 }
 
 /** A topic section's page: title, intro, progress and a card per page. */

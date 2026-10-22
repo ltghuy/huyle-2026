@@ -159,8 +159,8 @@ export function HowSearchWorksHandbook() {
             With no robots rule at all, the default is <code>index, follow</code>. There is no need to add it.
           </>,
           <>
-            This site renders on the server, so the HTML already holds each page&apos;s text. What it doesn&apos;t send yet (a canonical URL, social
-            cards, structured data) is added by the later pages of this section, and the view below picks it up as they ship.
+            This site renders on the server, so the HTML already holds each page&apos;s text. Since <PageLink slug="crawling-indexing">Crawling and indexing control</PageLink>, every page also sends its canonical URL. What it
+            doesn&apos;t send yet (social cards, structured data) is added by later pages of this section, and the view below picks it up as they ship.
           </>,
         ]}
         demoTitle="read any page of this site the way a crawler does"

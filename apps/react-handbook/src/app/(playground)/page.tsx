@@ -1,10 +1,13 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SectionIcon } from "@/components/playground/section-icon";
 import { Signature } from "@/components/playground/signature";
 import { Progress } from "@/components/ui/progress";
 import { sectionProgress, sections, SITE_NAME, type Section } from "@/practices/catalog";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const WHY = [
   "Tutorials stop at the happy path. Real frontend work starts when the network is slow, the list has 100,000 rows, the user is on a keyboard, or the token has just expired.",

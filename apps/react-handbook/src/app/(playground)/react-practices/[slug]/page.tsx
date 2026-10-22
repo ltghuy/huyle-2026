@@ -16,7 +16,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const practice = getPractice(slug);
   return practice
-    ? { title: practice.title, description: practice.summary }
+    ? { title: practice.title, description: practice.summary, robots: { index: false, follow: true } }
     : { title: "Practice not found" };
 }
 

@@ -8,7 +8,7 @@ import { builtCount, practiceHref, practices, sections } from "@/practices/catal
 
 const section = sections.find((s) => s.id === "react-practices")!;
 
-export const metadata: Metadata = { title: section.title, description: section.summary };
+export const metadata: Metadata = { title: section.title, description: section.summary, alternates: { canonical: section.href! } };
 
 export default function ReactPracticesPage() {
   return (

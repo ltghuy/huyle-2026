@@ -42,6 +42,7 @@
 - Groups of two or more quoted files on the Testing pages use `CodeTabs` (`src/handbook/e2e/code-tabs.tsx`): one tab per file at full width, never two columns of code. A tab can carry a custom label, which the page-object demo uses to show each file's count of marked lines <!-- feature:040 date:2026-10-22 -->
 - Page search lives in the top bar (`src/components/playground/site-search.tsx`), not the sidebar. It reuses the Searchable Accordion practice's `search.ts`, `highlight.tsx` and `accordionReducer`, with a page's title as the question and its summary as the answer. The section and page lists both it and the sidebar use are in `src/components/playground/nav-folders.ts` <!-- quick:022 date:2026-10-22 -->
 - The SEO section (`/seo`) builds one page per feature, and each later page adds to this site the real setup it explains (robots.txt, sitemap, canonical, metadata, JSON-LD, llms.txt, CI checks). The crawler view on How search works reads the live server HTML and links each missing field to the page that adds it via `ADDED_BY` in `src/handbook/seo/inspect.ts`, so update that map when a page ships. Topic pages can set an optional `level`, shown on section cards <!-- feature:041 date:2026-10-22 -->
+- Canonical URLs: `metadataBase` is set once in `src/app/layout.tsx` from `SITE_URL` (`src/lib/site.ts`), and each route gets `alternates.canonical` from the helper it already uses for its title (`topicMetadata`, `practiceMetadata`, `sectionMetadata`; the home page and the React Practices index set it themselves). Never put a canonical in a layout: it is inherited by every page below. Placeholder routes send `robots: { index: false, follow: true }` and stay out of `app/sitemap.ts`; `/api/*` gets `X-Robots-Tag: noindex` from `next.config` `headers()` and is deliberately not blocked in robots.txt <!-- feature:042 date:2026-10-22 -->
 
 ## Gotchas
 
@@ -143,6 +144,7 @@
 - `text-foreground/50` fails light-mode contrast (3.66:1 on `bg-muted/40`) even for `aria-hidden` line numbers, which axe still checks; use `/70` <!-- feature:036 date:2026-10-21 -->
 - playwright-bdd titles outline rows "Example #n" unless the outline name has `<placeholders>`; results are matched to the documentation by feature name and that title, so two outlines in one feature without placeholders would collide. Generated test line numbers don't map to the `.feature`; the reporter records 0 for them <!-- feature:037 date:2026-10-21 -->
 - The shadcn `TabsList` sets `group-data-horizontal/tabs:h-8`, so a plain `h-auto` loses and a wrapped tab bar overlaps the panel below it. Override it with `group-data-horizontal/tabs:h-auto` (`CodeTabs` does; `FileEditor` in the bundlers pages still has the plain `h-auto`) <!-- feature:040 date:2026-10-22 -->
+- In Puppeteer scripts, `querySelector("input")` inside a demo with a shadcn (Base UI) `Select` can return the select's hidden input first. Pick the visible input by `id` or `inputMode`, or the script silently types into the wrong field <!-- feature:042 date:2026-10-22 -->
 
 ## Codebase Feedback
 

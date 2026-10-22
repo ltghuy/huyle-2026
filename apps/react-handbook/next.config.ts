@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
       { source: "/practices/:slug", destination: "/react-practices/:slug", permanent: true },
     ];
   },
+  // API responses aren't pages: keep them out of search results without
+  // blocking them in robots.txt, since pages fetch from them while rendering.
+  headers() {
+    return Promise.resolve([{ source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex" }] }]);
+  },
 };
 
 export default nextConfig;

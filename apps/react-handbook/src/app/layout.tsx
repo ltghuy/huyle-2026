@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,7 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// No canonical here: a layout's canonical is inherited by every page that
+// doesn't set its own. Each page sets its own through the catalog helpers.
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Frontend Handbook",
     template: "%s · Frontend Handbook",

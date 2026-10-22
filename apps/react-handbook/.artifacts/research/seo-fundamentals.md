@@ -83,3 +83,47 @@ Source: https://support.google.com/webmasters/answer/7576553
 Source: https://developers.google.com/crawling/docs/crawl-budget
 
 - For "Large sites (1 million+ unique pages)" changing about weekly, "Medium or larger sites (10,000+ unique pages)" changing daily, or sites with many "Discovered - currently not indexed" URLs. Otherwise "you don't need to read this guide". The numbers are "a rough estimate".
+
+## robots.txt rules (Google)
+
+Source: https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt (checked 2026-10-22)
+
+- Group choice: "the group with the most specific user agent that matches the crawler's user agent"; user-agent names are case-insensitive; matching groups for the same agent are combined.
+- Rule choice: "the most specific rule based on the length of the rule path"; "In case of conflicting rules, including those with wildcards, Google uses the least restrictive rule."
+- `*` is "0 or more instances of any valid character"; `$` "designates the end of the URL". Paths are case-sensitive and start with `/`.
+- Size limit 500 KiB; the rest is ignored. Cached "up to 24 hours".
+- Status of robots.txt itself: 3xx followed for at least five hops, then treated as 404; 4xx (except 429) means no restrictions; 5xx stops crawling for 12 hours, then the last cached copy is used for up to 30 days.
+- `Sitemap:` lines aren't tied to a user agent and must be absolute URLs; several are allowed.
+
+## Sitemaps (Google)
+
+Source: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+
+- "50MB (uncompressed) or 50,000 URLs" per sitemap; split larger sites and use a sitemap index.
+- "Google ignores `<priority>` and `<changefreq>` values."
+- `<lastmod>` should be "the last significant update"; Google uses it only if it's consistently accurate.
+- "Use fully-qualified, absolute URLs"; list the canonical URLs you want in results.
+- Reference from robots.txt with a `Sitemap:` line, or submit in Search Console.
+
+## Robots meta tag and X-Robots-Tag (Google)
+
+Source: https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+
+- Rules: all (default), noindex, nofollow, none (= noindex, nofollow), nosnippet, indexifembedded (only with noindex), max-snippet:N (0 none, -1 no limit), max-image-preview:none|standard|large, max-video-preview:N, notranslate, noimageindex, unavailable_after:date. noarchive, nocache and nositelinkssearchbox are no longer used.
+- Use the X-Robots-Tag header for non-HTML files. Rules combine; "the more restrictive rule applies" on conflict. The URL must not be blocked in robots.txt or the rules are never read.
+
+## HTTP status codes (Google)
+
+Source: https://developers.google.com/search/docs/crawling-indexing/http-network-errors
+
+- "Google's crawlers follow up to 10 redirect hops."
+- 301 and 308: "a strong signal that the redirect target should be processed"; 302 and 307: "a weak signal".
+- "All 4xx errors, except 429, are treated the same": indexed URLs returning 4xx are removed; crawl frequency for them drops.
+- 429 and 5xx slow crawling; URLs that keep failing are eventually dropped; crawling speeds up again once 2xx returns.
+- Soft 404: an error message or empty page served with 2xx.
+
+## Next.js 16 behaviour (bundled docs)
+
+- `app/robots.ts` and `app/sitemap.ts` are special route handlers, cached by default.
+- `metadataBase` lets URL fields such as `alternates.canonical` be relative; it's usually set in the root layout. A field set in a layout is inherited by every page below that doesn't set its own.
+- `notFound()`, `forbidden()` and `unauthorized()` inject `<meta name="robots" content="noindex">`; so does a streamed 404 that already sent a 200 status.

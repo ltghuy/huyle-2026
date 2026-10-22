@@ -18,7 +18,8 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: PageProps<"/seo/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const page = findTopicPage("seo", slug);
-  return page ? { title: page.title, description: page.summary } : { title: "Page not found" };
+  // A "being written" note isn't worth indexing; its links still help crawlers find the rest.
+  return page ? { title: page.title, description: page.summary, robots: { index: false, follow: true } } : { title: "Page not found" };
 }
 
 export default async function UnwrittenSeoPage({ params }: PageProps<"/seo/[slug]">) {

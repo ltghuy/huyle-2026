@@ -235,7 +235,7 @@ export function getPractice(slug: string): Practice | undefined {
 
 export function practiceMetadata(slug: PracticeSlug) {
   const practice = getPractice(slug)!;
-  return { title: practice.title, description: practice.summary };
+  return { title: practice.title, description: practice.summary, alternates: { canonical: practiceHref(slug) } };
 }
 
 // Topic pages of the sections other than React Practices. Slugs are unique
@@ -469,7 +469,9 @@ export const topicPages = [
     title: "Crawling and indexing control",
     summary: "This site's own robots.txt, sitemap and canonical URLs, plus meta robots, X-Robots-Tag, status codes, redirects and crawl budget.",
     level: "Basics to intermediate",
-    written: false,
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
   },
   {
     section: "seo",
@@ -542,7 +544,7 @@ export function topicHref(slug: TopicSlug) {
 
 export function topicMetadata(slug: TopicSlug) {
   const page = getTopicPage(slug);
-  return { title: page.title, description: page.summary };
+  return { title: page.title, description: page.summary, alternates: { canonical: topicHref(slug) } };
 }
 
 /** How much of a section has content, for its home card. Null for coming-soon sections. */
