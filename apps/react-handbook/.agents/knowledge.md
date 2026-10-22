@@ -158,6 +158,9 @@
 - Next's `robots.ts` writes a `userAgent` array as consecutive `User-Agent` lines sharing one rule set, and has no way to emit comment lines. To document a robots policy, explain it on a page or in a code comment <!-- feature:045 date:2026-10-22 -->
 - The AI crawler list lives in `src/lib/ai-bots.ts` and feeds both `src/app/robots.ts` and the SEO demos; add or rename bots there only, with the vendor's source URL. `/llms.txt` is a `force-static` route built from the catalog with the sitemap's filters, so a newly written page appears in both <!-- feature:045 date:2026-10-22 -->
 
+- `e2e/specs/seo.spec.ts` checks every sitemap URL (status, one h1, title, description, canonical, og:url, no noindex, JSON-LD) plus robots.txt, llms.txt, the /practices redirects and noindex headers, reading HTML as text through the `request` fixture. A new page that breaks any of these fails the suite with the URL in the message <!-- feature:046 date:2026-10-22 -->
+- Running one spec with the default reporters rewrites `src/handbook/e2e/last-run.json` with only that spec, which empties the Testing pages' recorded run. Run a single spec with `--reporter=list`, and record with the full `pnpm test:e2e`. Pages that import the record need a rebuild after a run. `reuseExistingServer` also means a server already on port 3100 is tested as is, so stop stale servers first <!-- feature:046 date:2026-10-22 -->
+
 ## Codebase Feedback
 
 - Each built practice owns a route `src/app/(playground)/react-practices/{slug}/page.tsx` (URL `/react-practices/{slug}`; old `/practices/*` links 308-redirect via `next.config.ts`) rendering `PracticeFrame` with its `explanation`/`demo`, plus `built: true` in `src/practices/catalog.ts`; `[slug]` serves only placeholders and 404s <!-- feature:001 target:architecture date:2026-10-06 -->

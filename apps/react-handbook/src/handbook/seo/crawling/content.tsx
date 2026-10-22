@@ -147,8 +147,9 @@ export function CrawlingIndexingHandbook() {
             since 2019.
           </>,
           <>
-            On this site: pages being written send <code>noindex, follow</code> from their metadata, every <code>/api/</code> response carries{" "}
-            <code>X-Robots-Tag: noindex</code> from <code>next.config</code>, and Next.js adds <code>noindex</code> to every 404 page by itself.
+            On this site: every <code>/api/</code> response and SEO lab page carries <code>X-Robots-Tag: noindex</code> from{" "}
+            <code>next.config</code>, a page still being written sends <code>noindex, follow</code> from its metadata, and Next.js adds{" "}
+            <code>noindex</code> to every 404 page by itself.
           </>,
         ]}
         demoTitle="build a set of robots rules, then check what this site sends"

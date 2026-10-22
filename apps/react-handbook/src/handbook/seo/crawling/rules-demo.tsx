@@ -31,7 +31,7 @@ const PREVIEW_OPTIONS: readonly { value: ImagePreview; label: string }[] = [
 
 const SITE_CHECKS = [
   { path: "/seo/crawling-indexing", label: "This page" },
-  { path: "/seo/ai-search", label: "A page being written" },
+  { path: "/seo-lab/server", label: "An SEO lab page" },
   { path: "/api/health", label: "An API route" },
   { path: "/seo/no-such-page", label: "A missing page" },
 ];
@@ -40,7 +40,7 @@ type SiteRow = { path: string; label: string; data?: Inspection; error?: string 
 
 function source(row: SiteRow) {
   const d = row.data!;
-  if (d.xRobotsTag) return "Header from next.config headers() for /api/*.";
+  if (d.xRobotsTag) return "Header from next.config headers() for /api/* and /seo-lab/*.";
   if (d.status === 404) return "Next.js adds noindex to every 404 page.";
   if (d.robots) return "robots in the page's generateMetadata.";
   return "Nothing set, so index, follow applies.";

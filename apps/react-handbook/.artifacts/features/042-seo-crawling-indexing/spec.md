@@ -90,7 +90,7 @@ learner's input, and simplified models labelled as such.
 **Acceptance Criteria:**
 
 - [x] AC-010: WHEN the learner picks rules (for example `noindex`, `nofollow`, `nosnippet`, `max-snippet`, `max-image-preview`, `noimageindex`, `unavailable_after`, `indexifembedded`) THEN the demo SHALL show the matching `<meta name="robots">` tag, `X-Robots-Tag` header and Next.js `robots` metadata, and say what a search engine does with the page; it SHALL warn about rules that have no effect (`noarchive`, `indexifembedded` without `noindex`) and about combinations where the more restrictive rule wins.
-- [x] AC-011: WHEN the learner checks this site THEN the demo SHALL fetch a written page, a placeholder page, an API route and a missing page, and show the robots rules each sends and where they come from.
+- [x] AC-011: WHEN the learner checks this site THEN the demo SHALL fetch a written page, an SEO lab page, an API route and a missing page, and show the robots rules each sends and where they come from. (Changed by 046: once every SEO page was written no placeholder page was left to fetch.)
 
 ### P1: Canonical URLs on this site
 

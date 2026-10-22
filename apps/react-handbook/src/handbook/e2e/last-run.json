@@ -1,11 +1,11 @@
 {
-  "ranAt": "2026-10-21T05:41:17.495Z",
-  "durationMs": 14209,
+  "ranAt": "2026-10-22T08:16:49.932Z",
+  "durationMs": 15629,
   "status": "passed",
   "project": "chromium, scenarios",
   "playwright": "1.64.1",
   "totals": {
-    "passed": 24,
+    "passed": 34,
     "failed": 0,
     "flaky": 0,
     "skipped": 0
@@ -18,7 +18,7 @@
       "title": "SAVE10 gives 10% off",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1126,
+      "durationMs": 1150,
       "retries": 0
     },
     {
@@ -28,7 +28,7 @@
       "title": "BULK15 gives 15% off 5 or more items",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1144,
+      "durationMs": 1141,
       "retries": 0
     },
     {
@@ -38,7 +38,7 @@
       "title": "FREESHIP gives free shipping",
       "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
       "outcome": "expected",
-      "durationMs": 1127,
+      "durationMs": 1149,
       "retries": 0
     },
     {
@@ -48,7 +48,7 @@
       "title": "An unknown code is turned down",
       "describe": "Discount codes › A code that doesn't apply says why",
       "outcome": "expected",
-      "durationMs": 1121,
+      "durationMs": 1145,
       "retries": 0
     },
     {
@@ -58,7 +58,7 @@
       "title": "The bulk code needs enough items",
       "describe": "Discount codes › A code that doesn't apply says why",
       "outcome": "expected",
-      "durationMs": 1091,
+      "durationMs": 1112,
       "retries": 0
     },
     {
@@ -68,7 +68,7 @@
       "title": "Every missing answer is pointed out",
       "describe": "Applying for a job",
       "outcome": "expected",
-      "durationMs": 251,
+      "durationMs": 292,
       "retries": 0
     },
     {
@@ -78,7 +78,7 @@
       "title": "Example #1",
       "describe": "Applying for a job › The email has to be usable",
       "outcome": "expected",
-      "durationMs": 305,
+      "durationMs": 329,
       "retries": 0
     },
     {
@@ -88,7 +88,7 @@
       "title": "Example #2",
       "describe": "Applying for a job › The email has to be usable",
       "outcome": "expected",
-      "durationMs": 345,
+      "durationMs": 364,
       "retries": 0
     },
     {
@@ -98,7 +98,7 @@
       "title": "Going back keeps my answers",
       "describe": "Applying for a job",
       "outcome": "expected",
-      "durationMs": 364,
+      "durationMs": 382,
       "retries": 0
     },
     {
@@ -108,7 +108,7 @@
       "title": "variant A renders \"Add to cart\"",
       "describe": "A/B testing",
       "outcome": "expected",
-      "durationMs": 1243,
+      "durationMs": 1318,
       "retries": 0
     },
     {
@@ -118,7 +118,7 @@
       "title": "variant B renders \"Buy now\"",
       "describe": "A/B testing",
       "outcome": "expected",
-      "durationMs": 844,
+      "durationMs": 2030,
       "retries": 0
     },
     {
@@ -128,7 +128,7 @@
       "title": "a returning visitor keeps their id and variant",
       "describe": "A/B testing",
       "outcome": "expected",
-      "durationMs": 1189,
+      "durationMs": 1151,
       "retries": 0
     },
     {
@@ -138,7 +138,7 @@
       "title": "focus moves into the dialog, stays there, and returns to the opener",
       "describe": "Accessible modal",
       "outcome": "expected",
-      "durationMs": 522,
+      "durationMs": 930,
       "retries": 0
     },
     {
@@ -148,7 +148,7 @@
       "title": "a delete confirmation starts on Cancel and keeps the project",
       "describe": "Accessible modal",
       "outcome": "expected",
-      "durationMs": 323,
+      "durationMs": 444,
       "retries": 0
     },
     {
@@ -158,7 +158,7 @@
       "title": "without a guard, a late reply for an older query replaces newer results",
       "describe": "Debounced search",
       "outcome": "expected",
-      "durationMs": 2078,
+      "durationMs": 2034,
       "retries": 0
     },
     {
@@ -168,7 +168,7 @@
       "title": "the stale-response guard keeps the newest results",
       "describe": "Debounced search",
       "outcome": "expected",
-      "durationMs": 1574,
+      "durationMs": 1543,
       "retries": 0
     },
     {
@@ -178,7 +178,7 @@
       "title": "Next on an empty step shows each error on its field",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 1661,
+      "durationMs": 1005,
       "retries": 0
     },
     {
@@ -188,7 +188,7 @@
       "title": "Back keeps the answers",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 1744,
+      "durationMs": 1910,
       "retries": 0
     },
     {
@@ -198,7 +198,7 @@
       "title": "a step that isn't open yet sends you to the first unfinished one",
       "describe": "Multi-step form (no page objects)",
       "outcome": "expected",
-      "durationMs": 1336,
+      "durationMs": 1628,
       "retries": 0
     },
     {
@@ -208,7 +208,7 @@
       "title": "Next on an empty step shows each error on its field",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 453,
+      "durationMs": 458,
       "retries": 0
     },
     {
@@ -218,7 +218,7 @@
       "title": "Back keeps the answers",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 558,
+      "durationMs": 579,
       "retries": 0
     },
     {
@@ -228,7 +228,107 @@
       "title": "a step that isn't open yet sends you to the first unfinished one",
       "describe": "Multi-step form",
       "outcome": "expected",
-      "durationMs": 299,
+      "durationMs": 285,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 48,
+      "title": "the sitemap lists the site's pages",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 0,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 52,
+      "title": "every page has one h1, a title and a meta description",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 15,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 60,
+      "title": "every page's canonical URL is its sitemap URL, and og:url agrees",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 9,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 68,
+      "title": "no page in the sitemap sends noindex",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 17,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 75,
+      "title": "handbook pages send Article and BreadcrumbList JSON-LD that match the page",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 15,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 87,
+      "title": "robots.txt allows crawlers, blocks AI training bots and names the sitemap",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 135,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 95,
+      "title": "llms.txt links only to pages in the sitemap",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 148,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 102,
+      "title": "old practice URLs redirect permanently, straight to the new URL",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 60,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 115,
+      "title": "lab pages and API responses send noindex",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 49,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 122,
+      "title": "an unknown URL returns 404",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 22,
       "retries": 0
     },
     {
@@ -238,7 +338,7 @@
       "title": "a toast waits while the pointer is over it",
       "describe": "Toast notifications",
       "outcome": "expected",
-      "durationMs": 536,
+      "durationMs": 327,
       "retries": 0
     },
     {
@@ -248,7 +348,7 @@
       "title": "an error toast stays until it is dismissed",
       "describe": "Toast notifications",
       "outcome": "expected",
-      "durationMs": 620,
+      "durationMs": 617,
       "retries": 0
     }
   ]

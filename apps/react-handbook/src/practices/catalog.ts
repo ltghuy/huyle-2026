@@ -518,7 +518,9 @@ export const topicPages = [
     title: "SEO at scale",
     summary: "International sites and hreflang, migrations without lost traffic, faceted navigation, programmatic pages, log analysis, and SEO checks in the end-to-end suite.",
     level: "Senior to expert",
-    written: false,
+    written: true,
+    created: "2026-10-22",
+    updated: "2026-10-22",
   },
 ] as const satisfies readonly TopicPageMeta[];
 
