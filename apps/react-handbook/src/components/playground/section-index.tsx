@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/playground/breadcrumbs";
+import { DateBadge } from "@/components/playground/page-dates";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
@@ -38,7 +39,7 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
               <Card className="w-full transition-colors group-hover:bg-muted/50">
                 <CardHeader>
                   <div className="flex flex-wrap items-center gap-2">
-                    <StatusBadge built={page.written} readyLabel="Written" />
+                    {page.written ? <DateBadge created={page.created} updated={page.updated} /> : <StatusBadge built={false} />}
                     {"level" in page ? <span className="rounded-md border px-2 py-0.5 text-xs text-muted-foreground">{page.level}</span> : null}
                   </div>
                   <CardTitle className="leading-snug">{page.title}</CardTitle>

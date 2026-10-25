@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/playground/breadcrumbs";
+import { DateBadge } from "@/components/playground/page-dates";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
@@ -42,7 +43,7 @@ export default function ReactPracticesPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono text-xs text-muted-foreground tabular-nums">{String(p.number).padStart(2, "0")}</span>
-                    <StatusBadge built={p.built} />
+                    {p.built ? <DateBadge created={p.created} updated={p.updated} /> : <StatusBadge built={false} />}
                   </div>
                   <CardTitle className="leading-snug">{p.title}</CardTitle>
                   <CardDescription>{p.summary}</CardDescription>

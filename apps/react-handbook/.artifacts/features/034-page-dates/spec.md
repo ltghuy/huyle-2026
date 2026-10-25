@@ -26,7 +26,7 @@ which tells them how current the notes are.
 
 | Feature | Reason |
 |---------|--------|
-| Dates on the section index and home page cards | The cards keep their status badge; the request covers the page header only |
+| Dates on the home page section cards | They show a section's progress, not a single page |
 | Working the dates out from git at build time | Some deploy targets build without the git history, so the dates are stored with the page list instead |
 | Time of day or relative dates ("3 days ago") | A calendar date is enough, and a relative date would go stale on prerendered pages |
 
@@ -44,10 +44,11 @@ which tells them how current the notes are.
 - [x] AC-002: WHEN the user opens a written topic page THEN system SHALL show the page's date (see AC-004) where the "Written" badge was.
 - [x] AC-003: WHEN a date is shown THEN system SHALL format it as a calendar date (for example "Oct 8, 2026") inside a `time` element whose machine-readable value is the ISO date, so the same date renders on server and client.
 - [x] AC-004: WHEN a page was updated after the day it was created THEN system SHALL show only the updated date ("Updated Oct 13, 2026"); WHEN it was not THEN system SHALL show only the created date ("Created Oct 8, 2026"). *(Changed 2026-10-21 at the user's request: showing both was redundant.)*
+- [x] AC-005: WHEN the user opens the React Practices index or a topic section index THEN each built or written card SHALL show the page's date (see AC-003 and AC-004) as a green badge where the "Built" or "Written" badge was. *(Added 2026-10-25, quick task 025-card-date-badges: the cards had kept their status badge.)*
 
 ## Edge Cases
 
-- WHEN a practice or topic page is not built or written yet THEN system SHALL keep showing the "Coming soon" badge instead of dates.
+- WHEN a practice or topic page is not built or written yet THEN system SHALL keep showing the "Coming soon" badge instead of dates, in the page header and on its card.
 - WHEN dates are rendered THEN system SHALL use UTC, so a reader in any time zone sees the stored date.
 
 ## Success Criteria
