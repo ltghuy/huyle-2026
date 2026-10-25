@@ -1,6 +1,7 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { SITE_NAME } from "@/practices/catalog";
 
+import { GithubLink } from "./github-link";
 import { SiteSearch } from "./site-search";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -12,6 +13,7 @@ export function TopBar() {
       <div className="flex min-w-0 flex-1 justify-end sm:justify-center">
         <SiteSearch />
       </div>
+      <GithubLink />
       <ThemeToggle />
     </header>
   );

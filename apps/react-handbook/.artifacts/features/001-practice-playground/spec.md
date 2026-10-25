@@ -148,6 +148,15 @@ The practice catalog, in sidebar order:
 - [x] AC-025: WHEN a theme was chosen THEN system SHALL keep it across navigation and reloads, applying it before the page first paints (no flash of the other theme).
 - [x] AC-026: WHEN the browser blocks storage THEN the control SHALL still switch the theme for the current page.
 
+### P3: Open the source code (added 2026-10-25, quick task 023-appbar-github-link)
+
+- As a learner, I want a link to the project's repository so that I can read the code behind the pages.
+- **Why P3:** Convenience; the code is also reachable from GitHub directly.
+
+**Acceptance Criteria:**
+
+- [x] AC-027: WHEN the user activates the GitHub control to the left of the theme control in the top bar THEN system SHALL open https://github.com/ltghuy/react-mastering in a new tab, and the control SHALL tell assistive technology that it opens in a new tab.
+
 ## Edge Cases
 
 - WHEN a practice's name is longer than the sidebar width THEN system SHALL truncate it with an ellipsis and show the full name on hover and to assistive technology.
