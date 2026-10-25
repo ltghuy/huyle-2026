@@ -46,7 +46,7 @@ content get the site's green.
 **Acceptance Criteria:**
 
 - [x] AC-001: WHEN the home page is shown THEN it SHALL start with a short hero (the eyebrow, the site name, one or two sentences) and two calls to action: start with React Practices, and browse the sections.
-- [x] AC-002: WHEN the home page is shown THEN the section cards SHALL come directly after the hero, each with its icon, title, summary and progress, and the "browse the sections" action SHALL move focus to them.
+- [x] AC-002: WHEN the home page is shown THEN the section cards SHALL come directly after the hero, each with its icon, title, summary and progress, and the "browse the sections" action SHALL move focus to them. Each card SHALL use the green accent on its icon tile and, when it links to a section, on the done count in its progress line, its "Open" label and its hover border; the progress bar keeps the primary color. (Changed 2026-10-25, quick tasks 024-home-cards-green and 026-home-card-count-green: the cards were neutral.)
 - [x] AC-003: WHEN the home page is shown THEN "How to use it" SHALL follow the sections as three short steps, then "Why it exists" and "What you get" side by side on wide screens, then "How this site is built" and the references, with the reference groups collapsible.
 - [x] AC-004: WHEN the home page is shown THEN it SHALL keep its metadata, its WebSite JSON-LD, one H1, and the signature.
 
@@ -59,7 +59,7 @@ content get the site's green.
 **Acceptance Criteria:**
 
 - [x] AC-005: WHEN a text link appears in page content (inline links, "read more" and source links, the home page references, links to pages from inside demos) THEN it SHALL use the link color, green in both themes with at least 4.5:1 contrast on the page and card backgrounds, and keep its underline or hover underline and focus ring.
-- [x] AC-006: WHEN navigation is shown (sidebar, breadcrumbs, table of contents, cards, Previous and Next, buttons styled as links, mock pages inside demos) THEN it SHALL keep its current colors.
+- [x] AC-006: WHEN navigation is shown (sidebar, breadcrumbs, table of contents, cards, Previous and Next, buttons styled as links, mock pages inside demos) THEN it SHALL keep its current colors, except the home page section cards, which use the green accent described in AC-002.
 
 ## Edge Cases
 

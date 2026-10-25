@@ -118,7 +118,7 @@ function SectionCard({ section }: { section: Section }) {
   const body = (
     <>
       <div className="flex items-center justify-between gap-2">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-muted text-foreground">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-success/10 text-success">
           <SectionIcon id={section.id} className="size-4" />
         </span>
         {section.href ? null : <span className="rounded-md border px-2 py-0.5 text-xs text-muted-foreground">Coming soon</span>}
@@ -131,11 +131,11 @@ function SectionCard({ section }: { section: Section }) {
           <p className="flex items-center justify-between gap-2 text-sm">
             <span className="text-muted-foreground">
               <span className="font-mono font-medium text-foreground tabular-nums">
-                {progress.done} of {progress.total}
+                <span className="text-success">{progress.done}</span> of {progress.total}
               </span>{" "}
               {progress.noun}
             </span>
-            <span className="inline-flex items-center gap-1 font-medium">
+            <span className="inline-flex items-center gap-1 font-medium text-success">
               Open <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </span>
           </p>
@@ -147,7 +147,7 @@ function SectionCard({ section }: { section: Section }) {
   return section.href ? (
     <Link
       href={section.href}
-      className="group flex h-full flex-col gap-2 rounded-xl border bg-card p-5 outline-none transition-colors hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="group flex h-full flex-col gap-2 rounded-xl border bg-card p-5 outline-none transition-colors hover:border-success/50 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {body}
     </Link>
