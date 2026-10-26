@@ -36,6 +36,6 @@ describe("Statement (mission-statement beat)", () => {
     expect(section).toBeTruthy();
     const paras = section?.querySelectorAll("p") ?? [];
     expect(paras).toHaveLength(1);
-    expect(paras[0].textContent).toMatch(/fast, accessible, and considered/i);
+    expect(paras[0].textContent).toMatch(/fast and accessible/i);
   });
 });

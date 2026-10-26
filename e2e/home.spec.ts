@@ -31,18 +31,15 @@ test.describe("home page smoke", () => {
     ).toHaveAttribute("rel", /noopener/);
   });
 
-  test("work renders the full project deck", async ({ page }) => {
+  test("work renders a 2x2 grid: the handbook plus placeholders", async ({ page }) => {
     await page.goto("/");
     const work = page.locator("#work");
-    // The Scroll Stack Cards deck renders every project as a stacked card.
-    for (const name of [
-      "Naver Care",
-      "InjuryEx",
-      "Australian Epilepsy Project",
-      "ETech",
-    ]) {
-      await expect(work.getByRole("heading", { name })).toHaveCount(1);
-    }
+    await expect(work.locator("article")).toHaveCount(4);
+    await expect(work.getByRole("heading", { name: "Frontend Handbook" })).toHaveCount(1);
+    await expect(work.getByRole("heading", { name: "Coming soon" })).toHaveCount(3);
+    await expect(
+      work.locator('a[href="https://learn.huyle.work/"]'),
+    ).toHaveAttribute("rel", /noopener/);
   });
 
   test("falls back to the poster (no canvas) under reduced motion", async ({ browser }) => {

@@ -5,77 +5,37 @@ export interface ProjectLinks {
 
 export interface Project {
   id: string;
-  /** Display index 1–4 (rendered as 01–04) */
+  /** Display index (rendered as 01, 02, …) */
   index: number;
   name: string;
   /** Role / company context */
   role: string;
-  period: string;
   /** One-line impact statement */
   oneLiner: string;
   description: string;
   tech: string[];
   links: ProjectLinks;
-  /** Optional preview image path under /public */
-  preview?: string;
 }
 
+/** How many cards the Projects grid shows (2 × 2). Slots without a project
+ *  render as "coming soon" placeholders, so adding a project fills the next one. */
+export const PROJECT_SLOTS = 4;
+
 /**
- * Four spotlighted professional projects. These are proprietary products, so
- * most have no public demo/source — the Work section renders links only when
- * present (AC-012).
+ * Projects shown in the Work grid, in display order. The section renders links
+ * only when present.
  */
 export const projects: Project[] = [
   {
-    id: "naver-care",
+    id: "frontend-handbook",
     index: 1,
-    name: "Naver Care",
-    role: "Frontend Engineer · Naver Vietnam",
-    period: "2025 – Present",
+    name: "Frontend Handbook",
+    role: "Personal project · learn.huyle.work",
     oneLiner:
-      "AI symptom-triage — a visual editor that lets clinicians publish branching questionnaires themselves, no engineer required.",
+      "Notes and builds for senior frontend engineers: hands-on React practices and the topics around them, each with a live demo.",
     description:
-      "Core tools for Naver's AI symptom-triage product. Built the Symptom Editor Admin — a drag-and-drop authoring tool with path validation, a patient-preview simulation mode, and review-then-activate version history — plus the user-facing adaptive Symptom Checker serving public and hospital-partner flows in Korean & English.",
-    tech: ["Next.js", "React 19", "TypeScript", "React Flow", "Apollo GraphQL", "Ant Design"],
-    links: {},
-  },
-  {
-    id: "injuryex",
-    index: 2,
-    name: "InjuryEx",
-    role: "Frontend Engineer / Team Lead · PTN Global",
-    period: "2024 – 2025",
-    oneLiner:
-      "A multi-stakeholder legal-tech platform I bootstrapped from an empty repo to the team's blueprint.",
-    description:
-      "A legal-tech & healthcare workflow platform coordinating patients, lawyers, doctors, and pharmacies. Defined the frontend stack and conventions, led the team, and designed complex multi-party workflows including automated ANZ & Xero payments with SMS/email notifications.",
-    tech: ["Next.js", "TypeScript", "Redux Toolkit", "Material UI", "Auth0", "FastAPI"],
-    links: {},
-  },
-  {
-    id: "aep",
-    index: 3,
-    name: "Australian Epilepsy Project",
-    role: "Frontend Engineer · PTN Global (Florey Institute)",
-    period: "2023 – 2024",
-    oneLiner:
-      "Government-funded diagnostic-imaging platform for a national epilepsy-diagnosis network.",
-    description:
-      "Translated clinical requirements into production-grade React features for a national epilepsy-diagnosis network, integrating OHIF for advanced medical-imaging visualization with full unit/integration/E2E coverage.",
-    tech: ["React.js", "TypeScript", "Redux Toolkit", "OHIF", "Material UI", "AWS"],
-    links: {},
-  },
-  {
-    id: "etech",
-    index: 4,
-    name: "ETech",
-    role: "Frontend Engineer · Skyblaze Studios",
-    period: "2022 – 2023",
-    oneLiner:
-      "Enterprise conference platform with real-time virtual rooms — yes, the one Burger King & Herbalife used.",
-    description:
-      "Web & React Native features for a conference & event-management platform used by Burger King, Herbalife, JSEA, and Switch Production. Implemented WebSocket-based real-time virtual meeting rooms with live global stats and a reusable Vue component library.",
-    tech: ["Vue.js", "TypeScript", "TailwindCSS", "WebSocket", "React Native", "AWS"],
-    links: {},
+      "Classic UI problems built from scratch, such as toasts, infinite scroll, virtualized lists, and a data grid, plus the browser, performance, accessibility, security, system design, testing, and SEO topics around them. Every page pairs short notes with a live demo you can break on purpose.",
+    tech: ["Next.js", "React", "Tailwind CSS"],
+    links: { demo: "https://learn.huyle.work/" },
   },
 ];

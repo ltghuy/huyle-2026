@@ -81,7 +81,7 @@ export function WhatIDo() {
       <div className="mx-auto max-w-6xl px-6 sm:px-12 lg:px-20">
         <Reveal>
           <p className="eyebrow mb-3">{t.whatIDo.eyebrow}</p>
-          <h2 className="display text-4xl text-fg sm:text-6xl">
+          <h2 className="display text-4xl text-fg sm:text-6xl mb-10 md:mb-20">
             {t.whatIDo.heading}
           </h2>
         </Reveal>

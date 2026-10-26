@@ -2,7 +2,7 @@
  * English dictionary — the CANONICAL shape. `Dictionary = typeof en`, so every
  * other locale (see vi.ts) is type-checked against this tree. Holds UI/prose
  * strings only; structured content data (experience, projects, gallery, skills,
- * profile) is localized separately via LocalizedString in src/content.
+ * profile) is localized separately via the src/content/vi.ts overlay.
  */
 
 /** One About-bio chapter (kicker/heading only on the first). */
@@ -42,16 +42,16 @@ export const en = {
       {
         kicker: "The Person",
         heading: "The Person",
-        body: "I'm Huy — born and raised in Vietnam, now building software in Ho Chi Minh City and running mostly on coffee.",
+        body: "I'm Huy. I was born and raised in Vietnam, and now I build software in Ho Chi Minh City, mostly on coffee.",
       },
       {
-        body: "For the past four years I've shipped web platforms across healthcare, legal-tech, and enterprise-event work — most recently leading frontend for AI-native healthcare products at Naver, where there are fewer bugs but far higher stakes.",
+        body: "For the past four years I've shipped web platforms for healthcare, legal-tech, and enterprise events. Most recently I've led frontend for AI-native healthcare products at Naver, where bugs are rarer and the stakes are much higher.",
       },
       {
-        body: "I care, maybe a little too much, about the craft: scalable architecture, design systems teams actually adopt, and interfaces polished down to the motion. This whole site is me quietly showing off.",
+        body: "I care, maybe a little too much, about the craft: architecture that scales, design systems other teams want to use, and interfaces polished down to the motion. This site is me showing off a bit.",
       },
       {
-        body: "Off the clock, you'll find me deep in anime, hunting for a good playlist, or losing an argument with Bông — my tuxedo cat and unpaid code reviewer, who, if you look closely, may have wandered onto this page too. 🐱",
+        body: "Off the clock I'm usually watching anime, hunting for a good playlist, or losing an argument with Bông, my tuxedo cat and unpaid code reviewer. Look closely and you might spot Bông somewhere on this page too. 🐱",
       },
     ] as Chapter[],
     // Words rendered in the lime accent — must be single, space-separated tokens
@@ -69,14 +69,14 @@ export const en = {
     ],
   },
   statement: {
-    text: "“ I build web platforms that stay fast, accessible, and considered — from the first product spec to the last production alert, with AI brought in only where it earns its place. The rest is caffeine and stubbornness. ”",
+    text: "“ I build web platforms that stay fast and accessible from the first product spec to the last production alert, and I add AI only where it helps the people using them. Coffee and stubbornness cover the rest. ”",
     // Must remain an exact substring of `text` above (drives the accent sweep).
-    accentPhrase: "fast, accessible, and considered, AI",
+    accentPhrase: "fast and accessible",
   },
   gallery: {
     eyebrow: "Gallery",
     heading: "Off the clock",
-    body: "A few frames from life away from the keyboard — gym, coffee, and a cat who runs the place.",
+    body: "A few frames from life away from the keyboard: the gym, coffee, and a cat who runs the place.",
     drag: "Drag to explore",
   },
   whatIDo: {
@@ -90,21 +90,22 @@ export const en = {
     heading: "Career &",
     headingAccent: "Experience",
     subhead:
-      "Over four years shipping production frontend across clinical, legal, and enterprise domains.",
+      "More than four years of production frontend work on clinical, legal, and enterprise products.",
     now: "NOW",
   },
   work: {
     eyebrow: "Selected Work",
     heading: "Projects",
-    hint: "Hover a panel to explore",
-    liveDemo: "Live demo",
+    liveDemo: "Visit site",
+    comingSoon: "Coming soon",
+    placeholderBody: "Another project is on the way.",
     source: "Source",
   },
   contact: {
     availability: "Open to opportunities",
     eyebrow: "Get in touch",
     heading: "Let's talk",
-    body: "Have a role, a project, or just want to talk shop? My inbox is open — and I actually reply.",
+    body: "Have a role, a project, or just want to talk shop? Email me. I do reply.",
     findElsewhere: "Find me elsewhere",
   },
   email: {
@@ -115,7 +116,7 @@ export const en = {
   },
   footer: {
     personality:
-      "Shipping fast, accessible web things since 2021 — fueled by coffee, supervised by one very judgmental cat.",
+      "Building fast, accessible websites since 2021, fueled by coffee and supervised by one very judgmental cat.",
     colophon: "Designed, built & slightly over-thought",
     backToTop: "Back to top",
     backToTopSuffix: "back to top",
