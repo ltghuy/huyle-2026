@@ -19,6 +19,9 @@ A Next.js 16 (App Router) application built with TypeScript and Tailwind CSS.
 - `pnpm build` — production build
 - `pnpm start` — serve the production build
 - `pnpm lint` — run ESLint
+- `pnpm cf:preview` — build for Cloudflare and serve it locally
+- `pnpm cf:deploy` — build for Cloudflare and deploy (never `pnpm deploy`: that is a pnpm built-in)
+- `pnpm cf:build` + `pnpm cf:deploy:prebuilt` — the split build/deploy steps Workers Builds runs
 
 ## Development Workflow: Spec-Driven Development (SDD)
 

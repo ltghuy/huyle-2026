@@ -39,6 +39,10 @@ auto-updates as you edit files.
 | `pnpm test` | Run unit tests once (Vitest) |
 | `pnpm test:watch` | Run unit tests in watch mode |
 | `pnpm e2e` | Run end-to-end tests (Playwright) |
+| `pnpm cf:preview` | Build for Cloudflare and serve it locally in the Workers runtime |
+| `pnpm cf:deploy` | Build for Cloudflare and deploy |
+| `pnpm cf:build` / `pnpm cf:deploy:prebuilt` | Build and deploy as separate steps (Cloudflare Workers Builds uses these) |
+| `pnpm cf:typegen` | Generate types for the Cloudflare `env` bindings |
 
 ## Project Structure
 
