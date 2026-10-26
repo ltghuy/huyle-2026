@@ -8,7 +8,6 @@ import {
   type ThreeEvent,
 } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
-import { useMediaQuery } from "@/lib/useMediaQuery";
 import * as THREE from "three";
 import { galleryImages } from "@/content/gallery";
 import { GridFloor } from "@/components/three/GridFloor";
@@ -58,18 +57,6 @@ const CAM_LIFT = 1.9; // raise the camera and look down slightly, to reveal the 
 
 // --- Floor grid ------------------------------------------------------------
 const FLOOR_Y = SPHERE_R + 1.0; // the grid sits this far below the globe centre
-
-// --- Binary "data" backdrop (a band of 0/1 digits behind the globe) ---------
-const BINARY_COLOR = "150,224,90"; // faint lime-green digits (rgb)
-const BINARY_COLS = 128; // digit columns across the texture
-const BINARY_ROWS = 10; // digit rows — a short band (soft-faded top/bottom)
-// The backdrop is a wide, short plane placed behind the globe. Its on-screen
-// height ≈ half the globe's; tweak BINARY_PLANE_H / _Y / _Z to re-frame the band.
-const BINARY_PLANE_W = 80; // plane width (world units) — wide enough to fill across
-const BINARY_PLANE_H = 10; // plane height — short, so the band reads ~½ globe tall
-const BINARY_Y = -12.5; // vertical centre — low, so the band sits over the BOTTOM
-//                        of the grid (more negative = lower on screen)
-const BINARY_Z = -14; // distance behind the globe
 
 // --- Interaction -----------------------------------------------------------
 const DRAG_SPEED = 0.006; // radians the globe turns per pixel of drag
@@ -609,68 +596,6 @@ function CameraRig() {
   return null;
 }
 
-/** A band of random 0/1 digits (a "matrix"/data strip), faint lime-green on a
- *  transparent ground, softly faded to nothing at the top and bottom rows — so it
- *  reads as a horizontal band, not a full wall. Mapped onto the backdrop plane. */
-function makeBinaryTexture(): THREE.CanvasTexture {
-  const cell = 14; // px per digit cell
-  const c = document.createElement("canvas");
-  c.width = BINARY_COLS * cell;
-  c.height = BINARY_ROWS * cell;
-  const ctx = c.getContext("2d");
-  if (!ctx) return new THREE.CanvasTexture(c);
-  ctx.font = `${Math.floor(cell * 0.78)}px "JetBrains Mono", ui-monospace, monospace`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  // smoothstep 0→1 across the first `e` fraction — used to fade the band's edges.
-  const ramp = (e: number, x: number) => {
-    const t = Math.min(1, Math.max(0, x / e));
-    return t * t * (3 - 2 * t);
-  };
-  const EDGE = 0.28; // top/bottom fraction over which the band fades out
-  for (let y = 0; y < BINARY_ROWS; y++) {
-    const vy = BINARY_ROWS <= 1 ? 1 : y / (BINARY_ROWS - 1);
-    const win = Math.min(ramp(EDGE, vy), ramp(EDGE, 1 - vy)); // 0 at edges → 1 mid
-    for (let x = 0; x < BINARY_COLS; x++) {
-      const ch = Math.random() < 0.5 ? "0" : "1";
-      const a = (0.12 + Math.random() * 0.5) * win; // per-digit twinkle × band fade
-      if (a < 0.02) continue;
-      ctx.fillStyle = `rgba(${BINARY_COLOR},${a.toFixed(3)})`;
-      ctx.fillText(ch, x * cell + cell / 2, y * cell + cell / 2);
-    }
-  }
-  const tex = new THREE.CanvasTexture(c);
-  tex.wrapS = THREE.RepeatWrapping; // horizontal drift wraps; band stays put (no T wrap)
-  tex.wrapT = THREE.ClampToEdgeWrapping;
-  tex.colorSpace = THREE.SRGBColorSpace;
-  return tex;
-}
-
-/** The binary "data" band behind the globe — a wide, short plane that slowly
- *  drifts sideways, faint so the green glow still reads through it. Fixed (not in
- *  the spinning group), so it stays put as the globe turns. */
-function BinaryBackdrop() {
-  const ref = useRef<THREE.Mesh>(null);
-  const tex = useMemo(() => makeBinaryTexture(), []);
-  useEffect(() => () => tex.dispose(), [tex]);
-  useFrame((_, delta) => {
-    // Drift via the live material's map (not the memoized `tex` directly).
-    const mat = ref.current?.material as THREE.MeshBasicMaterial | null;
-    if (mat?.map) mat.map.offset.x -= delta * 0.006; // slow sideways data drift
-  });
-  return (
-    <mesh ref={ref} position={[0, BINARY_Y, BINARY_Z]} raycast={() => null}>
-      <planeGeometry args={[BINARY_PLANE_W, BINARY_PLANE_H]} />
-      <meshBasicMaterial
-        map={tex}
-        transparent
-        opacity={0.6}
-        depthWrite={false}
-      />
-    </mesh>
-  );
-}
-
 export function GalleryScene({
   onActive,
   active = true,
@@ -681,9 +606,6 @@ export function GalleryScene({
    *  frames from scrolling. `never` freezes the last frame (unseen off-screen). */
   active?: boolean;
 }) {
-  // The binary "data" backdrop is a desktop-only flourish — hidden on mobile,
-  // where it's busy on a small viewport (and the safe default before hydration).
-  const showBinary = useMediaQuery("(min-width: 1024px)");
   return (
     <Canvas
       dpr={[1, 2]}
@@ -692,7 +614,6 @@ export function GalleryScene({
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
     >
       <CameraRig />
-      {showBinary && <BinaryBackdrop />}
       <Suspense fallback={null}>
         <GridFloor position={[0, -FLOOR_Y, 0]} />
         <Globe onActive={onActive} />

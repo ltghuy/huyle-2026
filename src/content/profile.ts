@@ -5,8 +5,6 @@ export interface Profile {
   display: string;
   /** Professional title shown under the name */
   title: string;
-  /** Short tagline / origin line */
-  tagline: string;
   /** Longer professional summary (from CV) */
   summary: string;
   /** Current location */
@@ -23,9 +21,8 @@ export const profile: Profile = {
   name: "Le Tran Gia Huy",
   display: "Huy Le",
   title: "Software Engineer · AI-Native Development",
-  tagline: "From Vietnam 🇻🇳 · powered by coffee and one very opinionated cat",
   summary:
-    "Frontend engineer with 4+ years turning fuzzy product specs into fast, accessible web platforms across healthcare, legal-tech, and enterprise-event domains — in React, Next.js (App Router, RSC, Streaming), and TypeScript. Technical lead and primary developer on core Naver Care tools, owning the work end-to-end from the first spec to production observability. I care a little too much about scalable monorepo architecture, design systems teams actually adopt, and weaving AI/LLM features in where they earn their keep — not just because the demo looked cool.",
+    "Frontend engineer with 4+ years of turning fuzzy product specs into fast, accessible web platforms for healthcare, legal-tech, and enterprise events, using React, Next.js (App Router, RSC, Streaming), and TypeScript. I'm the technical lead and primary developer on core Naver Care tools and own the work from the first spec to production monitoring. I care a little too much about monorepo architecture that scales, design systems other teams want to use, and adding AI/LLM features where they solve a real problem for users.",
   location: "Ho Chi Minh City, Vietnam",
   monogram: "HL",
   url: "https://huyle.work",

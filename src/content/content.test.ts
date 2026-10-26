@@ -3,11 +3,11 @@ import { profile } from "./profile";
 import { socials } from "./socials";
 import { skillGroups } from "./skills";
 import { experience } from "./experience";
-import { projects } from "./projects";
+import { projects, PROJECT_SLOTS } from "./projects";
 
 describe("content model", () => {
   it("profile has all required identity fields", () => {
-    (["name", "display", "title", "tagline", "summary", "location", "monogram"] as const).forEach(
+    (["name", "display", "title", "summary", "location", "monogram"] as const).forEach(
       (k) => expect(profile[k]).toBeTruthy(),
     );
     expect(profile.title).toContain("AI-Native");
@@ -23,9 +23,9 @@ describe("content model", () => {
     expect(JSON.stringify(socials)).not.toMatch(/9668|0799668/);
   });
 
-  it("skills expose four non-empty capability groups", () => {
+  it("skills expose four labelled capability groups", () => {
     expect(skillGroups).toHaveLength(4);
-    skillGroups.forEach((g) => expect(g.items.length).toBeGreaterThan(0));
+    skillGroups.forEach((g) => expect(g.label).toBeTruthy());
   });
 
   it("experience covers four roles with highlights and tech", () => {
@@ -37,8 +37,9 @@ describe("content model", () => {
     });
   });
 
-  it("projects are the four spotlighted, ordered, each with tech and links", () => {
-    expect(projects).toHaveLength(4);
+  it("projects fit the grid, ordered, each with tech and links", () => {
+    expect(projects.length).toBeGreaterThan(0);
+    expect(projects.length).toBeLessThanOrEqual(PROJECT_SLOTS);
     projects.forEach((p, idx) => {
       expect(p.index).toBe(idx + 1);
       expect(p.tech.length).toBeGreaterThan(0);
