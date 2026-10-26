@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/playground/breadcrumbs";
 import { DateBadge } from "@/components/playground/page-dates";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/social";
 import { builtCount, practiceHref, practices, sections } from "@/practices/catalog";
@@ -31,6 +32,8 @@ export default function ReactPracticesPage() {
           <span className="text-muted-foreground">practices built</span>
         </p>
       </header>
+
+      <Separator />
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {practices.map((p) => (

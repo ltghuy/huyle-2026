@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/playground/breadcrumbs";
 import { DateBadge } from "@/components/playground/page-dates";
 import { StatusBadge } from "@/components/playground/status-badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { breadcrumbLd, JsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/social";
 import { sectionPages, sectionProgress, sections, topicHref, type TopicSectionId } from "@/practices/catalog";
@@ -31,6 +32,8 @@ export function SectionIndex({ id, intro }: { id: TopicSectionId; intro: React.R
           <span className="text-muted-foreground">{progress.noun}</span>
         </p>
       </header>
+
+      <Separator />
 
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {sectionPages(id).map((page) => (
