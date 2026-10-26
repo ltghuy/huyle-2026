@@ -85,6 +85,22 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
   from activating unless the globs move too.
 - **Shared UI package + Tailwind v4:** classes used only inside a workspace package
   are not scanned unless the app CSS adds `@source "<path to package>"`.
+- **`pnpm start` is also a pnpm built-in** (falls back to `node server.js` when the
+  package has no `start` script). The root manifest forwards `start` and
+  `test:watch` to `apps/web` for that reason; add a forwarder for any other
+  app-only script that should work from the root.
+- **Shared config packages must declare their peers as devDependencies too.**
+  pnpm doesn't link a peer into the package's own `node_modules`, so
+  `@repo/eslint-config` importing `eslint/config` failed with ERR_MODULE_NOT_FOUND
+  until `eslint` was added as a devDependency next to the peer.
+- **A `next/font/google` failure can poison the Turbopack cache.** The first build
+  after the move failed with "Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  … next/font/google queries have exactly one entry"; every rebuild repeated it
+  until `apps/web/.next` was deleted, then it never recurred. Likely a transient
+  Google Fonts fetch failure cached in `.next/cache`. Fix: `rm -rf apps/web/.next`.
+- **Playwright `reuseExistingServer: true` will test whatever is on :3000**,
+  including a stale dev server from an old layout or an earlier run. Check
+  `lsof -ti :3000 -sTCP:LISTEN` before trusting an e2e pass after structural moves.
 
 - **⚠ Docs vs. code palette divergence.** `inputs/style/style-guide.md`,
   `spec.md`, and `inputs/style/tokens.css` describe *navy + teal + Space Grotesk*.
@@ -136,3 +152,10 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
 - (architecture) App is greenfield from create-next-app; first real feature (001)
   establishes conventions: Server-Component sections, `"use client"` islands for 3D
   and motion, typed content under `src/content/`, tokens in `globals.css`.
+- (architecture) [004] Repo is now a Turborepo + pnpm workspace: the site is
+  `apps/web` (package `web`), shared config lives in `packages/typescript-config`
+  and `packages/eslint-config` (`@repo/*`). Root scripts go through turbo
+  (`dev/build/lint/typecheck/test/e2e`) or forward with `pnpm --filter web`
+  (`start`, `test:watch`, `cf:*`).
+- (integrations) [004] Cloudflare Workers Builds: root dir `/`, build
+  `pnpm cf:build`, deploy `pnpm cf:deploy:prebuilt` (Worker `huyle-2026`).

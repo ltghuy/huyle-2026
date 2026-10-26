@@ -83,10 +83,12 @@ Run after each task or batch (root commands once T005 lands; before that, the ex
 ### Close
 
 - [ ] T011 [B:T008,T009,T010] Push B1–B3; watch the Workers Builds run with unchanged dashboard settings
+  - **Status (2026-10-26):** B1 pushed. B2 `580dbe0` and B3 `8a3d5c5` (and this record) are committed locally and **held until the owner approves the push**. The live site returns 200 on all probe routes with the expected title; it is not yet confirmed which commit Workers Builds is serving.
   - **Done when:** production serves the same `<title>` and 200 on the four probe routes.
 
 - [ ] T012 [B:T011] Record completion: mark verified ACs in spec.md, add any new gotchas to `.agents/knowledge.md`, update the session dump
   - **Done when:** every AC is `[x]` or has a recorded reason; spec status `to-review` (audit sets `done`).
+  - **Status (2026-10-26):** ACs recorded (12 verified, 3 pending deploy with reasons in spec.md); knowledge updated. Status flip to `to-review` waits on T011.
 
 ## Requirements Coverage
 

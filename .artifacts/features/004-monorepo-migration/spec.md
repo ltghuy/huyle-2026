@@ -40,13 +40,13 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 **Acceptance Criteria:**
 
-- [ ] AC-001: WHEN dependencies are installed once at the repository root THEN system SHALL install every workspace member from a single frozen lockfile with no extra steps.
-- [ ] AC-002: WHEN the developer runs the root develop command THEN system SHALL start the site locally at the same address as today with live reload.
-- [ ] AC-003: WHEN the developer runs the root build, lint, type-check and unit-test commands THEN system SHALL run them for every workspace member and pass for the site.
-- [ ] AC-004: WHEN the developer runs the root end-to-end command THEN system SHALL start the site and pass the existing end-to-end suite unchanged.
-- [ ] AC-005: WHEN the site is built THEN system SHALL produce the same routes as before (home, not-found, icons, social images, robots, sitemap), all prerendered static.
-- [ ] AC-006: WHEN a task's inputs are unchanged since its last successful run THEN system SHALL reuse the cached result instead of running it again.
-- [ ] AC-007: WHEN file history is viewed for a moved source file THEN system SHALL show its history from before the move.
+- [x] AC-001: WHEN dependencies are installed once at the repository root THEN system SHALL install every workspace member from a single frozen lockfile with no extra steps.
+- [x] AC-002: WHEN the developer runs the root develop command THEN system SHALL start the site locally at the same address as today with live reload.
+- [x] AC-003: WHEN the developer runs the root build, lint, type-check and unit-test commands THEN system SHALL run them for every workspace member and pass for the site.
+- [x] AC-004: WHEN the developer runs the root end-to-end command THEN system SHALL start the site and pass the existing end-to-end suite unchanged.
+- [x] AC-005: WHEN the site is built THEN system SHALL produce the same routes as before (home, not-found, icons, social images, robots, sitemap), all prerendered static.
+- [x] AC-006: WHEN a task's inputs are unchanged since its last successful run THEN system SHALL reuse the cached result instead of running it again.
+- [x] AC-007: WHEN file history is viewed for a moved source file THEN system SHALL show its history from before the move.
 
 ### P1: Both deploy paths keep working
 
@@ -56,7 +56,7 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 **Acceptance Criteria:**
 
-- [ ] AC-008: WHEN the developer runs the local preview from the root THEN system SHALL build for the edge host and serve the home page, robots, sitemap and social image successfully.
+- [x] AC-008: WHEN the developer runs the local preview from the root THEN system SHALL build for the edge host and serve the home page, robots, sitemap and social image successfully.
 - [ ] AC-009: WHEN the developer runs the manual deploy from the root THEN system SHALL publish to the same deploy target as today.
 - [ ] AC-010: WHEN the developer runs the deploy by its documented name THEN system SHALL deploy the site, never trigger the package manager's own unrelated built-in command.
 - [ ] AC-011: WHEN a change is pushed to the main line THEN the automatic deploy SHALL build and publish the site once the owner has applied the documented hosting-setting change.
@@ -68,8 +68,8 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 **Acceptance Criteria:**
 
-- [ ] AC-012: WHEN the site's type-check and lint run THEN system SHALL apply rules inherited from the shared configuration, with results identical to today's.
-- [ ] AC-013: WHEN a new app is added to the apps area THEN system SHALL pick it up in root build, lint, type-check and test runs without editing the root task definitions.
+- [x] AC-012: WHEN the site's type-check and lint run THEN system SHALL apply rules inherited from the shared configuration, with results identical to today's.
+- [x] AC-013: WHEN a new app is added to the apps area THEN system SHALL pick it up in root build, lint, type-check and test runs without editing the root task definitions.
 
 ### P3: Project docs and agent rules match the new layout
 
@@ -78,8 +78,8 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 **Acceptance Criteria:**
 
-- [ ] AC-014: WHEN the readme, project instructions, project context and locale rule are read THEN they SHALL reference the new locations and root commands, with no paths that no longer exist.
-- [ ] AC-015: WHEN the site's dev server regenerates its agent notice THEN the repository SHALL stay clean (the regenerated file is committed in its expected place).
+- [x] AC-014: WHEN the readme, project instructions, project context and locale rule are read THEN they SHALL reference the new locations and root commands, with no paths that no longer exist.
+- [x] AC-015: WHEN the site's dev server regenerates its agent notice THEN the repository SHALL stay clean (the regenerated file is committed in its expected place).
 
 ## Edge Cases
 
@@ -96,6 +96,11 @@ The repository holds exactly one website, laid out as a single project. The owne
 - [ ] A production deploy after the move serves the same home page title and the same four probe routes with 200.
 - [ ] A second run of the root build with no changes completes from cache.
 - [ ] Zero stale paths in current docs and agent rules (historical artifacts excepted).
+
+## Verification Status
+
+- **Pending a real deploy (needs owner approval to push/deploy):** AC-009 (manual `cf:deploy` from the root was not run, as it deploys production), AC-010 (names verified non-colliding; deploy not executed by those names yet), AC-011 (B1 `b4bcb5e` pushed and the live site is healthy, but the Workers Builds run for it is not confirmed; B2/B3 are not pushed yet).
+- Everything else was verified locally on 2026-10-26 (see tasks.md).
 
 ## Open Questions
 
