@@ -4,7 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
-      "env": ["GOOGLE_SITE_VERIFICATION"]
+      "env": ["GOOGLE_SITE_VERIFICATION", "NEXT_PUBLIC_AUDIO_BASE_URL"]
     },
     "lint": {
       "dependsOn": ["^lint"]

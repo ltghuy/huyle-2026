@@ -3,7 +3,7 @@ id: 001
 feature: learn-english-app
 type: greenfield
 scope: complex
-status: ready
+status: in-progress
 branch: main
 created: 2026-10-26
 ---

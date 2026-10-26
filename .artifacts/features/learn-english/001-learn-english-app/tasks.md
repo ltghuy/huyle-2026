@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 0 | Remaining: 50
+Total: 50 | Completed: 4 | Remaining: 46
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -62,20 +62,20 @@ Run after each task or batch (from the repo root):
 
 ### Scaffold and deploy
 
-- [ ] T001 [P] Scaffold `apps/learn-english`: Next.js 16.3.8, React 19.2.8, Tailwind v4, shadcn `base-nova`, `@repo/typescript-config` / `@repo/eslint-config`, dev port 3002, `<html lang="vi">`, Be Vietnam Pro (`vietnamese` + `latin`), Vietnamese placeholder home, `AGENTS.md` + app `CLAUDE.md`
-  - **Done when:** `pnpm --filter learn-english dev` serves the placeholder on :3002; lint and typecheck pass; `@types/react` resolves to the single workspace version
+- [x] T001 [P] Scaffold `apps/learn-english`: Next.js 16.3.8, React 19.2.8, Tailwind v4, shadcn `base-nova`, `@repo/typescript-config` / `@repo/eslint-config`, dev port 3002, `<html lang="vi">`, Be Vietnam Pro (`vietnamese` + `latin`), Vietnamese placeholder home, `AGENTS.md` + app `CLAUDE.md`
+  - **Done when:** `pnpm --filter learn-english dev` serves the placeholder on :3002; lint and typecheck pass; `@types/react` resolves to the single workspace version -- VERIFIED
 
-- [ ] T002 [B:T001] Add OpenNext + wrangler (static-assets incremental cache, `DB` D1 binding, `SYNC_LOOKUP_LIMITER` rate-limit binding, route `english.huyle.work`), app `cf:*` scripts, root `cf:english:*` forwarders, `NEXT_PUBLIC_AUDIO_BASE_URL` in turbo `build.env`, and the CLAUDE.md layout/commands section
-  - **Done when:** `pnpm cf:english:preview` serves the placeholder locally, and the CLAUDE.md commands list matches the root scripts
+- [x] T002 [B:T001] Add OpenNext + wrangler (static-assets incremental cache, `DB` D1 binding, `SYNC_LOOKUP_LIMITER` rate-limit binding, route `english.huyle.work`), app `cf:*` scripts, root `cf:english:*` forwarders, `NEXT_PUBLIC_AUDIO_BASE_URL` in turbo `build.env`, and the CLAUDE.md layout/commands section
+  - **Done when:** `pnpm cf:english:preview` serves the placeholder locally, and the CLAUDE.md commands list matches the root scripts -- VERIFIED
 
-- [ ] T003 [B:T002] Set up Vitest (happy-dom, `fake-indexeddb`) and Playwright (`@playwright/test` 1.64.1, dedicated port, server = `opennextjs-cloudflare preview` with local D1) with one smoke test each
-  - **Done when:** `pnpm --filter learn-english test` and `e2e` pass, and `pnpm test` at the root runs them through turbo
+- [x] T003 [B:T002] Set up Vitest (happy-dom, `fake-indexeddb`) and Playwright (`@playwright/test` 1.64.1, dedicated port, server = `opennextjs-cloudflare preview` with local D1) with one smoke test each
+  - **Done when:** `pnpm --filter learn-english test` and `e2e` pass, and `pnpm test` at the root runs them through turbo -- VERIFIED
 
 - [ ] T004 [B:T003] Create the Cloudflare resources and do the first deploy (owner in the dashboard, guided step by step): D1 `learn-english`, R2 `learn-english-audio` on `audio.english.huyle.work` with r2.dev off and a Cache Rule for `.mp3`, Worker custom domain, Workers Builds project (root `/`, `cf:english:*` commands, watch paths from knowledge.md), `STATS_SALT` secret
   - **Done when:** https://english.huyle.work shows the placeholder; the build log's `Executing user build command:` line shows `pnpm cf:english:build`; knowledge.md Codebase Feedback is updated with the real IDs
 
-- [ ] T005 [B:T001] Add app-scoped agent rules in `.claude/rules/learn-english/` (architecture/layering, UI with shadcn, Vietnamese copy, spec-driven), each with only `paths:` frontmatter
-  - **Done when:** rules load only for `apps/learn-english/**` files (checked against the `paths:` globs)
+- [x] T005 [B:T001] Add app-scoped agent rules in `.claude/rules/learn-english/` (architecture/layering, UI with shadcn, Vietnamese copy, spec-driven), each with only `paths:` frontmatter
+  - **Done when:** rules load only for `apps/learn-english/**` files (checked against the `paths:` globs) -- VERIFIED
 
 ### Database
 

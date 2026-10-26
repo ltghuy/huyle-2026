@@ -21,7 +21,13 @@
     "cf:handbook:deploy": "pnpm --filter react-handbook run cf:deploy",
     "cf:handbook:deploy:prebuilt": "pnpm --filter react-handbook run cf:deploy:prebuilt",
     "cf:handbook:upload:prebuilt": "pnpm --filter react-handbook run cf:upload:prebuilt",
-    "cf:handbook:typegen": "pnpm --filter react-handbook run cf:typegen"
+    "cf:handbook:typegen": "pnpm --filter react-handbook run cf:typegen",
+    "cf:english:build": "pnpm --filter learn-english run cf:build",
+    "cf:english:preview": "pnpm --filter learn-english run cf:preview",
+    "cf:english:deploy": "pnpm --filter learn-english run cf:deploy",
+    "cf:english:deploy:prebuilt": "pnpm --filter learn-english run cf:deploy:prebuilt",
+    "cf:english:upload:prebuilt": "pnpm --filter learn-english run cf:upload:prebuilt",
+    "cf:english:typegen": "pnpm --filter learn-english run cf:typegen"
   },
   "devDependencies": {
     "turbo": "^2.11.10"

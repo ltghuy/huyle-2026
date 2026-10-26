@@ -2,21 +2,23 @@
 
 # Project: evan-le
 
-A Turborepo monorepo (pnpm workspaces) with two Next.js 16 (App Router) apps:
-the portfolio in `apps/web` (huyle.work) and the Frontend Handbook in
-`apps/react-handbook` (learn.huyle.work). The handbook has its own
-`apps/react-handbook/CLAUDE.md` (stack, required skills), which loads when you
-work on its files.
+A Turborepo monorepo (pnpm workspaces) with three Next.js 16 (App Router) apps:
+the portfolio in `apps/web` (huyle.work), the Frontend Handbook in
+`apps/react-handbook` (learn.huyle.work), and Learn English in
+`apps/learn-english` (english.huyle.work). The handbook and Learn English each
+have their own `CLAUDE.md` (stack, required skills), which loads when you work
+on their files.
 
 ## Layout
 
 - `apps/web` — the portfolio (package `web`); its Next/OpenNext/wrangler/test configs live here
 - `apps/react-handbook` — the handbook (package `react-handbook`), same per-app layout
+- `apps/learn-english` — Learn English (package `learn-english`), same per-app layout
 - `packages/typescript-config` — shared tsconfig presets (`@repo/typescript-config`)
 - `packages/eslint-config` — shared ESLint flat config (`@repo/eslint-config`)
 - `turbo.json` — task pipeline; `pnpm-workspace.yaml` — workspace members
 
-## Stack (portfolio; see the handbook's CLAUDE.md for its stack)
+## Stack (portfolio; see the other apps' CLAUDE.md for theirs)
 
 - **Framework:** Next.js 16.3 (App Router, Turbopack)
 - **Language:** TypeScript
@@ -30,10 +32,11 @@ work on its files.
 
 Run from the repo root. `dev/build/lint/typecheck/test/e2e` go through turbo for
 every app (cached except `dev`/`e2e`); `start`, `test:watch` and `cf:*` forward to
-`apps/web`, `cf:handbook:*` to `apps/react-handbook`. Target one app with
-`pnpm --filter <web|react-handbook> <script>`.
+`apps/web`, `cf:handbook:*` to `apps/react-handbook`, `cf:english:*` to
+`apps/learn-english`. Target one app with
+`pnpm --filter <web|react-handbook|learn-english> <script>`.
 
-- `pnpm dev` — start both dev servers (portfolio :3000, handbook :3001)
+- `pnpm dev` — start all dev servers (portfolio :3000, handbook :3001, Learn English :3002)
 - `pnpm build` — production build
 - `pnpm start` — serve the production build
 - `pnpm lint` — run ESLint
@@ -46,6 +49,7 @@ every app (cached except `dev`/`e2e`); `start`, `test:watch` and `cf:*` forward 
 - `pnpm cf:build` + `pnpm cf:deploy:prebuilt` — the split build/deploy steps Workers Builds runs
   (`pnpm cf:upload:prebuilt` is its version command for non-production branches)
 - `pnpm cf:handbook:{build,preview,deploy,deploy:prebuilt,upload:prebuilt,typegen}` — the same for the handbook
+- `pnpm cf:english:{build,preview,deploy,deploy:prebuilt,upload:prebuilt,typegen}` — the same for Learn English
 
 ## Development Workflow: Spec-Driven Development (SDD)
 
@@ -71,14 +75,14 @@ Specs and quick tasks are grouped by app. Pick the group by what the change touc
 |-------|-----|---------|
 | `web` | only `apps/web` | `.artifacts/features/web/001-portfolio` |
 | `react-handbook` | only `apps/react-handbook` | `.artifacts/features/react-handbook/048-home-hub-links` |
-| `learn-english` | only `apps/learn-english` (planned) | `.artifacts/features/learn-english/001-learn-english-app` |
-| `repo` | both apps, shared packages, workspace, tooling, deploy | `.artifacts/features/repo/005-react-handbook-import` |
+| `learn-english` | only `apps/learn-english` | `.artifacts/features/learn-english/001-learn-english-app` |
+| `repo` | more than one app, shared packages, workspace, tooling, deploy | `.artifacts/features/repo/005-react-handbook-import` |
 
 - `.artifacts/features/{group}/{ID}-{name}/` — feature specs, designs, tasks
 - `.artifacts/quick/{group}/{NNN}-{slug}/` — quick-mode tasks
 - **Numbering:** IDs are per group: next ID = highest ID in that group + 1, never reused.
 - `.artifacts/research/` — reusable research cache, shared by all groups
 - `.agents/project.md` — project context (this project)
-- `.agents/knowledge.md` — cross-feature decisions & gotchas; each section has `### repo`, `### web`, `### react-handbook`
+- `.agents/knowledge.md` — cross-feature decisions & gotchas; each section has `### repo`, `### web`, `### react-handbook`, `### learn-english`
 - `.agents/baselines/{group}/` — baselines of pre-existing behavior
 - `.claude/rules/{web,react-handbook}/` — agent rules, each scoped to its app with `paths:` frontmatter (the only key Claude Code reads)
