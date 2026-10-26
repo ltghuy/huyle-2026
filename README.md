@@ -14,7 +14,7 @@ CSS v4, with WebGL/Three.js visuals and GSAP-driven motion.
 - **Language:** TypeScript
 - **Testing:** Vitest + Testing Library (unit), Playwright (e2e)
 - **Linting:** ESLint (`eslint-config-next`)
-- **Package manager:** Yarn
+- **Package manager:** pnpm
 - **Import alias:** `@/*` → `src/*`
 
 ## Getting Started
@@ -22,7 +22,7 @@ CSS v4, with WebGL/Three.js visuals and GSAP-driven motion.
 Run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site. The page
@@ -32,13 +32,13 @@ auto-updates as you edit files.
 
 | Command | Description |
 | --- | --- |
-| `yarn dev` | Start the dev server (Turbopack) |
-| `yarn build` | Production build |
-| `yarn start` | Serve the production build |
-| `yarn lint` | Run ESLint |
-| `yarn test` | Run unit tests once (Vitest) |
-| `yarn test:watch` | Run unit tests in watch mode |
-| `yarn e2e` | Run end-to-end tests (Playwright) |
+| `pnpm dev` | Start the dev server (Turbopack) |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve the production build |
+| `pnpm lint` | Run ESLint |
+| `pnpm test` | Run unit tests once (Vitest) |
+| `pnpm test:watch` | Run unit tests in watch mode |
+| `pnpm e2e` | Run end-to-end tests (Playwright) |
 
 ## Project Structure
 

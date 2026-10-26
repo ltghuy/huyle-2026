@@ -10,15 +10,15 @@ A Next.js 16 (App Router) application built with TypeScript and Tailwind CSS.
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Linting:** ESLint (eslint-config-next)
-- **Package manager:** yarn
+- **Package manager:** pnpm
 - **Import alias:** `@/*` -> `src/*`
 
 ## Commands
 
-- `yarn dev` — start the dev server (Turbopack)
-- `yarn build` — production build
-- `yarn start` — serve the production build
-- `yarn lint` — run ESLint
+- `pnpm dev` — start the dev server (Turbopack)
+- `pnpm build` — production build
+- `pnpm start` — serve the production build
+- `pnpm lint` — run ESLint
 
 ## Development Workflow: Spec-Driven Development (SDD)
 

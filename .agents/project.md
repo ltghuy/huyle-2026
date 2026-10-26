@@ -15,7 +15,7 @@ to be specified later via the spec-driven workflow.
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Linting | ESLint (`eslint-config-next`) |
-| Package manager | yarn (v1) |
+| Package manager | pnpm (v10) |
 | Source root | `src/` |
 | Import alias | `@/*` → `src/*` |
 
