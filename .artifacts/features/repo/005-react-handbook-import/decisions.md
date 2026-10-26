@@ -58,6 +58,7 @@ Decisions on gray areas and ambiguities resolved during discussion.
 - **Question:** The handbook uses newer Next (16.3.8 vs 16.3.0), Playwright (1.64.1 vs 1.62.1), OpenNext and wrangler than the portfolio. Align?
 - **Tentative Decision:** Keep each app on its own versions for the import; align in a separate change.
 - **Revisit when:** Two Playwright versions cause browser-install friction, or a shared package needs one Next version.
+- **Revisited 2026-10-26 (T007):** two packages must have one version per workspace because pnpm hoists them: `@types/react` (19.2.18; hoisted `*types*` broke the portfolio's R3F JSX types) and Playwright (1.64.1; playwright-bdd's undeclared `playwright` import picked the other copy). Everything else stays per app.
 
 ### Branching
 

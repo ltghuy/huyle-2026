@@ -17,7 +17,8 @@
     },
     "e2e": {
       "dependsOn": ["^build"],
-      "cache": false
+      "cache": false,
+      "passThroughEnv": ["CI"]
     },
     "dev": {
       "cache": false,

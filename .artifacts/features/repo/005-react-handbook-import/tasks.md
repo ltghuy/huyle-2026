@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 16 | Completed: 2 | Remaining: 14
+Total: 16 | Completed: 7 | Remaining: 9
 
 ## Execution Plan
 
@@ -56,22 +56,29 @@ Run from the root after each task or batch (from T007 on):
   - **Done when:** the rewritten branch has 83 commits, `git ls-tree -r --name-only HEAD` shows only `apps/react-handbook/…` paths, and the file count matches the original's 1005 tracked files.
   - **Result:** 83 commits, 1005 files, 0 outside the prefix; the rewritten `apps/react-handbook` tree hash equals the original HEAD tree (byte-identical content). Authors/dates kept; SHAs are new (old HEAD `8dd264e` → `e9e67fd`).
 
-- [ ] T003 [B:T002] Merge the rewritten branch into `main` with `--allow-unrelated-histories`
+- [x] T003 [B:T002] Merge the rewritten branch into `main` with `--allow-unrelated-histories`
   - **Done when:** the merge has no conflicts; `git log --oneline -- apps/react-handbook/next.config.ts` lists pre-import commits; nothing outside `apps/react-handbook/` changed.
+  - **Result:** merge `3a855c6`, no conflicts, 0 files outside the app; `next.config.ts` history reaches the handbook's first commit.
 
 ### B1 — Wire the handbook into the workspace
 
-- [ ] T004 [B:T003] Update the handbook manifest (name `react-handbook`; `dev` on 3001; `test:e2e` → `e2e`; `preview`/`deploy`/`cf-typegen` → `cf:*` plus `cf:build`, `cf:deploy:prebuilt`, `cf:upload:prebuilt`; drop `packageManager`); make its tsconfig extend `@repo/typescript-config/nextjs.json`; delete its `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `railway.json`
+- [x] T004 [B:T003] Update the handbook manifest (name `react-handbook`; `dev` on 3001; `test:e2e` → `e2e`; `preview`/`deploy`/`cf-typegen` → `cf:*` plus `cf:build`, `cf:deploy:prebuilt`, `cf:upload:prebuilt`; drop `packageManager`); make its tsconfig extend `@repo/typescript-config/nextjs.json`; delete its `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `railway.json`
   - **Done when:** `tsc --showConfig` for the handbook matches the T001 output; `git status` shows the three deletions and no stray `tsconfig.tsbuildinfo`.
+  - **Result / deviation:** `test:e2e` is **kept** (the handbook's own pages tell readers to run `pnpm test:e2e`, and changing site content is out of scope); an `e2e` script forwards to it for turbo. `tsc --showConfig`: compilerOptions identical; file set differs only by `.next/dev/types/*` generated in the old repo.
 
-- [ ] T005 [B:T004] Merge workspace settings (`ignoredBuiltDependencies: [sharp]`), install, and diff the handbook's resolved versions against T001; pin any runtime dependency that moved beyond a patch
+- [x] T005 [B:T004] Merge workspace settings (`ignoredBuiltDependencies: [sharp]`), install, and diff the handbook's resolved versions against T001; pin any runtime dependency that moved beyond a patch
   - **Done when:** `pnpm install --frozen-lockfile` passes; the version diff is recorded here with every non-patch change pinned or justified.
+  - **Result:** fresh resolution changed 90/573 packages. Direct deps re-pinned in the lockfile to their old versions (`@base-ui/react` 1.8.0, `lucide-react` 1.52.0, `shadcn` 4.21.3, `zod` 4.6.5, `postcss` 8.5.29, `@opennextjs/cloudflare` 1.20.10, `wrangler` 4.149.0) with manifest ranges unchanged. 86 transitive packages still differ (mostly AWS SDK internals of OpenNext; `typescript-eslint` 8.66 vs 8.71); all gates pass with them.
+  - **Deviation 1 — one `@types/react` for the workspace (19.2.18):** pnpm publicly hoists `*types*`, so two versions made the portfolio type-check against the hoisted 19.3.0 while R3F augments 19.2.18 → portfolio typecheck/build broke (`'group' does not exist on JSX.IntrinsicElements`). The handbook now locks 19.2.18 (range still `^19`).
+  - **Deviation 2 — one Playwright for the workspace (1.64.1):** playwright-bdd requires `playwright` without declaring it, so it got the hoisted portfolio copy (1.62.1) while the runner was 1.64.1; two scenarios failed with `bddTestData not found` (only in full-suite runs). Portfolio `@playwright/test` raised to `^1.64.1`; this is the revisit condition named in decisions.md.
 
-- [ ] T006 [P] [B:T004] Add `passThroughEnv: ["CI"]` to turbo `e2e`; add root `cf:handbook:{build,preview,deploy,deploy:prebuilt,upload:prebuilt,typegen}` forwarders
+- [x] T006 [P] [B:T004] Add `passThroughEnv: ["CI"]` to turbo `e2e`; add root `cf:handbook:{build,preview,deploy,deploy:prebuilt,upload:prebuilt,typegen}` forwarders
   - **Done when:** `pnpm exec turbo run e2e --dry=json` lists both apps' `e2e` tasks; every `cf:handbook:*` script resolves to the handbook's matching script.
+  - **Result:** build/lint/typecheck/e2e/dev each list both apps (`test` only the portfolio); all six `cf:handbook:*` resolve.
 
-- [ ] T007 [B:T005,T006] Run every Quality Gate for both apps and the parity checks against T001 (routes, `/practices` redirect, `X-Robots-Tag` headers, e2e count, `git log` history); commit **B0+B1** (merge commit, then wiring commit)
+- [x] T007 [B:T005,T006] Run every Quality Gate for both apps and the parity checks against T001 (routes, `/practices` redirect, `X-Robots-Tag` headers, e2e count, `git log` history); commit **B0+B1** (merge commit, then wiring commit)
   - **Done when:** all gates pass; parity matches T001; the reporter JSON files are restored; two local commits exist, not pushed.
+  - **Result:** frozen install; lint 2/2; typecheck 2/2; portfolio 22/22 unit; build 2/2 with handbook routes identical (120 lines) and portfolio 8 routes; repeat build FULL TURBO; e2e portfolio 8/8 + handbook **34/34**; handbook `next start` redirects/`X-Robots-Tag`/title identical to T001; both `cf:*build` + workerd previews serve their probes (handbook 308 + noindex intact); root `pnpm dev` serves 3000 + 3001.
 
 ### B2 — Merge `.artifacts`, `.agents`, `.claude`
 

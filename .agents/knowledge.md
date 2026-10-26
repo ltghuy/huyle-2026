@@ -80,6 +80,16 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
 - **Turborepo strict env mode hides undeclared env vars.** Any env var read during
   `next build` (today `GOOGLE_SITE_VERIFICATION`) must be in the `build` task's
   `env` in `turbo.json`, or the build silently renders without it.
+- **Some packages must have ONE version across the pnpm workspace.** [005]
+  - `@types/react`: pnpm publicly hoists `*types*`; with two versions, the
+    portfolio type-checked against the hoisted copy while R3F augments its own →
+    `'group' does not exist on type 'JSX.IntrinsicElements'`. Keep one version
+    (lock it with `pnpm --filter <app> add -D @types/react@<v>`, then restore the
+    `^19` range; pnpm keeps the locked version).
+  - Playwright: playwright-bdd imports `playwright` without declaring it and gets
+    pnpm's hoisted copy; a second Playwright version makes it read the wrong
+    internals → `bddTestData not found` (full-suite runs only). Keep
+    `@playwright/test` on one version in every app.
 - **`.claude/rules` frontmatter: only `paths:` is read.** Any other key (this repo
   used `appliesTo:`) is ignored without an error, so the rule silently loads for
   every file. Verified in the Claude Code memory docs (2026-10-26, feature 005).

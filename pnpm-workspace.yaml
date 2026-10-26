@@ -9,3 +9,8 @@ onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
   - workerd
+
+# sharp (optional Next.js image dependency) stays unbuilt, as react-handbook
+# had it before it joined the workspace.
+ignoredBuiltDependencies:
+  - sharp
