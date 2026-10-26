@@ -8,14 +8,13 @@
     "binding": "ASSETS",
     "directory": ".open-next/assets"
   },
-  // Content, sync blobs and anonymous stats. The id is replaced with the real
-  // one when the database is created (`wrangler d1 create learn-english`);
-  // local dev and preview use a local SQLite copy either way.
+  // Content, sync blobs and anonymous stats. Local dev and preview use a
+  // local SQLite copy; `--remote` commands hit this database.
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "learn-english",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "6506778f-8d5d-441a-b739-2de8c7b94dc9",
       "migrations_dir": "migrations",
       "migrations_pattern": "migrations/*/migration.sql"
     }

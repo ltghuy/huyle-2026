@@ -401,4 +401,4 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 
 ### learn-english
 
-- (integrations) [001] Planned third app `apps/learn-english` (english.huyle.work): Worker `learn-english`, D1 `learn-english` (binding `DB`; content, sync, stats), R2 bucket `learn-english-audio` on `audio.english.huyle.work`, root scripts `cf:english:*`. Workers Builds watch paths to add when it ships: `apps/learn-english/*`, `packages/typescript-config/*`, `packages/eslint-config/*`, plus the shared root files <!-- feature:001 target:integrations date:2026-10-26 -->
+- (integrations) [001] Third app `apps/learn-english` (english.huyle.work, first deployed 2026-10-26 with `pnpm cf:english:deploy`): Worker `learn-english`, D1 `learn-english` id `6506778f-8d5d-441a-b739-2de8c7b94dc9`, APAC (binding `DB`; content, sync, stats), secret `STATS_SALT`, R2 bucket `learn-english-audio` on `audio.english.huyle.work`, root scripts `cf:english:*`. Workers Builds watch paths to add when it ships: `apps/learn-english/*`, `packages/typescript-config/*`, `packages/eslint-config/*`, plus the shared root files <!-- feature:001 target:integrations date:2026-10-26 -->
