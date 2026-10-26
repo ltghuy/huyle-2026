@@ -68,7 +68,23 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
   about the live 3D scene, the Meshy swap, and `useScrollProgress` staging are
   historical only.
 
+- **[004] Monorepo deploys keep Workers Builds root at `/` and call `cf:*` root
+  scripts** that delegate with `pnpm --filter web`. Roll out in two phases (stable
+  script names first, then the move) because a push to `main` auto-deploys.
+  Deploy/preview bypass turbo (uncacheable; strict env mode strips Cloudflare vars).
+
 ## Gotchas
+
+- **`pnpm deploy` is a pnpm built-in** — it never runs a `deploy` script. Use
+  `pnpm run deploy`, or name the script so it can't collide (this repo: `cf:deploy`).
+- **Turborepo strict env mode hides undeclared env vars.** Any env var read during
+  `next build` (today `GOOGLE_SITE_VERIFICATION`) must be in the `build` task's
+  `env` in `turbo.json`, or the build silently renders without it.
+- **Path-scoped agent rules break on moves.** `.claude/rules/*.md` `paths:` globs
+  are repo-relative; moving source (e.g. into `apps/web/`) silently stops the rule
+  from activating unless the globs move too.
+- **Shared UI package + Tailwind v4:** classes used only inside a workspace package
+  are not scanned unless the app CSS adds `@source "<path to package>"`.
 
 - **⚠ Docs vs. code palette divergence.** `inputs/style/style-guide.md`,
   `spec.md`, and `inputs/style/tokens.css` describe *navy + teal + Space Grotesk*.
