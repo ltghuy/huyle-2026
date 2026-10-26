@@ -37,6 +37,7 @@ Run from the repo root. `dev/build/lint/typecheck/test/e2e` go through turbo
 - `pnpm cf:preview` — build for Cloudflare and serve it locally
 - `pnpm cf:deploy` — build for Cloudflare and deploy (never `pnpm deploy`: that is a pnpm built-in)
 - `pnpm cf:build` + `pnpm cf:deploy:prebuilt` — the split build/deploy steps Workers Builds runs
+  (`pnpm cf:upload:prebuilt` is its version command for non-production branches)
 
 ## Development Workflow: Spec-Driven Development (SDD)
 

@@ -164,4 +164,7 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
   (`dev/build/lint/typecheck/test/e2e`) or forward with `pnpm --filter web`
   (`start`, `test:watch`, `cf:*`).
 - (integrations) [004] Cloudflare Workers Builds: root dir `/`, build
-  `pnpm cf:build`, deploy `pnpm cf:deploy:prebuilt` (Worker `huyle-2026`).
+  `pnpm cf:build`, deploy `pnpm cf:deploy:prebuilt`, version command
+  `pnpm cf:upload:prebuilt` (Worker `huyle-2026`). Before 004 it was
+  `npx opennextjs-cloudflare build` / `npx wrangler deploy` /
+  `npx wrangler versions upload`, which only work with the app at the repo root.

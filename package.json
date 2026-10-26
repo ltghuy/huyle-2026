@@ -14,6 +14,7 @@
     "cf:preview": "pnpm --filter web run cf:preview",
     "cf:deploy": "pnpm --filter web run cf:deploy",
     "cf:deploy:prebuilt": "pnpm --filter web run cf:deploy:prebuilt",
+    "cf:upload:prebuilt": "pnpm --filter web run cf:upload:prebuilt",
     "cf:typegen": "pnpm --filter web run cf:typegen"
   },
   "devDependencies": {

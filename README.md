@@ -48,6 +48,7 @@ Run from the repo root.
 | `pnpm cf:preview` | Build for Cloudflare and serve it locally in the Workers runtime |
 | `pnpm cf:deploy` | Build for Cloudflare and deploy |
 | `pnpm cf:build` / `pnpm cf:deploy:prebuilt` | Build and deploy as separate steps (Cloudflare Workers Builds uses these) |
+| `pnpm cf:upload:prebuilt` | Upload a built version without promoting it (Workers Builds, non-production branches) |
 | `pnpm cf:typegen` | Generate types for the Cloudflare `env` bindings |
 
 `build`, `lint`, `typecheck` and `test` are cached by Turborepo; a repeat run with
@@ -90,7 +91,8 @@ Deployed to Cloudflare Workers via [OpenNext](https://opennext.js.org/cloudflare
 
 - **Automatic:** Cloudflare Workers Builds deploys every push to `main`. Its
   settings: root directory `/`, build command `pnpm cf:build`, deploy command
-  `pnpm cf:deploy:prebuilt`.
+  `pnpm cf:deploy:prebuilt`, version command (non-production branches)
+  `pnpm cf:upload:prebuilt`.
 - **Manual:** `pnpm cf:deploy` from the repo root.
 
 The canonical production URL is defined once in `apps/web/src/content/profile.ts`
