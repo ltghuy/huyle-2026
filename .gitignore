@@ -1,25 +1,25 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.*
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # cloudflare / opennext
-/.open-next/
+.open-next/
 .wrangler/
 cloudflare-env.d.ts
 .dev.vars
 
 # production
-/build
+build/
 
 # misc
 .DS_Store
@@ -35,14 +35,17 @@ npm-debug.log*
 # vercel
 .vercel
 
+# turborepo
+.turbo
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 # test artifacts
-/test-results/
-/playwright-report/
-/blob-report/
+test-results/
+playwright-report/
+blob-report/
 
 # Log files
 *.log

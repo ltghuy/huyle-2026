@@ -1,3 +1,7 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
 # pnpm 10 skips dependency install scripts unless they are approved here.
 # workerd (wrangler runtime) and esbuild download native binaries;
 # unrs-resolver is the native resolver used by eslint-config-next.
