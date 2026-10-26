@@ -353,6 +353,14 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
   `pnpm cf:upload:prebuilt` (Worker `huyle-2026`). Before 004 it was
   `npx opennextjs-cloudflare build` / `npx wrangler deploy` /
   `npx wrangler versions upload`, which only work with the app at the repo root.
+- (integrations) [005] Workers Builds watch paths, so a push only rebuilds the
+  app it touches (exclude paths left empty; `*` matches across `/`):
+  `huyle-2026` includes `apps/web/*`, `packages/*`; `react-handbook` includes
+  `apps/react-handbook/*`, `packages/typescript-config/*` (it doesn't use
+  `@repo/eslint-config`). Both also include `package.json`, `pnpm-lock.yaml`,
+  `pnpm-workspace.yaml`, `turbo.json`. Add a path here when an app gains a new
+  `@repo/*` dependency. An empty commit no longer triggers a build; use "Retry
+  build" in the dashboard instead.
 
 ### web
 
