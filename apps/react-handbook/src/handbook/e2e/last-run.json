@@ -1,0 +1,355 @@
+{
+  "ranAt": "2026-10-22T10:22:23.180Z",
+  "durationMs": 16513,
+  "status": "passed",
+  "project": "chromium, scenarios",
+  "playwright": "1.64.1",
+  "totals": {
+    "passed": 34,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "project": "scenarios",
+      "file": "e2e/features/discount-codes.feature",
+      "line": 0,
+      "title": "SAVE10 gives 10% off",
+      "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
+      "outcome": "expected",
+      "durationMs": 1146,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/discount-codes.feature",
+      "line": 0,
+      "title": "BULK15 gives 15% off 5 or more items",
+      "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
+      "outcome": "expected",
+      "durationMs": 1126,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/discount-codes.feature",
+      "line": 0,
+      "title": "FREESHIP gives free shipping",
+      "describe": "Discount codes › A code that applies lowers the total › <code> gives <saving>",
+      "outcome": "expected",
+      "durationMs": 1126,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/discount-codes.feature",
+      "line": 0,
+      "title": "An unknown code is turned down",
+      "describe": "Discount codes › A code that doesn't apply says why",
+      "outcome": "expected",
+      "durationMs": 1127,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/discount-codes.feature",
+      "line": 0,
+      "title": "The bulk code needs enough items",
+      "describe": "Discount codes › A code that doesn't apply says why",
+      "outcome": "expected",
+      "durationMs": 1098,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/job-application.feature",
+      "line": 0,
+      "title": "Every missing answer is pointed out",
+      "describe": "Applying for a job",
+      "outcome": "expected",
+      "durationMs": 300,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/job-application.feature",
+      "line": 0,
+      "title": "Example #1",
+      "describe": "Applying for a job › The email has to be usable",
+      "outcome": "expected",
+      "durationMs": 309,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/job-application.feature",
+      "line": 0,
+      "title": "Example #2",
+      "describe": "Applying for a job › The email has to be usable",
+      "outcome": "expected",
+      "durationMs": 361,
+      "retries": 0
+    },
+    {
+      "project": "scenarios",
+      "file": "e2e/features/job-application.feature",
+      "line": 0,
+      "title": "Going back keeps my answers",
+      "describe": "Applying for a job",
+      "outcome": "expected",
+      "durationMs": 394,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 10,
+      "title": "variant A renders \"Add to cart\"",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 1580,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 10,
+      "title": "variant B renders \"Buy now\"",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 1034,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/ab-testing.spec.ts",
+      "line": 20,
+      "title": "a returning visitor keeps their id and variant",
+      "describe": "A/B testing",
+      "outcome": "expected",
+      "durationMs": 1316,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/accessible-modal.spec.ts",
+      "line": 4,
+      "title": "focus moves into the dialog, stays there, and returns to the opener",
+      "describe": "Accessible modal",
+      "outcome": "expected",
+      "durationMs": 621,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/accessible-modal.spec.ts",
+      "line": 20,
+      "title": "a delete confirmation starts on Cancel and keeps the project",
+      "describe": "Accessible modal",
+      "outcome": "expected",
+      "durationMs": 392,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/debounced-search.spec.ts",
+      "line": 4,
+      "title": "without a guard, a late reply for an older query replaces newer results",
+      "describe": "Debounced search",
+      "outcome": "expected",
+      "durationMs": 1958,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/debounced-search.spec.ts",
+      "line": 15,
+      "title": "the stale-response guard keeps the newest results",
+      "describe": "Debounced search",
+      "outcome": "expected",
+      "durationMs": 1463,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 7,
+      "title": "Next on an empty step shows each error on its field",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 1039,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 19,
+      "title": "Back keeps the answers",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 2139,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.no-pom.spec.ts",
+      "line": 35,
+      "title": "a step that isn't open yet sends you to the first unfinished one",
+      "describe": "Multi-step form (no page objects)",
+      "outcome": "expected",
+      "durationMs": 1461,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 6,
+      "title": "Next on an empty step shows each error on its field",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 417,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 15,
+      "title": "Back keeps the answers",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 453,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/multi-step-form.spec.ts",
+      "line": 27,
+      "title": "a step that isn't open yet sends you to the first unfinished one",
+      "describe": "Multi-step form",
+      "outcome": "expected",
+      "durationMs": 323,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 48,
+      "title": "the sitemap lists the site's pages",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 1,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 52,
+      "title": "every page has one h1, a title and a meta description",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 14,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 60,
+      "title": "every page's canonical URL is its sitemap URL, and og:url agrees",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 9,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 68,
+      "title": "no page in the sitemap sends noindex",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 12,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 75,
+      "title": "handbook pages send Article and BreadcrumbList JSON-LD that match the page",
+      "describe": "SEO of every page in the sitemap",
+      "outcome": "expected",
+      "durationMs": 22,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 87,
+      "title": "robots.txt allows crawlers, blocks AI training bots and names the sitemap",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 108,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 95,
+      "title": "llms.txt links only to pages in the sitemap",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 40,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 102,
+      "title": "old practice URLs redirect permanently, straight to the new URL",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 148,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 115,
+      "title": "lab pages and API responses send noindex",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 101,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/seo.spec.ts",
+      "line": 122,
+      "title": "an unknown URL returns 404",
+      "describe": "Site-wide SEO files and rules",
+      "outcome": "expected",
+      "durationMs": 47,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/toast-notifications.spec.ts",
+      "line": 4,
+      "title": "a toast waits while the pointer is over it",
+      "describe": "Toast notifications",
+      "outcome": "expected",
+      "durationMs": 433,
+      "retries": 0
+    },
+    {
+      "project": "chromium",
+      "file": "e2e/specs/toast-notifications.spec.ts",
+      "line": 19,
+      "title": "an error toast stays until it is dismissed",
+      "describe": "Toast notifications",
+      "outcome": "expected",
+      "durationMs": 718,
+      "retries": 0
+    }
+  ]
+}
