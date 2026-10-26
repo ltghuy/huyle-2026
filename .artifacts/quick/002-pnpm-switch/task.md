@@ -1,7 +1,7 @@
 ---
 slug: pnpm-switch
 status: done
-branch: chore/pnpm
+branch: main
 created: 2026-10-26
 ---
 
