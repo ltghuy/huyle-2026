@@ -98,6 +98,12 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
   … next/font/google queries have exactly one entry"; every rebuild repeated it
   until `apps/web/.next` was deleted, then it never recurred. Likely a transient
   Google Fonts fetch failure cached in `.next/cache`. Fix: `rm -rf apps/web/.next`.
+- **A green Workers Builds run proves nothing about settings you asked for.**
+  [004] T002 was marked done on a green deploy, but the dashboard still ran
+  `npx opennextjs-cloudflare build`, which only works with the app at the repo
+  root. The move then failed in CI ("npm error could not determine executable to
+  run"). Before a structural push, confirm the build log's
+  `Executing user build command:` line matches the intended command.
 - **Playwright `reuseExistingServer: true` will test whatever is on :3000**,
   including a stale dev server from an old layout or an earlier run. Check
   `lsof -ti :3000 -sTCP:LISTEN` before trusting an e2e pass after structural moves.

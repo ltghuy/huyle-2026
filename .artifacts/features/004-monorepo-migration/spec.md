@@ -3,7 +3,7 @@ id: 004
 feature: monorepo-migration
 type: brownfield
 scope: large
-status: to-review
+status: in-progress
 branch: main
 created: 2026-10-26
 ---
@@ -59,7 +59,7 @@ The repository holds exactly one website, laid out as a single project. The owne
 - [x] AC-008: WHEN the developer runs the local preview from the root THEN system SHALL build for the edge host and serve the home page, robots, sitemap and social image successfully.
 - [ ] AC-009: WHEN the developer runs the manual deploy from the root THEN system SHALL publish to the same deploy target as today.
 - [ ] AC-010: WHEN the developer runs the deploy by its documented name THEN system SHALL deploy the site, never trigger the package manager's own unrelated built-in command.
-- [x] AC-011: WHEN a change is pushed to the main line THEN the automatic deploy SHALL build and publish the site once the owner has applied the documented hosting-setting change.
+- [ ] AC-011: WHEN a change is pushed to the main line THEN the automatic deploy SHALL build and publish the site once the owner has applied the documented hosting-setting change.
 
 ### P2: Shared configuration ready for the next app
 
@@ -99,7 +99,7 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 ## Verification Status
 
-- **AC-011 verified 2026-10-26:** the owner confirmed the Workers Builds deploy of B1 `b4bcb5e` (the first commit on the new layout) went green with dashboard settings unchanged.
+- **AC-011 reverted 2026-10-26:** marked verified on a reported green B1 deploy, but the Workers Builds run for `fc57b63` failed: the dashboard build command was still `npx opennextjs-cloudflare build` (T002's settings were never applied). `npx` at the repo root can't find the binary now that it lives only in `apps/web`. Re-verify after the dashboard uses `pnpm cf:build` / `pnpm cf:deploy:prebuilt`.
 - **Pending the next manual deploy:** AC-009 (manual `pnpm cf:deploy` from the root was not run, because it deploys production) and AC-010 (the names are verified not to collide; no deploy has run under those names yet). Both are checked off the first time the owner deploys by hand.
 - Everything else was verified locally on 2026-10-26 (see tasks.md).
 
