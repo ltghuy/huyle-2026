@@ -22,11 +22,11 @@
   --text-hero--letter-spacing: -0.03em;
 
   /* Backgrounds & surfaces — deep green-black, warmed toward the wordmark */
-  --color-deep: #060d09;
-  --color-base: #0b1510;
-  --color-surface: #121e17;
-  --color-surface-raised: #18271d;
-  --color-line: #26382c;
+  --color-deep: #020503;
+  --color-base: #040c07;
+  --color-surface: #09140d;
+  --color-surface-raised: #0f1c14;
+  --color-line: #1a2c20;
 
   /* Text — near-white with a faint green cast */
   --color-fg: #e9f1e6;
@@ -37,7 +37,7 @@
   --color-accent: #d7f24a;
   --color-accent-bright: #e7fb6d;
   --color-accent-dim: #b4d840;
-  --color-on-accent: #0b1510;
+  --color-on-accent: #040c07;
 
   /* Soft lime flourish (gradients only) */
   --color-lime-soft: #9ae05a;
@@ -69,8 +69,8 @@
 /* Non-token helpers reused by JS/GSAP and background layers */
 :root {
   --accent-glow-rgba: rgba(215, 242, 74, 0.3);
-  --ring-focus: 0 0 0 2px #0b1510, 0 0 0 4px #d7f24a;
-  --glass-bg: rgba(18, 30, 23, 0.6);
+  --ring-focus: 0 0 0 2px #040c07, 0 0 0 4px #d7f24a;
+  --glass-bg: rgba(9, 20, 13, 0.6);
   --glass-blur: blur(12px);
 }
 

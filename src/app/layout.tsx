@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   // any title truncation only trims the tail, not the name.
   title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
   description:
-    "Le Tran Gia Huy (Huy Le), also Lê Trần Gia Huy — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Ho Chi Minh City, Vietnam.",
+    "Le Tran Gia Huy (Huy Le), also Lê Trần Gia Huy, is a software engineer in Ho Chi Minh City, Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
   // Ignored by Google but used by some engines; carries the name variants.
   keywords: [
     "Le Tran Gia Huy",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
     description:
-      "Le Tran Gia Huy (Huy Le) — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
+      "Le Tran Gia Huy (Huy Le) is a software engineer in Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
     url: profile.url,
     siteName: profile.display,
     type: "website",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
     description:
-      "Le Tran Gia Huy (Huy Le) — Software Engineer building production web platforms in React, Next.js, and TypeScript. AI-native product work, from Vietnam.",
+      "Le Tran Gia Huy (Huy Le) is a software engineer in Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
   },
   verification: {
     // Google Search Console ownership: set GOOGLE_SITE_VERIFICATION in the deploy
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
 
 // Mobile browser UI colour (address bar / status bar), keyed to the dark ground.
 export const viewport: Viewport = {
-  themeColor: "#0b1510",
+  themeColor: "#040c07",
 };
 
 // Schema.org Person structured data — helps search engines build a knowledge

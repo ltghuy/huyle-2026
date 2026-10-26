@@ -155,7 +155,7 @@ export function IntroOverlay() {
       <div
         ref={scrimRef}
         className="absolute inset-0"
-        style={{ background: "var(--color-base, #0b1510)" }}
+        style={{ background: "var(--color-base, #040c07)" }}
       />
 
       {/* The wordmark: one continuous open stroke; drawn on, then faded out */}
