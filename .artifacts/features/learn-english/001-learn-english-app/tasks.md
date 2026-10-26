@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 5 | Remaining: 45
+Total: 50 | Completed: 13 | Remaining: 37
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -84,14 +84,14 @@ Run after each task or batch (from the repo root):
 
 ### Content pipeline (A1 first)
 
-- [ ] T007 [P] Write the content Zod schemas per kind (word, grammar, sentence, writing, placement) in `src/content/schema.ts`, shared by scripts, API and client
-  - **Done when:** unit tests accept a valid sample of each kind and reject missing fields, sentences without `acceptedOrders`, and unknown levels
+- [x] T007 [P] Write the content Zod schemas per kind (word, grammar, sentence, writing, placement) in `src/content/schema.ts`, shared by scripts, API and client
+  - **Done when:** unit tests accept a valid sample of each kind and reject missing fields, sentences without `acceptedOrders`, and unknown levels -- VERIFIED
 
-- [ ] T008 [B:T007] Write `scripts/import-wordlists.ts`: CEFR-J 1.5 + Octanove C1 CSVs (committed with their licence/citation files) → deduped word skeletons in `content/word/{level}.json` with `source`
-  - **Done when:** the script is idempotent; per-level counts are printed and match the source after dedupe; every row has `source`
+- [x] T008 [B:T007] Write `scripts/import-wordlists.ts`: CEFR-J 1.5 + Octanove C1 CSVs (committed with their licence/citation files) → deduped word skeletons in `content/word/{level}.json` with `source`
+  - **Done when:** the script is idempotent; per-level counts are printed and match the source after dedupe; every row has `source` -- VERIFIED
 
-- [ ] T009 [B:T008] Write `scripts/build-ipa.ts` + `scripts/lib/arpabet.ts`: CMUdict join, ARPAbet→IPA, maximal-onset stress placement; list words with no entry
-  - **Done when:** tests pass for a 30-word sample including stress and multi-syllable words (e.g. `homework` /ˈhoʊmˌwɝk/); a missing-entry report is written
+- [x] T009 [B:T008] Write `scripts/build-ipa.ts` + `scripts/lib/arpabet.ts`: CMUdict join, ARPAbet→IPA, maximal-onset stress placement; list words with no entry
+  - **Done when:** tests pass for a 30-word sample including stress and multi-syllable words (e.g. `homework` /ˈhoʊmˌwɝk/); a missing-entry report is written -- VERIFIED
 
 - [ ] T010 [B:T007] Write `scripts/draft-content.ts` (Batches API, structured outputs, `claude-opus-5-5`): words (meanings, topic, synonyms, 1–2 example sentences with tokens, accepted orders, wrong variants, gap candidates), grammar topics, writing tasks, placement bank; dry run on 20 A1 words with a cost report
   - **Done when:** the dry-run output validates against the schemas, and the **owner approves the projected full cost** before any larger run
@@ -118,20 +118,20 @@ Run after each task or batch (from the repo root):
 
 ### Learning engine (pure modules)
 
-- [ ] T017 [P] Write `src/learning/srs.ts` (ts-fsrs **5.4.2** exact, configured params) and `src/learning/rating.ts`
-  - **Done when:** tests pass: wrong → due within minutes; fast correct → growing intervals; slow (> 8 s), hint or typo → Hard; self-mark mapping; Easy never produced (AC-010, AC-013)
+- [x] T017 [P] Write `src/learning/srs.ts` (ts-fsrs **5.4.2** exact, configured params) and `src/learning/rating.ts`
+  - **Done when:** tests pass: wrong → due within minutes; fast correct → growing intervals; slow (> 8 s), hint or typo → Hard; self-mark mapping; Easy never produced (AC-010, AC-013) -- VERIFIED
 
 - [ ] T018 [P] Build the IndexedDB storage layer: `db.ts` (schema/upgrades via `idb`), repositories (cards, attempts with UUIDs, lessons, attendance, meta, content), `broadcast.ts`, persistence check + in-memory fallback, `navigator.storage.persist()`
   - **Done when:** `fake-indexeddb` tests pass, including concurrent attendance `add()` for one date producing one row (AC-005, AC-015)
 
-- [ ] T019 [P] Write `src/learning/normalize.ts`: Telex/VNI folding, case/space trim, variant spellings, sentence tokenizer
-  - **Done when:** tests pass for â→aa, ê→ee, ô→oo, ư→uw, ơ→ow, đ→dd, tone marks stripped; `colour` accepted for `color`
+- [x] T019 [P] Write `src/learning/normalize.ts`: Telex/VNI folding, case/space trim, variant spellings, sentence tokenizer
+  - **Done when:** tests pass for â→aa, ê→ee, ô→oo, ư→uw, ơ→ow, đ→dd, tone marks stripped; `colour` accepted for `color` -- VERIFIED
 
-- [ ] T020 [P] Write `src/learning/attendance.ts`: points, bonus at 7/30/100, current/longest streak in the learner's time zone
-  - **Done when:** tests cover a streak increment, a reset after a missed day, longest kept, bonuses, and a midnight boundary in `Asia/Ho_Chi_Minh` (AC-017, AC-018)
+- [x] T020 [P] Write `src/learning/attendance.ts`: points, bonus at 7/30/100, current/longest streak in the learner's time zone
+  - **Done when:** tests cover a streak increment, a reset after a missed day, longest kept, bonuses, and a midnight boundary in `Asia/Ho_Chi_Minh` (AC-017, AC-018) -- VERIFIED
 
-- [ ] T021 [P] Write `src/learning/hard-words.ts`: wrong in ≥ 3 of the last 8, or average > 8 s over the last 5; exit after 4 correct in a row under 5 s; difficulty sort
-  - **Done when:** tests cover each rule and the reason label (AC-030, AC-032)
+- [x] T021 [P] Write `src/learning/hard-words.ts`: wrong in ≥ 3 of the last 8, or average > 8 s over the last 5; exit after 4 correct in a row under 5 s; difficulty sort
+  - **Done when:** tests cover each rule and the reason label (AC-030, AC-032) -- VERIFIED
 
 - [ ] T022 [B:T019] Write the word exercise generators: `mcq`, `missing-letters`, `listening`, `recall`, `grammar-gap` (seeded)
   - **Done when:** tests pass: MCQ has 4 options with exactly one correct, with synonyms and shared meanings excluded; missing-letters rules (1 blank for ≤ 3 letters, never the first letter of longer words, never space/hyphen/apostrophe); the same seed gives the same instance (AC-027, AC-028)
@@ -142,8 +142,8 @@ Run after each task or batch (from the repo root):
 - [ ] T024 [B:T017,T022,T023] Write `src/learning/lesson-plan.ts`
   - **Done when:** tests pass: part order review → new words → grammar (every 2nd day or when due) → sentences → writing; MCQ mixed into parts; review cap 50 by lowest retrievability; 10 new words, or 5 when > 50 are overdue; deterministic per date; tombstoned items skipped; level change applies to the next plan (AC-012, AC-014, AC-022)
 
-- [ ] T025 [P] Write `src/learning/placement.ts`: staged test (start A2, 5 items per stage, up on ≥ 4/5, down on ≤ 2/5, stop at 30 items or when stable) → level
-  - **Done when:** tests cover the item cap, staging up and down, and the estimates for all-correct / all-wrong / mixed answers (AC-019)
+- [x] T025 [P] Write `src/learning/placement.ts`: staged test (start A2, 5 items per stage, up on ≥ 4/5, down on ≤ 2/5, stop at 30 items or when stable) → level
+  - **Done when:** tests cover the item cap, staging up and down, and the estimates for all-correct / all-wrong / mixed answers (AC-019) -- VERIFIED
 
 - [ ] T026 [B:T018] Write `src/learning/snapshot.ts`: schema, trimming (30 days of attempts + last 8 per item), summary, version migrations, gzip encode/decode
   - **Done when:** tests pass: round trip; damaged file rejected; newer version rejected; older version upgraded; a typical heavy profile stays < 1 MB gzipped (AC-042, AC-043)

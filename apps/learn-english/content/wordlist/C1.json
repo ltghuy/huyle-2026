@@ -1,0 +1,9452 @@
+[
+  {
+    "id": "word:exterior-n",
+    "headword": "exterior",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cloak-n",
+    "headword": "cloak",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:timid-adj",
+    "headword": "timid",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reluctantly-adv",
+    "headword": "reluctantly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:concur-v",
+    "headword": "concur",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:avid-adj",
+    "headword": "avid",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:marvel-v",
+    "headword": "marvel",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:enviable-adv",
+    "headword": "enviable",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:organizational-adj",
+    "headword": "organizational",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:psychiatrist-n",
+    "headword": "psychiatrist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:psychiatric-adj",
+    "headword": "psychiatric",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clinical-adj",
+    "headword": "clinical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:corps-n",
+    "headword": "corps",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:forensic-adj",
+    "headword": "forensic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:juvenile-n",
+    "headword": "juvenile",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:juvenile-adj",
+    "headword": "juvenile",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:jurisdiction-n",
+    "headword": "jurisdiction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:accustomed-adj",
+    "headword": "accustomed",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:trauma-n",
+    "headword": "trauma",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:traumatic-adj",
+    "headword": "traumatic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:constraint-n",
+    "headword": "constraint",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:revealing-adj",
+    "headword": "revealing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eccentric-adj",
+    "headword": "eccentric",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sanctity-n",
+    "headword": "sanctity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conform-v",
+    "headword": "conform",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:norms-n",
+    "headword": "norms",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quirk-n",
+    "headword": "quirk",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:oddity-n",
+    "headword": "oddity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compel-v",
+    "headword": "compel",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compulsion-n",
+    "headword": "compulsion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:assertion-n",
+    "headword": "assertion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:individuality-n",
+    "headword": "individuality",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:psyche-n",
+    "headword": "psyche",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conformity-n",
+    "headword": "conformity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unconventional-adj",
+    "headword": "unconventional",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:congregate-v",
+    "headword": "congregate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rally-v",
+    "headword": "rally",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resent-v",
+    "headword": "resent",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:self-conscious-adj",
+    "headword": "self-conscious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wary-adj",
+    "headword": "wary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stoke-v",
+    "headword": "stoke",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dynamically-adv",
+    "headword": "dynamically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hostess-n",
+    "headword": "hostess",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:perpetuate-v",
+    "headword": "perpetuate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:naturalness-n",
+    "headword": "naturalness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exhibitionist-n",
+    "headword": "exhibitionist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:isolate-v",
+    "headword": "isolate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:isolated-adj",
+    "headword": "isolated",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:humble-v",
+    "headword": "humble",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:refreshingly-adv",
+    "headword": "refreshingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:effortless-adj",
+    "headword": "effortless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:vegetation-n",
+    "headword": "vegetation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:brief-v",
+    "headword": "brief",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:respite-n",
+    "headword": "respite",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suffice-v",
+    "headword": "suffice",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:purity-n",
+    "headword": "purity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gruelling-adj",
+    "headword": "gruelling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:comprise-v",
+    "headword": "comprise",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plaster-n",
+    "headword": "plaster",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plaster-v",
+    "headword": "plaster",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:darkroom-n",
+    "headword": "darkroom",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:induct-v",
+    "headword": "induct",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:induction-n",
+    "headword": "induction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stock-v",
+    "headword": "stock",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fossil-n",
+    "headword": "fossil",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:geological-adj",
+    "headword": "geological",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:geologically-adv",
+    "headword": "geologically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:house-v",
+    "headword": "house",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:specimen-n",
+    "headword": "specimen",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:enormously-adv",
+    "headword": "enormously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gem-n",
+    "headword": "gem",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:explanatory-adj",
+    "headword": "explanatory",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:vertical-adj",
+    "headword": "vertical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:knowledgeable-adj",
+    "headword": "knowledgeable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ordinarily-adv",
+    "headword": "ordinarily",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hanging-n",
+    "headword": "hanging",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:formulate-v",
+    "headword": "formulate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resin-n",
+    "headword": "resin",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sacrifice-n",
+    "headword": "sacrifice",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sacrifice-v",
+    "headword": "sacrifice",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cleanly-adv",
+    "headword": "cleanly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:endorsement-n",
+    "headword": "endorsement",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stretching-n",
+    "headword": "stretching",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:continuity-n",
+    "headword": "continuity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:shambles-n",
+    "headword": "shambles",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:claustrophobic-adj",
+    "headword": "claustrophobic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:claustrophobia-n",
+    "headword": "claustrophobia",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:headstrong-adj",
+    "headword": "headstrong",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tact-n",
+    "headword": "tact",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tactful-adj",
+    "headword": "tactful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tactfully-adv",
+    "headword": "tactfully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:blister-n",
+    "headword": "blister",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:blister-v",
+    "headword": "blister",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sponsorship-n",
+    "headword": "sponsorship",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ego-n",
+    "headword": "ego",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:class-v",
+    "headword": "class",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:saloon-n",
+    "headword": "saloon",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:beforehand-adv",
+    "headword": "beforehand",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:slob-n",
+    "headword": "slob",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:coverage-n",
+    "headword": "coverage",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unplug-v",
+    "headword": "unplug",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gadget-n",
+    "headword": "gadget",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rediscover-v",
+    "headword": "rediscover",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:subtly-adv",
+    "headword": "subtly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:brainwash-v",
+    "headword": "brainwash",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:brainwashing-n",
+    "headword": "brainwashing",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:implicate-v",
+    "headword": "implicate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:craft-v",
+    "headword": "craft",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:malfunction-v",
+    "headword": "malfunction",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dependent-n",
+    "headword": "dependent",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wayside-n",
+    "headword": "wayside",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:expire-v",
+    "headword": "expire",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:con-v",
+    "headword": "con",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:con-n",
+    "headword": "con",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:puzzle-v",
+    "headword": "puzzle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:damply-adv",
+    "headword": "damply",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ghostly-adj",
+    "headword": "ghostly",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:carrier-n",
+    "headword": "carrier",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:washtub-n",
+    "headword": "washtub",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apt-adj",
+    "headword": "apt",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apt-to-v",
+    "headword": "apt to",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:portable-adj",
+    "headword": "portable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:portable-n",
+    "headword": "portable",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ornamental-adj",
+    "headword": "ornamental",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:placid-adj",
+    "headword": "placid",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:placidly-adv",
+    "headword": "placidly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unmanageable-adj",
+    "headword": "unmanageable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:appliance-n",
+    "headword": "appliance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:relinquish-v",
+    "headword": "relinquish",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tedious-adj",
+    "headword": "tedious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tedium-n",
+    "headword": "tedium",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exert-v",
+    "headword": "exert",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:extortion-n",
+    "headword": "extortion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:alleviate-v",
+    "headword": "alleviate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elaborate-adj",
+    "headword": "elaborate",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elaborate-v",
+    "headword": "elaborate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elaboration-n",
+    "headword": "elaboration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detest-v",
+    "headword": "detest",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detestable-adj",
+    "headword": "detestable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suds-n",
+    "headword": "suds",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:agreeable-adj",
+    "headword": "agreeable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prowl-v",
+    "headword": "prowl",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:speculate-v",
+    "headword": "speculate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:speculation-n",
+    "headword": "speculation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:speculative-adj",
+    "headword": "speculative",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:peacock-n",
+    "headword": "peacock",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:disdain-n",
+    "headword": "disdain",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reenact-v",
+    "headword": "reenact",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:torment-v",
+    "headword": "torment",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:torment-n",
+    "headword": "torment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:extravagance-n",
+    "headword": "extravagance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exploitation-n",
+    "headword": "exploitation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mechanism-n",
+    "headword": "mechanism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hence-adv",
+    "headword": "hence",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:offspring-n",
+    "headword": "offspring",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:oblige-v",
+    "headword": "oblige",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:collaborate-v",
+    "headword": "collaborate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:collaborator-n",
+    "headword": "collaborator",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:collaboration-n",
+    "headword": "collaboration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:collaborative-adj",
+    "headword": "collaborative",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:showy-adj",
+    "headword": "showy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wrangle-v",
+    "headword": "wrangle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:premise-n",
+    "headword": "premise",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:advantageous-adj",
+    "headword": "advantageous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:parasite-n",
+    "headword": "parasite",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fanciful-adj",
+    "headword": "fanciful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:poise-n",
+    "headword": "poise",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:customary-adj",
+    "headword": "customary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insightful-adj",
+    "headword": "insightful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:notable-adj",
+    "headword": "notable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:vicious-adj",
+    "headword": "vicious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:viciously-adv",
+    "headword": "viciously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:withdrawn-adj",
+    "headword": "withdrawn",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:torturous-adj",
+    "headword": "torturous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:depict-v",
+    "headword": "depict",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:depiction-n",
+    "headword": "depiction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:upheaval-n",
+    "headword": "upheaval",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:shortlist-v",
+    "headword": "shortlist",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:shortlist-n",
+    "headword": "shortlist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:uneventful-adj",
+    "headword": "uneventful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pertinent-adj",
+    "headword": "pertinent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pertain-to-v",
+    "headword": "pertain to",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:daydream-n",
+    "headword": "daydream",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:daydream-v",
+    "headword": "daydream",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:protagonist-n",
+    "headword": "protagonist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:simplicity-n",
+    "headword": "simplicity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:blockbuster-n",
+    "headword": "blockbuster",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resonate-v",
+    "headword": "resonate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sequel-n",
+    "headword": "sequel",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:irony-n",
+    "headword": "irony",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acidic-adj",
+    "headword": "acidic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:align-v",
+    "headword": "align",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:alignment-n",
+    "headword": "alignment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:manipulation-n",
+    "headword": "manipulation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suitor-n",
+    "headword": "suitor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:deceit-n",
+    "headword": "deceit",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:alienate-v",
+    "headword": "alienate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:persuasively-adv",
+    "headword": "persuasively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:confinement-n",
+    "headword": "confinement",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:minutiae-n",
+    "headword": "minutiae",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:peasant-n",
+    "headword": "peasant",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inexplicable-adj",
+    "headword": "inexplicable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inexplicably-adv",
+    "headword": "inexplicably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pigeon-n",
+    "headword": "pigeon",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:harass-v",
+    "headword": "harass",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:harassment-n",
+    "headword": "harassment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:believably-adv",
+    "headword": "believably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:readable-adj",
+    "headword": "readable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cleverness-n",
+    "headword": "cleverness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:persecute-v",
+    "headword": "persecute",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:persecution-n",
+    "headword": "persecution",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:smug-adj",
+    "headword": "smug",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:smugly-adv",
+    "headword": "smugly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ferocious-adj",
+    "headword": "ferocious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ferociously-adv",
+    "headword": "ferociously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hostile-adj",
+    "headword": "hostile",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hostility-n",
+    "headword": "hostility",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dismay-v",
+    "headword": "dismay",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dismay-n",
+    "headword": "dismay",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:methodical-adj",
+    "headword": "methodical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ruthless-adj",
+    "headword": "ruthless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ruthlessness-n",
+    "headword": "ruthlessness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:awe-v",
+    "headword": "awe",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clan-n",
+    "headword": "clan",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:privileged-adj",
+    "headword": "privileged",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:crumble-v",
+    "headword": "crumble",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:crumb-n",
+    "headword": "crumb",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pace-v",
+    "headword": "pace",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:closeness-n",
+    "headword": "closeness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rarity-n",
+    "headword": "rarity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:evoke-v",
+    "headword": "evoke",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:repel-v",
+    "headword": "repel",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:repellant-n",
+    "headword": "repellant",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:repellant-adj",
+    "headword": "repellant",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aqua-adj",
+    "headword": "aqua",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aquarium-n",
+    "headword": "aquarium",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insightfully-adv",
+    "headword": "insightfully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flashback-n",
+    "headword": "flashback",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:self-worth-n",
+    "headword": "self-worth",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cite-v",
+    "headword": "cite",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:citation-n",
+    "headword": "citation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ecstatically-adv",
+    "headword": "ecstatically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pleasurable-adj",
+    "headword": "pleasurable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:substantially-adv",
+    "headword": "substantially",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:favorably-adv",
+    "headword": "favorably",
+    "variants": [
+      "favourably"
+    ],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:diversity-n",
+    "headword": "diversity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elitist-n",
+    "headword": "elitist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:grumble-v",
+    "headword": "grumble",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rumble-v",
+    "headword": "rumble",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rumble-n",
+    "headword": "rumble",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:neglectful-adj",
+    "headword": "neglectful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:roundup-n",
+    "headword": "roundup",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conscientious-adj",
+    "headword": "conscientious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conscientiously-adv",
+    "headword": "conscientiously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:indefinite-adj",
+    "headword": "indefinite",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:indefinitely-adv",
+    "headword": "indefinitely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:atmospheric-adj",
+    "headword": "atmospheric",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fuse-v",
+    "headword": "fuse",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fusion-n",
+    "headword": "fusion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:robust-adj",
+    "headword": "robust",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:robustly-adv",
+    "headword": "robustly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dismal-adj",
+    "headword": "dismal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dismally-adv",
+    "headword": "dismally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:crave-v",
+    "headword": "crave",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:craving-n",
+    "headword": "craving",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prospective-adj",
+    "headword": "prospective",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:swap-v",
+    "headword": "swap",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remotely-adv",
+    "headword": "remotely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:splatter-v",
+    "headword": "splatter",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:automatic-v",
+    "headword": "automatic",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exhaust-v",
+    "headword": "exhaust",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:violet-adj",
+    "headword": "violet",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bubbly-adj",
+    "headword": "bubbly",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chaotically-adv",
+    "headword": "chaotically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apprehensive-adj",
+    "headword": "apprehensive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:settee-n",
+    "headword": "settee",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:trampoline-n",
+    "headword": "trampoline",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stamina-n",
+    "headword": "stamina",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ploy-n",
+    "headword": "ploy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dither-v",
+    "headword": "dither",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:overalls-n",
+    "headword": "overalls",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unison-n",
+    "headword": "unison",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:snail-n",
+    "headword": "snail",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bliss-n",
+    "headword": "bliss",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inexhaustible-adj",
+    "headword": "inexhaustible",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acre-n",
+    "headword": "acre",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:heifer-n",
+    "headword": "heifer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ewe-n",
+    "headword": "ewe",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:adversary-n",
+    "headword": "adversary",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:victorious-adj",
+    "headword": "victorious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:victoriously-adv",
+    "headword": "victoriously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:profound-adj",
+    "headword": "profound",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:profoundly-adv",
+    "headword": "profoundly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:baldly-adv",
+    "headword": "baldly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bald-v",
+    "headword": "bald",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bearded-adj",
+    "headword": "bearded",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:professionalism-n",
+    "headword": "professionalism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:artistically-adv",
+    "headword": "artistically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:popularization-n",
+    "headword": "popularization",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pendulum-n",
+    "headword": "pendulum",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:predecessor-n",
+    "headword": "predecessor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:boast-n",
+    "headword": "boast",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lapse-n",
+    "headword": "lapse",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ceaseless-adj",
+    "headword": "ceaseless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ceaselessly-adv",
+    "headword": "ceaselessly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:climax-n",
+    "headword": "climax",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:climactic-adj",
+    "headword": "climactic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:anticlimactic-adj",
+    "headword": "anticlimactic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scramble-n",
+    "headword": "scramble",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:forfeit-v",
+    "headword": "forfeit",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:twitch-v",
+    "headword": "twitch",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:twitch-n",
+    "headword": "twitch",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:intellect-n",
+    "headword": "intellect",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:descent-n",
+    "headword": "descent",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:shed-v",
+    "headword": "shed",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exodus-n",
+    "headword": "exodus",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:immortalize-v",
+    "headword": "immortalize",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:genome-n",
+    "headword": "genome",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fraction-n",
+    "headword": "fraction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:faction-n",
+    "headword": "faction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:physique-n",
+    "headword": "physique",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:utensil-n",
+    "headword": "utensil",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:otter-n",
+    "headword": "otter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clammy-adj",
+    "headword": "clammy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:absolute-n",
+    "headword": "absolute",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dispense-v",
+    "headword": "dispense",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dispensary-n",
+    "headword": "dispensary",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:diverge-v",
+    "headword": "diverge",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:divergence-n",
+    "headword": "divergence",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:divergent-adj",
+    "headword": "divergent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:burst-n",
+    "headword": "burst",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:superficial-adj",
+    "headword": "superficial",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:superficially-adv",
+    "headword": "superficially",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aesthetic-adj",
+    "headword": "aesthetic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aesthetically-adv",
+    "headword": "aesthetically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scrutinize-v",
+    "headword": "scrutinize",
+    "variants": [
+      "scrutinise"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scrutiny-n",
+    "headword": "scrutiny",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quip-n",
+    "headword": "quip",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quip-v",
+    "headword": "quip",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:woo-v",
+    "headword": "woo",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:criteria-n",
+    "headword": "criteria",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plausible-adj",
+    "headword": "plausible",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plausibility-n",
+    "headword": "plausibility",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plausibly-adv",
+    "headword": "plausibly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:instinctive-adj",
+    "headword": "instinctive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:instinctively-adv",
+    "headword": "instinctively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stylistic-adj",
+    "headword": "stylistic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stylistically-adv",
+    "headword": "stylistically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inheritance-n",
+    "headword": "inheritance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inherent-adj",
+    "headword": "inherent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inherently-adv",
+    "headword": "inherently",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tune-v",
+    "headword": "tune",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:spontaneous-adj",
+    "headword": "spontaneous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:spontaneously-adv",
+    "headword": "spontaneously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:honk-v",
+    "headword": "honk",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:honk-n",
+    "headword": "honk",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:goose-n",
+    "headword": "goose",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:innovate-v",
+    "headword": "innovate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:connoisseur-n",
+    "headword": "connoisseur",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:abstraction-n",
+    "headword": "abstraction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tantrum-n",
+    "headword": "tantrum",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:institute-v",
+    "headword": "institute",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:discard-v",
+    "headword": "discard",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fatality-n",
+    "headword": "fatality",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:angle-v",
+    "headword": "angle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stiffen-v",
+    "headword": "stiffen",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wooded-adj",
+    "headword": "wooded",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flatter-v",
+    "headword": "flatter",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flattery-n",
+    "headword": "flattery",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aimless-adj",
+    "headword": "aimless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aimlessly-adv",
+    "headword": "aimlessly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:meaningless-adj",
+    "headword": "meaningless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:meaninglessly-adv",
+    "headword": "meaninglessly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:candid-adj",
+    "headword": "candid",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:candidly-adv",
+    "headword": "candidly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:vitality-n",
+    "headword": "vitality",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:provoke-v",
+    "headword": "provoke",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:provocative-adj",
+    "headword": "provocative",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:provocatively-adv",
+    "headword": "provocatively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clench-v",
+    "headword": "clench",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:haggle-v",
+    "headword": "haggle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scorn-n",
+    "headword": "scorn",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scornful-adj",
+    "headword": "scornful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scornfully-adv",
+    "headword": "scornfully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:animatedly-adv",
+    "headword": "animatedly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:obscure-v",
+    "headword": "obscure",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:obscure-adj",
+    "headword": "obscure",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:obscurely-adv",
+    "headword": "obscurely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elevate-v",
+    "headword": "elevate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elevation-n",
+    "headword": "elevation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pose-v",
+    "headword": "pose",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tediously-adv",
+    "headword": "tediously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:succession-n",
+    "headword": "succession",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:formality-n",
+    "headword": "formality",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mountaineer-n",
+    "headword": "mountaineer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pioneer-v",
+    "headword": "pioneer",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pioneer-n",
+    "headword": "pioneer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quest-n",
+    "headword": "quest",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:transatlantic-adj",
+    "headword": "transatlantic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rudiments-n",
+    "headword": "rudiments",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rudimentary-adj",
+    "headword": "rudimentary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:paddle-v",
+    "headword": "paddle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:immense-adj",
+    "headword": "immense",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:immensely-adv",
+    "headword": "immensely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:advisory-adj",
+    "headword": "advisory",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:trying-adj",
+    "headword": "trying",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:adrenaline-n",
+    "headword": "adrenaline",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tinker-v",
+    "headword": "tinker",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tinker-n",
+    "headword": "tinker",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lavatory-n",
+    "headword": "lavatory",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pinnacle-n",
+    "headword": "pinnacle",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insecure-adj",
+    "headword": "insecure",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insecurely-adv",
+    "headword": "insecurely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reassure-v",
+    "headword": "reassure",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reassurance-n",
+    "headword": "reassurance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insensitive-adj",
+    "headword": "insensitive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insensitively-adv",
+    "headword": "insensitively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:profess-v",
+    "headword": "profess",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:drawback-n",
+    "headword": "drawback",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resort-v",
+    "headword": "resort",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:oversee-v",
+    "headword": "oversee",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:overseer-n",
+    "headword": "overseer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:estimation-n",
+    "headword": "estimation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:commission-v",
+    "headword": "commission",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:liaison-n",
+    "headword": "liaison",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stressfully-adv",
+    "headword": "stressfully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:loom-v",
+    "headword": "loom",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:notwithstanding-prep",
+    "headword": "notwithstanding",
+    "variants": [],
+    "pos": "preposition",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:structurally-adv",
+    "headword": "structurally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:structural-adj",
+    "headword": "structural",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chauffer-n",
+    "headword": "chauffer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chauffer-v",
+    "headword": "chauffer",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sedentary-adj",
+    "headword": "sedentary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rapport-n",
+    "headword": "rapport",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:landscape-v",
+    "headword": "landscape",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:consultation-n",
+    "headword": "consultation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:consultancy-n",
+    "headword": "consultancy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bloom-v",
+    "headword": "bloom",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:engineer-v",
+    "headword": "engineer",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:retention-n",
+    "headword": "retention",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quarry-n",
+    "headword": "quarry",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:specification-n",
+    "headword": "specification",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contract-v",
+    "headword": "contract",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contractor-n",
+    "headword": "contractor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:query-v",
+    "headword": "query",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:possessor-n",
+    "headword": "possessor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chill-v",
+    "headword": "chill",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chill-n",
+    "headword": "chill",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chilly-adj",
+    "headword": "chilly",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:frost-v",
+    "headword": "frost",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:frosty-adj",
+    "headword": "frosty",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:frostily-adv",
+    "headword": "frostily",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:man-v",
+    "headword": "man",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unmanned-adj",
+    "headword": "unmanned",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impersonal-adj",
+    "headword": "impersonal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impersonally-adv",
+    "headword": "impersonally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impersonate-v",
+    "headword": "impersonate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impersonator-n",
+    "headword": "impersonator",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impersonation-n",
+    "headword": "impersonation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:buzzer-n",
+    "headword": "buzzer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:desert-v",
+    "headword": "desert",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:desertion-n",
+    "headword": "desertion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unoccupied-adj",
+    "headword": "unoccupied",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stuffy-adj",
+    "headword": "stuffy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stuffily-adv",
+    "headword": "stuffily",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stuffiness-n",
+    "headword": "stuffiness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gape-v",
+    "headword": "gape",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:repute-v",
+    "headword": "repute",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:toughness-n",
+    "headword": "toughness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recall-n",
+    "headword": "recall",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plumbing-n",
+    "headword": "plumbing",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:usher-n",
+    "headword": "usher",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:glum-adj",
+    "headword": "glum",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:glumly-adv",
+    "headword": "glumly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gamely-adv",
+    "headword": "gamely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dissect-v",
+    "headword": "dissect",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dissection-n",
+    "headword": "dissection",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:commend-v",
+    "headword": "commend",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:commendation-n",
+    "headword": "commendation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:thereby-adv",
+    "headword": "thereby",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flick-v",
+    "headword": "flick",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flicker-n",
+    "headword": "flicker",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unenviable-adj",
+    "headword": "unenviable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unenviably-adv",
+    "headword": "unenviably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:voice-v",
+    "headword": "voice",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tread-n",
+    "headword": "tread",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:allege-v",
+    "headword": "allege",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bribe-v",
+    "headword": "bribe",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bribe-n",
+    "headword": "bribe",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bribery-n",
+    "headword": "bribery",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inclusion-n",
+    "headword": "inclusion",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inclusive-adj",
+    "headword": "inclusive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inclusively-adv",
+    "headword": "inclusively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unconvincing-adj",
+    "headword": "unconvincing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unconvincingly-adv",
+    "headword": "unconvincingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recharge-v",
+    "headword": "recharge",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:facilitation-n",
+    "headword": "facilitation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:condition-v",
+    "headword": "condition",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conditional-adj",
+    "headword": "conditional",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conditionally-adv",
+    "headword": "conditionally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tone-v",
+    "headword": "tone",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:supple-adj",
+    "headword": "supple",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:manicure-n",
+    "headword": "manicure",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:manicure-v",
+    "headword": "manicure",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pedicure-n",
+    "headword": "pedicure",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:facial-adj",
+    "headword": "facial",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:facial-n",
+    "headword": "facial",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bouquet-n",
+    "headword": "bouquet",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:refurbish-v",
+    "headword": "refurbish",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:refurbishment-n",
+    "headword": "refurbishment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:grounds-n",
+    "headword": "grounds",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ground-v",
+    "headword": "ground",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lethargy-n",
+    "headword": "lethargy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lethargic-adj",
+    "headword": "lethargic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lethargically-adv",
+    "headword": "lethargically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stately-adj",
+    "headword": "stately",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conserve-v",
+    "headword": "conserve",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conservatory-n",
+    "headword": "conservatory",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:disquieting-adj",
+    "headword": "disquieting",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiercely-adv",
+    "headword": "fiercely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:grapefruit-n",
+    "headword": "grapefruit",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exotically-adv",
+    "headword": "exotically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flask-n",
+    "headword": "flask",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:spacious-adj",
+    "headword": "spacious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gourmet-adj",
+    "headword": "gourmet",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gourmet-n",
+    "headword": "gourmet",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conjure-v",
+    "headword": "conjure",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:creamy-adj",
+    "headword": "creamy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sauna-n",
+    "headword": "sauna",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remedial-adj",
+    "headword": "remedial",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:posture-n",
+    "headword": "posture",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sedate-v",
+    "headword": "sedate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sedately-adv",
+    "headword": "sedately",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sedate-adj",
+    "headword": "sedate",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clutch-v",
+    "headword": "clutch",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clutch-n",
+    "headword": "clutch",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stagger-v",
+    "headword": "stagger",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:staggering-adj",
+    "headword": "staggering",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dutiful-adj",
+    "headword": "dutiful",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dutifully-adv",
+    "headword": "dutifully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:calorie-n",
+    "headword": "calorie",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:firm-v",
+    "headword": "firm",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fabulously-adv",
+    "headword": "fabulously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:premises-n",
+    "headword": "premises",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eclectic-adj",
+    "headword": "eclectic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eclectic-n",
+    "headword": "eclectic",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eclectically-adv",
+    "headword": "eclectically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:revere-v",
+    "headword": "revere",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:harbor-v",
+    "headword": "harbor",
+    "variants": [
+      "harbour"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recognizable-adj",
+    "headword": "recognizable",
+    "variants": [
+      "recognisable"
+    ],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recognizably-adv",
+    "headword": "recognizably",
+    "variants": [
+      "recognisably"
+    ],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:batter-v",
+    "headword": "batter",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:batter-n",
+    "headword": "batter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:batter-",
+    "headword": "batter",
+    "variants": [],
+    "pos": "",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unreliably-adv",
+    "headword": "unreliably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:waterfront-n",
+    "headword": "waterfront",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:amply-adv",
+    "headword": "amply",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:amplification-n",
+    "headword": "amplification",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:battered-adj",
+    "headword": "battered",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:comply-v",
+    "headword": "comply",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compliance-n",
+    "headword": "compliance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compliant-adj",
+    "headword": "compliant",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compliantly-adv",
+    "headword": "compliantly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:blankness-n",
+    "headword": "blankness",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exuberant-adj",
+    "headword": "exuberant",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exuberance-n",
+    "headword": "exuberance",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exuberantly-adv",
+    "headword": "exuberantly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:linear-adj",
+    "headword": "linear",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:linearly-adv",
+    "headword": "linearly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flourish-n",
+    "headword": "flourish",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:flourish-v",
+    "headword": "flourish",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:anchor-v",
+    "headword": "anchor",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:anchored-adj",
+    "headword": "anchored",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:domination-n",
+    "headword": "domination",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dominant-adj",
+    "headword": "dominant",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dominantly-adv",
+    "headword": "dominantly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:interject-v",
+    "headword": "interject",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:interjection-n",
+    "headword": "interjection",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gush-v",
+    "headword": "gush",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gushing-adj",
+    "headword": "gushing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gush-n",
+    "headword": "gush",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gushingly-adv",
+    "headword": "gushingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:voracious-adj",
+    "headword": "voracious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:voraciously-adv",
+    "headword": "voraciously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sketchbook-n",
+    "headword": "sketchbook",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sketch-n",
+    "headword": "sketch",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prop-v",
+    "headword": "prop",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prop-n",
+    "headword": "prop",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:imp-n",
+    "headword": "imp",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impish-adj",
+    "headword": "impish",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impishly-adv",
+    "headword": "impishly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wicked-adj",
+    "headword": "wicked",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wickedly-adv",
+    "headword": "wickedly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:macabre-adj",
+    "headword": "macabre",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gusto-n",
+    "headword": "gusto",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tantamount-adj",
+    "headword": "tantamount",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:antics-n",
+    "headword": "antics",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lapse-v",
+    "headword": "lapse",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:relapse-v",
+    "headword": "relapse",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:relapse-n",
+    "headword": "relapse",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impede-v",
+    "headword": "impede",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impediment-n",
+    "headword": "impediment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:taut-adj",
+    "headword": "taut",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tautly-adv",
+    "headword": "tautly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:jersey-n",
+    "headword": "jersey",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:jersey-adj",
+    "headword": "jersey",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:startling-adj",
+    "headword": "startling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:startlingly-adv",
+    "headword": "startlingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:slack-v",
+    "headword": "slack",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:slack-n",
+    "headword": "slack",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:slack-adj",
+    "headword": "slack",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:slackly-adv",
+    "headword": "slackly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unwavering-adj",
+    "headword": "unwavering",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unwaveringly-adv",
+    "headword": "unwaveringly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:removed-adj",
+    "headword": "removed",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:buffoon-n",
+    "headword": "buffoon",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:beguiling-adj",
+    "headword": "beguiling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:beguilingly-adv",
+    "headword": "beguilingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:blithely-adv",
+    "headword": "blithely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stray-v",
+    "headword": "stray",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stray-adj",
+    "headword": "stray",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stray-n",
+    "headword": "stray",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mythological-adj",
+    "headword": "mythological",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mythology-n",
+    "headword": "mythology",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:venerate-v",
+    "headword": "venerate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:veneration-n",
+    "headword": "veneration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ethical-adj",
+    "headword": "ethical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ethically-adv",
+    "headword": "ethically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:heroine-n",
+    "headword": "heroine",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:refreshing-adj",
+    "headword": "refreshing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:refresh-v",
+    "headword": "refresh",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:zany-adj",
+    "headword": "zany",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:devotee-n",
+    "headword": "devotee",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:salve-n",
+    "headword": "salve",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:salvation-n",
+    "headword": "salvation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:salvage-v",
+    "headword": "salvage",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:staccato-adj",
+    "headword": "staccato",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:staccato-adv",
+    "headword": "staccato",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:verve-n",
+    "headword": "verve",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:motley-adj",
+    "headword": "motley",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:preach-v",
+    "headword": "preach",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:preacher-n",
+    "headword": "preacher",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:justly-adv",
+    "headword": "justly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wry-adj",
+    "headword": "wry",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wryly-adv",
+    "headword": "wryly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:poetess-n",
+    "headword": "poetess",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:confide-v",
+    "headword": "confide",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sentient-adj",
+    "headword": "sentient",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sentiment-n",
+    "headword": "sentiment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sentimental-adj",
+    "headword": "sentimental",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sentimentally-adv",
+    "headword": "sentimentally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tangle-v",
+    "headword": "tangle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tangle-n",
+    "headword": "tangle",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tangled-adj",
+    "headword": "tangled",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:untangle-v",
+    "headword": "untangle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:untangled-adj",
+    "headword": "untangled",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:perceptive-adj",
+    "headword": "perceptive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:perceptively-adv",
+    "headword": "perceptively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:outset-n",
+    "headword": "outset",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tycoon-n",
+    "headword": "tycoon",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:launch-n",
+    "headword": "launch",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:engross-v",
+    "headword": "engross",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:engrossing-adj",
+    "headword": "engrossing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plague-v",
+    "headword": "plague",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:orphan-v",
+    "headword": "orphan",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detritus-n",
+    "headword": "detritus",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detriment-n",
+    "headword": "detriment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detrimental-adj",
+    "headword": "detrimental",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:detrimentally-adv",
+    "headword": "detrimentally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:domestically-adv",
+    "headword": "domestically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:domesticate-v",
+    "headword": "domesticate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:domestication-n",
+    "headword": "domestication",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eccentric-n",
+    "headword": "eccentric",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:eccentrically-adv",
+    "headword": "eccentrically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:render-v",
+    "headword": "render",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rendering-n",
+    "headword": "rendering",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pathos-n",
+    "headword": "pathos",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tailor-n",
+    "headword": "tailor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tailor-v",
+    "headword": "tailor",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:personalize-v",
+    "headword": "personalize",
+    "variants": [
+      "personalise"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:personalization-n",
+    "headword": "personalization",
+    "variants": [
+      "personalisation"
+    ],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:limitless-adj",
+    "headword": "limitless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apprentice-n",
+    "headword": "apprentice",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apprentice-v",
+    "headword": "apprentice",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:apprenticeship-n",
+    "headword": "apprenticeship",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:precision-n",
+    "headword": "precision",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:swap-n",
+    "headword": "swap",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:perfect-v",
+    "headword": "perfect",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:silhouette-n",
+    "headword": "silhouette",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:nondescript-adj",
+    "headword": "nondescript",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:signal-v",
+    "headword": "signal",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:negligible-adj",
+    "headword": "negligible",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:negligent-adj",
+    "headword": "negligent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:negligently-adv",
+    "headword": "negligently",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:principally-adv",
+    "headword": "principally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:altruism-n",
+    "headword": "altruism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:altruistic-adj",
+    "headword": "altruistic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scenario-n",
+    "headword": "scenario",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:voluntary-adj",
+    "headword": "voluntary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:voluntarily-adv",
+    "headword": "voluntarily",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reap-v",
+    "headword": "reap",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:paternal-adj",
+    "headword": "paternal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:maternal-adj",
+    "headword": "maternal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:maternalistic-adj",
+    "headword": "maternalistic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:paternalistic-adj",
+    "headword": "paternalistic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:provisions-n",
+    "headword": "provisions",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:injustice-n",
+    "headword": "injustice",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impoverished-adj",
+    "headword": "impoverished",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unsustainable-adj",
+    "headword": "unsustainable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unsustainably-adv",
+    "headword": "unsustainably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sustainable-adj",
+    "headword": "sustainable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sustainably-adv",
+    "headword": "sustainably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bypass-v",
+    "headword": "bypass",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:imperative-adj",
+    "headword": "imperative",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cynic-n",
+    "headword": "cynic",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cynical-adj",
+    "headword": "cynical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cynically-adv",
+    "headword": "cynically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cynicism-n",
+    "headword": "cynicism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sarcasm-n",
+    "headword": "sarcasm",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sarcastic-adj",
+    "headword": "sarcastic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sarcastically-adv",
+    "headword": "sarcastically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:misplace-v",
+    "headword": "misplace",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:symptomatic-adj",
+    "headword": "symptomatic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:degrade-v",
+    "headword": "degrade",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:degrading-adj",
+    "headword": "degrading",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:degradation-n",
+    "headword": "degradation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:discourse-n",
+    "headword": "discourse",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:amid-prep",
+    "headword": "amid",
+    "variants": [],
+    "pos": "preposition",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hedgehog-n",
+    "headword": "hedgehog",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:nocturnal-adj",
+    "headword": "nocturnal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hibernate-v",
+    "headword": "hibernate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hibernation-n",
+    "headword": "hibernation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:convict-v",
+    "headword": "convict",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:convict-n",
+    "headword": "convict",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:conviction-n",
+    "headword": "conviction",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:latent-adj",
+    "headword": "latent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:snooze-v",
+    "headword": "snooze",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:classy-adj",
+    "headword": "classy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wrench-v",
+    "headword": "wrench",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reminisce-v",
+    "headword": "reminisce",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:reminiscent-adj",
+    "headword": "reminiscent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:intuit-v",
+    "headword": "intuit",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:intuition-n",
+    "headword": "intuition",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:intuitive-adj",
+    "headword": "intuitive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:intuitively-adv",
+    "headword": "intuitively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:marginal-adj",
+    "headword": "marginal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:marginally-adv",
+    "headword": "marginally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:crude-adj",
+    "headword": "crude",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:crudely-adv",
+    "headword": "crudely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:strap-n",
+    "headword": "strap",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:strap-v",
+    "headword": "strap",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:strapping-adj",
+    "headword": "strapping",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scoff-v",
+    "headword": "scoff",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiddly-adj",
+    "headword": "fiddly",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiddler-n",
+    "headword": "fiddler",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiddle-v",
+    "headword": "fiddle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiddle-n",
+    "headword": "fiddle",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unmusical-adj",
+    "headword": "unmusical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unmusically-adv",
+    "headword": "unmusically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:repertory-n",
+    "headword": "repertory",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:concerto-n",
+    "headword": "concerto",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:premier-adj",
+    "headword": "premier",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:premier-n",
+    "headword": "premier",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fanatic-n",
+    "headword": "fanatic",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fanatic-adj",
+    "headword": "fanatic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fanatically-adv",
+    "headword": "fanatically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acoustically-adv",
+    "headword": "acoustically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acoustic-adj",
+    "headword": "acoustic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acoustics-n",
+    "headword": "acoustics",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:compromised-adj",
+    "headword": "compromised",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:daunt-v",
+    "headword": "daunt",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:daunting-adj",
+    "headword": "daunting",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:realist-n",
+    "headword": "realist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:realism-n",
+    "headword": "realism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recess-n",
+    "headword": "recess",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:recessive-adj",
+    "headword": "recessive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prolific-adj",
+    "headword": "prolific",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prolifically-adv",
+    "headword": "prolifically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:proliferate-v",
+    "headword": "proliferate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fragmentation-n",
+    "headword": "fragmentation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:campaign-v",
+    "headword": "campaign",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:astray-adv",
+    "headword": "astray",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:duration-n",
+    "headword": "duration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:durable-adj",
+    "headword": "durable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:durable-n",
+    "headword": "durable",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:likelihood-n",
+    "headword": "likelihood",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:naive-adj",
+    "headword": "naive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:naively-adv",
+    "headword": "naively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:naivety-n",
+    "headword": "naivety",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:impervious-adj",
+    "headword": "impervious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ludicrous-adj",
+    "headword": "ludicrous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ludicrously-adv",
+    "headword": "ludicrously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cost-effective-adj",
+    "headword": "cost-effective",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gruesome-adj",
+    "headword": "gruesome",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gruesomely-adv",
+    "headword": "gruesomely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:envisage-v",
+    "headword": "envisage",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:screenwriter-n",
+    "headword": "screenwriter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mingle-v",
+    "headword": "mingle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:churn-v",
+    "headword": "churn",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:buffer-v",
+    "headword": "buffer",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:buffer-n",
+    "headword": "buffer",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:irate-adj",
+    "headword": "irate",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:irately-adv",
+    "headword": "irately",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:docile-adj",
+    "headword": "docile",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:docilely-adv",
+    "headword": "docilely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiend-n",
+    "headword": "fiend",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiendish-adj",
+    "headword": "fiendish",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fiendishly-adv",
+    "headword": "fiendishly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:transfix-v",
+    "headword": "transfix",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gypsy-n",
+    "headword": "gypsy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:temperament-n",
+    "headword": "temperament",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:temperamental-adj",
+    "headword": "temperamental",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:temperamentally-adv",
+    "headword": "temperamentally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:screenplay-n",
+    "headword": "screenplay",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:disillusionment-n",
+    "headword": "disillusionment",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demise-n",
+    "headword": "demise",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:raunchy-adj",
+    "headword": "raunchy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:raunchily-adv",
+    "headword": "raunchily",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:overdraft-v",
+    "headword": "overdraft",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:overdraft-n",
+    "headword": "overdraft",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:synopsis-n",
+    "headword": "synopsis",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:renown-n",
+    "headword": "renown",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contest-v",
+    "headword": "contest",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contested-adj",
+    "headword": "contested",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:verandah-n",
+    "headword": "verandah",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:occupational-adj",
+    "headword": "occupational",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:verdict-n",
+    "headword": "verdict",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ventilate-v",
+    "headword": "ventilate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ventilation-n",
+    "headword": "ventilation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:occupant-n",
+    "headword": "occupant",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:radiator-n",
+    "headword": "radiator",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:homely-adj",
+    "headword": "homely",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bureaucratic-adj",
+    "headword": "bureaucratic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bureaucratically-adv",
+    "headword": "bureaucratically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:adjustable-adj",
+    "headword": "adjustable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fatigue-n",
+    "headword": "fatigue",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:muscular-adj",
+    "headword": "muscular",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:versatile-adj",
+    "headword": "versatile",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:versatility-n",
+    "headword": "versatility",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:stimuli-n",
+    "headword": "stimuli",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:uninspiring-adj",
+    "headword": "uninspiring",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mutually-adv",
+    "headword": "mutually",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:somber-adj",
+    "headword": "somber",
+    "variants": [
+      "sombre"
+    ],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:somberly-adv",
+    "headword": "somberly",
+    "variants": [
+      "sombrely"
+    ],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clutter-n",
+    "headword": "clutter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:clutter-v",
+    "headword": "clutter",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lodge-v",
+    "headword": "lodge",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dislodge-v",
+    "headword": "dislodge",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:carpenter-n",
+    "headword": "carpenter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:carpentry-n",
+    "headword": "carpentry",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:transit-n",
+    "headword": "transit",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plummet-v",
+    "headword": "plummet",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:circulate-v",
+    "headword": "circulate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:circulation-n",
+    "headword": "circulation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demography-n",
+    "headword": "demography",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demographic-adj",
+    "headword": "demographic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demographic-n",
+    "headword": "demographic",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demographically-adv",
+    "headword": "demographically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:phenomenal-adj",
+    "headword": "phenomenal",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:phenomenally-adv",
+    "headword": "phenomenally",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prophet-n",
+    "headword": "prophet",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prophetic-adj",
+    "headword": "prophetic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:paywall-n",
+    "headword": "paywall",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:firewall-n",
+    "headword": "firewall",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:invoice-n",
+    "headword": "invoice",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demolition-n",
+    "headword": "demolition",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:demo-n",
+    "headword": "demo",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gig-n",
+    "headword": "gig",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:socialization-n",
+    "headword": "socialization",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:antiquity-n",
+    "headword": "antiquity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:antiquated-adj",
+    "headword": "antiquated",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:restoration-n",
+    "headword": "restoration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:restorative-adj",
+    "headword": "restorative",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rotate-v",
+    "headword": "rotate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:till-n",
+    "headword": "till",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:coupled-adj",
+    "headword": "coupled",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:itinerary-n",
+    "headword": "itinerary",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:charter-v",
+    "headword": "charter",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:charter-n",
+    "headword": "charter",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:terrain-n",
+    "headword": "terrain",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resilient-adj",
+    "headword": "resilient",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:resilience-n",
+    "headword": "resilience",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:enterprising-adj",
+    "headword": "enterprising",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:integral-adj",
+    "headword": "integral",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:canoe-n",
+    "headword": "canoe",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:magnetic-adj",
+    "headword": "magnetic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:magnetism-n",
+    "headword": "magnetism",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:magnetically-adv",
+    "headword": "magnetically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:credible-adj",
+    "headword": "credible",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:credibly-adv",
+    "headword": "credibly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:credibility-n",
+    "headword": "credibility",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:credential-n",
+    "headword": "credential",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:acutely-adv",
+    "headword": "acutely",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prohibitive-adj",
+    "headword": "prohibitive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:prohibitively-adv",
+    "headword": "prohibitively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fissure-n",
+    "headword": "fissure",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pendulous-adj",
+    "headword": "pendulous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suspension-n",
+    "headword": "suspension",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:aboard-prep",
+    "headword": "aboard",
+    "variants": [],
+    "pos": "preposition",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:drill-v",
+    "headword": "drill",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:anthropology-n",
+    "headword": "anthropology",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:anthropologist-n",
+    "headword": "anthropologist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:squander-v",
+    "headword": "squander",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:munch-v",
+    "headword": "munch",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:adjoin-v",
+    "headword": "adjoin",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:adjoining-adj",
+    "headword": "adjoining",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wizened-adj",
+    "headword": "wizened",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:graft-v",
+    "headword": "graft",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:orchard-n",
+    "headword": "orchard",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:seedling-n",
+    "headword": "seedling",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tract-n",
+    "headword": "tract",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:folktale-n",
+    "headword": "folktale",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sprout-v",
+    "headword": "sprout",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sprout-n",
+    "headword": "sprout",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hypocrisy-n",
+    "headword": "hypocrisy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hypocrite-n",
+    "headword": "hypocrite",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hypocritical-adj",
+    "headword": "hypocritical",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hypocritically-adv",
+    "headword": "hypocritically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:midwife-n",
+    "headword": "midwife",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:harvest-v",
+    "headword": "harvest",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:commercially-adv",
+    "headword": "commercially",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:uniformity-n",
+    "headword": "uniformity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:numb-adj",
+    "headword": "numb",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:numb-v",
+    "headword": "numb",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tastebud-n",
+    "headword": "tastebud",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:amateur-n",
+    "headword": "amateur",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:amateur-adj",
+    "headword": "amateur",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:retrace-v",
+    "headword": "retrace",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chart-v",
+    "headword": "chart",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insubordinate-adj",
+    "headword": "insubordinate",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insubordination-n",
+    "headword": "insubordination",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:insubordinately-adv",
+    "headword": "insubordinately",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:subordinate-n",
+    "headword": "subordinate",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:primitively-adv",
+    "headword": "primitively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:embark-v",
+    "headword": "embark",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:expedite-v",
+    "headword": "expedite",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contextual-adj",
+    "headword": "contextual",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:contextually-adv",
+    "headword": "contextually",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:whilst-conj",
+    "headword": "whilst",
+    "variants": [],
+    "pos": "conjunction",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:maneuver-v",
+    "headword": "maneuver",
+    "variants": [
+      "manoeuvre"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:maneuver-n",
+    "headword": "maneuver",
+    "variants": [
+      "manoeuvre"
+    ],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:riveting-adj",
+    "headword": "riveting",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plunge-v",
+    "headword": "plunge",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plunge-n",
+    "headword": "plunge",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:debut-n",
+    "headword": "debut",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:debut-v",
+    "headword": "debut",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:turmoil-n",
+    "headword": "turmoil",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:scathing-adj",
+    "headword": "scathing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unscathing-adj",
+    "headword": "unscathing",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:convoluted-adj",
+    "headword": "convoluted",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:undaunted-adj",
+    "headword": "undaunted",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gutsy-adj",
+    "headword": "gutsy",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:deprivation-n",
+    "headword": "deprivation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:farce-n",
+    "headword": "farce",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:portray-v",
+    "headword": "portray",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:portrayal-n",
+    "headword": "portrayal",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elusive-adj",
+    "headword": "elusive",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elude-v",
+    "headword": "elude",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:incisor-n",
+    "headword": "incisor",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:incision-n",
+    "headword": "incision",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chisel-v",
+    "headword": "chisel",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chiselled-adj",
+    "headword": "chiselled",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:gnaw-v",
+    "headword": "gnaw",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elongate-v",
+    "headword": "elongate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:telltale-adj",
+    "headword": "telltale",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cavity-n",
+    "headword": "cavity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rustle-v",
+    "headword": "rustle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:rustle-n",
+    "headword": "rustle",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:glean-v",
+    "headword": "glean",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:niche-n",
+    "headword": "niche",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:somersault-n",
+    "headword": "somersault",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:somersault-v",
+    "headword": "somersault",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exhilarate-v",
+    "headword": "exhilarate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exhilarating-adj",
+    "headword": "exhilarating",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:exhilaration-n",
+    "headword": "exhilaration",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:physicality-n",
+    "headword": "physicality",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hack-v",
+    "headword": "hack",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:hack-n",
+    "headword": "hack",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lust-n",
+    "headword": "lust",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unsettling-adj",
+    "headword": "unsettling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unsettle-v",
+    "headword": "unsettle",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suburban-adj",
+    "headword": "suburban",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:suburbia-n",
+    "headword": "suburbia",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:dramatist-n",
+    "headword": "dramatist",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:characterization-n",
+    "headword": "characterization",
+    "variants": [
+      "characterisation"
+    ],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quirky-adj",
+    "headword": "quirky",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:quirky-n",
+    "headword": "quirky",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sprawl-n",
+    "headword": "sprawl",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sprawl-v",
+    "headword": "sprawl",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ingenuity-n",
+    "headword": "ingenuity",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:panorama-n",
+    "headword": "panorama",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:panoramic-adj",
+    "headword": "panoramic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:benign-adj",
+    "headword": "benign",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:benignly-adv",
+    "headword": "benignly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:explosively-adv",
+    "headword": "explosively",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bequeath-v",
+    "headword": "bequeath",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:legacy-n",
+    "headword": "legacy",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:synthetic-adj",
+    "headword": "synthetic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:synthetically-adv",
+    "headword": "synthetically",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:lackluster-adj",
+    "headword": "lackluster",
+    "variants": [
+      "lacklustre"
+    ],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elastic-n",
+    "headword": "elastic",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:elastic-adj",
+    "headword": "elastic",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:appall-v",
+    "headword": "appall",
+    "variants": [
+      "appal"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:appalling-adj",
+    "headword": "appalling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:appallingly-adv",
+    "headword": "appallingly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:pounce-v",
+    "headword": "pounce",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:abound-v",
+    "headword": "abound",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:sap-n",
+    "headword": "sap",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:monotonous-adj",
+    "headword": "monotonous",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:monotonously-adv",
+    "headword": "monotonously",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:monotony-n",
+    "headword": "monotony",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:turn-to-v",
+    "headword": "turn to",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:ingenious-adj",
+    "headword": "ingenious",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:plaque-n",
+    "headword": "plaque",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:neutralize-v",
+    "headword": "neutralize",
+    "variants": [
+      "neutralise"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:neutralization-n",
+    "headword": "neutralization",
+    "variants": [
+      "neutralisation"
+    ],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:salivate-v",
+    "headword": "salivate",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:cessation-n",
+    "headword": "cessation",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remorse-n",
+    "headword": "remorse",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remorseless-adj",
+    "headword": "remorseless",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remorsefully-adv",
+    "headword": "remorsefully",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:remorselessly-adv",
+    "headword": "remorselessly",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inexcusable-adj",
+    "headword": "inexcusable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:inexcusably-adv",
+    "headword": "inexcusably",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:unassisted-adj",
+    "headword": "unassisted",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:heighten-v",
+    "headword": "heighten",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:fixture-n",
+    "headword": "fixture",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bulk-n",
+    "headword": "bulk",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bulky-adj",
+    "headword": "bulky",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:bulk-up-v",
+    "headword": "bulk up",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:digitalize-v",
+    "headword": "digitalize",
+    "variants": [
+      "digitalise"
+    ],
+    "pos": "verb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:digitalization-n",
+    "headword": "digitalization",
+    "variants": [
+      "digitalisation"
+    ],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:mark-up-n",
+    "headword": "mark-up",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:complementary-adj",
+    "headword": "complementary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:complimentary-adj",
+    "headword": "complimentary",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:staple-n",
+    "headword": "staple",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:wares-n",
+    "headword": "wares",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:testament-n",
+    "headword": "testament",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:succulent-n",
+    "headword": "succulent",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:succulent-adj",
+    "headword": "succulent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:succulently-adv",
+    "headword": "succulently",
+    "variants": [],
+    "pos": "adverb",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tranquil-adj",
+    "headword": "tranquil",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:tranquility-n",
+    "headword": "tranquility",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:spartan-adj",
+    "headword": "spartan",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:peninsula-n",
+    "headword": "peninsula",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:billiards-n",
+    "headword": "billiards",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "octanove-1.0",
+    "topicHints": []
+  }
+]
