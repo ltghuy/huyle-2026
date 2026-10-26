@@ -80,6 +80,9 @@ Cross-feature decisions, gotchas, and codebase discoveries. Owned by spec-driven
 - **Turborepo strict env mode hides undeclared env vars.** Any env var read during
   `next build` (today `GOOGLE_SITE_VERIFICATION`) must be in the `build` task's
   `env` in `turbo.json`, or the build silently renders without it.
+- **`.claude/rules` frontmatter: only `paths:` is read.** Any other key (this repo
+  used `appliesTo:`) is ignored without an error, so the rule silently loads for
+  every file. Verified in the Claude Code memory docs (2026-10-26, feature 005).
 - **Path-scoped agent rules break on moves.** `.claude/rules/*.md` `paths:` globs
   are repo-relative; moving source (e.g. into `apps/web/`) silently stops the rule
   from activating unless the globs move too.
