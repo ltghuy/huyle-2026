@@ -15,6 +15,11 @@ export interface Profile {
    *  for SEO metadata (`metadataBase`, canonical, OpenGraph), robots.txt, and
    *  the sitemap. */
   url: string;
+  /** Last significant content change (YYYY-MM-DD). Feeds the sitemap
+   *  `lastmod` and the ProfilePage `dateModified` — Google only trusts lastmod
+   *  that is consistently accurate, so bump this when the content changes
+   *  rather than stamping every build. */
+  updated: string;
 }
 
 export const profile: Profile = {
@@ -26,4 +31,5 @@ export const profile: Profile = {
   location: "Ho Chi Minh City, Vietnam",
   monogram: "HL",
   url: "https://huyle.work",
+  updated: "2026-10-26",
 };

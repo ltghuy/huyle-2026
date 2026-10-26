@@ -9,7 +9,7 @@ import { ScrollPortrait } from "@/components/hero/ScrollPortrait.client";
 import { OrbField } from "@/components/motion/OrbField.client";
 import { LocaleProvider } from "@/lib/i18n/LocaleProvider.client";
 import { profile } from "@/content/profile";
-import { socials } from "@/content/socials";
+import { JsonLd, siteGraph } from "@/lib/jsonLd";
 import "./globals.css";
 
 // Font-swap CLS: next/font already injects `adjustFontFallback` metric overrides
@@ -39,16 +39,24 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
+// Front-load the full legal name so the page ranks for "Le Tran Gia Huy"
+// queries (the display name "Huy Le" already ranks). The name is first, so any
+// title truncation only trims the tail, not the name.
+const TITLE = "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development";
+const DESCRIPTION =
+  "Le Tran Gia Huy (Huy Le), also Lê Trần Gia Huy, is a software engineer in Ho Chi Minh City, Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.";
+const SHARE_DESCRIPTION =
+  "Le Tran Gia Huy (Huy Le) is a software engineer in Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.";
+
 export const metadata: Metadata = {
   // Absolute base for canonical / OpenGraph / Twitter URLs (crawlers + social
   // embeds require absolute URLs). Single source of truth: profile.url.
   metadataBase: new URL(profile.url),
-  // Front-load the full legal name so the page ranks for "Le Tran Gia Huy"
-  // queries (the display name "Huy Le" already ranks). The name is first, so
-  // any title truncation only trims the tail, not the name.
-  title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
-  description:
-    "Le Tran Gia Huy (Huy Le), also Lê Trần Gia Huy, is a software engineer in Ho Chi Minh City, Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
+  title: TITLE,
+  description: DESCRIPTION,
+  applicationName: profile.display,
+  authors: [{ name: profile.name, url: profile.url }],
+  creator: profile.name,
   // Ignored by Google but used by some engines; carries the name variants.
   keywords: [
     "Le Tran Gia Huy",
@@ -64,20 +72,34 @@ export const metadata: Metadata = {
     "Vietnam",
   ],
   alternates: { canonical: "/" },
+  // Indexable, and let Google show full-length snippets and large image
+  // previews (Search, Discover) instead of the conservative defaults.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
-    description:
-      "Le Tran Gia Huy (Huy Le) is a software engineer in Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
+    title: TITLE,
+    description: SHARE_DESCRIPTION,
     url: profile.url,
     siteName: profile.display,
-    type: "website",
+    type: "profile",
+    firstName: "Huy",
+    lastName: "Le",
+    username: "ltghuy",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Le Tran Gia Huy (Huy Le) — Software Engineer · AI-Native Development",
-    description:
-      "Le Tran Gia Huy (Huy Le) is a software engineer in Vietnam, building production web platforms and AI-native products in React, Next.js, and TypeScript.",
+    title: TITLE,
+    description: SHARE_DESCRIPTION,
   },
   verification: {
     // Google Search Console ownership: set GOOGLE_SITE_VERIFICATION in the deploy
@@ -93,44 +115,6 @@ export const metadata: Metadata = {
 // Mobile browser UI colour (address bar / status bar), keyed to the dark ground.
 export const viewport: Viewport = {
   themeColor: "#040c07",
-};
-
-// Schema.org Person structured data — helps search engines build a knowledge
-// panel and connect this site to Huy's profiles. Rendered as JSON-LD below.
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  // Every name form people search for — the diacritic Vietnamese spelling
-  // (used by Google's VN index and knowledge panel), the display name, and the
-  // common Western-order variant — so the entity resolves to this page.
-  alternateName: ["Huy Le", "Lê Trần Gia Huy", "Gia Huy Le"],
-  givenName: "Huy",
-  familyName: "Le",
-  url: profile.url,
-  mainEntityOfPage: profile.url,
-  image: `${profile.url}/assets/evan.png`,
-  jobTitle: "Software Engineer",
-  description: profile.summary,
-  email: "letrangiahuy0507@gmail.com",
-  nationality: { "@type": "Country", name: "Vietnam" },
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Frontend engineering",
-    "AI-native development",
-    "Web performance",
-    "Design systems",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Ho Chi Minh City",
-    addressCountry: "VN",
-  },
-  sameAs: socials
-    .map((s) => s.href)
-    .filter((href) => href.startsWith("http")),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -166,11 +150,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               "(function(){try{var l=localStorage.getItem('evan-locale');if(l==='vi'||l==='en'){document.documentElement.lang=l;}}catch(e){}})();",
           }}
         />
-        {/* Person structured data (JSON-LD) for search engines. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
+        {/* Person / WebSite / ProfilePage structured data for search engines. */}
+        <JsonLd data={siteGraph(DESCRIPTION)} />
         <LocaleProvider>
           {/* First focusable element — lets keyboard users bypass the fixed nav. */}
           <SkipLink />
