@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 16 | Remaining: 34
+Total: 50 | Completed: 18 | Remaining: 32
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -133,11 +133,11 @@ Run after each task or batch (from the repo root):
 - [x] T021 [P] Write `src/learning/hard-words.ts`: wrong in ≥ 3 of the last 8, or average > 8 s over the last 5; exit after 4 correct in a row under 5 s; difficulty sort
   - **Done when:** tests cover each rule and the reason label (AC-030, AC-032) -- VERIFIED
 
-- [ ] T022 [B:T019] Write the word exercise generators: `mcq`, `missing-letters`, `listening`, `recall`, `grammar-gap` (seeded)
-  - **Done when:** tests pass: MCQ has 4 options with exactly one correct, with synonyms and shared meanings excluded; missing-letters rules (1 blank for ≤ 3 letters, never the first letter of longer words, never space/hyphen/apostrophe); the same seed gives the same instance (AC-027, AC-028)
+- [x] T022 [B:T019] Write the word exercise generators: `mcq`, `missing-letters`, `listening`, `recall`, `grammar-gap` (seeded)
+  - **Done when:** tests pass: MCQ has 4 options with exactly one correct, with synonyms and shared meanings excluded; missing-letters rules (1 blank for ≤ 3 letters, never the first letter of longer words, never space/hyphen/apostrophe); the same seed gives the same instance (AC-027, AC-028) -- VERIFIED
 
-- [ ] T023 [B:T019] Write the sentence exercise generators + graders: `word-order`, `sentence-gap`, `choose-sentence`, `tile-translate`
-  - **Done when:** tests pass: every accepted order is accepted; duplicate tokens are interchangeable; tile distractors never form a valid sentence; choose-sentence has exactly one correct option (AC-033, AC-034)
+- [x] T023 [B:T019] Write the sentence exercise generators + graders: `word-order`, `sentence-gap`, `choose-sentence`, `tile-translate`
+  - **Done when:** tests pass: every accepted order is accepted; duplicate tokens are interchangeable; tile distractors never form a valid sentence; choose-sentence has exactly one correct option (AC-033, AC-034) -- VERIFIED
 
 - [ ] T024 [B:T017,T022,T023] Write `src/learning/lesson-plan.ts`
   - **Done when:** tests pass: part order review → new words → grammar (every 2nd day or when due) → sentences → writing; MCQ mixed into parts; review cap 50 by lowest retrievability; 10 new words, or 5 when > 50 are overdue; deterministic per date; tombstoned items skipped; level change applies to the next plan (AC-012, AC-014, AC-022)
