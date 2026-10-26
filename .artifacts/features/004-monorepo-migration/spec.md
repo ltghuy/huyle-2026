@@ -16,9 +16,9 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 ## Goals
 
-- [ ] The live site is identical for visitors before and after the move (same pages, same metadata endpoints, same deploy target).
+- [x] The live site is identical for visitors before and after the move (same pages, same metadata endpoints, same deploy target).
 - [ ] Every developer workflow that works today (develop, build, lint, type-check, unit tests, end-to-end tests, local preview, deploy) works from the repository root after the move.
-- [ ] Adding a second app requires only creating it in the apps area and reusing the shared configuration; no change to existing app code or root tooling beyond registering it.
+- [x] Adding a second app requires only creating it in the apps area and reusing the shared configuration; no change to existing app code or root tooling beyond registering it.
 
 ## Out of Scope
 
@@ -92,10 +92,10 @@ The repository holds exactly one website, laid out as a single project. The owne
 
 ## Success Criteria
 
-- [ ] All gates that passed after the pnpm switch pass after the move: frozen install, lint, type-check, 22/22 unit, 8/8 end-to-end, build, edge build + preview with the four probe routes returning 200.
-- [ ] A production deploy after the move serves the same home page title and the same four probe routes with 200.
-- [ ] A second run of the root build with no changes completes from cache.
-- [ ] Zero stale paths in current docs and agent rules (historical artifacts excepted).
+- [x] All gates that passed after the pnpm switch pass after the move: frozen install, lint, type-check, 22/22 unit, 8/8 end-to-end, build, edge build + preview with the four probe routes returning 200.
+- [x] A production deploy after the move serves the same home page title and the same four probe routes with 200.
+- [x] A second run of the root build with no changes completes from cache.
+- [x] Zero stale paths in current docs and agent rules (historical artifacts excepted).
 
 ## Verification Status
 
@@ -103,6 +103,20 @@ The repository holds exactly one website, laid out as a single project. The owne
 - **AC-011 verified 2026-10-26:** with the dashboard set to `pnpm cf:build` / `pnpm cf:deploy:prebuilt` / `pnpm cf:upload:prebuilt` (root `/`), the Workers Builds run for `4999c29` was green (confirmed by the owner). The live site returns 200 on `/`, `/robots.txt`, `/sitemap.xml` and `/opengraph-image` with the expected title.
 - **Pending the next manual deploy:** AC-009 (manual `pnpm cf:deploy` from the root was not run, because it deploys production) and AC-010 (the names are verified not to collide; no deploy has run under those names yet). Both are checked off the first time the owner deploys by hand.
 - Everything else was verified locally on 2026-10-26 (see tasks.md).
+
+## Audit (2026-10-26, HEAD `c185b6e`)
+
+| Target | Result | Evidence |
+|--------|--------|----------|
+| G1 Live site identical for visitors | Met | Same 8 static routes as pre-move; live `/`, `/robots.txt`, `/sitemap.xml`, `/opengraph-image` = 200 with the same title; Worker name `huyle-2026` unchanged |
+| G2 Every workflow works from the root | **Unmet (evidence gap)** | develop, build, lint, type-check, unit (22/22), e2e (8/8) and local preview verified from the root; the automatic deploy runs from the root (Workers Builds green on `4999c29`). Manual `pnpm cf:deploy` has never run (AC-009/010 open). |
+| G3 Second app needs no root-tooling change | Met | Throwaway `apps/probe` picked up by build/lint/typecheck/test with `turbo.json` unchanged (T008) |
+| SC1 All gates pass after the move | Met | Rerun at HEAD: frozen install, lint, typecheck, 22/22, build, 8/8 e2e, `cf:build` + preview with 4×200 |
+| SC2 Production deploy serves same title + 4×200 | Met | Live probes after the `4999c29` deploy |
+| SC3 Repeat build completes from cache | Met | `FULL TURBO`, 1/1 cached, 8ms |
+| SC4 Zero stale paths in docs/rules | Met | Grep finds only folder-tree lines nested under `apps/web/` |
+
+Close-out: run `pnpm cf:deploy` once from the repo root (closes AC-009/010 and G2), then re-run the audit.
 
 ## Open Questions
 
