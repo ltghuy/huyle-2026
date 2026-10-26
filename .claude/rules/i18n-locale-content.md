@@ -2,16 +2,16 @@
 name: i18n-locale-content
 description: Every user-facing string must live in the locale dictionaries and be added to BOTH en and vi. No hardcoded copy in components.
 appliesTo:
-  - "src/components/**"
-  - "src/app/**"
-  - "src/lib/i18n/dictionaries/**"
-  - "src/content/**"
+  - "apps/web/src/components/**"
+  - "apps/web/src/app/**"
+  - "apps/web/src/lib/i18n/dictionaries/**"
+  - "apps/web/src/content/**"
 ---
 
 # Rule: Keep locale content in sync (en + vi)
 
 This site is bilingual (**English default + Vietnamese**, client-side toggle — see
-`src/lib/i18n/config.ts`). **Whenever you create a new component or add/modify a
+`apps/web/src/lib/i18n/config.ts`). **Whenever you create a new component or add/modify a
 user-facing element, you MUST add its copy to the locale dictionaries — in BOTH
 `en` and `vi` — and read it through the i18n hooks. Never hardcode a
 user-facing string in a component.**
@@ -22,8 +22,8 @@ Pick the right one for what you're adding:
 
 | Kind of text | Where it lives | How to read it |
 |---|---|---|
-| **UI / prose** — labels, headings, buttons, aria-labels, alt text, placeholders, empty/error states, microcopy | `src/lib/i18n/dictionaries/en.ts` (canonical) + `src/lib/i18n/dictionaries/vi.ts` | `const { t } = useLocale(); … t.section.key` |
-| **Structured content** — profile, experience, projects, skills, gallery items | `src/content/*.ts` (English source) + `src/content/vi.ts` (Vietnamese overrides) | `const { experience } = useContent()` |
+| **UI / prose** — labels, headings, buttons, aria-labels, alt text, placeholders, empty/error states, microcopy | `apps/web/src/lib/i18n/dictionaries/en.ts` (canonical) + `apps/web/src/lib/i18n/dictionaries/vi.ts` | `const { t } = useLocale(); … t.section.key` |
+| **Structured content** — profile, experience, projects, skills, gallery items | `apps/web/src/content/*.ts` (English source) + `apps/web/src/content/vi.ts` (Vietnamese overrides) | `const { experience } = useContent()` |
 
 `en.ts` is the **canonical shape**: `Dictionary = typeof en`, and `vi.ts` is
 type-checked against it. A key added to `en` but missing in `vi` (or with the
@@ -37,7 +37,7 @@ suggestion.
 2. **Read every user-facing string via `t` (`useLocale`) or `useContent()`** —
    no string literals rendered to the DOM, including `aria-label`, `alt`,
    `title`, `placeholder`, and `<meta>`-style copy inside components.
-3. **Keep structured lists index-aligned.** `src/content/vi.ts` spreads each
+3. **Keep structured lists index-aligned.** `apps/web/src/content/vi.ts` spreads each
    English item and overrides only translated prose; keep array order/length
    identical to the English source so the overlay lines up.
 4. **Give real Vietnamese** — do not paste the English string into `vi.ts` as a
@@ -59,7 +59,7 @@ suggestion.
 ## Definition of done
 
 - [ ] New/changed user-facing copy exists in `en.ts` **and** `vi.ts` (same keys).
-- [ ] Structured additions exist in `src/content/*.ts` **and** `src/content/vi.ts`.
+- [ ] Structured additions exist in `apps/web/src/content/*.ts` **and** `apps/web/src/content/vi.ts`.
 - [ ] The component renders it via `t` / `useContent()`, not a literal.
 - [ ] `vi` holds real Vietnamese, index-aligned with the English source.
 - [ ] Type-check passes (proves the `en`/`vi` shapes match).

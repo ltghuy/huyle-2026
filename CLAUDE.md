@@ -2,23 +2,38 @@
 
 # Project: evan-le
 
-A Next.js 16 (App Router) application built with TypeScript and Tailwind CSS.
+A Turborepo monorepo (pnpm workspaces). The site is a Next.js 16 (App Router)
+app in `apps/web`, built with TypeScript and Tailwind CSS.
+
+## Layout
+
+- `apps/web` — the site (package `web`); its Next/OpenNext/wrangler/test configs live here
+- `packages/typescript-config` — shared tsconfig presets (`@repo/typescript-config`)
+- `packages/eslint-config` — shared ESLint flat config (`@repo/eslint-config`)
+- `turbo.json` — task pipeline; `pnpm-workspace.yaml` — workspace members
 
 ## Stack
 
 - **Framework:** Next.js 16.3 (App Router, Turbopack)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
-- **Linting:** ESLint (eslint-config-next)
-- **Package manager:** pnpm
-- **Import alias:** `@/*` -> `src/*`
+- **Linting:** ESLint (eslint-config-next, via `@repo/eslint-config`)
+- **Package manager:** pnpm (workspaces)
+- **Monorepo:** Turborepo
+- **Import alias:** `@/*` -> `apps/web/src/*` (app-local; shared packages import by package name)
 
 ## Commands
+
+Run from the repo root. `dev/build/lint/typecheck/test/e2e` go through turbo
+(cached except `dev`/`e2e`); the rest forward to `apps/web`.
 
 - `pnpm dev` — start the dev server (Turbopack)
 - `pnpm build` — production build
 - `pnpm start` — serve the production build
 - `pnpm lint` — run ESLint
+- `pnpm typecheck` — run `tsc --noEmit`
+- `pnpm test` / `pnpm e2e` — unit (Vitest) / end-to-end (Playwright) tests
+- `pnpm --filter web add <pkg>` — add a dependency to the site
 - `pnpm cf:preview` — build for Cloudflare and serve it locally
 - `pnpm cf:deploy` — build for Cloudflare and deploy (never `pnpm deploy`: that is a pnpm built-in)
 - `pnpm cf:build` + `pnpm cf:deploy:prebuilt` — the split build/deploy steps Workers Builds runs

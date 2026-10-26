@@ -15,19 +15,26 @@ to be specified later via the spec-driven workflow.
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Linting | ESLint (`eslint-config-next`) |
-| Package manager | pnpm (v10) |
-| Source root | `src/` |
-| Import alias | `@/*` → `src/*` |
+| Package manager | pnpm (v10, workspaces) |
+| Monorepo | Turborepo (`turbo.json`) |
+| Deploy | Cloudflare Workers via OpenNext |
+| Source root | `apps/web/src/` |
+| Import alias | `@/*` → `apps/web/src/*` |
 
 ## Structure
 
 ```
-src/
-  app/
-    layout.tsx      # Root layout
-    page.tsx        # Home page
-    globals.css     # Tailwind entry + global styles
-public/             # Static assets
+apps/web/             # the site (package `web`)
+  src/
+    app/
+      layout.tsx      # Root layout
+      page.tsx        # Home page
+      globals.css     # Tailwind entry + global styles
+  public/             # Static assets
+packages/
+  typescript-config/  # @repo/typescript-config
+  eslint-config/      # @repo/eslint-config
+turbo.json            # task pipeline
 ```
 
 ## Conventions

@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "start": "pnpm --filter web run start",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "test:watch": "pnpm --filter web run test:watch",
     "e2e": "turbo run e2e",
     "cf:build": "pnpm --filter web run cf:build",
     "cf:preview": "pnpm --filter web run cf:preview",

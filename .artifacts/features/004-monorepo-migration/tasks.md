@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 12 | Completed: 9 | Remaining: 3
+Total: 12 | Completed: 10 | Remaining: 2
 
 ## Execution Plan
 
@@ -77,7 +77,7 @@ Run after each task or batch (root commands once T005 lands; before that, the ex
 - [x] T009 [B:T005] Move `AGENTS.md` to `apps/web/AGENTS.md`, add `apps/web/CLAUDE.md` (`@AGENTS.md`), point root `CLAUDE.md` at `@apps/web/AGENTS.md`
   - **Done when:** after `pnpm dev` starts and stops, `git status` is clean (Next reports the agent files unchanged).
 
-- [ ] T010 [P] [B:T005] Update root `CLAUDE.md` (stack, layout, commands), `README.md`, `.agents/project.md`, and `.claude/rules/i18n-locale-content.md` (`paths:` globs and body → `apps/web/src/...`)
+- [x] T010 [P] [B:T005] Update root `CLAUDE.md` (stack, layout, commands), `README.md`, `.agents/project.md`, and `.claude/rules/i18n-locale-content.md` (`paths:` globs and body → `apps/web/src/...`)
   - **Done when:** `grep -rn` for `` `src/`` and `yarn`/`pnpm deploy` across these four files finds no stale path or command; every path they cite exists.
 
 ### Close
