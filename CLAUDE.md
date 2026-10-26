@@ -71,6 +71,7 @@ Specs and quick tasks are grouped by app. Pick the group by what the change touc
 |-------|-----|---------|
 | `web` | only `apps/web` | `.artifacts/features/web/001-portfolio` |
 | `react-handbook` | only `apps/react-handbook` | `.artifacts/features/react-handbook/048-home-hub-links` |
+| `learn-english` | only `apps/learn-english` (planned) | `.artifacts/features/learn-english/001-learn-english-app` |
 | `repo` | both apps, shared packages, workspace, tooling, deploy | `.artifacts/features/repo/005-react-handbook-import` |
 
 - `.artifacts/features/{group}/{ID}-{name}/` — feature specs, designs, tasks
