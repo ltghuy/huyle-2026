@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 13 | Remaining: 37
+Total: 50 | Completed: 16 | Remaining: 34
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -121,8 +121,8 @@ Run after each task or batch (from the repo root):
 - [x] T017 [P] Write `src/learning/srs.ts` (ts-fsrs **5.4.2** exact, configured params) and `src/learning/rating.ts`
   - **Done when:** tests pass: wrong → due within minutes; fast correct → growing intervals; slow (> 8 s), hint or typo → Hard; self-mark mapping; Easy never produced (AC-010, AC-013) -- VERIFIED
 
-- [ ] T018 [P] Build the IndexedDB storage layer: `db.ts` (schema/upgrades via `idb`), repositories (cards, attempts with UUIDs, lessons, attendance, meta, content), `broadcast.ts`, persistence check + in-memory fallback, `navigator.storage.persist()`
-  - **Done when:** `fake-indexeddb` tests pass, including concurrent attendance `add()` for one date producing one row (AC-005, AC-015)
+- [x] T018 [P] Build the IndexedDB storage layer: `db.ts` (schema/upgrades via `idb`), repositories (cards, attempts with UUIDs, lessons, attendance, meta, content), `broadcast.ts`, persistence check + in-memory fallback, `navigator.storage.persist()`
+  - **Done when:** `fake-indexeddb` tests pass, including concurrent attendance `add()` for one date producing one row (AC-005, AC-015) -- VERIFIED
 
 - [x] T019 [P] Write `src/learning/normalize.ts`: Telex/VNI folding, case/space trim, variant spellings, sentence tokenizer
   - **Done when:** tests pass for â→aa, ê→ee, ô→oo, ư→uw, ơ→ow, đ→dd, tone marks stripped; `colour` accepted for `color` -- VERIFIED
@@ -145,11 +145,11 @@ Run after each task or batch (from the repo root):
 - [x] T025 [P] Write `src/learning/placement.ts`: staged test (start A2, 5 items per stage, up on ≥ 4/5, down on ≤ 2/5, stop at 30 items or when stable) → level
   - **Done when:** tests cover the item cap, staging up and down, and the estimates for all-correct / all-wrong / mixed answers (AC-019) -- VERIFIED
 
-- [ ] T026 [B:T018] Write `src/learning/snapshot.ts`: schema, trimming (30 days of attempts + last 8 per item), summary, version migrations, gzip encode/decode
-  - **Done when:** tests pass: round trip; damaged file rejected; newer version rejected; older version upgraded; a typical heavy profile stays < 1 MB gzipped (AC-042, AC-043)
+- [x] T026 [B:T018] Write `src/learning/snapshot.ts`: schema, trimming (30 days of attempts + last 8 per item), summary, version migrations, gzip encode/decode
+  - **Done when:** tests pass: round trip; damaged file rejected; newer version rejected; older version upgraded; a typical heavy profile stays < 1 MB gzipped (AC-042, AC-043) -- VERIFIED
 
-- [ ] T027 [B:T026] Write `src/learning/merge.ts`
-  - **Done when:** tests pass: attempt union by UUID; later `last_review` wins (tie: more reps); attendance union never doubles points; completed lesson wins; profile fields last-writer-wins (AC-050)
+- [x] T027 [B:T026] Write `src/learning/merge.ts`
+  - **Done when:** tests pass: attempt union by UUID; later `last_review` wins (tie: more reps); attendance union never doubles points; completed lesson wins; profile fields last-writer-wins (AC-050) -- VERIFIED
 
 ### App shell and exercise UI
 
