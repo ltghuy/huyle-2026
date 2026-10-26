@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 12 | Completed: 6 | Remaining: 6
+Total: 12 | Completed: 9 | Remaining: 3
 
 ## Execution Plan
 
@@ -63,13 +63,13 @@ Run after each task or batch (root commands once T005 lands; before that, the ex
 
 ### B2 — Shared configuration packages
 
-- [ ] T006 [P] [B:T005] Create `packages/typescript-config` (`base.json`, `nextjs.json` holding today's compilerOptions); `apps/web/tsconfig.json` extends it, keeping `paths`, `include`, `exclude`, `plugins`
+- [x] T006 [P] [B:T005] Create `packages/typescript-config` (`base.json`, `nextjs.json` holding today's compilerOptions); `apps/web/tsconfig.json` extends it, keeping `paths`, `include`, `exclude`, `plugins`
   - **Done when:** `pnpm typecheck` passes and `pnpm exec tsc --showConfig -p apps/web` shows the same compilerOptions as before the move.
 
-- [ ] T007 [P] [B:T005] Create `packages/eslint-config` exporting today's flat config (Next vitals + TS + ignores incl. `.open-next/**`, `.wrangler/**`); `apps/web/eslint.config.mjs` re-exports it
+- [x] T007 [P] [B:T005] Create `packages/eslint-config` exporting today's flat config (Next vitals + TS + ignores incl. `.open-next/**`, `.wrangler/**`); `apps/web/eslint.config.mjs` re-exports it
   - **Done when:** `pnpm lint` passes with the same rule set (spot-check: a deliberate `<img>` in a scratch file still triggers `@next/next/no-img-element`, then removed).
 
-- [ ] T008 [B:T006,T007] Prove a new app is picked up without editing root task definitions
+- [x] T008 [B:T006,T007] Prove a new app is picked up without editing root task definitions
   - **Done when:** a throwaway `apps/probe` with `build`/`lint`/`typecheck`/`test` echo scripts appears in `pnpm build --dry=json` task list; probe removed before commit; `turbo.json` unchanged.
 
 ### B3 — Agent notice, docs and rules
