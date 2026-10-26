@@ -1,11 +1,17 @@
-# Huy Le — Portfolio
+# Huy Le — Portfolio & Frontend Handbook
 
-The personal portfolio of **Le Tran Gia Huy (Huy Le)**, a software engineer focused
-on AI-native web development. Live at **[huyle.work](https://huyle.work)**.
+Two sites by **Le Tran Gia Huy (Huy Le)**, a software engineer focused on
+AI-native web development, in one Turborepo monorepo on pnpm workspaces:
+
+| App | Folder | Live |
+|-----|--------|------|
+| Portfolio | `apps/web` | **[huyle.work](https://huyle.work)** |
+| Frontend Handbook | `apps/react-handbook` | **[learn.huyle.work](https://learn.huyle.work)** (see [its README](apps/react-handbook/README.md)) |
+
+The rest of this README covers the portfolio and the workspace.
 
 Built with Next.js 16 (App Router, Turbopack), React 19, TypeScript, and Tailwind
-CSS v4, with WebGL/Three.js visuals and GSAP-driven motion. The repo is a
-Turborepo monorepo on pnpm workspaces; the site lives in `apps/web`.
+CSS v4, with WebGL/Three.js visuals and GSAP-driven motion.
 
 ## Stack
 
@@ -28,12 +34,15 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site. The page
-auto-updates as you edit files.
+`pnpm dev` starts both apps: the portfolio on
+[http://localhost:3000](http://localhost:3000) and the handbook on
+[http://localhost:3001](http://localhost:3001). Use `pnpm --filter web dev` for
+the portfolio alone.
 
 ## Scripts
 
-Run from the repo root.
+Run from the repo root. `dev`, `build`, `lint`, `typecheck`, `test` and `e2e` run
+for every app; target one with `pnpm --filter <web|react-handbook> <script>`.
 
 | Command | Description |
 | --- | --- |
@@ -50,6 +59,7 @@ Run from the repo root.
 | `pnpm cf:build` / `pnpm cf:deploy:prebuilt` | Build and deploy as separate steps (Cloudflare Workers Builds uses these) |
 | `pnpm cf:upload:prebuilt` | Upload a built version without promoting it (Workers Builds, non-production branches) |
 | `pnpm cf:typegen` | Generate types for the Cloudflare `env` bindings |
+| `pnpm cf:handbook:*` | The same Cloudflare commands for the handbook (`build`, `preview`, `deploy`, `deploy:prebuilt`, `upload:prebuilt`, `typegen`) |
 
 `build`, `lint`, `typecheck` and `test` are cached by Turborepo; a repeat run with
 no changes replays the previous result. Never use `pnpm deploy`: it is a pnpm
@@ -59,7 +69,8 @@ built-in, not the deploy script.
 
 ```
 apps/
-└── web/                  # the site (package `web`)
+├── react-handbook/       # the Frontend Handbook (package `react-handbook`)
+└── web/                  # the portfolio (package `web`)
     ├── src/
     │   ├── app/          # App Router entry, layout, SEO (sitemap, robots, OG images)
     │   ├── components/   # UI components grouped by area
@@ -86,14 +97,22 @@ without touching component code.
 
 ## Deployment
 
-Deployed to Cloudflare Workers via [OpenNext](https://opennext.js.org/cloudflare)
-(Worker `huyle-2026`, config in `apps/web/wrangler.jsonc`).
+Both apps deploy to Cloudflare Workers via [OpenNext](https://opennext.js.org/cloudflare),
+each as its own Worker with its own Workers Builds project connected to this repo.
+Build watch paths make a push rebuild only the app it touches; changes to shared
+packages or root workspace files rebuild both.
 
-- **Automatic:** Cloudflare Workers Builds deploys every push to `main`. Its
-  settings: root directory `/`, build command `pnpm cf:build`, deploy command
-  `pnpm cf:deploy:prebuilt`, version command (non-production branches)
-  `pnpm cf:upload:prebuilt`.
-- **Manual:** `pnpm cf:deploy` from the repo root.
+| Setting | Portfolio (Worker `huyle-2026`) | Handbook (Worker `react-handbook`) |
+|---------|------------------------------|------------------------------------|
+| Root directory | `/` | `/` |
+| Build command | `pnpm cf:build` | `pnpm cf:handbook:build` |
+| Deploy command | `pnpm cf:deploy:prebuilt` | `pnpm cf:handbook:deploy:prebuilt` |
+| Version command | `pnpm cf:upload:prebuilt` | `pnpm cf:handbook:upload:prebuilt` |
+| Include paths | `apps/web/*, packages/*, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, turbo.json` | `apps/react-handbook/*, packages/*, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, turbo.json` |
+| Exclude paths | `node_modules/**, .git/` | `node_modules/**, .git/` |
+| Manual deploy | `pnpm cf:deploy` | `pnpm cf:handbook:deploy` |
+
+Never use `pnpm deploy`: it is a pnpm built-in, not a deploy script.
 
 The canonical production URL is defined once in `apps/web/src/content/profile.ts`
 (`profile.url`) and drives SEO metadata, `robots.txt`, and the sitemap.

@@ -28,24 +28,32 @@ The section and page list lives in `src/practices/catalog.ts`.
 
 ## Getting started
 
+This app lives in `apps/react-handbook` of the
+[huyle-2026](https://github.com/ltghuy/huyle-2026) monorepo (Turborepo + pnpm
+workspaces) next to the portfolio site. Install once at the repo root:
+
 ```bash
 pnpm install
-cp .env.example .env.local
-pnpm dev
+cp apps/react-handbook/.env.example apps/react-handbook/.env.local
+pnpm --filter react-handbook dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3001](http://localhost:3001). Root `pnpm dev`, `pnpm build`,
+`pnpm lint`, `pnpm typecheck` and `pnpm e2e` run both apps through Turborepo.
+The commands below run inside `apps/react-handbook`, or from the root with
+`pnpm --filter react-handbook <command>`.
 
 | Command | What it does |
 |---------|--------------|
-| `pnpm dev` | Dev server |
+| `pnpm dev` | Dev server on port 3001 |
 | `pnpm build` / `pnpm start` | Production build and Node server |
 | `pnpm lint` | ESLint |
 | `pnpm typecheck` | `next typegen` + `tsc --noEmit` |
-| `pnpm test:e2e` | Generate tests from the Gherkin features, build, serve on port 3100 and run the Playwright suite in `e2e/` |
-| `pnpm preview` | Build for Cloudflare and run locally on workerd |
-| `pnpm run deploy` | Build and deploy to Cloudflare Workers |
-| `pnpm cf-typegen` | Generate Cloudflare binding types |
+| `pnpm test:e2e` | Generate tests from the Gherkin features, build, serve on port 3100 and run the Playwright suite in `e2e/` (`pnpm e2e` is the same, for the root task) |
+| `pnpm cf:preview` | Build for Cloudflare and run locally on workerd (root: `pnpm cf:handbook:preview`) |
+| `pnpm cf:deploy` | Build and deploy to Cloudflare Workers (root: `pnpm cf:handbook:deploy`) |
+| `pnpm cf:build` / `pnpm cf:deploy:prebuilt` / `pnpm cf:upload:prebuilt` | Split build, deploy and version-upload steps that Workers Builds runs |
+| `pnpm cf:typegen` | Generate Cloudflare binding types |
 
 ### End-to-end tests
 
@@ -80,10 +88,12 @@ src/
 ## How this repo is built
 
 Development is spec-first. Every feature has a spec under
-`.artifacts/features/{ID}-{name}/`, small changes are recorded under
-`.artifacts/quick/`, and cross-feature decisions and gotchas live in
-`.agents/knowledge.md`. Agent rules are in `CLAUDE.md`, `AGENTS.md` and
-`.claude/rules/`.
+`.artifacts/features/react-handbook/{ID}-{name}/` (at the repo root), small
+changes are recorded under `.artifacts/quick/react-handbook/`, and cross-feature
+decisions and gotchas live in `.agents/knowledge.md` (`react-handbook`
+subsections). Agent rules are in this app's `CLAUDE.md` and `AGENTS.md` and in
+`.claude/rules/react-handbook/`, which apply only to handbook files. Paths
+inside older specs are relative to this app.
 
 Minimum quality gate before a change is done:
 
@@ -93,7 +103,7 @@ pnpm typecheck && pnpm lint && pnpm build
 
 ### Agent skills
 
-The rules in `.claude/rules/` tell Claude Code to load four skills. Install
+The rules in `.claude/rules/react-handbook/` tell Claude Code to load four skills. Install
 them before you work on the repo with an agent, or the rules will point at
 skills that don't exist.
 
@@ -136,12 +146,16 @@ Start a new Claude Code session afterwards so it picks up the new skills.
 
 ## Deployment
 
-- Cloudflare Workers via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
-  config in `wrangler.jsonc` and `open-next.config.ts`, routed to the custom
-  domain `learn.huyle.work`. The first deploy needs `wrangler login`.
-- Railway: `railway.json` builds with `pnpm build` and runs `pnpm start` as
-  a single Node instance.
+Cloudflare Workers via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare):
+config in `wrangler.jsonc` (Worker `react-handbook`) and `open-next.config.ts`,
+routed to the custom domain `learn.huyle.work`.
+
+- **Automatic:** Cloudflare Workers Builds deploys pushes to `main` of the
+  monorepo. Settings: root directory `/`, build command `pnpm cf:handbook:build`,
+  deploy command `pnpm cf:handbook:deploy:prebuilt`, version command
+  `pnpm cf:handbook:upload:prebuilt`, include paths
+  `apps/react-handbook/*, packages/*, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, turbo.json`.
+- **Manual:** `pnpm cf:handbook:deploy` from the repo root (needs `wrangler login`).
 
 Some demos keep state in memory (`globalThis`), so on Workers that state is
-per-isolate and cross-request logs can be inconsistent. A single Node instance
-doesn't have that problem.
+per-isolate and cross-request logs can be inconsistent.

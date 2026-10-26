@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 16 | Completed: 7 | Remaining: 9
+Total: 16 | Completed: 12 | Remaining: 4
 
 ## Execution Plan
 
@@ -82,20 +82,25 @@ Run from the root after each task or batch (from T007 on):
 
 ### B2 — Merge `.artifacts`, `.agents`, `.claude`
 
-- [ ] T008 [B:T007] Regroup `.artifacts`: `features/{web,repo,react-handbook}/`, `quick/{web,repo,react-handbook}/` per the design mapping; move `research/ai-search.md`; drop the handbook's `.gitkeep` files
+- [x] T008 [B:T007] Regroup `.artifacts`: `features/{web,repo,react-handbook}/`, `quick/{web,repo,react-handbook}/` per the design mapping; move `research/ai-search.md`; drop the handbook's `.gitkeep` files
   - **Done when:** `features/react-handbook` has 48 entries, `quick/react-handbook` 26, `features/web` 1, `features/repo` 2, `quick/web` 1, `quick/repo` 1; nothing of `.artifacts` is left under `apps/react-handbook/`; all moves are renames.
+  - **Result:** counts exactly as listed; all 257 handbook artifact files (old repo count without `.gitkeep`) present, including 9 more research notes than the design listed (`build-toolchains`, `bundlers`, `css-pipeline`, `micro-frontends`, `monorepo-tooling`, `react-internals`, `seo-at-scale`, `seo-fundamentals`, `transpilers`; no name clashes). All moves are renames.
 
-- [ ] T009 [B:T008] Merge the handbook's `knowledge.md` into `.agents/knowledge.md` (`### repo` / `### web` / `### react-handbook` under each section); move its baseline to `.agents/baselines/react-handbook/`
+- [x] T009 [B:T008] Merge the handbook's `knowledge.md` into `.agents/knowledge.md` (`### repo` / `### web` / `### react-handbook` under each section); move its baseline to `.agents/baselines/react-handbook/`
   - **Done when:** the merged file's bullet count per section equals the two sources' combined counts; no `.agents` left under the app.
+  - **Result:** Decisions 10+45=55, Gotchas 22+112=134, Codebase Feedback 3+17=20. Portfolio entries split into `repo` (workspace/tooling/deploy, plus the AGENTS.md note shared by both apps) and `web`. One handbook entry (deploy via Worker `react-practices`, `pnpm preview`/`pnpm deploy`) got a dated *Superseded* sub-bullet instead of a rewrite.
 
-- [ ] T010 [P] [B:T007] Move rules to `.claude/rules/web/` and `.claude/rules/react-handbook/`; give each a `paths:` frontmatter (`apps/web/src/**`, `apps/react-handbook/**`); replace the ignored `appliesTo`; make paths inside the handbook rules repo-relative
+- [x] T010 [P] [B:T007] Move rules to `.claude/rules/web/` and `.claude/rules/react-handbook/`; give each a `paths:` frontmatter (`apps/web/src/**`, `apps/react-handbook/**`); replace the ignored `appliesTo`; make paths inside the handbook rules repo-relative
   - **Done when:** every file under `.claude/rules/` starts with a `paths:` frontmatter; no `appliesTo` remains; every path a rule cites exists; nothing of `.claude` is left under the app.
+  - **Result:** rules 02–05 scoped to `apps/react-handbook/**`; 01 (spec-driven) and 06 (writing) also to `.artifacts/{features,quick}/react-handbook/**` and `.agents/baselines/react-handbook/**`, so they load when handbook specs are edited. Portfolio rule now uses `paths:` (same globs). Rule 01 rewritten for the per-group layout.
 
-- [ ] T011 [B:T008,T009,T010] Update references to moved artifact paths (`.artifacts/features/00x-…`, `.artifacts/quick/00x-…`) across specs, knowledge and instructions
+- [x] T011 [B:T008,T009,T010] Update references to moved artifact paths (`.artifacts/features/00x-…`, `.artifacts/quick/00x-…`) across specs, knowledge and instructions
   - **Done when:** a grep for old flat artifact paths finds none outside historical text that names the old repo.
+  - **Result:** 33 files rewritten (`.artifacts/{features,quick}/NNN-…` → `…/react-handbook/NNN-…`, baseline path, `.claude/rules/0N-…` → `.claude/rules/react-handbook/0N-…`); every rewritten reference resolves. Kept as-is: 005's own from→to mapping table and 004's description of the then-current rule path.
 
-- [ ] T012 [B:T011] Update root `CLAUDE.md` (both apps, commands, artifact groups + numbering rule), `README.md` (both apps, both deploys and their watch paths), `.agents/project.md`, and the handbook's `CLAUDE.md`/`README.md` (root commands, rule location, app-relative paths in its old specs); run the gates; commit **B2**
+- [x] T012 [B:T011] Update root `CLAUDE.md` (both apps, commands, artifact groups + numbering rule), `README.md` (both apps, both deploys and their watch paths), `.agents/project.md`, and the handbook's `CLAUDE.md`/`README.md` (root commands, rule location, app-relative paths in its old specs); run the gates; commit **B2**
   - **Done when:** gates pass; every path cited in these files exists; one local commit, not pushed.
+  - **Result:** root CLAUDE.md (two apps, root/filtered commands, `cf:handbook:*`, artifact groups + per-group numbering, rules layout), root README (both apps, both Workers Builds settings tables), `.agents/project.md`, handbook CLAUDE.md/README (monorepo context, port 3001, `cf:*` names, Railway removed). All cited paths exist; lint/typecheck/build 2/2.
 
 ### Rollout (owner + push)
 

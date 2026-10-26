@@ -17,14 +17,16 @@ to be specified later via the spec-driven workflow.
 | Linting | ESLint (`eslint-config-next`) |
 | Package manager | pnpm (v10, workspaces) |
 | Monorepo | Turborepo (`turbo.json`) |
-| Deploy | Cloudflare Workers via OpenNext |
-| Source root | `apps/web/src/` |
-| Import alias | `@/*` → `apps/web/src/*` |
+| Apps | `apps/web` (portfolio, huyle.work), `apps/react-handbook` (Frontend Handbook, learn.huyle.work) |
+| Deploy | Cloudflare Workers via OpenNext, one Worker + Workers Builds project per app |
+| Source roots | `apps/web/src/`, `apps/react-handbook/src/` |
+| Import alias | `@/*` → each app's own `src/*` |
 
 ## Structure
 
 ```
-apps/web/             # the site (package `web`)
+apps/react-handbook/  # the Frontend Handbook (package `react-handbook`); see its CLAUDE.md
+apps/web/             # the portfolio (package `web`)
   src/
     app/
       layout.tsx      # Root layout
