@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "people-family",
+    "titleVi": "Con người & gia đình"
+  },
+  {
+    "slug": "body-health",
+    "titleVi": "Cơ thể & sức khỏe"
+  },
+  {
+    "slug": "food-drink",
+    "titleVi": "Đồ ăn & thức uống"
+  },
+  {
+    "slug": "home",
+    "titleVi": "Nhà cửa"
+  },
+  {
+    "slug": "school-education",
+    "titleVi": "Trường học & học tập"
+  },
+  {
+    "slug": "work-jobs",
+    "titleVi": "Công việc & nghề nghiệp"
+  },
+  {
+    "slug": "shopping-money",
+    "titleVi": "Mua sắm & tiền bạc"
+  },
+  {
+    "slug": "travel-transport",
+    "titleVi": "Du lịch & đi lại"
+  },
+  {
+    "slug": "places-city",
+    "titleVi": "Địa điểm & thành phố"
+  },
+  {
+    "slug": "nature-weather",
+    "titleVi": "Thiên nhiên & thời tiết"
+  },
+  {
+    "slug": "animals",
+    "titleVi": "Động vật"
+  },
+  {
+    "slug": "time-dates",
+    "titleVi": "Thời gian & ngày tháng"
+  },
+  {
+    "slug": "numbers-quantity",
+    "titleVi": "Số đếm & số lượng"
+  },
+  {
+    "slug": "feelings-character",
+    "titleVi": "Cảm xúc & tính cách"
+  },
+  {
+    "slug": "hobbies-sport",
+    "titleVi": "Sở thích & thể thao"
+  },
+  {
+    "slug": "entertainment-media",
+    "titleVi": "Giải trí & truyền thông"
+  },
+  {
+    "slug": "technology",
+    "titleVi": "Công nghệ"
+  },
+  {
+    "slug": "communication",
+    "titleVi": "Giao tiếp & ngôn ngữ"
+  },
+  {
+    "slug": "clothes-appearance",
+    "titleVi": "Quần áo & ngoại hình"
+  },
+  {
+    "slug": "society-politics",
+    "titleVi": "Xã hội & chính trị"
+  },
+  {
+    "slug": "science-environment",
+    "titleVi": "Khoa học & môi trường"
+  },
+  {
+    "slug": "business-economy",
+    "titleVi": "Kinh doanh & kinh tế"
+  },
+  {
+    "slug": "law-crime",
+    "titleVi": "Pháp luật & tội phạm"
+  },
+  {
+    "slug": "arts-culture",
+    "titleVi": "Nghệ thuật & văn hóa"
+  },
+  {
+    "slug": "thinking-ideas",
+    "titleVi": "Suy nghĩ & ý kiến"
+  },
+  {
+    "slug": "actions-movement",
+    "titleVi": "Hành động & di chuyển"
+  },
+  {
+    "slug": "describing-things",
+    "titleVi": "Miêu tả sự vật"
+  },
+  {
+    "slug": "function-words",
+    "titleVi": "Từ chức năng (mạo từ, giới từ, đại từ…)"
+  }
+]

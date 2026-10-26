@@ -112,5 +112,9 @@ export type ContentItemOf<K extends ContentKind> = Extract<ContentItem, { kind: 
 
 // Only approved items are published (AC-053).
 export const reviewStatusSchema = z.enum(["draft", "approved"]);
-export const sourceItemSchema = z.intersection(contentItemSchema, z.object({ status: reviewStatusSchema }));
+// `reviewNotes` are hints for the owner's review (e.g. "check the IPA"); never published.
+export const sourceItemSchema = z.intersection(
+  contentItemSchema,
+  z.object({ status: reviewStatusSchema, reviewNotes: z.array(z.string()).optional() }),
+);
 export type SourceItem = z.infer<typeof sourceItemSchema>;
