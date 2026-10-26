@@ -15,8 +15,9 @@
       "binding": "DB",
       "database_name": "learn-english",
       "database_id": "6506778f-8d5d-441a-b739-2de8c7b94dc9",
-      "migrations_dir": "migrations",
-      "migrations_pattern": "migrations/*/migration.sql"
+      // drizzle-kit 0.31 writes flat migrations/NNNN_name.sql files, which is
+      // wrangler's default layout (no migrations_pattern needed).
+      "migrations_dir": "migrations"
     }
   ],
   // Throttles wrong sync-code lookups per IP (brute-force guard).

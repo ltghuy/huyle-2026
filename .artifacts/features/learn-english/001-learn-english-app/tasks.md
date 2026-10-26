@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 4 | Remaining: 46
+Total: 50 | Completed: 5 | Remaining: 45
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -79,8 +79,8 @@ Run after each task or batch (from the repo root):
 
 ### Database
 
-- [ ] T006 [B:T002] Add the Drizzle schema and first migration (`content_items`, `content_meta`, `sync_profiles`, `stats_daily`, `stats_devices`), per-request `getDb()`, `src/server/env.ts`, `src/lib/http.ts`
-  - **Done when:** `drizzle-kit generate` output applies with `wrangler d1 migrations apply learn-english --local`; typecheck passes; a test confirms `getDb()` is never called at module scope
+- [x] T006 [B:T002] Add the Drizzle schema and first migration (`content_items`, `content_meta`, `sync_profiles`, `stats_daily`, `stats_devices`), per-request `getDb()`, `src/server/env.ts`, `src/lib/http.ts`
+  - **Done when:** `drizzle-kit generate` output applies with `wrangler d1 migrations apply learn-english --local`; typecheck passes; a test confirms `getDb()` is never called at module scope -- VERIFIED
 
 ### Content pipeline (A1 first)
 
