@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 12 | Completed: 10 | Remaining: 2
+Total: 12 | Completed: 12 | Remaining: 0
 
 ## Execution Plan
 
@@ -82,13 +82,14 @@ Run after each task or batch (root commands once T005 lands; before that, the ex
 
 ### Close
 
-- [ ] T011 [B:T008,T009,T010] Push B1–B3; watch the Workers Builds run with unchanged dashboard settings
+- [x] T011 [B:T008,T009,T010] Push B1–B3; watch the Workers Builds run with unchanged dashboard settings
   - **Status (2026-10-26):** B1–B3 pushed. The Workers Builds run for `fc57b63` **failed**: the dashboard build command is still `npx opennextjs-cloudflare build`, so T002's settings were never applied (its earlier "green" was the old command on the old layout). Blocked on the owner setting build `pnpm cf:build` and deploy `pnpm cf:deploy:prebuilt`, then retrying. The live site still serves the last good version.
+  - **Resolved (2026-10-26):** owner set build `pnpm cf:build`, deploy `pnpm cf:deploy:prebuilt`, version `pnpm cf:upload:prebuilt`; the Workers Builds run for `4999c29` was green; live probes 200 with the expected title.
   - **Done when:** production serves the same `<title>` and 200 on the four probe routes.
 
-- [ ] T012 [B:T011] Record completion: mark verified ACs in spec.md, add any new gotchas to `.agents/knowledge.md`, update the session dump
+- [x] T012 [B:T011] Record completion: mark verified ACs in spec.md, add any new gotchas to `.agents/knowledge.md`, update the session dump
   - **Done when:** every AC is `[x]` or has a recorded reason; spec status `to-review` (audit sets `done`).
-  - **Status (2026-10-26):** 12 ACs verified; AC-011 reverted (see spec.md); AC-009/010 wait on the first manual deploy. Status back to `in-progress` until T011 passes.
+  - **Status (2026-10-26):** 13 ACs verified (AC-011 re-verified after the dashboard fix); AC-009/010 wait on the first manual `pnpm cf:deploy` (reasons in spec.md); spec status `to-review`.
 
 ## Requirements Coverage
 
