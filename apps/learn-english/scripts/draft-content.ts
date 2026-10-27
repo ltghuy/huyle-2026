@@ -31,7 +31,7 @@ import {
   buildGrammar,
   buildWord,
   buildWriting,
-  checkSentenceDraft,
+  checkGrammarDraft,
   checkWordDraft,
   grammarOutputSchema,
   mergeDrafts,
@@ -226,7 +226,7 @@ async function importDrafts(files: string[], check: boolean) {
       const topic = grammarTopics.find((row) => row.slug === input.slug);
       if (!topic) throw new Error(`${file}: unknown grammar topic ${input.slug}`);
       level = topic.level;
-      input.draft.examples.forEach((example, i) => built.problems.push(...checkSentenceDraft(`${input.slug} example ${i + 1}`, level, example)));
+      built.problems.push(...checkGrammarDraft(input.slug, level, input.draft));
       const one = buildGrammar(topic, input.draft);
       built.items.push(...one.items);
       built.problems.push(...one.problems);

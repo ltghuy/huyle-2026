@@ -4,6 +4,7 @@ import type { WordlistRow } from "../import-wordlists";
 import {
   buildSentence,
   buildWord,
+  buildWriting,
   checkSentenceDraft,
   checkWordDraft,
   mergeDrafts,
@@ -170,6 +171,30 @@ describe("checkWordDraft", () => {
       'word:homework-n: unknown topic "nope"',
       "word:homework-n: 1 examples, expected 2",
       "word:homework-n: IPA flagged without a suggestion",
+    ]);
+  });
+});
+
+describe("buildWriting", () => {
+  const index = new Map([
+    ["like|verb", "word:like-v"],
+    ["like|preposition", "word:like-prep"],
+    ["rice|noun", "word:rice-n"],
+  ]);
+  const task = (useWords: string[]) => ({ tasks: [{ promptVi: "Viết 2 câu.", modelAnswers: ["I like rice."], useWords }] });
+
+  it("links word ids and unambiguous headwords", () => {
+    const { items, problems } = buildWriting("A1", task(["word:like-v", "rice"]), index);
+    expect(problems).toEqual([]);
+    expect(items[0]).toMatchObject({ id: "writing:a1-1-i-like-rice", body: { useItems: ["word:like-v", "word:rice-n"] } });
+  });
+
+  it("reports ambiguous headwords and unknown words instead of guessing", () => {
+    const { problems } = buildWriting("A1", task(["like", "bread", "word:nope-n"]), index);
+    expect(problems).toEqual([
+      'writing:a1-1-i-like-rice: "like" is ambiguous, use one of word:like-v, word:like-prep',
+      'writing:a1-1-i-like-rice: "bread" is not in the word list',
+      "writing:a1-1-i-like-rice: unknown word id word:nope-n",
     ]);
   });
 });

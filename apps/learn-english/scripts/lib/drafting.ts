@@ -269,23 +269,40 @@ export function buildGrammar(topic: GrammarTopicRow, draft: GrammarDraft): Built
   return validated([grammar, ...items], problems);
 }
 
+/**
+ * Writing tasks. Each `useWords` entry is a word id ("word:like-v") or a
+ * headword; a headword with several parts of speech is reported instead of
+ * guessed, so the draft can name the id.
+ */
 export function buildWriting(level: Level, draft: WritingDraft, wordIndex: Map<string, string>): Built {
-  const items = draft.tasks.map((task, i) => ({
-    id: `writing:${level.toLowerCase()}-${i + 1}-${slugify(task.modelAnswers[0] ?? "task").slice(0, 24)}`,
-    kind: "writing",
-    level,
-    sort: i,
-    status: "draft",
-    body: {
-      kind: "short-writing",
-      promptVi: task.promptVi,
-      modelAnswers: task.modelAnswers,
-      useItems: task.useWords
-        .map((headword) => [...wordIndex.entries()].find(([key]) => key.startsWith(`${headword.trim().toLowerCase()}|`))?.[1])
-        .filter((id): id is string => Boolean(id)),
-    },
-  }));
-  return validated(items, []);
+  const problems: string[] = [];
+  const ids = new Set(wordIndex.values());
+  const items = draft.tasks.map((task, i) => {
+    const id = `writing:${level.toLowerCase()}-${i + 1}-${slugify(task.modelAnswers[0] ?? "task").slice(0, 24).replace(/-+$/, "")}`;
+    const useItems = task.useWords.flatMap((word) => {
+      const wanted = word.trim();
+      if (wanted.startsWith("word:")) {
+        if (ids.has(wanted)) return [wanted];
+        problems.push(`${id}: unknown word id ${wanted}`);
+        return [];
+      }
+      const matches = [...wordIndex.entries()].filter(([key]) => key.startsWith(`${wanted.toLowerCase()}|`)).map(([, value]) => value);
+      if (matches.length === 1) return matches;
+      problems.push(
+        matches.length === 0 ? `${id}: "${wanted}" is not in the word list` : `${id}: "${wanted}" is ambiguous, use one of ${matches.join(", ")}`,
+      );
+      return [];
+    });
+    return {
+      id,
+      kind: "writing",
+      level,
+      sort: i,
+      status: "draft",
+      body: { kind: "short-writing", promptVi: task.promptVi, modelAnswers: task.modelAnswers, useItems },
+    };
+  });
+  return validated(items, problems);
 }
 
 function validated(candidates: unknown[], problems: string[]): Built {
@@ -326,7 +343,8 @@ export function checkSentenceDraft(where: string, level: Level, draft: SentenceD
   if (!draft.vi.trim()) problems.push(`${where}: missing Vietnamese translation`);
   if (draft.wrongVariants.length !== 3) problems.push(`${where}: ${draft.wrongVariants.length} wrong variants, expected 3`);
   for (const variant of draft.wrongVariants) {
-    if (variant.en.trim() === draft.en.trim()) problems.push(`${where}: a wrong variant equals the sentence`);
+    const loose = (text: string) => splitTokens(text).join(" ").toLowerCase();
+    if (loose(variant.en) === loose(draft.en)) problems.push(`${where}: a wrong variant differs only in case or punctuation: "${variant.en}"`);
     if (!variant.explanationVi.trim()) problems.push(`${where}: a wrong variant has no explanation`);
   }
   if (draft.gapWords.length === 0) problems.push(`${where}: no gap words`);
@@ -346,5 +364,22 @@ export function checkWordDraft(level: Level, draft: WordDraft, topicSlugs: Reado
   if (draft.examples.length !== expected) problems.push(`${draft.id}: ${draft.examples.length} examples, expected ${expected}`);
   if (!draft.ipaOk && !draft.ipaSuggestion.trim()) problems.push(`${draft.id}: IPA flagged without a suggestion`);
   draft.examples.forEach((example, i) => problems.push(...checkSentenceDraft(`${draft.id} example ${i + 1}`, level, example)));
+  return problems;
+}
+
+/** Problems with one grammar lesson draft against the drafting rules. */
+export function checkGrammarDraft(slug: string, level: Level, draft: GrammarDraft): string[] {
+  const problems: string[] = [];
+  if (draft.examples.length !== 4) problems.push(`${slug}: ${draft.examples.length} examples, expected 4`);
+  draft.examples.forEach((example, i) => problems.push(...checkSentenceDraft(`${slug} example ${i + 1}`, level, example)));
+  if (draft.practice.length !== 6) problems.push(`${slug}: ${draft.practice.length} practice items, expected 6`);
+  draft.practice.forEach((item, i) => {
+    const where = `${slug} practice ${i + 1}`;
+    if (!item.prompt.includes("___")) problems.push(`${where}: the prompt has no ___ blank`);
+    if (item.options.length !== 0 && item.options.length !== 4) problems.push(`${where}: ${item.options.length} options, expected 4 or none`);
+    const matches = item.options.filter((option) => option.trim().toLowerCase() === item.answer.trim().toLowerCase()).length;
+    if (item.options.length === 4 && matches !== 1) problems.push(`${where}: the answer must be exactly one of the options`);
+  });
+  if (draft.mistakes.length < 2 || draft.mistakes.length > 4) problems.push(`${slug}: ${draft.mistakes.length} mistakes, expected 2 to 4`);
   return problems;
 }
