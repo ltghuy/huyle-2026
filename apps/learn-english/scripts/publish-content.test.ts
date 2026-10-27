@@ -157,6 +157,13 @@ describe("planPublish", () => {
     expect(plan.upserts.map((item) => item.id)).toEqual([a.id]);
     expect(plan.tombstones).toEqual([b.id]);
   });
+
+  it("with levels, never tombstones rows of other levels", () => {
+    const [a, b] = approvedFixture();
+    const otherLevel = { ...rowOf(b), id: "word:later-n", level: "B2" };
+    const plan = planPublish([a], [rowOf(a), rowOf(b), otherLevel], new Set(["A1"]));
+    expect(plan.tombstones).toEqual([b.id]);
+  });
 });
 
 describe("SQL", () => {

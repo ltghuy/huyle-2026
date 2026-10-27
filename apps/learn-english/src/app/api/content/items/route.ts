@@ -61,7 +61,7 @@ export async function GET(request: Request) {
     );
   }
 
-  const body = JSON.stringify(content);
+  const body = content.json;
   const headers = { "Content-Type": "application/json", "Cache-Control": IMMUTABLE };
   putEdgeCache(key, new Response(body, { headers }));
   return new Response(body, { headers: { ...headers, [CACHE_HEADER]: "MISS" } });

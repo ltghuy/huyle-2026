@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ApiError } from "@/lib/http";
 import type { ContentItemsResponse } from "@/server/content/content.schema";
+import type { ContentItemsPayload } from "@/server/content/content.service";
 
-const getContentItems = vi.fn<(...args: unknown[]) => Promise<ContentItemsResponse>>();
+const getContentItems = vi.fn<(...args: unknown[]) => Promise<ContentItemsPayload>>();
 vi.mock("@/server/content/content.service", () => ({ getContentItems }));
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
 
@@ -10,10 +11,11 @@ const { GET } = await import("./route");
 
 const request = (query: string) => new Request(`https://english.huyle.work/api/content/items?${query}`);
 const content: ContentItemsResponse = { version: 3, items: [], tombstones: ["word:old"] };
+const payload: ContentItemsPayload = { version: 3, json: JSON.stringify(content) };
 
 describe("GET /api/content/items", () => {
   beforeEach(() => {
-    getContentItems.mockReset().mockResolvedValue(content);
+    getContentItems.mockReset().mockResolvedValue(payload);
   });
 
   it.each([
@@ -75,7 +77,7 @@ describe("GET /api/content/items with the Workers Cache API", () => {
 
   beforeEach(() => {
     store.clear();
-    getContentItems.mockReset().mockResolvedValue(content);
+    getContentItems.mockReset().mockResolvedValue(payload);
     vi.stubGlobal("caches", { default: fakeCache });
     return () => vi.unstubAllGlobals();
   });

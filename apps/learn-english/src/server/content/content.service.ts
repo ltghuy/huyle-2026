@@ -1,10 +1,10 @@
 import "server-only";
-import { and, asc, eq } from "drizzle-orm";
-import type { ContentItem, ContentKind } from "@/content/schema";
+import { and, asc, eq, sql } from "drizzle-orm";
+import type { ContentKind } from "@/content/schema";
 import type { Level } from "@/learning/types";
 import type { Db } from "@/server/db";
 import { contentItems, contentMeta } from "@/server/db/schema";
-import type { ContentItemsResponse, ContentVersion } from "./content.schema";
+import type { ContentVersion } from "./content.schema";
 
 // The single `content_meta` row.
 const META_ID = 1;
@@ -25,15 +25,27 @@ export async function getContentVersion(db: Db): Promise<ContentVersion> {
   return toVersion(await versionQuery(db));
 }
 
+/** A `ContentItemsResponse` already serialized, plus its version. */
+export interface ContentItemsPayload {
+  version: number;
+  /** JSON text of `{ version, items, tombstones }` (see `ContentItemsResponse`). */
+  json: string;
+}
+
 /**
  * The full list for one kind (one level, or every level when `level` is
  * omitted), the ids removed from it and the current version, read in one
  * `db.batch()` so the version matches the rows.
+ *
+ * Bodies were validated when they were published and are stored as JSON
+ * text, so they are copied into the response as they are: parsing and
+ * re-serializing a few megabytes of B1/B2 sentences would cost more CPU than
+ * the Workers free plan allows (10 ms per request).
  */
 export async function getContentItems(
   db: Db,
   { kind, level }: { kind: ContentKind; level?: Level },
-): Promise<ContentItemsResponse> {
+): Promise<ContentItemsPayload> {
   const scope = and(eq(contentItems.kind, kind), level ? eq(contentItems.level, level) : undefined);
 
   const [meta, rows, removed] = await db.batch([
@@ -45,7 +57,8 @@ export async function getContentItems(
         level: contentItems.level,
         topic: contentItems.topic,
         sort: contentItems.sort,
-        body: contentItems.body,
+        // Raw text: the column's JSON mode would parse every body.
+        body: sql<string>`${contentItems.body}`,
       })
       .from(contentItems)
       .where(and(scope, eq(contentItems.deleted, false)))
@@ -57,9 +70,11 @@ export async function getContentItems(
       .orderBy(asc(contentItems.id)),
   ]);
 
-  // Rows were validated against the content schemas when they were published;
-  // re-parsing every body here would spend the Worker's CPU budget.
-  const items = rows.map(({ topic, ...row }) => (topic === null ? row : { ...row, topic }) as ContentItem);
-
-  return { version: toVersion(meta).version, items, tombstones: removed.map((row) => row.id) };
+  const { version } = toVersion(meta);
+  const items = rows.map(({ id, kind, level, topic, sort, body }) => {
+    const fields = JSON.stringify(topic === null ? { id, kind, level, sort } : { id, kind, level, topic, sort });
+    return `${fields.slice(0, -1)},"body":${body}}`;
+  });
+  const tombstones = JSON.stringify(removed.map((row) => row.id));
+  return { version, json: `{"version":${version},"items":[${items.join(",")}],"tombstones":${tombstones}}` };
 }

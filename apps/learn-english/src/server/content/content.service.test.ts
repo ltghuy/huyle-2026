@@ -2,6 +2,7 @@ import { drizzle } from "drizzle-orm/d1";
 import { describe, expect, it } from "vitest";
 import type { Db } from "@/server/db";
 import * as schema from "@/server/db/schema";
+import type { ContentItemsResponse } from "./content.schema";
 import { getContentItems, getContentVersion } from "./content.service";
 
 type Row = Record<string, unknown>;
@@ -74,6 +75,14 @@ describe("getContentVersion", () => {
 });
 
 describe("getContentItems", () => {
+  it("copies stored bodies into the response without changing them", async () => {
+    const body = '{"headword":"caf\u00e9","meaningsVi":["quán cà phê"],"note":"a \\"quote\\""}';
+    const { db } = fakeD1([[meta], [row("word:cafe", { body })], []]);
+    const { json } = await getContentItems(db, { kind: "word", level: "A1" });
+    expect(json).toContain(`"body":${body}}`);
+    expect((JSON.parse(json) as ContentItemsResponse).items[0].body).toEqual(JSON.parse(body));
+  });
+
   it("reads the version, live items and tombstones in one batch", async () => {
     const { db, statements, batches } = fakeD1([
       [meta],
@@ -85,7 +94,8 @@ describe("getContentItems", () => {
 
     expect(batches).toEqual([3]);
     expect(statements).toHaveLength(3);
-    expect(result).toEqual({
+    expect(result.version).toBe(7);
+    expect(JSON.parse(result.json)).toEqual({
       version: 7,
       items: [
         { id: "word:apple", kind: "word", level: "A1", topic: "food", sort: 1, body: { headword: "word:apple" } },
@@ -112,11 +122,13 @@ describe("getContentItems", () => {
 
     expect(statements[1].sql).not.toMatch(/"level" = \?/);
     expect(statements[1].params).toEqual(["grammar", 0]);
-    expect(result.items.map((item) => item.id)).toEqual(["grammar:be"]);
+    expect((JSON.parse(result.json) as ContentItemsResponse).items.map((item) => item.id)).toEqual(["grammar:be"]);
   });
 
   it("reports version 0 when nothing is published", async () => {
     const { db } = fakeD1([[], [], []]);
-    expect(await getContentItems(db, { kind: "placement" })).toEqual({ version: 0, items: [], tombstones: [] });
+    const result = await getContentItems(db, { kind: "placement" });
+    expect(result.version).toBe(0);
+    expect(JSON.parse(result.json)).toEqual({ version: 0, items: [], tombstones: [] });
   });
 });

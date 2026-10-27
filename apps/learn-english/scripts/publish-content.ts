@@ -3,8 +3,9 @@
 // items, upserts new or changed rows, tombstones removed ids and bumps
 // content_meta.version last, so clients only refetch once everything is in.
 //
-//   pnpm content:publish [--local | --remote] [--dry-run] [--allow-missing-audio] [--content-dir <path>] [--persist-to <dir>]
+//   pnpm content:publish [--local | --remote] [--levels A1,A2,B1] [--dry-run] [--allow-missing-audio] [--content-dir <path>] [--persist-to <dir>]
 //   (--persist-to: a separate local D1 state, used by the e2e suite so its fixture never touches real local content)
+//   (--levels: publish only these levels; rows of other levels are neither upserted nor tombstoned)
 //
 // Changed rows are found by comparing each approved item with the row read
 // back from D1 (kind, level, topic, sort and body), so nothing extra is
@@ -197,16 +198,20 @@ function sameRow(item: ContentItem, row: ExistingRow): boolean {
   );
 }
 
-/** New or changed items to upsert, and live rows no longer in the approved set to tombstone. */
-export function planPublish(items: readonly ContentItem[], existing: readonly ExistingRow[]): PublishPlan {
+/**
+ * New or changed items to upsert, and live rows no longer in the approved set
+ * to tombstone. With `levels`, rows of other levels are left alone.
+ */
+export function planPublish(items: readonly ContentItem[], existing: readonly ExistingRow[], levels?: ReadonlySet<string>): PublishPlan {
   const rows = new Map(existing.map((row) => [row.id, row]));
   const ids = new Set(items.map((item) => item.id));
+  const inScope = (row: ExistingRow) => !levels || levels.has(row.level);
   return {
     upserts: items.filter((item) => {
       const row = rows.get(item.id);
       return !row || !sameRow(item, row);
     }),
-    tombstones: existing.filter((row) => !row.deleted && !ids.has(row.id)).map((row) => row.id).sort(),
+    tombstones: existing.filter((row) => inScope(row) && !row.deleted && !ids.has(row.id)).map((row) => row.id).sort(),
   };
 }
 
@@ -292,15 +297,23 @@ async function main() {
       "allow-missing-audio": { type: "boolean", default: false },
       "content-dir": { type: "string", default: "content" },
       "persist-to": { type: "string" },
+      levels: { type: "string" },
     },
   });
+  const levels = values.levels ? new Set(values.levels.split(",").map((level) => level.trim().toUpperCase())) : undefined;
+  for (const level of levels ?? []) {
+    if (!(LEVELS as readonly string[]).includes(level)) throw new Error(`--levels: unknown level ${level}`);
+  }
   if (values.local && values.remote) throw new Error("Pass --local or --remote, not both");
   if (values.remote && values["persist-to"]) throw new Error("--persist-to only applies to --local");
   const target = values.remote ? ["--remote"] : ["--local", ...(values["persist-to"] ? ["--persist-to", values["persist-to"]] : [])];
   const root = process.cwd();
   const contentDir = path.resolve(root, values["content-dir"]);
 
-  const { items: approved, drafts, errors } = collectApproved(await readSourceFiles(contentDir));
+  const collected = collectApproved(await readSourceFiles(contentDir));
+  const { drafts, errors } = collected;
+  const approved = levels ? collected.items.filter((item) => levels.has(item.level)) : collected.items;
+  if (levels) console.log(`Publishing levels ${[...levels].join(", ")} only (${collected.items.length - approved.length} approved item(s) of other levels held back)`);
   errors.push(...checkReferences(approved));
   const sourced = approved.filter((item) => item.kind !== "placement");
   const placement = generatePlacement(sourced);
@@ -326,7 +339,7 @@ async function main() {
 
   const items = [...approved, ...placement];
   const existing = query<ExistingRow>(target, "SELECT id, kind, level, topic, sort, body, deleted FROM content_items");
-  const plan = planPublish(items, existing);
+  const plan = planPublish(items, existing, levels);
   console.log(`${items.length} approved (${placement.length} placement generated), ${drafts} draft(s) skipped`);
   console.log(`${plan.upserts.length} to upsert, ${plan.tombstones.length} to tombstone`);
   if (plan.upserts.length === 0 && plan.tombstones.length === 0) {
