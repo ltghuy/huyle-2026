@@ -1,7 +1,8 @@
 // Owner review of drafted content in content/{kind}/{level}.json (T011, AC-053).
 //
 //   pnpm content:review list [--level A1] [--kind word]
-//   pnpm content:review approve <file-or-level> [--kind word] (--ids id1,id2 | --all) [--dry-run]
+//   pnpm content:review sheet <level>   (writes content/.review/<level>.html, a page to review the drafts in)
+//   pnpm content:review approve <file-or-level> [--kind word] (--ids id1,id2 | --ids-file review-A1.json | --all) [--dry-run]
 //   pnpm content:review unapprove <file-or-level> [--kind word] (--ids id1,id2 | --all) [--dry-run]
 //   (--content-dir <path> reads another content folder; default content)
 //
@@ -12,9 +13,10 @@
 // references it. Files are written back like the drafting script writes them:
 // 2-space JSON sorted by id, with a trailing newline.
 import { existsSync } from "node:fs";
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { buildSheet, idsFromDecisions, reviewUnits } from "./lib/review-sheet";
 import { CONTENT_KINDS, sourceItemSchema, type ContentKind, type SourceItem } from "../src/content/schema";
 import { LEVELS, type Level } from "../src/learning/types";
 
@@ -283,6 +285,7 @@ export async function run(argv: string[]): Promise<number> {
       level: { type: "string" },
       kind: { type: "string" },
       ids: { type: "string" },
+      "ids-file": { type: "string" },
       all: { type: "boolean", default: false },
       "dry-run": { type: "boolean", default: false },
       "content-dir": { type: "string", default: "content" },
@@ -299,13 +302,27 @@ export async function run(argv: string[]): Promise<number> {
     printList(filterEntries(entries, values), problems);
     return 0;
   }
+  if (command === "sheet") {
+    if (!target || !(LEVELS as readonly string[]).includes(target)) throw new Error(`Pass a level to sheet: ${LEVELS.join(", ")}`);
+    const items = entries.filter((entry) => entry.level === target && entry.item).map((entry) => entry.item!);
+    const topics = JSON.parse(await readFile(path.resolve(values["content-dir"], "topics.json"), "utf8")) as { slug: string; titleVi: string }[];
+    const units = reviewUnits(items);
+    const out = path.resolve(values["content-dir"], ".review", `${target}.html`);
+    await mkdir(path.dirname(out), { recursive: true });
+    await writeFile(out, buildSheet(target, units, Object.fromEntries(topics.map((topic) => [topic.slug, topic.titleVi]))));
+    console.log(`${units.length} units to review → ${path.relative(process.cwd(), out)}`);
+    console.log(`Open it in a browser, then: pnpm content:review approve ${target} --ids-file <downloaded review-${target}.json>`);
+    return 0;
+  }
   if (command !== "approve" && command !== "unapprove") {
-    throw new Error("Usage: content:review list | approve <file-or-level> | unapprove <file-or-level>");
+    throw new Error("Usage: content:review list | sheet <level> | approve <file-or-level> | unapprove <file-or-level>");
   }
   if (!target) throw new Error(`Pass the file or level to ${command}`);
 
   const scope = resolveTarget(target, files, values.kind);
-  const ids = values.ids?.split(",").map((id) => id.trim()).filter(Boolean);
+  const ids = values["ids-file"]
+    ? idsFromDecisions(JSON.parse(await readFile(path.resolve(values["ids-file"]), "utf8")))
+    : values.ids?.split(",").map((id) => id.trim()).filter(Boolean);
   const { selected, unknown } = selectEntries(entries, { files: scope, ids, all: values.all });
   const plan = command === "approve" ? planApprove(entries, selected) : planUnapprove(entries, selected);
   const status: Status = command === "approve" ? "approved" : "draft";

@@ -102,11 +102,12 @@ Run after each task or batch (from the repo root):
 
 - [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, all 12 A1 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
   - **Done when:** the owner has approved A1 content and placement items; schema validation is clean
+  - Progress (2026-10-27): A1 drafted in-session (1,164 words, 1,212 sentences, 12 grammar, 12 writing; 2,400 items pass an approve dry run). Review page: `pnpm content:review sheet A1` writes `content/.review/A1.html` (OK / Needs fix per word or grammar unit with its sentences, marks in localStorage, "Download decisions"), then `pnpm content:review approve A1 --ids-file review-A1.json`. Waiting on: the owner's review
 
 - [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD or Workers AI Aura-2 → MP3, key `sha256(voice|text)`, deployed as static files on two audio-only Workers with an immutable cache header); generate 4 male voice samples for the owner
   - **Done when:** the owner has picked the voice; generating and deploying the A1 set serves clips from `audio-words.huyle.work` / `audio-sentences.huyle.work` with a long-lived `Cache-Control`
   - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Hosting switched from R2 to two static audio Workers (no card); `pnpm content:audio deploy` added and dry-run verified.
-  - Progress (2026-10-27, later): free `kokoro` provider added (Kokoro-82M, Apache-2.0, runs locally via kokoro-js; MP3 via lamejs); samples for am_michael, am_fenrir, am_puck, am_adam in `content/.audio/samples/`. Waiting on: the owner's voice pick
+  - Progress (2026-10-27, later): free `kokoro` provider added (Kokoro-82M, Apache-2.0, runs locally via kokoro-js; MP3 via lamejs); samples for am_michael, am_fenrir, am_puck, am_adam in `content/.audio/samples/`. Voice picked: **am_adam** (owner, 2026-10-27). Waiting on: approved A1 items to generate for
 
 - [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1
