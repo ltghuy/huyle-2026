@@ -1,0 +1,254 @@
+[
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "writing:a2-1-yesterday-i-got-up-early",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu kể về ngày hôm qua của bạn: bạn đã làm gì vào buổi sáng, buổi chiều và buổi tối?",
+      "useItems": [
+        "word:yesterday-adv",
+        "word:meeting-n",
+        "word:visit-v",
+        "word:together-adv"
+      ],
+      "modelAnswers": [
+        "Yesterday I got up early. In the morning I went to work by bus. In the afternoon I had a meeting. In the evening I cooked dinner and watched a movie.",
+        "I didn't work yesterday. I visited my grandparents in the morning. We had lunch together. In the evening I went to bed at ten."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 9,
+    "id": "writing:a2-10-i-always-have-breakfast",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về thói quen của bạn (dùng always, usually, sometimes, never).",
+      "useItems": [
+        "word:always-adv",
+        "word:usually-adv",
+        "word:sometimes-adv",
+        "word:never-adv"
+      ],
+      "modelAnswers": [
+        "I always have breakfast at home. I usually go to work by motorbike. I sometimes cook dinner for my family. I never drink coffee in the evening.",
+        "I always brush my teeth before bed. I usually read for twenty minutes. I sometimes go jogging in the park. I never go to bed after midnight."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 10,
+    "id": "writing:a2-11-in-five-years-i-will-spe",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu dự đoán về tương lai của bạn trong 5 năm tới (dùng \"will\").",
+      "useItems": [
+        "word:future-n",
+        "word:company-n",
+        "word:probably-adv",
+        "word:job-n"
+      ],
+      "modelAnswers": [
+        "In five years I will speak English well. I will have a better job. I think I will live in a bigger apartment. Maybe I will travel to another country.",
+        "I think I will finish my studies in two years. I will find a job in a big company. I won't live with my parents. I will probably buy a car."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 11,
+    "id": "writing:a2-12-if-it-rains-tomorrow-i-w",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về điều sẽ xảy ra nếu… (dùng câu điều kiện loại 1).",
+      "useItems": [
+        "word:if-conj",
+        "word:exam-n",
+        "word:pass-v",
+        "word:save-v"
+      ],
+      "modelAnswers": [
+        "If it rains tomorrow, I will stay at home. If I have free time, I will call my friends. If I study hard, I will pass the exam. If I pass the exam, my parents will be happy.",
+        "If I wake up early, I will go running. If the weather is nice, we will have a picnic. If I save money, I will buy a new laptop. If I'm tired tonight, I won't go out."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 1,
+    "id": "writing:a2-2-last-summer-i-went-to-nh",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về kỳ nghỉ gần nhất của bạn: bạn đã đi đâu, với ai, và bạn thấy thế nào?",
+      "useItems": [
+        "word:hotel-n",
+        "word:beach-n",
+        "word:trip-n",
+        "word:enjoy-v"
+      ],
+      "modelAnswers": [
+        "Last summer I went to Nha Trang with my family. We stayed in a small hotel near the beach. We swam every day. It was a wonderful holiday.",
+        "Last month I traveled to Da Lat with two friends. The weather was cool and the flowers were beautiful. We ate a lot of local food. I really enjoyed the trip."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 2,
+    "id": "writing:a2-3-next-weekend-i-am-going",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về kế hoạch cuối tuần tới của bạn (dùng \"be going to\").",
+      "useItems": [
+        "word:plan-n",
+        "word:relax-v",
+        "word:apartment-n",
+        "word:weekend-n"
+      ],
+      "modelAnswers": [
+        "Next weekend I am going to visit my parents. On Saturday we are going to cook a big dinner. On Sunday I am going to clean my apartment. In the evening I am going to relax.",
+        "This weekend I'm going to meet my friends. We're going to see a new movie. After that we're going to have pizza. On Sunday I'm going to stay at home and read."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 3,
+    "id": "writing:a2-4-hi-lan-my-birthday-party",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một email ngắn (4 câu) mời một người bạn đến dự sinh nhật của bạn.",
+      "useItems": [
+        "word:invite-v",
+        "word:party-n",
+        "word:hope-v",
+        "word:restaurant-n"
+      ],
+      "modelAnswers": [
+        "Hi Lan, my birthday party is on Saturday evening. It starts at seven at my house. There will be food, music and games. I hope you can come!",
+        "Dear Minh, I'm having a small birthday party next Friday. We're going to have dinner at a restaurant near the river. Please come at six thirty. Let me know if you can come."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 4,
+    "id": "writing:a2-5-hanoi-is-older-than-ho-c",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu so sánh thành phố của bạn với một thành phố khác (dùng dạng so sánh hơn).",
+      "useItems": [
+        "word:city-n",
+        "word:busy-adj",
+        "word:cheap-adj",
+        "word:prefer-v"
+      ],
+      "modelAnswers": [
+        "Hanoi is older than Ho Chi Minh City. Ho Chi Minh City is bigger and busier. The weather in Hanoi is colder in winter. I think the food in both cities is delicious.",
+        "My town is smaller than Da Nang. It is quieter and cheaper. Da Nang has more beaches and better hospitals. But I prefer my town because my family lives there."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 5,
+    "id": "writing:a2-6-i-have-visited-three-cou",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về những việc bạn đã từng làm và chưa từng làm (dùng thì hiện tại hoàn thành).",
+      "useItems": [
+        "word:never-adv",
+        "word:country-n",
+        "word:try-v",
+        "word:yet-adv"
+      ],
+      "modelAnswers": [
+        "I have visited three countries. I have eaten sushi in Japan. I have never been to Europe. I have never ridden a horse.",
+        "I have lived in this city for five years. I have tried many kinds of street food. I have never seen snow. I haven't learned to swim yet."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 6,
+    "id": "writing:a2-7-you-should-stay-at-home",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu khuyên một người bạn đang bị cảm (dùng \"should\" và \"shouldn't\").",
+      "useItems": [
+        "word:should-modal",
+        "word:rest-v",
+        "word:medicine-n",
+        "word:doctor-n"
+      ],
+      "modelAnswers": [
+        "You should stay at home and rest. You should drink a lot of warm water. You shouldn't go out in the rain. If you feel worse, you should see a doctor.",
+        "You should go to bed early tonight. You should eat some hot soup. You shouldn't drink cold drinks. You should take some medicine."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 7,
+    "id": "writing:a2-8-at-my-office-we-have-to",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu về nội quy ở nơi bạn làm việc hoặc học tập (dùng \"must\", \"mustn't\" hoặc \"have to\").",
+      "useItems": [
+        "word:must-modal",
+        "word:office-n",
+        "word:uniform-n",
+        "word:arrive-v"
+      ],
+      "modelAnswers": [
+        "At my office we have to start work at eight. We must wear a name card. We mustn't eat at our desks. We have to turn off the lights before we leave.",
+        "At my school students must wear a uniform. We have to arrive before seven thirty. We mustn't use phones in class. We have to do our homework every day."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 8,
+    "id": "writing:a2-9-when-i-got-home-last-nig",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 4 câu kể chuyện gì đang xảy ra khi bạn về đến nhà tối qua (dùng thì quá khứ tiếp diễn).",
+      "useItems": [
+        "word:arrive-v",
+        "word:sofa-n",
+        "word:heavily-adv",
+        "word:game-n"
+      ],
+      "modelAnswers": [
+        "When I got home last night, my mother was cooking dinner. My father was reading the news on his phone. My little brother was playing a game. Our cat was sleeping on the sofa.",
+        "When I arrived home, it was raining heavily. My wife was watching TV. My children were doing their homework. Nobody was listening to music."
+      ]
+    },
+    "status": "draft"
+  }
+]

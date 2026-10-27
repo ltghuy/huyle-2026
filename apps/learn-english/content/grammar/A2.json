@@ -1,0 +1,1354 @@
+[
+  {
+    "level": "A2",
+    "sort": 18,
+    "id": "grammar:adverbs-of-frequency",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Adverbs of frequency",
+      "titleVi": "Trạng từ chỉ tần suất",
+      "ruleVi": "Trạng từ chỉ tần suất (always, usually, often, sometimes, rarely, never) cho biết một việc xảy ra thường xuyên đến mức nào. Chúng đứng trước động từ thường nhưng đứng sau động từ \"to be\". Tiếng Việt nói \"cô ấy luôn vui\" mà không cần \"là\", nên người Việt hay quên \"is\" hoặc đặt sai vị trí trạng từ. \"Never\" đã mang nghĩa phủ định nên không dùng thêm \"not\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + adverb + V; S + am/is/are + adverb"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't + usually/often/always + V; S + never + V"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + adverb + V?; How often + do/does + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Đứng trước động từ thường: \"I often walk to work.\"",
+        "Đứng sau động từ \"to be\": \"He is always busy.\"",
+        "Mức độ từ cao đến thấp: always (luôn luôn), usually (thường xuyên), often (hay), sometimes (thỉnh thoảng), rarely (hiếm khi), never (không bao giờ): \"We sometimes eat out.\"",
+        "Hỏi về tần suất dùng \"How often\": \"How often do you cook?\"",
+        "\"Sometimes\" và \"usually\" cũng có thể đứng đầu câu: \"Sometimes I go by bus.\""
+      ],
+      "signalWords": [
+        "always",
+        "usually",
+        "often",
+        "sometimes",
+        "rarely",
+        "never",
+        "how often"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I drink often coffee.",
+          "right": "I often drink coffee.",
+          "explanationVi": "Trạng từ tần suất đứng trước động từ thường, không đứng sau."
+        },
+        {
+          "wrong": "They are late never.",
+          "right": "They are never late.",
+          "explanationVi": "Trạng từ tần suất đứng ngay sau động từ \"to be\"."
+        },
+        {
+          "wrong": "How often you play tennis?",
+          "right": "How often do you play tennis?",
+          "explanationVi": "Câu hỏi với \"How often\" cần trợ động từ \"do/does\"."
+        },
+        {
+          "wrong": "I don't never eat meat.",
+          "right": "I never eat meat.",
+          "explanationVi": "\"Never\" đã có nghĩa phủ định nên không dùng thêm \"don't\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-adverbs-of-frequency-1",
+        "sentence:g-adverbs-of-frequency-2",
+        "sentence:g-adverbs-of-frequency-3",
+        "sentence:g-adverbs-of-frequency-4"
+      ],
+      "practice": [
+        {
+          "prompt": "She ___ happy on Fridays.",
+          "options": [
+            "always",
+            "is always",
+            "are always",
+            "always be"
+          ],
+          "answer": "is always",
+          "explanationVi": "Câu cần động từ \"is\" cho chủ ngữ \"she\", và \"always\" đứng sau \"to be\"."
+        },
+        {
+          "prompt": "We ___ go to the movies on Sundays.",
+          "options": [
+            "sometime",
+            "some times",
+            "sometimes",
+            "are sometimes"
+          ],
+          "answer": "sometimes",
+          "explanationVi": "\"Sometimes\" (thỉnh thoảng) viết liền và đứng trước động từ thường \"go\"."
+        },
+        {
+          "prompt": "___ do you visit your grandparents? — Once a month.",
+          "options": [
+            "How many",
+            "How often",
+            "What often",
+            "Where often"
+          ],
+          "answer": "How often",
+          "explanationVi": "Câu trả lời nói về số lần nên câu hỏi dùng \"How often\"."
+        },
+        {
+          "prompt": "He ___ coffee at night because he can't sleep.",
+          "options": [
+            "drinks never",
+            "never drink",
+            "never drinks",
+            "doesn't never drink"
+          ],
+          "answer": "never drinks",
+          "explanationVi": "\"Never\" đứng trước động từ, và chủ ngữ \"he\" cần động từ thêm -s."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"go\": She often ___ to the gym after work.",
+          "answer": "goes",
+          "explanationVi": "Chủ ngữ \"she\" là ngôi thứ ba số ít nên \"go\" thêm -es thành \"goes\"."
+        },
+        {
+          "prompt": "Điền trạng từ có nghĩa \"không bao giờ\": I ___ eat fast food.",
+          "answer": "never",
+          "explanationVi": "\"Never\" nghĩa là \"không bao giờ\" và đứng trước động từ thường \"eat\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 15,
+    "id": "grammar:be-going-to",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Be going to",
+      "titleVi": "Be going to: dự định tương lai",
+      "ruleVi": "\"Be going to\" + động từ nguyên mẫu dùng để nói về dự định đã có từ trước và dự đoán dựa vào dấu hiệu nhìn thấy được. \"Be\" đổi theo chủ ngữ: am, is, are. Khác với \"will\" (quyết định ngay lúc nói), \"be going to\" là kế hoạch đã nghĩ sẵn. Tiếng Việt chỉ nói \"định\" hay \"sắp\", còn tiếng Anh không được bỏ am/is/are và \"to\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + am/is/are + going to + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + am not/isn't/aren't + going to + V"
+        },
+        {
+          "form": "question",
+          "en": "Am/Is/Are + S + going to + V?"
+        }
+      ],
+      "usageVi": [
+        "Dự định, kế hoạch đã quyết định từ trước: \"I'm going to visit my aunt this weekend.\"",
+        "Dự đoán dựa trên dấu hiệu hiện tại: \"Look at those clouds. It's going to rain.\"",
+        "Hỏi về kế hoạch của ai đó: \"What are you going to do tonight?\""
+      ],
+      "signalWords": [
+        "tonight",
+        "this weekend",
+        "next month",
+        "tomorrow",
+        "Look!"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I going to buy a laptop.",
+          "right": "I'm going to buy a laptop.",
+          "explanationVi": "Câu thiếu \"am\" trước \"going to\"."
+        },
+        {
+          "wrong": "She is going to visits her parents.",
+          "right": "She is going to visit her parents.",
+          "explanationVi": "Sau \"going to\" là động từ nguyên mẫu, không thêm -s."
+        },
+        {
+          "wrong": "They is going to move.",
+          "right": "They are going to move.",
+          "explanationVi": "Chủ ngữ \"they\" đi với \"are\"."
+        },
+        {
+          "wrong": "We are going travel next month.",
+          "right": "We are going to travel next month.",
+          "explanationVi": "Câu thiếu \"to\" sau \"going\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-be-going-to-1",
+        "sentence:g-be-going-to-2",
+        "sentence:g-be-going-to-3",
+        "sentence:g-be-going-to-4"
+      ],
+      "practice": [
+        {
+          "prompt": "My sister ___ going to start a new job.",
+          "options": [
+            "are",
+            "is",
+            "am",
+            "be"
+          ],
+          "answer": "is",
+          "explanationVi": "\"My sister\" là ngôi thứ ba số ít nên dùng \"is\"."
+        },
+        {
+          "prompt": "We are going ___ a cake for Mom.",
+          "options": [
+            "bake",
+            "baking",
+            "to bake",
+            "to baking"
+          ],
+          "answer": "to bake",
+          "explanationVi": "Sau \"going\" là \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Watch out! You ___ fall!",
+          "options": [
+            "is going to",
+            "going to",
+            "are going",
+            "are going to"
+          ],
+          "answer": "are going to",
+          "explanationVi": "Dự đoán dựa trên dấu hiệu trước mắt; \"you\" đi với \"are going to\"."
+        },
+        {
+          "prompt": "___ he going to call the doctor?",
+          "options": [
+            "Is",
+            "Does",
+            "Are",
+            "Do"
+          ],
+          "answer": "Is",
+          "explanationVi": "Câu hỏi với \"he\" bắt đầu bằng \"Is\"."
+        },
+        {
+          "prompt": "Điền am, is hoặc are: I ___ going to clean my room tonight.",
+          "answer": "am",
+          "explanationVi": "Chủ ngữ \"I\" đi với \"am\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"study\": My cousin is going to ___ math in college.",
+          "answer": "study",
+          "explanationVi": "Sau \"going to\" là động từ nguyên mẫu."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 17,
+    "id": "grammar:comparatives-superlatives",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Comparatives and superlatives",
+      "titleVi": "So sánh hơn và so sánh nhất",
+      "ruleVi": "So sánh hơn dùng để so sánh hai người hoặc hai vật, còn so sánh nhất nói ai hay cái gì đứng đầu trong một nhóm từ ba trở lên. Tính từ ngắn thêm -er/-est (tall → taller → the tallest), tính từ dài dùng more/the most (more expensive, the most expensive). So sánh hơn đi với \"than\", so sánh nhất cần \"the\". Một số tính từ bất quy tắc: good → better → the best, bad → worse → the worst.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + be + adj-er / more + adj + than + N"
+        },
+        {
+          "form": "affirmative",
+          "en": "S + be + the + adj-est / the most + adj (+ in/of ...)"
+        },
+        {
+          "form": "negative",
+          "en": "S + be + not + adj-er / more + adj + than + N"
+        },
+        {
+          "form": "question",
+          "en": "Be + S + adj-er / more + adj + than + N?"
+        }
+      ],
+      "usageVi": [
+        "So sánh hai đối tượng, dùng \"than\": \"My brother is taller than me.\"",
+        "So sánh nhất trong một nhóm, dùng \"the\": \"She is the youngest in her class.\"",
+        "Tính từ một âm tiết: tận cùng -e chỉ thêm -r/-st; một nguyên âm + một phụ âm thì gấp đôi phụ âm: \"nice → nicer\", \"big → bigger → the biggest\".",
+        "Tính từ hai âm tiết tận cùng -y đổi y thành i: \"happy → happier → the happiest\".",
+        "Tính từ dài (hai âm tiết trở lên) dùng more/the most: \"more beautiful\", \"the most beautiful\"."
+      ],
+      "signalWords": [
+        "than",
+        "the",
+        "in the world",
+        "of all",
+        "in my class"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She is more tall than me.",
+          "right": "She is taller than me.",
+          "explanationVi": "\"tall\" là tính từ ngắn nên thêm -er, không dùng \"more\"."
+        },
+        {
+          "wrong": "This is the most cheap phone.",
+          "right": "This is the cheapest phone.",
+          "explanationVi": "\"cheap\" là tính từ ngắn nên thêm -est, không dùng \"most\"."
+        },
+        {
+          "wrong": "He is taller that his brother.",
+          "right": "He is taller than his brother.",
+          "explanationVi": "So sánh hơn đi với \"than\", không dùng \"that\"."
+        },
+        {
+          "wrong": "It is the better restaurant in town.",
+          "right": "It is the best restaurant in town.",
+          "explanationVi": "So sánh nhất của \"good\" là \"the best\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-comparatives-superlatives-1",
+        "sentence:g-comparatives-superlatives-2",
+        "sentence:g-comparatives-superlatives-3",
+        "sentence:g-comparatives-superlatives-4"
+      ],
+      "practice": [
+        {
+          "prompt": "This book is ___ than that one.",
+          "options": [
+            "interestinger",
+            "more interesting",
+            "most interesting",
+            "the most interesting"
+          ],
+          "answer": "more interesting",
+          "explanationVi": "\"interesting\" là tính từ dài, có \"than\" nên dùng \"more interesting\"."
+        },
+        {
+          "prompt": "That is the ___ building in our city.",
+          "options": [
+            "taller",
+            "most tall",
+            "tallest",
+            "tall"
+          ],
+          "answer": "tallest",
+          "explanationVi": "So sánh nhất của tính từ ngắn \"tall\" là \"the tallest\"."
+        },
+        {
+          "prompt": "My test score was ___ than yours.",
+          "options": [
+            "badder",
+            "worst",
+            "more bad",
+            "worse"
+          ],
+          "answer": "worse",
+          "explanationVi": "\"bad\" bất quy tắc: so sánh hơn là \"worse\"."
+        },
+        {
+          "prompt": "She is the ___ student in our class.",
+          "options": [
+            "best",
+            "better",
+            "good",
+            "goodest"
+          ],
+          "answer": "best",
+          "explanationVi": "Có \"the\" và \"in our class\" nên dùng so sánh nhất của \"good\": \"best\"."
+        },
+        {
+          "prompt": "Viết dạng so sánh hơn của \"happy\": I am ___ now than last year.",
+          "answer": "happier",
+          "explanationVi": "\"happy\" tận cùng -y nên đổi y thành i rồi thêm -er."
+        },
+        {
+          "prompt": "Viết dạng so sánh nhất của \"big\": This is the ___ pizza on the menu.",
+          "answer": "biggest",
+          "explanationVi": "\"big\" có một nguyên âm + một phụ âm nên gấp đôi \"g\" rồi thêm -est."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 19,
+    "id": "grammar:countable-uncountable",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Countable and uncountable nouns: some, any, much, many",
+      "titleVi": "Danh từ đếm được và không đếm được",
+      "ruleVi": "Danh từ đếm được (book, apple) có dạng số nhiều, còn danh từ không đếm được (water, rice, money, information) không có dạng số nhiều và không đi với a/an. \"Some\" thường dùng trong câu khẳng định, \"any\" dùng trong câu phủ định và câu hỏi. \"Many\" đi với danh từ đếm được số nhiều, \"much\" đi với danh từ không đếm được, thường trong câu phủ định và câu hỏi. Tiếng Việt dùng chữ \"nhiều\" cho mọi thứ, nên người Việt hay nhầm \"much\" và \"many\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V + some/a lot of + plural noun/uncountable noun"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't + V + any/many + plural noun; any/much + uncountable noun"
+        },
+        {
+          "form": "question",
+          "en": "Are there any + plural noun? / Is there any + uncountable noun? / How many + plural noun? / How much + uncountable noun?"
+        }
+      ],
+      "usageVi": [
+        "Danh từ đếm được có số nhiều, danh từ không đếm được thì không: \"two apples\", \"some water\".",
+        "\"Some\" trong câu khẳng định, \"any\" trong câu phủ định và câu hỏi: \"I have some bread.\", \"Do you have any bread?\"",
+        "\"Many\" với danh từ đếm được số nhiều: \"How many books do you have?\"",
+        "\"Much\" với danh từ không đếm được: \"I don't have much time.\"",
+        "\"A lot of\" dùng được với cả hai loại: \"a lot of friends\", \"a lot of money\"."
+      ],
+      "signalWords": [
+        "some",
+        "any",
+        "much",
+        "many",
+        "a lot of",
+        "how much",
+        "how many"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I need some informations.",
+          "right": "I need some information.",
+          "explanationVi": "\"Information\" là danh từ không đếm được nên không thêm -s."
+        },
+        {
+          "wrong": "How much books do you have?",
+          "right": "How many books do you have?",
+          "explanationVi": "\"Books\" là danh từ đếm được số nhiều nên dùng \"How many\"."
+        },
+        {
+          "wrong": "I have a lot of homeworks.",
+          "right": "I have a lot of homework.",
+          "explanationVi": "\"Homework\" là danh từ không đếm được nên không có dạng số nhiều."
+        },
+        {
+          "wrong": "There isn't some water.",
+          "right": "There isn't any water.",
+          "explanationVi": "Câu phủ định dùng \"any\", không dùng \"some\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-countable-uncountable-1",
+        "sentence:g-countable-uncountable-2",
+        "sentence:g-countable-uncountable-3",
+        "sentence:g-countable-uncountable-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I have ___ friends in this city.",
+          "options": [
+            "much",
+            "a lot of",
+            "a",
+            "any"
+          ],
+          "answer": "a lot of",
+          "explanationVi": "\"A lot of\" dùng được với danh từ số nhiều trong câu khẳng định."
+        },
+        {
+          "prompt": "Is there ___ sugar in the tea?",
+          "options": [
+            "many",
+            "a",
+            "any",
+            "an"
+          ],
+          "answer": "any",
+          "explanationVi": "\"Sugar\" không đếm được, và câu hỏi dùng \"any\"."
+        },
+        {
+          "prompt": "How ___ money do you need?",
+          "options": [
+            "much",
+            "many",
+            "lot",
+            "any"
+          ],
+          "answer": "much",
+          "explanationVi": "\"Money\" là danh từ không đếm được nên dùng \"How much\"."
+        },
+        {
+          "prompt": "There aren't any ___ on the table.",
+          "options": [
+            "cup",
+            "a cup",
+            "water",
+            "cups"
+          ],
+          "answer": "cups",
+          "explanationVi": "\"There aren't\" cần danh từ đếm được ở dạng số nhiều."
+        },
+        {
+          "prompt": "Điền much hoặc many: There aren't ___ people here.",
+          "answer": "many",
+          "explanationVi": "\"People\" là danh từ số nhiều nên dùng \"many\"."
+        },
+        {
+          "prompt": "Điền some hoặc any: I'd like ___ water, please.",
+          "answer": "some",
+          "explanationVi": "Câu khẳng định (lời đề nghị lịch sự) dùng \"some\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 22,
+    "id": "grammar:first-conditional",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "First conditional",
+      "titleVi": "Câu điều kiện loại 1",
+      "ruleVi": "Câu điều kiện loại 1 (first conditional) nói về một việc có thể xảy ra trong tương lai và kết quả của nó. Mệnh đề \"if\" dùng thì hiện tại đơn, mệnh đề kết quả dùng \"will\" + động từ nguyên mẫu. Tiếng Việt không chia thì nên người Việt hay thêm \"will\" vào cả mệnh đề \"if\" khi nói về tương lai, nhưng tiếng Anh không làm vậy. Khi mệnh đề \"if\" đứng đầu câu, đặt dấu phẩy sau nó.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "If + S + V (present simple), S + will + V"
+        },
+        {
+          "form": "negative",
+          "en": "If + S + don't/doesn't + V, S + won't (will not) + V"
+        },
+        {
+          "form": "question",
+          "en": "Will + S + V + if + S + V?; What will + S + V + if + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Điều kiện có thể xảy ra và kết quả: \"If it rains, we will stay home.\"",
+        "Mệnh đề \"if\" có thể đứng sau, khi đó không cần dấu phẩy: \"We will stay home if it rains.\"",
+        "Lời hứa hoặc cảnh báo: \"If you touch it, you will get hurt.\"",
+        "Hỏi về kết quả: \"What will you do if you miss the bus?\""
+      ],
+      "signalWords": [
+        "if",
+        "unless"
+      ],
+      "mistakes": [
+        {
+          "wrong": "If I will see him, I will tell him.",
+          "right": "If I see him, I will tell him.",
+          "explanationVi": "Mệnh đề \"if\" dùng hiện tại đơn, không dùng \"will\"."
+        },
+        {
+          "wrong": "If he doesn't hurry, he miss the train.",
+          "right": "If he doesn't hurry, he will miss the train.",
+          "explanationVi": "Mệnh đề kết quả cần \"will\" + động từ nguyên mẫu."
+        },
+        {
+          "wrong": "If you don't hurry, you don't will catch the bus.",
+          "right": "If you don't hurry, you won't catch the bus.",
+          "explanationVi": "Phủ định của \"will\" là \"won't (will not)\", không dùng \"don't will\"."
+        },
+        {
+          "wrong": "We will go out if it don't rain.",
+          "right": "We will go out if it doesn't rain.",
+          "explanationVi": "Chủ ngữ \"it\" đi với \"doesn't\", không dùng \"don't\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-first-conditional-1",
+        "sentence:g-first-conditional-2",
+        "sentence:g-first-conditional-3",
+        "sentence:g-first-conditional-4"
+      ],
+      "practice": [
+        {
+          "prompt": "If you ___ now, you will catch the train.",
+          "options": [
+            "will leave",
+            "leave",
+            "left",
+            "leaving"
+          ],
+          "answer": "leave",
+          "explanationVi": "Mệnh đề \"if\" trong câu điều kiện loại 1 dùng hiện tại đơn."
+        },
+        {
+          "prompt": "If she studies, she ___ the test.",
+          "options": [
+            "will passes",
+            "pass",
+            "passing",
+            "will pass"
+          ],
+          "answer": "will pass",
+          "explanationVi": "Mệnh đề kết quả dùng \"will\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "I ___ you if I need help.",
+          "options": [
+            "will call",
+            "calls",
+            "will calling",
+            "am call"
+          ],
+          "answer": "will call",
+          "explanationVi": "Mệnh đề kết quả dùng \"will\" + động từ nguyên mẫu \"call\"."
+        },
+        {
+          "prompt": "If it ___ cold tomorrow, I will wear a coat.",
+          "options": [
+            "will be",
+            "is",
+            "are",
+            "be"
+          ],
+          "answer": "is",
+          "explanationVi": "Mệnh đề \"if\" dùng hiện tại đơn; chủ ngữ \"it\" đi với \"is\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định rút gọn của \"go\" ở mệnh đề kết quả: If it rains tomorrow, we ___ to the park.",
+          "answer": "won't go",
+          "explanationVi": "Mệnh đề kết quả phủ định dùng \"won't\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"be\": If you ___ late, the teacher will be angry.",
+          "answer": "are",
+          "explanationVi": "Mệnh đề \"if\" dùng hiện tại đơn; \"you\" đi với \"are\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 14,
+    "id": "grammar:future-simple",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Future Simple (will)",
+      "titleVi": "Thì tương lai đơn (will)",
+      "ruleVi": "Future Simple với \"will\" dùng để nói về điều sẽ xảy ra trong tương lai: quyết định ngay lúc nói, lời hứa, lời đề nghị và dự đoán. Sau \"will\" luôn là động từ nguyên mẫu, và \"will\" giữ nguyên với mọi chủ ngữ. \"Will\" giống chữ \"sẽ\" trong tiếng Việt, nhưng tiếng Anh không được bỏ \"will\" dù câu đã có từ chỉ tương lai như \"tomorrow\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + will ('ll) + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + will not (won't) + V"
+        },
+        {
+          "form": "question",
+          "en": "Will + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Quyết định ngay lúc nói: \"It's cold. I'll close the window.\"",
+        "Lời hứa: \"I will call you tonight.\"",
+        "Lời đề nghị giúp đỡ: \"I'll carry your bag.\"",
+        "Dự đoán theo ý kiến cá nhân: \"I think it will rain tomorrow.\""
+      ],
+      "signalWords": [
+        "tomorrow",
+        "next week",
+        "soon",
+        "in the future",
+        "I think",
+        "probably"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I will to call you tomorrow.",
+          "right": "I will call you tomorrow.",
+          "explanationVi": "Sau \"will\" là động từ nguyên mẫu, không có \"to\"."
+        },
+        {
+          "wrong": "She will goes to the party.",
+          "right": "She will go to the party.",
+          "explanationVi": "Sau \"will\" động từ không thêm -s, kể cả với \"she\"."
+        },
+        {
+          "wrong": "I call you tomorrow.",
+          "right": "I will call you tomorrow.",
+          "explanationVi": "Có \"tomorrow\" vẫn cần \"will\" để nói về tương lai."
+        },
+        {
+          "wrong": "I willn't be late.",
+          "right": "I won't be late.",
+          "explanationVi": "Dạng viết tắt của \"will not\" là \"won't\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-future-simple-1",
+        "sentence:g-future-simple-2",
+        "sentence:g-future-simple-3",
+        "sentence:g-future-simple-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Don't worry. I ___ tell anyone.",
+          "options": [
+            "doesn't",
+            "won't",
+            "willn't",
+            "not"
+          ],
+          "answer": "won't",
+          "explanationVi": "Lời hứa ở dạng phủ định dùng \"won't\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "The phone is ringing. I ___ answer it.",
+          "options": [
+            "am",
+            "does",
+            "will",
+            "to"
+          ],
+          "answer": "will",
+          "explanationVi": "Quyết định ngay lúc nói dùng \"will\"."
+        },
+        {
+          "prompt": "___ you open the window, please?",
+          "options": [
+            "Will",
+            "Are",
+            "Does",
+            "Is"
+          ],
+          "answer": "Will",
+          "explanationVi": "Lời nhờ vả lịch sự có thể dùng \"Will you...?\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "They will ___ here at noon.",
+          "options": [
+            "arrives",
+            "arriving",
+            "to arrive",
+            "arrive"
+          ],
+          "answer": "arrive",
+          "explanationVi": "Sau \"will\" là động từ nguyên mẫu không \"to\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định viết tắt của \"will\": I ___ forget your birthday.",
+          "answer": "won't",
+          "explanationVi": "\"will not\" viết tắt là \"won't\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"be\": Next year my son will ___ ten years old.",
+          "answer": "be",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"be\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 20,
+    "id": "grammar:must-have-to",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Must and have to",
+      "titleVi": "Must và have to",
+      "ruleVi": "\"Must\" và \"have to\" đều có nghĩa là \"phải\". \"Must\" thường diễn tả điều người nói thấy cần thiết, hoặc dùng trong nội quy và biển báo; \"have to\" diễn tả sự bắt buộc từ bên ngoài như luật lệ hay công việc. Sau cả hai là động từ nguyên mẫu, và sau \"must\" không có \"to\". Chú ý: \"mustn't\" nghĩa là \"không được phép\", còn \"don't have to\" nghĩa là \"không cần phải\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + must + V; I/You/We/They + have to + V; He/She/It + has to + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + must not (mustn't) + V; S + don't/doesn't have to + V"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + have to + V?"
+        }
+      ],
+      "usageVi": [
+        "Điều người nói thấy cần thiết: \"I must call my mom.\"",
+        "Bắt buộc do luật lệ, công việc: \"She has to wear a uniform.\"",
+        "Cấm, không được phép: \"You mustn't use your phone in class.\"",
+        "Không cần thiết, không bắt buộc: \"You don't have to come.\"",
+        "Hỏi về sự bắt buộc thường dùng \"have to\": \"Do I have to pay?\""
+      ],
+      "signalWords": [],
+      "mistakes": [
+        {
+          "wrong": "I must to go now.",
+          "right": "I must go now.",
+          "explanationVi": "Sau \"must\" dùng động từ nguyên mẫu, không có \"to\"."
+        },
+        {
+          "wrong": "He have to work late.",
+          "right": "He has to work late.",
+          "explanationVi": "Chủ ngữ \"he\" đi với \"has to\", không dùng \"have to\"."
+        },
+        {
+          "wrong": "Tomorrow is a holiday, so you mustn't come.",
+          "right": "Tomorrow is a holiday, so you don't have to come.",
+          "explanationVi": "\"Mustn't\" là \"không được phép\"; muốn nói \"không cần\" thì dùng \"don't have to\"."
+        },
+        {
+          "wrong": "Do I must pay now?",
+          "right": "Do I have to pay now?",
+          "explanationVi": "\"Must\" không đi với \"do\"; câu hỏi dùng \"Do ... have to\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-must-have-to-1",
+        "sentence:g-must-have-to-2",
+        "sentence:g-must-have-to-3",
+        "sentence:g-must-have-to-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Students ___ be quiet in the library.",
+          "options": [
+            "musts",
+            "must",
+            "must to",
+            "has to"
+          ],
+          "answer": "must",
+          "explanationVi": "Nội quy dùng \"must\" + động từ nguyên mẫu, không thêm -s hay \"to\"."
+        },
+        {
+          "prompt": "My mother ___ get up at five every day.",
+          "options": [
+            "have to",
+            "must to",
+            "has to",
+            "having to"
+          ],
+          "answer": "has to",
+          "explanationVi": "\"My mother\" là ngôi thứ ba số ít nên dùng \"has to\"."
+        },
+        {
+          "prompt": "The museum is free. You ___ pay.",
+          "options": [
+            "don't have to",
+            "doesn't have to",
+            "not have to",
+            "mustn't to"
+          ],
+          "answer": "don't have to",
+          "explanationVi": "Không cần trả tiền nên dùng \"don't have to\"; \"you\" đi với \"don't\"."
+        },
+        {
+          "prompt": "___ he have to wear a suit?",
+          "options": [
+            "Do",
+            "Must",
+            "Is",
+            "Does"
+          ],
+          "answer": "Does",
+          "explanationVi": "Câu hỏi với \"have to\" cần \"Does\" cho chủ ngữ \"he\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định rút gọn của \"must\": You ___ touch the oven. It's hot.",
+          "answer": "mustn't",
+          "explanationVi": "Đây là lời cấm nên dùng \"mustn't\" (không được phép)."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"have to\": She ___ study tonight.",
+          "answer": "has to",
+          "explanationVi": "Chủ ngữ \"she\" là ngôi thứ ba số ít nên \"have to\" đổi thành \"has to\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 13,
+    "id": "grammar:past-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Past Continuous",
+      "titleVi": "Thì quá khứ tiếp diễn",
+      "ruleVi": "Past Continuous (thì quá khứ tiếp diễn) diễn tả hành động đang diễn ra tại một thời điểm trong quá khứ. Cấu trúc là was/were + V-ing: I, he, she, it dùng \"was\"; you, we, they dùng \"were\". Thì này hay đi cùng Past Simple: một hành động dài đang diễn ra thì một hành động ngắn xen vào. Tiếng Việt chỉ cần thêm \"đang\" hay \"lúc đó\", còn tiếng Anh phải có was/were và động từ thêm -ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + was/were + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + was not (wasn't)/were not (weren't) + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "Was/Were + S + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Hành động đang diễn ra tại một thời điểm trong quá khứ: \"At 8 p.m. I was cooking dinner.\"",
+        "Hành động đang diễn ra thì có việc khác xen vào (việc xen vào dùng quá khứ đơn): \"I was walking home when it started to rain.\"",
+        "Hai hành động cùng diễn ra song song: \"She was reading while he was cooking.\""
+      ],
+      "signalWords": [
+        "at that time",
+        "at 8 p.m. yesterday",
+        "while",
+        "when",
+        "all evening"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I was watch TV at 9 p.m.",
+          "right": "I was watching TV at 9 p.m.",
+          "explanationVi": "Sau \"was/were\" động từ phải thêm -ing."
+        },
+        {
+          "wrong": "They was playing soccer.",
+          "right": "They were playing soccer.",
+          "explanationVi": "Chủ ngữ \"they\" đi với \"were\", không dùng \"was\"."
+        },
+        {
+          "wrong": "I watching TV when you called.",
+          "right": "I was watching TV when you called.",
+          "explanationVi": "Câu thiếu \"was\" trước động từ V-ing."
+        }
+      ],
+      "examples": [
+        "sentence:g-past-continuous-1",
+        "sentence:g-past-continuous-2",
+        "sentence:g-past-continuous-3",
+        "sentence:g-past-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "We ___ dinner when the lights went out.",
+          "options": [
+            "was having",
+            "were having",
+            "are having",
+            "have"
+          ],
+          "answer": "were having",
+          "explanationVi": "Hành động đang diễn ra thì bị xen vào; \"we\" đi với \"were\"."
+        },
+        {
+          "prompt": "At 10 p.m. yesterday, he ___ a book.",
+          "options": [
+            "is reading",
+            "reads",
+            "was reading",
+            "were reading"
+          ],
+          "answer": "was reading",
+          "explanationVi": "Hành động đang diễn ra tại một giờ cụ thể trong quá khứ; \"he\" đi với \"was\"."
+        },
+        {
+          "prompt": "I was walking home when I ___ an old friend.",
+          "options": [
+            "met",
+            "meet",
+            "was meet",
+            "meets"
+          ],
+          "answer": "met",
+          "explanationVi": "Hành động ngắn xen vào dùng quá khứ đơn: \"meet\" thành \"met\"."
+        },
+        {
+          "prompt": "___ they working at noon yesterday?",
+          "options": [
+            "Was",
+            "Did",
+            "Are",
+            "Were"
+          ],
+          "answer": "Were",
+          "explanationVi": "Câu hỏi quá khứ tiếp diễn với \"they\" bắt đầu bằng \"Were\"."
+        },
+        {
+          "prompt": "Viết dạng quá khứ tiếp diễn của \"study\": I ___ at 8 p.m. last night.",
+          "answer": "was studying",
+          "explanationVi": "Chủ ngữ \"I\" dùng \"was\" + \"studying\"."
+        },
+        {
+          "prompt": "Điền was hoặc were: My parents ___ watching TV at that time.",
+          "answer": "were",
+          "explanationVi": "\"My parents\" là số nhiều nên dùng \"were\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 12,
+    "id": "grammar:past-simple",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Past Simple",
+      "titleVi": "Thì quá khứ đơn",
+      "ruleVi": "Past Simple (thì quá khứ đơn) dùng cho hành động đã xảy ra và kết thúc trong quá khứ, thường có thời gian cụ thể. Động từ có quy tắc thêm -ed, còn động từ bất quy tắc có dạng riêng cần học thuộc (go → went). Câu phủ định và câu hỏi dùng \"did\", và sau \"did\" động từ trở về nguyên mẫu. Tiếng Việt chỉ cần thêm \"đã\" hay \"hôm qua\", còn tiếng Anh phải đổi dạng động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V2/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + did not (didn't) + V"
+        },
+        {
+          "form": "question",
+          "en": "Did + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Hành động đã xong tại một thời điểm xác định trong quá khứ: \"I visited my grandma yesterday.\"",
+        "Chuỗi hành động nối tiếp nhau trong quá khứ: \"He got up, ate breakfast and left.\"",
+        "Cách thêm -ed: thường thêm -ed (\"work → worked\"); tận cùng -e chỉ thêm -d (\"like → liked\"); phụ âm + y đổi thành -ied (\"study → studied\"); một nguyên âm + một phụ âm thì gấp đôi phụ âm (\"stop → stopped\").",
+        "Một số động từ bất quy tắc thường gặp: \"go → went\", \"have → had\", \"see → saw\", \"buy → bought\", \"eat → ate\"."
+      ],
+      "signalWords": [
+        "yesterday",
+        "last night",
+        "last week",
+        "ago",
+        "in 2020",
+        "when I was a child"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I go to the beach last summer.",
+          "right": "I went to the beach last summer.",
+          "explanationVi": "Có \"last summer\" nên động từ phải ở dạng quá khứ."
+        },
+        {
+          "wrong": "She didn't went to school.",
+          "right": "She didn't go to school.",
+          "explanationVi": "Sau \"didn't\" động từ trở về nguyên mẫu."
+        },
+        {
+          "wrong": "He studyed English.",
+          "right": "He studied English.",
+          "explanationVi": "Động từ tận cùng bằng phụ âm + y thì đổi y thành -ied."
+        },
+        {
+          "wrong": "I buyed a new bag.",
+          "right": "I bought a new bag.",
+          "explanationVi": "\"buy\" là động từ bất quy tắc, quá khứ là \"bought\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-past-simple-1",
+        "sentence:g-past-simple-2",
+        "sentence:g-past-simple-3",
+        "sentence:g-past-simple-4"
+      ],
+      "practice": [
+        {
+          "prompt": "They ___ a new car last month.",
+          "options": [
+            "buy",
+            "buyed",
+            "bought",
+            "buying"
+          ],
+          "answer": "bought",
+          "explanationVi": "\"buy\" là động từ bất quy tắc, quá khứ là \"bought\"."
+        },
+        {
+          "prompt": "I ___ see my friends yesterday.",
+          "options": [
+            "don't",
+            "didn't",
+            "doesn't",
+            "wasn't"
+          ],
+          "answer": "didn't",
+          "explanationVi": "Có \"yesterday\" nên phủ định dùng \"didn't\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "___ she call you last night?",
+          "options": [
+            "Does",
+            "Was",
+            "Do",
+            "Did"
+          ],
+          "answer": "Did",
+          "explanationVi": "Câu hỏi về quá khứ với động từ thường dùng \"Did\"."
+        },
+        {
+          "prompt": "He ___ the bus yesterday.",
+          "options": [
+            "missed",
+            "miss",
+            "misses",
+            "missing"
+          ],
+          "answer": "missed",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ: \"miss\" thêm -ed."
+        },
+        {
+          "prompt": "Viết dạng quá khứ của \"stop\": The car ___ at the red light.",
+          "answer": "stopped",
+          "explanationVi": "\"stop\" có một nguyên âm + một phụ âm nên gấp đôi \"p\" rồi thêm -ed."
+        },
+        {
+          "prompt": "Viết dạng quá khứ của \"study\": She ___ French in college.",
+          "answer": "studied",
+          "explanationVi": "\"study\" tận cùng bằng phụ âm + y nên đổi y thành -ied."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 16,
+    "id": "grammar:present-perfect",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Present Perfect",
+      "titleVi": "Thì hiện tại hoàn thành",
+      "ruleVi": "Present Perfect (thì hiện tại hoàn thành) nối quá khứ với hiện tại: hành động đã xảy ra nhưng không nói rõ khi nào, hoặc bắt đầu trong quá khứ và còn kéo dài đến bây giờ. Cấu trúc là have/has + V3 (quá khứ phân từ, ví dụ \"worked\", \"seen\", \"eaten\"). Nếu câu có thời điểm cụ thể đã qua như \"yesterday\", \"ago\", \"last week\" thì phải dùng Past Simple. Tiếng Việt chỉ dùng \"đã\", \"rồi\", \"chưa\" cho cả hai trường hợp, nên người Việt hay nhầm hai thì này.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + have/has + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + have not (haven't)/has not (hasn't) + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Have/Has + S + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Trải nghiệm trong đời, thường đi với ever/never: \"Have you ever eaten sushi?\"",
+        "Việc vừa xong, đã xong hoặc chưa xong (just, already, yet): \"I have just finished my homework.\"",
+        "Bắt đầu trong quá khứ và còn kéo dài đến nay: since + mốc thời gian, for + khoảng thời gian: \"She has lived here since 2019.\"",
+        "So với Past Simple: có thời điểm cụ thể đã qua (yesterday, ago, last...) thì dùng quá khứ đơn: \"I saw that movie yesterday.\" nhưng \"I have seen that movie.\""
+      ],
+      "signalWords": [
+        "ever",
+        "never",
+        "already",
+        "yet",
+        "just",
+        "since",
+        "for",
+        "so far"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I have seen him yesterday.",
+          "right": "I saw him yesterday.",
+          "explanationVi": "Có \"yesterday\" là thời điểm cụ thể đã qua nên dùng quá khứ đơn."
+        },
+        {
+          "wrong": "She have finished her work.",
+          "right": "She has finished her work.",
+          "explanationVi": "Chủ ngữ \"she\" đi với \"has\"."
+        },
+        {
+          "wrong": "I have live here for five years.",
+          "right": "I have lived here for five years.",
+          "explanationVi": "Sau \"have\" động từ phải ở dạng V3: \"lived\"."
+        },
+        {
+          "wrong": "We have known each other since five years.",
+          "right": "We have known each other for five years.",
+          "explanationVi": "Khoảng thời gian dùng \"for\"; \"since\" dùng với mốc thời gian."
+        }
+      ],
+      "examples": [
+        "sentence:g-present-perfect-1",
+        "sentence:g-present-perfect-2",
+        "sentence:g-present-perfect-3",
+        "sentence:g-present-perfect-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I ___ my keys. I can't find them.",
+          "options": [
+            "lose",
+            "have lost",
+            "has lost",
+            "am lose"
+          ],
+          "answer": "have lost",
+          "explanationVi": "Việc đã xảy ra và kết quả còn đến bây giờ; \"I\" đi với \"have\" + V3."
+        },
+        {
+          "prompt": "He ___ to Da Nang last year.",
+          "options": [
+            "has gone",
+            "has been",
+            "went",
+            "goes"
+          ],
+          "answer": "went",
+          "explanationVi": "Có \"last year\" là thời điểm cụ thể đã qua nên dùng quá khứ đơn."
+        },
+        {
+          "prompt": "We have known each other ___ 2015.",
+          "options": [
+            "for",
+            "since",
+            "ago",
+            "in"
+          ],
+          "answer": "since",
+          "explanationVi": "\"2015\" là mốc thời gian nên dùng \"since\"."
+        },
+        {
+          "prompt": "___ you ever seen snow?",
+          "options": [
+            "Did",
+            "Has",
+            "Do",
+            "Have"
+          ],
+          "answer": "Have",
+          "explanationVi": "Hỏi về trải nghiệm với \"you\" dùng \"Have\" + V3."
+        },
+        {
+          "prompt": "Viết dạng V3 của \"write\": She has ___ three emails today.",
+          "answer": "written",
+          "explanationVi": "\"write\" là động từ bất quy tắc: write, wrote, written."
+        },
+        {
+          "prompt": "Điền since hoặc for: They have worked here ___ six months.",
+          "answer": "for",
+          "explanationVi": "\"six months\" là khoảng thời gian nên dùng \"for\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A2",
+    "sort": 21,
+    "id": "grammar:should-advice",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Should for advice",
+      "titleVi": "Should: lời khuyên",
+      "ruleVi": "\"Should\" nghĩa là \"nên\", dùng để đưa ra lời khuyên hoặc nói điều gì là đúng đắn nên làm. Sau \"should\" luôn là động từ nguyên mẫu, không thêm -s và không có \"to\". \"Should\" giữ nguyên với mọi chủ ngữ, giống chữ \"nên\" trong tiếng Việt. Phủ định là \"shouldn't\" (không nên), còn câu hỏi thì đưa \"should\" lên đầu câu, không dùng \"do\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + should + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + should not (shouldn't) + V"
+        },
+        {
+          "form": "question",
+          "en": "Should + S + V?; Wh- + should + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Đưa ra lời khuyên: \"You should see a doctor.\"",
+        "Khuyên không nên làm gì: \"You shouldn't eat so late.\"",
+        "Nói ý kiến nhẹ nhàng với \"I think\": \"I think you should rest.\"",
+        "Xin lời khuyên: \"What should I do?\""
+      ],
+      "signalWords": [
+        "I think",
+        "I don't think",
+        "maybe"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You should to rest.",
+          "right": "You should rest.",
+          "explanationVi": "Sau \"should\" dùng động từ nguyên mẫu, không có \"to\"."
+        },
+        {
+          "wrong": "She shoulds study more.",
+          "right": "She should study more.",
+          "explanationVi": "\"Should\" không bao giờ thêm -s, kể cả với he, she, it."
+        },
+        {
+          "wrong": "You don't should worry.",
+          "right": "You shouldn't worry.",
+          "explanationVi": "Phủ định của \"should\" là \"shouldn't\", không dùng \"don't\"."
+        },
+        {
+          "wrong": "What I should do?",
+          "right": "What should I do?",
+          "explanationVi": "Trong câu hỏi, \"should\" đứng trước chủ ngữ."
+        }
+      ],
+      "examples": [
+        "sentence:g-should-advice-1",
+        "sentence:g-should-advice-2",
+        "sentence:g-should-advice-3",
+        "sentence:g-should-advice-4"
+      ],
+      "practice": [
+        {
+          "prompt": "You look tired. You ___ rest.",
+          "options": [
+            "should to",
+            "should",
+            "shoulds",
+            "are should"
+          ],
+          "answer": "should",
+          "explanationVi": "Lời khuyên dùng \"should\" + động từ nguyên mẫu, không có \"to\" hay -s."
+        },
+        {
+          "prompt": "You ___ watch TV so late. It's bad for you.",
+          "options": [
+            "don't should",
+            "not should",
+            "shouldn't",
+            "shouldn't to"
+          ],
+          "answer": "shouldn't",
+          "explanationVi": "Khuyên không nên làm gì dùng \"shouldn't\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "What ___ I wear to the party?",
+          "options": [
+            "shoulds",
+            "am",
+            "does",
+            "should"
+          ],
+          "answer": "should",
+          "explanationVi": "Xin lời khuyên dùng \"What should I + V?\"."
+        },
+        {
+          "prompt": "She should ___ to the dentist.",
+          "options": [
+            "goes",
+            "going",
+            "go",
+            "to go"
+          ],
+          "answer": "go",
+          "explanationVi": "Sau \"should\" là động từ nguyên mẫu \"go\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định rút gọn của \"should\": You ___ eat too much candy.",
+          "answer": "shouldn't",
+          "explanationVi": "Phủ định rút gọn của \"should\" là \"shouldn't\" (không nên)."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"see\": He should ___ a doctor.",
+          "answer": "see",
+          "explanationVi": "Sau \"should\" động từ giữ nguyên mẫu, không thêm -s dù chủ ngữ là \"he\"."
+        }
+      ]
+    },
+    "status": "draft"
+  }
+]
