@@ -3,7 +3,8 @@
 // items, upserts new or changed rows, tombstones removed ids and bumps
 // content_meta.version last, so clients only refetch once everything is in.
 //
-//   pnpm content:publish [--local | --remote] [--dry-run] [--allow-missing-audio] [--content-dir <path>]
+//   pnpm content:publish [--local | --remote] [--dry-run] [--allow-missing-audio] [--content-dir <path>] [--persist-to <dir>]
+//   (--persist-to: a separate local D1 state, used by the e2e suite so its fixture never touches real local content)
 //
 // Changed rows are found by comparing each approved item with the row read
 // back from D1 (kind, level, topic, sort and body), so nothing extra is
@@ -277,8 +278,8 @@ function wrangler(args: string[]): string {
   return execFileSync(bin, ["d1", "execute", DB_NAME, ...args], { encoding: "utf8", maxBuffer: 512 * 1024 * 1024 });
 }
 
-function query<T>(target: string, sql: string): T[] {
-  const output = JSON.parse(wrangler([target, "--json", "--command", sql])) as { results: T[] }[];
+function query<T>(target: string[], sql: string): T[] {
+  const output = JSON.parse(wrangler([...target, "--json", "--command", sql])) as { results: T[] }[];
   return output[0]?.results ?? [];
 }
 
@@ -290,10 +291,12 @@ async function main() {
       "dry-run": { type: "boolean", default: false },
       "allow-missing-audio": { type: "boolean", default: false },
       "content-dir": { type: "string", default: "content" },
+      "persist-to": { type: "string" },
     },
   });
   if (values.local && values.remote) throw new Error("Pass --local or --remote, not both");
-  const target = values.remote ? "--remote" : "--local";
+  if (values.remote && values["persist-to"]) throw new Error("--persist-to only applies to --local");
+  const target = values.remote ? ["--remote"] : ["--local", ...(values["persist-to"] ? ["--persist-to", values["persist-to"]] : [])];
   const root = process.cwd();
   const contentDir = path.resolve(root, values["content-dir"]);
 
@@ -349,9 +352,9 @@ async function main() {
   }
   for (const [i, file] of paths.entries()) {
     console.log(`(${i + 1}/${paths.length}) ${path.relative(root, file)}`);
-    wrangler([target, "--yes", "--file", file]);
+    wrangler([...target, "--yes", "--file", file]);
   }
-  console.log(`Published content version ${version} (${target.slice(2)})`);
+  console.log(`Published content version ${version} (${target.join(" ").slice(2)})`);
 }
 
 if (process.argv[1]?.endsWith("publish-content.ts")) void main();

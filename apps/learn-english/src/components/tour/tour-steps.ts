@@ -32,3 +32,13 @@ export function findTarget(target: string, root: ParentNode = document): HTMLEle
   const more = [...root.querySelectorAll('[data-tour="more"]')].find(isVisible);
   return (more as HTMLElement | undefined) ?? null;
 }
+
+export type TourSide = "top" | "bottom" | "right";
+
+/** Where the step card goes so it stays on screen: above bottom-bar items, below on phones, beside on desktop. */
+export function sideFor(target: HTMLElement | null): TourSide {
+  if (!target) return "bottom";
+  const rect = target.getBoundingClientRect();
+  if (rect.top > window.innerHeight * 0.6) return "top";
+  return window.innerWidth < 768 ? "bottom" : "right";
+}

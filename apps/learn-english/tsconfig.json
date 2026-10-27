@@ -18,5 +18,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", ".open-next", ".wrangler"]
+  "exclude": ["node_modules", ".open-next", ".wrangler", "test-results", "playwright-report"]
 }

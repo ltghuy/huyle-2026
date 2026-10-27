@@ -70,6 +70,9 @@ export function ExerciseRunner({
   const [swapped, setSwapped] = useState<Record<string, boolean>>({});
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [confirmExit, setConfirmExit] = useState(false);
+  // Set once the last step is left: finishing is async in some callers, and a
+  // second tap must not finish (and award) twice.
+  const [finished, setFinished] = useState(false);
   const shownAt = useRef(0);
 
   const step = steps[index];
@@ -97,9 +100,11 @@ export function ExerciseRunner({
   }
 
   function handleContinue() {
+    if (finished) return;
     const next = index + 1;
     onAdvance?.(next);
     if (next >= steps.length) {
+      setFinished(true);
       onFinish(score);
       return;
     }
@@ -161,7 +166,11 @@ export function ExerciseRunner({
         <div className="sticky bottom-0 border-t bg-background/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur">
           <div className="mx-auto grid w-full max-w-xl gap-3">
             {result ? <FeedbackPanel result={result} relatedLink={step.type === "exercise" ? step.related?.link : undefined} /> : null}
-            {step.type === "study" || result ? (
+            {finished ? (
+              <Button type="button" size="lg" className="h-12 w-full text-base" disabled>
+                Đang lưu…
+              </Button>
+            ) : step.type === "study" || result ? (
               <Button type="submit" size="lg" className="h-12 w-full text-base">
                 Tiếp tục
               </Button>

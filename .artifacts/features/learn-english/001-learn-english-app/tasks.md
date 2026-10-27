@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 41 | Remaining: 9
+Total: 50 | Completed: 43 | Remaining: 7
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -206,8 +206,8 @@ Run after each task or batch (from the repo root):
 - [x] T043 [B:T006] Build the sync API (`POST/GET/PUT/DELETE /api/sync`): server-side code generation (12 Crockford base32 chars), SHA-256 storage, rev check via conditional UPDATE, 1 MB cap, failed-lookup throttle, cleanup of rows older than 365 days on create
   - **Done when:** service tests cover create (only the hash stored), 404, 409 on a stale rev, 413, delete, throttle and cleanup. If the rate-limit binding isn't on the free plan, the D1 counter fallback is used and noted in knowledge.md (AC-047, AC-049, AC-051) -- VERIFIED
 
-- [ ] T044 [B:T043,T027,T042] Build the sync client and settings panel: turn on (code + copy + warning), link with code (summary + confirm), debounced push (≤ 60 s, on hide), 409 merge-retry, offline retry, last-synced time, unlink, delete server data
-  - **Done when:** e2e with two browser contexts: progress on A appears on B within 2 minutes; edits on both merge without losing attempts or doubling points (AC-047–AC-051)
+- [x] T044 [B:T043,T027,T042] Build the sync client and settings panel: turn on (code + copy + warning), link with code (summary + confirm), debounced push (≤ 60 s, on hide), 409 merge-retry, offline retry, last-synced time, unlink, delete server data
+  - **Done when:** e2e with two browser contexts: progress on A appears on B within 2 minutes; edits on both merge without losing attempts or doubling points (AC-047–AC-051) -- VERIFIED
 
 ### Usage stats
 
@@ -222,8 +222,8 @@ Run after each task or batch (from the repo root):
 
 ### End-to-end, full content, launch
 
-- [ ] T048 [B:T036,T040,T042,T044] Complete the e2e suites: first visit, backup, sync, exercises (all kinds), tour a11y, offline content fallback
-  - **Done when:** `pnpm --filter learn-english e2e` passes locally and in CI mode (`CI=1`)
+- [x] T048 [B:T036,T040,T042,T044] Complete the e2e suites: first visit, backup, sync, exercises (all kinds), tour a11y, offline content fallback
+  - **Done when:** `pnpm --filter learn-english e2e` passes locally and in CI mode (`CI=1`) -- VERIFIED
 
 - [ ] T049 [B:T012] Draft, review, add audio for, and publish the A2, B1, B2 and C1 content (words, sentences, all grammar topics incl. the 12 tenses, writing tasks), in owner-reviewed batches per level
   - **Done when:** 100% of A1–C1 words are approved with meaning, IPA, example and audio; schema validation is clean; the remote publish succeeds

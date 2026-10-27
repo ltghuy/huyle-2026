@@ -140,3 +140,14 @@ describe("sentence exercises", () => {
     expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "writing", result: { correct: true } });
   });
 });
+
+describe("finishing", () => {
+  it("finishes only once, even when the last button is pressed twice", () => {
+    const onFinish = vi.fn();
+    render(<ExerciseRunner steps={[{ key: "st", type: "study", item: target, examples: [] }]} onOutcome={vi.fn()} onFinish={onFinish} onExit={vi.fn()} />);
+    fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+    expect(screen.getByRole("button", { name: "Đang lưu…" })).toBeDisabled();
+    fireEvent.submit(screen.getByRole("button", { name: "Đang lưu…" }).closest("form")!);
+    expect(onFinish).toHaveBeenCalledTimes(1);
+  });
+});

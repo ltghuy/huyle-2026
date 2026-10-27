@@ -31,7 +31,31 @@ import {
   TourTitle,
 } from "@/components/ui/tour";
 import { useProfile } from "@/hooks/use-profile";
-import { findTarget, TOUR_STEPS } from "./tour-steps";
+import { findTarget, sideFor, TOUR_STEPS, type TourSide } from "./tour-steps";
+
+interface Placement {
+  target: HTMLElement | null;
+  side: TourSide;
+}
+
+function placements(): Placement[] {
+  return TOUR_STEPS.map((def) => {
+    const target = findTarget(def.target);
+    return { target, side: sideFor(target) };
+  });
+}
+
+/** Resolves once the first step's target is on the page (the home card renders after storage loads), or after ~2 s. */
+function whenFirstTargetReady(callback: () => void): () => void {
+  let tries = 0;
+  let timer = 0;
+  const check = () => {
+    if (findTarget(TOUR_STEPS[0].target) || tries++ >= 20) callback();
+    else timer = window.setTimeout(check, 100);
+  };
+  check();
+  return () => window.clearTimeout(timer);
+}
 
 type Phase = "idle" | "touring" | "done";
 
@@ -46,7 +70,7 @@ export function AppTour() {
   const profile = useProfile();
   const [phase, setPhase] = useState<Phase>("idle");
   const [step, setStep] = useState(0);
-  const [targets, setTargets] = useState<(HTMLElement | null)[]>([]);
+  const [targets, setTargets] = useState<Placement[]>([]);
 
   const ready = profile.status === "ready" ? profile.data : null;
   const replay = searchParams.get("tour") === "1";
@@ -55,22 +79,25 @@ export function AppTour() {
 
   useEffect(() => {
     if (!replay || pathname !== "/" || phase === "touring") return;
-    // Next frame: the page has laid out, so the tour can find its targets.
-    const frame = requestAnimationFrame(startTour);
-    return () => cancelAnimationFrame(frame);
+    return whenFirstTargetReady(startTour);
     // startTour only reads the DOM and sets state.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [replay, pathname, phase]);
 
   useEffect(() => {
     if (phase !== "touring") return;
+    // Arrow keys press the step's own buttons: setting the tour's value from
+    // outside doesn't re-render its steps (Dice UI's controlled mode).
     function handleKey(event: KeyboardEvent) {
-      if (event.key === "ArrowRight") setStep((current) => Math.min(current + 1, TOUR_STEPS.length - 1));
-      if (event.key === "ArrowLeft") setStep((current) => Math.max(current - 1, 0));
+      const slot = event.key === "ArrowRight" ? "tour-next" : event.key === "ArrowLeft" ? "tour-prev" : null;
+      if (!slot) return;
+      const button = document.querySelector<HTMLButtonElement>(`[data-slot="${slot}"]:not(:disabled)`);
+      if (button && !(slot === "tour-next" && step === TOUR_STEPS.length - 1)) button.click();
     }
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [phase]);
+    // Capture phase: focused dialog primitives stop arrow keys from bubbling.
+    window.addEventListener("keydown", handleKey, true);
+    return () => window.removeEventListener("keydown", handleKey, true);
+  }, [phase, step]);
 
   function markSeen() {
     void updateProfile({ tourSeen: true }, Date.now());
@@ -79,7 +106,7 @@ export function AppTour() {
   function startTour() {
     // Seen as soon as it starts: closing the browser mid-tour must not force it again.
     markSeen();
-    setTargets(TOUR_STEPS.map((def) => findTarget(def.target)));
+    setTargets(placements());
     setStep(0);
     setPhase("touring");
     if (replay) router.replace("/");
@@ -92,6 +119,16 @@ export function AppTour() {
 
   function handleTourOpenChange(open: boolean) {
     if (!open) setPhase("done");
+  }
+
+  function handleStepChange(next: number) {
+    // Re-measure on every step: layout may have changed since the tour opened.
+    setTargets(placements());
+    setStep(next);
+  }
+
+  function handleWelcomeStart() {
+    whenFirstTargetReady(startTour);
   }
 
   function handleNext(event: React.MouseEvent) {
@@ -115,7 +152,7 @@ export function AppTour() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Bỏ qua</AlertDialogCancel>
-            <AlertDialogAction onClick={startTour}>Xem hướng dẫn</AlertDialogAction>
+            <AlertDialogAction onClick={handleWelcomeStart}>Xem hướng dẫn</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -124,7 +161,7 @@ export function AppTour() {
         open={phase === "touring"}
         onOpenChange={handleTourOpenChange}
         value={step}
-        onValueChange={setStep}
+        onValueChange={handleStepChange}
         onComplete={() => setPhase("done")}
         onSkip={() => setPhase("done")}
         spotlightPadding={6}
@@ -133,15 +170,16 @@ export function AppTour() {
           <TourSpotlight />
           <TourSpotlightRing className="rounded-lg" />
           {TOUR_STEPS.map((def, i) => {
-            const target = targets[i];
+            const target = targets[i]?.target ?? null;
             return (
               <TourStep
                 key={def.target}
                 // No visible target (hidden menu on a phone): show the step as a centred card.
                 target={target ?? "body"}
                 forceMount={!target}
-                side="right"
-                align="start"
+                side={targets[i]?.side ?? "bottom"}
+                align={targets[i]?.side === "right" ? "start" : "center"}
+                collisionPadding={12}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={`tour-title-${i}`}
