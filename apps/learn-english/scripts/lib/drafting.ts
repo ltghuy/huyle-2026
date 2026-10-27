@@ -333,6 +333,9 @@ export function mergeDrafts(existing: SourceItem[], drafted: SourceItem[]): Sour
 
 // ---------- rule checks (prompts.ts rules a schema can't express) ----------
 
+/** A transcription between slashes with at least one letter-like sound in it. */
+const IPA_SHAPE = /^\/[^/|]*[a-zɑæʌəɔɛɝɚɪʊθðʃʒŋ][^/|]*\/$/;
+
 const MAX_WORDS: Record<Level, number> = { A1: 10, A2: 10, B1: 14, B2: 14, C1: 18 };
 
 /** Problems with one example sentence against the drafting rules. */
@@ -363,6 +366,9 @@ export function checkWordDraft(level: Level, draft: WordDraft, topicSlugs: Reado
   const expected = level === "A1" || level === "A2" ? 1 : 2;
   if (draft.examples.length !== expected) problems.push(`${draft.id}: ${draft.examples.length} examples, expected ${expected}`);
   if (!draft.ipaOk && !draft.ipaSuggestion.trim()) problems.push(`${draft.id}: IPA flagged without a suggestion`);
+  else if (draft.ipaSuggestion.trim() && !IPA_SHAPE.test(draft.ipaSuggestion.trim())) {
+    problems.push(`${draft.id}: IPA suggestion "${draft.ipaSuggestion}" is not a /transcription/`);
+  }
   draft.examples.forEach((example, i) => problems.push(...checkSentenceDraft(`${draft.id} example ${i + 1}`, level, example)));
   return problems;
 }

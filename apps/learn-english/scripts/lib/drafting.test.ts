@@ -173,6 +173,12 @@ describe("checkWordDraft", () => {
       "word:homework-n: IPA flagged without a suggestion",
     ]);
   });
+
+  it("rejects an IPA suggestion that is not a transcription", () => {
+    expect(checkWordDraft("A1", { ...draft, ipaOk: false, ipaSuggestion: "|" }, topics)).toEqual([
+      'word:homework-n: IPA suggestion "|" is not a /transcription/',
+    ]);
+  });
 });
 
 describe("buildWriting", () => {
