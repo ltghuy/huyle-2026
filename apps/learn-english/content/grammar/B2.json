@@ -120,7 +120,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -243,7 +243,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -366,7 +366,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -489,7 +489,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -615,7 +615,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -738,7 +738,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B2",
@@ -862,6 +862,6 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]
