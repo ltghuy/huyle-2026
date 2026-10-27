@@ -255,7 +255,7 @@ Greenfield: every field is new.
 | Decision | Rationale |
 |----------|-----------|
 | **Static shells + client data; D1 behind small API routes** | Free plan (no SSR CPU) and content updatable without a release (AC-052). Content pages are client-rendered from the content API and cache; SEO is not a goal for this app |
-| Content routes use query params on static pages (`/tu-vung?level=A1&topic=family`, `/ngu-phap?bai=present-perfect`, `/bai-tap?id=…`) | Dynamic segments without `generateStaticParams` would SSR on the Worker; topics now come from D1 at runtime |
+| Content routes use query params on static pages (`/vocabulary?level=A1&topic=family`, `/grammar?topic=present-perfect`, `/exercises?id=…`) | Dynamic segments without `generateStaticParams` would SSR on the Worker; topics now come from D1 at runtime |
 | Edge caching of content responses through the Workers Cache API, keyed by URL including `v`; version endpoint cached ≤ 5 min | The ≤ 10 min freshness target (AC-052) with near-zero D1 reads. **Verify** `caches.default` access inside an OpenNext route handler; fallback is relying on D1 reads (5M/day free) |
 | Clients store content per (kind, level) in IndexedDB with its version; they refetch only when `/api/content/version` changes | Offline fallback (AC-055) and fast lesson building |
 | Publishing = `scripts/publish-content.ts`: validate approved JSON → generate missing audio → chunked upserts and tombstones into D1 (`wrangler d1 execute --remote --file`, ≤ ~100 statements per file) → bump `content_meta.version` | Git stays the review trail (PR diffs); D1 is the serving copy. **Verify** D1 import size/statement limits when implementing |
@@ -320,15 +320,15 @@ Greenfield: every field is new.
 | Audio button | `src/components/exercise/audio-button.tsx` | new | Plays the clip from the word or sentence audio host, error toast |
 | Exercise UI | `src/components/exercise/*.tsx` (one per kind + `exercise-runner.tsx`) | new | Render, time, report Attempt |
 | Lesson / home | `src/app/page.tsx`, `src/components/lesson/*` | new | Today's lesson, resume, completion + points |
-| Vocabulary | `src/app/tu-vung/page.tsx`, `src/components/word-card.tsx` | new | Level/topic browse, learned markers, word dialog, mark learned |
-| Grammar | `src/app/ngu-phap/page.tsx` | new | List by level + progress; topic view + practice |
-| Review | `src/app/on-tap/page.tsx` | new | Due count + session |
-| Exercise library | `src/app/bai-tap/page.tsx` | new | Filters + runner |
-| Hard words | `src/app/tu-kho/page.tsx` | new | Sorted list + practice |
-| Profile | `src/app/ho-so/page.tsx` | new | Points, streaks, calendar; P3 insights |
-| Settings | `src/app/cai-dat/page.tsx`, `src/components/settings/{backup-panel,sync-panel,stats-toggle}.tsx` | new | Level, placement, tour replay, backup, sync, stats opt-out |
-| Placement | `src/app/kiem-tra-trinh-do/page.tsx` | new | First-visit test, skip |
-| Credits | `src/app/nguon-du-lieu/page.tsx` | new | CEFR-J citation, Octanove CC BY-SA, CMUdict notice |
+| Vocabulary | `src/app/vocabulary/page.tsx`, `src/components/word-card.tsx` | new | Level/topic browse, learned markers, word dialog, mark learned |
+| Grammar | `src/app/grammar/page.tsx` | new | List by level + progress; topic view + practice |
+| Review | `src/app/review/page.tsx` | new | Due count + session |
+| Exercise library | `src/app/exercises/page.tsx` | new | Filters + runner |
+| Hard words | `src/app/hard-words/page.tsx` | new | Sorted list + practice |
+| Profile | `src/app/profile/page.tsx` | new | Points, streaks, calendar; P3 insights |
+| Settings | `src/app/settings/page.tsx`, `src/components/settings/{backup-panel,sync-panel,stats-toggle}.tsx` | new | Level, placement, tour replay, backup, sync, stats opt-out |
+| Placement | `src/app/placement/page.tsx` | new | First-visit test, skip |
+| Credits | `src/app/credits/page.tsx` | new | CEFR-J citation, Octanove CC BY-SA, CMUdict notice |
 | Welcome + tour | `src/components/tour/{welcome-dialog,app-tour}.tsx`, `src/components/ui/tour.tsx` | new | First-visit dialog, steps, replay |
 | App shell | `src/app/layout.tsx`, `src/components/app-sidebar.tsx` | new | `lang="vi"`, font, nav with `data-tour`, first-visit guard |
 
@@ -412,11 +412,11 @@ clients see the new version within ≤ 5 min at next app open/focus, refetch cha
 | Requirement | Component | File | Status |
 |-------------|-----------|------|--------|
 | AC-001 | App shell, no auth | `src/app/layout.tsx` | Planned |
-| AC-002 | First-visit guard → placement | `src/components/app-sidebar.tsx`, `src/app/kiem-tra-trinh-do/page.tsx` | Planned |
+| AC-002 | First-visit guard → placement | `src/components/app-sidebar.tsx`, `src/app/placement/page.tsx` | Planned |
 | AC-003 | Single voice | `scripts/generate-audio.ts`, `src/components/audio-button.tsx` | Planned |
 | AC-004 | Vietnamese copy, `lang="vi"`, Vietnamese API errors | all UI, `src/server/**` | Planned |
 | AC-005 | Write-through storage | `src/storage/*` | Planned |
-| AC-006 | Browse + learned markers | `src/app/tu-vung/page.tsx` | Planned |
+| AC-006 | Browse + learned markers | `src/app/vocabulary/page.tsx` | Planned |
 | AC-007 headword | word.headword | `src/components/word-card.tsx` | Planned |
 | AC-007 IPA | word.ipa | `src/components/word-card.tsx`, `scripts/build-ipa.ts` | Planned |
 | AC-007 POS | word.pos | `src/components/word-card.tsx` | Planned |
@@ -425,35 +425,35 @@ clients see the new version within ≤ 5 min at next app open/focus, refetch cha
 | AC-008 | Audio button, immutable static clips | `src/components/exercise/audio-button.tsx` | Planned |
 | AC-009 | Mark learned → card | `src/components/word-card.tsx`, `src/storage/cards.ts` | Planned |
 | AC-010 | Rating + SRS | `src/learning/{rating,srs}.ts` | Planned |
-| AC-011 | Review page | `src/app/on-tap/page.tsx` | Planned |
+| AC-011 | Review page | `src/app/review/page.tsx` | Planned |
 | AC-012 | Varied exercise per review | `src/learning/lesson-plan.ts`, `src/learning/exercises/*` | Planned |
-| AC-013 | Grammar cards | `src/learning/srs.ts`, `src/app/ngu-phap/page.tsx` | Planned |
+| AC-013 | Grammar cards | `src/learning/srs.ts`, `src/app/grammar/page.tsx` | Planned |
 | AC-014 | Planner + home | `src/learning/lesson-plan.ts`, `src/app/page.tsx` | Planned |
 | AC-015 | Attendance on completion | `src/storage/attendance.ts`, `src/learning/attendance.ts` | Planned |
 | AC-016 | Stored plan + position | `src/storage/lessons.ts` | Planned |
-| AC-017 points / streaks / calendar | Attendance derivations | `src/app/ho-so/page.tsx`, `src/learning/attendance.ts` | Planned |
+| AC-017 points / streaks / calendar | Attendance derivations | `src/app/profile/page.tsx`, `src/learning/attendance.ts` | Planned |
 | AC-018 | Streak reset | `src/learning/attendance.ts` | Planned |
 | AC-019 | Placement ≤ 30 items | `src/learning/placement.ts` | Planned |
-| AC-020 | Result + level | `src/app/kiem-tra-trinh-do/page.tsx` | Planned |
-| AC-021 | Skip → A1, retake | `src/app/cai-dat/page.tsx` | Planned |
-| AC-022 | Manual level | `src/app/cai-dat/page.tsx` | Planned |
-| AC-023 | Grammar list + progress | `src/app/ngu-phap/page.tsx` | Planned |
-| AC-024 rule / pattern / usage / signal words / mistakes / examples | grammar body | `src/app/ngu-phap/page.tsx` | Planned |
-| AC-025 | Practice + card | `src/app/ngu-phap/page.tsx` | Planned |
-| AC-026 | Library filters | `src/app/bai-tap/page.tsx` | Planned |
+| AC-020 | Result + level | `src/app/placement/page.tsx` | Planned |
+| AC-021 | Skip → A1, retake | `src/app/settings/page.tsx` | Planned |
+| AC-022 | Manual level | `src/app/settings/page.tsx` | Planned |
+| AC-023 | Grammar list + progress | `src/app/grammar/page.tsx` | Planned |
+| AC-024 rule / pattern / usage / signal words / mistakes / examples | grammar body | `src/app/grammar/page.tsx` | Planned |
+| AC-025 | Practice + card | `src/app/grammar/page.tsx` | Planned |
+| AC-026 | Library filters | `src/app/exercises/page.tsx` | Planned |
 | AC-027 | Missing letters | `src/learning/exercises/missing-letters.ts`, `src/components/exercise/missing-letters.tsx` | Planned |
 | AC-028 | MCQ + explanation | `src/learning/exercises/mcq.ts`, `src/components/exercise/mcq.tsx` | Planned |
 | AC-029 | Runner score → SRS | `src/components/exercise/exercise-runner.tsx` | Planned |
 | AC-030 / AC-032 | Hard-word rules | `src/learning/hard-words.ts` | Planned |
-| AC-031 | Hard-words page | `src/app/tu-kho/page.tsx` | Planned |
+| AC-031 | Hard-words page | `src/app/hard-words/page.tsx` | Planned |
 | AC-033 | Sentence task generators | `src/learning/exercises/{word-order,sentence-gap,choose-sentence,tile-translate}.ts` | Planned |
 | AC-034 | Instant check + correct sentence + explanation | same + `src/components/exercise/sentence-*.tsx` | Planned |
 | AC-035 | Related item link + bring forward | `src/components/exercise/sentence-*.tsx`, `src/storage/cards.ts` | Planned |
 | AC-036 | Free writing self-check | `src/components/exercise/writing.tsx` | Planned |
-| AC-037 | Insights | `src/app/ho-so/page.tsx` | Planned (P3) |
-| AC-038–AC-041 | Welcome + tour + replay | `src/components/tour/*`, `src/app/cai-dat/page.tsx` | Planned |
+| AC-037 | Insights | `src/app/profile/page.tsx` | Planned (P3) |
+| AC-038–AC-041 | Welcome + tour + replay | `src/components/tour/*`, `src/app/settings/page.tsx` | Planned |
 | AC-042–AC-044 | Export / import / reset | `src/components/settings/backup-panel.tsx`, `src/learning/snapshot.ts` | Planned |
-| AC-045 | Credits | `src/app/nguon-du-lieu/page.tsx` | Planned |
+| AC-045 | Credits | `src/app/credits/page.tsx` | Planned |
 | AC-047 | Turn on sync | `src/sync/sync-client.ts`, `src/app/api/sync/route.ts`, `src/components/settings/sync-panel.tsx` | Planned |
 | AC-048 | Debounced push / offline retry | `src/sync/sync-client.ts` | Planned |
 | AC-049 | Link with code + summary | `src/sync/sync-client.ts`, `src/components/settings/sync-panel.tsx` | Planned |

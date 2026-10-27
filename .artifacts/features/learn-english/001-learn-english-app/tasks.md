@@ -158,7 +158,7 @@ Run after each task or batch (from the repo root):
 
 ### App shell and exercise UI
 
-- [x] T028 [B:T001] Build the app shell: layout, sidebar/sheet navigation with `data-tour` targets, Vietnamese route stubs (`/tu-vung`, `/ngu-phap`, `/on-tap`, `/bai-tap`, `/tu-kho`, `/ho-so`, `/cai-dat`, `/kiem-tra-trinh-do`, `/nguon-du-lieu`), storage-unavailable banner, toast provider
+- [x] T028 [B:T001] Build the app shell: layout, sidebar/sheet navigation with `data-tour` targets, Vietnamese route stubs (`/vocabulary`, `/grammar`, `/review`, `/exercises`, `/hard-words`, `/profile`, `/settings`, `/placement`, `/credits`), storage-unavailable banner, toast provider
   - **Done when:** every route renders statically (build output shows them as static); the banner appears when IndexedDB is blocked; all copy is Vietnamese (AC-001, AC-004) -- VERIFIED
 
 - [x] T029 [B:T028,T022] Build `AudioButton`, `ExerciseRunner` (timing, attempts, score, swapping listening for recall on audio failure) and the word exercise components (MCQ with explanation, missing-letters on `InputOTP` with the Telex hint, listening, recall, grammar-gap)

@@ -45,10 +45,10 @@ function rowsByLevel(index: ContentIndex): Record<Level, TopicRow[]> {
   return rows;
 }
 
-/** `/ngu-phap`: topics by level with progress, or one topic via `?bai=<slug>` (AC-023–AC-025). */
+/** `/grammar`: topics by level with progress, or one topic via `?topic=<slug>` (AC-023–AC-025). */
 export function GrammarBrowser() {
   const params = useSearchParams();
-  const slug = params.get("bai");
+  const slug = params.get("topic");
   // Grammar loads for every level; the level only decides which example sentences come along.
   const level = (slug && grammarTopicMeta(slug)?.level) || "A1";
   const levels = useMemo(() => [level], [level]);
@@ -126,7 +126,7 @@ function TopicRowView({ row, learned }: { row: TopicRow; learned: boolean }) {
 
   return (
     <Link
-      href={`/ngu-phap?bai=${row.slug}`}
+      href={`/grammar?topic=${row.slug}`}
       className="flex min-h-16 items-center gap-3 rounded-xl border bg-card px-4 py-3 transition-colors outline-none hover:bg-muted/60 focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {titles}

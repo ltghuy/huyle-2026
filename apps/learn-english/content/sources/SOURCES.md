@@ -10,4 +10,4 @@ the publisher's terms).
 | `octanove-vocabulary-profile-c1c2-1.0.csv` | Words C1 (C2 rows ignored) | CC BY-SA 4.0, Octanove Labs. Word data derived from it is shared under the same licence. |
 | CMU Pronouncing Dictionary (`cmudict.dict`, downloaded by `build-ipa.ts`, not committed) | American pronunciation, converted to IPA | BSD-style licence, © Carnegie Mellon University |
 
-The credits page (`/nguon-du-lieu`) shows these attributions to learners.
+The credits page (`/credits`) shows these attributions to learners.

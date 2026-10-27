@@ -144,7 +144,7 @@ export function AppTour() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <Compass className="size-10 text-primary" aria-hidden />
-            <AlertDialogTitle>Chào mừng bạn đến với Học tiếng Anh!</AlertDialogTitle>
+            <AlertDialogTitle>Chào mừng bạn đến với English with Evan!</AlertDialogTitle>
             <AlertDialogDescription>
               Mỗi ngày bạn có một bài học ngắn gồm ôn tập, từ mới, ngữ pháp và luyện câu. Ứng dụng nhắc bạn ôn lại đúng lúc sắp quên, gom
               những từ khó để luyện riêng, và cộng điểm chuyên cần mỗi ngày bạn học. Mình đi một vòng xem các phần chính nhé?

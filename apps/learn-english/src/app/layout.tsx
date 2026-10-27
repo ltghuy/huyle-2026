@@ -3,6 +3,7 @@ import { Be_Vietnam_Pro } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AUTHOR, OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_IMAGE } from "@/lib/site";
 
 import "./globals.css";
 
@@ -13,13 +14,21 @@ const beVietnamPro = Be_Vietnam_Pro({
   weight: ["400", "500", "600", "700"],
 });
 
+// No canonical here: a layout's canonical is inherited by every page that
+// doesn't set its own. Each page sets its own with `pageMetadata`.
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Học tiếng Anh",
-    template: "%s · Học tiếng Anh",
+    default: SITE_NAME,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "Học từ vựng, ngữ pháp và luyện tập tiếng Anh mỗi ngày, với lịch ôn tập giúp bạn nhớ lâu.",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [AUTHOR],
+  creator: AUTHOR.name,
+  keywords: ["học tiếng Anh", "từ vựng tiếng Anh", "ngữ pháp tiếng Anh", "12 thì tiếng Anh", "luyện tiếng Anh mỗi ngày", "English with Evan"],
+  openGraph: { type: "website", locale: "vi_VN", siteName: SITE_NAME, title: SITE_NAME, description: SITE_DESCRIPTION, images: [OG_IMAGE] },
+  twitter: { card: "summary_large_image", title: SITE_NAME, description: SITE_DESCRIPTION, images: [TWITTER_IMAGE] },
 };
 
 export const viewport: Viewport = {

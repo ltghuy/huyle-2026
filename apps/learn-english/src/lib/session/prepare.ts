@@ -26,7 +26,7 @@ function examplesOf(index: ContentIndex, ids: readonly string[]): Sentence[] {
 }
 
 function grammarLink(grammar: Grammar): RelatedItems["link"] {
-  return { href: `/ngu-phap?bai=${grammar.id.slice("grammar:".length)}`, label: grammar.body.titleVi };
+  return { href: `/grammar?topic=${grammar.id.slice("grammar:".length)}`, label: grammar.body.titleVi };
 }
 
 /** Cards a sentence practises, plus a link to the grammar point (or the first word). */
@@ -38,7 +38,7 @@ function sentenceRelated(index: ContentIndex, sentence: Sentence): RelatedItems 
     return { cardIds, link: grammarLink(grammar) };
   }
   const word = index.byId.get(cardIds[0] ?? "");
-  return { cardIds, link: word?.kind === "word" ? { href: `/tu-vung?tu=${encodeURIComponent(word.id)}`, label: word.body.headword } : undefined };
+  return { cardIds, link: word?.kind === "word" ? { href: `/vocabulary?word=${encodeURIComponent(word.id)}`, label: word.body.headword } : undefined };
 }
 
 /** Headwords at the sentence's level, minus the words the sentence itself practises. */

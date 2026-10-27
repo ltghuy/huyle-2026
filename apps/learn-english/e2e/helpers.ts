@@ -3,7 +3,7 @@ import { expect, type Page } from "@playwright/test";
 /** Fresh browser: skip the placement test and land on the home page. */
 export async function skipPlacement(page: Page) {
   await page.goto("/");
-  await page.waitForURL("**/kiem-tra-trinh-do");
+  await page.waitForURL("**/placement");
   await page.getByRole("button", { name: "Bỏ qua, học từ trình độ A1" }).click();
   await page.waitForURL((url) => url.pathname === "/");
 }

@@ -24,7 +24,7 @@ export function TodayLesson() {
 
   const pendingPlacement = ready?.placement === "pending";
   useEffect(() => {
-    if (pendingPlacement) router.replace("/kiem-tra-trinh-do");
+    if (pendingPlacement) router.replace("/placement");
   }, [pendingPlacement, router]);
 
   const index = content.status === "ready" ? content.index : null;
@@ -90,15 +90,15 @@ export function TodayLesson() {
         </ol>
         {done ? (
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <Link href="/on-tap" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
+            <Link href="/review" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
               Ôn tập thêm
             </Link>
-            <Link href="/bai-tap" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
+            <Link href="/exercises" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
               Làm bài tập
             </Link>
           </div>
         ) : (
-          <Link href="/bai-hoc" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-12 w-full text-base")}>
+          <Link href="/lesson" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-12 w-full text-base")}>
             {startAt > 0 ? "Học tiếp" : "Bắt đầu"}
           </Link>
         )}

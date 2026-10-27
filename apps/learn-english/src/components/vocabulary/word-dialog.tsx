@@ -27,7 +27,7 @@ interface WordDialogProps {
   onLearned: () => void;
 }
 
-/** Word details, opened from the list or a `?tu=word:…` link (AC-007–AC-009). */
+/** Word details, opened from the list or a `?word=word:…` link (AC-007–AC-009). */
 export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDialogProps) {
   function handleOpenChange(next: boolean) {
     if (!next) onClose();

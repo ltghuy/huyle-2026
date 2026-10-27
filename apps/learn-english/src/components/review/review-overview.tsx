@@ -58,7 +58,7 @@ export function ReviewOverview() {
           </p>
         </div>
       </div>
-      <Link href="/phien-on-tap" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-12 w-full text-base")}>
+      <Link href="/review-session" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-12 w-full text-base")}>
         Ôn tập {session} mục
       </Link>
     </section>

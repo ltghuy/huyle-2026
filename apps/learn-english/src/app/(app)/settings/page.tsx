@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import { ClipboardCheck, Compass } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import { SyncPanel } from "@/components/settings/sync-panel";
 import { PageHeader } from "@/components/shell/page-header";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = { title: "Cài đặt" };
+export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/settings", description: "Trình độ, sao lưu, đồng bộ và hướng dẫn.", index: false });
 
 const LINK_BUTTON = cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4");
 
@@ -30,7 +31,7 @@ export default function CaiDatPage() {
             <div className="grid gap-2">
               <p className="text-sm text-muted-foreground">Chưa chắc trình độ của mình? Làm bài kiểm tra ngắn để ứng dụng gợi ý.</p>
               <div>
-                <Link href="/kiem-tra-trinh-do" className={LINK_BUTTON}>
+                <Link href="/placement" className={LINK_BUTTON}>
                   <ClipboardCheck aria-hidden /> Làm lại bài kiểm tra trình độ
                 </Link>
               </div>

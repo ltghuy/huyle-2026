@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { AttendanceSummary } from "@/components/profile/attendance-summary";
 import { ProgressInsights } from "@/components/profile/progress-insights";
 import { PageHeader } from "@/components/shell/page-header";
 
-export const metadata: Metadata = { title: "Hồ sơ" };
+export const metadata: Metadata = pageMetadata({ title: "Hồ sơ", path: "/profile", description: "Điểm chuyên cần, chuỗi ngày học và tiến bộ của bạn.", index: false });
 
 export default function HoSoPage() {
   return (

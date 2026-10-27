@@ -38,7 +38,7 @@ describe("prepareStep", () => {
     expect(step).toMatchObject({
       type: "exercise",
       instance: { kind: "sentence-gap" },
-      related: { cardIds: ["word:apple", "grammar:present-simple"], link: { href: "/ngu-phap?bai=present-simple", label: "present-simple" } },
+      related: { cardIds: ["word:apple", "grammar:present-simple"], link: { href: "/grammar?topic=present-simple", label: "present-simple" } },
     });
   });
 

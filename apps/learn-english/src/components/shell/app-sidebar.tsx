@@ -21,9 +21,9 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="hidden md:flex">
       <SidebarHeader>
-        <Link href="/" className="flex items-center gap-2 rounded-md px-2 py-1.5 font-semibold">
+        <Link href="/" className="flex items-center gap-2 rounded-md px-2 py-1.5 font-semibold group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <GraduationCap className="size-6 shrink-0 text-primary" aria-hidden />
-          <span className="truncate group-data-[collapsible=icon]:hidden">Học tiếng Anh</span>
+          <span className="truncate group-data-[collapsible=icon]:hidden">English with Evan</span>
         </Link>
       </SidebarHeader>
       <SidebarContent>
@@ -37,9 +37,11 @@ export function AppSidebar() {
                     isActive={isActive(pathname, item.href)}
                     tooltip={item.label}
                     size="lg"
+                    // `lg` drops the padding when collapsed; centre the icon and hide the label instead.
+                    className="group-data-[collapsible=icon]:justify-center"
                   >
                     <item.icon aria-hidden />
-                    <span>{item.label}</span>
+                    <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -49,7 +51,7 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <Link
-          href="/nguon-du-lieu"
+          href="/credits"
           className="px-2 py-1 text-xs text-muted-foreground underline-offset-4 hover:underline group-data-[collapsible=icon]:hidden"
         >
           Nguồn dữ liệu

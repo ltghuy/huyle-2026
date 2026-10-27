@@ -25,7 +25,7 @@ test("first visit: placement, welcome and tour, then today's lesson awards point
 
   // Today's lesson (AC-014, AC-015).
   await page.getByRole("link", { name: "Bắt đầu" }).click();
-  await page.waitForURL("**/bai-hoc");
+  await page.waitForURL("**/lesson");
   await playThrough(page, "Hoàn thành bài hôm nay!");
   await expect(page.getByText("+10 điểm chuyên cần")).toBeVisible();
 
@@ -34,7 +34,7 @@ test("first visit: placement, welcome and tour, then today's lesson awards point
   await expect(page.getByText("1 ngày")).toBeVisible();
 
   // Coming back to the finished lesson never awards a second time.
-  await page.goto("/bai-hoc");
+  await page.goto("/lesson");
   await expect(page.getByText("Điểm hôm nay đã được cộng rồi.")).toBeVisible();
 });
 
@@ -42,7 +42,7 @@ test("a lesson left halfway resumes at the same step", async ({ page }) => {
   await skipPlacement(page);
   await page.getByRole("alertdialog").getByRole("button", { name: "Bỏ qua" }).click();
   await page.getByRole("link", { name: "Bắt đầu" }).click();
-  await page.waitForURL("**/bai-hoc");
+  await page.waitForURL("**/lesson");
   // A new word's study card, then its multiple-choice check: the counter reads 3/N.
   await page.getByRole("button", { name: "Tiếp tục" }).click();
   await page.getByRole("radio").first().click();

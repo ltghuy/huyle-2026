@@ -24,7 +24,7 @@ vi.mock("@/hooks/use-content-index", () => ({
 }));
 
 function visit(search: string) {
-  window.history.replaceState(null, "", `/tu-vung${search}`);
+  window.history.replaceState(null, "", `/vocabulary${search}`);
   render(<VocabularyBrowser />);
 }
 
@@ -49,8 +49,8 @@ describe("VocabularyBrowser", () => {
     expect(window.location.search).toBe("?level=A1&topic=home");
   });
 
-  it("opens a word from a ?tu= link with every field and marks it learned (AC-007, AC-009)", async () => {
-    visit("?tu=word%3Amother");
+  it("opens a word from a ?word= link with every field and marks it learned (AC-007, AC-009)", async () => {
+    visit("?word=word%3Amother");
 
     const dialog = await screen.findByRole("dialog");
     expect(within(dialog).getByRole("heading", { name: "mother" })).toHaveAttribute("lang", "en");
@@ -69,7 +69,7 @@ describe("VocabularyBrowser", () => {
   });
 
   it("says so when a linked word doesn't exist", async () => {
-    visit("?level=A1&tu=word%3Agone");
+    visit("?level=A1&word=word%3Agone");
     expect(await screen.findByText("Không tìm thấy từ này")).toBeInTheDocument();
   });
 });

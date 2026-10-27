@@ -33,7 +33,7 @@ async function ensureGrammarCard(id: CardItemId): Promise<void> {
 
 function BackLink() {
   return (
-    <Link href="/ngu-phap" className="inline-flex min-h-11 items-center gap-2 justify-self-start rounded-lg pr-3 text-sm font-medium text-primary outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+    <Link href="/grammar" className="inline-flex min-h-11 items-center gap-2 justify-self-start rounded-lg pr-3 text-sm font-medium text-primary outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
       <ArrowLeft className="size-4" aria-hidden /> Tất cả chủ điểm
     </Link>
   );

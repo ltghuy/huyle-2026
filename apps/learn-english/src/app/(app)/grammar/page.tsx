@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { Suspense } from "react";
 import { GrammarBrowser } from "@/components/grammar/grammar-browser";
 import { PageHeader } from "@/components/shell/page-header";
 import { ListSkeleton } from "@/components/shell/load-states";
 
-export const metadata: Metadata = { title: "Ngữ pháp" };
+export const metadata: Metadata = pageMetadata({ title: "Ngữ pháp", path: "/grammar", description: "Các điểm ngữ pháp tiếng Anh và 12 thì theo trình độ, giải thích bằng tiếng Việt kèm ví dụ và bài luyện." });
 
 export default function NguPhapPage() {
   return (

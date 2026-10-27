@@ -57,14 +57,14 @@ function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], still
 
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
-/** `/tu-vung`: words by level and topic, learned markers and the word dialog (AC-006–AC-009). */
+/** `/vocabulary`: words by level and topic, learned markers and the word dialog (AC-006–AC-009). */
 export function VocabularyBrowser() {
   const params = useSearchParams();
   const profile = useProfile();
   const levelParam = parseLevel(params.get("level"));
   const level: Level | null = levelParam ?? (profile.status === "ready" ? profile.data.level : profile.status === "error" ? "A1" : null);
   const topic = params.get("topic") ?? ALL_TOPICS;
-  const wordId = params.get("tu");
+  const wordId = params.get("word");
 
   const levels = useMemo(() => (level ? [level] : null), [level]);
   const content = useContentIndex(levels);
@@ -109,7 +109,7 @@ export function VocabularyBrowser() {
       openedInApp.current = false;
       window.history.back();
     } else {
-      updateSearchParams({ tu: null });
+      updateSearchParams({ word: null });
     }
   }
 
@@ -185,7 +185,7 @@ function WordList({ words, learned, search, onOpen }: { words: readonly Word[]; 
       <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {visible.map((word) => (
           <li key={word.id} className="[contain-intrinsic-size:auto_6rem] [content-visibility:auto]">
-            <WordCard word={word} learned={learned.has(word.id)} href={`/tu-vung${withParams(search, { tu: word.id })}`} onOpen={onOpen} />
+            <WordCard word={word} learned={learned.has(word.id)} href={`/vocabulary${withParams(search, { word: word.id })}`} onOpen={onOpen} />
           </li>
         ))}
       </ul>

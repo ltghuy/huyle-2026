@@ -29,7 +29,7 @@ vi.mock("@/hooks/use-content-index", () => ({
 }));
 
 function visit(search: string) {
-  window.history.replaceState(null, "", `/bai-tap${search}`);
+  window.history.replaceState(null, "", `/exercises${search}`);
   render(<ExerciseLibrary />);
 }
 
@@ -61,14 +61,14 @@ describe("ExerciseLibrary", () => {
     expect(screen.getByRole("region", { name: "Mẫu câu" })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 4 + 1 + 3);
 
-    act(() => window.history.replaceState(null, "", "/bai-tap?level=A1&topic=home"));
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=home"));
     expect(screen.queryByRole("region", { name: "Ngữ pháp" })).not.toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 3);
 
-    act(() => window.history.replaceState(null, "", "/bai-tap?level=A1&loai=grammar-gap"));
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&type=grammar-gap"));
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);
 
-    act(() => window.history.replaceState(null, "", "/bai-tap?level=A1&topic=home&loai=grammar-gap"));
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=home&type=grammar-gap"));
     expect(screen.getByText("Không có bài tập nào khớp bộ lọc")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Bỏ lọc" }));
     expect(window.location.search).toBe("?level=A1");

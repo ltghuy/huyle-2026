@@ -121,12 +121,12 @@ describe("sentence exercises", () => {
       ],
     });
     const instance = buildChooseSentence({ sentence: item }, 1)!;
-    const related = { cardIds: ["grammar:present-simple" as const], link: { href: "/ngu-phap?bai=present-simple", label: "Thì hiện tại đơn" } };
+    const related = { cardIds: ["grammar:present-simple" as const], link: { href: "/grammar?topic=present-simple", label: "Thì hiện tại đơn" } };
     const { onOutcome } = setup([{ key: "c", type: "exercise", instance, seed: 1, related }]);
     fireEvent.click(screen.getAllByRole("radio")[(instance.answerIndex + 1) % 4]);
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
     expect(onOutcome.mock.calls[0][1].related).toEqual(["grammar:present-simple"]);
-    expect(screen.getByRole("link", { name: "Xem lại: Thì hiện tại đơn" })).toHaveAttribute("href", "/ngu-phap?bai=present-simple");
+    expect(screen.getByRole("link", { name: "Xem lại: Thì hiện tại đơn" })).toHaveAttribute("href", "/grammar?topic=present-simple");
   });
 
   it("self-checks free writing against the model answers", async () => {

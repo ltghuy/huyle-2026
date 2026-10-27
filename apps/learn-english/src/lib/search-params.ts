@@ -1,5 +1,5 @@
 // Content pages keep their state in query params on a static route
-// (design.md: `/tu-vung?level=A1&topic=home`, `/ngu-phap?bai=…`, `/bai-tap?id=…`).
+// (design.md: `/vocabulary?level=A1&topic=home`, `/grammar?topic=…`, `/exercises?id=…`).
 // Next's router picks up native history updates, so `useSearchParams` follows
 // these changes without a server round trip.
 

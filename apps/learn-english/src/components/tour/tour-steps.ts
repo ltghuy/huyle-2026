@@ -35,10 +35,17 @@ export function findTarget(target: string, root: ParentNode = document): HTMLEle
 
 export type TourSide = "top" | "bottom" | "right";
 
-/** Where the step card goes so it stays on screen: above bottom-bar items, below on phones, beside on desktop. */
+/** Room the step card needs beside a target: its `w-80` width plus offset and collision padding. */
+const CARD_ROOM = 320 + 32;
+
+/**
+ * Where the step card goes so it stays on screen: above bottom-bar items,
+ * beside sidebar items on desktop, else below (wide targets such as the lesson card).
+ */
 export function sideFor(target: HTMLElement | null): TourSide {
   if (!target) return "bottom";
   const rect = target.getBoundingClientRect();
   if (rect.top > window.innerHeight * 0.6) return "top";
-  return window.innerWidth < 768 ? "bottom" : "right";
+  if (window.innerWidth >= 768 && window.innerWidth - rect.right >= CARD_ROOM) return "right";
+  return "bottom";
 }

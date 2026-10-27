@@ -39,7 +39,7 @@ function findSet(cards: readonly SetCard[], id: string | null) {
   return null;
 }
 
-/** `/bai-tap`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029). */
+/** `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029). */
 export function ExerciseLibrary() {
   const params = useSearchParams();
   const profile = useProfile();
@@ -47,7 +47,7 @@ export function ExerciseLibrary() {
   const levelParam = parseLevel(params.get("level")) ?? (setId ? levelOfSetId(setId) : null);
   const level: Level | null = levelParam ?? (profile.status === "ready" ? profile.data.level : profile.status === "error" ? "A1" : null);
   const topic = params.get("topic") ?? ALL;
-  const typeParam = params.get("loai");
+  const typeParam = params.get("type");
   const type = isSetType(typeParam) ? typeParam : ALL;
 
   const levels = useMemo(() => (level ? [level] : null), [level]);
@@ -79,11 +79,11 @@ export function ExerciseLibrary() {
   }
 
   function handleTypeChange(value: string | null) {
-    updateSearchParams({ loai: !value || value === ALL ? null : value });
+    updateSearchParams({ type: !value || value === ALL ? null : value });
   }
 
   function handleClearFilters() {
-    updateSearchParams({ topic: null, loai: null });
+    updateSearchParams({ topic: null, type: null });
   }
 
   function handleStart(id: string) {
@@ -147,8 +147,8 @@ export function ExerciseLibrary() {
           const groupCards = shown.filter((card) => card.group === group);
           if (groupCards.length === 0) return null;
           return (
-            <section key={group} aria-labelledby={`bai-tap-${group}`} className="grid gap-3">
-              <h2 id={`bai-tap-${group}`} className="flex items-center gap-2 text-lg font-semibold">
+            <section key={group} aria-labelledby={`exercises-${group}`} className="grid gap-3">
+              <h2 id={`exercises-${group}`} className="flex items-center gap-2 text-lg font-semibold">
                 <Icon className="size-5 text-primary" aria-hidden /> {title}
               </h2>
               <ul className="grid gap-3 md:grid-cols-2">

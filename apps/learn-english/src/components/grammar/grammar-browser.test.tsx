@@ -40,7 +40,7 @@ vi.mock("@/hooks/use-content-index", () => ({
 }));
 
 function visit(search: string) {
-  window.history.replaceState(null, "", `/ngu-phap${search}`);
+  window.history.replaceState(null, "", `/grammar${search}`);
   render(<GrammarBrowser />);
 }
 
@@ -59,13 +59,13 @@ describe("GrammarBrowser", () => {
   it("lists topics by level, published ones as links and the rest as coming soon (AC-023)", async () => {
     visit("");
     const a1 = await screen.findByRole("region", { name: "Trình độ A1" });
-    expect(within(a1).getByRole("link", { name: /Present Simple/ })).toHaveAttribute("href", "/ngu-phap?bai=present-simple");
+    expect(within(a1).getByRole("link", { name: /Present Simple/ })).toHaveAttribute("href", "/grammar?topic=present-simple");
     expect(within(a1).getAllByText("Sắp có").length).toBeGreaterThan(0);
     expect(screen.getByRole("region", { name: "Trình độ C1" })).toBeInTheDocument();
   });
 
   it("shows every part of a topic and creates its card after practice (AC-024, AC-025, AC-013)", async () => {
-    visit("?bai=present-simple");
+    visit("?topic=present-simple");
 
     expect(await screen.findByRole("heading", { name: "Present Simple" })).toHaveAttribute("lang", "en");
     expect(screen.getByText("Thì hiện tại đơn")).toBeInTheDocument();

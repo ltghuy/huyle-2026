@@ -55,12 +55,12 @@ export function ReviewSession() {
             Bạn trả lời đúng {score.correct}/{score.total}. Những mục sai sẽ quay lại sớm hơn.
           </p>
         ) : null}
-        <Link href="/on-tap" className={cn(buttonVariants({ size: "lg" }), "h-12 w-full text-base")}>
+        <Link href="/review" className={cn(buttonVariants({ size: "lg" }), "h-12 w-full text-base")}>
           Xong
         </Link>
       </main>
     );
   }
 
-  return <ExerciseRunner steps={steps} onOutcome={handleOutcome} onFinish={setScore} onExit={() => router.push("/on-tap")} />;
+  return <ExerciseRunner steps={steps} onOutcome={handleOutcome} onFinish={setScore} onExit={() => router.push("/review")} />;
 }

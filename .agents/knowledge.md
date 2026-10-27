@@ -363,6 +363,10 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - FNV-1a bucketing (`src/handbook/ab/assign.ts`) is independent across salts at scale (checked on 20,000 ids: about 50/50 at every cutoff), but a demo over ~100 sequential ids shows splits off by 20 points or more. Measure splits in demos over thousands of simulated visitors <!-- feature:047 date:2026-10-22 -->
 - An in-page `next/link` to `#id` only scrolls; it doesn't move focus. For a skip-style link that should move keyboard focus, use a plain `<a href="#id">` and give the target `tabIndex={-1}` <!-- feature:048 date:2026-10-22 -->
 
+### learn-english
+
+- A page that sets `openGraph` or `twitter` metadata replaces the root segment's `opengraph-image`/`twitter-image` files as well as the layout's fields, so pages lost `og:image` until `pageMetadata` (`src/lib/site.ts`) named the image routes explicitly. Routes are English since quick 002; the old Vietnamese paths and query keys (`bai`, `tu`, `loai`) 308-redirect in `next.config.ts`, and those redirects keep the old key next to the new one because Next passes the query string through <!-- quick:002 date:2026-10-27 -->
+
 ## Codebase Feedback
 
 <!-- Queue for project-index to integrate into .agents/codebase/*.md. -->

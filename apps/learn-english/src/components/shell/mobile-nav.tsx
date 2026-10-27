@@ -55,7 +55,7 @@ export function MobileNav() {
                 <SheetTitle>Thêm</SheetTitle>
               </SheetHeader>
               <ul className="grid gap-1 px-4 pb-4">
-                {[...MORE, { href: "/nguon-du-lieu", label: "Nguồn dữ liệu", icon: Info, tour: "credits" }].map((item) => (
+                {[...MORE, { href: "/credits", label: "Nguồn dữ liệu", icon: Info, tour: "credits" }].map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
