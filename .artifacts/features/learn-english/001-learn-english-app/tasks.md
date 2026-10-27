@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 25 | Remaining: 25
+Total: 50 | Completed: 27 | Remaining: 23
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -180,8 +180,8 @@ Run after each task or batch (from the repo root):
 - [ ] T035 [B:T021,T030] Build the hard words page: sorted list with reason, practice session with only those words
   - **Done when:** e2e with seeded attempts shows the right words, reasons and order; the practice session contains only hard words (AC-030, AC-031)
 
-- [ ] T036 [B:T024,T030,T020] Build the home daily lesson: today's plan, parts, resume, completion screen with points/bonus, attendance `add()`
-  - **Done when:** e2e: complete a lesson → +10 points, streak 1; leave mid-lesson and return → same position; reload after completion → no second award (AC-014–AC-016)
+- [x] T036 [B:T024,T030,T020] Build the home daily lesson: today's plan, parts, resume, completion screen with points/bonus, attendance `add()`
+  - **Done when:** e2e: complete a lesson → +10 points, streak 1; leave mid-lesson and return → same position; reload after completion → no second award (AC-014–AC-016) -- VERIFIED
 
 - [ ] T037 [B:T036] Build the profile page: total points, current and longest streak, attendance calendar
   - **Done when:** values match seeded attendance data in a component test (AC-017, AC-018)
@@ -189,8 +189,8 @@ Run after each task or batch (from the repo root):
 - [ ] T038 [B:T037] Add progress insights to the profile: words learned per level, grammar topics completed, 30-day accuracy
   - **Done when:** values match seeded data (AC-037)
 
-- [ ] T039 [B:T025,T030,T028] Build the placement page and first-visit routing: offered first, skippable (→ A1), result with a Vietnamese explanation, sets the level
-  - **Done when:** e2e: fresh browser lands on the placement offer; skip → A1; finishing sets the estimated level (AC-002, AC-019–AC-021)
+- [x] T039 [B:T025,T030,T028] Build the placement page and first-visit routing: offered first, skippable (→ A1), result with a Vietnamese explanation, sets the level
+  - **Done when:** e2e: fresh browser lands on the placement offer; skip → A1; finishing sets the estimated level (AC-002, AC-019–AC-021) -- VERIFIED
 
 - [ ] T040 [B:T028,T039] Add the welcome dialog and tour (`@diceui/tour` via the shadcn CLI): steps over the `data-tour` targets, counter, back/next/close, `role="dialog"`, Esc/arrow keys, opening the mobile sheet or centering when the target is hidden, `tourSeen`
   - **Done when:** e2e (desktop + 390 px mobile): it shows once after placement, can be completed by keyboard, and doesn't show again after reload (AC-038–AC-040)
