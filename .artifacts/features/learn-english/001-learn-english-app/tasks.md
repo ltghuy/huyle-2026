@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 19 | Remaining: 31
+Total: 50 | Completed: 23 | Remaining: 27
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -111,11 +111,11 @@ Run after each task or batch (from the repo root):
 
 ### Content API and client
 
-- [ ] T015 [B:T014] Build `GET /api/content/version` and `GET /api/content/items` with Cache API caching keyed by URL + `v`, and cache headers
-  - **Done when:** service tests pass; under `cf:english:preview` a repeated items request is served from cache (verified with a header or log); if `caches.default` is unavailable, the documented D1-read fallback is in place and noted in knowledge.md
+- [x] T015 [B:T014] Build `GET /api/content/version` and `GET /api/content/items` with Cache API caching keyed by URL + `v`, and cache headers
+  - **Done when:** service tests pass; under `cf:english:preview` a repeated items request is served from cache (verified with a header or log); if `caches.default` is unavailable, the documented D1-read fallback is in place and noted in knowledge.md -- VERIFIED
 
-- [ ] T016 [B:T015,T018] Build `src/content/client.ts`: version polling (on open/focus, ≤ 5 min), per kind/level fetch, IndexedDB cache, tombstones, offline fallback
-  - **Done when:** tests cover a version change triggering a refetch, offline using the cache, no cache showing an error state, and tombstoned ids being hidden (AC-052, AC-054, AC-055)
+- [x] T016 [B:T015,T018] Build `src/content/client.ts`: version polling (on open/focus, ≤ 5 min), per kind/level fetch, IndexedDB cache, tombstones, offline fallback
+  - **Done when:** tests cover a version change triggering a refetch, offline using the cache, no cache showing an error state, and tombstoned ids being hidden (AC-052, AC-054, AC-055) -- VERIFIED
 
 ### Learning engine (pure modules)
 
@@ -154,8 +154,8 @@ Run after each task or batch (from the repo root):
 
 ### App shell and exercise UI
 
-- [ ] T028 [B:T001] Build the app shell: layout, sidebar/sheet navigation with `data-tour` targets, Vietnamese route stubs (`/tu-vung`, `/ngu-phap`, `/on-tap`, `/bai-tap`, `/tu-kho`, `/ho-so`, `/cai-dat`, `/kiem-tra-trinh-do`, `/nguon-du-lieu`), storage-unavailable banner, toast provider
-  - **Done when:** every route renders statically (build output shows them as static); the banner appears when IndexedDB is blocked; all copy is Vietnamese (AC-001, AC-004)
+- [x] T028 [B:T001] Build the app shell: layout, sidebar/sheet navigation with `data-tour` targets, Vietnamese route stubs (`/tu-vung`, `/ngu-phap`, `/on-tap`, `/bai-tap`, `/tu-kho`, `/ho-so`, `/cai-dat`, `/kiem-tra-trinh-do`, `/nguon-du-lieu`), storage-unavailable banner, toast provider
+  - **Done when:** every route renders statically (build output shows them as static); the banner appears when IndexedDB is blocked; all copy is Vietnamese (AC-001, AC-004) -- VERIFIED
 
 - [ ] T029 [B:T028,T022] Build `AudioButton`, `ExerciseRunner` (timing, attempts, score, swapping listening for recall on audio failure) and the word exercise components (MCQ with explanation, missing-letters on `InputOTP` with the Telex hint, listening, recall, grammar-gap)
   - **Done when:** component tests pass, and keyboard-only completion works (AC-003, AC-008, AC-027, AC-028, AC-029)
@@ -168,8 +168,8 @@ Run after each task or batch (from the repo root):
 - [ ] T031 [B:T016,T029] Build the vocabulary page: level/topic browse via query params, learned markers, word dialog (headword, IPA, POS, meanings, examples + translations, audio), "mark learned"
   - **Done when:** an e2e check on A1 content shows every AC-007 field, and marking a word learned creates a card (AC-006–AC-009)
 
-- [ ] T032 [B:T028] Build the credits page (CEFR-J citation, Octanove CC BY-SA 4.0 notice, CMUdict notice)
-  - **Done when:** the page renders the three attributions with links (AC-045)
+- [x] T032 [B:T028] Build the credits page (CEFR-J citation, Octanove CC BY-SA 4.0 notice, CMUdict notice)
+  - **Done when:** the page renders the three attributions with links (AC-045) -- VERIFIED
 
 - [ ] T033 [B:T024,T030] Build the review page: due count, session with varied exercise types, results
   - **Done when:** e2e: after learning words and moving the clock forward, due items appear and answering reschedules them (AC-011, AC-012)
