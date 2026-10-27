@@ -8,8 +8,17 @@
 //   pnpm content:draft submit writing --level A1
 //   pnpm content:draft status
 //   pnpm content:draft collect [batchId]     (all ended, uncollected batches by default)
+//   pnpm content:draft import <file…> [--check]
 //
-// Needs ANTHROPIC_API_KEY (or an `ant auth login` profile) in the shell.
+// submit/status/collect need ANTHROPIC_API_KEY (or an `ant auth login` profile)
+// in the shell and cost money. `import` is the free route: it reads drafts
+// written by hand or in a Claude Code session, in the same shapes the model
+// returns, one JSON file each:
+//   { "kind": "words", "level": "A1", "words": WordDraft[] }
+//   { "kind": "grammar", "slug": "present-simple", "draft": GrammarDraft }
+//   { "kind": "writing", "level": "A1", "tasks": WritingDraft["tasks"] }
+// It checks them against the drafting rules and, without --check, merges the
+// items into the content files exactly like `collect` does.
 import Anthropic from "@anthropic-ai/sdk";
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -22,6 +31,8 @@ import {
   buildGrammar,
   buildWord,
   buildWriting,
+  checkSentenceDraft,
+  checkWordDraft,
   grammarOutputSchema,
   mergeDrafts,
   wordsOutputSchema,
@@ -166,6 +177,77 @@ const costOf = (u: Usage) =>
     (u.cache_read_input_tokens ?? 0) * PRICE.cacheRead) /
   1_000_000;
 
+/** Merges drafted items into content/{kind}/{level}.json (approved items are kept). */
+async function writeDrafted(level: Level, drafted: SourceItem[]) {
+  for (const kind of ["word", "sentence", "grammar", "writing"] as const) {
+    const items = drafted.filter((item) => item.kind === kind);
+    if (items.length === 0) continue;
+    const file = sourceFile(kind, level);
+    await writeJson(file, mergeDrafts(await readJson<SourceItem[]>(file, []), items));
+  }
+}
+
+type ManualDraft =
+  | { kind: "words"; level: Level; words: WordDraft[] }
+  | { kind: "grammar"; slug: string; draft: GrammarDraft }
+  | { kind: "writing"; level: Level; tasks: WritingDraft["tasks"] };
+
+/** Builds hand-written draft files; with `check` only reports problems. */
+async function importDrafts(files: string[], check: boolean) {
+  const wordlist = await loadWordlist();
+  const rowsById = new Map(wordlist.map((row) => [row.id, row]));
+  const wordIndex = wordIndexOf(wordlist);
+  const ipa = await readJson<Record<string, string>>(path.join(contentDir, "wordlist/ipa.json"), {});
+  const grammarTopics = await readJson<GrammarTopicRow[]>(path.join(contentDir, "grammar-topics.json"), []);
+  const topicSlugs = new Set((await readJson<{ slug: string }[]>(path.join(contentDir, "topics.json"), [])).map((topic) => topic.slug));
+  let failed = false;
+
+  for (const file of files) {
+    const input = JSON.parse(await readFile(file, "utf8")) as ManualDraft;
+    const built: Built = { items: [], problems: [] };
+    let level: Level;
+    if (input.kind === "words") {
+      level = input.level;
+      const seen = new Set<string>();
+      for (const draft of input.words) {
+        const row = rowsById.get(draft.id);
+        if (!row || row.level !== level) {
+          built.problems.push(`${draft.id}: not a ${level} word in the word list`);
+          continue;
+        }
+        if (seen.has(draft.id)) built.problems.push(`${draft.id}: drafted twice`);
+        seen.add(draft.id);
+        built.problems.push(...checkWordDraft(level, draft, topicSlugs));
+        const one = buildWord(row, draft, ipa[row.id], wordIndex);
+        built.items.push(...one.items);
+        built.problems.push(...one.problems);
+      }
+    } else if (input.kind === "grammar") {
+      const topic = grammarTopics.find((row) => row.slug === input.slug);
+      if (!topic) throw new Error(`${file}: unknown grammar topic ${input.slug}`);
+      level = topic.level;
+      input.draft.examples.forEach((example, i) => built.problems.push(...checkSentenceDraft(`${input.slug} example ${i + 1}`, level, example)));
+      const one = buildGrammar(topic, input.draft);
+      built.items.push(...one.items);
+      built.problems.push(...one.problems);
+    } else {
+      level = input.level;
+      const one = buildWriting(level, { tasks: input.tasks }, wordIndex);
+      built.items.push(...one.items);
+      built.problems.push(...one.problems);
+    }
+    const label = path.relative(root, file);
+    console.log(`${label}: ${built.items.length} items, ${built.problems.length} problems`);
+    for (const problem of built.problems) console.log(`  - ${problem}`);
+    if (built.problems.length) failed = true;
+    else if (!check) await writeDrafted(level, built.items);
+  }
+  if (failed) {
+    console.log(check ? "Fix the problems above." : "Files with problems were not imported; fix them and run import again.");
+    process.exitCode = 1;
+  }
+}
+
 async function collect(onlyId?: string) {
   const client = new Anthropic();
   const state = await readJson<BatchRecord[]>(stateFile, []);
@@ -231,12 +313,7 @@ async function collect(onlyId?: string) {
       problems.push(...built.problems);
     }
 
-    for (const kind of ["word", "sentence", "grammar", "writing"] as const) {
-      const items = drafted.filter((item) => item.kind === kind);
-      if (items.length === 0) continue;
-      const file = sourceFile(kind, record.level);
-      await writeJson(file, mergeDrafts(await readJson<SourceItem[]>(file, []), items));
-    }
+    await writeDrafted(record.level, drafted);
     record.collectedAt = new Date().toISOString();
     await writeJson(stateFile, state);
 
@@ -257,9 +334,15 @@ async function collect(onlyId?: string) {
 async function main() {
   const { positionals, values } = parseArgs({
     allowPositionals: true,
-    options: { level: { type: "string" }, limit: { type: "string" }, group: { type: "string", default: "10" } },
+    options: {
+      level: { type: "string" },
+      limit: { type: "string" },
+      group: { type: "string", default: "10" },
+      check: { type: "boolean", default: false },
+    },
   });
   const [command, kind] = positionals;
+  if (command === "import") return importDrafts(positionals.slice(1), values.check);
   if (command === "status") return status();
   if (command === "collect") return collect(kind);
   if (command === "submit" && (kind === "words" || kind === "grammar" || kind === "writing")) {
@@ -267,7 +350,7 @@ async function main() {
     if (!LEVELS.includes(level)) throw new Error(`--level must be one of ${LEVELS.join(", ")}`);
     return submit(kind, level, values.limit ? Number(values.limit) : undefined, Number(values.group));
   }
-  console.log("Usage: content:draft submit <words|grammar|writing> --level <A1..C1> [--limit N] [--group N] | status | collect [batchId]");
+  console.log("Usage: content:draft submit <words|grammar|writing> --level <A1..C1> [--limit N] [--group N] | status | collect [batchId] | import <file…> [--check]");
 }
 
 if (process.argv[1]?.endsWith("draft-content.ts")) void main();

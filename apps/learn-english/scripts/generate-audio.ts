@@ -6,11 +6,14 @@
 // sentences; free plan: 20,000 files each, unlimited free requests). Run on
 // the owner's machine only; the app never synthesises speech.
 //
-//   pnpm content:audio samples --provider google|aura      (a few clips per candidate voice)
-//   pnpm content:audio generate --provider google --voice en-US-Chirp3-HD-Charon [--level A1] [--limit N]
-//   pnpm content:audio deploy                              (after generate, before content:publish)
+//   pnpm content:audio samples --provider kokoro|google|aura   (a few clips per candidate voice)
+//   pnpm content:audio generate --provider kokoro --voice am_michael [--level A1] [--limit N]
+//   pnpm content:audio deploy                                  (after generate, before content:publish)
 //
-// Credentials (shell environment, never committed):
+// kokoro is free: the open Kokoro-82M model (Apache-2.0) runs on this machine
+// through kokoro-js; the model downloads from Hugging Face on first use, and
+// clips are encoded to MP3 here. The other providers are paid cloud services
+// and need credentials in the shell environment (never committed):
 //   google: GOOGLE_TTS_API_KEY (Cloud Text-to-Speech API enabled on the key's project)
 //   aura:   CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (Workers AI permission)
 // Deploying uses the logged-in wrangler.
@@ -29,15 +32,51 @@ const FREE_PLAN_FILE_LIMIT = 20_000;
 const HEADERS_FILE = "/*\n  Cache-Control: public, max-age=31536000, immutable\n";
 
 export interface Provider {
-  name: "google" | "aura";
+  name: "kokoro" | "google" | "aura";
   /** Turns text into MP3 bytes in `voice`. */
   synthesize(text: string, voice: string): Promise<Uint8Array>;
   sampleVoices: string[];
+  /** Clips generated at once (a local model is CPU-bound: one at a time). */
+  concurrency: number;
+}
+
+/** Encodes mono float samples (-1..1) as a 64 kbps MP3. */
+export async function encodeMp3(samples: Float32Array, sampleRate: number): Promise<Uint8Array> {
+  const { Mp3Encoder } = await import("@breezystack/lamejs");
+  const pcm = Int16Array.from(samples, (sample) => Math.max(-32768, Math.min(32767, Math.round(sample * 32767))));
+  const encoder = new Mp3Encoder(1, sampleRate, 64);
+  // lamejs returns Int8Array frames at runtime (its types say Uint8Array); Buffer.concat only takes Uint8Array.
+  const bytes = (frame: ArrayBufferView) => new Uint8Array(frame.buffer, frame.byteOffset, frame.byteLength);
+  const chunks: Uint8Array[] = [];
+  for (let i = 0; i < pcm.length; i += 1152) chunks.push(bytes(encoder.encodeBuffer(pcm.subarray(i, i + 1152))));
+  chunks.push(bytes(encoder.flush()));
+  return new Uint8Array(Buffer.concat(chunks));
+}
+
+export function kokoroProvider(): Provider {
+  type Model = { generate(text: string, options: { voice: string }): Promise<{ audio: Float32Array; sampling_rate: number }> };
+  let model: Promise<Model> | undefined;
+  const load = async (): Promise<Model> => {
+    const { KokoroTTS } = await import("kokoro-js");
+    return (await KokoroTTS.from_pretrained("onnx-community/Kokoro-82M-v1.0-ONNX", { dtype: "q8", device: "cpu" })) as unknown as Model;
+  };
+  return {
+    name: "kokoro",
+    // The American male voices with the best grades on the model card.
+    sampleVoices: ["am_michael", "am_fenrir", "am_puck", "am_adam"],
+    concurrency: 1,
+    async synthesize(text, voice) {
+      model ??= load();
+      const { audio, sampling_rate } = await (await model).generate(text, { voice });
+      return encodeMp3(audio, sampling_rate);
+    },
+  };
 }
 
 export function googleProvider(apiKey: string): Provider {
   return {
     name: "google",
+    concurrency: 4,
     sampleVoices: ["en-US-Chirp3-HD-Charon", "en-US-Chirp3-HD-Puck", "en-US-Chirp3-HD-Fenrir", "en-US-Chirp3-HD-Orus"],
     async synthesize(text, voice) {
       const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${encodeURIComponent(apiKey)}`, {
@@ -55,6 +94,7 @@ export function googleProvider(apiKey: string): Provider {
 export function auraProvider(accountId: string, token: string): Provider {
   return {
     name: "aura",
+    concurrency: 4,
     sampleVoices: ["orpheus", "arcas", "orion", "apollo"],
     async synthesize(text, voice) {
       const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/@cf/deepgram/aura-2-en`, {
@@ -117,6 +157,7 @@ async function pool<T>(inputs: readonly T[], limit: number, worker: (input: T) =
 }
 
 function providerFromEnv(name: string | undefined): Provider {
+  if (name === "kokoro") return kokoroProvider();
   if (name === "google") {
     const key = process.env.GOOGLE_TTS_API_KEY;
     if (!key) throw new Error("Set GOOGLE_TTS_API_KEY");
@@ -127,7 +168,7 @@ function providerFromEnv(name: string | undefined): Provider {
     if (!account || !token) throw new Error("Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN");
     return auraProvider(account, token);
   }
-  throw new Error("--provider must be google or aura");
+  throw new Error("--provider must be kokoro, google or aura");
 }
 
 async function samples(provider: Provider, outDir: string) {
@@ -156,7 +197,7 @@ async function generate(provider: Provider, voice: string, options: { level?: Le
       if (jobs.length === 0) continue;
       console.log(`${kind} ${level}: ${jobs.length} clips`);
       const done = new Map<string, string>();
-      await pool(jobs, 4, async (job) => {
+      await pool(jobs, provider.concurrency, async (job) => {
         const local = path.join(cacheDir, `${job.key}.mp3`);
         try {
           if (!existsSync(local)) await writeFile(local, await provider.synthesize(job.text, voice));
@@ -236,7 +277,7 @@ async function main() {
     if (level && !LEVELS.includes(level)) throw new Error(`--level must be one of ${LEVELS.join(", ")}`);
     return generate(provider, values.voice, { level, limit: values.limit ? Number(values.limit) : undefined });
   }
-  console.log("Usage: content:audio samples --provider google|aura | generate --provider … --voice … [--level A1] [--limit N] | deploy");
+  console.log("Usage: content:audio samples --provider kokoro|google|aura | generate --provider … --voice … [--level A1] [--limit N] | deploy");
 }
 
 if (process.argv[1]?.endsWith("generate-audio.ts")) void main();

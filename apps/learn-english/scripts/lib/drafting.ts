@@ -313,3 +313,38 @@ export function mergeDrafts(existing: SourceItem[], drafted: SourceItem[]): Sour
   }
   return [...byId.values()].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 }
+
+// ---------- rule checks (prompts.ts rules a schema can't express) ----------
+
+const MAX_WORDS: Record<Level, number> = { A1: 10, A2: 10, B1: 14, B2: 14, C1: 18 };
+
+/** Problems with one example sentence against the drafting rules. */
+export function checkSentenceDraft(where: string, level: Level, draft: SentenceDraft): string[] {
+  const problems: string[] = [];
+  const words = splitTokens(draft.en).length;
+  if (words > MAX_WORDS[level]) problems.push(`${where}: ${words} words, ${level} allows ${MAX_WORDS[level]}`);
+  if (!draft.vi.trim()) problems.push(`${where}: missing Vietnamese translation`);
+  if (draft.wrongVariants.length !== 3) problems.push(`${where}: ${draft.wrongVariants.length} wrong variants, expected 3`);
+  for (const variant of draft.wrongVariants) {
+    if (variant.en.trim() === draft.en.trim()) problems.push(`${where}: a wrong variant equals the sentence`);
+    if (!variant.explanationVi.trim()) problems.push(`${where}: a wrong variant has no explanation`);
+  }
+  if (draft.gapWords.length === 0) problems.push(`${where}: no gap words`);
+  const tokens = splitTokens(draft.en).map((token) => token.toLowerCase());
+  for (const word of draft.gapWords) {
+    if (!tokens.includes(word.trim().toLowerCase())) problems.push(`${where}: gap word "${word}" is not in the sentence`);
+  }
+  return problems;
+}
+
+/** Problems with one word draft against the drafting rules. */
+export function checkWordDraft(level: Level, draft: WordDraft, topicSlugs: ReadonlySet<string>): string[] {
+  const problems: string[] = [];
+  if (!topicSlugs.has(draft.topic)) problems.push(`${draft.id}: unknown topic "${draft.topic}"`);
+  if (draft.meaningsVi.length < 1 || draft.meaningsVi.length > 3) problems.push(`${draft.id}: ${draft.meaningsVi.length} meanings, expected 1 to 3`);
+  const expected = level === "A1" || level === "A2" ? 1 : 2;
+  if (draft.examples.length !== expected) problems.push(`${draft.id}: ${draft.examples.length} examples, expected ${expected}`);
+  if (!draft.ipaOk && !draft.ipaSuggestion.trim()) problems.push(`${draft.id}: IPA flagged without a suggestion`);
+  draft.examples.forEach((example, i) => problems.push(...checkSentenceDraft(`${draft.id} example ${i + 1}`, level, example)));
+  return problems;
+}

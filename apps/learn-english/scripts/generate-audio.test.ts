@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { SourceItem } from "../src/content/schema";
-import { applyKeys, audioKey, collectJobs, referencedKeys } from "./generate-audio";
+import { applyKeys, audioKey, collectJobs, encodeMp3, referencedKeys } from "./generate-audio";
 
 const word = (id: string, status: "draft" | "approved", audio = "") =>
   ({
@@ -43,5 +43,16 @@ describe("referencedKeys", () => {
     const { words, sentences } = referencedKeys([word("cat", "approved", "a".repeat(64)), word("dog", "draft", "c".repeat(64)), word("fox", "approved"), sentence]);
     expect([...words]).toEqual(["a".repeat(64)]);
     expect([...sentences]).toEqual(["b".repeat(64)]);
+  });
+});
+
+describe("encodeMp3", () => {
+  it("encodes a short tone as MPEG audio frames", async () => {
+    const samples = Float32Array.from({ length: 24_000 }, (_, i) => 0.5 * Math.sin((2 * Math.PI * 440 * i) / 24_000));
+    const mp3 = await encodeMp3(samples, 24_000);
+    expect(mp3.length).toBeGreaterThan(1000);
+    // Frame sync: 11 set bits at the start of the first frame.
+    expect(mp3[0]).toBe(0xff);
+    expect(mp3[1] & 0xe0).toBe(0xe0);
   });
 });

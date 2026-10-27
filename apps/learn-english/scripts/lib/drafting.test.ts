@@ -1,7 +1,17 @@
 import { describe, expect, it } from "vitest";
 import type { SourceItem } from "../../src/content/schema";
 import type { WordlistRow } from "../import-wordlists";
-import { buildSentence, buildWord, mergeDrafts, orderFromSentence, splitTokens, type SentenceDraft, type WordDraft } from "./drafting";
+import {
+  buildSentence,
+  buildWord,
+  checkSentenceDraft,
+  checkWordDraft,
+  mergeDrafts,
+  orderFromSentence,
+  splitTokens,
+  type SentenceDraft,
+  type WordDraft,
+} from "./drafting";
 
 const sentence: SentenceDraft = {
   en: "I do my homework after dinner.",
@@ -122,6 +132,44 @@ describe("mergeDrafts", () => {
       ["writing:a", "new a"],
       ["writing:b", "old b"],
       ["writing:c", "new c"],
+    ]);
+  });
+});
+
+describe("checkSentenceDraft", () => {
+  it("passes a sentence that follows the rules", () => {
+    expect(checkSentenceDraft("s", "A1", { ...sentence, gapWords: ["homework"] })).toEqual([]);
+  });
+
+  it("reports length, variant count and gap words that aren't in the sentence", () => {
+    const long = { ...sentence, en: "I always do all of my homework in my room after dinner.", wrongVariants: sentence.wrongVariants.slice(0, 2) };
+    const problems = checkSentenceDraft("s", "A1", long);
+    expect(problems).toEqual(["s: 12 words, A1 allows 10", "s: 2 wrong variants, expected 3", 's: gap word "missing" is not in the sentence']);
+  });
+});
+
+describe("checkWordDraft", () => {
+  const draft: WordDraft = {
+    id: "word:homework-n",
+    topic: "school-education",
+    meaningsVi: ["bài tập về nhà"],
+    synonyms: [],
+    ipaOk: true,
+    ipaSuggestion: "",
+    examples: [{ ...sentence, gapWords: ["homework"] }],
+    notes: "",
+  };
+  const topics = new Set(["school-education"]);
+
+  it("passes a word that follows the rules", () => {
+    expect(checkWordDraft("A1", draft, topics)).toEqual([]);
+  });
+
+  it("wants one example at A1, two from B1, a known topic and a suggestion for flagged IPA", () => {
+    expect(checkWordDraft("B1", { ...draft, topic: "nope", ipaOk: false }, topics)).toEqual([
+      'word:homework-n: unknown topic "nope"',
+      "word:homework-n: 1 examples, expected 2",
+      "word:homework-n: IPA flagged without a suggestion",
     ]);
   });
 });
