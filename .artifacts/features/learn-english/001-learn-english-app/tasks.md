@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 28 | Remaining: 22
+Total: 50 | Completed: 36 | Remaining: 14
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -165,8 +165,8 @@ Run after each task or batch (from the repo root):
 
 ### Learner pages
 
-- [ ] T031 [B:T016,T029] Build the vocabulary page: level/topic browse via query params, learned markers, word dialog (headword, IPA, POS, meanings, examples + translations, audio), "mark learned"
-  - **Done when:** an e2e check on A1 content shows every AC-007 field, and marking a word learned creates a card (AC-006–AC-009)
+- [x] T031 [B:T016,T029] Build the vocabulary page: level/topic browse via query params, learned markers, word dialog (headword, IPA, POS, meanings, examples + translations, audio), "mark learned"
+  - **Done when:** an e2e check on A1 content shows every AC-007 field, and marking a word learned creates a card (AC-006–AC-009) -- VERIFIED
 
 - [x] T032 [B:T028] Build the credits page (CEFR-J citation, Octanove CC BY-SA 4.0 notice, CMUdict notice)
   - **Done when:** the page renders the three attributions with links (AC-045) -- VERIFIED
@@ -174,32 +174,32 @@ Run after each task or batch (from the repo root):
 - [x] T033 [B:T024,T030] Build the review page: due count, session with varied exercise types, results
   - **Done when:** e2e: after learning words and moving the clock forward, due items appear and answering reschedules them (AC-011, AC-012) -- VERIFIED
 
-- [ ] T034 [B:T030,T016] Build the exercise library: list by level/topic/grammar with type filters, runner, score feeding the SRS
-  - **Done when:** filters narrow the list; finishing an exercise shows a score and records attempts (AC-026, AC-029)
+- [x] T034 [B:T030,T016] Build the exercise library: list by level/topic/grammar with type filters, runner, score feeding the SRS
+  - **Done when:** filters narrow the list; finishing an exercise shows a score and records attempts (AC-026, AC-029) -- VERIFIED
 
-- [ ] T035 [B:T021,T030] Build the hard words page: sorted list with reason, practice session with only those words
-  - **Done when:** e2e with seeded attempts shows the right words, reasons and order; the practice session contains only hard words (AC-030, AC-031)
+- [x] T035 [B:T021,T030] Build the hard words page: sorted list with reason, practice session with only those words
+  - **Done when:** e2e with seeded attempts shows the right words, reasons and order; the practice session contains only hard words (AC-030, AC-031) -- VERIFIED
 
 - [x] T036 [B:T024,T030,T020] Build the home daily lesson: today's plan, parts, resume, completion screen with points/bonus, attendance `add()`
   - **Done when:** e2e: complete a lesson → +10 points, streak 1; leave mid-lesson and return → same position; reload after completion → no second award (AC-014–AC-016) -- VERIFIED
 
-- [ ] T037 [B:T036] Build the profile page: total points, current and longest streak, attendance calendar
-  - **Done when:** values match seeded attendance data in a component test (AC-017, AC-018)
+- [x] T037 [B:T036] Build the profile page: total points, current and longest streak, attendance calendar
+  - **Done when:** values match seeded attendance data in a component test (AC-017, AC-018) -- VERIFIED
 
-- [ ] T038 [B:T037] Add progress insights to the profile: words learned per level, grammar topics completed, 30-day accuracy
-  - **Done when:** values match seeded data (AC-037)
+- [x] T038 [B:T037] Add progress insights to the profile: words learned per level, grammar topics completed, 30-day accuracy
+  - **Done when:** values match seeded data (AC-037) -- VERIFIED
 
 - [x] T039 [B:T025,T030,T028] Build the placement page and first-visit routing: offered first, skippable (→ A1), result with a Vietnamese explanation, sets the level
   - **Done when:** e2e: fresh browser lands on the placement offer; skip → A1; finishing sets the estimated level (AC-002, AC-019–AC-021) -- VERIFIED
 
-- [ ] T040 [B:T028,T039] Add the welcome dialog and tour (`@diceui/tour` via the shadcn CLI): steps over the `data-tour` targets, counter, back/next/close, `role="dialog"`, Esc/arrow keys, opening the mobile sheet or centering when the target is hidden, `tourSeen`
-  - **Done when:** e2e (desktop + 390 px mobile): it shows once after placement, can be completed by keyboard, and doesn't show again after reload (AC-038–AC-040)
+- [x] T040 [B:T028,T039] Add the welcome dialog and tour (`@diceui/tour` via the shadcn CLI): steps over the `data-tour` targets, counter, back/next/close, `role="dialog"`, Esc/arrow keys, opening the mobile sheet or centering when the target is hidden, `tourSeen`
+  - **Done when:** e2e (desktop + 390 px mobile): it shows once after placement, can be completed by keyboard, and doesn't show again after reload (AC-038–AC-040) -- VERIFIED
 
-- [ ] T041 [B:T016,T030] Build the grammar pages: list by level with progress; topic view (rule, pattern, usage, signal words, mistakes, examples with audio); practice; card on finish
-  - **Done when:** e2e on an A1 topic shows every AC-024 field; finishing practice creates a grammar card (AC-013, AC-023–AC-025)
+- [x] T041 [B:T016,T030] Build the grammar pages: list by level with progress; topic view (rule, pattern, usage, signal words, mistakes, examples with audio); practice; card on finish
+  - **Done when:** e2e on an A1 topic shows every AC-024 field; finishing practice creates a grammar card (AC-013, AC-023–AC-025) -- VERIFIED
 
-- [ ] T042 [B:T026,T039,T040] Build the settings page: level change, retake placement, replay tour, backup panel (export, import with summary + confirm, reset with confirm + export suggestion), 14-day backup reminder
-  - **Done when:** e2e: export then import into a new browser context restores the same summary; a damaged file shows an error and changes nothing; replay starts the tour at step 1 (AC-021, AC-022, AC-041–AC-044)
+- [x] T042 [B:T026,T039,T040] Build the settings page: level change, retake placement, replay tour, backup panel (export, import with summary + confirm, reset with confirm + export suggestion), 14-day backup reminder
+  - **Done when:** e2e: export then import into a new browser context restores the same summary; a damaged file shows an error and changes nothing; replay starts the tour at step 1 (AC-021, AC-022, AC-041–AC-044) -- VERIFIED
 
 ### Sync
 

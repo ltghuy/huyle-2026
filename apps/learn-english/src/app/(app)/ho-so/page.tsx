@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/shell/coming-soon";
+import { AttendanceSummary } from "@/components/profile/attendance-summary";
+import { ProgressInsights } from "@/components/profile/progress-insights";
 import { PageHeader } from "@/components/shell/page-header";
 
 export const metadata: Metadata = { title: "Hồ sơ" };
@@ -8,7 +9,20 @@ export default function HoSoPage() {
   return (
     <>
       <PageHeader title="Hồ sơ" description="Điểm chuyên cần, chuỗi ngày học và tiến bộ của bạn." />
-      <ComingSoon />
+      <div className="grid gap-8">
+        <section aria-labelledby="attendance-heading" className="grid gap-3">
+          <h2 id="attendance-heading" className="px-4 text-lg font-semibold md:px-8">
+            Chuyên cần
+          </h2>
+          <AttendanceSummary />
+        </section>
+        <section aria-labelledby="progress-heading" className="grid gap-3">
+          <h2 id="progress-heading" className="px-4 text-lg font-semibold md:px-8">
+            Tiến bộ
+          </h2>
+          <ProgressInsights />
+        </section>
+      </div>
     </>
   );
 }

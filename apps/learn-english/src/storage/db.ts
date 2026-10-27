@@ -54,6 +54,8 @@ export interface TxOps {
   put<S extends StoreName>(store: S, value: StoreValues[S]): Promise<void>;
   /** Inserts only; resolves `false` when the key already exists. */
   add<S extends StoreName>(store: S, value: StoreValues[S]): Promise<boolean>;
+  /** Removes every record in `store`. */
+  clear(store: StoreName): Promise<void>;
 }
 
 export interface Backend extends TxOps {
@@ -107,6 +109,9 @@ async function openIndexedDb(): Promise<Backend> {
         throw error;
       }
     },
+    clear: async (store) => {
+      await tx.objectStore(store).clear();
+    },
   });
 
   return {
@@ -116,6 +121,9 @@ async function openIndexedDb(): Promise<Backend> {
     getAllFromIndex: (store, index, range) => db.getAllFromIndex(store, index, toIdbRange(range)),
     put: async (store, value) => {
       await db.put(store, value);
+    },
+    clear: async (store) => {
+      await db.clear(store);
     },
     add: async (store, value) => {
       try {
@@ -188,6 +196,9 @@ function createMemoryBackend(): Backend {
       if (mapOf(store).has(key)) return false;
       mapOf(store).set(key, structuredClone(value));
       return true;
+    },
+    clear: async (store) => {
+      mapOf(store).clear();
     },
   };
 
