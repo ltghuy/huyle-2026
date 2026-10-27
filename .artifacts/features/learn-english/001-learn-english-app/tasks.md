@@ -8,11 +8,11 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 44 | Remaining: 6
+Total: 50 | Completed: 45 | Remaining: 5
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
-Owner gates: **T004** (Cloudflare setup in the dashboard), **T010** (approve the AI drafting spend after a dry run),
+Owner gates: **T004** (Cloudflare setup in the dashboard), **T010** (revised 2026-10-27: no paid drafting; content is written in Claude Code sessions),
 **T013** (pick the voice), **T012/T049** (content review).
 
 ## Execution Plan
@@ -93,18 +93,20 @@ Run after each task or batch (from the repo root):
 - [x] T009 [B:T008] Write `scripts/build-ipa.ts` + `scripts/lib/arpabet.ts`: CMUdict join, ARPAbet→IPA, maximal-onset stress placement; list words with no entry
   - **Done when:** tests pass for a 30-word sample including stress and multi-syllable words (e.g. `homework` /ˈhoʊmˌwɝk/); a missing-entry report is written -- VERIFIED
 
-- [ ] T010 [B:T007] Write `scripts/draft-content.ts` (Batches API, structured outputs, `claude-opus-5-5`): words (meanings, topic, synonyms, 1–2 example sentences with tokens, accepted orders, wrong variants, gap candidates), grammar topics, writing tasks, placement bank; dry run on 20 A1 words with a cost report
+- [x] T010 [B:T007] Write `scripts/draft-content.ts` (Batches API, structured outputs, `claude-opus-5-5`): words (meanings, topic, synonyms, 1–2 example sentences with tokens, accepted orders, wrong variants, gap candidates), grammar topics, writing tasks, placement bank; dry run on 20 A1 words with a cost report
   - **Done when:** the dry-run output validates against the schemas, and the **owner approves the projected full cost** before any larger run
+  - Revised (2026-10-27): the owner wants everything free, so the paid Batches route is kept but not used. `content:draft import <file…> [--check]` builds drafts written in a Claude Code session (same shapes as the model output) with the same builders, and checks the drafting rules (sentence length, 3 wrong variants, gap words in the sentence, example and practice counts, unambiguous writing word links) -- VERIFIED (unit tests; A1 imported through it)
 
 - [x] T011 [B:T010] Write `scripts/review.ts`: list drafts by level/kind, approve by file or id, validate
   - **Done when:** approving flips `status` only for the selected items and refuses items that fail validation -- VERIFIED
 
-- [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, the first 6 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
+- [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, all 12 A1 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
   - **Done when:** the owner has approved A1 content and placement items; schema validation is clean
 
 - [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD or Workers AI Aura-2 → MP3, key `sha256(voice|text)`, deployed as static files on two audio-only Workers with an immutable cache header); generate 4 male voice samples for the owner
   - **Done when:** the owner has picked the voice; generating and deploying the A1 set serves clips from `audio-words.huyle.work` / `audio-sentences.huyle.work` with a long-lived `Cache-Control`
-  - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Hosting switched from R2 to two static audio Workers (no card); `pnpm content:audio deploy` added and dry-run verified. Waiting on: a provider key, the owner's voice pick
+  - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Hosting switched from R2 to two static audio Workers (no card); `pnpm content:audio deploy` added and dry-run verified.
+  - Progress (2026-10-27, later): free `kokoro` provider added (Kokoro-82M, Apache-2.0, runs locally via kokoro-js; MP3 via lamejs); samples for am_michael, am_fenrir, am_puck, am_adam in `content/.audio/samples/`. Waiting on: the owner's voice pick
 
 - [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1

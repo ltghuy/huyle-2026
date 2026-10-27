@@ -1,0 +1,1413 @@
+[
+  {
+    "level": "A1",
+    "sort": 3,
+    "id": "grammar:articles",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Articles: a, an, the",
+      "titleVi": "Mạo từ a, an, the",
+      "ruleVi": "Mạo từ là những từ nhỏ đứng trước danh từ. \"A\" và \"an\" nghĩa là \"một\", dùng với danh từ đếm được số ít khi nhắc đến lần đầu hoặc nói chung. \"The\" dùng khi cả người nói và người nghe đều biết đó là cái nào. Tiếng Việt không có mạo từ nên người Việt hay quên chúng.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "a + consonant sound (a book, a university); an + vowel sound (an apple, an hour)"
+        },
+        {
+          "form": "affirmative",
+          "en": "the + noun both people know (the sun, the book on the table)"
+        }
+      ],
+      "usageVi": [
+        "\"a\" trước âm phụ âm, \"an\" trước âm nguyên âm (tính theo âm, không theo chữ): \"a car\", \"an egg\", \"an hour\".",
+        "Nhắc đến lần đầu dùng a/an, lần sau dùng the: \"I have a cat. The cat is black.\"",
+        "Vật duy nhất dùng the: \"the sun\", \"the sky\".",
+        "Nói về nghề nghiệp dùng a/an: \"She is a nurse.\"",
+        "Không dùng mạo từ với danh từ số nhiều hoặc không đếm được khi nói chung: \"I like dogs.\", \"Milk is good.\""
+      ],
+      "signalWords": [],
+      "mistakes": [
+        {
+          "wrong": "She is teacher.",
+          "right": "She is a teacher.",
+          "explanationVi": "Nói nghề nghiệp cần \"a/an\" trước danh từ số ít."
+        },
+        {
+          "wrong": "I eat a apple every day.",
+          "right": "I eat an apple every day.",
+          "explanationVi": "\"apple\" bắt đầu bằng âm nguyên âm nên dùng \"an\"."
+        },
+        {
+          "wrong": "The dogs are friendly animals.",
+          "right": "Dogs are friendly animals.",
+          "explanationVi": "Nói chung về một loài thì không dùng \"the\" với danh từ số nhiều."
+        },
+        {
+          "wrong": "Look at sun!",
+          "right": "Look at the sun!",
+          "explanationVi": "Mặt trời là vật duy nhất nên cần \"the\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-articles-1",
+        "sentence:g-articles-2",
+        "sentence:g-articles-3",
+        "sentence:g-articles-4"
+      ],
+      "practice": [
+        {
+          "prompt": "She is ___ honest person.",
+          "options": [
+            "a",
+            "an",
+            "these",
+            "much"
+          ],
+          "answer": "an",
+          "explanationVi": "Chữ \"h\" trong \"honest\" câm nên từ bắt đầu bằng âm nguyên âm: dùng \"an\"."
+        },
+        {
+          "prompt": "He is ___ university student.",
+          "options": [
+            "an",
+            "a",
+            "these",
+            "much"
+          ],
+          "answer": "a",
+          "explanationVi": "\"university\" bắt đầu bằng âm /j/ (phụ âm) nên dùng \"a\"."
+        },
+        {
+          "prompt": "Please close ___ door. It's cold.",
+          "options": [
+            "an",
+            "these",
+            "the",
+            "much"
+          ],
+          "answer": "the",
+          "explanationVi": "Cả hai người đều biết đó là cánh cửa nào nên dùng \"the\"."
+        },
+        {
+          "prompt": "My uncle has ___ old car.",
+          "options": [
+            "a",
+            "an",
+            "these",
+            "much"
+          ],
+          "answer": "an",
+          "explanationVi": "\"old\" bắt đầu bằng âm nguyên âm nên dùng \"an\"."
+        },
+        {
+          "prompt": "Điền a hoặc an: I need ___ umbrella.",
+          "answer": "an",
+          "explanationVi": "\"umbrella\" bắt đầu bằng âm nguyên âm nên dùng \"an\"."
+        },
+        {
+          "prompt": "Điền a, an hoặc the: ___ sky is blue today.",
+          "answer": "the",
+          "explanationVi": "Bầu trời là vật duy nhất nên dùng \"the\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 7,
+    "id": "grammar:can-ability",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Can for ability and permission",
+      "titleVi": "Can: khả năng và xin phép",
+      "ruleVi": "\"Can\" là động từ khuyết thiếu nghĩa là \"có thể, biết\". Nó dùng để nói về khả năng hoặc xin phép, cho phép. \"Can\" giữ nguyên với mọi chủ ngữ (không thêm -s) và luôn đi với động từ nguyên mẫu không có \"to\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + can + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + cannot (can't) + V"
+        },
+        {
+          "form": "question",
+          "en": "Can + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Khả năng, biết làm gì: \"She can swim.\"",
+        "Xin phép: \"Can I open the window?\"",
+        "Cho phép hoặc không cho phép: \"You can't park here.\"",
+        "Nhờ ai đó làm gì: \"Can you help me?\""
+      ],
+      "signalWords": [
+        "well",
+        "very well",
+        "a little"
+      ],
+      "mistakes": [
+        {
+          "wrong": "He cans speak English.",
+          "right": "He can speak English.",
+          "explanationVi": "\"can\" không thêm -s, kể cả với he, she, it."
+        },
+        {
+          "wrong": "I can to drive.",
+          "right": "I can drive.",
+          "explanationVi": "Sau \"can\" dùng động từ nguyên mẫu không có \"to\"."
+        },
+        {
+          "wrong": "She can sings.",
+          "right": "She can sing.",
+          "explanationVi": "Động từ sau \"can\" không thêm -s."
+        },
+        {
+          "wrong": "Do you can cook?",
+          "right": "Can you cook?",
+          "explanationVi": "Câu hỏi đưa \"can\" lên đầu, không dùng \"do\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-can-ability-1",
+        "sentence:g-can-ability-2",
+        "sentence:g-can-ability-3",
+        "sentence:g-can-ability-4"
+      ],
+      "practice": [
+        {
+          "prompt": "She ___ play the piano very well.",
+          "options": [
+            "cans",
+            "can",
+            "can to",
+            "is can"
+          ],
+          "answer": "can",
+          "explanationVi": "\"can\" giữ nguyên với mọi chủ ngữ."
+        },
+        {
+          "prompt": "Penguins can't ___.",
+          "options": [
+            "fly",
+            "flies",
+            "flying",
+            "to fly"
+          ],
+          "answer": "fly",
+          "explanationVi": "Sau \"can't\" dùng động từ nguyên mẫu không \"to\"."
+        },
+        {
+          "prompt": "___ you swim?",
+          "options": [
+            "Do",
+            "Are",
+            "Can",
+            "Does"
+          ],
+          "answer": "Can",
+          "explanationVi": "Hỏi về khả năng dùng \"Can\" đứng đầu câu."
+        },
+        {
+          "prompt": "Sorry, you ___ smoke in the hospital.",
+          "options": [
+            "can",
+            "can't",
+            "cans",
+            "don't can"
+          ],
+          "answer": "can't",
+          "explanationVi": "Nói việc không được phép dùng \"can't\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định rút gọn của \"can\": I ___ find my keys.",
+          "answer": "can't",
+          "explanationVi": "Phủ định rút gọn của \"can\" là \"can't\"."
+        },
+        {
+          "prompt": "Điền động từ \"speak\" đúng dạng: My brother can ___ three languages.",
+          "answer": "speak",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 8,
+    "id": "grammar:imperatives",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Imperatives",
+      "titleVi": "Câu mệnh lệnh",
+      "ruleVi": "Câu mệnh lệnh dùng để ra lệnh, hướng dẫn, khuyên hoặc mời. Câu bắt đầu bằng động từ nguyên mẫu và không có chủ ngữ. Câu mệnh lệnh phủ định bắt đầu bằng \"Don't\". Thêm \"please\" để lịch sự hơn.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "V + (O)! / Please + V"
+        },
+        {
+          "form": "negative",
+          "en": "Don't + V + (O)!"
+        }
+      ],
+      "usageVi": [
+        "Hướng dẫn, chỉ đường: \"Turn left at the bank.\"",
+        "Yêu cầu lịch sự với \"please\": \"Please sit down.\"",
+        "Cấm hoặc khuyên đừng làm: \"Don't touch that!\"",
+        "Mời: \"Come in and have some tea.\""
+      ],
+      "signalWords": [
+        "please",
+        "Don't"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You sit down, please.",
+          "right": "Sit down, please.",
+          "explanationVi": "Câu mệnh lệnh thường không có chủ ngữ."
+        },
+        {
+          "wrong": "Not touch the wall!",
+          "right": "Don't touch the wall!",
+          "explanationVi": "Mệnh lệnh phủ định bắt đầu bằng \"Don't\"."
+        },
+        {
+          "wrong": "Opens the door, please.",
+          "right": "Open the door, please.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu, không thêm -s."
+        }
+      ],
+      "examples": [
+        "sentence:g-imperatives-1",
+        "sentence:g-imperatives-2",
+        "sentence:g-imperatives-3",
+        "sentence:g-imperatives-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ your hands before dinner.",
+          "options": [
+            "Washes",
+            "Washing",
+            "Wash",
+            "You washing"
+          ],
+          "answer": "Wash",
+          "explanationVi": "Câu mệnh lệnh bắt đầu bằng động từ nguyên mẫu."
+        },
+        {
+          "prompt": "___ late for class!",
+          "options": [
+            "Don't be",
+            "Not be",
+            "Doesn't be",
+            "No be"
+          ],
+          "answer": "Don't be",
+          "explanationVi": "Mệnh lệnh phủ định với tính từ: \"Don't be\" + tính từ."
+        },
+        {
+          "prompt": "Please ___ down.",
+          "options": [
+            "sits",
+            "sitting",
+            "to sit",
+            "sit"
+          ],
+          "answer": "sit",
+          "explanationVi": "Sau \"please\" trong câu mệnh lệnh dùng động từ nguyên mẫu."
+        },
+        {
+          "prompt": "___ touch the oven. It's hot!",
+          "options": [
+            "Don't",
+            "Not",
+            "No",
+            "Doesn't"
+          ],
+          "answer": "Don't",
+          "explanationVi": "Câu cấm bắt đầu bằng \"Don't\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"open\": Please ___ your books.",
+          "answer": "open",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Viết dạng phủ định: ___ run in the hallway.",
+          "answer": "Don't",
+          "explanationVi": "Mệnh lệnh phủ định bắt đầu bằng \"Don't\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 4,
+    "id": "grammar:plural-nouns",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Plural nouns",
+      "titleVi": "Danh từ số nhiều",
+      "ruleVi": "Danh từ đếm được có dạng số nhiều khi chỉ từ hai cái trở lên. Phần lớn chỉ cần thêm -s, nhưng một số từ thêm -es, đổi -y thành -ies, hoặc có dạng bất quy tắc. Tiếng Việt dùng \"các, những\" và không đổi danh từ, nên người Việt hay quên thêm -s.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "N + s (book → books); -s, -x, -ch, -sh + es (box → boxes)"
+        },
+        {
+          "form": "affirmative",
+          "en": "consonant + y → ies (city → cities); irregular: man → men, child → children"
+        }
+      ],
+      "usageVi": [
+        "Sau số từ hai trở lên: \"three books\".",
+        "Sau many, some, a lot of khi nói về vật đếm được: \"many people\", \"some apples\".",
+        "Nói chung về một loại: \"I like apples.\"",
+        "Danh từ không đếm được (water, rice, money, homework) không thêm -s."
+      ],
+      "signalWords": [
+        "two",
+        "three",
+        "many",
+        "some",
+        "a lot of",
+        "these",
+        "those"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I have two brother.",
+          "right": "I have two brothers.",
+          "explanationVi": "Sau \"two\" danh từ phải ở số nhiều."
+        },
+        {
+          "wrong": "There are three childs.",
+          "right": "There are three children.",
+          "explanationVi": "\"child\" có dạng số nhiều bất quy tắc là \"children\"."
+        },
+        {
+          "wrong": "I have many homeworks.",
+          "right": "I have a lot of homework.",
+          "explanationVi": "\"homework\" không đếm được nên không thêm -s."
+        },
+        {
+          "wrong": "She has two babys.",
+          "right": "She has two babies.",
+          "explanationVi": "Phụ âm + y đổi thành -ies: \"babies\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-plural-nouns-1",
+        "sentence:g-plural-nouns-2",
+        "sentence:g-plural-nouns-3",
+        "sentence:g-plural-nouns-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I have three ___.",
+          "options": [
+            "watch",
+            "watchs",
+            "watches",
+            "watchies"
+          ],
+          "answer": "watches",
+          "explanationVi": "Danh từ tận cùng bằng -ch thêm -es."
+        },
+        {
+          "prompt": "There are two ___ in the room.",
+          "options": [
+            "woman",
+            "womans",
+            "women",
+            "womens"
+          ],
+          "answer": "women",
+          "explanationVi": "Số nhiều bất quy tắc của \"woman\" là \"women\"."
+        },
+        {
+          "prompt": "She buys some ___ every week.",
+          "options": [
+            "tomato",
+            "tomatos",
+            "tomatoes",
+            "tomatoies"
+          ],
+          "answer": "tomatoes",
+          "explanationVi": "\"tomato\" thêm -es ở số nhiều: \"tomatoes\"."
+        },
+        {
+          "prompt": "Can I have some ___, please?",
+          "options": [
+            "waters",
+            "water",
+            "a water",
+            "the waters"
+          ],
+          "answer": "water",
+          "explanationVi": "\"water\" không đếm được nên không thêm -s."
+        },
+        {
+          "prompt": "Viết dạng số nhiều của \"baby\": The ___ are sleeping.",
+          "answer": "babies",
+          "explanationVi": "Phụ âm + y đổi thành -ies."
+        },
+        {
+          "prompt": "Viết dạng số nhiều của \"foot\": My ___ are cold.",
+          "answer": "feet",
+          "explanationVi": "Số nhiều bất quy tắc của \"foot\" là \"feet\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 5,
+    "id": "grammar:possessives",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Possessives: my, your, 's",
+      "titleVi": "Sở hữu: my, your, 's",
+      "ruleVi": "Tính từ sở hữu (my, your, his, her, its, our, their) đứng trước danh từ để nói vật đó của ai. Với tên người hoặc danh từ chỉ người, ta thêm 's: \"Lan's bag\" (cái túi của Lan). Khác tiếng Việt, người sở hữu đứng trước vật được sở hữu.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "my/your/his/her/its/our/their + N"
+        },
+        {
+          "form": "affirmative",
+          "en": "Owner + 's + N (my mother's car); plural -s + ' (my parents' house)"
+        }
+      ],
+      "usageVi": [
+        "I → my, you → your, he → his, she → her, it → its, we → our, they → their: \"This is my phone.\"",
+        "Tên người + 's: \"Nam's brother\" (anh trai của Nam).",
+        "Danh từ số nhiều tận cùng bằng -s chỉ thêm dấu ': \"the students' books\".",
+        "\"its\" (của nó) không có dấu nháy; \"it's\" là \"it is\"."
+      ],
+      "signalWords": [],
+      "mistakes": [
+        {
+          "wrong": "This is the bag of Lan.",
+          "right": "This is Lan's bag.",
+          "explanationVi": "Với người, tiếng Anh thường dùng 's thay cho \"of\"."
+        },
+        {
+          "wrong": "She loves his mother.",
+          "right": "She loves her mother.",
+          "explanationVi": "Chủ ngữ \"she\" thì dùng tính từ sở hữu \"her\"."
+        },
+        {
+          "wrong": "The dog is eating it's food.",
+          "right": "The dog is eating its food.",
+          "explanationVi": "\"its\" là \"của nó\"; \"it's\" nghĩa là \"it is\"."
+        },
+        {
+          "wrong": "I like car my.",
+          "right": "I like my car.",
+          "explanationVi": "Tính từ sở hữu đứng trước danh từ."
+        }
+      ],
+      "examples": [
+        "sentence:g-possessives-1",
+        "sentence:g-possessives-2",
+        "sentence:g-possessives-3",
+        "sentence:g-possessives-4"
+      ],
+      "practice": [
+        {
+          "prompt": "We love ___ new apartment.",
+          "options": [
+            "we",
+            "us",
+            "our",
+            "ours"
+          ],
+          "answer": "our",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu \"our\"."
+        },
+        {
+          "prompt": "Tom is washing ___ car.",
+          "options": [
+            "his",
+            "her",
+            "he",
+            "him"
+          ],
+          "answer": "his",
+          "explanationVi": "Tom là nam nên dùng \"his\"."
+        },
+        {
+          "prompt": "The cat is drinking ___ milk.",
+          "options": [
+            "it's",
+            "its",
+            "it",
+            "their"
+          ],
+          "answer": "its",
+          "explanationVi": "\"its\" nghĩa là \"của nó\"; \"it's\" là \"it is\"."
+        },
+        {
+          "prompt": "This is ___ phone.",
+          "options": [
+            "Lan",
+            "Lans",
+            "Lan's",
+            "of Lan"
+          ],
+          "answer": "Lan's",
+          "explanationVi": "Tên người + 's để chỉ sở hữu."
+        },
+        {
+          "prompt": "Viết tính từ sở hữu của \"I\": This is ___ book.",
+          "answer": "my",
+          "explanationVi": "Tính từ sở hữu của \"I\" là \"my\"."
+        },
+        {
+          "prompt": "Viết tính từ sở hữu của \"they\": ___ children are at school.",
+          "answer": "Their",
+          "explanationVi": "Tính từ sở hữu của \"they\" là \"their\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 9,
+    "id": "grammar:prepositions-time-place",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Prepositions of time and place: in, on, at",
+      "titleVi": "Giới từ chỉ thời gian và nơi chốn: in, on, at",
+      "ruleVi": "\"In, on, at\" đều có thể dịch là \"ở, vào, lúc\", nên người Việt dễ nhầm. Hãy nhớ theo độ lớn: \"in\" cho khoảng lớn (tháng, năm, thành phố, bên trong), \"on\" cho ngày và bề mặt, \"at\" cho điểm chính xác (giờ, địa chỉ, một địa điểm cụ thể).",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Time: at + clock time / night; on + day/date; in + month/year/season/the morning"
+        },
+        {
+          "form": "affirmative",
+          "en": "Place: at + point (at home, at the bus stop); on + surface/street; in + inside/city/country"
+        }
+      ],
+      "usageVi": [
+        "\"at\" + giờ: \"at 7 o'clock\", \"at noon\", \"at night\".",
+        "\"on\" + thứ, ngày: \"on Monday\", \"on May 5th\", \"on my birthday\".",
+        "\"in\" + tháng, năm, mùa, buổi: \"in June\", \"in 2020\", \"in the morning\".",
+        "Nơi chốn: \"in the room\" (bên trong), \"on the table\" (trên bề mặt), \"at the door\" (tại một điểm)."
+      ],
+      "signalWords": [],
+      "mistakes": [
+        {
+          "wrong": "I was born on 1995.",
+          "right": "I was born in 1995.",
+          "explanationVi": "Trước năm dùng \"in\"."
+        },
+        {
+          "wrong": "See you in Monday.",
+          "right": "See you on Monday.",
+          "explanationVi": "Trước thứ trong tuần dùng \"on\"."
+        },
+        {
+          "wrong": "The class starts in 8 a.m.",
+          "right": "The class starts at 8 a.m.",
+          "explanationVi": "Trước giờ cụ thể dùng \"at\"."
+        },
+        {
+          "wrong": "She is in home now.",
+          "right": "She is at home now.",
+          "explanationVi": "\"Ở nhà\" là cụm cố định \"at home\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-prepositions-time-place-1",
+        "sentence:g-prepositions-time-place-2",
+        "sentence:g-prepositions-time-place-3",
+        "sentence:g-prepositions-time-place-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I usually get up ___ 6:30.",
+          "options": [
+            "in",
+            "on",
+            "at",
+            "to"
+          ],
+          "answer": "at",
+          "explanationVi": "Trước giờ cụ thể dùng \"at\"."
+        },
+        {
+          "prompt": "She lives ___ Hanoi.",
+          "options": [
+            "at",
+            "on",
+            "to",
+            "in"
+          ],
+          "answer": "in",
+          "explanationVi": "Trước tên thành phố dùng \"in\"."
+        },
+        {
+          "prompt": "We have English class ___ Tuesday.",
+          "options": [
+            "on",
+            "in",
+            "at",
+            "to"
+          ],
+          "answer": "on",
+          "explanationVi": "Trước thứ trong tuần dùng \"on\"."
+        },
+        {
+          "prompt": "There is a picture ___ the wall.",
+          "options": [
+            "in",
+            "at",
+            "on",
+            "to"
+          ],
+          "answer": "on",
+          "explanationVi": "Vật gắn trên bề mặt (tường) dùng \"on\"."
+        },
+        {
+          "prompt": "Điền in, on hoặc at: I drink tea ___ the morning.",
+          "answer": "in",
+          "explanationVi": "Buổi trong ngày dùng \"in the morning\"."
+        },
+        {
+          "prompt": "Điền in, on hoặc at: Wait for me ___ the bus stop.",
+          "answer": "at",
+          "explanationVi": "Một điểm cụ thể như trạm xe buýt dùng \"at\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 2,
+    "id": "grammar:present-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Present Continuous",
+      "titleVi": "Thì hiện tại tiếp diễn",
+      "ruleVi": "Present Continuous (thì hiện tại tiếp diễn) dùng để nói về việc đang diễn ra ngay lúc nói hoặc trong khoảng thời gian hiện tại. Cấu trúc gồm \"to be\" (am/is/are) và động từ thêm -ing. Đừng quên \"to be\": tiếng Việt chỉ nói \"đang\", nhưng tiếng Anh cần cả am/is/are lẫn V-ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + am/is/are + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + am/is/are + not + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "Am/Is/Are + S + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Việc đang xảy ra ngay lúc nói: \"I am cooking now.\"",
+        "Việc tạm thời trong giai đoạn này: \"She is staying with her aunt this week.\"",
+        "Kế hoạch đã sắp xếp trong tương lai gần: \"We are meeting him tomorrow.\""
+      ],
+      "signalWords": [
+        "now",
+        "right now",
+        "at the moment",
+        "today",
+        "this week",
+        "Look!",
+        "Listen!"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I cooking now.",
+          "right": "I am cooking now.",
+          "explanationVi": "Thì tiếp diễn cần \"to be\" trước V-ing."
+        },
+        {
+          "wrong": "She is cook dinner.",
+          "right": "She is cooking dinner.",
+          "explanationVi": "Sau \"is\" động từ phải thêm -ing."
+        },
+        {
+          "wrong": "They are swiming.",
+          "right": "They are swimming.",
+          "explanationVi": "Động từ ngắn tận cùng bằng nguyên âm + phụ âm (swim) gấp đôi phụ âm cuối trước -ing."
+        },
+        {
+          "wrong": "I am knowing the answer.",
+          "right": "I know the answer.",
+          "explanationVi": "Động từ chỉ trạng thái (know, like, want) thường không dùng ở thì tiếp diễn."
+        }
+      ],
+      "examples": [
+        "sentence:g-present-continuous-1",
+        "sentence:g-present-continuous-2",
+        "sentence:g-present-continuous-3",
+        "sentence:g-present-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Listen! The baby ___.",
+          "options": [
+            "cry",
+            "cries",
+            "is crying",
+            "crying"
+          ],
+          "answer": "is crying",
+          "explanationVi": "\"Listen!\" cho thấy việc đang xảy ra nên dùng \"is\" + V-ing."
+        },
+        {
+          "prompt": "We ___ dinner at the moment.",
+          "options": [
+            "are having",
+            "have",
+            "has",
+            "having"
+          ],
+          "answer": "are having",
+          "explanationVi": "\"At the moment\" là dấu hiệu của thì hiện tại tiếp diễn."
+        },
+        {
+          "prompt": "He is ___ in the sea.",
+          "options": [
+            "swim",
+            "swims",
+            "swiming",
+            "swimming"
+          ],
+          "answer": "swimming",
+          "explanationVi": "\"swim\" gấp đôi \"m\" trước -ing: \"swimming\"."
+        },
+        {
+          "prompt": "___ they studying now?",
+          "options": [
+            "Do",
+            "Is",
+            "Are",
+            "Does"
+          ],
+          "answer": "Are",
+          "explanationVi": "Câu hỏi thì tiếp diễn với \"they\" bắt đầu bằng \"Are\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"write\": I am ___ an email.",
+          "answer": "writing",
+          "explanationVi": "\"write\" tận cùng bằng -e câm: bỏ -e rồi thêm -ing."
+        },
+        {
+          "prompt": "Điền \"am\", \"is\" hoặc \"are\": My parents ___ working today.",
+          "answer": "are",
+          "explanationVi": "\"My parents\" là số nhiều nên dùng \"are\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 1,
+    "id": "grammar:present-simple",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Present Simple",
+      "titleVi": "Thì hiện tại đơn",
+      "ruleVi": "Present Simple (thì hiện tại đơn) dùng để nói về thói quen, việc lặp lại và sự thật chung. Với chủ ngữ he, she, it (ngôi thứ ba số ít), động từ thêm -s hoặc -es. Câu phủ định và câu hỏi dùng trợ động từ do/does, và khi đã có \"does\" thì động từ chính trở về nguyên mẫu.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "I/You/We/They + V; He/She/It + V-s/es"
+        },
+        {
+          "form": "negative",
+          "en": "S + do not (don't)/does not (doesn't) + V"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Thói quen, việc làm hằng ngày: \"I drink coffee every morning.\"",
+        "Sự thật chung, điều luôn đúng: \"Water boils at 100 degrees.\"",
+        "Lịch trình cố định: \"The bus leaves at 7.\"",
+        "Sở thích, cảm nghĩ: \"She likes music.\""
+      ],
+      "signalWords": [
+        "always",
+        "usually",
+        "often",
+        "sometimes",
+        "never",
+        "every day",
+        "on Mondays"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She go to work by bus.",
+          "right": "She goes to work by bus.",
+          "explanationVi": "Chủ ngữ ngôi thứ ba số ít (she) cần động từ thêm -s/-es."
+        },
+        {
+          "wrong": "He doesn't likes fish.",
+          "right": "He doesn't like fish.",
+          "explanationVi": "Sau \"doesn't\" động từ trở về nguyên mẫu, không thêm -s."
+        },
+        {
+          "wrong": "You like coffee?",
+          "right": "Do you like coffee?",
+          "explanationVi": "Câu hỏi cần trợ động từ \"do\" đứng đầu."
+        },
+        {
+          "wrong": "I am work in a bank.",
+          "right": "I work in a bank.",
+          "explanationVi": "Không dùng \"am\" cùng động từ thường ở thì hiện tại đơn."
+        }
+      ],
+      "examples": [
+        "sentence:g-present-simple-1",
+        "sentence:g-present-simple-2",
+        "sentence:g-present-simple-3",
+        "sentence:g-present-simple-4"
+      ],
+      "practice": [
+        {
+          "prompt": "He ___ English at a high school.",
+          "options": [
+            "teach",
+            "teaches",
+            "teaching",
+            "is teach"
+          ],
+          "answer": "teaches",
+          "explanationVi": "\"He\" là ngôi thứ ba số ít; \"teach\" tận cùng bằng -ch nên thêm -es."
+        },
+        {
+          "prompt": "We ___ like spicy food.",
+          "options": [
+            "doesn't",
+            "aren't",
+            "don't",
+            "not"
+          ],
+          "answer": "don't",
+          "explanationVi": "Phủ định với \"we\" dùng \"don't\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "___ your sister live in Hanoi?",
+          "options": [
+            "Do",
+            "Is",
+            "Are",
+            "Does"
+          ],
+          "answer": "Does",
+          "explanationVi": "\"Your sister\" là ngôi thứ ba số ít nên câu hỏi dùng \"Does\"."
+        },
+        {
+          "prompt": "The shop ___ at 9 a.m.",
+          "options": [
+            "open",
+            "opens",
+            "opening",
+            "are open"
+          ],
+          "answer": "opens",
+          "explanationVi": "Lịch trình cố định dùng hiện tại đơn; \"the shop\" số ít nên thêm -s."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"watch\": My brother ___ TV every evening.",
+          "answer": "watches",
+          "explanationVi": "\"My brother\" số ít; \"watch\" tận cùng bằng -ch nên thêm -es."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"have\": She ___ two cats.",
+          "answer": "has",
+          "explanationVi": "Với he, she, it, \"have\" đổi thành \"has\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 10,
+    "id": "grammar:question-words",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Question words",
+      "titleVi": "Từ để hỏi",
+      "ruleVi": "Từ để hỏi (Wh- questions) như what, where, when, who, why, how đứng ở đầu câu hỏi. Khác tiếng Việt (từ để hỏi thường ở cuối: \"Bạn đi đâu?\"), tiếng Anh đặt từ để hỏi lên đầu, sau đó là trợ động từ hoặc \"to be\", rồi mới đến chủ ngữ.",
+      "pattern": [
+        {
+          "form": "question",
+          "en": "Wh- + am/is/are + S (+ ...)?"
+        },
+        {
+          "form": "question",
+          "en": "Wh- + do/does + S + V?"
+        }
+      ],
+      "usageVi": [
+        "What (cái gì): \"What is your name?\"",
+        "Where (ở đâu): \"Where do you live?\"",
+        "When (khi nào): \"When does the shop open?\"",
+        "Who (ai): \"Who is that man?\"",
+        "Why (tại sao) và How (như thế nào): \"Why are you sad?\", \"How do you go to work?\""
+      ],
+      "signalWords": [
+        "What",
+        "Where",
+        "When",
+        "Who",
+        "Why",
+        "How",
+        "How many",
+        "How old"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You live where?",
+          "right": "Where do you live?",
+          "explanationVi": "Từ để hỏi đứng đầu câu, sau đó là trợ động từ \"do\"."
+        },
+        {
+          "wrong": "Where you are from?",
+          "right": "Where are you from?",
+          "explanationVi": "Sau từ để hỏi, \"are\" đứng trước chủ ngữ."
+        },
+        {
+          "wrong": "What time does the bus leaves?",
+          "right": "What time does the bus leave?",
+          "explanationVi": "Sau \"does\" động từ trở về nguyên mẫu."
+        },
+        {
+          "wrong": "How old you are?",
+          "right": "How old are you?",
+          "explanationVi": "Trong câu hỏi \"are\" đứng trước chủ ngữ."
+        }
+      ],
+      "examples": [
+        "sentence:g-question-words-1",
+        "sentence:g-question-words-2",
+        "sentence:g-question-words-3",
+        "sentence:g-question-words-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ is your favorite color? – Blue.",
+          "options": [
+            "Who",
+            "Where",
+            "What",
+            "When"
+          ],
+          "answer": "What",
+          "explanationVi": "Hỏi \"cái gì\" dùng \"What\"."
+        },
+        {
+          "prompt": "___ is your birthday? – In May.",
+          "options": [
+            "When",
+            "Where",
+            "Who",
+            "Why"
+          ],
+          "answer": "When",
+          "explanationVi": "Hỏi thời gian dùng \"When\"."
+        },
+        {
+          "prompt": "___ is that girl? – She's my cousin.",
+          "options": [
+            "What",
+            "Who",
+            "Where",
+            "How"
+          ],
+          "answer": "Who",
+          "explanationVi": "Hỏi về người dùng \"Who\"."
+        },
+        {
+          "prompt": "Where ___ he work?",
+          "options": [
+            "do",
+            "is",
+            "are",
+            "does"
+          ],
+          "answer": "does",
+          "explanationVi": "\"he\" là ngôi thứ ba số ít nên dùng \"does\"."
+        },
+        {
+          "prompt": "Điền từ để hỏi: ___ old is your son? – He's five.",
+          "answer": "How",
+          "explanationVi": "Hỏi tuổi dùng \"How old\"."
+        },
+        {
+          "prompt": "Điền từ để hỏi: ___ are you from? – Vietnam.",
+          "answer": "Where",
+          "explanationVi": "Hỏi quê quán, nơi chốn dùng \"Where\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 6,
+    "id": "grammar:there-is-there-are",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "There is / There are",
+      "titleVi": "There is / There are",
+      "ruleVi": "\"There is / There are\" nghĩa là \"có\" khi nói một thứ tồn tại ở đâu đó. Dùng \"There is\" với danh từ số ít hoặc không đếm được, \"There are\" với danh từ số nhiều. Người Việt hay dịch thẳng \"có\" thành \"have\", nhưng \"have\" chỉ dùng khi ai đó sở hữu thứ gì.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "There is + a/an + N (singular) / uncountable N; There are + plural N"
+        },
+        {
+          "form": "negative",
+          "en": "There is not (isn't) + any/a + N; There are not (aren't) + any + plural N"
+        },
+        {
+          "form": "question",
+          "en": "Is there + a/any + N? / Are there + any + plural N?"
+        }
+      ],
+      "usageVi": [
+        "Nói cái gì đó có ở một nơi: \"There is a bank near my house.\"",
+        "Danh từ số nhiều dùng \"There are\": \"There are two windows in my room.\"",
+        "Phủ định và câu hỏi thường dùng \"any\": \"Are there any eggs?\"",
+        "Danh từ không đếm được dùng \"There is\": \"There is some milk in the fridge.\""
+      ],
+      "signalWords": [
+        "any",
+        "some",
+        "a lot of",
+        "How many"
+      ],
+      "mistakes": [
+        {
+          "wrong": "It has a park near my house.",
+          "right": "There is a park near my house.",
+          "explanationVi": "Nói \"có\" theo nghĩa tồn tại dùng \"There is\", không dùng \"It has\"."
+        },
+        {
+          "wrong": "There is three people here.",
+          "right": "There are three people here.",
+          "explanationVi": "Danh từ số nhiều đi với \"There are\"."
+        },
+        {
+          "wrong": "Have any shops here?",
+          "right": "Are there any shops here?",
+          "explanationVi": "Câu hỏi về sự tồn tại dùng \"Are there\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-there-is-there-are-1",
+        "sentence:g-there-is-there-are-2",
+        "sentence:g-there-is-there-are-3",
+        "sentence:g-there-is-there-are-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ a supermarket on this street.",
+          "options": [
+            "There are",
+            "There is",
+            "It has",
+            "Have"
+          ],
+          "answer": "There is",
+          "explanationVi": "\"a supermarket\" số ít nên dùng \"There is\"."
+        },
+        {
+          "prompt": "There ___ many students in the classroom.",
+          "options": [
+            "is",
+            "are",
+            "has",
+            "have"
+          ],
+          "answer": "are",
+          "explanationVi": "\"many students\" số nhiều nên dùng \"are\"."
+        },
+        {
+          "prompt": "___ there any bread?",
+          "options": [
+            "Are",
+            "Does",
+            "Is",
+            "Has"
+          ],
+          "answer": "Is",
+          "explanationVi": "\"bread\" không đếm được nên dùng \"Is there\"."
+        },
+        {
+          "prompt": "There aren't ___ chairs in the room.",
+          "options": [
+            "some",
+            "a",
+            "an",
+            "any"
+          ],
+          "answer": "any",
+          "explanationVi": "Câu phủ định với danh từ số nhiều dùng \"any\"."
+        },
+        {
+          "prompt": "Điền \"is\" hoặc \"are\": There ___ two banks near here.",
+          "answer": "are",
+          "explanationVi": "\"two banks\" số nhiều nên dùng \"are\"."
+        },
+        {
+          "prompt": "Điền \"is\" hoặc \"are\": There ___ some water in the bottle.",
+          "answer": "is",
+          "explanationVi": "\"water\" không đếm được nên dùng \"is\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 11,
+    "id": "grammar:this-that-these-those",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "This, that, these, those",
+      "titleVi": "This, that, these, those",
+      "ruleVi": "\"This, that, these, those\" là từ chỉ định, dùng để chỉ người hoặc vật. \"This\" và \"these\" chỉ cái ở gần, \"that\" và \"those\" chỉ cái ở xa. \"This, that\" đi với danh từ số ít; \"these, those\" đi với danh từ số nhiều.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "This/That + singular N + is; These/Those + plural N + are"
+        },
+        {
+          "form": "question",
+          "en": "Is this/that …? / Are these/those …?"
+        }
+      ],
+      "usageVi": [
+        "Gần, số ít: \"This bag is heavy.\" (cái túi này)",
+        "Xa, số ít: \"That house is old.\" (ngôi nhà kia)",
+        "Gần, số nhiều: \"These shoes are new.\" (những đôi giày này)",
+        "Xa, số nhiều: \"Those birds are beautiful.\" (những con chim kia)",
+        "Giới thiệu người: \"This is my friend, Nam.\""
+      ],
+      "signalWords": [
+        "here",
+        "there"
+      ],
+      "mistakes": [
+        {
+          "wrong": "This books are interesting.",
+          "right": "These books are interesting.",
+          "explanationVi": "Danh từ số nhiều đi với \"these\"."
+        },
+        {
+          "wrong": "That are my parents.",
+          "right": "Those are my parents.",
+          "explanationVi": "Nói về nhiều người ở xa dùng \"those\" + \"are\"."
+        },
+        {
+          "wrong": "These is my sister.",
+          "right": "This is my sister.",
+          "explanationVi": "Một người dùng \"this\" + \"is\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-this-that-these-those-1",
+        "sentence:g-this-that-these-those-2",
+        "sentence:g-this-that-these-those-3",
+        "sentence:g-this-that-these-those-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ shoes are too small for me.",
+          "options": [
+            "This",
+            "That",
+            "These",
+            "It"
+          ],
+          "answer": "These",
+          "explanationVi": "\"shoes\" số nhiều, ở gần nên dùng \"These\"."
+        },
+        {
+          "prompt": "Look at ___ bird over there!",
+          "options": [
+            "these",
+            "those",
+            "that",
+            "this"
+          ],
+          "answer": "that",
+          "explanationVi": "Một con chim ở xa (over there) dùng \"that\"."
+        },
+        {
+          "prompt": "___ is my friend, Lan.",
+          "options": [
+            "These",
+            "Those",
+            "This",
+            "They"
+          ],
+          "answer": "This",
+          "explanationVi": "Giới thiệu một người dùng \"This is\"."
+        },
+        {
+          "prompt": "Those apples ___ delicious.",
+          "options": [
+            "is",
+            "am",
+            "are",
+            "be"
+          ],
+          "answer": "are",
+          "explanationVi": "\"Those apples\" số nhiều nên dùng \"are\"."
+        },
+        {
+          "prompt": "Điền this hoặc these: I like ___ pictures.",
+          "answer": "these",
+          "explanationVi": "\"pictures\" số nhiều nên dùng \"these\"."
+        },
+        {
+          "prompt": "Điền that hoặc those: ___ car over there is expensive.",
+          "answer": "That",
+          "explanationVi": "Một chiếc xe ở xa dùng \"That\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "grammar:to-be",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "The verb \"to be\"",
+      "titleVi": "Động từ \"to be\"",
+      "ruleVi": "\"To be\" nghĩa là \"là, thì, ở\". Ở hiện tại nó có ba dạng: am, is, are, tùy theo chủ ngữ. Tiếng Việt thường bỏ chữ \"là\" trước tính từ (\"Tôi mệt\"), nhưng tiếng Anh luôn cần \"to be\": \"I am tired.\"",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "I am / He, She, It is / You, We, They are + N/Adj/place"
+        },
+        {
+          "form": "negative",
+          "en": "S + am/is/are + not + N/Adj/place"
+        },
+        {
+          "form": "question",
+          "en": "Am/Is/Are + S + N/Adj/place?"
+        }
+      ],
+      "usageVi": [
+        "Giới thiệu tên, nghề nghiệp, quốc tịch: \"I am a teacher.\"",
+        "Miêu tả tính chất, cảm xúc (trước tính từ): \"She is happy.\"",
+        "Nói vị trí, nơi chốn: \"The keys are on the table.\"",
+        "Nói tuổi: \"He is ten years old.\""
+      ],
+      "signalWords": [],
+      "mistakes": [
+        {
+          "wrong": "I tired.",
+          "right": "I am tired.",
+          "explanationVi": "Trước tính từ luôn cần \"to be\", dù tiếng Việt không nói \"là\"."
+        },
+        {
+          "wrong": "She are my sister.",
+          "right": "She is my sister.",
+          "explanationVi": "\"She\" đi với \"is\"; \"are\" dùng cho you, we, they."
+        },
+        {
+          "wrong": "I have 20 years old.",
+          "right": "I am 20 years old.",
+          "explanationVi": "Nói tuổi dùng \"to be\", không dùng \"have\"."
+        },
+        {
+          "wrong": "You is a student?",
+          "right": "Are you a student?",
+          "explanationVi": "Câu hỏi đưa \"am/is/are\" lên trước chủ ngữ."
+        }
+      ],
+      "examples": [
+        "sentence:g-to-be-1",
+        "sentence:g-to-be-2",
+        "sentence:g-to-be-3",
+        "sentence:g-to-be-4"
+      ],
+      "practice": [
+        {
+          "prompt": "They ___ my friends.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answer": "are",
+          "explanationVi": "\"They\" đi với \"are\"."
+        },
+        {
+          "prompt": "The weather ___ cold today.",
+          "options": [
+            "are",
+            "is",
+            "am",
+            "be"
+          ],
+          "answer": "is",
+          "explanationVi": "Chủ ngữ số ít \"the weather\" đi với \"is\"."
+        },
+        {
+          "prompt": "I ___ not hungry.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "do"
+          ],
+          "answer": "am",
+          "explanationVi": "\"I\" đi với \"am\"; phủ định thêm \"not\" phía sau."
+        },
+        {
+          "prompt": "___ you from Vietnam?",
+          "options": [
+            "Is",
+            "Am",
+            "Do",
+            "Are"
+          ],
+          "answer": "Are",
+          "explanationVi": "Câu hỏi với \"you\" bắt đầu bằng \"Are\"."
+        },
+        {
+          "prompt": "Điền dạng đúng của \"to be\": My keys ___ in the bag.",
+          "answer": "are",
+          "explanationVi": "\"My keys\" là số nhiều nên dùng \"are\"."
+        },
+        {
+          "prompt": "Điền dạng đúng của \"to be\": He ___ 25 years old.",
+          "answer": "is",
+          "explanationVi": "Nói tuổi dùng \"to be\"; \"he\" đi với \"is\"."
+        }
+      ]
+    },
+    "status": "draft"
+  }
+]

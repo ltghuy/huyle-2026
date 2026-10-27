@@ -1,0 +1,253 @@
+[
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "writing:a1-1-my-name-is-lan-i-am-25-y",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu giới thiệu bản thân: tên, tuổi và nơi bạn sống.",
+      "useItems": [
+        "word:name-n",
+        "word:old-adj",
+        "word:live-v"
+      ],
+      "modelAnswers": [
+        "My name is Lan. I am 25 years old. I live in Da Nang.",
+        "Hi, I am Minh. I am thirty years old. I live in a small town near Hue."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 9,
+    "id": "writing:a1-10-on-saturday-i-clean-my-h",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về những gì bạn làm vào cuối tuần.",
+      "useItems": [
+        "word:weekend-n",
+        "word:visit-v",
+        "word:park-n",
+        "word:play-v"
+      ],
+      "modelAnswers": [
+        "On Saturday, I clean my house. On Sunday, I visit my parents. I often go to the park.",
+        "I don't work on weekends. I play badminton with my friends. In the evening, I watch movies."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 10,
+    "id": "writing:a1-11-i-live-on-a-busy-street",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu miêu tả khu phố của bạn: gần nhà bạn có những gì?",
+      "useItems": [
+        "word:street-n",
+        "word:market-n",
+        "word:near-prep",
+        "word:school-n"
+      ],
+      "modelAnswers": [
+        "I live on a busy street. There is a market near my house. There are two cafes too.",
+        "My neighborhood is quiet. There is a school and a small park. There isn't a supermarket."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 11,
+    "id": "writing:a1-12-my-mother-is-cooking-din",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu kể mọi người trong nhà bạn đang làm gì ngay lúc này.",
+      "useItems": [
+        "word:cook-v",
+        "word:read-v",
+        "word:write-v",
+        "word:sleep-v"
+      ],
+      "modelAnswers": [
+        "My mother is cooking dinner. My father is reading a newspaper. I am writing in English.",
+        "My son is sleeping. My wife is watching TV. I am doing my homework."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 1,
+    "id": "writing:a1-2-there-are-four-people-in",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về gia đình bạn: có bao nhiêu người và họ là ai.",
+      "useItems": [
+        "word:family-n",
+        "word:mother-n",
+        "word:father-n",
+        "word:sister-n"
+      ],
+      "modelAnswers": [
+        "There are four people in my family. I have a mother, a father and a sister. My sister is a student.",
+        "My family is small. I live with my wife and my son. My son is five years old."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 2,
+    "id": "writing:a1-3-i-get-up-at-six-o-clock",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về một ngày bình thường của bạn (buổi sáng, buổi chiều, buổi tối).",
+      "useItems": [
+        "word:morning-n",
+        "word:work-v",
+        "word:evening-n",
+        "word:breakfast-n"
+      ],
+      "modelAnswers": [
+        "I get up at six o'clock. I go to work by motorbike. In the evening, I watch TV.",
+        "I have breakfast at seven. I work in an office in the afternoon. I go to bed at eleven."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 3,
+    "id": "writing:a1-4-i-like-rice-and-fish-i-d",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về món ăn và đồ uống bạn thích hoặc không thích.",
+      "useItems": [
+        "word:like-v",
+        "word:rice-n",
+        "word:drink-n",
+        "word:favorite-adj"
+      ],
+      "modelAnswers": [
+        "I like rice and fish. I don't like milk. My favorite drink is orange juice.",
+        "I love noodles. I drink coffee every morning. I don't eat meat."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 4,
+    "id": "writing:a1-5-my-room-is-small-there-i",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu miêu tả căn phòng của bạn: trong phòng có những gì?",
+      "useItems": [
+        "word:room-n",
+        "word:bed-n",
+        "word:desk-n",
+        "word:window-n"
+      ],
+      "modelAnswers": [
+        "My room is small. There is a bed and a desk. There are two windows.",
+        "I like my bedroom. There is a big lamp on the table. There are many books on the shelf."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 5,
+    "id": "writing:a1-6-my-best-friend-is-hoa-sh",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về người bạn thân của bạn: tên, ngoại hình và tính cách.",
+      "useItems": [
+        "word:friend-n",
+        "word:tall-adj",
+        "word:hair-n",
+        "word:kind-adj"
+      ],
+      "modelAnswers": [
+        "My best friend is Hoa. She is tall and has long hair. She is very kind.",
+        "My friend's name is Tuan. He is short and funny. He likes football."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 6,
+    "id": "writing:a1-7-i-can-swim-i-can-cook-vi",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về việc bạn có thể và không thể làm.",
+      "useItems": [
+        "word:can-modal",
+        "word:swim-v",
+        "word:cook-v",
+        "word:drive-v"
+      ],
+      "modelAnswers": [
+        "I can swim. I can cook Vietnamese food. I can't drive a car.",
+        "I can speak a little English. I can ride a bike. I can't play the guitar."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 7,
+    "id": "writing:a1-8-it-is-sunny-today-it-is",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về thời tiết hôm nay ở nơi bạn sống.",
+      "useItems": [
+        "word:sunny-adj",
+        "word:hot-adj",
+        "word:cold-adj",
+        "word:rain-v"
+      ],
+      "modelAnswers": [
+        "It is sunny today. It is very hot. I don't need an umbrella.",
+        "Today it is cold and windy. It is raining now. I am wearing a jacket."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "A1",
+    "sort": 8,
+    "id": "writing:a1-9-i-am-a-nurse-i-work-in-a",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 3 câu về công việc hoặc việc học của bạn.",
+      "useItems": [
+        "word:work-v",
+        "word:student-n",
+        "word:study-v",
+        "word:hospital-n"
+      ],
+      "modelAnswers": [
+        "I am a nurse. I work in a hospital. I help sick people.",
+        "I am a student. I study English at a university. My classes start at eight."
+      ]
+    },
+    "status": "draft"
+  }
+]
