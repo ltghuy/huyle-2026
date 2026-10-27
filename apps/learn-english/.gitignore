@@ -51,3 +51,4 @@ next-env.d.ts
 content/sources/.cache/
 content/.drafts/
 content/.publish/
+content/.audio/

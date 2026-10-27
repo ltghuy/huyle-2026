@@ -104,10 +104,11 @@ Run after each task or batch (from the repo root):
 
 - [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD → MP3 → R2 with an immutable cache header, key `sha256(voice|text)`); generate 4 male voice samples for the owner
   - **Done when:** the owner has picked the voice; generating the A1 set uploads files that play from `audio.english.huyle.work` with a long-lived `Cache-Control`
+  - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Waiting on: R2 enabled (T004), a provider key, the owner's voice pick
 
 - [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1
-  - Progress (2026-10-27): script + tests done and verified end to end on a fixture in local D1; still open: publish real A1 (after T012) and wire audio generation (after T013)
+  - Progress (2026-10-27): script + tests done and verified end to end on a fixture in local D1 (also `--persist-to` for e2e). Audio is a separate step (`content:audio generate` before `content:publish`), not called from publish. Still open: publish real A1 (after T012/T013)
 
 ### Content API and client
 
