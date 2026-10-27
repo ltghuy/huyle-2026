@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { WordDialog, type WordLookup } from "./word-dialog";
+import { WordSearchBox } from "./word-search-box";
 
 type Word = ContentItemOf<"word">;
 
@@ -57,7 +58,7 @@ function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], still
 
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
-/** `/vocabulary`: words by level and topic, learned markers and the word dialog (AC-006–AC-009). */
+/** `/vocabulary`: search, words by level and topic, learned markers and the word dialog (AC-006–AC-009; 002). */
 export function VocabularyBrowser() {
   const params = useSearchParams();
   const profile = useProfile();
@@ -104,6 +105,11 @@ export function VocabularyBrowser() {
     openedInApp.current = true;
   }
 
+  function handleSearchSelect(id: string) {
+    openedInApp.current = true;
+    updateSearchParams({ word: id }, "push");
+  }
+
   function handleCloseWord() {
     if (openedInApp.current) {
       openedInApp.current = false;
@@ -115,6 +121,7 @@ export function VocabularyBrowser() {
 
   return (
     <div className="grid gap-5 px-4 md:px-8">
+      <WordSearchBox onSelect={handleSearchSelect} />
       <LevelTabs value={level} onChange={handleLevelChange} />
 
       {words.length === 0 ? (

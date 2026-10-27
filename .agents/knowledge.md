@@ -366,6 +366,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 ### learn-english
 
 - A page that sets `openGraph` or `twitter` metadata replaces the root segment's `opengraph-image`/`twitter-image` files as well as the layout's fields, so pages lost `og:image` until `pageMetadata` (`src/lib/site.ts`) named the image routes explicitly. Routes are English since quick 002; the old Vietnamese paths and query keys (`bai`, `tu`, `loai`) 308-redirect in `next.config.ts`, and those redirects keep the old key next to the new one because Next passes the query string through <!-- quick:002 date:2026-10-27 -->
+- shadcn's `combobox` (base-nova registry) generated `import { cn } from "cn"` in `combobox.tsx` and `input-group.tsx`; it must be `@/lib/utils`. In tests, the Base UI combobox opens only for typed input, so fire `fireEvent.input(box, { target: { value }, inputType: "insertText" })`: `fireEvent.change` updates the value but never opens the list <!-- feature:002 date:2026-10-27 -->
 
 ## Codebase Feedback
 

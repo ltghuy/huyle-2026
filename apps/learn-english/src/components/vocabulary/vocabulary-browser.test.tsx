@@ -23,6 +23,12 @@ vi.mock("@/hooks/use-content-index", () => ({
     levels ? { status: "ready", index, version: 1, stale: false, retry: () => {} } : { status: "loading", retry: () => {} },
 }));
 
+let allWords: { status: string; words?: unknown[] } = { status: "loading" };
+const retryAllWords = vi.fn();
+vi.mock("@/hooks/use-all-words", () => ({
+  useAllWords: (enabled: boolean) => ({ ...(enabled ? allWords : { status: "idle" }), retry: retryAllWords }),
+}));
+
 function visit(search: string) {
   window.history.replaceState(null, "", `/vocabulary${search}`);
   render(<VocabularyBrowser />);
@@ -31,6 +37,7 @@ function visit(search: string) {
 describe("VocabularyBrowser", () => {
   beforeEach(async () => {
     await resetStorage();
+    allWords = { status: "ready", words: items.filter((item) => item.kind === "word") };
   });
 
   it("lists the level's words by topic with learned markers (AC-006)", async () => {
@@ -71,5 +78,52 @@ describe("VocabularyBrowser", () => {
   it("says so when a linked word doesn't exist", async () => {
     visit("?level=A1&word=word%3Agone");
     expect(await screen.findByText("Không tìm thấy từ này")).toBeInTheDocument();
+  });
+
+  describe("search (feature 002)", () => {
+    function search(text: string) {
+      const box = screen.getByRole("combobox", { name: "Tìm từ vựng ở mọi trình độ" });
+      fireEvent.focus(box);
+      // The combobox only opens for typed input, which carries an `inputType`.
+      fireEvent.input(box, { target: { value: text }, inputType: "insertText" });
+      return box;
+    }
+
+    it("suggests words from every level with level and meaning, and opens the chosen one (AC-001, AC-003, AC-004)", async () => {
+      visit("?level=A1");
+      await screen.findByRole("region", { name: "Danh sách từ" });
+
+      search("TRA");
+      const option = await screen.findByRole("option", { name: /travel/ });
+      expect(within(option).getByText("A2")).toBeInTheDocument();
+      expect(within(option).getByText(/du lịch/)).toHaveTextContent("noun · du lịch");
+      expect(screen.getAllByRole("option")).toHaveLength(1);
+
+      fireEvent.click(option);
+      expect(window.location.search).toBe("?level=A1&word=word%3Atravel");
+      expect(await screen.findByRole("dialog")).toBeInTheDocument();
+    });
+
+    it("opens the highlighted suggestion with Enter (AC-004)", async () => {
+      visit("?level=A1");
+      await screen.findByRole("region", { name: "Danh sách từ" });
+
+      const box = search("kit");
+      await screen.findByRole("option", { name: /kitchen/ });
+      fireEvent.keyDown(box, { key: "Enter" });
+      expect(window.location.search).toBe("?level=A1&word=word%3Akitchen");
+    });
+
+    it("says when nothing matches, and while the words are loading (AC-005, AC-006)", async () => {
+      visit("?level=A1");
+      await screen.findByRole("region", { name: "Danh sách từ" });
+
+      search("zzz");
+      expect(await screen.findByText("Không tìm thấy từ nào.")).toBeInTheDocument();
+
+      allWords = { status: "loading" };
+      search("mo");
+      expect(await screen.findByText("Đang tải danh sách từ…")).toBeInTheDocument();
+    });
   });
 });
