@@ -1,0 +1,254 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "writing:b1-1-hi-sarah-i-hope-you-re-d",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một email (5–6 câu) cho người bạn nước ngoài kể về công việc hoặc việc học mới của bạn.",
+      "useItems": [
+        "word:colleague-n",
+        "word:expect-v",
+        "word:career-n",
+        "word:course-n"
+      ],
+      "modelAnswers": [
+        "Hi Sarah, I hope you're doing well. I started a new job last month at a small software company. My colleagues are friendly and they've helped me a lot. The work is harder than I expected, but I'm learning something new every day. I have to get up earlier now, so I'm always tired on Fridays. Write back soon and tell me your news!",
+        "Dear Tom, thanks for your last email. I've just started an English course at a language center near my office. We have classes three evenings a week. My teacher is from Canada and her lessons are really interesting. It's not easy to study after work, but I think it will help my career. How is your new apartment?"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 9,
+    "id": "writing:b1-10-my-favorite-movie-is-a-j",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu kể về một cuốn sách hoặc bộ phim bạn thích và giới thiệu nó cho người khác.",
+      "useItems": [
+        "word:recommend-v",
+        "word:story-n",
+        "word:describe-v",
+        "word:brave-adj"
+      ],
+      "modelAnswers": [
+        "My favorite movie is a Japanese cartoon about a girl who works in a magical bathhouse. The story is strange but very beautiful. The drawings are full of color and small details. I have watched it at least five times. It teaches us to be brave and kind. I recommend it to everyone, even adults.",
+        "I recently read a book about a man who walked across the country. It was written by the man himself. He describes the people he met and the problems he faced. Some parts are funny and some are very moving. After reading it, I wanted to travel more. If you like true stories, you will love this book."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 10,
+    "id": "writing:b1-11-i-ve-been-trying-to-live",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu về những việc bạn đã làm gần đây để cải thiện sức khỏe (dùng thì hiện tại hoàn thành và hiện tại hoàn thành tiếp diễn).",
+      "useItems": [
+        "word:healthy-adj",
+        "word:gym-n",
+        "word:energy-n",
+        "word:notice-v"
+      ],
+      "modelAnswers": [
+        "I've been trying to live a healthier life since January. I've been going to the gym three times a week. I have also stopped drinking soft drinks. I've lost four kilos so far. I've been sleeping better, too. My doctor says I should keep going.",
+        "Recently I've been walking to work instead of riding my motorbike. I've been eating more vegetables and less fried food. I haven't given up coffee yet, but I drink less of it. I've noticed that I have more energy in the afternoon. I've also started doing yoga on Sundays."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 11,
+    "id": "writing:b1-12-when-i-was-nervous-befor",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu kể lại lời khuyên mà ai đó đã từng nói với bạn (dùng câu tường thuật).",
+      "useItems": [
+        "word:advice-n",
+        "word:interview-n",
+        "word:suggest-v",
+        "word:follow-v"
+      ],
+      "modelAnswers": [
+        "When I was nervous before my first job interview, my father gave me some advice. He told me to be on time and to smile. He said that the company wanted someone honest, not someone perfect. He also told me not to talk too fast. I followed his advice and I got the job. I still think about his words.",
+        "Last year my teacher told me that I should read in English every day. She said that reading would help my vocabulary more than lists of words. She asked me what topics I liked. I told her that I loved cooking. She suggested that I read English recipes online. Now I read one every evening."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 1,
+    "id": "writing:b1-2-in-my-opinion-online-lea",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu nêu ý kiến của bạn: Học trực tuyến có tốt hơn học trên lớp không? Đưa ra ít nhất hai lý do.",
+      "useItems": [
+        "word:opinion-n",
+        "word:however-adv",
+        "word:flexible-adj",
+        "word:believe-v"
+      ],
+      "modelAnswers": [
+        "In my opinion, online learning is useful, but it is not better than learning in a classroom. First, it is easy to lose focus when you study alone at home. Second, students can ask questions and practice speaking more in a real class. However, online courses are cheaper and more flexible. So I think the best choice is to mix both ways.",
+        "I believe online learning is better for busy people like me. I can watch the lessons whenever I have free time. I don't have to travel, so I save time and money. Of course, some people need a teacher to keep them motivated. But if you are organized, you can learn a lot online."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 2,
+    "id": "writing:b1-3-last-year-i-had-a-surpri",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Kể lại một chuyện đáng nhớ đã xảy ra với bạn (5–6 câu), dùng thì quá khứ đơn và quá khứ tiếp diễn.",
+      "useItems": [
+        "word:experience-n",
+        "word:suddenly-adv",
+        "word:exchange-v",
+        "word:forget-v"
+      ],
+      "modelAnswers": [
+        "Last year I had a surprising experience on a train. I was reading a book when an old man sat down next to me. We started talking, and it turned out he had known my grandfather when they were young. He told me funny stories about their school days. When I got off the train, we exchanged phone numbers. Now we meet for coffee once a month.",
+        "When I was ten, I got lost at a big market. My mother was buying vegetables and I was looking at some toys. Suddenly I couldn't see her anywhere. I started to cry, but a kind woman took me to the security office. They called my mother's name on the speakers. I have never forgotten how happy I was to see her again."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 3,
+    "id": "writing:b1-4-the-person-who-has-influ",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu miêu tả một người có ảnh hưởng lớn đến bạn và giải thích vì sao.",
+      "useItems": [
+        "word:influence-n",
+        "word:strict-adj",
+        "word:advice-n",
+        "word:honest-adj"
+      ],
+      "modelAnswers": [
+        "The person who has influenced me most is my high school math teacher. She was strict, but she always believed in her students. When I failed an important test, she stayed after class to help me. Because of her, I started to enjoy solving problems. Today I work as an engineer, and I still remember her advice: never give up.",
+        "My grandmother has had a big influence on my life. She raised five children while running a small shop. She taught me to be honest and to work hard. She never complains, even when life is difficult. Whenever I have a problem, I ask myself what she would do."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 4,
+    "id": "writing:b1-5-ten-years-ago-my-life-wa",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu về những thay đổi trong cuộc sống của bạn so với 10 năm trước (dùng \"used to\").",
+      "useItems": [
+        "word:shy-adj",
+        "word:confident-adj",
+        "word:village-n",
+        "word:miss-v"
+      ],
+      "modelAnswers": [
+        "Ten years ago my life was very different. I used to live with my parents in a small village. I used to ride my bicycle to school every day. I didn't use to drink coffee, but now I can't start the day without it. Now I live in the city and take the bus to work. I miss the quiet life sometimes.",
+        "I used to be very shy when I was a student. I didn't use to speak in class or join any clubs. Then I got a job in sales, and I had to talk to customers every day. Slowly I became more confident. Now I enjoy meeting new people. I'm glad I changed."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 5,
+    "id": "writing:b1-6-if-i-won-a-lot-of-money",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu: Nếu bạn trúng một khoản tiền lớn, bạn sẽ làm gì? (dùng câu điều kiện loại 2)",
+      "useItems": [
+        "word:win-v",
+        "word:travel-v",
+        "word:dream-n",
+        "word:simple-adj"
+      ],
+      "modelAnswers": [
+        "If I won a lot of money, I would buy a house for my parents first. Then I would travel around the world with my best friend. I wouldn't stop working, because I enjoy my job. I would also give some money to a children's hospital. If I had any money left, I would open a small café.",
+        "If I suddenly became rich, I would quit my job and go back to university. I would study art, which has always been my dream. I would also help my younger brother pay for his studies. I wouldn't buy an expensive car because I don't really need one. I think I would still live a simple life."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 6,
+    "id": "writing:b1-7-dear-manager-i-stayed-in",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một email ngắn (5 câu) phàn nàn với khách sạn về một vấn đề trong kỳ nghỉ của bạn.",
+      "useItems": [
+        "word:complain-v",
+        "word:unfortunately-adv",
+        "word:refund-n",
+        "word:recent-adj"
+      ],
+      "modelAnswers": [
+        "Dear Manager, I stayed in room 305 at your hotel from June 2nd to June 5th. Unfortunately, the air conditioner didn't work for the whole stay. I reported the problem twice, but nobody came to fix it. As a result, I could hardly sleep because the room was so hot. I would like a partial refund for my stay.",
+        "Dear Sir or Madam, I am writing to complain about my recent stay at your hotel. When I arrived, my room had not been cleaned. The staff at the front desk were not very helpful. I had paid for breakfast, but it was never served on time. I hope you will look into these problems."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 7,
+    "id": "writing:b1-8-tet-is-the-most-importan",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu giới thiệu một lễ hội hoặc ngày lễ truyền thống ở Việt Nam cho người nước ngoài.",
+      "useItems": [
+        "word:festival-n",
+        "word:celebrate-v",
+        "word:decorate-v",
+        "word:traditional-adj"
+      ],
+      "modelAnswers": [
+        "Tet is the most important holiday in Vietnam. It usually takes place in late January or February. Before Tet, families clean and decorate their homes. On the first days of the new year, people visit relatives and give lucky money to children. We also eat special food such as banh chung. It is a time to relax and be together.",
+        "The Mid-Autumn Festival is a favorite holiday for Vietnamese children. It is celebrated on the fifteenth day of the eighth lunar month. Children carry colorful lanterns and watch lion dances in the streets. Families eat mooncakes and drink tea together. The festival is also a chance for parents to spend time with their kids."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 8,
+    "id": "writing:b1-9-one-big-problem-in-my-ci",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 5–6 câu về một vấn đề môi trường ở nơi bạn sống và đề xuất cách giải quyết.",
+      "useItems": [
+        "word:pollution-n",
+        "word:environment-n",
+        "word:recycle-v",
+        "word:waste-n"
+      ],
+      "modelAnswers": [
+        "One big problem in my city is air pollution. There are too many motorbikes and cars on the roads. On some days the sky is gray and people have to wear masks. I think the city should build more bus lines and bike lanes. People should also walk more for short trips. These changes would make the air cleaner.",
+        "In my town, there is too much plastic waste. People often use plastic bags once and throw them away. A lot of this rubbish ends up in the river. Shops could charge money for plastic bags. Schools could teach children to recycle. If everyone helps, our town will be cleaner."
+      ]
+    },
+    "status": "draft"
+  }
+]

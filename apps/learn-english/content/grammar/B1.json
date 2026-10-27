@@ -1,0 +1,1112 @@
+[
+  {
+    "level": "B1",
+    "sort": 26,
+    "id": "grammar:gerunds-infinitives",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Gerunds and infinitives",
+      "titleVi": "Danh động từ và động từ nguyên mẫu",
+      "ruleVi": "Gerund (danh động từ) là V-ing dùng như một danh từ, còn infinitive (động từ nguyên mẫu có \"to\") là to + V. Một số động từ chỉ đi với V-ing (enjoy, finish, avoid, mind), một số chỉ đi với to + V (want, decide, hope, plan), nên bạn cần học theo từng động từ. Sau giới từ (in, at, of, about, for...) luôn dùng V-ing. Tiếng Việt đặt hai động từ cạnh nhau mà không đổi hình thức (\"thích nấu ăn\"), nên người Việt hay quên \"to\" hoặc -ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + enjoy/finish/avoid/mind + V-ing"
+        },
+        {
+          "form": "affirmative",
+          "en": "S + want/decide/hope/plan + to + V"
+        },
+        {
+          "form": "affirmative",
+          "en": "preposition + V-ing (good at drawing, interested in learning)"
+        },
+        {
+          "form": "negative",
+          "en": "S + decide/try/promise + not to + V; S + don't/doesn't + mind + V-ing"
+        }
+      ],
+      "usageVi": [
+        "Sau enjoy, finish, avoid, mind, keep, practice dùng V-ing: \"I enjoy cooking.\"",
+        "Sau want, decide, hope, plan, need, learn dùng to + V: \"She wants to travel.\"",
+        "Sau giới từ dùng V-ing: \"He is good at drawing.\"",
+        "V-ing làm chủ ngữ của câu: \"Swimming is good for you.\"",
+        "To + V để nói mục đích: \"I went out to buy milk.\""
+      ],
+      "signalWords": [
+        "enjoy",
+        "finish",
+        "avoid",
+        "mind",
+        "want",
+        "decide",
+        "hope",
+        "plan"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I enjoy to read books.",
+          "right": "I enjoy reading books.",
+          "explanationVi": "Sau \"enjoy\" dùng V-ing, không dùng to + V."
+        },
+        {
+          "wrong": "She wants learning English.",
+          "right": "She wants to learn English.",
+          "explanationVi": "Sau \"want\" dùng to + V, không dùng V-ing."
+        },
+        {
+          "wrong": "He is interested in learn Spanish.",
+          "right": "He is interested in learning Spanish.",
+          "explanationVi": "Sau giới từ \"in\" động từ phải ở dạng V-ing."
+        },
+        {
+          "wrong": "I decided not go to the party.",
+          "right": "I decided not to go to the party.",
+          "explanationVi": "Phủ định của to + V là \"not to\" + V; không được bỏ \"to\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-gerunds-infinitives-1",
+        "sentence:g-gerunds-infinitives-2",
+        "sentence:g-gerunds-infinitives-3",
+        "sentence:g-gerunds-infinitives-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I hope ___ you again soon.",
+          "options": [
+            "seeing",
+            "to see",
+            "see",
+            "to seeing"
+          ],
+          "answer": "to see",
+          "explanationVi": "Sau \"hope\" dùng to + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Have you finished ___ the report?",
+          "options": [
+            "to write",
+            "write",
+            "writing",
+            "wrote"
+          ],
+          "answer": "writing",
+          "explanationVi": "Sau \"finish\" dùng V-ing."
+        },
+        {
+          "prompt": "She is good at ___ problems.",
+          "options": [
+            "solving",
+            "to solve",
+            "solve",
+            "solved"
+          ],
+          "answer": "solving",
+          "explanationVi": "Sau giới từ \"at\" động từ phải ở dạng V-ing."
+        },
+        {
+          "prompt": "They plan ___ a new house next year.",
+          "options": [
+            "building",
+            "build",
+            "built",
+            "to build"
+          ],
+          "answer": "to build",
+          "explanationVi": "Sau \"plan\" dùng to + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"eat\": You should avoid ___ too much sugar.",
+          "answer": "eating",
+          "explanationVi": "Sau \"avoid\" dùng V-ing."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"buy\": I need ___ some milk.",
+          "answer": "to buy",
+          "explanationVi": "Sau \"need\" (với nghĩa cần làm gì) dùng to + động từ nguyên mẫu."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 28,
+    "id": "grammar:passive-voice",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Passive voice (present and past)",
+      "titleVi": "Câu bị động (hiện tại và quá khứ)",
+      "ruleVi": "Câu bị động (passive voice) dùng khi người hoặc vật chịu tác động quan trọng hơn người thực hiện, hoặc khi không biết ai làm. Cấu trúc là be + V3/ed: hiện tại dùng am/is/are, quá khứ dùng was/were. Nếu cần nói người thực hiện, thêm \"by\" + người đó. Tiếng Việt dùng \"được\" cho nghĩa tốt và \"bị\" cho nghĩa xấu, còn tiếng Anh dùng cùng một cấu trúc cho cả hai và không được bỏ động từ \"be\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + am/is/are + V3/ed (present); S + was/were + V3/ed (past)"
+        },
+        {
+          "form": "negative",
+          "en": "S + am/is/are/was/were + not + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Am/Is/Are/Was/Were + S + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Không biết hoặc không cần nói ai làm: \"My bike was stolen.\"",
+        "Nhấn mạnh vật hoặc việc được nói đến: \"English is spoken in many countries.\"",
+        "Mô tả quy trình, sản phẩm: \"Coffee is grown in the Central Highlands.\"",
+        "Thêm \"by\" để nói người thực hiện: \"This house was built by my grandfather.\""
+      ],
+      "signalWords": [
+        "by"
+      ],
+      "mistakes": [
+        {
+          "wrong": "This bridge was build in 1990.",
+          "right": "This bridge was built in 1990.",
+          "explanationVi": "Câu bị động dùng V3: \"built\", không dùng nguyên mẫu \"build\"."
+        },
+        {
+          "wrong": "Rice grown in the Mekong Delta.",
+          "right": "Rice is grown in the Mekong Delta.",
+          "explanationVi": "Câu bị động cần động từ \"be\" (is) trước V3."
+        },
+        {
+          "wrong": "The letters was sent last week.",
+          "right": "The letters were sent last week.",
+          "explanationVi": "Chủ ngữ số nhiều \"the letters\" đi với \"were\"."
+        },
+        {
+          "wrong": "The cake was made from my mother.",
+          "right": "The cake was made by my mother.",
+          "explanationVi": "Người thực hiện hành động trong câu bị động đứng sau \"by\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-passive-voice-1",
+        "sentence:g-passive-voice-2",
+        "sentence:g-passive-voice-3",
+        "sentence:g-passive-voice-4"
+      ],
+      "practice": [
+        {
+          "prompt": "English ___ in many countries.",
+          "options": [
+            "speaks",
+            "is spoken",
+            "is speaking",
+            "spoken"
+          ],
+          "answer": "is spoken",
+          "explanationVi": "Tiếng Anh được người ta nói nên dùng bị động hiện tại: is + V3."
+        },
+        {
+          "prompt": "This bridge ___ in 1995.",
+          "options": [
+            "was built",
+            "built",
+            "is building",
+            "was build"
+          ],
+          "answer": "was built",
+          "explanationVi": "Cây cầu được xây trong quá khứ nên dùng was + V3 \"built\"."
+        },
+        {
+          "prompt": "These shoes ___ by hand.",
+          "options": [
+            "is made",
+            "make",
+            "are made",
+            "are making"
+          ],
+          "answer": "are made",
+          "explanationVi": "Chủ ngữ số nhiều \"these shoes\" đi với \"are\" + V3 trong câu bị động."
+        },
+        {
+          "prompt": "___ the letters sent yesterday?",
+          "options": [
+            "Was",
+            "Were",
+            "Did",
+            "Are"
+          ],
+          "answer": "Were",
+          "explanationVi": "Câu hỏi bị động quá khứ với chủ ngữ số nhiều bắt đầu bằng \"Were\"."
+        },
+        {
+          "prompt": "Viết dạng bị động quá khứ của \"invite\": We ___ to the wedding.",
+          "answer": "were invited",
+          "explanationVi": "Bị động quá khứ với \"we\" là \"were\" + V3."
+        },
+        {
+          "prompt": "Viết dạng bị động hiện tại của \"clean\": The office ___ every evening.",
+          "answer": "is cleaned",
+          "explanationVi": "Bị động hiện tại với chủ ngữ số ít là \"is\" + V3."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 24,
+    "id": "grammar:past-perfect",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Past Perfect",
+      "titleVi": "Thì quá khứ hoàn thành",
+      "ruleVi": "Past Perfect (thì quá khứ hoàn thành) dùng để nói về một việc đã xảy ra và kết thúc trước một việc khác hoặc trước một thời điểm trong quá khứ. Cấu trúc là had + V3/ed, giống nhau cho mọi chủ ngữ. Việc xảy ra trước dùng past perfect, việc xảy ra sau dùng past simple. Tiếng Việt thường chỉ thêm \"đã\" hoặc \"trước đó\", còn tiếng Anh phải đổi thì của động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + had + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + had not (hadn't) + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Had + S + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Việc xảy ra trước một việc khác trong quá khứ: \"When I arrived, the train had left.\" (tàu chạy trước khi tôi đến)",
+        "So sánh với past simple: \"When I arrived, the train left.\" nghĩa là tàu chạy ngay sau khi tôi đến.",
+        "Với before, after, by the time: \"By the time we got home, it had stopped raining.\"",
+        "Với never, already, just để nói về trải nghiệm tính đến một thời điểm quá khứ: \"I had never seen snow before that trip.\""
+      ],
+      "signalWords": [
+        "before",
+        "after",
+        "by the time",
+        "already",
+        "just",
+        "never",
+        "when"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She had went home before I called.",
+          "right": "She had gone home before I called.",
+          "explanationVi": "Sau \"had\" dùng V3 (gone), không dùng V2 (went)."
+        },
+        {
+          "wrong": "I didn't had eaten breakfast.",
+          "right": "I hadn't eaten breakfast.",
+          "explanationVi": "Phủ định của past perfect là \"hadn't\" + V3, không dùng \"didn't\"."
+        },
+        {
+          "wrong": "He has finished the work before the boss came.",
+          "right": "He had finished the work before the boss came.",
+          "explanationVi": "Việc xảy ra trước một việc khác trong quá khứ dùng \"had\", không dùng present perfect."
+        },
+        {
+          "wrong": "Had you saw that movie before?",
+          "right": "Had you seen that movie before?",
+          "explanationVi": "Sau \"had\" dùng V3 (seen), không dùng V2 (saw)."
+        }
+      ],
+      "examples": [
+        "sentence:g-past-perfect-1",
+        "sentence:g-past-perfect-2",
+        "sentence:g-past-perfect-3",
+        "sentence:g-past-perfect-4"
+      ],
+      "practice": [
+        {
+          "prompt": "By the time we arrived, the concert ___.",
+          "options": [
+            "had started",
+            "has started",
+            "starts",
+            "had start"
+          ],
+          "answer": "had started",
+          "explanationVi": "Buổi hòa nhạc bắt đầu trước khi chúng tôi đến (by the time) nên dùng had + V3."
+        },
+        {
+          "prompt": "I couldn't open the door because I ___ my keys.",
+          "options": [
+            "have lost",
+            "had lost",
+            "lose",
+            "had lose"
+          ],
+          "answer": "had lost",
+          "explanationVi": "Việc mất chìa khóa xảy ra trước việc không mở được cửa nên dùng had + V3."
+        },
+        {
+          "prompt": "She ___ never seen the sea before that trip.",
+          "options": [
+            "has",
+            "was",
+            "had",
+            "did"
+          ],
+          "answer": "had",
+          "explanationVi": "Trải nghiệm tính đến một thời điểm quá khứ (that trip) dùng \"had\" + V3."
+        },
+        {
+          "prompt": "First I cooked dinner, and then I ___ the dishes.",
+          "options": [
+            "had washed",
+            "washed",
+            "have washed",
+            "had wash"
+          ],
+          "answer": "washed",
+          "explanationVi": "Các việc kể theo đúng thứ tự (first, then) dùng past simple; không cần past perfect."
+        },
+        {
+          "prompt": "Viết dạng quá khứ hoàn thành của \"eat\": When I got home, my brother ___ all the cake.",
+          "answer": "had eaten",
+          "explanationVi": "Past perfect là had + V3; V3 của \"eat\" là \"eaten\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định rút gọn của quá khứ hoàn thành, động từ \"see\": I ___ the movie before, so I watched it.",
+          "answer": "hadn't seen",
+          "explanationVi": "Phủ định rút gọn là \"hadn't\" + V3; V3 của \"see\" là \"seen\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 23,
+    "id": "grammar:present-perfect-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Present Perfect Continuous",
+      "titleVi": "Thì hiện tại hoàn thành tiếp diễn",
+      "ruleVi": "Present Perfect Continuous (thì hiện tại hoàn thành tiếp diễn) diễn tả một hành động bắt đầu trong quá khứ, kéo dài liên tục đến bây giờ và có thể vẫn đang tiếp diễn. Cấu trúc là have/has + been + V-ing. So với present perfect (have/has + V3/ed), thì này nhấn mạnh quá trình và thời gian kéo dài, còn present perfect nhấn mạnh kết quả hoặc số lượng đã xong. Tiếng Việt chỉ cần nói \"đã... được hai tiếng rồi\", còn tiếng Anh phải đổi hình thức động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + have/has + been + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + have/has not (haven't/hasn't) + been + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "Have/Has + S + been + V-ing?; How long + have/has + S + been + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Hành động kéo dài từ quá khứ đến hiện tại, thường đi với for/since: \"I have been waiting for an hour.\"",
+        "Hỏi một việc đã kéo dài bao lâu: \"How long have you been learning English?\"",
+        "Hành động vừa dừng nhưng còn để lại dấu hiệu: \"She is tired because she has been running.\"",
+        "So sánh với present perfect: \"I have been reading this book.\" (đang đọc, chưa xong) và \"I have read this book.\" (đã đọc xong).",
+        "Không dùng với động từ chỉ trạng thái như know, like, want; khi đó dùng present perfect: \"I have known her for years.\""
+      ],
+      "signalWords": [
+        "for",
+        "since",
+        "how long",
+        "all day",
+        "all morning",
+        "recently",
+        "lately"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I am waiting here since 9 o'clock.",
+          "right": "I have been waiting here since 9 o'clock.",
+          "explanationVi": "Hành động kéo dài từ một mốc quá khứ đến nay (since) cần have/has been + V-ing, không dùng hiện tại tiếp diễn."
+        },
+        {
+          "wrong": "She has been work here for two years.",
+          "right": "She has been working here for two years.",
+          "explanationVi": "Sau \"been\" động từ phải ở dạng V-ing."
+        },
+        {
+          "wrong": "I have been knowing him for ten years.",
+          "right": "I have known him for ten years.",
+          "explanationVi": "\"know\" là động từ trạng thái nên không dùng dạng tiếp diễn; dùng present perfect."
+        },
+        {
+          "wrong": "He have been studying all day.",
+          "right": "He has been studying all day.",
+          "explanationVi": "Chủ ngữ \"he\" đi với \"has\", không dùng \"have\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-present-perfect-continuous-1",
+        "sentence:g-present-perfect-continuous-2",
+        "sentence:g-present-perfect-continuous-3",
+        "sentence:g-present-perfect-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I ___ for you since 6 p.m.! Where were you?",
+          "options": [
+            "have been waiting",
+            "am waiting",
+            "wait",
+            "was waited"
+          ],
+          "answer": "have been waiting",
+          "explanationVi": "Việc chờ bắt đầu từ 6 giờ và kéo dài đến bây giờ nên dùng have been + V-ing."
+        },
+        {
+          "prompt": "How long ___ you been living in this city?",
+          "options": [
+            "are",
+            "do",
+            "have",
+            "has"
+          ],
+          "answer": "have",
+          "explanationVi": "Câu hỏi \"How long\" của thì này là How long + have/has + S + been + V-ing; \"you\" đi với \"have\"."
+        },
+        {
+          "prompt": "She is tired because she ___ all morning.",
+          "options": [
+            "cleans",
+            "has been cleaning",
+            "is cleaned",
+            "have been cleaning"
+          ],
+          "answer": "has been cleaning",
+          "explanationVi": "Việc dọn dẹp kéo dài cả buổi sáng và để lại kết quả là mệt; \"she\" đi với \"has\"."
+        },
+        {
+          "prompt": "I ___ three emails this morning.",
+          "options": [
+            "have been writing",
+            "has written",
+            "have written",
+            "has been writing"
+          ],
+          "answer": "have written",
+          "explanationVi": "Khi nói số lượng đã làm xong (three emails) thì dùng present perfect, không dùng dạng tiếp diễn."
+        },
+        {
+          "prompt": "Viết dạng hiện tại hoàn thành tiếp diễn của \"rain\": It ___ all day.",
+          "answer": "has been raining",
+          "explanationVi": "Chủ ngữ \"it\" đi với \"has\", rồi thêm \"been\" và động từ V-ing."
+        },
+        {
+          "prompt": "Điền for hoặc since: They have been playing tennis ___ two hours.",
+          "answer": "for",
+          "explanationVi": "\"two hours\" là một khoảng thời gian nên dùng \"for\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 29,
+    "id": "grammar:relative-clauses",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Relative clauses",
+      "titleVi": "Mệnh đề quan hệ",
+      "ruleVi": "Mệnh đề quan hệ (relative clause) đứng ngay sau một danh từ để nói rõ đó là người, vật hay nơi nào. Dùng \"who\" cho người, \"which\" cho vật, \"that\" cho cả người và vật, \"where\" cho nơi chốn và \"whose\" để chỉ sở hữu. Đại từ quan hệ đã thay cho danh từ nên không lặp lại he, she, it hay them trong mệnh đề. Tiếng Việt dùng \"mà\" hoặc không cần từ nối, còn tiếng Anh phải chọn đúng đại từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Noun (person) + who/that + V...; Noun (thing) + which/that + V..."
+        },
+        {
+          "form": "affirmative",
+          "en": "Noun (place) + where + S + V...; Noun + whose + noun + V..."
+        }
+      ],
+      "usageVi": [
+        "who/that cho người: \"The man who lives next door is a doctor.\"",
+        "which/that cho vật: \"This is the book which I told you about.\"",
+        "where cho nơi chốn: \"This is the café where we first met.\"",
+        "whose để chỉ sở hữu: \"I have a friend whose father is a pilot.\"",
+        "Khi đại từ quan hệ làm tân ngữ, có thể bỏ nó: \"The film we saw was great.\""
+      ],
+      "signalWords": [
+        "who",
+        "which",
+        "that",
+        "where",
+        "whose"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The girl which sits next to me is from Hue.",
+          "right": "The girl who sits next to me is from Hue.",
+          "explanationVi": "Với người dùng \"who\" (hoặc \"that\"), không dùng \"which\"."
+        },
+        {
+          "wrong": "This is the book that I bought it yesterday.",
+          "right": "This is the book that I bought yesterday.",
+          "explanationVi": "\"that\" đã thay cho \"the book\" nên không lặp lại \"it\"."
+        },
+        {
+          "wrong": "That's the restaurant which we had dinner.",
+          "right": "That's the restaurant where we had dinner.",
+          "explanationVi": "Nói về nơi chốn mà việc gì đó xảy ra dùng \"where\"."
+        },
+        {
+          "wrong": "I know a man who his son is an actor.",
+          "right": "I know a man whose son is an actor.",
+          "explanationVi": "Chỉ sở hữu dùng \"whose\", không dùng \"who his\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-relative-clauses-1",
+        "sentence:g-relative-clauses-2",
+        "sentence:g-relative-clauses-3",
+        "sentence:g-relative-clauses-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The man ___ fixed my car was very kind.",
+          "options": [
+            "which",
+            "who",
+            "where",
+            "whose"
+          ],
+          "answer": "who",
+          "explanationVi": "\"The man\" là người và làm chủ ngữ của mệnh đề nên dùng \"who\"."
+        },
+        {
+          "prompt": "Is this the bag ___ you bought last week?",
+          "options": [
+            "who",
+            "where",
+            "which",
+            "whose"
+          ],
+          "answer": "which",
+          "explanationVi": "\"The bag\" là vật nên dùng \"which\"."
+        },
+        {
+          "prompt": "That's the hospital ___ I was born.",
+          "options": [
+            "which",
+            "who",
+            "whose",
+            "where"
+          ],
+          "answer": "where",
+          "explanationVi": "Nơi chốn mà việc gì đó xảy ra (I was born) dùng \"where\"."
+        },
+        {
+          "prompt": "She's the student ___ essay won the prize.",
+          "options": [
+            "whose",
+            "who",
+            "which",
+            "where"
+          ],
+          "answer": "whose",
+          "explanationVi": "Bài luận của học sinh đó (sở hữu) nên dùng \"whose\"."
+        },
+        {
+          "prompt": "Điền who, which, where hoặc whose: I like movies ___ make me laugh.",
+          "answer": "which",
+          "explanationVi": "\"movies\" là vật nên dùng \"which\"."
+        },
+        {
+          "prompt": "Điền who, which, where hoặc whose: The teacher ___ helped me is very patient.",
+          "answer": "who",
+          "explanationVi": "\"The teacher\" là người nên dùng \"who\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 30,
+    "id": "grammar:reported-speech",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Reported speech",
+      "titleVi": "Câu tường thuật",
+      "ruleVi": "Câu tường thuật (reported speech) dùng để kể lại lời người khác đã nói mà không trích nguyên văn. Khi động từ tường thuật ở quá khứ (said, told, asked), thì của câu gốc thường lùi về quá khứ một bậc: hiện tại đơn thành quá khứ đơn, will thành would, can thành could. Đại từ và từ chỉ thời gian cũng đổi theo người kể (I thành he/she, tomorrow thành the next day). Tiếng Việt chỉ cần thêm \"rằng\" mà không đổi động từ, nên người Việt hay quên lùi thì.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + said (that) + S + V (backshifted); S + told + O + (that) + S + V (backshifted)"
+        },
+        {
+          "form": "negative",
+          "en": "S + said (that) + S + didn't/wasn't/wouldn't + V"
+        },
+        {
+          "form": "question",
+          "en": "S + asked (+ O) + if/whether + S + V; S + asked (+ O) + wh-word + S + V"
+        }
+      ],
+      "usageVi": [
+        "Lùi thì khi động từ tường thuật ở quá khứ: \"I am tired.\" thành \"She said she was tired.\"",
+        "will thành would, can thành could: \"I will call you.\" thành \"He said he would call me.\"",
+        "\"told\" phải có tân ngữ chỉ người, \"said\" thì không: \"She told me she was busy.\" / \"She said she was busy.\"",
+        "Câu hỏi tường thuật dùng if/whether hoặc từ để hỏi, và giữ trật tự câu khẳng định: \"He asked if I liked coffee.\"",
+        "Đổi từ chỉ thời gian: today thành that day, tomorrow thành the next day: \"She said she would come the next day.\""
+      ],
+      "signalWords": [
+        "said",
+        "told",
+        "asked",
+        "that",
+        "if",
+        "whether"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She said me that she was busy.",
+          "right": "She told me that she was busy.",
+          "explanationVi": "Khi có tân ngữ chỉ người (me) dùng \"told\", không dùng \"said\"."
+        },
+        {
+          "wrong": "She asked me where did I live.",
+          "right": "She asked me where I lived.",
+          "explanationVi": "Câu hỏi tường thuật giữ trật tự câu khẳng định và không dùng \"did\"."
+        },
+        {
+          "wrong": "He asked me do I like tea.",
+          "right": "He asked me if I liked tea.",
+          "explanationVi": "Câu hỏi có/không khi tường thuật dùng \"if\" và trật tự câu khẳng định."
+        }
+      ],
+      "examples": [
+        "sentence:g-reported-speech-1",
+        "sentence:g-reported-speech-2",
+        "sentence:g-reported-speech-3",
+        "sentence:g-reported-speech-4"
+      ],
+      "practice": [
+        {
+          "prompt": "She ___ me that she lived in Hanoi.",
+          "options": [
+            "said",
+            "told",
+            "asked",
+            "talked"
+          ],
+          "answer": "told",
+          "explanationVi": "Có tân ngữ chỉ người (me) và kể lại một câu khẳng định nên dùng \"told\"."
+        },
+        {
+          "prompt": "He ___ that he was hungry.",
+          "options": [
+            "told",
+            "asked",
+            "said",
+            "spoke"
+          ],
+          "answer": "said",
+          "explanationVi": "Không có tân ngữ chỉ người nên dùng \"said\"."
+        },
+        {
+          "prompt": "\"Where is the station?\" He asked me where the station ___.",
+          "options": [
+            "is it",
+            "was",
+            "was it",
+            "did"
+          ],
+          "answer": "was",
+          "explanationVi": "Câu hỏi tường thuật giữ trật tự câu khẳng định và lùi thì: \"where the station was\"."
+        },
+        {
+          "prompt": "I asked her ___ she wanted some tea.",
+          "options": [
+            "that",
+            "what",
+            "if",
+            "does"
+          ],
+          "answer": "if",
+          "explanationVi": "Tường thuật câu hỏi có/không dùng \"if\"."
+        },
+        {
+          "prompt": "Lùi thì: \"I will call you.\" He said he ___ call me.",
+          "answer": "would",
+          "explanationVi": "Khi lùi thì, \"will\" đổi thành \"would\"."
+        },
+        {
+          "prompt": "Lùi thì: \"I am busy.\" She said she ___ busy.",
+          "answer": "was",
+          "explanationVi": "Khi lùi thì, \"am\" đổi thành \"was\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 27,
+    "id": "grammar:second-conditional",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Second conditional",
+      "titleVi": "Câu điều kiện loại 2",
+      "ruleVi": "Câu điều kiện loại 2 (second conditional) nói về một tình huống không có thật hoặc khó xảy ra ở hiện tại hay tương lai, và kết quả tưởng tượng của nó. Mệnh đề \"if\" dùng thì quá khứ đơn, mệnh đề kết quả dùng \"would\" + động từ nguyên mẫu; dù dùng hình thức quá khứ, câu vẫn nói về hiện tại. So với loại 1 (\"If I have time, I will help.\" là việc có thể xảy ra), loại 2 nói điều trái với thực tế (\"If I had time, I would help.\" nghĩa là thực ra tôi không có thời gian). Tiếng Việt chỉ dùng \"nếu... thì sẽ...\" cho cả hai, nên bạn cần chú ý thì của động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "If + S + V2/ed (past simple), S + would + V"
+        },
+        {
+          "form": "negative",
+          "en": "If + S + didn't + V, S + wouldn't (would not) + V"
+        },
+        {
+          "form": "question",
+          "en": "Would + S + V + if + S + V2/ed?; What would + S + V + if + S + V2/ed?"
+        }
+      ],
+      "usageVi": [
+        "Tình huống tưởng tượng, trái với hiện tại: \"If I had a car, I would drive to work.\"",
+        "Điều rất khó xảy ra trong tương lai: \"If I won the lottery, I would buy a house.\"",
+        "Cho lời khuyên với \"If I were you\": \"If I were you, I would rest.\"",
+        "Với động từ \"be\", dùng \"were\" cho mọi chủ ngữ, nhất là trong văn viết: \"If she were here, she would help.\"",
+        "So sánh với loại 1: \"If it rains, I will stay home.\" (có thể xảy ra) và \"If I lived by the sea, I would swim every day.\" (không có thật)"
+      ],
+      "signalWords": [
+        "if",
+        "would",
+        "If I were you"
+      ],
+      "mistakes": [
+        {
+          "wrong": "If I would have money, I would buy a car.",
+          "right": "If I had money, I would buy a car.",
+          "explanationVi": "Mệnh đề \"if\" dùng quá khứ đơn, không dùng \"would\"."
+        },
+        {
+          "wrong": "If I had more time, I will learn the guitar.",
+          "right": "If I had more time, I would learn the guitar.",
+          "explanationVi": "Điều kiện không có thật thì mệnh đề kết quả dùng \"would\", không dùng \"will\"."
+        },
+        {
+          "wrong": "If she knew the answer, she would told us.",
+          "right": "If she knew the answer, she would tell us.",
+          "explanationVi": "Sau \"would\" dùng động từ nguyên mẫu."
+        },
+        {
+          "wrong": "If I have a million dollars, I would travel the world.",
+          "right": "If I had a million dollars, I would travel the world.",
+          "explanationVi": "Mệnh đề kết quả có \"would\" thì mệnh đề \"if\" phải dùng quá khứ đơn."
+        }
+      ],
+      "examples": [
+        "sentence:g-second-conditional-1",
+        "sentence:g-second-conditional-2",
+        "sentence:g-second-conditional-3",
+        "sentence:g-second-conditional-4"
+      ],
+      "practice": [
+        {
+          "prompt": "If I ___ rich, I would travel around the world.",
+          "options": [
+            "am",
+            "were",
+            "will be",
+            "would be"
+          ],
+          "answer": "were",
+          "explanationVi": "Tình huống không có thật ở hiện tại dùng \"were\" trong mệnh đề \"if\"."
+        },
+        {
+          "prompt": "If he studied harder, he ___ the exam.",
+          "options": [
+            "will pass",
+            "passed",
+            "would pass",
+            "passes"
+          ],
+          "answer": "would pass",
+          "explanationVi": "Mệnh đề \"if\" ở quá khứ đơn thì mệnh đề kết quả dùng \"would\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "If it ___ tomorrow, we will cancel the picnic.",
+          "options": [
+            "rains",
+            "rained",
+            "would rain",
+            "will rain"
+          ],
+          "answer": "rains",
+          "explanationVi": "Mệnh đề kết quả có \"will\" nên đây là câu điều kiện loại 1: mệnh đề \"if\" dùng hiện tại đơn."
+        },
+        {
+          "prompt": "What would you do if you ___ a famous singer?",
+          "options": [
+            "meet",
+            "will meet",
+            "would meet",
+            "met"
+          ],
+          "answer": "met",
+          "explanationVi": "Câu hỏi có \"would\" nên mệnh đề \"if\" dùng quá khứ đơn."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"live\": If we ___ near the sea, we would swim every day.",
+          "answer": "lived",
+          "explanationVi": "Mệnh đề \"if\" của câu điều kiện loại 2 dùng quá khứ đơn."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"buy\" (dùng would): If I had enough money, I ___ a new laptop.",
+          "answer": "would buy",
+          "explanationVi": "Mệnh đề kết quả của câu điều kiện loại 2 là \"would\" + động từ nguyên mẫu."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 31,
+    "id": "grammar:too-enough",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Too and enough",
+      "titleVi": "Too và enough",
+      "ruleVi": "\"Too\" nghĩa là \"quá\" (nhiều hơn mức cần, thường mang nghĩa tiêu cực) và đứng trước tính từ hoặc trạng từ: too hot. \"Enough\" nghĩa là \"đủ\": đứng sau tính từ hoặc trạng từ (old enough) nhưng đứng trước danh từ (enough money). Cả hai thường đi với \"to + V\" để nói kết quả: too tired to walk, old enough to drive. Người Việt hay đặt \"enough\" trước tính từ theo thứ tự \"đủ lớn\" của tiếng Việt.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "too + adj/adv (+ to V); adj/adv + enough (+ to V); enough + noun (+ to V)"
+        },
+        {
+          "form": "negative",
+          "en": "S + be + not + adj + enough (+ to V); S + don't/doesn't have + enough + noun"
+        },
+        {
+          "form": "question",
+          "en": "Is/Are + S + adj + enough (+ to V)?; Do/Does + S + have + enough + noun?"
+        }
+      ],
+      "usageVi": [
+        "too + tính từ, thường kèm to + V: \"This coffee is too hot to drink.\"",
+        "tính từ + enough: \"She is old enough to drive.\"",
+        "enough + danh từ: \"We don't have enough chairs.\"",
+        "too many + danh từ đếm được, too much + danh từ không đếm được: \"There are too many people here.\"",
+        "Muốn khen thì dùng \"very\", vì \"too\" thường có nghĩa là quá mức, gây vấn đề: \"This cake is very good.\""
+      ],
+      "signalWords": [
+        "too",
+        "enough",
+        "too much",
+        "too many",
+        "not ... enough"
+      ],
+      "mistakes": [
+        {
+          "wrong": "He is enough old to drive.",
+          "right": "He is old enough to drive.",
+          "explanationVi": "\"enough\" đứng sau tính từ: \"old enough\"."
+        },
+        {
+          "wrong": "This bag is too heavy for carry.",
+          "right": "This bag is too heavy to carry.",
+          "explanationVi": "Sau \"too + tính từ\" dùng \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "wrong": "There are too much cars here.",
+          "right": "There are too many cars here.",
+          "explanationVi": "\"cars\" là danh từ đếm được số nhiều nên dùng \"too many\"."
+        },
+        {
+          "wrong": "I don't have enough of money.",
+          "right": "I don't have enough money.",
+          "explanationVi": "\"enough\" đứng ngay trước danh từ, không cần \"of\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-too-enough-1",
+        "sentence:g-too-enough-2",
+        "sentence:g-too-enough-3",
+        "sentence:g-too-enough-4"
+      ],
+      "practice": [
+        {
+          "prompt": "She is ___ young to watch this movie.",
+          "options": [
+            "enough",
+            "too",
+            "very much",
+            "so many"
+          ],
+          "answer": "too",
+          "explanationVi": "\"too + tính từ + to V\" nghĩa là quá... nên không thể làm gì."
+        },
+        {
+          "prompt": "Is the water warm ___ for swimming?",
+          "options": [
+            "too",
+            "very",
+            "enough",
+            "much"
+          ],
+          "answer": "enough",
+          "explanationVi": "\"enough\" đứng sau tính từ: \"warm enough\"."
+        },
+        {
+          "prompt": "I can't buy it. I don't have ___ money.",
+          "options": [
+            "too",
+            "enough",
+            "too many",
+            "very"
+          ],
+          "answer": "enough",
+          "explanationVi": "\"enough\" đứng trước danh từ: \"enough money\"."
+        },
+        {
+          "prompt": "Don't put ___ sugar in my coffee.",
+          "options": [
+            "too many",
+            "much too",
+            "very",
+            "too much"
+          ],
+          "answer": "too much",
+          "explanationVi": "\"sugar\" là danh từ không đếm được nên dùng \"too much\"."
+        },
+        {
+          "prompt": "Điền một từ: He is old ___ to vote.",
+          "answer": "enough",
+          "explanationVi": "\"enough\" đứng sau tính từ: \"old enough to vote\"."
+        },
+        {
+          "prompt": "Điền một từ: It's ___ cold to go swimming today.",
+          "answer": "too",
+          "explanationVi": "\"too + tính từ + to V\" nghĩa là quá lạnh nên không thể đi bơi."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 25,
+    "id": "grammar:used-to",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Used to",
+      "titleVi": "Used to: thói quen trong quá khứ",
+      "ruleVi": "\"Used to\" + động từ nguyên mẫu diễn tả một thói quen hoặc trạng thái trong quá khứ mà bây giờ không còn nữa, gần với \"trước đây thường...\" hoặc \"hồi trước từng...\" trong tiếng Việt. Trong câu phủ định và câu hỏi với \"did\", viết \"use to\" (không có -d). \"Used to\" chỉ nói về quá khứ; thói quen hiện tại dùng thì hiện tại đơn. Đừng nhầm với \"be used to + V-ing\" (quen với việc gì).",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + used to + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + didn't use to + V"
+        },
+        {
+          "form": "question",
+          "en": "Did + S + use to + V?"
+        }
+      ],
+      "usageVi": [
+        "Thói quen trong quá khứ, nay không còn: \"I used to play football every weekend.\"",
+        "Trạng thái trong quá khứ, nay đã khác: \"There used to be a cinema here.\"",
+        "So sánh với past simple: một lần cụ thể chỉ dùng past simple: \"I went to the beach last Sunday.\"",
+        "Thói quen hiện tại không dùng \"used to\" mà dùng hiện tại đơn: \"I usually walk to work.\""
+      ],
+      "signalWords": [
+        "when I was a child",
+        "in the past",
+        "before",
+        "anymore",
+        "no longer"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I use to live in Da Nang.",
+          "right": "I used to live in Da Nang.",
+          "explanationVi": "Câu khẳng định viết \"used to\" có -d."
+        },
+        {
+          "wrong": "She used to playing tennis.",
+          "right": "She used to play tennis.",
+          "explanationVi": "Sau \"used to\" dùng động từ nguyên mẫu, không dùng V-ing."
+        },
+        {
+          "wrong": "I used to go to the gym yesterday.",
+          "right": "I went to the gym yesterday.",
+          "explanationVi": "Một việc xảy ra một lần cụ thể (yesterday) dùng past simple, không dùng \"used to\"."
+        },
+        {
+          "wrong": "I used to get up early now.",
+          "right": "I usually get up early now.",
+          "explanationVi": "\"Used to\" chỉ nói về quá khứ; thói quen hiện tại dùng hiện tại đơn."
+        }
+      ],
+      "examples": [
+        "sentence:g-used-to-1",
+        "sentence:g-used-to-2",
+        "sentence:g-used-to-3",
+        "sentence:g-used-to-4"
+      ],
+      "practice": [
+        {
+          "prompt": "My grandfather ___ fish in this river every morning.",
+          "options": [
+            "use to catch",
+            "used to catch",
+            "used to catching",
+            "is used to catch"
+          ],
+          "answer": "used to catch",
+          "explanationVi": "Thói quen trong quá khứ dùng \"used to\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "___ you use to watch cartoons as a kid?",
+          "options": [
+            "Do",
+            "Were",
+            "Did",
+            "Used"
+          ],
+          "answer": "Did",
+          "explanationVi": "Câu hỏi với \"use to\" bắt đầu bằng \"Did\"."
+        },
+        {
+          "prompt": "We ___ have a car, but now we drive everywhere.",
+          "options": [
+            "didn't use to",
+            "don't use to",
+            "weren't use to",
+            "didn't use"
+          ],
+          "answer": "didn't use to",
+          "explanationVi": "Phủ định của \"used to\" là \"didn't use to\" + động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Last Saturday I ___ to the beach with my friends.",
+          "options": [
+            "used to go",
+            "went",
+            "use to go",
+            "was used to go"
+          ],
+          "answer": "went",
+          "explanationVi": "Một lần cụ thể (last Saturday) dùng past simple, không dùng \"used to\"."
+        },
+        {
+          "prompt": "Viết \"used to\" + dạng đúng của \"be\": This café ___ a bookstore ten years ago.",
+          "answer": "used to be",
+          "explanationVi": "Trạng thái trong quá khứ nay đã khác dùng \"used to\" + động từ nguyên mẫu \"be\"."
+        },
+        {
+          "prompt": "Điền một từ: I used ___ live in the countryside.",
+          "answer": "to",
+          "explanationVi": "Cấu trúc đầy đủ là \"used to\" + động từ nguyên mẫu."
+        }
+      ]
+    },
+    "status": "draft"
+  }
+]
