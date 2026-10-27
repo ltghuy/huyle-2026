@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClipboardCheck, Compass } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BackupPanel } from "@/components/settings/backup-panel";
 import { BackupReminder } from "@/components/settings/backup-reminder";
 import { LevelSetting } from "@/components/settings/level-setting";
 import { StatsToggle } from "@/components/settings/stats-toggle";
+import { SyncPanel } from "@/components/settings/sync-panel";
 import { PageHeader } from "@/components/shell/page-header";
 import { cn } from "@/lib/utils";
 
@@ -40,14 +40,7 @@ export default function CaiDatPage() {
 
         <BackupPanel />
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              Đồng bộ <Badge variant="secondary">Sắp có</Badge>
-            </CardTitle>
-            <CardDescription>Dùng một mã để giữ tiến độ giống nhau trên nhiều thiết bị. Tính năng này sắp có.</CardDescription>
-          </CardHeader>
-        </Card>
+        <SyncPanel />
 
         <Card>
           <CardHeader>

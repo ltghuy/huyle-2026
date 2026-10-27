@@ -191,7 +191,7 @@ Sync payloads are gzipped in the browser (`CompressionStream`) and capped at 1 M
 
 #### StatCounter (D1 `stats_daily`, PK `(day, metric, key)`)
 
-- `day` (UTC `YYYY-MM-DD`), `metric` (`lesson_completed`|`exercise`|`word_wrong`|`placement_done`), `key` (exercise kind / word id / `''`), `count`
+- `day` (the learner's local `YYYY-MM-DD`; the server accepts days within 2 days of its UTC date), `metric` (`lesson_completed`|`exercise`|`word_wrong`|`placement_done`), `key` (exercise kind / word id / `''`), `count`
 
 #### StatDevice (D1 `stats_devices`, PK `(day, device_hash)`)
 

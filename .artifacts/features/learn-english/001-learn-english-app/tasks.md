@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 36 | Remaining: 14
+Total: 50 | Completed: 41 | Remaining: 9
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -96,8 +96,8 @@ Run after each task or batch (from the repo root):
 - [ ] T010 [B:T007] Write `scripts/draft-content.ts` (Batches API, structured outputs, `claude-opus-5-5`): words (meanings, topic, synonyms, 1–2 example sentences with tokens, accepted orders, wrong variants, gap candidates), grammar topics, writing tasks, placement bank; dry run on 20 A1 words with a cost report
   - **Done when:** the dry-run output validates against the schemas, and the **owner approves the projected full cost** before any larger run
 
-- [ ] T011 [B:T010] Write `scripts/review.ts`: list drafts by level/kind, approve by file or id, validate
-  - **Done when:** approving flips `status` only for the selected items and refuses items that fail validation
+- [x] T011 [B:T010] Write `scripts/review.ts`: list drafts by level/kind, approve by file or id, validate
+  - **Done when:** approving flips `status` only for the selected items and refuses items that fail validation -- VERIFIED
 
 - [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, the first 6 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
   - **Done when:** the owner has approved A1 content and placement items; schema validation is clean
@@ -203,22 +203,22 @@ Run after each task or batch (from the repo root):
 
 ### Sync
 
-- [ ] T043 [B:T006] Build the sync API (`POST/GET/PUT/DELETE /api/sync`): server-side code generation (12 Crockford base32 chars), SHA-256 storage, rev check via conditional UPDATE, 1 MB cap, failed-lookup throttle, cleanup of rows older than 365 days on create
-  - **Done when:** service tests cover create (only the hash stored), 404, 409 on a stale rev, 413, delete, throttle and cleanup. If the rate-limit binding isn't on the free plan, the D1 counter fallback is used and noted in knowledge.md (AC-047, AC-049, AC-051)
+- [x] T043 [B:T006] Build the sync API (`POST/GET/PUT/DELETE /api/sync`): server-side code generation (12 Crockford base32 chars), SHA-256 storage, rev check via conditional UPDATE, 1 MB cap, failed-lookup throttle, cleanup of rows older than 365 days on create
+  - **Done when:** service tests cover create (only the hash stored), 404, 409 on a stale rev, 413, delete, throttle and cleanup. If the rate-limit binding isn't on the free plan, the D1 counter fallback is used and noted in knowledge.md (AC-047, AC-049, AC-051) -- VERIFIED
 
 - [ ] T044 [B:T043,T027,T042] Build the sync client and settings panel: turn on (code + copy + warning), link with code (summary + confirm), debounced push (≤ 60 s, on hide), 409 merge-retry, offline retry, last-synced time, unlink, delete server data
   - **Done when:** e2e with two browser contexts: progress on A appears on B within 2 minutes; edits on both merge without losing attempts or doubling points (AC-047–AC-051)
 
 ### Usage stats
 
-- [ ] T045 [B:T006] Build `POST /api/stats`: validate, clamp to 20 wrong-word keys, daily device hash with `STATS_SALT`, one `db.batch()` of upserts, always 204
-  - **Done when:** service tests cover clamping, hashing, invalid input → 204 with no writes (AC-056)
+- [x] T045 [B:T006] Build `POST /api/stats`: validate, clamp to 20 wrong-word keys, daily device hash with `STATS_SALT`, one `db.batch()` of upserts, always 204
+  - **Done when:** service tests cover clamping, hashing, invalid input → 204 with no writes (AC-056) -- VERIFIED
 
-- [ ] T046 [B:T045,T018] Build the stats client: local daily counters, `sendBeacon` on day change/hide, opt-out toggle in settings
-  - **Done when:** tests: counters roll per day; with the opt-out on, no request is sent; send failures are ignored (AC-056, AC-057)
+- [x] T046 [B:T045,T018] Build the stats client: local daily counters, `sendBeacon` on day change/hide, opt-out toggle in settings
+  - **Done when:** tests: counters roll per day; with the opt-out on, no request is sent; send failures are ignored (AC-056, AC-057) -- VERIFIED
 
-- [ ] T047 [B:T045] Write `scripts/stats-report.ts --from --to` (`wrangler d1 execute --remote --json`)
-  - **Done when:** run against local D1 with seeded rows, it prints lessons, distinct devices, exercises per type and the top missed words (AC-058)
+- [x] T047 [B:T045] Write `scripts/stats-report.ts --from --to` (`wrangler d1 execute --remote --json`)
+  - **Done when:** run against local D1 with seeded rows, it prints lessons, distinct devices, exercises per type and the top missed words (AC-058) -- VERIFIED
 
 ### End-to-end, full content, launch
 
