@@ -9,6 +9,7 @@ import { createRng, shuffle } from "@/learning/exercises/random";
 import { isFinished, itemsAnswered, MAX_ITEMS, nextLevel, recordAnswer, result, startPlacement, type PlacementState } from "@/learning/placement";
 import type { Level } from "@/learning/types";
 import { updateProfile } from "@/storage/meta";
+import { countPlacementDone } from "@/stats/stats-client";
 import { OptionList } from "@/components/exercise/option-list";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -60,6 +61,7 @@ export function PlacementTest() {
 
   async function finish(level: Level) {
     await updateProfile({ level, placement: "done", placementResult: level }, Date.now());
+    await countPlacementDone();
     setPhase({ name: "result", level });
   }
 

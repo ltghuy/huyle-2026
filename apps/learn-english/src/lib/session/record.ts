@@ -4,6 +4,7 @@ import type { AttemptContext, CardItemId, DailyLesson, StoredCard } from "@/lear
 import { newAttemptId, recordAnswer } from "@/storage/attempts";
 import { getCard, putCards } from "@/storage/cards";
 import type { StepOutcome } from "@/components/exercise/exercise-runner";
+import { countAttempt } from "@/stats/stats-client";
 
 const isCardId = (id: string): id is CardItemId => id.startsWith("word:") || id.startsWith("grammar:");
 
@@ -49,6 +50,7 @@ export async function recordOutcome({ outcome, context, now, lessonPosition }: R
     lesson: lessonPosition ? { ...lessonPosition, updatedAt: now } : undefined,
   });
 
+  await countAttempt({ exercise, itemId, correct: result.correct }, now);
   if (!result.correct && outcome.related.length > 0) await bringForward(outcome.related.filter((id) => id !== itemId), now);
 }
 

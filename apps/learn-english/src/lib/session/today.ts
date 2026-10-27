@@ -4,6 +4,7 @@ import type { DailyLesson, LessonPartKind, Profile } from "@/learning/types";
 import { addAttendance, getAllAttendance, type AddAttendanceResult } from "@/storage/attendance";
 import { getAllCards } from "@/storage/cards";
 import { getAllLessons, getLesson, putLesson } from "@/storage/lessons";
+import { countLessonCompleted } from "@/stats/stats-client";
 import type { RunnerStep } from "@/components/exercise/exercise-runner";
 import type { ContentIndex } from "./content-index";
 import { prepareStep } from "./prepare";
@@ -94,6 +95,7 @@ export async function completeLesson(lesson: DailyLesson, now: number): Promise<
   const { points, bonus } = pointsFor(streak);
   const result = await addAttendance({ date: today, points, bonus, at: now });
   const stored = (await getLesson(today)) ?? lesson;
+  if (result === "awarded") await countLessonCompleted(now);
   if (!stored.completedAt) await putLesson({ ...stored, position: endPosition(stored), completedAt: now, updatedAt: now });
   return result === "awarded" ? { result, points, bonus, streak } : { result, points: 0, bonus: 0, streak };
 }
