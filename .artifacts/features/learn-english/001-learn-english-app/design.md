@@ -332,6 +332,41 @@ Greenfield: every field is new.
 | Welcome + tour | `src/components/tour/{welcome-dialog,app-tour}.tsx`, `src/components/ui/tour.tsx` | new | First-visit dialog, steps, replay |
 | App shell | `src/app/layout.tsx`, `src/components/app-sidebar.tsx` | new | `lang="vi"`, font, nav with `data-tour`, first-visit guard |
 
+## Visual Design Direction
+
+Settled with `ui-ux-pro-max` (2026-10-27). The tool suggested indigo plus progress green for a learning product,
+which we keep. We don't take its kids' fonts (Baloo 2 / Comic Neue, which also lack Vietnamese glyphs) or its
+app-store landing pattern: this is an app for adults, used daily.
+
+- **Style:** flat, friendly cards with soft rounded corners (`--radius: 0.875rem`) and subtle micro-interactions
+  (150–250 ms, nothing on `prefers-reduced-motion`). No emoji as icons; lucide icons only.
+- **Colour tokens (shadcn variables, light/dark):**
+  - `--primary`: indigo, for actions and the active nav item
+  - `--success`: green, for correct answers, progress and completion
+  - `--streak`: amber, for the flame, streak and points
+  - `--destructive`: red, for wrong answers and destructive actions
+  - Feedback is never colour-only: every state has an icon (CheckCircle2 / XCircle / Flame) plus text.
+  - Text contrast is ≥ 4.5:1 in both themes.
+- **Type:** Be Vietnam Pro for all UI (base 16px, line-height 1.5). English being taught is set larger
+  (headwords about 2rem semibold, sentences about 1.25rem). IPA uses a system font stack with IPA glyphs (`.ipa` class),
+  because Be Vietnam Pro has no IPA Extensions.
+- **Shell:**
+  - **Desktop (≥ md):** shadcn sidebar with Hôm nay, Từ vựng, Ngữ pháp, Ôn tập, Bài tập, Từ khó, Hồ sơ, Cài đặt;
+    a streak and points chip in the header.
+  - **Mobile:** bottom nav limited to 5 items (Hôm nay, Ôn tập, Từ vựng, Bài tập, Thêm). "Thêm" opens a sheet
+    with Ngữ pháp, Từ khó, Hồ sơ, Cài đặt and Nguồn dữ liệu. It respects safe-area insets, and content gets bottom
+    padding equal to the nav height.
+- **Exercise screen (focus mode):**
+  - The navigation is hidden. A top bar holds a close button (with a confirm when leaving mid-lesson), a progress bar
+    and an "n/N" counter. Content is centred in `max-w-xl`.
+  - A sticky bottom action bar holds a full-width "Kiểm tra" button, then "Tiếp tục", ≥ 48px tall.
+  - A feedback panel rises from the bottom with icon + "Chính xác!" / "Chưa đúng", the correct answer, the
+    explanation and a play button.
+  - Tap targets are ≥ 44px. Keyboard: Enter checks or continues; keys 1–4 pick options.
+- **Theme:** follows the system (a `.dark` class set before first paint, as in the handbook).
+- **States:** every list or page that waits on content or storage shows skeletons sized like the content
+  (no layout shift), a Vietnamese empty state with one next action, and an error state with a retry button.
+
 ## Data Flow
 
 **Answering an exercise (client only):**
