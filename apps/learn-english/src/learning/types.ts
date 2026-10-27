@@ -107,6 +107,8 @@ export interface SyncState {
 }
 
 export interface Profile {
+  /** The learner's name (feature 003); missing until the first-visit prompt is answered. */
+  displayName?: string;
   level: Level;
   placement: PlacementStatus;
   placementResult?: Level;

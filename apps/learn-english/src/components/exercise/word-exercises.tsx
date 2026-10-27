@@ -1,13 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { GrammarGapInstance } from "@/learning/exercises/grammar-gap";
+import type { GradeResult } from "@/learning/exercises/types";
 import type { ListeningChoiceInstance, ListeningTypingInstance } from "@/learning/exercises/listening";
 import type { McqInstance } from "@/learning/exercises/mcq";
 import { letterChoices, type MissingLettersInstance } from "@/learning/exercises/missing-letters";
 import type { RecallInstance } from "@/learning/exercises/recall";
 import { cn } from "@/lib/utils";
-import { AudioButton } from "./audio-button";
+import { AudioButton, playClipOnce } from "./audio-button";
 import { EnglishInput } from "./english-input";
 import { OptionList } from "./option-list";
 import type { ExerciseViewProps } from "./types";
@@ -24,8 +25,38 @@ function Instruction({ children }: { children: React.ReactNode }) {
   return <h2 className="text-lg font-medium text-muted-foreground">{children}</h2>;
 }
 
+/** The word behind a listening exercise, revealed once the answer is checked. */
+function WordReveal({ headword, ipa, meaningsVi }: { headword: string; ipa: string; meaningsVi: string[] }) {
+  return (
+    <div role="group" aria-label="Nghĩa của từ" className="grid gap-1 rounded-xl border bg-card p-4 motion-safe:animate-in motion-safe:fade-in">
+      <p>
+        <span className="text-xl font-semibold" lang="en">
+          {headword}
+        </span>
+        {ipa ? <span className="ipa ml-2 text-muted-foreground">{ipa}</span> : null}
+      </p>
+      <p className="text-lg" lang="vi">
+        {meaningsVi.join("; ")}
+      </p>
+    </div>
+  );
+}
+
+/** After the "correct" chime has played (see `answer-sound.ts`). */
+const PRONOUNCE_DELAY_MS = 450;
+
+/** Says the word once when the checked answer is right; stops if the learner moves on. */
+function usePronounceWhenRight(result: GradeResult | null, audio: string) {
+  const correct = result?.correct === true;
+  useEffect(() => {
+    if (correct) return playClipOnce("word", audio, PRONOUNCE_DELAY_MS);
+  }, [correct, audio]);
+}
+
 export function McqView({ instance, answer, onAnswer, result }: ExerciseViewProps<McqInstance, number>) {
   const toVietnamese = instance.direction === "en-vi";
+  usePronounceWhenRight(result, instance.audio);
+
   return (
     <div className="grid gap-6">
       <Instruction>{toVietnamese ? "Chọn nghĩa đúng của từ" : "Chọn từ tiếng Anh đúng"}</Instruction>
@@ -57,6 +88,7 @@ export function ListeningChoiceView({ instance, answer, onAnswer, result, onAudi
         answerIndex={result ? instance.answerIndex : undefined}
         lang="en"
       />
+      {result ? <WordReveal headword={instance.options[instance.answerIndex]} ipa={instance.ipa} meaningsVi={instance.meaningsVi} /> : null}
     </div>
   );
 }
@@ -74,11 +106,13 @@ export function ListeningTypingView({ instance, answer, onAnswer, result, onAudi
         onChange={(event) => onAnswer(event.target.value.trim() ? event.target.value : null)}
         disabled={result !== null}
       />
+      {result ? <WordReveal headword={instance.headword} ipa={instance.ipa} meaningsVi={instance.meaningsVi} /> : null}
     </div>
   );
 }
 
 export function RecallView({ instance, answer, onAnswer, result }: ExerciseViewProps<RecallInstance, string>) {
+  usePronounceWhenRight(result, instance.audio);
   return (
     <div className="grid gap-6">
       <Instruction>Gõ từ tiếng Anh có nghĩa là</Instruction>
@@ -128,6 +162,7 @@ export function GrammarGapView({ instance, answer, onAnswer, result }: ExerciseV
  */
 export function MissingLettersView({ instance, onAnswer, result, seed }: ExerciseViewProps<MissingLettersInstance, string[]>) {
   const tiles = useMemo(() => letterChoices(instance, seed), [instance, seed]);
+  usePronounceWhenRight(result, instance.audio);
   // Which tile fills each blank (index into `tiles`), left to right.
   const [filled, setFilled] = useState<(number | null)[]>(() => instance.answer.map(() => null));
   const locked = result !== null;

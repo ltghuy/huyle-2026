@@ -1,11 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, CircleAlert, XCircle } from "lucide-react";
 import type { GradeResult } from "@/learning/exercises/types";
 import { cn } from "@/lib/utils";
 
-/** Outcome of a checked answer; never colour alone (icon + words). */
+/** How long a plain "Chính xác!" stays up; panels with an answer to read stay until the learner moves on. */
+export const CORRECT_FEEDBACK_MS = 2000;
+
+/** Outcome of a checked answer; never colour alone (icon + words). Render with a per-step `key`. */
 export function FeedbackPanel({ result, relatedLink }: { result: GradeResult; relatedLink?: { href: string; label: string } }) {
   const tone = result.correct ? (result.typo ? "typo" : "correct") : "wrong";
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    if (tone !== "correct") return;
+    const timer = setTimeout(() => setHidden(true), CORRECT_FEEDBACK_MS);
+    return () => clearTimeout(timer);
+  }, [tone]);
+
+  if (hidden) return null;
   const Icon = tone === "correct" ? CheckCircle2 : tone === "typo" ? CircleAlert : XCircle;
   const title = tone === "correct" ? "Chính xác!" : tone === "typo" ? "Gần đúng, chú ý chính tả" : "Chưa đúng";
   return (

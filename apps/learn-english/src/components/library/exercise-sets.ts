@@ -10,8 +10,9 @@ import { compareTopics, grammarSlug, grammarTopicMeta, topicOf, topicTitle } fro
 
 // The exercise library (AC-026): one set per (level, topic, exercise type)
 // for words and sentences, and one per grammar topic. Steps are built with
-// the same generators as the daily lesson, seeded from the set id so a set
-// looks the same each time; "Làm lại" moves to the next round.
+// the same generators as the daily lesson, seeded from the set id and a round
+// number. The library starts each open on a random round, so the order changes
+// every visit; "Làm lại" moves to the next round.
 
 type Grammar = ContentItemOf<"grammar">;
 

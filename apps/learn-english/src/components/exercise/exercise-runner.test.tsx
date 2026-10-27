@@ -1,11 +1,15 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
-import { buildListeningTyping } from "@/learning/exercises/listening";
+import { buildListeningChoice, buildListeningTyping } from "@/learning/exercises/listening";
 import { buildRecall } from "@/learning/exercises/recall";
 import { word } from "@/learning/exercises/fixtures";
+import { isSoundEnabled, playAnswerSound } from "@/lib/answer-sound";
 import { ExerciseRunner, type RunnerStep } from "./exercise-runner";
+import { CORRECT_FEEDBACK_MS } from "./feedback-panel";
+
+vi.mock("@/lib/answer-sound", () => ({ playAnswerSound: vi.fn(), isSoundEnabled: vi.fn(() => true) }));
 
 const target = word("apple", { meaningsVi: ["quả táo"], audio: "a".repeat(64) });
 const pool = [word("cat", { meaningsVi: ["con mèo"] }), word("table", { meaningsVi: ["cái bàn"] }), word("house", { meaningsVi: ["ngôi nhà"] })];
@@ -19,7 +23,11 @@ function setup(steps: RunnerStep[]) {
   return { onOutcome, onFinish, onExit };
 }
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+  vi.mocked(playAnswerSound).mockClear();
+});
 
 describe("ExerciseRunner", () => {
   it("checks a multiple-choice answer chosen with the keyboard and reports the outcome", async () => {
@@ -149,5 +157,111 @@ describe("finishing", () => {
     expect(screen.getByRole("button", { name: "Đang lưu…" })).toBeDisabled();
     fireEvent.submit(screen.getByRole("button", { name: "Đang lưu…" }).closest("form")!);
     expect(onFinish).toHaveBeenCalledTimes(1);
+  });
+
+  it("plays the right sound and hides \"Chính xác!\" after a moment", async () => {
+    vi.useFakeTimers();
+    setup([{ key: "s1", type: "exercise", instance: mcq, seed: 1 }]);
+    fireEvent.keyDown(window, { key: String(mcq.answerIndex + 1) });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(playAnswerSound).toHaveBeenCalledWith(true);
+    expect(screen.getByText("Chính xác!")).toBeInTheDocument();
+    act(() => vi.advanceTimersByTime(CORRECT_FEEDBACK_MS));
+    expect(screen.queryByText("Chính xác!")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Tiếp tục" })).toBeInTheDocument();
+  });
+
+  it("plays the wrong sound and keeps the right answer on screen", async () => {
+    vi.useFakeTimers();
+    setup([{ key: "s1", type: "exercise", instance: mcq, seed: 1 }]);
+    fireEvent.click(screen.getAllByRole("radio")[(mcq.answerIndex + 1) % mcq.options.length]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(playAnswerSound).toHaveBeenCalledWith(false);
+    act(() => vi.advanceTimersByTime(CORRECT_FEEDBACK_MS * 2));
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+  });
+
+  it("shows the word, its IPA and meaning only after a listening answer is checked", async () => {
+    const prince = word("prince", { ipa: "prɪns", meaningsVi: ["hoàng tử"], audio: "b".repeat(64) });
+    const others = ["pretty", "pencil", "parent"].map((slug) => word(slug));
+    const instance = buildListeningChoice({ target: prince, pool: others }, 1)!;
+    setup([{ key: "l", type: "exercise", instance, seed: 1 }]);
+    expect(screen.queryByText("hoàng tử")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByRole("radio")[instance.answerIndex]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    const reveal = screen.getByRole("group", { name: "Nghĩa của từ" });
+    expect(reveal).toHaveTextContent("prince");
+    expect(reveal).toHaveTextContent("prɪns");
+    expect(reveal).toHaveTextContent("hoàng tử");
+  });
+
+  describe("pronouncing the word after a right multiple-choice answer", () => {
+    function stubAudio() {
+      const play = vi.fn(() => Promise.resolve());
+      const urls: string[] = [];
+      vi.stubGlobal(
+        "Audio",
+        class {
+          constructor(url: string) {
+            urls.push(url);
+          }
+          play = play;
+          pause = vi.fn();
+        },
+      );
+      return { play, urls };
+    }
+
+    async function answer(right: boolean) {
+      setup([{ key: "s1", type: "exercise", instance: mcq, seed: 1 }]);
+      const index = right ? mcq.answerIndex : (mcq.answerIndex + 1) % mcq.options.length;
+      fireEvent.click(screen.getAllByRole("radio")[index]);
+      await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+      act(() => vi.advanceTimersByTime(1000));
+    }
+
+    it("plays the word's clip once, after the chime", async () => {
+      vi.useFakeTimers();
+      const { play, urls } = stubAudio();
+      await answer(true);
+      expect(urls).toEqual([expect.stringMatching(new RegExp(`/${mcq.audio}\\.mp3$`))]);
+      expect(play).toHaveBeenCalledTimes(1);
+    });
+
+    it("also says the word after a right recall or missing-letters answer", async () => {
+      vi.useFakeTimers();
+      const { play, urls } = stubAudio();
+      const recall = buildRecall({ target });
+      setup([{ key: "r", type: "exercise", instance: recall, seed: 1 }]);
+      fireEvent.change(screen.getByRole("textbox", { name: "Từ tiếng Anh" }), { target: { value: "apple" } });
+      await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+      act(() => vi.advanceTimersByTime(1000));
+      expect(play).toHaveBeenCalledTimes(1);
+
+      cleanup();
+      const homework = word("homework", { audio: "c".repeat(64) });
+      const letters = buildMissingLetters({ target: homework }, 7);
+      setup([{ key: "m", type: "exercise", instance: letters, seed: 7 }]);
+      for (const letter of letters.answer) {
+        fireEvent.click(screen.getAllByRole("button", { name: letter }).find((button) => !button.hasAttribute("disabled"))!);
+      }
+      await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+      act(() => vi.advanceTimersByTime(1000));
+      expect(play).toHaveBeenCalledTimes(2);
+      expect(urls[1]).toMatch(/\/c{64}\.mp3$/);
+    });
+
+    it("stays quiet after a wrong answer, and when answer sounds are off", async () => {
+      vi.useFakeTimers();
+      const { play } = stubAudio();
+      await answer(false);
+      expect(play).not.toHaveBeenCalled();
+
+      cleanup();
+      vi.mocked(isSoundEnabled).mockReturnValueOnce(false);
+      await answer(true);
+      expect(play).not.toHaveBeenCalled();
+    });
   });
 });

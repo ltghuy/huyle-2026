@@ -116,6 +116,13 @@ describe("buildSnapshot", () => {
 describe("parseSnapshot", () => {
   const snapshot = buildSnapshot(state, NOW, TZ);
 
+  it("keeps the learner's name, which backups carry for certificates (003 AC-004)", () => {
+    const named = buildSnapshot({ ...state, profile: { ...profile, displayName: "Lê Gia Huy", fieldUpdatedAt: { displayName: NOW } } }, NOW, TZ);
+    const parsed = parseSnapshot(JSON.stringify(named));
+    expect(parsed.ok && parsed.snapshot.data.meta.displayName).toBe("Lê Gia Huy");
+    expect(parsed.ok && parsed.snapshot.data.meta.fieldUpdatedAt.displayName).toBe(NOW);
+  });
+
   it("accepts its own output, as an object or as JSON text", () => {
     expect(parseSnapshot(snapshot)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });

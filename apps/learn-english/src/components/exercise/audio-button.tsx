@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Loader2, Volume2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { isSoundEnabled } from "@/lib/answer-sound";
 import { cn } from "@/lib/utils";
 
 // Clips are static files on two audio-only Workers (free plan: 20,000 files
@@ -17,6 +18,20 @@ export type AudioSource = keyof typeof AUDIO_BASE_URLS;
 
 export function audioUrl(source: AudioSource, key: string): string {
   return `${AUDIO_BASE_URLS[source]}/${key}.mp3`;
+}
+
+/**
+ * Plays a clip once without a button (the word after a right answer). It stays
+ * quiet when answer sounds are off or the clip can't play; returns a stop function.
+ */
+export function playClipOnce(source: AudioSource, key: string, delayMs = 0): () => void {
+  if (!key || !isSoundEnabled()) return () => {};
+  const audio = new Audio(audioUrl(source, key));
+  const timer = window.setTimeout(() => void audio.play().catch(() => {}), delayMs);
+  return () => {
+    window.clearTimeout(timer);
+    audio.pause();
+  };
 }
 
 interface AudioButtonProps {

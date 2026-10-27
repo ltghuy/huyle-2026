@@ -11,6 +11,11 @@ import { ScoreScreen } from "./score-screen";
 
 type Score = { correct: number; total: number };
 
+/** A random first round (never 0, the unshuffled grammar order), so each open gets a new question order. */
+function randomRound(): number {
+  return 1 + Math.floor(Math.random() * 2 ** 20);
+}
+
 /** Saves each checked answer as an exercise attempt and reschedules its card (AC-029). */
 async function saveOutcome(_step: RunnerStep, outcome: StepOutcome): Promise<void> {
   try {
@@ -28,11 +33,13 @@ interface ExerciseRunProps {
   onFinished?: () => void | Promise<void>;
   onClose: () => void;
   doneLabel?: string;
+  /** Start from a random round instead of round 0, so the order differs on every open. */
+  shuffled?: boolean;
 }
 
 /** A practice run in focus mode: the runner, then the score with "Làm lại". */
-export function ExerciseRun({ title, buildSteps, onFinished, onClose, doneLabel }: ExerciseRunProps) {
-  const [round, setRound] = useState(0);
+export function ExerciseRun({ title, buildSteps, onFinished, onClose, doneLabel, shuffled = false }: ExerciseRunProps) {
+  const [round, setRound] = useState(() => (shuffled ? randomRound() : 0));
   const [score, setScore] = useState<Score | null>(null);
   const steps = useMemo(() => buildSteps(round), [buildSteps, round]);
 

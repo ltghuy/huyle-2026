@@ -88,7 +88,7 @@ describe("BackupPanel", () => {
   it("imports a valid snapshot after confirmation, replacing progress but keeping this device's id and sync", async () => {
     await seedLocal();
     const now = Date.now();
-    const other: Profile = { ...createDefaultProfile(now - 5 * DAY_MS, () => "other-device"), level: "A2", tourSeen: true };
+    const other: Profile = { ...createDefaultProfile(now - 5 * DAY_MS, () => "other-device"), displayName: "Gia Huy", level: "A2", tourSeen: true };
     const snapshot = buildSnapshot(
       {
         profile: other,
@@ -115,7 +115,7 @@ describe("BackupPanel", () => {
     await waitFor(async () => expect((await getAllCards()).map((card) => card.itemId)).toEqual(["word:apple", "word:cat"]));
     expect((await getAllAttempts()).map((attempt) => attempt.id)).toEqual(["other-1"]);
     expect((await getAllAttendance()).map((row) => row.date)).toEqual(["2026-10-25"]);
-    expect(await getProfile()).toMatchObject({ level: "A2", tourSeen: true, deviceId: "local-device", sync: LOCAL_SYNC });
+    expect(await getProfile()).toMatchObject({ displayName: "Gia Huy", level: "A2", tourSeen: true, deviceId: "local-device", sync: LOCAL_SYNC });
   });
 
   it("resets all progress after confirmation", async () => {

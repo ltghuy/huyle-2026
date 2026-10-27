@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { AppSidebar } from "@/components/shell/app-sidebar";
+import { NamePrompt } from "@/components/name/name-prompt";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
 import { StatsRunner } from "@/components/stats/stats-runner";
@@ -21,6 +22,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       <MobileNav />
       <SyncRunner />
       <StatsRunner />
+      <NamePrompt />
       {/* Reads ?tour=1, so it needs a Suspense boundary to keep the pages static. */}
       <Suspense fallback={null}>
         <AppTour />

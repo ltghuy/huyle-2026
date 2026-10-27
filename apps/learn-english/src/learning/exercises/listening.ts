@@ -14,6 +14,8 @@ export interface ListeningChoiceInstance {
   audio: string;
   options: string[];
   answerIndex: number;
+  /** Shown with the meanings once the answer is checked. */
+  ipa: string;
   meaningsVi: string[];
 }
 
@@ -24,6 +26,7 @@ export interface ListeningTypingInstance {
   audio: string;
   headword: string;
   variants: string[];
+  ipa: string;
   meaningsVi: string[];
 }
 
@@ -69,6 +72,7 @@ export function buildListeningChoice(
     audio: target.body.audio,
     options: shuffled,
     answerIndex: shuffled.indexOf(answer),
+    ipa: target.body.ipa,
     meaningsVi: [...target.body.meaningsVi],
   };
 }
@@ -82,6 +86,7 @@ export function buildListeningTyping(input: { target: WordItem }): ListeningTypi
     audio: target.body.audio,
     headword: target.body.headword,
     variants: [...target.body.variants],
+    ipa: target.body.ipa,
     meaningsVi: [...target.body.meaningsVi],
   };
 }

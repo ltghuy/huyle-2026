@@ -34,6 +34,12 @@ describe("buildListeningChoice", () => {
     expect([...ex.options].sort()).toEqual(["cold", "collar", "color", "comb"]);
   });
 
+  it("carries the IPA and meanings to show after checking", () => {
+    const withIpa = word("color", { variants: ["colour"], ipa: "ˈkʌlər", meaningsVi: ["màu sắc"] });
+    expect(buildListeningChoice({ target: withIpa, pool }, 1)).toMatchObject({ ipa: "ˈkʌlər", meaningsVi: ["màu sắc"] });
+    expect(buildListeningTyping({ target: withIpa })).toMatchObject({ ipa: "ˈkʌlər", meaningsVi: ["màu sắc"] });
+  });
+
   it("returns null without enough distractors", () => {
     expect(buildListeningChoice({ target, pool: pool.slice(0, 3) }, 1)).toBeNull();
   });

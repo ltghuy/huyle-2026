@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { localDate, streaks, totalPoints } from "./attendance";
+import { NAME_MAX_LENGTH } from "./name";
 import {
   EXERCISE_KINDS,
   LEVELS,
@@ -51,6 +52,7 @@ export interface Snapshot {
 }
 
 const PROFILE_KEYS = [
+  "displayName",
   "level",
   "placement",
   "placementResult",
@@ -124,6 +126,8 @@ const attendanceSchema = z.object({
 
 // Unknown keys (deviceId and sync included) are stripped by z.object.
 const metaSchema = z.object({
+  // Code units, not characters: a name of 40 characters can be longer in UTF-16.
+  displayName: z.string().trim().min(1).max(NAME_MAX_LENGTH * 2).optional(),
   level,
   placement: z.enum(["pending", "skipped", "done"]),
   placementResult: level.optional(),

@@ -5,6 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* The greeting's 👋 waves twice when the home page opens. */
+  --animate-wave: wave 1.2s ease-in-out 2;
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+  }
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-be-vietnam-pro);
@@ -136,6 +145,89 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.673 0.182 276.935);
   --streak: oklch(0.828 0.189 84.429);
+}
+
+/* Main colour picked in Settings (feature 004); indigo above is the default.
+   On <html> with the .dark class, so these beat both :root and .dark. */
+:root[data-accent="blue"] {
+  --primary: oklch(0.546 0.245 262.881);
+  --link: oklch(0.546 0.245 262.881);
+  --selection: oklch(0.546 0.245 262.881);
+  --ring: oklch(0.623 0.214 259.815);
+  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --sidebar-accent: oklch(0.97 0.014 254.604);
+  --sidebar-accent-foreground: oklch(0.488 0.243 264.376);
+}
+:root[data-accent="teal"] {
+  --primary: oklch(0.511 0.096 186.391);
+  --link: oklch(0.511 0.096 186.391);
+  --selection: oklch(0.511 0.096 186.391);
+  --ring: oklch(0.6 0.118 184.704);
+  --sidebar-primary: oklch(0.511 0.096 186.391);
+  --sidebar-ring: oklch(0.6 0.118 184.704);
+  --sidebar-accent: oklch(0.984 0.014 180.72);
+  --sidebar-accent-foreground: oklch(0.511 0.096 186.391);
+}
+:root[data-accent="orange"] {
+  --primary: oklch(0.553 0.195 38.402);
+  --link: oklch(0.553 0.195 38.402);
+  --selection: oklch(0.553 0.195 38.402);
+  --ring: oklch(0.646 0.222 41.116);
+  --sidebar-primary: oklch(0.553 0.195 38.402);
+  --sidebar-ring: oklch(0.646 0.222 41.116);
+  --sidebar-accent: oklch(0.98 0.016 73.684);
+  --sidebar-accent-foreground: oklch(0.553 0.195 38.402);
+}
+:root[data-accent="pink"] {
+  --primary: oklch(0.525 0.223 3.958);
+  --link: oklch(0.525 0.223 3.958);
+  --selection: oklch(0.525 0.223 3.958);
+  --ring: oklch(0.592 0.249 0.584);
+  --sidebar-primary: oklch(0.525 0.223 3.958);
+  --sidebar-ring: oklch(0.592 0.249 0.584);
+  --sidebar-accent: oklch(0.971 0.014 343.198);
+  --sidebar-accent-foreground: oklch(0.525 0.223 3.958);
+}
+:root.dark[data-accent="blue"] {
+  --primary: oklch(0.707 0.165 254.624);
+  --link: oklch(0.707 0.165 254.624);
+  --selection: oklch(0.707 0.165 254.624);
+  --ring: oklch(0.707 0.165 254.624);
+  --sidebar-primary: oklch(0.707 0.165 254.624);
+  --sidebar-ring: oklch(0.707 0.165 254.624);
+  --sidebar-accent: oklch(0.282 0.091 267.935);
+  --sidebar-accent-foreground: oklch(0.882 0.059 254.128);
+}
+:root.dark[data-accent="teal"] {
+  --primary: oklch(0.777 0.152 181.912);
+  --link: oklch(0.777 0.152 181.912);
+  --selection: oklch(0.777 0.152 181.912);
+  --ring: oklch(0.777 0.152 181.912);
+  --sidebar-primary: oklch(0.777 0.152 181.912);
+  --sidebar-ring: oklch(0.777 0.152 181.912);
+  --sidebar-accent: oklch(0.277 0.046 192.524);
+  --sidebar-accent-foreground: oklch(0.91 0.096 180.426);
+}
+:root.dark[data-accent="orange"] {
+  --primary: oklch(0.75 0.183 55.934);
+  --link: oklch(0.75 0.183 55.934);
+  --selection: oklch(0.75 0.183 55.934);
+  --ring: oklch(0.75 0.183 55.934);
+  --sidebar-primary: oklch(0.75 0.183 55.934);
+  --sidebar-ring: oklch(0.75 0.183 55.934);
+  --sidebar-accent: oklch(0.266 0.079 36.259);
+  --sidebar-accent-foreground: oklch(0.901 0.076 70.697);
+}
+:root.dark[data-accent="pink"] {
+  --primary: oklch(0.718 0.202 349.761);
+  --link: oklch(0.718 0.202 349.761);
+  --selection: oklch(0.718 0.202 349.761);
+  --ring: oklch(0.718 0.202 349.761);
+  --sidebar-primary: oklch(0.718 0.202 349.761);
+  --sidebar-ring: oklch(0.718 0.202 349.761);
+  --sidebar-accent: oklch(0.284 0.109 3.907);
+  --sidebar-accent-foreground: oklch(0.899 0.061 343.231);
 }
 
 @layer base {

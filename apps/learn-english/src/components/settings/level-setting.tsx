@@ -37,12 +37,12 @@ export function LevelSetting() {
       <Label htmlFor="level-select">Trình độ của bạn</Label>
       {profile.status === "ready" ? (
         <Select items={LEVEL_LABELS} value={profile.data.level} onValueChange={handleChange}>
-          <SelectTrigger id="level-select" className="h-11 w-full sm:w-64">
+          <SelectTrigger id="level-select" className="w-full data-[size=default]:h-11 sm:w-64">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent alignItemWithTrigger={false} className="p-1">
             {LEVELS.map((level) => (
-              <SelectItem key={level} value={level}>
+              <SelectItem key={level} value={level} className="min-h-10">
                 {LEVEL_LABELS[level]}
               </SelectItem>
             ))}

@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { BookOpen, CheckCircle2 } from "lucide-react";
+import { BookOpen, Check, CheckCircle2, ChevronDown } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
@@ -13,10 +13,12 @@ import { parseLevel, updateSearchParams, withParams } from "@/lib/search-params"
 import { compareTopics, topicOf, topicTitle } from "@/lib/topics";
 import { cn } from "@/lib/utils";
 import { LevelTabs } from "@/components/library/level-tabs";
+import { LEVEL_LABELS } from "@/components/settings/level-setting";
 import { useCardIds } from "@/components/library/use-card-ids";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { WordDialog, type WordLookup } from "./word-dialog";
 import { WordSearchBox } from "./word-search-box";
@@ -26,6 +28,8 @@ type Word = ContentItemOf<"word">;
 const ALL_TOPICS = "all";
 /** Words rendered per chunk; long levels grow with "Xem thêm". */
 const CHUNK = 60;
+/** Topics shown before "Xem thêm"; the selected one is always shown. */
+const TOPICS_SHOWN = 8;
 
 interface TopicGroup {
   slug: string;
@@ -76,9 +80,19 @@ export function VocabularyBrowser() {
   const { ids: cardIds, reload: reloadCards } = useCardIds();
   const learned = cardIds ?? EMPTY_SET;
   const openedInApp = useRef(false);
+  const [allTopics, setAllTopics] = useState(false);
+  const topicRow = useRef<HTMLDivElement>(null);
 
   const words = useMemo(() => (index && level ? (index.wordsByLevel[level] ?? []) : []), [index, level]);
   const groups = useMemo(() => groupByTopic(words, learned), [words, learned]);
+
+  const ready = content.status === "ready";
+  useEffect(() => {
+    // On phones the topics scroll sideways: bring the selected one into view.
+    const row = topicRow.current;
+    const chip = row?.querySelector<HTMLElement>('[aria-pressed="true"]');
+    if (row && chip && row.scrollWidth > row.clientWidth) row.scrollLeft = chip.offsetLeft - row.offsetLeft - 16;
+  }, [topic, level, ready]);
 
   if (!level || content.status === "loading") return <ListSkeleton rows={6} />;
   if (content.status === "error") return <ContentError onRetry={content.retry} />;
@@ -87,6 +101,9 @@ export function VocabularyBrowser() {
   const activeGroup = topic === ALL_TOPICS ? null : groups.find((group) => group.slug === topic);
   const shown = topic === ALL_TOPICS ? words : (activeGroup?.words ?? []);
   const learnedCount = groups.reduce((sum, group) => sum + group.learned, 0);
+  // Collapsing only applies from md up; phones scroll one row of every topic.
+  const collapsed = (group: TopicGroup, i: number) => !allTopics && i >= TOPICS_SHOWN && group.slug !== activeGroup?.slug;
+  const hiddenTopics = groups.filter(collapsed).length;
 
   const lookup: WordLookup = wordId
     ? lookupWord(wordId, [index, fallback.status === "ready" ? fallback.index : null], needsAllLevels && fallback.status === "loading")
@@ -94,6 +111,7 @@ export function VocabularyBrowser() {
 
   function handleLevelChange(next: Level) {
     updateSearchParams({ level: next, topic: null });
+    setAllTopics(false);
   }
 
   function handleTopicChange(values: unknown[]) {
@@ -121,8 +139,12 @@ export function VocabularyBrowser() {
 
   return (
     <div className="grid gap-5 px-4 md:px-8">
-      <WordSearchBox onSelect={handleSearchSelect} />
-      <LevelTabs value={level} onChange={handleLevelChange} />
+      <div className="grid gap-3 md:flex md:items-center md:justify-between">
+        <div className="md:w-full md:max-w-md">
+          <WordSearchBox onSelect={handleSearchSelect} />
+        </div>
+        <LevelTabs value={level} onChange={handleLevelChange} />
+      </div>
 
       {words.length === 0 ? (
         <EmptyState icon={BookOpen} title={`Chưa có từ vựng trình độ ${level}`}>
@@ -130,23 +152,41 @@ export function VocabularyBrowser() {
         </EmptyState>
       ) : (
         <>
-          <section aria-label="Chủ đề" className="grid gap-2">
-            <p className="text-sm text-muted-foreground">
-              Bạn đã học <span className="font-medium text-foreground tabular-nums">{learnedCount}/{words.length}</span> từ trình độ {level}.
-            </p>
-            <div className="-mx-4 overflow-x-auto px-4 pb-1 md:mx-0 md:overflow-visible md:px-0">
+          <section aria-label="Chủ đề" className="grid gap-4 rounded-2xl border bg-card p-4 md:p-5">
+            <div className="grid gap-2">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h2 className="font-semibold">{LEVEL_LABELS[level]}</h2>
+                <p className="text-sm text-muted-foreground">
+                  Bạn đã học <span className="font-semibold text-foreground tabular-nums">{learnedCount}/{words.length}</span> từ
+                </p>
+              </div>
+              <Progress value={words.length ? (learnedCount / words.length) * 100 : 0} aria-label={`Đã học ${learnedCount}/${words.length} từ trình độ ${level}`} className="**:data-[slot=progress-track]:h-2" />
+            </div>
+            <div ref={topicRow} className="-mx-4 flex items-center gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0 md:pb-0">
               <ToggleGroup
                 aria-label="Lọc theo chủ đề"
                 value={[activeGroup ? activeGroup.slug : ALL_TOPICS]}
                 onValueChange={handleTopicChange}
-                variant="outline"
-                className="flex-nowrap md:flex-wrap"
+                className="contents"
               >
                 <TopicChip value={ALL_TOPICS} title="Tất cả" learned={learnedCount} total={words.length} />
-                {groups.map((group) => (
-                  <TopicChip key={group.slug} value={group.slug} title={topicTitle(group.slug)} learned={group.learned} total={group.words.length} />
+                {groups.map((group, i) => (
+                  <TopicChip
+                    key={group.slug}
+                    value={group.slug}
+                    title={topicTitle(group.slug)}
+                    learned={group.learned}
+                    total={group.words.length}
+                    className={collapsed(group, i) ? "md:hidden" : undefined}
+                  />
                 ))}
               </ToggleGroup>
+              {groups.length > TOPICS_SHOWN ? (
+                <Button variant="ghost" className="hidden h-11 rounded-full px-4 text-primary md:inline-flex" onClick={() => setAllTopics((value) => !value)} aria-expanded={allTopics}>
+                  {allTopics ? "Thu gọn" : `Xem thêm ${hiddenTopics} chủ đề`}
+                  <ChevronDown className={cn("transition-transform", allTopics && "rotate-180")} aria-hidden />
+                </Button>
+              ) : null}
             </div>
           </section>
 
@@ -173,11 +213,29 @@ export function VocabularyBrowser() {
   );
 }
 
-function TopicChip({ value, title, learned, total }: { value: string; title: string; learned: number; total: number }) {
+/**
+ * A topic filter pill. Its background fills from the left as the topic is
+ * learned, and a finished topic shows a check, so progress isn't colour only.
+ */
+function TopicChip({ value, title, learned, total, className }: { value: string; title: string; learned: number; total: number; className?: string }) {
+  const done = total > 0 && learned === total;
+  const percent = total ? Math.round((learned / total) * 100) : 0;
   return (
-    <ToggleGroupItem value={value} className="h-11 gap-2 px-3 data-pressed:border-primary data-pressed:bg-primary/10" aria-label={`${title}: đã học ${learned}/${total}`}>
+    <ToggleGroupItem
+      value={value}
+      aria-label={`${title}: đã học ${learned}/${total}`}
+      style={{ "--learned": `${percent}%` } as CSSProperties}
+      className={cn(
+        "h-11 gap-2 rounded-full border border-transparent px-4 font-normal",
+        "bg-[linear-gradient(to_right,color-mix(in_oklch,var(--primary)_16%,transparent)_var(--learned),color-mix(in_oklch,var(--muted)_70%,transparent)_var(--learned))]",
+        "hover:border-border",
+        "aria-pressed:bg-primary aria-pressed:bg-none aria-pressed:text-primary-foreground aria-pressed:hover:bg-primary/90 aria-pressed:hover:text-primary-foreground",
+        className,
+      )}
+    >
+      {done ? <Check className="size-4" aria-hidden /> : null}
       <span>{title}</span>
-      <span className="text-xs text-muted-foreground tabular-nums">
+      <span className="rounded-full bg-background/60 px-1.5 py-0.5 text-xs tabular-nums text-muted-foreground in-aria-pressed:bg-primary-foreground/20 in-aria-pressed:text-primary-foreground">
         {learned}/{total}
       </span>
     </ToggleGroupItem>

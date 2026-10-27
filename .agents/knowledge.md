@@ -135,6 +135,8 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - `ts-fsrs` is pinned to exactly 5.4.2 and only imported by `src/learning/srs.ts`; the 6.0 beta renames the API and the GitHub README already documents 6.0 <!-- feature:001 date:2026-10-26 -->
 - Everything stays free (no card, no paid APIs). Course content is written in Claude Code sessions and turned into source items with `pnpm content:draft import <file…> [--check]` (drafts in gitignored `content/.drafts/manual/`, same shapes as the Batches route, which is kept but unused). Audio comes from the local `kokoro` provider (Kokoro-82M via kokoro-js, MP3 via lamejs) <!-- feature:001 date:2026-10-27 -->
 - Words left out of the course on purpose (slurs) are listed with a reason in `content/excluded-words.json`; `content:import` skips them, so they never reach drafting. Add to that file rather than deleting rows from the generated word lists <!-- feature:001 date:2026-10-27 -->
+- Every page asks for the learner's name (`displayName` on the profile) until one is saved, in a dialog that can't be dismissed; it travels in backups and sync (last change wins) and never in stats. The welcome dialog waits for it. E2E helpers answer it in `enterName`, which `skipPlacement` calls <!-- feature:003 date:2026-10-27 -->
+- Light/dark mode is next-themes (`theme` in localStorage); the main colour is `data-accent` on `<html>` (`learn-english:accent` in localStorage), set before first paint by `ACCENT_SCRIPT` in the root layout's `<head>`, and mapped to `--primary`, `--link`, `--ring`, `--selection`, `--sidebar-primary`/`-ring` and `--sidebar-accent`/`-foreground` (active and hover menu item) in `globals.css`; a new tinted token needs a value per accent too. Both are device preferences, not in backups or sync. Any new accent must keep 4.5:1 for primary buttons in both modes <!-- feature:004 date:2026-10-27 -->
 
 ## Gotchas
 
@@ -367,6 +369,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 
 - A page that sets `openGraph` or `twitter` metadata replaces the root segment's `opengraph-image`/`twitter-image` files as well as the layout's fields, so pages lost `og:image` until `pageMetadata` (`src/lib/site.ts`) named the image routes explicitly. Routes are English since quick 002; the old Vietnamese paths and query keys (`bai`, `tu`, `loai`) 308-redirect in `next.config.ts`, and those redirects keep the old key next to the new one because Next passes the query string through <!-- quick:002 date:2026-10-27 -->
 - shadcn's `combobox` (base-nova registry) generated `import { cn } from "cn"` in `combobox.tsx` and `input-group.tsx`; it must be `@/lib/utils`. In tests, the Base UI combobox opens only for typed input, so fire `fireEvent.input(box, { target: { value }, inputType: "insertText" })`: `fireEvent.change` updates the value but never opens the list <!-- feature:002 date:2026-10-27 -->
+- shadcn `SelectContent` (Base UI) defaults to `alignItemWithTrigger`, which opens the list over its box; pass `alignItemWithTrigger={false} className="p-1"`. Size a `SelectTrigger` with `data-[size=default]:h-11`, since a plain `h-11` loses to the generated `data-[size=default]:h-8` <!-- quick:006 date:2026-10-27 -->
 
 ## Codebase Feedback
 

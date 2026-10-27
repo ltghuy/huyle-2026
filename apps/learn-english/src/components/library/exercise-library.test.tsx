@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { grammar, sentence, word } from "@/learning/exercises/fixtures";
 import { buildContentIndex } from "@/lib/session/content-index";
 import { getAllAttempts } from "@/storage/attempts";
@@ -54,6 +54,8 @@ describe("ExerciseLibrary", () => {
     await resetStorage();
   });
 
+  afterEach(() => vi.restoreAllMocks());
+
   it("narrows the list with the topic and type filters (AC-026)", async () => {
     visit("?level=A1");
     expect(await screen.findByRole("region", { name: "Từ vựng" })).toBeInTheDocument();
@@ -99,5 +101,29 @@ describe("ExerciseLibrary", () => {
   it("opens a shared set link on its own level", async () => {
     visit("?id=grammar-gap.to-be");
     expect(await screen.findByRole("region", { name: "Điền vào chỗ trống: The verb to be" })).toBeInTheDocument();
+  });
+
+  it("starts each open of a set on a random round, so the order changes", async () => {
+    const set = listSetCards(index, "A1").find((card) => card.key === "word.home")!.sets.find((entry) => entry.type === "mcq")!;
+    const shownFor = (round: number) => {
+      const [step] = buildSetSteps(set, index, round);
+      return step.type === "exercise" && step.instance.kind === "mcq" ? [step.instance.prompt, ...step.instance.options.map((option) => option.text)] : [];
+    };
+    const roundOf = (random: number) => 1 + Math.floor(random * 2 ** 20);
+    const fixed = JSON.stringify(shownFor(0));
+    const randoms = Array.from({ length: 50 }, (_, i) => i / 50).filter((random) => JSON.stringify(shownFor(roundOf(random))) !== fixed);
+    const picked = randoms.filter((random) => JSON.stringify(shownFor(roundOf(random))) !== JSON.stringify(shownFor(roundOf(randoms[0])))).slice(0, 1);
+    expect(picked).toHaveLength(1);
+
+    for (const random of [randoms[0], picked[0]]) {
+      vi.spyOn(Math, "random").mockReturnValue(random);
+      visit(`?id=${set.id}`);
+      const run = await screen.findByRole("region", { name: /^Trắc nghiệm nghĩa/ });
+      const [prompt, ...options] = shownFor(roundOf(random));
+      expect(within(run).getByText(prompt)).toBeInTheDocument();
+      expect(within(run).getAllByRole("radio").map((radio) => radio.textContent)).toEqual(options.map((text, i) => `${i + 1}${text}`));
+      cleanup();
+      vi.restoreAllMocks();
+    }
   });
 });

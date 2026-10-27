@@ -74,7 +74,8 @@ export function AppTour() {
 
   const ready = profile.status === "ready" ? profile.data : null;
   const replay = searchParams.get("tour") === "1";
-  const firstVisit = Boolean(ready && !ready.tourSeen && ready.placement !== "pending");
+  // After the name prompt (feature 003), so the two dialogs never stack.
+  const firstVisit = Boolean(ready?.displayName && !ready.tourSeen && ready.placement !== "pending");
   const welcomeOpen = phase === "idle" && pathname === "/" && firstVisit && !replay;
 
   useEffect(() => {
@@ -144,7 +145,7 @@ export function AppTour() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <Compass className="size-10 text-primary" aria-hidden />
-            <AlertDialogTitle>Chào mừng bạn đến với English with Evan!</AlertDialogTitle>
+            <AlertDialogTitle>Chào mừng {ready?.displayName ?? "bạn"} đến với English with Evan!</AlertDialogTitle>
             <AlertDialogDescription>
               Mỗi ngày bạn có một bài học ngắn gồm ôn tập, từ mới, ngữ pháp và luyện câu. Ứng dụng nhắc bạn ôn lại đúng lúc sắp quên, gom
               những từ khó để luyện riêng, và cộng điểm chuyên cần mỗi ngày bạn học. Mình đi một vòng xem các phần chính nhé?

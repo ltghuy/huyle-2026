@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { playAnswerSound } from "@/lib/answer-sound";
 import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
 import { StudyCard, type StudyItem } from "./study-card";
@@ -88,6 +89,7 @@ export function ExerciseRunner({
     if (step.type !== "exercise" || !instance || answer === null || result) return;
     const entry = entryFor(instance);
     const graded = entry.grade(instance, answer);
+    playAnswerSound(graded.correct);
     setResult(graded);
     setScore((current) => ({ correct: current.correct + (graded.correct ? 1 : 0), total: current.total + 1 }));
     await onOutcome(step, {
@@ -165,7 +167,7 @@ export function ExerciseRunner({
 
         <div className="sticky bottom-0 border-t bg-background/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur">
           <div className="mx-auto grid w-full max-w-xl gap-3">
-            {result ? <FeedbackPanel result={result} relatedLink={step.type === "exercise" ? step.related?.link : undefined} /> : null}
+            {result ? <FeedbackPanel key={step.key} result={result} relatedLink={step.type === "exercise" ? step.related?.link : undefined} /> : null}
             {finished ? (
               <Button type="button" size="lg" className="h-12 w-full text-base" disabled>
                 Đang lưu…

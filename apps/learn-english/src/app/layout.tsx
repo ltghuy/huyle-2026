@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { InlineScript } from "@/components/inline-script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ACCENT_SCRIPT } from "@/lib/appearance";
 import { AUTHOR, OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_IMAGE } from "@/lib/site";
 
 import "./globals.css";
@@ -43,6 +45,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     // next-themes sets the class before first paint, so the server markup differs on purpose.
     <html lang="vi" className={`${beVietnamPro.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Sets the main colour picked in Settings before the first paint (feature 004). */}
+        <InlineScript html={ACCENT_SCRIPT} />
+      </head>
       <body className="min-h-full bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <TooltipProvider>{children}</TooltipProvider>

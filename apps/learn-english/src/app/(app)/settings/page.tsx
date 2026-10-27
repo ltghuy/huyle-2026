@@ -4,24 +4,36 @@ import Link from "next/link";
 import { ClipboardCheck, Compass } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AppearanceSetting } from "@/components/settings/appearance-setting";
 import { BackupPanel } from "@/components/settings/backup-panel";
 import { BackupReminder } from "@/components/settings/backup-reminder";
 import { LevelSetting } from "@/components/settings/level-setting";
+import { NameSetting } from "@/components/settings/name-setting";
+import { SoundToggle } from "@/components/settings/sound-toggle";
 import { StatsToggle } from "@/components/settings/stats-toggle";
 import { SyncPanel } from "@/components/settings/sync-panel";
 import { PageHeader } from "@/components/shell/page-header";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/settings", description: "Trình độ, sao lưu, đồng bộ và hướng dẫn.", index: false });
+export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/settings", description: "Tên, trình độ, giao diện, âm thanh, sao lưu, đồng bộ và hướng dẫn.", index: false });
 
 const LINK_BUTTON = cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4");
 
 export default function SettingsPage() {
   return (
     <>
-      <PageHeader title="Cài đặt" description="Trình độ, sao lưu, đồng bộ và hướng dẫn." />
+      <PageHeader title="Cài đặt" description="Tên, trình độ, giao diện, âm thanh, sao lưu, đồng bộ và hướng dẫn." />
       <div className="mx-auto grid w-full max-w-3xl gap-4 px-4 md:mx-0 md:px-8">
         <BackupReminder />
+        <Card>
+          <CardHeader>
+            <CardTitle>Tên của bạn</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <NameSetting />
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Trình độ</CardTitle>
@@ -36,6 +48,24 @@ export default function SettingsPage() {
                 </Link>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Giao diện</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <AppearanceSetting />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Âm thanh</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <SoundToggle />
           </CardContent>
         </Card>
 

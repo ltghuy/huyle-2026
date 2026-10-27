@@ -24,6 +24,8 @@ export interface McqInstance {
   answerIndex: number;
   /** The target's meanings, for the explanation shown after answering. */
   explanationVi: string[];
+  /** The target word's clip, played once after a right answer; empty if none. */
+  audio: string;
 }
 
 export interface McqInput {
@@ -88,6 +90,7 @@ export function buildMcq(input: McqInput, seed: number): McqInstance | null {
     options: shuffled,
     answerIndex: shuffled.indexOf(correct),
     explanationVi: [...target.body.meaningsVi],
+    audio: target.body.audio,
   };
 }
 

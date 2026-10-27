@@ -13,6 +13,8 @@ export interface RecallInstance {
   pos: string;
   headword: string;
   variants: string[];
+  /** The word's clip, played once after a right answer; empty if none. */
+  audio: string;
 }
 
 export function buildRecall(input: { target: WordItem }): RecallInstance {
@@ -24,6 +26,7 @@ export function buildRecall(input: { target: WordItem }): RecallInstance {
     pos: target.body.pos,
     headword: target.body.headword,
     variants: [...target.body.variants],
+    audio: target.body.audio,
   };
 }
 

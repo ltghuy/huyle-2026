@@ -1,9 +1,19 @@
 import { expect, type Page } from "@playwright/test";
 
-/** Fresh browser: skip the placement test and land on the home page. */
+/** Answers the first-visit name prompt (feature 003), which shows on every page until a name is saved. */
+export async function enterName(page: Page, name = "Minh Anh") {
+  const dialog = page.getByRole("dialog", { name: "Bạn tên là gì?" });
+  await dialog.waitFor({ timeout: 10_000 });
+  await dialog.getByLabel("Tên của bạn").fill(name);
+  await dialog.getByRole("button", { name: "Bắt đầu" }).click();
+  await expect(dialog).toBeHidden();
+}
+
+/** Fresh browser: give a name, skip the placement test and land on the home page. */
 export async function skipPlacement(page: Page) {
   await page.goto("/");
   await page.waitForURL("**/placement");
+  await enterName(page);
   await page.getByRole("button", { name: "Bỏ qua, học từ trình độ A1" }).click();
   await page.waitForURL((url) => url.pathname === "/");
 }

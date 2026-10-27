@@ -109,7 +109,7 @@ export function ExerciseLibrary() {
             <SelectTrigger aria-label="Lọc theo chủ đề" className="w-full data-[size=default]:h-11 sm:w-56">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent alignItemWithTrigger={false} className="p-1">
               {topicItems.map((item) => (
                 <SelectItem key={item.value} value={item.value} className="min-h-10">
                   {item.label}
@@ -121,7 +121,7 @@ export function ExerciseLibrary() {
             <SelectTrigger aria-label="Lọc theo dạng bài" className="w-full data-[size=default]:h-11 sm:w-56">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent alignItemWithTrigger={false} className="p-1">
               {TYPE_ITEMS.map((item) => (
                 <SelectItem key={item.value} value={item.value} className="min-h-10">
                   {item.label}
@@ -163,7 +163,7 @@ export function ExerciseLibrary() {
         })
       )}
 
-      {active && index ? <ExerciseRun key={active.set.id} title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
+      {active && index ? <ExerciseRun key={active.set.id} shuffled title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
     </div>
   );
 }
