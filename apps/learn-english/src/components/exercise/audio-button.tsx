@@ -6,15 +6,24 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const AUDIO_BASE_URL = process.env.NEXT_PUBLIC_AUDIO_BASE_URL ?? "https://audio.english.huyle.work";
+// Clips are static files on two audio-only Workers (free plan: 20,000 files
+// each), one for words and one for sentences.
+const AUDIO_BASE_URLS = {
+  word: process.env.NEXT_PUBLIC_AUDIO_WORDS_URL ?? "https://audio-words.huyle.work",
+  sentence: process.env.NEXT_PUBLIC_AUDIO_SENTENCES_URL ?? "https://audio-sentences.huyle.work",
+} as const;
 
-export function audioUrl(key: string): string {
-  return `${AUDIO_BASE_URL}/${key}.mp3`;
+export type AudioSource = keyof typeof AUDIO_BASE_URLS;
+
+export function audioUrl(source: AudioSource, key: string): string {
+  return `${AUDIO_BASE_URLS[source]}/${key}.mp3`;
 }
 
 interface AudioButtonProps {
   /** Content hash of the clip; empty when audio hasn't been generated yet. */
   audioKey: string;
+  /** Which audio host holds the clip. */
+  source: AudioSource;
   /** What is being read, for the accessible name ("Nghe: homework"). */
   label: string;
   size?: "default" | "lg";
@@ -24,13 +33,13 @@ interface AudioButtonProps {
 }
 
 /** Plays one clip in the app's single voice. */
-export function AudioButton({ audioKey, label, size = "default", className, onError }: AudioButtonProps) {
+export function AudioButton({ audioKey, source, label, size = "default", className, onError }: AudioButtonProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function handlePlay() {
     if (!audioKey) return;
-    audioRef.current ??= new Audio(audioUrl(audioKey));
+    audioRef.current ??= new Audio(audioUrl(source, audioKey));
     const audio = audioRef.current;
     audio.currentTime = 0;
     setLoading(true);

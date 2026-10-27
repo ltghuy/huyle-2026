@@ -29,7 +29,7 @@ function CorrectSentence({ en, vi, audio }: { en: string; vi: string; audio: str
         </p>
         <p className="mt-1 text-muted-foreground">{vi}</p>
       </div>
-      <AudioButton audioKey={audio} label={en} />
+      <AudioButton source="sentence" audioKey={audio} label={en} />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export function StudyCard({ item, examples }: { item: StudyItem; examples: Conte
               <span className="ipa">{body.ipa}</span> · <span lang="en">{body.pos}</span>
             </p>
           </div>
-          <AudioButton audioKey={body.audio} label={body.headword} size="lg" />
+          <AudioButton source="word" audioKey={body.audio} label={body.headword} size="lg" />
         </div>
         <ul className="grid gap-1 text-xl">
           {body.meaningsVi.map((meaning) => (
@@ -36,7 +36,7 @@ export function StudyCard({ item, examples }: { item: StudyItem; examples: Conte
               </p>
               <p className="mt-1 text-muted-foreground">{example.body.vi}</p>
             </div>
-            <AudioButton audioKey={example.body.audio} label={example.body.en} />
+            <AudioButton source="sentence" audioKey={example.body.audio} label={example.body.en} />
           </div>
         ))}
       </article>
@@ -69,7 +69,7 @@ export function StudyCard({ item, examples }: { item: StudyItem; examples: Conte
             </p>
             <p className="text-muted-foreground">{example.body.vi}</p>
           </div>
-          <AudioButton audioKey={example.body.audio} label={example.body.en} />
+          <AudioButton source="sentence" audioKey={example.body.audio} label={example.body.en} />
         </div>
       ))}
     </article>

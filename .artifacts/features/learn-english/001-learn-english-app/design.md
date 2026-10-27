@@ -22,7 +22,7 @@ an admin UI or stats dashboard, and C2 words.
 
 **Shape:** static app shells (prerendered, no content baked in) plus client-side state in IndexedDB.
 A handful of short API routes run on the Worker against one D1 database (content, sync, stats),
-and audio is served as static MP3 from R2. Everything stays within the Workers **free** plan:
+and audio is served as static MP3 files from two audio-only Workers (no script, no card needed). Everything stays within the Workers **free** plan:
 
 - shells are served from static assets, so they use no Worker CPU
 - each API call is 1 D1 round trip (a `db.batch()` counts as one query), and waiting on I/O doesn't count toward the 10 ms CPU limit
@@ -37,7 +37,7 @@ and audio is served as static MP3 from R2. Everything stays within the Workers *
   No interactive transactions (`db.transaction()` fails); use `db.batch()` or a single conditional statement.
 - Free plan: 10 ms CPU, 50 D1 queries per invocation (a batch counts as 1), 100k D1 writes and 5M reads per day.
   The Rate Limiting binding has only 10 s or 60 s windows and is approximate.
-- R2 behind a public custom domain, content-addressed keys, `immutable` cache header, a Cache Rule for `.mp3`, r2.dev off.
+- (Superseded 2026-10-27: R2 needs a payment method on file to enable, so audio moved to static-asset Workers; see Decisions.)
 - OpenNext inlines `.env*` into the bundle at build; secrets go through `wrangler secret put`. No cron in v1.
 
 > From `.artifacts/research/learn-english-tts-and-word-data.md`
@@ -276,7 +276,7 @@ Greenfield: every field is new.
 | Stats: client counts locally, sends one `sendBeacon` per day (or on hide) with ≤ 20 wrong-word keys; server does one `db.batch()` of upserts; device hashed with day + salt | AC-056/057 within free writes; no personal data, no IPs stored |
 | Stats report = `scripts/stats-report.ts --from --to` using `wrangler d1 execute --remote --json` | AC-058 without an admin UI |
 | TTS: Google Chirp 3 HD en-US male, local script only; voice picked by ear | Free tier covers the batch; credentials stay local. Fallback: Workers AI Aura-2 `orpheus` |
-| Audio on R2 `audio.english.huyle.work`, key `sha256(voice + "|" + text)` | Immutable caching; new voice later = new keys |
+| **Audio as static files on two audio-only Workers** (`audio-words.huyle.work`, `audio-sentences.huyle.work`, configs in `apps/learn-english/audio/`), file `<sha256(voice + "|" + text)>.mp3`, `_headers` with a one-year immutable `Cache-Control` (revised 2026-10-27, was R2) | Owner wants no card and no payment: R2 requires a payment method to enable. Static-asset requests are free and unlimited, storage costs nothing; the free plan allows 20,000 files per Worker, so words (~8.8k) and sentences (~15.3k) get one Worker each. Clips are deployed from the local cache, not committed |
 | Drizzle schema for the D1 tables; migrations in `apps/learn-english/migrations/` | Research recommendation; typed queries in services |
 | Tour: `@diceui/tour` with `data-tour` targets; opens the mobile sidebar sheet or centers the step | Fits base-nova; covers hidden-target edge case |
 | Missing letters: hide ~30% of letters (min 1; exactly 1 for ≤ 3 letters), never the first letter of longer words, never spaces/hyphens/apostrophes; seeded | Spec edge cases |
@@ -289,13 +289,13 @@ Greenfield: every field is new.
 | Component | File | Action | Responsibility |
 |-----------|------|--------|----------------|
 | App scaffold | `apps/learn-english/{package.json,next.config.ts,open-next.config.ts,wrangler.jsonc,drizzle.config.ts,tsconfig.json,eslint.config.mjs,postcss.config.mjs,components.json,vitest.config.mts,playwright.config.ts,AGENTS.md,CLAUDE.md}` | new | Per-app layout like the handbook; dev port 3002; bindings `DB` (D1 `learn-english`), `SYNC_LOOKUP_LIMITER` (rate limit); route `english.huyle.work` |
-| Repo wiring | `package.json`, `turbo.json`, `CLAUDE.md`, `.claude/rules/learn-english/*.md` | modify/new | `cf:english:*` scripts; `NEXT_PUBLIC_AUDIO_BASE_URL` in turbo `build.env`; docs; app-scoped rules (`paths:` only) |
+| Repo wiring | `package.json`, `turbo.json`, `CLAUDE.md`, `.claude/rules/learn-english/*.md` | modify/new | `cf:english:*` scripts; `NEXT_PUBLIC_AUDIO_WORDS_URL` / `NEXT_PUBLIC_AUDIO_SENTENCES_URL` in turbo `build.env`; docs; app-scoped rules (`paths:` only) |
 | DB schema + migrations | `src/server/db/schema.ts`, `src/server/db/index.ts`, `migrations/*/migration.sql` | new | Drizzle tables `content_items`, `content_meta`, `sync_profiles`, `stats_daily`, `stats_devices`; per-request `getDb()` |
 | Word import | `scripts/import-wordlists.ts` | new | CEFR-J 1.5 + Octanove C1 CSV → dedupe → `content/word/*.json` skeletons with `source` |
 | IPA builder | `scripts/build-ipa.ts`, `scripts/lib/arpabet.ts` | new | CMUdict join, ARPAbet→IPA, stress placement; lists words without an entry |
 | Content drafting (dev only) | `scripts/draft-content.ts` | new | Batches API + structured outputs: meanings, topic, synonyms, example sentences (tokens, accepted orders, wrong variants, gap candidates), grammar topics, writing tasks, placement items → `status: "draft"` |
 | Review helper | `scripts/review.ts` | new | Lists drafts, approves by file/id, schema validation |
-| Audio generator | `scripts/generate-audio.ts` | new | Chirp 3 HD → MP3 → R2 (immutable header) for approved text missing audio; writes keys back |
+| Audio generator | `scripts/generate-audio.ts`, `audio/{words,sentences}.wrangler.jsonc` | new | Google Chirp 3 HD or Workers AI Aura-2 → MP3 cache → keys written back; `deploy` assembles the two static folders and deploys the audio Workers |
 | Publisher | `scripts/publish-content.ts` | new | Validate, audio, chunked SQL upserts and tombstones, bump version; `--local` / `--remote` |
 | Stats report | `scripts/stats-report.ts` | new | Query D1, print a table for a date range |
 | Content schema | `src/content/schema.ts` | new | Zod per kind (shared by scripts, API, client) |
@@ -317,7 +317,7 @@ Greenfield: every field is new.
 | Sync client | `src/sync/sync-client.ts` | new | Turn on (POST), link (GET → merge → apply), debounced push, 409 merge-retry, unlink/delete |
 | Stats client | `src/stats/stats-client.ts` | new | Local daily counters, beacon on day change/hide, opt-out |
 | Hooks | `src/hooks/use-*.ts` | new | Today's lesson, due count, profile, hard words, content |
-| Audio button | `src/components/audio-button.tsx` | new | Plays R2 MP3, error toast |
+| Audio button | `src/components/exercise/audio-button.tsx` | new | Plays the clip from the word or sentence audio host, error toast |
 | Exercise UI | `src/components/exercise/*.tsx` (one per kind + `exercise-runner.tsx`) | new | Render, time, report Attempt |
 | Lesson / home | `src/app/page.tsx`, `src/components/lesson/*` | new | Today's lesson, resume, completion + points |
 | Vocabulary | `src/app/tu-vung/page.tsx`, `src/components/word-card.tsx` | new | Level/topic browse, learned markers, word dialog, mark learned |
@@ -422,7 +422,7 @@ clients see the new version within ≤ 5 min at next app open/focus, refetch cha
 | AC-007 POS | word.pos | `src/components/word-card.tsx` | Planned |
 | AC-007 meanings | word.meaningsVi | `src/components/word-card.tsx` | Planned |
 | AC-007 example + VI | sentence via word.examples | `src/components/word-card.tsx` | Planned |
-| AC-008 | Audio button, R2 cache | `src/components/audio-button.tsx` | Planned |
+| AC-008 | Audio button, immutable static clips | `src/components/exercise/audio-button.tsx` | Planned |
 | AC-009 | Mark learned → card | `src/components/word-card.tsx`, `src/storage/cards.ts` | Planned |
 | AC-010 | Rating + SRS | `src/learning/{rating,srs}.ts` | Planned |
 | AC-011 | Review page | `src/app/on-tap/page.tsx` | Planned |
@@ -529,7 +529,7 @@ Keep `@playwright/test` at the workspace version (1.64.1) and one `@types/react`
 - All request bodies are Zod-validated; sync blobs are size-capped and treated as opaque on the server
   (the client validates them with the Snapshot schema before applying). Stats keys are clamped and validated against the id format.
 - Secrets (`STATS_SALT`) via `wrangler secret put`; the drafting key (`ANTHROPIC_API_KEY`) and Google TTS credentials exist only on the owner's machine.
-- R2: public custom domain only, r2.dev disabled.
+- Audio Workers serve only public clips of public content; they have no script and no bindings.
 
 ### Concerns mitigation
 

@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  // Static-files-only Worker serving the app's word audio clips (no script:
+  // requests to static assets are free and unlimited). The folder is assembled
+  // by `pnpm content:audio deploy` from the local clip cache; clips are not in git.
+  "name": "learn-english-audio-words",
+  "compatibility_date": "2025-09-23",
+  "assets": { "directory": "../content/.audio/dist/words" },
+  "routes": [{ "pattern": "audio-words.huyle.work", "custom_domain": true }]
+}

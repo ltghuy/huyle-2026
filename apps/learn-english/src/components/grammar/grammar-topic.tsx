@@ -172,7 +172,7 @@ export function GrammarTopic({ grammar, index, done, onCardsChanged }: GrammarTo
                   </p>
                   <p className="mt-1 text-muted-foreground">{example.body.vi}</p>
                 </div>
-                <AudioButton audioKey={example.body.audio} label={example.body.en} className="size-11" />
+                <AudioButton source="sentence" audioKey={example.body.audio} label={example.body.en} className="size-11" />
               </li>
             ))}
           </ul>

@@ -89,7 +89,7 @@ function WordDetails({ word, examples, learned, onLearned }: { word: Word; examp
               <span lang="en">{body.pos}</span>
             </DialogDescription>
           </div>
-          <AudioButton audioKey={body.audio} label={body.headword} size="lg" />
+          <AudioButton source="word" audioKey={body.audio} label={body.headword} size="lg" />
         </div>
         {learned ? (
           <Badge variant="secondary" className="mt-2">
@@ -122,7 +122,7 @@ function WordDetails({ word, examples, learned, onLearned }: { word: Word; examp
                 </p>
                 <p className="mt-1 text-muted-foreground">{example.body.vi}</p>
               </div>
-              <AudioButton audioKey={example.body.audio} label={example.body.en} className="size-11" />
+              <AudioButton source="sentence" audioKey={example.body.audio} label={example.body.en} className="size-11" />
             </div>
           ))}
         </section>

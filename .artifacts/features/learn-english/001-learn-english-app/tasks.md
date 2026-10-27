@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 43 | Remaining: 7
+Total: 50 | Completed: 44 | Remaining: 6
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -71,8 +71,8 @@ Run after each task or batch (from the repo root):
 - [x] T003 [B:T002] Set up Vitest (happy-dom, `fake-indexeddb`) and Playwright (`@playwright/test` 1.64.1, dedicated port, server = `opennextjs-cloudflare preview` with local D1) with one smoke test each
   - **Done when:** `pnpm --filter learn-english test` and `e2e` pass, and `pnpm test` at the root runs them through turbo -- VERIFIED
 
-- [ ] T004 [B:T003] Create the Cloudflare resources and do the first deploy (owner in the dashboard, guided step by step): D1 `learn-english`, R2 `learn-english-audio` on `audio.english.huyle.work` with r2.dev off and a Cache Rule for `.mp3`, Worker custom domain, Workers Builds project (root `/`, `cf:english:*` commands, watch paths from knowledge.md), `STATS_SALT` secret
-  - **Done when:** https://english.huyle.work shows the placeholder; the build log's `Executing user build command:` line shows `pnpm cf:english:build`; knowledge.md Codebase Feedback is updated with the real IDs
+- [x] T004 [B:T003] Create the Cloudflare resources and do the first deploy (owner in the dashboard, guided step by step): D1 `learn-english`, (revised: no R2; audio Workers are deployed in T013), Worker custom domain, Workers Builds project (root `/`, `cf:english:*` commands, watch paths from knowledge.md), `STATS_SALT` secret
+  - **Done when:** https://english.huyle.work shows the placeholder; the build log's `Executing user build command:` line shows `pnpm cf:english:build`; knowledge.md Codebase Feedback is updated with the real IDs -- VERIFIED (2026-10-27: site live, D1 created, STATS_SALT set; R2 dropped for audio Workers; Workers Builds left optional, deploys by `pnpm cf:english:deploy`)
 
 - [x] T005 [B:T001] Add app-scoped agent rules in `.claude/rules/learn-english/` (architecture/layering, UI with shadcn, Vietnamese copy, spec-driven), each with only `paths:` frontmatter
   - **Done when:** rules load only for `apps/learn-english/**` files (checked against the `paths:` globs) -- VERIFIED
@@ -102,9 +102,9 @@ Run after each task or batch (from the repo root):
 - [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, the first 6 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
   - **Done when:** the owner has approved A1 content and placement items; schema validation is clean
 
-- [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD → MP3 → R2 with an immutable cache header, key `sha256(voice|text)`); generate 4 male voice samples for the owner
-  - **Done when:** the owner has picked the voice; generating the A1 set uploads files that play from `audio.english.huyle.work` with a long-lived `Cache-Control`
-  - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Waiting on: R2 enabled (T004), a provider key, the owner's voice pick
+- [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD or Workers AI Aura-2 → MP3, key `sha256(voice|text)`, deployed as static files on two audio-only Workers with an immutable cache header); generate 4 male voice samples for the owner
+  - **Done when:** the owner has picked the voice; generating and deploying the A1 set serves clips from `audio-words.huyle.work` / `audio-sentences.huyle.work` with a long-lived `Cache-Control`
+  - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Hosting switched from R2 to two static audio Workers (no card); `pnpm content:audio deploy` added and dry-run verified. Waiting on: a provider key, the owner's voice pick
 
 - [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1

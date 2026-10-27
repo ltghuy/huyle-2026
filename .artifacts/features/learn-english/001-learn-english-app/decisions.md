@@ -38,6 +38,13 @@ Decisions on gray areas and ambiguities resolved during discussion.
 - **Rationale:** Device voices vary between devices. Cutting from 4 voices (UK/US × male/female) to 1 removes the settings screen and quarters audio generation and storage (owner's call, 2026-10-26, to reduce complexity).
 - **Caveats:** Small running cost; pre-generate for the word list to keep first-play latency low. Adding voices later means regenerating audio only, not changing lessons.
 
+### Audio hosting
+
+- **Question:** Where do the audio clips live, given the owner wants everything free with no card on file?
+- **Decision (2026-10-27):** Two static-files-only Workers, one for word clips and one for sentence clips, at `audio-words.huyle.work` and `audio-sentences.huyle.work`.
+- **Rationale:** R2 asks for a payment method before it can be enabled, even within its free tier. Requests to Worker static assets are free and unlimited and storing them costs nothing. The free plan caps a Worker at 20,000 files, and ~24k clips are needed, so they are split by kind.
+- **Caveats:** Adding audio means redeploying the audio Workers (`pnpm content:audio deploy`). If either kind passes 20,000 clips, add a third Worker or trim examples.
+
 ### Placement
 
 - **Question:** New app or a section of the handbook?

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { SourceItem } from "../src/content/schema";
-import { applyKeys, audioKey, collectJobs } from "./generate-audio";
+import { applyKeys, audioKey, collectJobs, referencedKeys } from "./generate-audio";
 
 const word = (id: string, status: "draft" | "approved", audio = "") =>
   ({
@@ -34,5 +34,14 @@ describe("applyKeys", () => {
     const [cat, dog] = applyKeys(items, new Map([["word:cat", "a".repeat(64)]]));
     expect(cat).toMatchObject({ status: "approved", body: { audio: "a".repeat(64), headword: "cat" } });
     expect(dog).toBe(items[1]);
+  });
+});
+
+describe("referencedKeys", () => {
+  it("splits approved clips by host and skips drafts and empty keys", () => {
+    const sentence = { ...word("s", "approved", "b".repeat(64)), id: "sentence:s", kind: "sentence", body: { en: "Hi.", vi: "Chào.", audio: "b".repeat(64), tokens: ["Hi", "x"], acceptedOrders: [[0, 1]], wrongVariants: [], gapCandidates: [], wordIds: [] } } as SourceItem;
+    const { words, sentences } = referencedKeys([word("cat", "approved", "a".repeat(64)), word("dog", "draft", "c".repeat(64)), word("fox", "approved"), sentence]);
+    expect([...words]).toEqual(["a".repeat(64)]);
+    expect([...sentences]).toEqual(["b".repeat(64)]);
   });
 });

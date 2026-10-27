@@ -1,28 +1,32 @@
 // Generates the app's audio: one American English male voice for every
-// approved word and example sentence that has no clip yet. Each clip is stored
-// in R2 under `<sha256(voice|text)>.mp3` (immutable, cached for a year) and its
-// key is written back into the content source files. Run on the owner's
-// machine only; the app never synthesises speech.
+// approved word and example sentence that has no clip yet. Clips are named
+// `<sha256(voice|text)>.mp3`, cached in content/.audio/<voice>/ (not in git),
+// and their keys are written back into the content source files. `deploy`
+// then serves them as static files from two audio-only Workers (words and
+// sentences; free plan: 20,000 files each, unlimited free requests). Run on
+// the owner's machine only; the app never synthesises speech.
 //
-//   pnpm content:audio samples --provider google|aura      (a few clips per candidate voice, local only)
-//   pnpm content:audio generate --provider google --voice en-US-Chirp3-HD-Charon [--level A1] [--no-upload] [--limit N]
+//   pnpm content:audio samples --provider google|aura      (a few clips per candidate voice)
+//   pnpm content:audio generate --provider google --voice en-US-Chirp3-HD-Charon [--level A1] [--limit N]
+//   pnpm content:audio deploy                              (after generate, before content:publish)
 //
 // Credentials (shell environment, never committed):
 //   google: GOOGLE_TTS_API_KEY (Cloud Text-to-Speech API enabled on the key's project)
 //   aura:   CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (Workers AI permission)
-// Uploading uses `wrangler r2 object put --remote` with the logged-in wrangler.
+// Deploying uses the logged-in wrangler.
 import { execFile } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs, promisify } from "node:util";
 import type { SourceItem } from "../src/content/schema";
 import { LEVELS, type Level } from "../src/learning/types";
 
 const run = promisify(execFile);
-const BUCKET = "learn-english-audio";
-const CACHE_CONTROL = "public, max-age=31536000, immutable";
+const FREE_PLAN_FILE_LIMIT = 20_000;
+// Clip names are content hashes, so a clip never changes: cache for a year.
+const HEADERS_FILE = "/*\n  Cache-Control: public, max-age=31536000, immutable\n";
 
 export interface Provider {
   name: "google" | "aura";
@@ -138,7 +142,7 @@ async function samples(provider: Provider, outDir: string) {
   console.log(`Listen in ${outDir} and pick one voice for "generate".`);
 }
 
-async function generate(provider: Provider, voice: string, options: { level?: Level; upload: boolean; limit?: number }) {
+async function generate(provider: Provider, voice: string, options: { level?: Level; limit?: number }) {
   const root = process.cwd();
   const cacheDir = path.join(root, "content/.audio", voice);
   await mkdir(cacheDir, { recursive: true });
@@ -156,21 +160,61 @@ async function generate(provider: Provider, voice: string, options: { level?: Le
         const local = path.join(cacheDir, `${job.key}.mp3`);
         try {
           if (!existsSync(local)) await writeFile(local, await provider.synthesize(job.text, voice));
-          if (options.upload) {
-            await run("node_modules/.bin/wrangler", ["r2", "object", "put", `${BUCKET}/${job.key}.mp3`, "--file", local, "--content-type", "audio/mpeg", "--cache-control", CACHE_CONTROL, "--remote"]);
-          }
           done.set(job.itemId, job.key);
         } catch (error) {
           console.error(`  ${job.itemId}: ${String(error).slice(0, 200)}`);
         }
       });
-      // Keys are written only for clips that exist (and were uploaded, unless --no-upload).
-      if (options.upload) await writeFile(file, JSON.stringify(applyKeys(items, done), null, 2) + "\n");
-      console.log(`  ${done.size}/${jobs.length} done${options.upload ? ", keys saved" : " (local only, keys not saved)"}`);
+      // Keys are written only for clips that now exist in the cache.
+      await writeFile(file, JSON.stringify(applyKeys(items, done), null, 2) + "\n");
+      console.log(`  ${done.size}/${jobs.length} done, keys saved`);
     }
   }
   const cached = (await readdir(cacheDir)).length;
-  console.log(`Local cache: ${cached} clips in ${path.relative(root, cacheDir)}`);
+  console.log(`Local cache: ${cached} clips in ${path.relative(root, cacheDir)}. Next: pnpm content:audio deploy`);
+}
+
+/** Clip keys the approved content refers to, split by audio host. */
+export function referencedKeys(items: readonly SourceItem[]): { words: Set<string>; sentences: Set<string> } {
+  const words = new Set<string>();
+  const sentences = new Set<string>();
+  for (const item of items) {
+    if (item.status !== "approved") continue;
+    if (item.kind === "word" && item.body.audio) words.add(item.body.audio);
+    if (item.kind === "sentence" && item.body.audio) sentences.add(item.body.audio);
+  }
+  return { words, sentences };
+}
+
+/**
+ * Assembles the two static folders from the clip cache (only clips the content
+ * uses) and deploys the audio Workers. Fails before deploying if a clip is
+ * missing or a folder would pass the free plan's file limit.
+ */
+async function deploy() {
+  const root = process.cwd();
+  const cacheRoot = path.join(root, "content/.audio");
+  const items: SourceItem[] = [];
+  for (const kind of ["word", "sentence"] as const) {
+    for (const level of LEVELS) items.push(...(await readJson<SourceItem[]>(path.join(root, "content", kind, `${level}.json`), [])));
+  }
+  const voices = (await readdir(cacheRoot, { withFileTypes: true })).filter((entry) => entry.isDirectory() && !["dist", "samples"].includes(entry.name));
+  const findClip = (key: string) => voices.map((voice) => path.join(cacheRoot, voice.name, `${key}.mp3`)).find((file) => existsSync(file));
+
+  const { words, sentences } = referencedKeys(items);
+  for (const [name, keys] of [["words", words], ["sentences", sentences]] as const) {
+    if (keys.size + 1 > FREE_PLAN_FILE_LIMIT) throw new Error(`${name}: ${keys.size} clips is over the free plan's ${FREE_PLAN_FILE_LIMIT} files per Worker`);
+    const missing = [...keys].filter((key) => !findClip(key));
+    if (missing.length) throw new Error(`${name}: ${missing.length} clips missing from the cache (run generate first), e.g. ${missing[0]}`);
+    const dir = path.join(cacheRoot, "dist", name);
+    await rm(dir, { recursive: true, force: true });
+    await mkdir(dir, { recursive: true });
+    for (const key of keys) await copyFile(findClip(key)!, path.join(dir, `${key}.mp3`));
+    await writeFile(path.join(dir, "_headers"), HEADERS_FILE);
+    console.log(`${name}: ${keys.size} clips → deploying`);
+    const { stdout } = await run("node_modules/.bin/wrangler", ["deploy", "-c", `audio/${name}.wrangler.jsonc`], { maxBuffer: 64 * 1024 * 1024 });
+    console.log(stdout.split("\n").filter((line) => /Uploaded|Deployed|https?:\/\//.test(line)).join("\n"));
+  }
 }
 
 async function main() {
@@ -181,18 +225,18 @@ async function main() {
       voice: { type: "string" },
       level: { type: "string" },
       limit: { type: "string" },
-      "no-upload": { type: "boolean", default: false },
     },
   });
+  if (positionals[0] === "deploy") return deploy();
   const provider = providerFromEnv(values.provider);
   if (positionals[0] === "samples") return samples(provider, path.join(process.cwd(), "content/.audio/samples"));
   if (positionals[0] === "generate") {
     if (!values.voice) throw new Error("--voice is required");
     const level = values.level as Level | undefined;
     if (level && !LEVELS.includes(level)) throw new Error(`--level must be one of ${LEVELS.join(", ")}`);
-    return generate(provider, values.voice, { level, upload: !values["no-upload"], limit: values.limit ? Number(values.limit) : undefined });
+    return generate(provider, values.voice, { level, limit: values.limit ? Number(values.limit) : undefined });
   }
-  console.log("Usage: content:audio samples --provider google|aura | generate --provider … --voice … [--level A1] [--no-upload] [--limit N]");
+  console.log("Usage: content:audio samples --provider google|aura | generate --provider … --voice … [--level A1] [--limit N] | deploy");
 }
 
 if (process.argv[1]?.endsWith("generate-audio.ts")) void main();

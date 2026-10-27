@@ -47,7 +47,7 @@ export function ListeningChoiceView({ instance, answer, onAnswer, result, onAudi
     <div className="grid gap-6">
       <Instruction>Nghe và chọn từ bạn nghe được</Instruction>
       <div className="flex justify-center">
-        <AudioButton audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
+        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
       </div>
       <OptionList
         label="Các lựa chọn"
@@ -66,7 +66,7 @@ export function ListeningTypingView({ instance, answer, onAnswer, result, onAudi
     <div className="grid gap-6">
       <Instruction>Nghe và gõ lại từ</Instruction>
       <div className="flex justify-center">
-        <AudioButton audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
+        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
       </div>
       <EnglishInput
         aria-label="Từ bạn nghe được"
@@ -155,7 +155,7 @@ export function MissingLettersView({ instance, onAnswer, result, seed }: Exercis
         {instance.meaningsVi.join("; ")}
       </p>
       <div className="flex justify-center">
-        <AudioButton audioKey={instance.audio} label="từ cần điền" />
+        <AudioButton source="word" audioKey={instance.audio} label="từ cần điền" />
       </div>
       <div className="flex flex-wrap justify-center gap-1.5" lang="en" aria-label="Từ cần điền">
         {instance.cells.map((cell, i) => {
