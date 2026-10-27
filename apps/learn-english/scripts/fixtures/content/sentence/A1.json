@@ -1,0 +1,177 @@
+[
+  {
+    "id": "sentence:fx-cat-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I have a cat.",
+      "vi": "Tôi có con mèo.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "have",
+        "a",
+        "cat"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:cat-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-dog-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I have a dog.",
+      "vi": "Tôi có con chó.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "have",
+        "a",
+        "dog"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:dog-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-book-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I have a book.",
+      "vi": "Tôi có quyển sách.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "have",
+        "a",
+        "book"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:book-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-apple-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I have an apple.",
+      "vi": "Tôi có quả táo.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "have",
+        "an",
+        "apple"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:apple-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:g-fx-to-be-1",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "She is happy.",
+      "vi": "Cô ấy vui.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "is",
+        "happy"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She are happy.",
+          "explanationVi": "Chủ ngữ số ít dùng \"is\"."
+        },
+        {
+          "en": "She am happy.",
+          "explanationVi": "\"am\" chỉ đi với \"I\"."
+        },
+        {
+          "en": "She be happy.",
+          "explanationVi": "Cần chia động từ \"to be\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "fx-to-be"
+    }
+  }
+]

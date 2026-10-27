@@ -40,6 +40,8 @@ export const EXERCISE_KINDS = [
   "choose-sentence",
   "tile-translate",
   "writing",
+  // A word or grammar card shown before its check; never produces an attempt.
+  "study",
 ] as const;
 export type ExerciseKind = (typeof EXERCISE_KINDS)[number];
 

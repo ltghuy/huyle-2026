@@ -1,0 +1,119 @@
+[
+  {
+    "id": "word:cat-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "cat",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæt/",
+      "meaningsVi": [
+        "con mèo"
+      ],
+      "examples": [
+        "sentence:fx-cat-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:dog-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 1,
+    "status": "approved",
+    "body": {
+      "headword": "dog",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɔːɡ/",
+      "meaningsVi": [
+        "con chó"
+      ],
+      "examples": [
+        "sentence:fx-dog-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:book-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 2,
+    "status": "approved",
+    "body": {
+      "headword": "book",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/bʊk/",
+      "meaningsVi": [
+        "quyển sách"
+      ],
+      "examples": [
+        "sentence:fx-book-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:apple-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 3,
+    "status": "approved",
+    "body": {
+      "headword": "apple",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈæp.əl/",
+      "meaningsVi": [
+        "quả táo"
+      ],
+      "examples": [
+        "sentence:fx-apple-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fish-n",
+    "kind": "word",
+    "level": "A1",
+    "sort": 9,
+    "status": "draft",
+    "reviewNotes": [
+      "check the meaning"
+    ],
+    "body": {
+      "headword": "fish",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/fɪʃ/",
+      "meaningsVi": [
+        "con cá"
+      ],
+      "examples": [
+        "sentence:fx-cat-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  }
+]

@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 18 | Remaining: 32
+Total: 50 | Completed: 19 | Remaining: 31
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -107,6 +107,7 @@ Run after each task or batch (from the repo root):
 
 - [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1
+  - Progress (2026-10-27): script + tests done and verified end to end on a fixture in local D1; still open: publish real A1 (after T012) and wire audio generation (after T013)
 
 ### Content API and client
 
@@ -139,8 +140,8 @@ Run after each task or batch (from the repo root):
 - [x] T023 [B:T019] Write the sentence exercise generators + graders: `word-order`, `sentence-gap`, `choose-sentence`, `tile-translate`
   - **Done when:** tests pass: every accepted order is accepted; duplicate tokens are interchangeable; tile distractors never form a valid sentence; choose-sentence has exactly one correct option (AC-033, AC-034) -- VERIFIED
 
-- [ ] T024 [B:T017,T022,T023] Write `src/learning/lesson-plan.ts`
-  - **Done when:** tests pass: part order review → new words → grammar (every 2nd day or when due) → sentences → writing; MCQ mixed into parts; review cap 50 by lowest retrievability; 10 new words, or 5 when > 50 are overdue; deterministic per date; tombstoned items skipped; level change applies to the next plan (AC-012, AC-014, AC-022)
+- [x] T024 [B:T017,T022,T023] Write `src/learning/lesson-plan.ts`
+  - **Done when:** tests pass: part order review → new words → grammar (every 2nd day or when due) → sentences → writing; MCQ mixed into parts; review cap 50 by lowest retrievability; 10 new words, or 5 when > 50 are overdue; deterministic per date; tombstoned items skipped; level change applies to the next plan (AC-012, AC-014, AC-022) -- VERIFIED
 
 - [x] T025 [P] Write `src/learning/placement.ts`: staged test (start A2, 5 items per stage, up on ≥ 4/5, down on ≤ 2/5, stop at 30 items or when stable) → level
   - **Done when:** tests cover the item cap, staging up and down, and the estimates for all-correct / all-wrong / mixed answers (AC-019) -- VERIFIED

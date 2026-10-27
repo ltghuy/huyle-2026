@@ -1,0 +1,19 @@
+[
+  {
+    "id": "writing:fx-my-pet",
+    "kind": "writing",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một câu về con vật bạn thích.",
+      "useItems": [
+        "word:cat-n"
+      ],
+      "modelAnswers": [
+        "I like cats."
+      ]
+    }
+  }
+]

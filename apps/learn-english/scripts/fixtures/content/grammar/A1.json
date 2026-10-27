@@ -1,0 +1,57 @@
+[
+  {
+    "id": "grammar:fx-to-be",
+    "kind": "grammar",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "titleEn": "The verb to be",
+      "titleVi": "Động từ to be",
+      "ruleVi": "Dùng am/is/are tùy chủ ngữ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + am/is/are + ..."
+        }
+      ],
+      "usageVi": [
+        "Giới thiệu, mô tả trạng thái."
+      ],
+      "signalWords": [],
+      "mistakes": [],
+      "examples": [
+        "sentence:g-fx-to-be-1"
+      ],
+      "practice": [
+        {
+          "prompt": "I ___ a student.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answer": "am",
+          "explanationVi": "\"I\" đi với \"am\"."
+        },
+        {
+          "prompt": "They ___ at home.",
+          "options": [
+            "am",
+            "is",
+            "are",
+            "be"
+          ],
+          "answer": "are",
+          "explanationVi": "\"They\" đi với \"are\"."
+        },
+        {
+          "prompt": "He ___ tired.",
+          "answer": "is",
+          "explanationVi": "\"He\" đi với \"is\"."
+        }
+      ]
+    }
+  }
+]
