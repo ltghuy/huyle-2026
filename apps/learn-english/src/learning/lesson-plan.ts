@@ -101,6 +101,31 @@ export function pickNewWords(level: Level, cards: readonly StoredCard[], content
   return picked;
 }
 
+/**
+ * One exercise per card to review. Grammar gets gap-fill; words rotate
+ * through the word kinds with `reps`, so an item gets a different kind each
+ * time it comes back (AC-012). Listening needs audio. At least one is
+ * multiple choice when any word is reviewed.
+ */
+export function reviewExercises(
+  reviewed: readonly StoredCard[],
+  wordsById: ReadonlyMap<string, WordItem>,
+  seedOf: (index: number, itemId: string) => number,
+): ExerciseDescriptor[] {
+  const review: ExerciseDescriptor[] = reviewed.map((card, i) => {
+    const descriptor = (kind: ExerciseKind): ExerciseDescriptor => ({ kind, itemIds: [card.itemId], seed: seedOf(i, card.itemId) });
+    if (card.itemId.startsWith("grammar:")) return descriptor("grammar-gap");
+    const word = wordsById.get(card.itemId);
+    const kinds = WORD_REVIEW_KINDS.filter((kind) => kind !== "listening" || (word?.body.audio ?? "") !== "");
+    return descriptor(kinds[(hashString(card.itemId) + card.reps) % kinds.length]);
+  });
+  if (review.length > 0 && !review.some((exercise) => exercise.kind === "mcq")) {
+    const first = review.findIndex((exercise) => exercise.kind !== "grammar-gap");
+    if (first !== -1) review[first] = { ...review[first], kind: "mcq" };
+  }
+  return review;
+}
+
 /** True when the learner's level has fewer new words left than a lesson takes (suggest moving up). */
 export function isLevelExhausted(
   profile: Pick<Profile, "level">,
@@ -131,19 +156,7 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
   // Review: the most-forgotten due items first; the rest roll to later days.
   const due = dueCards(input);
   const reviewed = due.slice(0, REVIEW_CAP);
-  const review: ExerciseDescriptor[] = reviewed.map((card, i) => {
-    if (card.itemId.startsWith("grammar:")) return step("review", i, "grammar-gap", card.itemId);
-    const word = wordsById.get(card.itemId);
-    // Listening needs audio; unknown words get no listening either.
-    const kinds = WORD_REVIEW_KINDS.filter((kind) => kind !== "listening" || (word?.body.audio ?? "") !== "");
-    // Rotating with `reps` gives the item a different kind each time it is reviewed (AC-012).
-    const kind = kinds[(hashString(card.itemId) + card.reps) % kinds.length];
-    return step("review", i, kind, card.itemId);
-  });
-  if (review.length > 0 && !review.some((exercise) => exercise.kind === "mcq")) {
-    const first = review.findIndex((exercise) => exercise.kind !== "grammar-gap");
-    if (first !== -1) review[first] = { ...review[first], kind: "mcq" };
-  }
+  const review = reviewExercises(reviewed, wordsById, (i, itemId) => seedFor("review", i, itemId));
 
   // New words: a study card, then a multiple-choice check, for each.
   const newWords = pickNewWords(profile.level, cards, content, due.length > REVIEW_CAP ? NEW_WORDS_BACKLOG : NEW_WORDS);

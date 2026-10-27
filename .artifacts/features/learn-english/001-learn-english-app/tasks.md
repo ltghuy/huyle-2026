@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 27 | Remaining: 23
+Total: 50 | Completed: 28 | Remaining: 22
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -171,8 +171,8 @@ Run after each task or batch (from the repo root):
 - [x] T032 [B:T028] Build the credits page (CEFR-J citation, Octanove CC BY-SA 4.0 notice, CMUdict notice)
   - **Done when:** the page renders the three attributions with links (AC-045) -- VERIFIED
 
-- [ ] T033 [B:T024,T030] Build the review page: due count, session with varied exercise types, results
-  - **Done when:** e2e: after learning words and moving the clock forward, due items appear and answering reschedules them (AC-011, AC-012)
+- [x] T033 [B:T024,T030] Build the review page: due count, session with varied exercise types, results
+  - **Done when:** e2e: after learning words and moving the clock forward, due items appear and answering reschedules them (AC-011, AC-012) -- VERIFIED
 
 - [ ] T034 [B:T030,T016] Build the exercise library: list by level/topic/grammar with type filters, runner, score feeding the SRS
   - **Done when:** filters narrow the list; finishing an exercise shows a score and records attempts (AC-026, AC-029)

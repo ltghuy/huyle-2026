@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/shell/coming-soon";
 import { PageHeader } from "@/components/shell/page-header";
+import { ReviewOverview } from "@/components/review/review-overview";
 
 export const metadata: Metadata = { title: "Ôn tập" };
 
-export default function OnTapPage() {
+export default function ReviewPage() {
   return (
     <>
       <PageHeader title="Ôn tập" description="Ôn lại đúng lúc bạn sắp quên." />
-      <ComingSoon />
+      <ReviewOverview />
     </>
   );
 }
