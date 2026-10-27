@@ -50,10 +50,20 @@ interface ExerciseRunnerProps {
   onAdvance?: (nextIndex: number) => void;
   onFinish: (score: { correct: number; total: number }) => void;
   onExit: () => void;
+  /** Text of the leave confirmation; the daily lesson mentions resuming. */
+  exitDescription?: string;
 }
 
 /** Focus-mode player for a list of study cards and exercises. */
-export function ExerciseRunner({ steps, startAt = 0, onOutcome, onAdvance, onFinish, onExit }: ExerciseRunnerProps) {
+export function ExerciseRunner({
+  steps,
+  startAt = 0,
+  onOutcome,
+  onAdvance,
+  onFinish,
+  onExit,
+  exitDescription = "Những câu bạn đã trả lời vẫn được lưu và tính vào lịch ôn tập.",
+}: ExerciseRunnerProps) {
   const [index, setIndex] = useState(startAt);
   const [answer, setAnswer] = useState<unknown>(null);
   const [result, setResult] = useState<GradeResult | null>(null);
@@ -168,7 +178,7 @@ export function ExerciseRunner({ steps, startAt = 0, onOutcome, onAdvance, onFin
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Dừng bài ở đây?</AlertDialogTitle>
-            <AlertDialogDescription>Phần đã làm được lưu lại. Bạn có thể học tiếp từ chỗ này bất cứ lúc nào.</AlertDialogDescription>
+            <AlertDialogDescription>{exitDescription}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Học tiếp</AlertDialogCancel>

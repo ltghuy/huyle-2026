@@ -64,7 +64,7 @@ export function TodayLesson() {
   return (
     <div className="grid gap-4 px-4 md:px-8">
       <StreakSummary timeZone={ready.timeZone} />
-      <section className="rounded-xl border bg-card p-5" data-tour="lesson" aria-labelledby="today-title">
+      <section className="rounded-xl border bg-card p-5" data-tour="lesson-card" aria-labelledby="today-title">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h2 id="today-title" className="text-lg font-semibold">

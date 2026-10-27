@@ -76,6 +76,7 @@ export function LessonPlayer() {
       onAdvance={handleAdvance}
       onFinish={handleFinish}
       onExit={() => router.push("/")}
+      exitDescription="Phần đã làm được lưu lại. Bạn có thể học tiếp từ chỗ này bất cứ lúc nào trong hôm nay."
     />
   );
 }

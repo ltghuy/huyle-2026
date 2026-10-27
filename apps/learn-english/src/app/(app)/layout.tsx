@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import { AppSidebar } from "@/components/shell/app-sidebar";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
+import { AppTour } from "@/components/tour/app-tour";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 // Pages with navigation. Focus-mode screens (lessons, review sessions,
@@ -15,6 +17,10 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-8">{children}</main>
       </SidebarInset>
       <MobileNav />
+      {/* Reads ?tour=1, so it needs a Suspense boundary to keep the pages static. */}
+      <Suspense fallback={null}>
+        <AppTour />
+      </Suspense>
     </SidebarProvider>
   );
 }
