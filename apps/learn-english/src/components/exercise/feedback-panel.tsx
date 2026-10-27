@@ -1,0 +1,30 @@
+import { CheckCircle2, CircleAlert, XCircle } from "lucide-react";
+import type { GradeResult } from "@/learning/exercises/types";
+import { cn } from "@/lib/utils";
+
+/** Outcome of a checked answer; never colour alone (icon + words). */
+export function FeedbackPanel({ result }: { result: GradeResult }) {
+  const tone = result.correct ? (result.typo ? "typo" : "correct") : "wrong";
+  const Icon = tone === "correct" ? CheckCircle2 : tone === "typo" ? CircleAlert : XCircle;
+  const title = tone === "correct" ? "Chính xác!" : tone === "typo" ? "Gần đúng, chú ý chính tả" : "Chưa đúng";
+  return (
+    <div
+      role="status"
+      className={cn(
+        "flex gap-3 rounded-xl border-2 p-4 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2",
+        tone === "wrong" ? "border-destructive/40 bg-destructive/10" : "border-success/40 bg-success/10",
+      )}
+    >
+      <Icon className={cn("mt-0.5 size-6 shrink-0", tone === "wrong" ? "text-destructive" : "text-success")} aria-hidden />
+      <div className="grid gap-1">
+        <p className="font-semibold">{title}</p>
+        {tone !== "correct" ? (
+          <p>
+            Đáp án: <span className="font-semibold" lang="en">{result.expected}</span>
+          </p>
+        ) : null}
+        {result.explanationVi ? <p className="text-sm text-muted-foreground">{result.explanationVi}</p> : null}
+      </div>
+    </div>
+  );
+}

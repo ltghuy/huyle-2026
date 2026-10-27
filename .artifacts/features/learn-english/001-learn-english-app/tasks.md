@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 23 | Remaining: 27
+Total: 50 | Completed: 24 | Remaining: 26
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -157,8 +157,8 @@ Run after each task or batch (from the repo root):
 - [x] T028 [B:T001] Build the app shell: layout, sidebar/sheet navigation with `data-tour` targets, Vietnamese route stubs (`/tu-vung`, `/ngu-phap`, `/on-tap`, `/bai-tap`, `/tu-kho`, `/ho-so`, `/cai-dat`, `/kiem-tra-trinh-do`, `/nguon-du-lieu`), storage-unavailable banner, toast provider
   - **Done when:** every route renders statically (build output shows them as static); the banner appears when IndexedDB is blocked; all copy is Vietnamese (AC-001, AC-004) -- VERIFIED
 
-- [ ] T029 [B:T028,T022] Build `AudioButton`, `ExerciseRunner` (timing, attempts, score, swapping listening for recall on audio failure) and the word exercise components (MCQ with explanation, missing-letters on `InputOTP` with the Telex hint, listening, recall, grammar-gap)
-  - **Done when:** component tests pass, and keyboard-only completion works (AC-003, AC-008, AC-027, AC-028, AC-029)
+- [x] T029 [B:T028,T022] Build `AudioButton`, `ExerciseRunner` (timing, attempts, score, swapping listening for recall on audio failure) and the word exercise components (MCQ with explanation, missing-letters on `InputOTP` with the Telex hint, listening, recall, grammar-gap)
+  - **Done when:** component tests pass, and keyboard-only completion works (AC-003, AC-008, AC-027, AC-028, AC-029) -- VERIFIED
 
 - [ ] T030 [B:T029,T023] Build the sentence exercise components (word-order and tile-translate with tap-to-place tiles, sentence-gap, choose-sentence) showing the correct sentence, translation, audio, explanation and related-item link; free-writing self-check
   - **Done when:** component tests pass; a wrong answer links the related word/grammar and makes that card due now (AC-033–AC-036)
