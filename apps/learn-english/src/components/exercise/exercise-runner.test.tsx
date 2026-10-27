@@ -95,3 +95,48 @@ describe("ExerciseRunner", () => {
     expect(onExit).not.toHaveBeenCalled();
   });
 });
+
+describe("sentence exercises", () => {
+  it("accepts a word order built from tiles and shows the translation", async () => {
+    const { buildWordOrder } = await import("@/learning/exercises/word-order");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("s", { tokens: ["I", "like", "tea"], vi: "Tôi thích trà." });
+    const instance = buildWordOrder({ sentence: item }, 3);
+    const { onOutcome } = setup([{ key: "w", type: "exercise", instance, seed: 3 }]);
+    for (const token of ["I", "like", "tea"]) fireEvent.click(screen.getByRole("button", { name: token }));
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ itemId: "sentence:s", exercise: "word-order", result: { correct: true } });
+    expect(screen.getAllByText("Tôi thích trà.").length).toBeGreaterThan(0);
+  });
+
+  it("links the related grammar and reports cards to bring forward after a wrong answer", async () => {
+    const { buildChooseSentence } = await import("@/learning/exercises/choose-sentence");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("c", {
+      tokens: ["She", "goes", "to", "school"],
+      wrongVariants: [
+        { en: "She go to school", explanationVi: "Thiếu -es." },
+        { en: "She going to school", explanationVi: "Thiếu is." },
+        { en: "She goes to the school", explanationVi: "Thừa the." },
+      ],
+    });
+    const instance = buildChooseSentence({ sentence: item }, 1)!;
+    const related = { cardIds: ["grammar:present-simple" as const], link: { href: "/ngu-phap?bai=present-simple", label: "Thì hiện tại đơn" } };
+    const { onOutcome } = setup([{ key: "c", type: "exercise", instance, seed: 1, related }]);
+    fireEvent.click(screen.getAllByRole("radio")[(instance.answerIndex + 1) % 4]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1].related).toEqual(["grammar:present-simple"]);
+    expect(screen.getByRole("link", { name: "Xem lại: Thì hiện tại đơn" })).toHaveAttribute("href", "/ngu-phap?bai=present-simple");
+  });
+
+  it("self-checks free writing against the model answers", async () => {
+    const instance = { kind: "writing" as const, writingId: "writing:a1-1", promptVi: "Viết về gia đình bạn.", modelAnswers: ["I have a small family."] };
+    const { onOutcome } = setup([{ key: "wr", type: "exercise", instance, seed: 1 }]);
+    fireEvent.change(screen.getByRole("textbox", { name: "Bài viết của bạn" }), { target: { value: "My family is small." } });
+    fireEvent.click(screen.getByRole("button", { name: "Xem bài mẫu" }));
+    expect(screen.getByText("I have a small family.")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Mình viết đúng/ }));
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "writing", result: { correct: true } });
+  });
+});

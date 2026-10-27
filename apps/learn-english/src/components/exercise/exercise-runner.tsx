@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { X } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import type { GradeResult } from "@/learning/exercises/types";
-import type { ExerciseKind } from "@/learning/types";
+import type { CardItemId, ExerciseKind } from "@/learning/types";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,8 +21,14 @@ import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
 import { StudyCard, type StudyItem } from "./study-card";
 
+/** Words and grammar an exercise practises: linked after a wrong answer and brought forward in review. */
+export interface RelatedItems {
+  cardIds: CardItemId[];
+  link?: { href: string; label: string };
+}
+
 export type RunnerStep =
-  | { key: string; type: "exercise"; instance: ExerciseInstance; seed: number; fallback?: ExerciseInstance }
+  | { key: string; type: "exercise"; instance: ExerciseInstance; seed: number; fallback?: ExerciseInstance; related?: RelatedItems }
   | { key: string; type: "study"; item: StudyItem; examples: ContentItemOf<"sentence">[] };
 
 export interface StepOutcome {
@@ -30,6 +36,8 @@ export interface StepOutcome {
   exercise: ExerciseKind;
   result: GradeResult;
   ms: number;
+  /** Cards to bring forward when the answer was wrong (AC-035). */
+  related: CardItemId[];
 }
 
 interface ExerciseRunnerProps {
@@ -69,7 +77,13 @@ export function ExerciseRunner({ steps, startAt = 0, onOutcome, onAdvance, onFin
     const graded = entry.grade(instance, answer);
     setResult(graded);
     setScore((current) => ({ correct: current.correct + (graded.correct ? 1 : 0), total: current.total + 1 }));
-    await onOutcome(step, { itemId: itemIdOf(instance), exercise: entry.exercise, result: graded, ms: Math.round(performance.now() - shownAt.current) });
+    await onOutcome(step, {
+      itemId: itemIdOf(instance),
+      exercise: entry.exercise,
+      result: graded,
+      ms: Math.round(performance.now() - shownAt.current),
+      related: step.related?.cardIds ?? [],
+    });
   }
 
   function handleContinue() {
@@ -136,7 +150,7 @@ export function ExerciseRunner({ steps, startAt = 0, onOutcome, onAdvance, onFin
 
         <div className="sticky bottom-0 border-t bg-background/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur">
           <div className="mx-auto grid w-full max-w-xl gap-3">
-            {result ? <FeedbackPanel result={result} /> : null}
+            {result ? <FeedbackPanel result={result} relatedLink={step.type === "exercise" ? step.related?.link : undefined} /> : null}
             {step.type === "study" || result ? (
               <Button type="submit" size="lg" className="h-12 w-full text-base">
                 Tiếp tục

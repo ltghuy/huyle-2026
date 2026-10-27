@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import { gradeChooseSentence, type ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
 import { gradeGrammarGap, type GrammarGapInstance } from "@/learning/exercises/grammar-gap";
 import {
   gradeListeningChoice,
@@ -9,8 +10,20 @@ import {
 import { gradeMcq, type McqInstance } from "@/learning/exercises/mcq";
 import { gradeMissingLetters, type MissingLettersInstance } from "@/learning/exercises/missing-letters";
 import { gradeRecall, type RecallInstance } from "@/learning/exercises/recall";
+import { gradeSentenceGap, type SentenceGapInstance } from "@/learning/exercises/sentence-gap";
+import { gradeTileTranslate, type TileTranslateInstance } from "@/learning/exercises/tile-translate";
+import { gradeWordOrder, type WordOrderInstance } from "@/learning/exercises/word-order";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ExerciseKind } from "@/learning/types";
+import {
+  ChooseSentenceView,
+  gradeWriting,
+  SentenceGapView,
+  TileTranslateView,
+  WordOrderView,
+  WritingView,
+  type WritingInstance,
+} from "./sentence-exercises";
 import type { ExerciseViewProps } from "./types";
 import {
   GrammarGapView,
@@ -28,7 +41,12 @@ export type ExerciseInstance =
   | ListeningTypingInstance
   | MissingLettersInstance
   | RecallInstance
-  | GrammarGapInstance;
+  | GrammarGapInstance
+  | WordOrderInstance
+  | TileTranslateInstance
+  | SentenceGapInstance
+  | ChooseSentenceInstance
+  | WritingInstance;
 
 interface Entry<I, A> {
   exercise: ExerciseKind;
@@ -53,10 +71,32 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
       return entry({ exercise: "recall", View: RecallView, grade: gradeRecall });
     case "grammar-gap":
       return entry({ exercise: "grammar-gap", View: GrammarGapView, grade: gradeGrammarGap });
+    case "word-order":
+      return entry({ exercise: "word-order", View: WordOrderView, grade: gradeWordOrder });
+    case "tile-translate":
+      return entry({ exercise: "tile-translate", View: TileTranslateView, grade: gradeTileTranslate });
+    case "sentence-gap":
+      return entry({ exercise: "sentence-gap", View: SentenceGapView, grade: gradeSentenceGap });
+    case "choose-sentence":
+      return entry({ exercise: "choose-sentence", View: ChooseSentenceView, grade: gradeChooseSentence });
+    case "writing":
+      return entry({ exercise: "writing", View: WritingView, grade: gradeWriting });
   }
 }
 
 /** Item the exercise trains, for attempts and the review schedule. */
 export function itemIdOf(instance: ExerciseInstance): string {
-  return instance.kind === "grammar-gap" ? instance.grammarId : instance.targetId;
+  switch (instance.kind) {
+    case "grammar-gap":
+      return instance.grammarId;
+    case "word-order":
+    case "tile-translate":
+    case "sentence-gap":
+    case "choose-sentence":
+      return instance.sentenceId;
+    case "writing":
+      return instance.writingId;
+    default:
+      return instance.targetId;
+  }
 }
