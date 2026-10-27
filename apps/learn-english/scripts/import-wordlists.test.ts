@@ -58,3 +58,11 @@ describe("buildWordlist", () => {
     expect(rows.some((row) => row.headword === "seedy")).toBe(false);
   });
 });
+
+describe("buildWordlist exclusions", () => {
+  it("leaves out excluded ids", () => {
+    const cefrj = ["headword,pos,CEFR,CoreInventory 1,CoreInventory 2,Threshold", "light,noun,A1,,,", "light,adjective,A2,,,"].join("\n");
+    const rows = buildWordlist(cefrj, "headword,pos,CEFR,notes", new Set(["word:light-n"]));
+    expect(rows.map((row) => row.id)).toEqual(["word:light-adj"]);
+  });
+});

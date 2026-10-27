@@ -5128,15 +5128,6 @@
     "topicHints": []
   },
   {
-    "id": "word:cripple-n",
-    "headword": "cripple",
-    "variants": [],
-    "pos": "noun",
-    "level": "B2",
-    "source": "cefrj-1.5",
-    "topicHints": []
-  },
-  {
     "id": "word:critically-adv",
     "headword": "critically",
     "variants": [],
@@ -9807,17 +9798,6 @@
     "level": "B2",
     "source": "cefrj-1.5",
     "topicHints": []
-  },
-  {
-    "id": "word:gook-n",
-    "headword": "gook",
-    "variants": [],
-    "pos": "noun",
-    "level": "B2",
-    "source": "cefrj-1.5",
-    "topicHints": [
-      "Idiomatic expressions"
-    ]
   },
   {
     "id": "word:gorge-n",
@@ -19457,15 +19437,6 @@
     "headword": "retailer",
     "variants": [],
     "pos": "noun",
-    "level": "B2",
-    "source": "cefrj-1.5",
-    "topicHints": []
-  },
-  {
-    "id": "word:retard-v",
-    "headword": "retard",
-    "variants": [],
-    "pos": "verb",
     "level": "B2",
     "source": "cefrj-1.5",
     "topicHints": []

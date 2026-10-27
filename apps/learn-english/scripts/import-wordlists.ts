@@ -60,9 +60,11 @@ function rowsOf(csv: string): Record<string, string>[] {
     .map((row) => Object.fromEntries(header.map((name, i) => [name, (row[i] ?? "").trim()])));
 }
 
-export function buildWordlist(cefrjCsv: string, octanoveCsv: string): WordlistRow[] {
+/** `excluded`: ids left out of the course on purpose (content/excluded-words.json). */
+export function buildWordlist(cefrjCsv: string, octanoveCsv: string, excluded: ReadonlySet<string> = new Set()): WordlistRow[] {
   const byId = new Map<string, WordlistRow>();
   const add = (row: WordlistRow) => {
+    if (excluded.has(row.id)) return;
     // First occurrence wins: CEFR-J is read before Octanove, and within a list
     // the first (lowest) level listed for a headword + POS is kept.
     if (!byId.has(row.id)) byId.set(row.id, row);
@@ -90,7 +92,8 @@ async function main() {
     readFile(path.join(sources, "cefrj-vocabulary-profile-1.5.csv"), "utf8"),
     readFile(path.join(sources, "octanove-vocabulary-profile-c1c2-1.0.csv"), "utf8"),
   ]);
-  const rows = buildWordlist(cefrj, octanove);
+  const excluded = JSON.parse(await readFile(path.join(root, "content/excluded-words.json"), "utf8")) as { id: string }[];
+  const rows = buildWordlist(cefrj, octanove, new Set(excluded.map((entry) => entry.id)));
   const outDir = path.join(root, "content/wordlist");
   await mkdir(outDir, { recursive: true });
   for (const level of LEVELS) {

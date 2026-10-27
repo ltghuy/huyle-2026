@@ -1,0 +1,867 @@
+[
+  {
+    "level": "B2",
+    "sort": 38,
+    "id": "grammar:causative",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Causative: have/get something done",
+      "titleVi": "Thể nhờ bảo: have/get something done",
+      "ruleVi": "Thể nhờ bảo (causative) dùng khi bạn sắp xếp để người khác, thường là thợ hay một dịch vụ, làm việc gì cho mình thay vì tự làm. Cấu trúc là have/get + tân ngữ (vật) + V3/ed, ví dụ \"I had my hair cut.\" (tôi đi cắt tóc, thợ cắt cho tôi); còn \"I cut my hair.\" nghĩa là tự cắt. \"Have/get\" được chia theo thì như bình thường, còn V3/ed giữ nguyên. Tiếng Việt chỉ nói \"đi cắt tóc\", \"mang xe đi sửa\", nên người học hay quên tân ngữ hoặc quá khứ phân từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + have/get + object + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't/didn't + have/get + object + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does/Did + S + have/get + object + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Dịch vụ do người khác làm cho mình: \"I get my car washed every month.\"",
+        "Dùng được ở mọi thì, chỉ cần chia \"have/get\": \"We are having our kitchen painted.\"",
+        "\"Get\" thân mật hơn \"have\" và hay dùng trong văn nói: \"I need to get my phone fixed.\"",
+        "Một việc không may xảy ra với mình: \"He had his wallet stolen.\"",
+        "So sánh với câu bị động: \"My car was repaired.\" (không nói ai sắp xếp) và \"I had my car repaired.\" (tôi mang xe đi sửa)"
+      ],
+      "signalWords": [
+        "at the hairdresser's",
+        "every month",
+        "need to",
+        "next week"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I cut my hair at the hairdresser's yesterday.",
+          "right": "I had my hair cut at the hairdresser's yesterday.",
+          "explanationVi": "Thợ cắt tóc cho bạn nên dùng \"had my hair cut\"; \"I cut my hair\" nghĩa là tự cắt."
+        },
+        {
+          "wrong": "She had her car repair.",
+          "right": "She had her car repaired.",
+          "explanationVi": "Sau tân ngữ dùng quá khứ phân từ (V3/ed), không dùng nguyên mẫu."
+        },
+        {
+          "wrong": "We had painted our house last year.",
+          "right": "We had our house painted last year.",
+          "explanationVi": "Tân ngữ đứng giữa \"had\" và V3/ed; \"had painted\" là quá khứ hoàn thành, nghĩa là tự sơn."
+        },
+        {
+          "wrong": "I am going to have fix my phone.",
+          "right": "I am going to have my phone fixed.",
+          "explanationVi": "Cần tân ngữ \"my phone\" rồi mới đến quá khứ phân từ \"fixed\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-causative-1",
+        "sentence:g-causative-2",
+        "sentence:g-causative-3",
+        "sentence:g-causative-4"
+      ],
+      "practice": [
+        {
+          "prompt": "My watch stopped, so I ___ it repaired.",
+          "options": [
+            "had",
+            "made",
+            "let",
+            "did"
+          ],
+          "answer": "had",
+          "explanationVi": "Thể nhờ bảo dùng \"have\" + tân ngữ + V3/ed: \"had it repaired\"."
+        },
+        {
+          "prompt": "We're getting our windows ___ tomorrow.",
+          "options": [
+            "cleaned",
+            "clean",
+            "cleaning",
+            "to clean"
+          ],
+          "answer": "cleaned",
+          "explanationVi": "Sau \"get\" + tân ngữ dùng quá khứ phân từ."
+        },
+        {
+          "prompt": "I didn't fix the roof myself. I ___.",
+          "options": [
+            "had it fixed",
+            "fixed it",
+            "had fixed it",
+            "have fix it"
+          ],
+          "answer": "had it fixed",
+          "explanationVi": "Người khác sửa cho mình nên dùng \"had\" + tân ngữ + V3/ed; \"had fixed it\" nghĩa là tự sửa."
+        },
+        {
+          "prompt": "She ___ her eyes tested last week.",
+          "options": [
+            "had",
+            "has",
+            "have",
+            "having"
+          ],
+          "answer": "had",
+          "explanationVi": "\"Last week\" chỉ quá khứ nên chia \"have\" thành \"had\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"deliver\": We had the new sofa ___ on Monday.",
+          "answer": "delivered",
+          "explanationVi": "Sau \"had\" + tân ngữ dùng quá khứ phân từ \"delivered\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"check\": You should get your teeth ___ twice a year.",
+          "answer": "checked",
+          "explanationVi": "Sau \"get\" + tân ngữ dùng quá khứ phân từ \"checked\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 32,
+    "id": "grammar:future-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Future Continuous",
+      "titleVi": "Thì tương lai tiếp diễn",
+      "ruleVi": "Future Continuous (thì tương lai tiếp diễn) diễn tả một hành động đang diễn ra tại một thời điểm cụ thể trong tương lai. Cấu trúc là \"will be\" + V-ing. So với tương lai đơn (\"I will call you at 8.\" là việc gọi xảy ra lúc 8 giờ), tương lai tiếp diễn (\"I will be working at 8.\") nhấn mạnh rằng lúc 8 giờ việc làm đang dở dang. Tiếng Việt chỉ cần thêm \"sẽ đang\", còn tiếng Anh phải có đủ \"will be\" và động từ thêm -ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + will be + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + will not (won't) be + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "Will + S + be + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Hành động đang diễn ra tại một thời điểm trong tương lai: \"At 9 tomorrow, I will be driving to work.\"",
+        "Hành động đang diễn ra thì một việc khác xen vào (việc xen vào dùng hiện tại đơn sau \"when\"): \"I will be cooking when you arrive.\"",
+        "Hỏi lịch trình của ai đó một cách lịch sự: \"Will you be using the car tonight?\"",
+        "So sánh với tương lai đơn: \"I will call you at 8.\" (gọi lúc 8 giờ) và \"I will be watching TV at 8.\" (lúc 8 giờ đang xem TV)"
+      ],
+      "signalWords": [
+        "this time tomorrow",
+        "at this time next week",
+        "at 8 p.m. tomorrow",
+        "all day tomorrow",
+        "when + present simple"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At 8 tonight I will watching a movie.",
+          "right": "At 8 tonight I will be watching a movie.",
+          "explanationVi": "Tương lai tiếp diễn cần đủ \"will be\" trước động từ thêm -ing."
+        },
+        {
+          "wrong": "This time tomorrow I will be fly to the beach.",
+          "right": "This time tomorrow I will be flying to the beach.",
+          "explanationVi": "Sau \"will be\" động từ phải thêm -ing."
+        },
+        {
+          "wrong": "I will be cooking when you will arrive.",
+          "right": "I will be cooking when you arrive.",
+          "explanationVi": "Mệnh đề thời gian với \"when\" dùng hiện tại đơn, không dùng \"will\"."
+        },
+        {
+          "wrong": "The phone is ringing. I will be answering it.",
+          "right": "The phone is ringing. I will answer it.",
+          "explanationVi": "Quyết định ngay lúc nói dùng tương lai đơn \"will\" + V, không dùng tương lai tiếp diễn."
+        }
+      ],
+      "examples": [
+        "sentence:g-future-continuous-1",
+        "sentence:g-future-continuous-2",
+        "sentence:g-future-continuous-3",
+        "sentence:g-future-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Don't call at 7 p.m. We ___ dinner then.",
+          "options": [
+            "will be having",
+            "have had",
+            "had",
+            "were having"
+          ],
+          "answer": "will be having",
+          "explanationVi": "Hành động đang diễn ra tại một thời điểm trong tương lai (7 giờ tối) dùng \"will be\" + V-ing."
+        },
+        {
+          "prompt": "I will be sleeping when you ___ home.",
+          "options": [
+            "get",
+            "will get",
+            "got",
+            "would get"
+          ],
+          "answer": "get",
+          "explanationVi": "Mệnh đề thời gian với \"when\" nói về tương lai dùng hiện tại đơn."
+        },
+        {
+          "prompt": "___ you be working late tomorrow?",
+          "options": [
+            "Do",
+            "Are",
+            "Will",
+            "Have"
+          ],
+          "answer": "Will",
+          "explanationVi": "Câu hỏi của tương lai tiếp diễn bắt đầu bằng \"Will\" + S + be + V-ing."
+        },
+        {
+          "prompt": "The phone is ringing. I ___ it.",
+          "options": [
+            "will be answering",
+            "will answer",
+            "answered",
+            "am answer"
+          ],
+          "answer": "will answer",
+          "explanationVi": "Quyết định ngay lúc nói dùng tương lai đơn \"will\" + V, không dùng tương lai tiếp diễn."
+        },
+        {
+          "prompt": "Viết dạng tương lai tiếp diễn của \"work\" (viết dạng đầy đủ): At 10 a.m. tomorrow, I ___ in the garden.",
+          "answer": "will be working",
+          "explanationVi": "Hành động đang diễn ra lúc 10 giờ sáng mai dùng \"will be\" + V-ing."
+        },
+        {
+          "prompt": "Viết dạng phủ định tương lai tiếp diễn của \"use\" (viết dạng đầy đủ, không rút gọn): I ___ my laptop tonight, so you can borrow it.",
+          "answer": "will not be using",
+          "explanationVi": "Phủ định của tương lai tiếp diễn là \"will not be\" + V-ing."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 33,
+    "id": "grammar:future-perfect",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Future Perfect",
+      "titleVi": "Thì tương lai hoàn thành",
+      "ruleVi": "Future Perfect (thì tương lai hoàn thành) diễn tả một hành động sẽ hoàn tất trước một thời điểm hoặc trước một việc khác trong tương lai. Cấu trúc là \"will have\" + V3/ed. So với tương lai tiếp diễn (\"At 6 I will be cooking.\" nghĩa là lúc 6 giờ đang nấu), tương lai hoàn thành (\"By 6 I will have cooked dinner.\") nghĩa là đến 6 giờ việc nấu đã xong. Tiếng Việt chỉ nói \"sẽ... xong\", còn tiếng Anh phải dùng \"have\" và quá khứ phân từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + will have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + will not (won't) have + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Will + S + have + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Việc hoàn thành trước một mốc thời gian, thường đi với \"by\": \"I will have finished the report by Friday.\"",
+        "Việc hoàn thành trước một việc khác (việc kia dùng hiện tại đơn sau \"by the time\"): \"The movie will have started by the time we arrive.\"",
+        "Tính tổng thời gian đến một mốc trong tương lai: \"Next year, we will have lived here for ten years.\"",
+        "So sánh với tương lai tiếp diễn: \"At 6 I will be cooking.\" (đang nấu) và \"By 6 I will have cooked dinner.\" (đã nấu xong)"
+      ],
+      "signalWords": [
+        "by Friday",
+        "by the end of",
+        "by the time",
+        "by then",
+        "before"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I will have finish the work by noon.",
+          "right": "I will have finished the work by noon.",
+          "explanationVi": "Sau \"will have\" dùng quá khứ phân từ (V3/ed), không dùng nguyên mẫu."
+        },
+        {
+          "wrong": "By next June, she will finished the course.",
+          "right": "By next June, she will have finished the course.",
+          "explanationVi": "Tương lai hoàn thành cần đủ \"will have\" + V3/ed."
+        },
+        {
+          "wrong": "I will have finished it until Monday.",
+          "right": "I will have finished it by Monday.",
+          "explanationVi": "Hạn chót \"trước/muộn nhất là\" dùng \"by\"; \"until\" nghĩa là kéo dài đến lúc đó."
+        },
+        {
+          "wrong": "By the time you will arrive, we will have eaten.",
+          "right": "By the time you arrive, we will have eaten.",
+          "explanationVi": "Mệnh đề sau \"by the time\" dùng hiện tại đơn, không dùng \"will\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-future-perfect-1",
+        "sentence:g-future-perfect-2",
+        "sentence:g-future-perfect-3",
+        "sentence:g-future-perfect-4"
+      ],
+      "practice": [
+        {
+          "prompt": "By the end of this year, I ___ twenty books.",
+          "options": [
+            "will have read",
+            "will be reading",
+            "read",
+            "have read"
+          ],
+          "answer": "will have read",
+          "explanationVi": "Việc hoàn thành trước một mốc trong tương lai (\"by the end of this year\") dùng \"will have\" + V3/ed."
+        },
+        {
+          "prompt": "She will have left ___ the time you get there.",
+          "options": [
+            "by",
+            "until",
+            "in",
+            "at"
+          ],
+          "answer": "by",
+          "explanationVi": "Cụm cố định là \"by the time\", nghĩa là \"trước lúc/khi\"."
+        },
+        {
+          "prompt": "By the time you wake up, I ___ for the airport.",
+          "options": [
+            "will have left",
+            "have left",
+            "will leave",
+            "left"
+          ],
+          "answer": "will have left",
+          "explanationVi": "Việc xong trước một việc khác trong tương lai (\"by the time you wake up\") dùng tương lai hoàn thành."
+        },
+        {
+          "prompt": "By next month, she ___ the whole course.",
+          "options": [
+            "will have completed",
+            "will be completing",
+            "has completed",
+            "completes"
+          ],
+          "answer": "will have completed",
+          "explanationVi": "\"By next month\" là hạn chót trong tương lai nên dùng \"will have\" + V3/ed để nói việc đã xong."
+        },
+        {
+          "prompt": "Viết dạng tương lai hoàn thành của \"finish\" (viết dạng đầy đủ): We ___ the project by next Monday.",
+          "answer": "will have finished",
+          "explanationVi": "Tương lai hoàn thành là \"will have\" + V3/ed: \"will have finished\"."
+        },
+        {
+          "prompt": "Viết dạng phủ định tương lai hoàn thành của \"arrive\" (viết dạng đầy đủ, không rút gọn): The package ___ by Friday, so don't wait for it.",
+          "answer": "will not have arrived",
+          "explanationVi": "Phủ định của tương lai hoàn thành là \"will not have\" + V3/ed."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 36,
+    "id": "grammar:modals-of-deduction",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Modals of deduction: must, might, can't",
+      "titleVi": "Động từ khuyết thiếu chỉ suy đoán",
+      "ruleVi": "Must, might/may/could và can't không chỉ nói về nghĩa vụ hay khả năng, mà còn dùng để suy đoán dựa trên bằng chứng. \"Must\" nghĩa là gần như chắc chắn đúng, \"might/may/could\" là có thể đúng, \"can't\" là gần như chắc chắn không đúng. Để suy đoán về quá khứ, dùng modal + have + V3/ed (\"She must have left.\"). Tiếng Việt dùng \"chắc là\", \"có lẽ\", \"không thể nào\", còn tiếng Anh dùng các modal này và động từ theo sau luôn ở nguyên mẫu, không có \"to\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + must/might/may/could + V; S + must/might/may/could + have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + can't/couldn't + V; S + can't/couldn't + have + V3/ed; S + might not/may not + V"
+        },
+        {
+          "form": "question",
+          "en": "Could + S + V?; Could + S + have + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Gần như chắc chắn đúng (must): \"You must be tired after the flight.\"",
+        "Có thể đúng, không chắc (might/may/could): \"She might be at the gym.\"",
+        "Gần như chắc chắn không đúng (can't): \"That can't be our bus; it's too early.\"",
+        "Suy đoán về quá khứ (modal + have + V3/ed): \"He must have forgotten the meeting.\""
+      ],
+      "signalWords": [
+        "I'm sure",
+        "probably",
+        "maybe",
+        "perhaps",
+        "I'm sure ... not"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She must to be at home.",
+          "right": "She must be at home.",
+          "explanationVi": "Sau modal dùng động từ nguyên mẫu không có \"to\"."
+        },
+        {
+          "wrong": "They must have went home.",
+          "right": "They must have gone home.",
+          "explanationVi": "Sau \"must have\" dùng quá khứ phân từ (V3), không dùng quá khứ đơn."
+        },
+        {
+          "wrong": "You must be tired yesterday.",
+          "right": "You must have been tired yesterday.",
+          "explanationVi": "Suy đoán về quá khứ dùng modal + have + V3/ed."
+        },
+        {
+          "wrong": "It can be Tom at the door; he's away.",
+          "right": "It can't be Tom at the door; he's away.",
+          "explanationVi": "Khi gần như chắc chắn điều gì không đúng thì dùng \"can't\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-modals-of-deduction-1",
+        "sentence:g-modals-of-deduction-2",
+        "sentence:g-modals-of-deduction-3",
+        "sentence:g-modals-of-deduction-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The lights are off. They ___ be at home.",
+          "options": [
+            "can't",
+            "must",
+            "should",
+            "have to"
+          ],
+          "answer": "can't",
+          "explanationVi": "Đèn tắt là bằng chứng họ gần như chắc chắn không ở nhà, nên dùng \"can't\"."
+        },
+        {
+          "prompt": "He has been working all day. He ___ be exhausted.",
+          "options": [
+            "must",
+            "can't",
+            "mustn't",
+            "needn't"
+          ],
+          "answer": "must",
+          "explanationVi": "Làm việc cả ngày là bằng chứng rõ ràng, nên gần như chắc chắn: dùng \"must\"."
+        },
+        {
+          "prompt": "I'm not sure where Anna is. She ___ be in the library.",
+          "options": [
+            "might",
+            "must",
+            "can't",
+            "needn't"
+          ],
+          "answer": "might",
+          "explanationVi": "\"I'm not sure\" cho thấy chỉ là khả năng, nên dùng \"might\"."
+        },
+        {
+          "prompt": "The ground is wet. It ___ rained last night.",
+          "options": [
+            "must have",
+            "must",
+            "can't have",
+            "must had"
+          ],
+          "answer": "must have",
+          "explanationVi": "Suy đoán chắc chắn về quá khứ dùng \"must have\" + V3/ed."
+        },
+        {
+          "prompt": "Viết dạng suy đoán quá khứ của \"forget\" với must (viết dạng đầy đủ): He didn't come to the meeting. He ___ about it.",
+          "answer": "must have forgotten",
+          "explanationVi": "Suy đoán chắc chắn về quá khứ là \"must have\" + V3; V3 của \"forget\" là \"forgotten\"."
+        },
+        {
+          "prompt": "Viết dạng suy đoán quá khứ của \"take\" với might (viết dạng đầy đủ): I can't find my umbrella. Someone ___ it by mistake.",
+          "answer": "might have taken",
+          "explanationVi": "Khả năng trong quá khứ là \"might have\" + V3; V3 của \"take\" là \"taken\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 34,
+    "id": "grammar:past-perfect-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Past Perfect Continuous",
+      "titleVi": "Thì quá khứ hoàn thành tiếp diễn",
+      "ruleVi": "Past Perfect Continuous (thì quá khứ hoàn thành tiếp diễn) diễn tả một hành động đã diễn ra liên tục trong một khoảng thời gian, kéo dài đến một thời điểm hoặc một sự việc khác trong quá khứ. Cấu trúc là \"had been\" + V-ing. So với quá khứ hoàn thành (\"She had written three emails.\" nhấn mạnh kết quả, số lượng đã xong), thì này nhấn mạnh quá trình kéo dài (\"She had been writing emails all morning.\"). Tiếng Việt chỉ nói \"đã... suốt\", còn tiếng Anh cần đủ \"had been\" và động từ thêm -ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + had been + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + had not (hadn't) been + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "Had + S + been + V-ing?; How long had + S + been + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Hành động kéo dài đến một thời điểm trong quá khứ, thường với \"for/since\": \"I had been waiting for an hour when the bus came.\"",
+        "Giải thích nguyên nhân của một tình trạng trong quá khứ: \"His eyes were red because he had been crying.\"",
+        "So sánh với quá khứ hoàn thành: \"I had read three chapters.\" (số lượng đã xong) và \"I had been reading for two hours.\" (quá trình kéo dài)",
+        "Không dùng với động từ chỉ trạng thái như know, like, own; khi đó dùng quá khứ hoàn thành: \"I had known her for years.\""
+      ],
+      "signalWords": [
+        "for",
+        "since",
+        "all day",
+        "all morning",
+        "how long",
+        "before",
+        "when",
+        "by the time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I had been wait for two hours when she called.",
+          "right": "I had been waiting for two hours when she called.",
+          "explanationVi": "Sau \"had been\" động từ phải thêm -ing."
+        },
+        {
+          "wrong": "She was tired because she had running.",
+          "right": "She was tired because she had been running.",
+          "explanationVi": "Thiếu \"been\": thì này là \"had been\" + V-ing."
+        },
+        {
+          "wrong": "We had been knowing each other for years.",
+          "right": "We had known each other for years.",
+          "explanationVi": "\"Know\" là động từ chỉ trạng thái nên dùng quá khứ hoàn thành, không dùng dạng tiếp diễn."
+        },
+        {
+          "wrong": "They had been played tennis since noon.",
+          "right": "They had been playing tennis since noon.",
+          "explanationVi": "Sau \"had been\" dùng V-ing (chủ động), không dùng V3/ed."
+        }
+      ],
+      "examples": [
+        "sentence:g-past-perfect-continuous-1",
+        "sentence:g-past-perfect-continuous-2",
+        "sentence:g-past-perfect-continuous-3",
+        "sentence:g-past-perfect-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "He was exhausted because he ___ all night.",
+          "options": [
+            "had been working",
+            "has been working",
+            "works",
+            "is working"
+          ],
+          "answer": "had been working",
+          "explanationVi": "Hành động kéo dài trước một tình trạng trong quá khứ (\"was exhausted\") dùng \"had been\" + V-ing."
+        },
+        {
+          "prompt": "I ___ her for ten years before we got married.",
+          "options": [
+            "had known",
+            "had been knowing",
+            "have known",
+            "know"
+          ],
+          "answer": "had known",
+          "explanationVi": "\"Know\" là động từ chỉ trạng thái nên dùng quá khứ hoàn thành, không dùng dạng tiếp diễn."
+        },
+        {
+          "prompt": "We had been ___ for two hours when it started to rain.",
+          "options": [
+            "walking",
+            "walked",
+            "walk",
+            "walks"
+          ],
+          "answer": "walking",
+          "explanationVi": "Sau \"had been\" động từ ở dạng V-ing."
+        },
+        {
+          "prompt": "By the time I arrived, she ___ three cups of coffee.",
+          "options": [
+            "had drunk",
+            "had been drinking",
+            "has drunk",
+            "drinks"
+          ],
+          "answer": "had drunk",
+          "explanationVi": "Khi nói số lượng đã xong (\"three cups\"), dùng quá khứ hoàn thành chứ không dùng dạng tiếp diễn."
+        },
+        {
+          "prompt": "Viết dạng quá khứ hoàn thành tiếp diễn của \"rain\" (viết dạng đầy đủ): The ground was wet because it ___ all morning.",
+          "answer": "had been raining",
+          "explanationVi": "Mưa kéo dài cả buổi sáng trước một tình trạng trong quá khứ nên dùng \"had been\" + V-ing."
+        },
+        {
+          "prompt": "Viết dạng quá khứ hoàn thành tiếp diễn của \"study\" (viết dạng đầy đủ): She ___ English for five years before she got the job.",
+          "answer": "had been studying",
+          "explanationVi": "Quá trình kéo dài năm năm trước một sự việc quá khứ (\"got the job\") dùng \"had been\" + V-ing."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 35,
+    "id": "grammar:third-conditional",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Third conditional",
+      "titleVi": "Câu điều kiện loại 3",
+      "ruleVi": "Câu điều kiện loại 3 (third conditional) nói về một điều đã không xảy ra trong quá khứ và kết quả tưởng tượng của nó, thường để bày tỏ sự tiếc nuối. Mệnh đề \"if\" dùng quá khứ hoàn thành (had + V3/ed), mệnh đề kết quả dùng \"would have\" + V3/ed. So với loại 2 (\"If I had time, I would help.\" nói về hiện tại), loại 3 nói về quá khứ (\"If I had had time, I would have helped.\" nghĩa là lúc đó tôi đã không có thời gian). Tiếng Việt chỉ nói \"nếu... thì đã...\", còn tiếng Anh phải đổi thì ở cả hai mệnh đề.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "If + S + had + V3/ed, S + would have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "If + S + hadn't (had not) + V3/ed, S + wouldn't (would not) have + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Would + S + have + V3/ed + if + S + had + V3/ed?; What would + S + have + V3/ed + if + S + had + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Tưởng tượng một quá khứ khác với thực tế: \"If I had left earlier, I would have caught the train.\"",
+        "Bày tỏ sự tiếc nuối: \"If I had studied harder, I would have passed.\"",
+        "Có thể dùng \"could have\" hoặc \"might have\" thay cho \"would have\": \"If you had asked, I could have helped.\"",
+        "So sánh với loại 2: \"If I knew her number, I would call her.\" (bây giờ) và \"If I had known her number, I would have called her.\" (lúc đó)"
+      ],
+      "signalWords": [
+        "if",
+        "would have",
+        "could have",
+        "might have",
+        "had + V3/ed"
+      ],
+      "mistakes": [
+        {
+          "wrong": "If I would have known, I would have told you.",
+          "right": "If I had known, I would have told you.",
+          "explanationVi": "Mệnh đề \"if\" dùng quá khứ hoàn thành, không dùng \"would have\"."
+        },
+        {
+          "wrong": "If she had studied, she would pass the exam.",
+          "right": "If she had studied, she would have passed the exam.",
+          "explanationVi": "Kết quả trong quá khứ dùng \"would have\" + V3/ed."
+        },
+        {
+          "wrong": "If we had left earlier, we would have catch the bus.",
+          "right": "If we had left earlier, we would have caught the bus.",
+          "explanationVi": "Sau \"would have\" dùng quá khứ phân từ, không dùng nguyên mẫu."
+        },
+        {
+          "wrong": "If he has called me, I would have answered.",
+          "right": "If he had called me, I would have answered.",
+          "explanationVi": "Mệnh đề \"if\" của loại 3 dùng \"had\" + V3/ed, không dùng \"has\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-third-conditional-1",
+        "sentence:g-third-conditional-2",
+        "sentence:g-third-conditional-3",
+        "sentence:g-third-conditional-4"
+      ],
+      "practice": [
+        {
+          "prompt": "If it hadn't rained, we ___ the match.",
+          "options": [
+            "would have won",
+            "would have win",
+            "will win",
+            "won"
+          ],
+          "answer": "would have won",
+          "explanationVi": "Mệnh đề \"if\" ở quá khứ hoàn thành thì mệnh đề kết quả dùng \"would have\" + V3/ed."
+        },
+        {
+          "prompt": "If I ___ about the party, I would have come.",
+          "options": [
+            "had known",
+            "have known",
+            "know",
+            "would know"
+          ],
+          "answer": "had known",
+          "explanationVi": "Mệnh đề kết quả có \"would have\" nên mệnh đề \"if\" dùng \"had\" + V3/ed."
+        },
+        {
+          "prompt": "If she ___ the alarm last night, she wouldn't have been late.",
+          "options": [
+            "had heard",
+            "heard",
+            "has heard",
+            "would hear"
+          ],
+          "answer": "had heard",
+          "explanationVi": "Điều kiện trái với quá khứ dùng quá khứ hoàn thành; quá khứ đơn \"heard\" chỉ dùng cho loại 2."
+        },
+        {
+          "prompt": "He ___ the job if he had applied.",
+          "options": [
+            "might have gotten",
+            "might get",
+            "may get",
+            "gets"
+          ],
+          "answer": "might have gotten",
+          "explanationVi": "Kết quả tưởng tượng trong quá khứ dùng \"might have\" + V3/ed."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"go\" (dùng would, viết dạng đầy đủ): If you had invited me, I ___ to your party.",
+          "answer": "would have gone",
+          "explanationVi": "Mệnh đề kết quả của loại 3 là \"would have\" + V3/ed; V3 của \"go\" là \"gone\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"study\" (viết dạng đầy đủ): If he ___ harder, he would have passed the test.",
+          "answer": "had studied",
+          "explanationVi": "Mệnh đề \"if\" của loại 3 dùng quá khứ hoàn thành \"had\" + V3/ed."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B2",
+    "sort": 37,
+    "id": "grammar:wish-if-only",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Wish and if only",
+      "titleVi": "Wish và if only",
+      "ruleVi": "\"Wish\" và \"if only\" dùng để nói về mong ước trái với thực tế hoặc sự tiếc nuối. Ước về hiện tại thì lùi một thì, dùng quá khứ đơn (\"I wish I had a car.\" nghĩa là bây giờ tôi không có xe); tiếc về quá khứ thì dùng quá khứ hoàn thành (\"I wish I had studied.\"). \"If only\" có nghĩa giống \"wish\" nhưng mạnh hơn. Cách lùi thì này giống câu điều kiện loại 2 và loại 3; tiếng Việt chỉ nói \"ước gì\", \"giá mà\", nhưng tiếng Anh phải đổi thì của động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + wish(es) + S + V2/ed; S + wish(es) + S + had + V3/ed; If only + S + V2/ed / had + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + wish(es) + S + didn't + V; S + wish(es) + S + hadn't + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + wish + S + V2/ed?"
+        }
+      ],
+      "usageVi": [
+        "Ước điều trái với hiện tại (quá khứ đơn; với \"be\" thường dùng \"were\"): \"I wish I were taller.\"",
+        "Tiếc nuối về quá khứ (quá khứ hoàn thành): \"I wish I hadn't said that.\"",
+        "Than phiền, muốn người khác thay đổi hành động (would + V): \"I wish you would stop talking.\"",
+        "\"If only\" mang cảm xúc mạnh hơn \"wish\": \"If only I had more time!\"",
+        "Với điều có thể xảy ra, dùng \"hope\" chứ không dùng \"wish\": \"I hope you pass.\" và \"I wish I could fly.\""
+      ],
+      "signalWords": [
+        "wish",
+        "if only",
+        "now",
+        "then",
+        "yesterday"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I wish I have a bigger house.",
+          "right": "I wish I had a bigger house.",
+          "explanationVi": "Ước trái với hiện tại thì lùi một thì: dùng quá khứ đơn."
+        },
+        {
+          "wrong": "I wish I didn't eat so much last night.",
+          "right": "I wish I hadn't eaten so much last night.",
+          "explanationVi": "Tiếc về quá khứ (\"last night\") dùng quá khứ hoàn thành."
+        },
+        {
+          "wrong": "I wish I will pass the exam.",
+          "right": "I hope I pass the exam.",
+          "explanationVi": "Với điều có thể xảy ra trong tương lai, dùng \"hope\" chứ không dùng \"wish\"."
+        },
+        {
+          "wrong": "If only I can speak French.",
+          "right": "If only I could speak French.",
+          "explanationVi": "Sau \"if only\" lùi một thì: \"can\" đổi thành \"could\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-wish-if-only-1",
+        "sentence:g-wish-if-only-2",
+        "sentence:g-wish-if-only-3",
+        "sentence:g-wish-if-only-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I wish I ___ how to swim.",
+          "options": [
+            "knew",
+            "know",
+            "will know",
+            "known"
+          ],
+          "answer": "knew",
+          "explanationVi": "Ước trái với hiện tại thì lùi một thì: dùng quá khứ đơn \"knew\"."
+        },
+        {
+          "prompt": "I wish I ___ to the doctor sooner.",
+          "options": [
+            "had gone",
+            "went",
+            "go",
+            "will go"
+          ],
+          "answer": "had gone",
+          "explanationVi": "Tiếc về việc đã không làm trong quá khứ dùng quá khứ hoàn thành."
+        },
+        {
+          "prompt": "I ___ you have a great trip tomorrow.",
+          "options": [
+            "hope",
+            "wish",
+            "want",
+            "would"
+          ],
+          "answer": "hope",
+          "explanationVi": "Điều có thể xảy ra trong tương lai dùng \"hope\" + hiện tại đơn, không dùng \"wish\"."
+        },
+        {
+          "prompt": "If only I ___ so tired right now!",
+          "options": [
+            "weren't",
+            "am not",
+            "won't be",
+            "haven't been"
+          ],
+          "answer": "weren't",
+          "explanationVi": "Sau \"if only\" ước về hiện tại dùng quá khứ; với \"be\" dùng \"weren't\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"can\": I wish I ___ speak Japanese.",
+          "answer": "could",
+          "explanationVi": "Ước về khả năng ở hiện tại thì lùi \"can\" thành \"could\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"listen\" (viết dạng đầy đủ): I failed the test. I wish I ___ to my teacher.",
+          "answer": "had listened",
+          "explanationVi": "Tiếc về quá khứ dùng quá khứ hoàn thành \"had\" + V3/ed."
+        }
+      ]
+    },
+    "status": "draft"
+  }
+]
