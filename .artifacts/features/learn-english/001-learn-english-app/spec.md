@@ -73,14 +73,14 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-001: WHEN a visitor opens the app THEN system SHALL let them use every feature without signing in or giving any personal details
-- [ ] AC-002: WHEN a visitor opens the app for the first time in a browser THEN system SHALL offer the placement test before anything else (skippable)
+- [x] AC-001: WHEN a visitor opens the app THEN system SHALL let them use every feature without signing in or giving any personal details
+- [x] AC-002: WHEN a visitor opens the app for the first time in a browser THEN system SHALL offer the placement test before anything else (skippable)
 - [ ] AC-003: WHEN audio plays in any lesson type THEN system SHALL use the same American English male voice; there SHALL be no accent or voice choice
-- [ ] AC-004: WHEN any screen is shown THEN system SHALL show all interface text (menus, buttons, instructions, feedback, errors) in Vietnamese, with only taught English content in English
-- [ ] AC-005: WHEN a learner makes progress (answers, lessons, settings) THEN system SHALL save it on their device immediately, so closing the page loses nothing
-- [ ] AC-042: WHEN a learner chooses "Xuất tiến độ" (export progress) in settings THEN system SHALL download one backup file containing all their progress and settings
-- [ ] AC-043: WHEN a learner chooses "Nhập tiến độ" (import progress) and picks a valid backup file THEN system SHALL show what the file contains (date, words learned, points) and, after confirmation, replace the current progress with it
-- [ ] AC-044: WHEN a learner chooses to reset progress THEN system SHALL ask for confirmation, suggest exporting first, and then clear everything on that device
+- [x] AC-004: WHEN any screen is shown THEN system SHALL show all interface text (menus, buttons, instructions, feedback, errors) in Vietnamese, with only taught English content in English
+- [x] AC-005: WHEN a learner makes progress (answers, lessons, settings) THEN system SHALL save it on their device immediately, so closing the page loses nothing
+- [x] AC-042: WHEN a learner chooses "Xuất tiến độ" (export progress) in settings THEN system SHALL download one backup file containing all their progress and settings
+- [x] AC-043: WHEN a learner chooses "Nhập tiến độ" (import progress) and picks a valid backup file THEN system SHALL show what the file contains (date, words learned, points) and, after confirmation, replace the current progress with it
+- [x] AC-044: WHEN a learner chooses to reset progress THEN system SHALL ask for confirmation, suggest exporting first, and then clear everything on that device
 
 ### P1: Vocabulary with pronunciation
 
@@ -90,11 +90,11 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-006: WHEN a learner browses vocabulary THEN system SHALL group words by CEFR level (A1, A2, B1, B2, C1) and by topic, and SHALL show which words the learner has already learned
-- [ ] AC-007: WHEN a learner opens a word THEN system SHALL show the English word, American phonetic spelling, word type, Vietnamese meaning(s), and at least one English example sentence with its Vietnamese translation
+- [x] AC-006: WHEN a learner browses vocabulary THEN system SHALL group words by CEFR level (A1, A2, B1, B2, C1) and by topic, and SHALL show which words the learner has already learned
+- [x] AC-007: WHEN a learner opens a word THEN system SHALL show the English word, American phonetic spelling, word type, Vietnamese meaning(s), and at least one English example sentence with its Vietnamese translation
 - [ ] AC-008: WHEN a learner taps the play button on a word or example sentence THEN system SHALL play it in the app's voice within 1 second on a normal connection
-- [ ] AC-045: WHEN a learner opens the credits page THEN system SHALL list the sources of the word lists and pronunciation data with their licences and required attributions
-- [ ] AC-009: WHEN a learner marks a word as learned (or completes it in a lesson) THEN system SHALL add it to their review schedule
+- [x] AC-045: WHEN a learner opens the credits page THEN system SHALL list the sources of the word lists and pronunciation data with their licences and required attributions
+- [x] AC-009: WHEN a learner marks a word as learned (or completes it in a lesson) THEN system SHALL add it to their review schedule
 
 ### P1: Spaced-repetition review
 
@@ -104,10 +104,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-010: WHEN a learner answers a review item THEN system SHALL record whether it was correct and how long the answer took, and SHALL schedule the next review: a correct, fast answer pushes it further out; a wrong answer brings it back soon (same or next day)
-- [ ] AC-011: WHEN a learner opens the review screen THEN system SHALL show how many items are due today and let them review them in one session
-- [ ] AC-012: WHEN an item is reviewed THEN system SHALL test it with a varied exercise type (multiple choice, fill missing letters, listening, meaning recall) instead of always the same one
-- [ ] AC-013: WHEN the learner studies grammar points THEN system SHALL schedule them for review the same way as words
+- [x] AC-010: WHEN a learner answers a review item THEN system SHALL record whether it was correct and how long the answer took, and SHALL schedule the next review: a correct, fast answer pushes it further out; a wrong answer brings it back soon (same or next day)
+- [x] AC-011: WHEN a learner opens the review screen THEN system SHALL show how many items are due today and let them review them in one session
+- [x] AC-012: WHEN an item is reviewed THEN system SHALL test it with a varied exercise type (multiple choice, fill missing letters, listening, meaning recall) instead of always the same one
+- [x] AC-013: WHEN the learner studies grammar points THEN system SHALL schedule them for review the same way as words
 
 ### P1: Daily curriculum and attendance points
 
@@ -117,11 +117,11 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-014: WHEN a learner opens the home screen THEN system SHALL show today's lesson made of, in order: review of due vocabulary and grammar, new vocabulary, a grammar point (when scheduled), sentence construction, and a written assignment, with multiple-choice questions mixed into the parts
-- [ ] AC-015: WHEN a learner completes every part of today's lesson THEN system SHALL award attendance points once for that day and increase the streak by one
-- [ ] AC-016: WHEN a learner leaves a lesson partway THEN system SHALL save their place and resume from the same part when they return the same day
-- [ ] AC-017: WHEN a learner views their profile THEN system SHALL show total points, current streak, longest streak and a calendar of days attended
-- [ ] AC-018: WHEN a day passes without a completed lesson THEN system SHALL reset the current streak to zero on the next visit and keep the longest streak
+- [x] AC-014: WHEN a learner opens the home screen THEN system SHALL show today's lesson made of, in order: review of due vocabulary and grammar, new vocabulary, a grammar point (when scheduled), sentence construction, and a written assignment, with multiple-choice questions mixed into the parts
+- [x] AC-015: WHEN a learner completes every part of today's lesson THEN system SHALL award attendance points once for that day and increase the streak by one
+- [x] AC-016: WHEN a learner leaves a lesson partway THEN system SHALL save their place and resume from the same part when they return the same day
+- [x] AC-017: WHEN a learner views their profile THEN system SHALL show total points, current streak, longest streak and a calendar of days attended
+- [x] AC-018: WHEN a day passes without a completed lesson THEN system SHALL reset the current streak to zero on the next visit and keep the longest streak
 
 ### P2: Placement test
 
@@ -130,10 +130,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-019: WHEN a learner starts the placement test THEN system SHALL ask questions across levels A1–C1 and finish in at most 30 questions or 10 minutes
-- [ ] AC-020: WHEN the test ends THEN system SHALL show the estimated level with a Vietnamese explanation and start the curriculum at that level
-- [ ] AC-021: WHEN a learner skips the test THEN system SHALL start them at A1 and let them take the test later from settings
-- [ ] AC-022: WHEN a learner changes their level manually in settings THEN system SHALL use the new level for new vocabulary from the next lesson
+- [x] AC-019: WHEN a learner starts the placement test THEN system SHALL ask questions across levels A1–C1 and finish in at most 30 questions or 10 minutes
+- [x] AC-020: WHEN the test ends THEN system SHALL show the estimated level with a Vietnamese explanation and start the curriculum at that level
+- [x] AC-021: WHEN a learner skips the test THEN system SHALL start them at A1 and let them take the test later from settings
+- [x] AC-022: WHEN a learner changes their level manually in settings THEN system SHALL use the new level for new vocabulary from the next lesson
 
 ### P2: Grammar and tenses
 
@@ -142,9 +142,9 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-023: WHEN a learner opens the grammar section THEN system SHALL list grammar topics (including all 12 English tenses) grouped by level, with progress shown per topic
-- [ ] AC-024: WHEN a learner opens a grammar topic THEN system SHALL show the rule explained in Vietnamese, the sentence pattern, when to use it, signal words, common mistakes, and English examples with Vietnamese translations that can be played aloud
-- [ ] AC-025: WHEN a learner finishes a grammar topic THEN system SHALL offer a short practice and add the topic to the review schedule
+- [x] AC-023: WHEN a learner opens the grammar section THEN system SHALL list grammar topics (including all 12 English tenses) grouped by level, with progress shown per topic
+- [x] AC-024: WHEN a learner opens a grammar topic THEN system SHALL show the rule explained in Vietnamese, the sentence pattern, when to use it, signal words, common mistakes, and English examples with Vietnamese translations that can be played aloud
+- [x] AC-025: WHEN a learner finishes a grammar topic THEN system SHALL offer a short practice and add the topic to the review schedule
 
 ### P2: Exercise library
 
@@ -153,10 +153,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-026: WHEN a learner opens the exercise library THEN system SHALL list exercises for every vocabulary level/topic and every grammar topic, filterable by level, topic and exercise type
-- [ ] AC-027: WHEN a learner does a fill-missing-letters exercise THEN system SHALL show the word with some letters replaced by blanks (e.g. "ho_ewo_k" for "homework") plus its Vietnamese meaning and an audio hint, and SHALL accept the answer only when every blank is correct
-- [ ] AC-028: WHEN a learner does a multiple-choice question THEN system SHALL show 4 options with exactly one correct answer, and after answering SHALL show which was correct with a short Vietnamese explanation
-- [ ] AC-029: WHEN a learner finishes any exercise THEN system SHALL show the score and feed each answered item's result into the review schedule
+- [x] AC-026: WHEN a learner opens the exercise library THEN system SHALL list exercises for every vocabulary level/topic and every grammar topic, filterable by level, topic and exercise type
+- [x] AC-027: WHEN a learner does a fill-missing-letters exercise THEN system SHALL show the word with some letters replaced by blanks (e.g. "ho_ewo_k" for "homework") plus its Vietnamese meaning and an audio hint, and SHALL accept the answer only when every blank is correct
+- [x] AC-028: WHEN a learner does a multiple-choice question THEN system SHALL show 4 options with exactly one correct answer, and after answering SHALL show which was correct with a short Vietnamese explanation
+- [x] AC-029: WHEN a learner finishes any exercise THEN system SHALL show the score and feed each answered item's result into the review schedule
 
 ### P2: Hard words list
 
@@ -165,9 +165,9 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-030: WHEN a word has been answered wrong repeatedly or recalled slowly (thresholds in Notes) THEN system SHALL add it to the learner's hard words list with the reason shown (often wrong / slow to recall)
-- [ ] AC-031: WHEN a learner opens the hard words list THEN system SHALL sort words by difficulty and let them start a practice session with only those words
-- [ ] AC-032: WHEN a hard word is answered correctly and quickly several times in a row THEN system SHALL remove it from the list
+- [x] AC-030: WHEN a word has been answered wrong repeatedly or recalled slowly (thresholds in Notes) THEN system SHALL add it to the learner's hard words list with the reason shown (often wrong / slow to recall)
+- [x] AC-031: WHEN a learner opens the hard words list THEN system SHALL sort words by difficulty and let them start a practice session with only those words
+- [x] AC-032: WHEN a hard word is answered correctly and quickly several times in a row THEN system SHALL remove it from the list
 
 ### P2: Sentence construction and written assignments
 
@@ -176,10 +176,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-033: WHEN a learner gets a sentence construction task THEN system SHALL pick one at random from these kinds, built from reviewed example sentences that use today's words or grammar point: put shuffled words in the right order, fill in the missing word, choose the one correct sentence among 4, or translate a Vietnamese sentence by arranging given word tiles
-- [ ] AC-034: WHEN a learner submits a sentence THEN system SHALL check it instantly against the accepted answer(s), and SHALL show the correct sentence, its Vietnamese translation, a play button and, when wrong, a short Vietnamese explanation from the related grammar point
-- [ ] AC-035: WHEN a wrong answer relates to a word or grammar point in the app THEN system SHALL link to it and bring that item forward in the review schedule
-- [ ] AC-036: WHEN a learner gets a free-writing assignment THEN system SHALL show a Vietnamese prompt, take their text, then show one or more model answers and let the learner mark their own answer as right or wrong; that mark counts like any other answer
+- [x] AC-033: WHEN a learner gets a sentence construction task THEN system SHALL pick one at random from these kinds, built from reviewed example sentences that use today's words or grammar point: put shuffled words in the right order, fill in the missing word, choose the one correct sentence among 4, or translate a Vietnamese sentence by arranging given word tiles
+- [x] AC-034: WHEN a learner submits a sentence THEN system SHALL check it instantly against the accepted answer(s), and SHALL show the correct sentence, its Vietnamese translation, a play button and, when wrong, a short Vietnamese explanation from the related grammar point
+- [x] AC-035: WHEN a wrong answer relates to a word or grammar point in the app THEN system SHALL link to it and bring that item forward in the review schedule
+- [x] AC-036: WHEN a learner gets a free-writing assignment THEN system SHALL show a Vietnamese prompt, take their text, then show one or more model answers and let the learner mark their own answer as right or wrong; that mark counts like any other answer
 
 ### P2: First-visit guided tour
 
@@ -188,10 +188,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-038: WHEN a learner reaches the home screen for the first time (after the placement test or skipping it) THEN system SHALL show a Vietnamese welcome dialog with a one-paragraph overview of the app and two choices: start the tour or skip
-- [ ] AC-039: WHEN the learner starts the tour THEN system SHALL highlight the main areas one at a time (daily lesson, vocabulary, grammar, review, exercise library, hard words, profile and points, settings), each with a short Vietnamese explanation and a step counter, and let them go back, go next or close at any step
-- [ ] AC-040: WHEN the learner finishes, skips or closes the tour THEN system SHALL not show the welcome dialog or tour again in that browser (or after importing a backup in which it was already seen)
-- [ ] AC-041: WHEN the learner chooses "Xem lại hướng dẫn" (replay tour) in settings or help THEN system SHALL start the tour again from the first step
+- [x] AC-038: WHEN a learner reaches the home screen for the first time (after the placement test or skipping it) THEN system SHALL show a Vietnamese welcome dialog with a one-paragraph overview of the app and two choices: start the tour or skip
+- [x] AC-039: WHEN the learner starts the tour THEN system SHALL highlight the main areas one at a time (daily lesson, vocabulary, grammar, review, exercise library, hard words, profile and points, settings), each with a short Vietnamese explanation and a step counter, and let them go back, go next or close at any step
+- [x] AC-040: WHEN the learner finishes, skips or closes the tour THEN system SHALL not show the welcome dialog or tour again in that browser (or after importing a backup in which it was already seen)
+- [x] AC-041: WHEN the learner chooses "Xem lại hướng dẫn" (replay tour) in settings or help THEN system SHALL start the tour again from the first step
 
 ### P2: Sync progress with a code
 
@@ -200,11 +200,11 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-047: WHEN a learner turns on sync in settings THEN system SHALL create a sync code that is easy to read and type, show it with a copy button, explain in Vietnamese that anyone with the code can see and change this progress, and upload the current progress
-- [ ] AC-048: WHEN sync is on and progress changes THEN system SHALL upload the change within a minute while online, and as soon as the connection returns when offline
-- [ ] AC-049: WHEN a learner enters a sync code on another device THEN system SHALL show what the synced progress contains (words learned, points, last updated) and, after confirmation, link the device and keep it in sync from then on
-- [ ] AC-050: WHEN two linked devices both changed progress since they last synced THEN system SHALL combine the changes without losing any answer or attendance day and without awarding a day's points twice
-- [ ] AC-051: WHEN a learner turns sync off on a device THEN system SHALL unlink that device; WHEN they choose "delete synced data" THEN system SHALL remove the stored progress from the server after confirmation
+- [x] AC-047: WHEN a learner turns on sync in settings THEN system SHALL create a sync code that is easy to read and type, show it with a copy button, explain in Vietnamese that anyone with the code can see and change this progress, and upload the current progress
+- [x] AC-048: WHEN sync is on and progress changes THEN system SHALL upload the change within a minute while online, and as soon as the connection returns when offline
+- [x] AC-049: WHEN a learner enters a sync code on another device THEN system SHALL show what the synced progress contains (words learned, points, last updated) and, after confirmation, link the device and keep it in sync from then on
+- [x] AC-050: WHEN two linked devices both changed progress since they last synced THEN system SHALL combine the changes without losing any answer or attendance day and without awarding a day's points twice
+- [x] AC-051: WHEN a learner turns sync off on a device THEN system SHALL unlink that device; WHEN they choose "delete synced data" THEN system SHALL remove the stored progress from the server after confirmation
 
 ### P1: Content updates without a new release
 
@@ -214,10 +214,10 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-052: WHEN the owner publishes reviewed content THEN learners SHALL see it within 10 minutes without a new app release
-- [ ] AC-053: WHEN content is published THEN system SHALL make only items marked as reviewed visible to learners
-- [ ] AC-054: WHEN a published item that learners have already studied is removed THEN system SHALL keep their progress for it and simply stop showing it in lessons and lists
-- [ ] AC-055: WHEN content cannot be loaded (offline or server error) THEN system SHALL use the content it downloaded last time, and show a Vietnamese message only if it has none
+- [x] AC-052: WHEN the owner publishes reviewed content THEN learners SHALL see it within 10 minutes without a new app release
+- [x] AC-053: WHEN content is published THEN system SHALL make only items marked as reviewed visible to learners
+- [x] AC-054: WHEN a published item that learners have already studied is removed THEN system SHALL keep their progress for it and simply stop showing it in lessons and lists
+- [x] AC-055: WHEN content cannot be loaded (offline or server error) THEN system SHALL use the content it downloaded last time, and show a Vietnamese message only if it has none
 
 ### P3: Anonymous usage stats
 
@@ -226,9 +226,9 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-056: WHEN learners use the app THEN system SHALL count, per day: lessons completed, active devices, exercises answered per type, and how often each word is answered wrong, without collecting names, contact details, IP addresses or anything that identifies a person
-- [ ] AC-057: WHEN a learner turns off "Gửi thống kê ẩn danh" (send anonymous stats) in settings THEN system SHALL stop sending any usage data from that device
-- [ ] AC-058: WHEN the owner runs the stats report THEN system SHALL show the counts for a chosen date range
+- [x] AC-056: WHEN learners use the app THEN system SHALL count, per day: lessons completed, active devices, exercises answered per type, and how often each word is answered wrong, without collecting names, contact details, IP addresses or anything that identifies a person
+- [x] AC-057: WHEN a learner turns off "Gửi thống kê ẩn danh" (send anonymous stats) in settings THEN system SHALL stop sending any usage data from that device
+- [x] AC-058: WHEN the owner runs the stats report THEN system SHALL show the counts for a chosen date range
 
 ### P3: Progress insights
 
@@ -237,7 +237,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [ ] AC-037: WHEN a learner opens progress THEN system SHALL show words learned per level, grammar topics completed, and review accuracy over the last 30 days
+- [x] AC-037: WHEN a learner opens progress THEN system SHALL show words learned per level, grammar topics completed, and review accuracy over the last 30 days
 
 ## Edge Cases
 

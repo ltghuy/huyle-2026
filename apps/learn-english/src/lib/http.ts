@@ -17,13 +17,13 @@ export async function parseBody<T extends z.ZodType>(
   try {
     body = await request.json();
   } catch {
-    return { response: jsonError("Invalid JSON body", 400) };
+    return { response: jsonError("Dữ liệu gửi lên không đọc được.", 400) };
   }
 
   const result = schema.safeParse(body);
   if (!result.success) {
     return {
-      response: jsonError("Validation failed", 422, z.treeifyError(result.error)),
+      response: jsonError("Dữ liệu gửi lên không hợp lệ.", 422, z.treeifyError(result.error)),
     };
   }
   return { data: result.data };
