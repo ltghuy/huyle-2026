@@ -75,7 +75,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 - [x] AC-001: WHEN a visitor opens the app THEN system SHALL let them use every feature without signing in or giving any personal details
 - [x] AC-002: WHEN a visitor opens the app for the first time in a browser THEN system SHALL offer the placement test before anything else (skippable)
-- [ ] AC-003: WHEN audio plays in any lesson type THEN system SHALL use the same American English male voice; there SHALL be no accent or voice choice
+- [x] AC-003: WHEN audio plays in any lesson type THEN system SHALL use the same American English male voice; there SHALL be no accent or voice choice -- VERIFIED (2026-10-27: every A1 clip generated with Kokoro am_adam; settings have no voice option)
 - [x] AC-004: WHEN any screen is shown THEN system SHALL show all interface text (menus, buttons, instructions, feedback, errors) in Vietnamese, with only taught English content in English
 - [x] AC-005: WHEN a learner makes progress (answers, lessons, settings) THEN system SHALL save it on their device immediately, so closing the page loses nothing
 - [x] AC-042: WHEN a learner chooses "Xuất tiến độ" (export progress) in settings THEN system SHALL download one backup file containing all their progress and settings
@@ -92,7 +92,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 - [x] AC-006: WHEN a learner browses vocabulary THEN system SHALL group words by CEFR level (A1, A2, B1, B2, C1) and by topic, and SHALL show which words the learner has already learned
 - [x] AC-007: WHEN a learner opens a word THEN system SHALL show the English word, American phonetic spelling, word type, Vietnamese meaning(s), and at least one English example sentence with its Vietnamese translation
-- [ ] AC-008: WHEN a learner taps the play button on a word or example sentence THEN system SHALL play it in the app's voice within 1 second on a normal connection
+- [x] AC-008: WHEN a learner taps the play button on a word or example sentence THEN system SHALL play it in the app's voice within 1 second on a normal connection -- VERIFIED (2026-10-27 on production: first tap fetched the word and sentence clips in about 0.75 s; clips are cached for a year after that)
 - [x] AC-045: WHEN a learner opens the credits page THEN system SHALL list the sources of the word lists and pronunciation data with their licences and required attributions
 - [x] AC-009: WHEN a learner marks a word as learned (or completes it in a lesson) THEN system SHALL add it to their review schedule
 

@@ -8,7 +8,7 @@ created: 2026-10-26
 
 ## Summary
 
-Total: 50 | Completed: 45 | Remaining: 5
+Total: 50 | Completed: 48 | Remaining: 2
 
 Content is built **A1 first** (T012) so every screen can be developed and tested on real data;
 the rest of the levels (T049) are drafted and reviewed in parallel with UI work.
@@ -100,18 +100,18 @@ Run after each task or batch (from the repo root):
 - [x] T011 [B:T010] Write `scripts/review.ts`: list drafts by level/kind, approve by file or id, validate
   - **Done when:** approving flips `status` only for the selected items and refuses items that fail validation -- VERIFIED
 
-- [ ] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, all 12 A1 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
+- [x] T012 [B:T009,T011] Draft and review the A1 set: all A1 words + their sentences, all 12 A1 grammar topics (incl. Present Simple, Present Continuous), A1 writing tasks, and the placement bank for all levels (owner review)
   - **Done when:** the owner has approved A1 content and placement items; schema validation is clean
-  - Progress (2026-10-27): A1 drafted in-session (1,164 words, 1,212 sentences, 12 grammar, 12 writing; 2,400 items pass an approve dry run). Review page: `pnpm content:review sheet A1` writes `content/.review/A1.html` (OK / Needs fix per word or grammar unit with its sentences, marks in localStorage, "Download decisions"), then `pnpm content:review approve A1 --ids-file review-A1.json`. Waiting on: the owner's review
+  - Progress (2026-10-27): A1 drafted in-session (1,164 words, 1,212 sentences, 12 grammar, 12 writing; 2,400 items pass an approve dry run). Review page: `pnpm content:review sheet A1` writes `content/.review/A1.html` (OK / Needs fix per word or grammar unit with its sentences, marks in localStorage, "Download decisions"), then `pnpm content:review approve A1 --ids-file review-A1.json`. Owner approved all A1 items (2026-10-27) -- VERIFIED
 
-- [ ] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD or Workers AI Aura-2 → MP3, key `sha256(voice|text)`, deployed as static files on two audio-only Workers with an immutable cache header); generate 4 male voice samples for the owner
+- [x] T013 [P] Write `scripts/generate-audio.ts` (Google Chirp 3 HD or Workers AI Aura-2 → MP3, key `sha256(voice|text)`, deployed as static files on two audio-only Workers with an immutable cache header); generate 4 male voice samples for the owner
   - **Done when:** the owner has picked the voice; generating and deploying the A1 set serves clips from `audio-words.huyle.work` / `audio-sentences.huyle.work` with a long-lived `Cache-Control`
   - Progress (2026-10-27): `pnpm content:audio samples|generate` written and tested, with two providers (Google Chirp 3 HD via `GOOGLE_TTS_API_KEY`, Workers AI Aura-2 via Cloudflare token), content-hashed keys, local cache, resumable. Hosting switched from R2 to two static audio Workers (no card); `pnpm content:audio deploy` added and dry-run verified.
-  - Progress (2026-10-27, later): free `kokoro` provider added (Kokoro-82M, Apache-2.0, runs locally via kokoro-js; MP3 via lamejs); samples for am_michael, am_fenrir, am_puck, am_adam in `content/.audio/samples/`. Voice picked: **am_adam** (owner, 2026-10-27). Waiting on: approved A1 items to generate for
+  - Progress (2026-10-27, later): free `kokoro` provider added (Kokoro-82M, Apache-2.0, runs locally via kokoro-js; MP3 via lamejs); samples for am_michael, am_fenrir, am_puck, am_adam in `content/.audio/samples/`. Voice picked: **am_adam** (owner, 2026-10-27). A1 generated (2,249 clips, 36 MB) and deployed; clips return 200 `audio/mpeg` with `max-age=31536000, immutable` -- VERIFIED
 
-- [ ] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
+- [x] T014 [B:T006,T012,T013] Write `scripts/publish-content.ts` (`--local`/`--remote`): validate approved items, generate missing audio, chunked SQL upserts, tombstones for removed ids, bump `content_meta.version`
   - **Done when:** tests cover skipping drafts, tombstones, version bump and chunking; A1 is published to local D1
-  - Progress (2026-10-27): script + tests done and verified end to end on a fixture in local D1 (also `--persist-to` for e2e). Audio is a separate step (`content:audio generate` before `content:publish`), not called from publish. Still open: publish real A1 (after T012/T013)
+  - Progress (2026-10-27): script + tests done and verified end to end on a fixture in local D1 (also `--persist-to` for e2e). Audio is a separate step (`content:audio generate` before `content:publish`), not called from publish. Real A1 published to production (2026-10-27): content version 1, 2,418 items; `/api/content/items` serves 1,164 A1 words and the edge cache answers HIT -- VERIFIED
 
 ### Content API and client
 
