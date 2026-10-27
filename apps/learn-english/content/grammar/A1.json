@@ -111,7 +111,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -232,7 +232,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -343,7 +343,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -464,7 +464,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -577,7 +577,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -690,7 +690,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -814,7 +814,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -939,7 +939,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1062,7 +1062,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1179,7 +1179,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1291,7 +1291,7 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1408,6 +1408,6 @@
         }
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

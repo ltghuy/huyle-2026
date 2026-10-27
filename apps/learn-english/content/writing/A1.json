@@ -17,7 +17,7 @@
         "Hi, I am Minh. I am thirty years old. I live in a small town near Hue."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38,7 +38,7 @@
         "I don't work on weekends. I play badminton with my friends. In the evening, I watch movies."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59,7 +59,7 @@
         "My neighborhood is quiet. There is a school and a small park. There isn't a supermarket."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -80,7 +80,7 @@
         "My son is sleeping. My wife is watching TV. I am doing my homework."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -101,7 +101,7 @@
         "My family is small. I live with my wife and my son. My son is five years old."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -122,7 +122,7 @@
         "I have breakfast at seven. I work in an office in the afternoon. I go to bed at eleven."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -143,7 +143,7 @@
         "I love noodles. I drink coffee every morning. I don't eat meat."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -164,7 +164,7 @@
         "I like my bedroom. There is a big lamp on the table. There are many books on the shelf."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -185,7 +185,7 @@
         "My friend's name is Tuan. He is short and funny. He likes football."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -206,7 +206,7 @@
         "I can speak a little English. I can ride a bike. I can't play the guitar."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -227,7 +227,7 @@
         "Today it is cold and windy. It is raining now. I am wearing a jacket."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -248,6 +248,6 @@
         "I am a student. I study English at a university. My classes start at eight."
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

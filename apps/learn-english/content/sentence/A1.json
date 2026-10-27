@@ -43,7 +43,7 @@
         "word:a-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -102,7 +102,7 @@
         "word:a-m-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -153,7 +153,7 @@
         "word:about-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -201,7 +201,7 @@
         "word:about-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -250,7 +250,7 @@
         "word:above-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -311,7 +311,7 @@
         "word:above-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -360,7 +360,7 @@
         "word:action-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -409,7 +409,7 @@
         "word:activity-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -458,7 +458,7 @@
         "word:actor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -520,7 +520,7 @@
         "word:add-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -566,7 +566,7 @@
         "word:address-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -619,7 +619,7 @@
         "word:afraid-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -674,7 +674,7 @@
         "word:after-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -733,7 +733,7 @@
         "word:afternoon-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -779,7 +779,7 @@
         "word:again-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -825,7 +825,7 @@
         "word:age-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -876,7 +876,7 @@
         "word:ago-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -923,7 +923,7 @@
         "word:agree-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -971,7 +971,7 @@
         "word:airplane-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1022,7 +1022,7 @@
         "word:airport-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1075,7 +1075,7 @@
         "word:album-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1124,7 +1124,7 @@
         "word:all-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1173,7 +1173,7 @@
         "word:all-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1220,7 +1220,7 @@
         "word:all-right-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1274,7 +1274,7 @@
         "word:all-right-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1323,7 +1323,7 @@
         "word:almost-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1370,7 +1370,7 @@
         "word:alone-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1417,7 +1417,7 @@
         "word:along-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1468,7 +1468,7 @@
         "word:already-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1517,7 +1517,7 @@
         "word:also-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1570,7 +1570,7 @@
         "word:always-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1616,7 +1616,7 @@
         "word:am-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1666,7 +1666,7 @@
         "word:an-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1714,7 +1714,7 @@
         "word:and-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1765,7 +1765,7 @@
         "word:angry-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1816,7 +1816,7 @@
         "word:animal-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1865,7 +1865,7 @@
         "word:another-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1912,7 +1912,7 @@
         "word:answer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -1959,7 +1959,7 @@
         "word:answer-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2008,7 +2008,7 @@
         "word:any-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2063,7 +2063,7 @@
         "word:any-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2110,7 +2110,7 @@
         "word:anybody-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2159,7 +2159,7 @@
         "word:anyone-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2208,7 +2208,7 @@
         "word:anything-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2259,7 +2259,7 @@
         "word:apple-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2308,7 +2308,7 @@
         "word:april-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2363,7 +2363,7 @@
         "word:apron-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2409,7 +2409,7 @@
         "word:are-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2454,7 +2454,7 @@
         "word:arm-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2503,7 +2503,7 @@
         "word:around-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2552,7 +2552,7 @@
         "word:arrive-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2601,7 +2601,7 @@
         "word:art-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2652,7 +2652,7 @@
         "word:article-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2701,7 +2701,7 @@
         "word:as-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2752,7 +2752,7 @@
         "word:ask-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2800,7 +2800,7 @@
         "word:at-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2847,7 +2847,7 @@
         "word:august-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2900,7 +2900,7 @@
         "word:aunt-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -2959,7 +2959,7 @@
         "word:autumn-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3007,7 +3007,7 @@
         "word:awake-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3051,7 +3051,7 @@
         "word:away-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3098,7 +3098,7 @@
         "word:baby-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3147,7 +3147,7 @@
         "word:back-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3192,7 +3192,7 @@
         "word:back-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3248,7 +3248,7 @@
         "word:bad-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3299,7 +3299,7 @@
         "word:bag-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3350,7 +3350,7 @@
         "word:ball-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3395,7 +3395,7 @@
         "word:banana-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3448,7 +3448,7 @@
         "word:band-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3497,7 +3497,7 @@
         "word:bank-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3559,7 +3559,7 @@
         "word:bar-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3615,7 +3615,7 @@
         "word:baseball-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3664,7 +3664,7 @@
         "word:basketball-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3717,7 +3717,7 @@
         "word:bat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3768,7 +3768,7 @@
         "word:bath-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3814,7 +3814,7 @@
         "word:bathroom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3865,7 +3865,7 @@
         "word:be-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3927,7 +3927,7 @@
         "word:beach-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -3976,7 +3976,7 @@
         "word:bean-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4027,7 +4027,7 @@
         "word:bear-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4076,7 +4076,7 @@
         "word:beautiful-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4129,7 +4129,7 @@
         "word:because-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4180,7 +4180,7 @@
         "word:become-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4231,7 +4231,7 @@
         "word:bed-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4282,7 +4282,7 @@
         "word:bedroom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4333,7 +4333,7 @@
         "word:bee-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4380,7 +4380,7 @@
         "word:beef-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4431,7 +4431,7 @@
         "word:before-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4480,7 +4480,7 @@
         "word:before-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4529,7 +4529,7 @@
         "word:begin-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4584,7 +4584,7 @@
         "word:behind-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4634,7 +4634,7 @@
         "word:behind-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4678,7 +4678,7 @@
         "word:believe-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4729,7 +4729,7 @@
         "word:bell-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4778,7 +4778,7 @@
         "word:below-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4827,7 +4827,7 @@
         "word:below-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4876,7 +4876,7 @@
         "word:beside-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4925,7 +4925,7 @@
         "word:best-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -4972,7 +4972,7 @@
         "word:best-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5025,7 +5025,7 @@
         "word:better-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5082,7 +5082,7 @@
         "word:between-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5133,7 +5133,7 @@
         "word:bicycle-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5184,7 +5184,7 @@
         "word:big-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5233,7 +5233,7 @@
         "word:bike-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5288,7 +5288,7 @@
         "word:bird-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5339,7 +5339,7 @@
         "word:birth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5386,7 +5386,7 @@
         "word:birthday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5435,7 +5435,7 @@
         "word:biscuit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5484,7 +5484,7 @@
         "word:black-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5533,7 +5533,7 @@
         "word:black-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5586,7 +5586,7 @@
         "word:blank-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5639,7 +5639,7 @@
         "word:block-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5698,7 +5698,7 @@
         "word:blow-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5754,7 +5754,7 @@
         "word:blue-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5805,7 +5805,7 @@
         "word:blue-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5856,7 +5856,7 @@
         "word:board-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5909,7 +5909,7 @@
         "word:boat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -5960,7 +5960,7 @@
         "word:body-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6008,7 +6008,7 @@
         "word:bone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6057,7 +6057,7 @@
         "word:book-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6110,7 +6110,7 @@
         "word:bookstore-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6157,7 +6157,7 @@
         "word:boring-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6206,7 +6206,7 @@
         "word:borrow-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6257,7 +6257,7 @@
         "word:both-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6306,7 +6306,7 @@
         "word:both-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6355,7 +6355,7 @@
         "word:both-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6410,7 +6410,7 @@
         "word:bottle-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6467,7 +6467,7 @@
         "word:bottom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6522,7 +6522,7 @@
         "word:bowl-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6573,7 +6573,7 @@
         "word:box-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6624,7 +6624,7 @@
         "word:boy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6673,7 +6673,7 @@
         "word:boyfriend-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6724,7 +6724,7 @@
         "word:brain-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6773,7 +6773,7 @@
         "word:bread-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6824,7 +6824,7 @@
         "word:break-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6873,7 +6873,7 @@
         "word:breakfast-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6924,7 +6924,7 @@
         "word:breathe-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -6979,7 +6979,7 @@
         "word:bridge-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7030,7 +7030,7 @@
         "word:bright-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7081,7 +7081,7 @@
         "word:bring-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7128,7 +7128,7 @@
         "word:broken-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7181,7 +7181,7 @@
         "word:brother-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7230,7 +7230,7 @@
         "word:brown-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7285,7 +7285,7 @@
         "word:brush-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7338,7 +7338,7 @@
         "word:brush-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7387,7 +7387,7 @@
         "word:bucket-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7438,7 +7438,7 @@
         "word:build-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7491,7 +7491,7 @@
         "word:building-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7542,7 +7542,7 @@
         "word:burger-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7593,7 +7593,7 @@
         "word:bus-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7644,7 +7644,7 @@
         "word:business-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7699,7 +7699,7 @@
         "word:busy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7754,7 +7754,7 @@
         "word:but-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7805,7 +7805,7 @@
         "word:butter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7856,7 +7856,7 @@
         "word:butterfly-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7905,7 +7905,7 @@
         "word:button-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -7956,7 +7956,7 @@
         "word:buy-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8007,7 +8007,7 @@
         "word:by-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8056,7 +8056,7 @@
         "word:bye-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8105,7 +8105,7 @@
         "word:cafe-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8160,7 +8160,7 @@
         "word:cake-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8207,7 +8207,7 @@
         "word:call-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8256,7 +8256,7 @@
         "word:camera-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8311,7 +8311,7 @@
         "word:camp-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8360,7 +8360,7 @@
         "word:can-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8405,7 +8405,7 @@
         "word:candy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8456,7 +8456,7 @@
         "word:cap-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8507,7 +8507,7 @@
         "word:car-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8558,7 +8558,7 @@
         "word:card-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8609,7 +8609,7 @@
         "word:care-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8658,7 +8658,7 @@
         "word:careful-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8703,7 +8703,7 @@
         "word:carefully-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8756,7 +8756,7 @@
         "word:carry-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8815,7 +8815,7 @@
         "word:cartoon-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8868,7 +8868,7 @@
         "word:case-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8919,7 +8919,7 @@
         "word:cat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -8968,7 +8968,7 @@
         "word:catch-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9019,7 +9019,7 @@
         "word:catch-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9068,7 +9068,7 @@
         "word:cd-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9118,7 +9118,7 @@
         "word:cd-player-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9169,7 +9169,7 @@
         "word:celebrate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9218,7 +9218,7 @@
         "word:celebration-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9267,7 +9267,7 @@
         "word:chair-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9313,7 +9313,7 @@
         "word:change-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9372,7 +9372,7 @@
         "word:change-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9427,7 +9427,7 @@
         "word:character-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9478,7 +9478,7 @@
         "word:check-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9529,7 +9529,7 @@
         "word:cheese-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9582,7 +9582,7 @@
         "word:chicken-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9629,7 +9629,7 @@
         "word:child-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9676,7 +9676,7 @@
         "word:chocolate-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9723,7 +9723,7 @@
         "word:choose-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9778,7 +9778,7 @@
         "word:church-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9840,7 +9840,7 @@
         "word:cinema-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9891,7 +9891,7 @@
         "word:circle-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9942,7 +9942,7 @@
         "word:city-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -9995,7 +9995,7 @@
         "word:class-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10046,7 +10046,7 @@
         "word:classmate-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10099,7 +10099,7 @@
         "word:classroom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10148,7 +10148,7 @@
         "word:clean-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10207,7 +10207,7 @@
         "word:clean-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10255,7 +10255,7 @@
         "word:clever-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10310,7 +10310,7 @@
         "word:climb-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10363,7 +10363,7 @@
         "word:clock-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10416,7 +10416,7 @@
         "word:close-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10463,7 +10463,7 @@
         "word:close-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10514,7 +10514,7 @@
         "word:closed-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10569,7 +10569,7 @@
         "word:cloth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10620,7 +10620,7 @@
         "word:clothes-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10673,7 +10673,7 @@
         "word:cloud-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10725,7 +10725,7 @@
         "word:cloudy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10778,7 +10778,7 @@
         "word:club-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10831,7 +10831,7 @@
         "word:coach-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10884,7 +10884,7 @@
         "word:coat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10937,7 +10937,7 @@
         "word:code-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -10993,7 +10993,7 @@
         "word:coffee-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11044,7 +11044,7 @@
         "word:coke-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11103,7 +11103,7 @@
         "word:cold-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11159,7 +11159,7 @@
         "word:cold-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11208,7 +11208,7 @@
         "word:collect-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11261,7 +11261,7 @@
         "word:collection-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11310,7 +11310,7 @@
         "word:college-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11359,7 +11359,7 @@
         "word:color-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11408,7 +11408,7 @@
         "word:color-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11459,7 +11459,7 @@
         "word:come-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11518,7 +11518,7 @@
         "word:computer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11567,7 +11567,7 @@
         "word:concert-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11620,7 +11620,7 @@
         "word:contest-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11673,7 +11673,7 @@
         "word:conversation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11724,7 +11724,7 @@
         "word:cook-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11775,7 +11775,7 @@
         "word:cook-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11824,7 +11824,7 @@
         "word:cookie-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11883,7 +11883,7 @@
         "word:cool-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11934,7 +11934,7 @@
         "word:cop-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -11989,7 +11989,7 @@
         "word:copy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12048,7 +12048,7 @@
         "word:corn-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12099,7 +12099,7 @@
         "word:corner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12146,7 +12146,7 @@
         "word:correct-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12197,7 +12197,7 @@
         "word:couch-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12246,7 +12246,7 @@
         "word:could-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12299,7 +12299,7 @@
         "word:course-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12350,7 +12350,7 @@
         "word:cousin-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12401,7 +12401,7 @@
         "word:cover-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12450,7 +12450,7 @@
         "word:cow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12503,7 +12503,7 @@
         "word:cream-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12554,7 +12554,7 @@
         "word:credit-card-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12605,7 +12605,7 @@
         "word:cry-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12656,7 +12656,7 @@
         "word:culture-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12709,7 +12709,7 @@
         "word:cup-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12762,7 +12762,7 @@
         "word:cut-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12811,7 +12811,7 @@
         "word:cute-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12862,7 +12862,7 @@
         "word:dad-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12915,7 +12915,7 @@
         "word:daddy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -12977,7 +12977,7 @@
         "word:dance-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13024,7 +13024,7 @@
         "word:dance-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13080,7 +13080,7 @@
         "word:dancing-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13139,7 +13139,7 @@
         "word:dark-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13188,7 +13188,7 @@
         "word:date-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13239,7 +13239,7 @@
         "word:daughter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13290,7 +13290,7 @@
         "word:day-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13343,7 +13343,7 @@
         "word:dear-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13392,7 +13392,7 @@
         "word:december-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13439,7 +13439,7 @@
         "word:delicious-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13488,7 +13488,7 @@
         "word:describe-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13541,7 +13541,7 @@
         "word:design-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13592,7 +13592,7 @@
         "word:desk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13647,7 +13647,7 @@
         "word:dictionary-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13696,7 +13696,7 @@
         "word:did-do-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13751,7 +13751,7 @@
         "word:difference-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13804,7 +13804,7 @@
         "word:different-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13853,7 +13853,7 @@
         "word:difficult-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13908,7 +13908,7 @@
         "word:dig-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -13961,7 +13961,7 @@
         "word:dining-room-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14020,7 +14020,7 @@
         "word:dinner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14067,7 +14067,7 @@
         "word:dirty-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14118,7 +14118,7 @@
         "word:discuss-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14174,7 +14174,7 @@
         "word:dish-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14223,7 +14223,7 @@
         "word:do-do-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14278,7 +14278,7 @@
         "word:doctor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14325,7 +14325,7 @@
         "word:does-do-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14390,7 +14390,7 @@
         "word:dog-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14439,7 +14439,7 @@
         "word:doing-do-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14490,7 +14490,7 @@
         "word:doll-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14539,7 +14539,7 @@
         "word:dollar-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14590,7 +14590,7 @@
         "word:door-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14637,7 +14637,7 @@
         "word:down-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14692,7 +14692,7 @@
         "word:drama-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14743,7 +14743,7 @@
         "word:draw-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14796,7 +14796,7 @@
         "word:dream-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14847,7 +14847,7 @@
         "word:dress-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14898,7 +14898,7 @@
         "word:drink-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -14949,7 +14949,7 @@
         "word:drink-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15002,7 +15002,7 @@
         "word:drive-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15053,7 +15053,7 @@
         "word:driver-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15102,7 +15102,7 @@
         "word:drop-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15151,7 +15151,7 @@
         "word:drum-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15214,7 +15214,7 @@
         "word:dry-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15265,7 +15265,7 @@
         "word:due-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15316,7 +15316,7 @@
         "word:dvd-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15365,7 +15365,7 @@
         "word:each-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15416,7 +15416,7 @@
         "word:each-other-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15467,7 +15467,7 @@
         "word:each-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15514,7 +15514,7 @@
         "word:ear-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15573,7 +15573,7 @@
         "word:early-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15624,7 +15624,7 @@
         "word:easy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15680,7 +15680,7 @@
         "word:eat-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15731,7 +15731,7 @@
         "word:egg-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15778,7 +15778,7 @@
         "word:eight-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15829,7 +15829,7 @@
         "word:eighteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15880,7 +15880,7 @@
         "word:eighty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15935,7 +15935,7 @@
         "word:either-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -15986,7 +15986,7 @@
         "word:elementary-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16035,7 +16035,7 @@
         "word:eleven-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16084,7 +16084,7 @@
         "word:else-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16137,7 +16137,7 @@
         "word:email-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16190,7 +16190,7 @@
         "word:end-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16239,7 +16239,7 @@
         "word:engineer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16290,7 +16290,7 @@
         "word:enjoy-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16349,7 +16349,7 @@
         "word:evening-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16404,7 +16404,7 @@
         "word:event-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16463,7 +16463,7 @@
         "word:every-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16512,7 +16512,7 @@
         "word:everybody-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16561,7 +16561,7 @@
         "word:everyday-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16614,7 +16614,7 @@
         "word:everyone-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16661,7 +16661,7 @@
         "word:everything-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16712,7 +16712,7 @@
         "word:everywhere-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16763,7 +16763,7 @@
         "word:example-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16810,7 +16810,7 @@
         "word:excellent-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16863,7 +16863,7 @@
         "word:excited-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16912,7 +16912,7 @@
         "word:exciting-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -16967,7 +16967,7 @@
         "word:excuse-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17029,7 +17029,7 @@
         "word:exercise-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17078,7 +17078,7 @@
         "word:expensive-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17127,7 +17127,7 @@
         "word:eye-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17176,7 +17176,7 @@
         "word:face-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17229,7 +17229,7 @@
         "word:factory-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17276,7 +17276,7 @@
         "word:fair-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17329,7 +17329,7 @@
         "word:fairy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17380,7 +17380,7 @@
         "word:false-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17433,7 +17433,7 @@
         "word:family-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17486,7 +17486,7 @@
         "word:famous-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17539,7 +17539,7 @@
         "word:fan-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17590,7 +17590,7 @@
         "word:farm-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17641,7 +17641,7 @@
         "word:farmer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17692,7 +17692,7 @@
         "word:fast-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17741,7 +17741,7 @@
         "word:fast-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17790,7 +17790,7 @@
         "word:fat-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17839,7 +17839,7 @@
         "word:father-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17895,7 +17895,7 @@
         "word:favorite-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17944,7 +17944,7 @@
         "word:favorite-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -17993,7 +17993,7 @@
         "word:february-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18046,7 +18046,7 @@
         "word:feed-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18095,7 +18095,7 @@
         "word:feel-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18148,7 +18148,7 @@
         "word:feeling-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18203,7 +18203,7 @@
         "word:festival-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18254,7 +18254,7 @@
         "word:fever-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18307,7 +18307,7 @@
         "word:field-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18356,7 +18356,7 @@
         "word:fifteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18405,7 +18405,7 @@
         "word:fifty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18460,7 +18460,7 @@
         "word:fight-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18513,7 +18513,7 @@
         "word:file-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18564,7 +18564,7 @@
         "word:fill-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18613,7 +18613,7 @@
         "word:find-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18662,7 +18662,7 @@
         "word:fine-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18713,7 +18713,7 @@
         "word:finish-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18762,7 +18762,7 @@
         "word:finish-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18824,7 +18824,7 @@
         "word:fire-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18877,7 +18877,7 @@
         "word:first-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18930,7 +18930,7 @@
         "word:first-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -18986,7 +18986,7 @@
         "word:fish-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19039,7 +19039,7 @@
         "word:fishing-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19092,7 +19092,7 @@
         "word:five-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19145,7 +19145,7 @@
         "word:flag-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19196,7 +19196,7 @@
         "word:flat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19249,7 +19249,7 @@
         "word:floor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19300,7 +19300,7 @@
         "word:flower-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19353,7 +19353,7 @@
         "word:fly-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19400,7 +19400,7 @@
         "word:fly-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19453,7 +19453,7 @@
         "word:focus-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19509,7 +19509,7 @@
         "word:foggy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19556,7 +19556,7 @@
         "word:following-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19607,7 +19607,7 @@
         "word:food-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19660,7 +19660,7 @@
         "word:football-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19709,7 +19709,7 @@
         "word:for-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19758,7 +19758,7 @@
         "word:foreign-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19807,7 +19807,7 @@
         "word:foreigner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19854,7 +19854,7 @@
         "word:forget-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19903,7 +19903,7 @@
         "word:form-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -19956,7 +19956,7 @@
         "word:forty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20005,7 +20005,7 @@
         "word:four-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20052,7 +20052,7 @@
         "word:fourteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20101,7 +20101,7 @@
         "word:free-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20160,7 +20160,7 @@
         "word:friday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20209,7 +20209,7 @@
         "word:friend-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20260,7 +20260,7 @@
         "word:frog-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20307,7 +20307,7 @@
         "word:from-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20356,7 +20356,7 @@
         "word:front-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20412,7 +20412,7 @@
         "word:fruit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20468,7 +20468,7 @@
         "word:full-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20517,7 +20517,7 @@
         "word:fun-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20574,7 +20574,7 @@
         "word:fun-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20622,7 +20622,7 @@
         "word:funny-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20690,7 +20690,7 @@
         "word:future-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20751,7 +20751,7 @@
       "wordIds": [],
       "grammarSlug": "articles"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20805,7 +20805,7 @@
       "wordIds": [],
       "grammarSlug": "articles"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20852,7 +20852,7 @@
       "wordIds": [],
       "grammarSlug": "articles"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20909,7 +20909,7 @@
       "wordIds": [],
       "grammarSlug": "articles"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -20959,7 +20959,7 @@
       "wordIds": [],
       "grammarSlug": "can-ability"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21005,7 +21005,7 @@
       "wordIds": [],
       "grammarSlug": "can-ability"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21053,7 +21053,7 @@
       "wordIds": [],
       "grammarSlug": "can-ability"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21101,7 +21101,7 @@
       "wordIds": [],
       "grammarSlug": "can-ability"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21152,7 +21152,7 @@
       "wordIds": [],
       "grammarSlug": "imperatives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21200,7 +21200,7 @@
       "wordIds": [],
       "grammarSlug": "imperatives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21258,7 +21258,7 @@
       "wordIds": [],
       "grammarSlug": "imperatives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21310,7 +21310,7 @@
       "wordIds": [],
       "grammarSlug": "imperatives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21371,7 +21371,7 @@
       "wordIds": [],
       "grammarSlug": "plural-nouns"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21419,7 +21419,7 @@
       "wordIds": [],
       "grammarSlug": "plural-nouns"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21467,7 +21467,7 @@
       "wordIds": [],
       "grammarSlug": "plural-nouns"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21517,7 +21517,7 @@
       "wordIds": [],
       "grammarSlug": "plural-nouns"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21565,7 +21565,7 @@
       "wordIds": [],
       "grammarSlug": "possessives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21610,7 +21610,7 @@
       "wordIds": [],
       "grammarSlug": "possessives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21657,7 +21657,7 @@
       "wordIds": [],
       "grammarSlug": "possessives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21706,7 +21706,7 @@
       "wordIds": [],
       "grammarSlug": "possessives"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21755,7 +21755,7 @@
       "wordIds": [],
       "grammarSlug": "prepositions-time-place"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21815,7 +21815,7 @@
       "wordIds": [],
       "grammarSlug": "prepositions-time-place"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21862,7 +21862,7 @@
       "wordIds": [],
       "grammarSlug": "prepositions-time-place"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21911,7 +21911,7 @@
       "wordIds": [],
       "grammarSlug": "prepositions-time-place"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -21969,7 +21969,7 @@
       "wordIds": [],
       "grammarSlug": "present-continuous"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22021,7 +22021,7 @@
       "wordIds": [],
       "grammarSlug": "present-continuous"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22069,7 +22069,7 @@
       "wordIds": [],
       "grammarSlug": "present-continuous"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22119,7 +22119,7 @@
       "wordIds": [],
       "grammarSlug": "present-continuous"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22180,7 +22180,7 @@
       "wordIds": [],
       "grammarSlug": "present-simple"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22227,7 +22227,7 @@
       "wordIds": [],
       "grammarSlug": "present-simple"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22273,7 +22273,7 @@
       "wordIds": [],
       "grammarSlug": "present-simple"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22321,7 +22321,7 @@
       "wordIds": [],
       "grammarSlug": "present-simple"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22369,7 +22369,7 @@
       "wordIds": [],
       "grammarSlug": "question-words"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22417,7 +22417,7 @@
       "wordIds": [],
       "grammarSlug": "question-words"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22465,7 +22465,7 @@
       "wordIds": [],
       "grammarSlug": "question-words"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22515,7 +22515,7 @@
       "wordIds": [],
       "grammarSlug": "question-words"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22576,7 +22576,7 @@
       "wordIds": [],
       "grammarSlug": "there-is-there-are"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22628,7 +22628,7 @@
       "wordIds": [],
       "grammarSlug": "there-is-there-are"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22680,7 +22680,7 @@
       "wordIds": [],
       "grammarSlug": "there-is-there-are"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22730,7 +22730,7 @@
       "wordIds": [],
       "grammarSlug": "there-is-there-are"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22777,7 +22777,7 @@
       "wordIds": [],
       "grammarSlug": "this-that-these-those"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22824,7 +22824,7 @@
       "wordIds": [],
       "grammarSlug": "this-that-these-those"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22870,7 +22870,7 @@
       "wordIds": [],
       "grammarSlug": "this-that-these-those"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22920,7 +22920,7 @@
       "wordIds": [],
       "grammarSlug": "this-that-these-those"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -22965,7 +22965,7 @@
       "wordIds": [],
       "grammarSlug": "to-be"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23012,7 +23012,7 @@
       "wordIds": [],
       "grammarSlug": "to-be"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23070,7 +23070,7 @@
       "wordIds": [],
       "grammarSlug": "to-be"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23117,7 +23117,7 @@
       "wordIds": [],
       "grammarSlug": "to-be"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23176,7 +23176,7 @@
         "word:game-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23232,7 +23232,7 @@
         "word:garbage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23283,7 +23283,7 @@
         "word:garden-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23348,7 +23348,7 @@
         "word:get-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23401,7 +23401,7 @@
         "word:ghost-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23450,7 +23450,7 @@
         "word:gift-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23512,7 +23512,7 @@
         "word:girl-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23561,7 +23561,7 @@
         "word:girlfriend-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23610,7 +23610,7 @@
         "word:give-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23661,7 +23661,7 @@
         "word:glad-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23714,7 +23714,7 @@
         "word:glass-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23761,7 +23761,7 @@
         "word:glasses-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23812,7 +23812,7 @@
         "word:go-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23874,7 +23874,7 @@
         "word:goal-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23923,7 +23923,7 @@
         "word:gold-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -23972,7 +23972,7 @@
         "word:good-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24023,7 +24023,7 @@
         "word:good-afternoon-int"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24074,7 +24074,7 @@
         "word:good-morning-int"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24123,7 +24123,7 @@
         "word:good-night-int"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24174,7 +24174,7 @@
         "word:grade-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24225,7 +24225,7 @@
         "word:grammar-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24274,7 +24274,7 @@
         "word:grandfather-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24323,7 +24323,7 @@
         "word:grandma-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24374,7 +24374,7 @@
         "word:grandmother-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24433,7 +24433,7 @@
         "word:grandpa-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24492,7 +24492,7 @@
         "word:grandparent-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24539,7 +24539,7 @@
         "word:grape-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24590,7 +24590,7 @@
         "word:grass-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24646,7 +24646,7 @@
         "word:gray-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24695,7 +24695,7 @@
         "word:gray-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24750,7 +24750,7 @@
         "word:great-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24799,7 +24799,7 @@
         "word:green-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24858,7 +24858,7 @@
         "word:greet-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24909,7 +24909,7 @@
         "word:ground-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -24960,7 +24960,7 @@
         "word:group-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25013,7 +25013,7 @@
         "word:grow-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25062,7 +25062,7 @@
         "word:guess-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25124,7 +25124,7 @@
         "word:guest-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25173,7 +25173,7 @@
         "word:guitar-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25222,7 +25222,7 @@
         "word:guy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25275,7 +25275,7 @@
         "word:habit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25334,7 +25334,7 @@
         "word:had-have-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25383,7 +25383,7 @@
         "word:hair-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25430,7 +25430,7 @@
         "word:haircut-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25485,7 +25485,7 @@
         "word:half-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25536,7 +25536,7 @@
         "word:hall-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25587,7 +25587,7 @@
         "word:hamburger-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25636,7 +25636,7 @@
         "word:hand-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25687,7 +25687,7 @@
         "word:handsome-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25742,7 +25742,7 @@
         "word:happen-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25798,7 +25798,7 @@
         "word:happy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25847,7 +25847,7 @@
         "word:hard-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25896,7 +25896,7 @@
         "word:hard-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -25943,7 +25943,7 @@
         "word:has-have-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26005,7 +26005,7 @@
         "word:hat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26054,7 +26054,7 @@
         "word:have-have-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26105,7 +26105,7 @@
         "word:have-to-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26154,7 +26154,7 @@
         "word:he-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26207,7 +26207,7 @@
         "word:head-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26254,7 +26254,7 @@
         "word:headache-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26305,7 +26305,7 @@
         "word:health-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26356,7 +26356,7 @@
         "word:healthy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26405,7 +26405,7 @@
         "word:hear-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26467,7 +26467,7 @@
         "word:heart-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26520,7 +26520,7 @@
         "word:heavy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26573,7 +26573,7 @@
         "word:hello-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26626,7 +26626,7 @@
         "word:help-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26673,7 +26673,7 @@
         "word:her-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26729,7 +26729,7 @@
         "word:her-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26774,7 +26774,7 @@
         "word:here-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26829,7 +26829,7 @@
         "word:hers-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26878,7 +26878,7 @@
         "word:hi-int"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26929,7 +26929,7 @@
         "word:hide-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -26978,7 +26978,7 @@
         "word:high-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27029,7 +27029,7 @@
         "word:hill-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27078,7 +27078,7 @@
         "word:him-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27127,7 +27127,7 @@
         "word:his-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27178,7 +27178,7 @@
         "word:his-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27234,7 +27234,7 @@
         "word:history-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27283,7 +27283,7 @@
         "word:hobby-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27336,7 +27336,7 @@
         "word:hold-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27389,7 +27389,7 @@
         "word:hole-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27446,7 +27446,7 @@
         "word:holiday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27495,7 +27495,7 @@
         "word:home-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27546,7 +27546,7 @@
         "word:hometown-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27605,7 +27605,7 @@
         "word:homework-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27656,7 +27656,7 @@
         "word:hope-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27705,7 +27705,7 @@
         "word:horse-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27756,7 +27756,7 @@
         "word:hospital-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27812,7 +27812,7 @@
         "word:hot-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27867,7 +27867,7 @@
         "word:hotel-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27926,7 +27926,7 @@
         "word:hour-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -27977,7 +27977,7 @@
         "word:house-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28028,7 +28028,7 @@
         "word:how-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28077,7 +28077,7 @@
         "word:hungry-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28128,7 +28128,7 @@
         "word:hurry-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28181,7 +28181,7 @@
         "word:hurt-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28230,7 +28230,7 @@
         "word:husband-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28281,7 +28281,7 @@
         "word:i-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28331,7 +28331,7 @@
         "word:ice-cream-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28386,7 +28386,7 @@
         "word:ice-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28435,7 +28435,7 @@
         "word:idea-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28490,7 +28490,7 @@
         "word:ideal-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28552,7 +28552,7 @@
         "word:if-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28605,7 +28605,7 @@
         "word:imagine-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28656,7 +28656,7 @@
         "word:important-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28707,7 +28707,7 @@
         "word:in-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28760,7 +28760,7 @@
         "word:information-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28811,7 +28811,7 @@
         "word:inside-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28860,7 +28860,7 @@
         "word:interested-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28909,7 +28909,7 @@
         "word:interesting-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -28962,7 +28962,7 @@
         "word:internet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29021,7 +29021,7 @@
         "word:interview-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29072,7 +29072,7 @@
         "word:interviewer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29125,7 +29125,7 @@
         "word:into-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29178,7 +29178,7 @@
         "word:introduce-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29227,7 +29227,7 @@
         "word:is-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29278,7 +29278,7 @@
         "word:island-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29333,7 +29333,7 @@
         "word:it-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29382,7 +29382,7 @@
         "word:item-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29431,7 +29431,7 @@
         "word:its-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29496,7 +29496,7 @@
         "word:its-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29549,7 +29549,7 @@
         "word:jacket-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29598,7 +29598,7 @@
         "word:january-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29647,7 +29647,7 @@
         "word:jeans-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29696,7 +29696,7 @@
         "word:jet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29747,7 +29747,7 @@
         "word:jewelry-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29798,7 +29798,7 @@
         "word:job-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29851,7 +29851,7 @@
         "word:join-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29904,7 +29904,7 @@
         "word:judge-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -29963,7 +29963,7 @@
         "word:juice-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30025,7 +30025,7 @@
         "word:july-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30076,7 +30076,7 @@
         "word:jump-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30123,7 +30123,7 @@
         "word:june-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30176,7 +30176,7 @@
         "word:just-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30225,7 +30225,7 @@
         "word:keep-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30280,7 +30280,7 @@
         "word:key-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30331,7 +30331,7 @@
         "word:key-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30384,7 +30384,7 @@
         "word:kick-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30449,7 +30449,7 @@
         "word:kick-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30496,7 +30496,7 @@
         "word:kid-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30549,7 +30549,7 @@
         "word:kill-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30602,7 +30602,7 @@
         "word:kind-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30655,7 +30655,7 @@
         "word:king-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30706,7 +30706,7 @@
         "word:kiss-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30757,7 +30757,7 @@
         "word:kitchen-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30819,7 +30819,7 @@
         "word:kite-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30878,7 +30878,7 @@
         "word:knee-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30929,7 +30929,7 @@
         "word:knife-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -30978,7 +30978,7 @@
         "word:know-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31029,7 +31029,7 @@
         "word:lady-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31076,7 +31076,7 @@
         "word:language-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31127,7 +31127,7 @@
         "word:large-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31176,7 +31176,7 @@
         "word:last-name-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31225,7 +31225,7 @@
         "word:late-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31274,7 +31274,7 @@
         "word:late-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31323,7 +31323,7 @@
         "word:later-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31372,7 +31372,7 @@
         "word:laugh-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31423,7 +31423,7 @@
         "word:lazy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31476,7 +31476,7 @@
         "word:leader-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31538,7 +31538,7 @@
         "word:leaf-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31600,7 +31600,7 @@
         "word:learn-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31656,7 +31656,7 @@
         "word:leave-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31707,7 +31707,7 @@
         "word:left-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31760,7 +31760,7 @@
         "word:leg-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31811,7 +31811,7 @@
         "word:lesson-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31858,7 +31858,7 @@
         "word:let-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31911,7 +31911,7 @@
         "word:letter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -31962,7 +31962,7 @@
         "word:library-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32013,7 +32013,7 @@
         "word:life-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32062,7 +32062,7 @@
         "word:light-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32118,7 +32118,7 @@
         "word:light-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32167,7 +32167,7 @@
         "word:like-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32214,7 +32214,7 @@
         "word:like-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32265,7 +32265,7 @@
         "word:lily-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32318,7 +32318,7 @@
         "word:line-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32371,7 +32371,7 @@
         "word:lion-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32433,7 +32433,7 @@
         "word:list-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32486,7 +32486,7 @@
         "word:listen-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32535,7 +32535,7 @@
         "word:little-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32584,7 +32584,7 @@
         "word:little-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32635,7 +32635,7 @@
         "word:live-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32682,7 +32682,7 @@
         "word:living-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32736,7 +32736,7 @@
         "word:living-room-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32787,7 +32787,7 @@
         "word:lonely-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32836,7 +32836,7 @@
         "word:long-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32891,7 +32891,7 @@
         "word:look-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -32947,7 +32947,7 @@
         "word:look-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33006,7 +33006,7 @@
         "word:lot-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33068,7 +33068,7 @@
         "word:lot-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33119,7 +33119,7 @@
         "word:love-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33170,7 +33170,7 @@
         "word:love-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33217,7 +33217,7 @@
         "word:lovely-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33266,7 +33266,7 @@
         "word:luck-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33322,7 +33322,7 @@
         "word:lucky-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33378,7 +33378,7 @@
         "word:lunch-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33427,7 +33427,7 @@
         "word:m-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33474,7 +33474,7 @@
         "word:machine-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33533,7 +33533,7 @@
         "word:magazine-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33584,7 +33584,7 @@
         "word:mail-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33640,7 +33640,7 @@
         "word:make-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33689,7 +33689,7 @@
         "word:man-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33742,7 +33742,7 @@
         "word:many-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33793,7 +33793,7 @@
         "word:many-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33846,7 +33846,7 @@
         "word:map-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33895,7 +33895,7 @@
         "word:march-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33948,7 +33948,7 @@
         "word:match-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -33997,7 +33997,7 @@
         "word:math-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34050,7 +34050,7 @@
         "word:matter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34097,7 +34097,7 @@
         "word:may-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34144,7 +34144,7 @@
         "word:may-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34193,7 +34193,7 @@
         "word:maybe-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34240,7 +34240,7 @@
         "word:me-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34291,7 +34291,7 @@
         "word:meal-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34340,7 +34340,7 @@
         "word:mean-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34387,7 +34387,7 @@
         "word:meat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34436,7 +34436,7 @@
         "word:medicine-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34495,7 +34495,7 @@
         "word:meet-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34554,7 +34554,7 @@
         "word:meeting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34605,7 +34605,7 @@
         "word:memory-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34658,7 +34658,7 @@
         "word:merry-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34711,7 +34711,7 @@
         "word:message-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34762,7 +34762,7 @@
         "word:middle-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34818,7 +34818,7 @@
         "word:milk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34869,7 +34869,7 @@
         "word:mind-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34915,7 +34915,7 @@
         "word:mine-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -34974,7 +34974,7 @@
         "word:minute-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35025,7 +35025,7 @@
         "word:miss-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35076,7 +35076,7 @@
         "word:miss-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35125,7 +35125,7 @@
         "word:mobile-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35177,7 +35177,7 @@
         "word:mobile-phone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35226,7 +35226,7 @@
         "word:mom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35273,7 +35273,7 @@
         "word:moment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35320,7 +35320,7 @@
         "word:mommy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35379,7 +35379,7 @@
         "word:monday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35428,7 +35428,7 @@
         "word:money-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35477,7 +35477,7 @@
         "word:monkey-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35536,7 +35536,7 @@
         "word:month-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35595,7 +35595,7 @@
         "word:moon-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35642,7 +35642,7 @@
         "word:more-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35691,7 +35691,7 @@
         "word:more-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35750,7 +35750,7 @@
         "word:morning-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35799,7 +35799,7 @@
         "word:most-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35858,7 +35858,7 @@
         "word:mother-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35917,7 +35917,7 @@
         "word:mountain-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -35970,7 +35970,7 @@
         "word:mouse-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36023,7 +36023,7 @@
         "word:mouth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36070,7 +36070,7 @@
         "word:move-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36129,7 +36129,7 @@
         "word:movie-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36180,7 +36180,7 @@
         "word:mr-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36229,7 +36229,7 @@
         "word:mrs-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36276,7 +36276,7 @@
         "word:much-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36335,7 +36335,7 @@
         "word:much-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36384,7 +36384,7 @@
         "word:much-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36433,7 +36433,7 @@
         "word:mum-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36492,7 +36492,7 @@
         "word:music-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36540,7 +36540,7 @@
         "word:musician-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36593,7 +36593,7 @@
         "word:must-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36644,7 +36644,7 @@
         "word:my-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36691,7 +36691,7 @@
         "word:name-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36738,7 +36738,7 @@
         "word:nationality-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36787,7 +36787,7 @@
         "word:near-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36840,7 +36840,7 @@
         "word:neck-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36893,7 +36893,7 @@
         "word:need-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -36944,7 +36944,7 @@
         "word:neighbor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37003,7 +37003,7 @@
         "word:never-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37052,7 +37052,7 @@
         "word:new-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37105,7 +37105,7 @@
         "word:news-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37167,7 +37167,7 @@
         "word:newspaper-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37226,7 +37226,7 @@
         "word:nice-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37285,7 +37285,7 @@
         "word:night-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37336,7 +37336,7 @@
         "word:nine-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37389,7 +37389,7 @@
         "word:nineteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37440,7 +37440,7 @@
         "word:ninety-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37489,7 +37489,7 @@
         "word:no-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37545,7 +37545,7 @@
         "word:no-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37598,7 +37598,7 @@
         "word:noise-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37649,7 +37649,7 @@
         "word:nose-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37705,7 +37705,7 @@
         "word:not-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37758,7 +37758,7 @@
         "word:note-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37811,7 +37811,7 @@
         "word:note-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37864,7 +37864,7 @@
         "word:notebook-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37915,7 +37915,7 @@
         "word:nothing-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -37971,7 +37971,7 @@
         "word:november-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38018,7 +38018,7 @@
         "word:now-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38067,7 +38067,7 @@
         "word:number-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38116,7 +38116,7 @@
         "word:nurse-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38175,7 +38175,7 @@
         "word:o-clock-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38226,7 +38226,7 @@
         "word:october-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38277,7 +38277,7 @@
         "word:of-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38324,7 +38324,7 @@
         "word:off-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38377,7 +38377,7 @@
         "word:office-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38430,7 +38430,7 @@
         "word:officer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38479,7 +38479,7 @@
         "word:often-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38524,7 +38524,7 @@
         "word:ok-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38575,7 +38575,7 @@
         "word:ok-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38624,7 +38624,7 @@
         "word:old-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38677,7 +38677,7 @@
         "word:olympics-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38728,7 +38728,7 @@
         "word:on-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38787,7 +38787,7 @@
         "word:once-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38855,7 +38855,7 @@
         "word:one-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38908,7 +38908,7 @@
         "word:one-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -38957,7 +38957,7 @@
         "word:only-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39006,7 +39006,7 @@
         "word:only-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39057,7 +39057,7 @@
         "word:open-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39104,7 +39104,7 @@
         "word:open-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39151,7 +39151,7 @@
         "word:opera-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39202,7 +39202,7 @@
         "word:or-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39251,7 +39251,7 @@
         "word:orange-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39310,7 +39310,7 @@
         "word:orange-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39359,7 +39359,7 @@
         "word:order-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39412,7 +39412,7 @@
         "word:other-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39463,7 +39463,7 @@
         "word:our-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39509,7 +39509,7 @@
         "word:ours-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39565,7 +39565,7 @@
         "word:out-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39612,7 +39612,7 @@
         "word:outside-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39665,7 +39665,7 @@
         "word:over-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39714,7 +39714,7 @@
         "word:own-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39769,7 +39769,7 @@
         "word:owner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39828,7 +39828,7 @@
         "word:p-m-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39879,7 +39879,7 @@
         "word:page-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39932,7 +39932,7 @@
         "word:paint-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -39988,7 +39988,7 @@
         "word:paint-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40037,7 +40037,7 @@
         "word:painting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40090,7 +40090,7 @@
         "word:pair-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40143,7 +40143,7 @@
         "word:palace-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40192,7 +40192,7 @@
         "word:pants-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40243,7 +40243,7 @@
         "word:paper-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40292,7 +40292,7 @@
         "word:paragraph-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40339,7 +40339,7 @@
         "word:pardon-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40390,7 +40390,7 @@
         "word:parent-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40452,7 +40452,7 @@
         "word:park-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40503,7 +40503,7 @@
         "word:partner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40562,7 +40562,7 @@
         "word:party-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40621,7 +40621,7 @@
         "word:past-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40674,7 +40674,7 @@
         "word:past-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40727,7 +40727,7 @@
         "word:pay-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40776,7 +40776,7 @@
         "word:pay-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40827,7 +40827,7 @@
         "word:peace-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40876,7 +40876,7 @@
         "word:pen-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40927,7 +40927,7 @@
         "word:pencil-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -40978,7 +40978,7 @@
         "word:people-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41035,7 +41035,7 @@
         "word:period-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41084,7 +41084,7 @@
         "word:person-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41133,7 +41133,7 @@
         "word:personal-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41182,7 +41182,7 @@
         "word:pet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41233,7 +41233,7 @@
         "word:phone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41292,7 +41292,7 @@
         "word:phone-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41343,7 +41343,7 @@
         "word:photo-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41402,7 +41402,7 @@
         "word:piano-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41455,7 +41455,7 @@
         "word:pick-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41508,7 +41508,7 @@
         "word:picnic-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41555,7 +41555,7 @@
         "word:picture-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41608,7 +41608,7 @@
         "word:piece-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41657,7 +41657,7 @@
         "word:pig-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41706,7 +41706,7 @@
         "word:pink-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41765,7 +41765,7 @@
         "word:pizza-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41820,7 +41820,7 @@
         "word:place-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41873,7 +41873,7 @@
         "word:plan-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41920,7 +41920,7 @@
         "word:plane-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -41973,7 +41973,7 @@
         "word:play-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42032,7 +42032,7 @@
         "word:play-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42083,7 +42083,7 @@
         "word:player-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42133,7 +42133,7 @@
         "word:please-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42186,7 +42186,7 @@
         "word:pleasure-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42237,7 +42237,7 @@
         "word:pocket-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42290,7 +42290,7 @@
         "word:poem-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42339,7 +42339,7 @@
         "word:point-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42396,7 +42396,7 @@
         "word:pollution-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42458,7 +42458,7 @@
         "word:pool-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42507,7 +42507,7 @@
         "word:poor-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42563,7 +42563,7 @@
         "word:pop-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42612,7 +42612,7 @@
         "word:post-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42667,7 +42667,7 @@
         "word:poster-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42720,7 +42720,7 @@
         "word:potato-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42769,7 +42769,7 @@
         "word:practice-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42825,7 +42825,7 @@
         "word:practice-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42887,7 +42887,7 @@
         "word:pray-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42936,7 +42936,7 @@
         "word:present-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -42985,7 +42985,7 @@
         "word:pretty-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43038,7 +43038,7 @@
         "word:price-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43089,7 +43089,7 @@
         "word:prince-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43140,7 +43140,7 @@
         "word:princess-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43193,7 +43193,7 @@
         "word:problem-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43244,7 +43244,7 @@
         "word:program-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43293,7 +43293,7 @@
         "word:purple-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43344,7 +43344,7 @@
         "word:push-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43395,7 +43395,7 @@
         "word:put-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43460,7 +43460,7 @@
         "word:quarter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43509,7 +43509,7 @@
         "word:question-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43556,7 +43556,7 @@
         "word:quickly-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43605,7 +43605,7 @@
         "word:quiet-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43652,7 +43652,7 @@
         "word:rabbit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43717,7 +43717,7 @@
         "word:radio-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43782,7 +43782,7 @@
         "word:rain-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43841,7 +43841,7 @@
         "word:rain-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43890,7 +43890,7 @@
         "word:rainy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43943,7 +43943,7 @@
         "word:rat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -43993,7 +43993,7 @@
         "word:re-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44052,7 +44052,7 @@
         "word:read-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44103,7 +44103,7 @@
         "word:reader-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44152,7 +44152,7 @@
         "word:reading-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44205,7 +44205,7 @@
         "word:ready-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44254,7 +44254,7 @@
         "word:real-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44303,7 +44303,7 @@
         "word:real-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44352,7 +44352,7 @@
         "word:really-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44401,7 +44401,7 @@
         "word:reason-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44450,7 +44450,7 @@
         "word:red-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44499,7 +44499,7 @@
         "word:remember-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44548,7 +44548,7 @@
         "word:repeat-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44597,7 +44597,7 @@
         "word:reporter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44659,7 +44659,7 @@
         "word:restaurant-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44708,7 +44708,7 @@
         "word:result-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44770,7 +44770,7 @@
         "word:review-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44825,7 +44825,7 @@
         "word:ribbon-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44881,7 +44881,7 @@
         "word:rice-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44930,7 +44930,7 @@
         "word:rich-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -44992,7 +44992,7 @@
         "word:ride-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45043,7 +45043,7 @@
         "word:ride-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45090,7 +45090,7 @@
         "word:right-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45146,7 +45146,7 @@
         "word:right-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45202,7 +45202,7 @@
         "word:ring-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45264,7 +45264,7 @@
         "word:river-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45319,7 +45319,7 @@
         "word:role-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45368,7 +45368,7 @@
         "word:room-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45419,7 +45419,7 @@
         "word:rose-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45470,7 +45470,7 @@
         "word:row-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45521,7 +45521,7 @@
         "word:rude-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45570,7 +45570,7 @@
         "word:rule-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45623,7 +45623,7 @@
         "word:ruler-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45685,7 +45685,7 @@
         "word:run-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45747,7 +45747,7 @@
         "word:run-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45792,7 +45792,7 @@
         "word:s-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45845,7 +45845,7 @@
         "word:sad-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45894,7 +45894,7 @@
         "word:sailor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -45953,7 +45953,7 @@
         "word:salad-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46002,7 +46002,7 @@
         "word:sale-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46053,7 +46053,7 @@
         "word:same-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46102,7 +46102,7 @@
         "word:same-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46151,7 +46151,7 @@
         "word:same-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46210,7 +46210,7 @@
         "word:sandwich-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46266,7 +46266,7 @@
         "word:saturday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46322,7 +46322,7 @@
         "word:save-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46375,7 +46375,7 @@
         "word:saw-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46424,7 +46424,7 @@
         "word:say-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46477,7 +46477,7 @@
         "word:school-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46526,7 +46526,7 @@
         "word:science-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46575,7 +46575,7 @@
         "word:scientist-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46637,7 +46637,7 @@
         "word:sea-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46684,7 +46684,7 @@
         "word:seat-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46737,7 +46737,7 @@
         "word:second-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46786,7 +46786,7 @@
         "word:section-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46848,7 +46848,7 @@
         "word:see-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46901,7 +46901,7 @@
         "word:self-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -46952,7 +46952,7 @@
         "word:sell-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47005,7 +47005,7 @@
         "word:sentence-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47054,7 +47054,7 @@
         "word:september-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47105,7 +47105,7 @@
         "word:set-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47161,7 +47161,7 @@
         "word:seven-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47212,7 +47212,7 @@
         "word:seventeen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47259,7 +47259,7 @@
         "word:seventy-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47308,7 +47308,7 @@
         "word:shake-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47361,7 +47361,7 @@
         "word:share-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47408,7 +47408,7 @@
         "word:she-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47461,7 +47461,7 @@
         "word:sheep-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47512,7 +47512,7 @@
         "word:shelf-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47565,7 +47565,7 @@
         "word:ship-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47618,7 +47618,7 @@
         "word:shirt-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47669,7 +47669,7 @@
         "word:shoe-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47724,7 +47724,7 @@
         "word:shop-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47783,7 +47783,7 @@
         "word:shopping-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47832,7 +47832,7 @@
         "word:short-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47881,7 +47881,7 @@
         "word:short-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47930,7 +47930,7 @@
         "word:should-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -47977,7 +47977,7 @@
         "word:shoulder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48026,7 +48026,7 @@
         "word:show-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48085,7 +48085,7 @@
         "word:shower-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48144,7 +48144,7 @@
         "word:shy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48197,7 +48197,7 @@
         "word:sick-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48254,7 +48254,7 @@
         "word:side-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48303,7 +48303,7 @@
         "word:sight-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48354,7 +48354,7 @@
         "word:sign-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48403,7 +48403,7 @@
         "word:sing-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48454,7 +48454,7 @@
         "word:singer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48507,7 +48507,7 @@
         "word:sir-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48554,7 +48554,7 @@
         "word:sister-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48603,7 +48603,7 @@
         "word:sit-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48656,7 +48656,7 @@
         "word:site-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48703,7 +48703,7 @@
         "word:six-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48756,7 +48756,7 @@
         "word:sixteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48805,7 +48805,7 @@
         "word:sixty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48854,7 +48854,7 @@
         "word:size-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48903,7 +48903,7 @@
         "word:skill-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -48952,7 +48952,7 @@
         "word:skirt-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49011,7 +49011,7 @@
         "word:sky-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49070,7 +49070,7 @@
         "word:sleep-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49119,7 +49119,7 @@
         "word:slow-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49170,7 +49170,7 @@
         "word:small-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49219,7 +49219,7 @@
         "word:smart-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49270,7 +49270,7 @@
         "word:smell-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49319,7 +49319,7 @@
         "word:smile-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49370,7 +49370,7 @@
         "word:smith-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49421,7 +49421,7 @@
         "word:smoke-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49472,7 +49472,7 @@
         "word:smoking-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49521,7 +49521,7 @@
         "word:snake-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49572,7 +49572,7 @@
         "word:snow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49631,7 +49631,7 @@
         "word:snowy-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49686,7 +49686,7 @@
         "word:so-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49745,7 +49745,7 @@
         "word:soccer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49804,7 +49804,7 @@
         "word:social-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49855,7 +49855,7 @@
         "word:sofa-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49904,7 +49904,7 @@
         "word:solve-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -49951,7 +49951,7 @@
         "word:some-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50002,7 +50002,7 @@
         "word:some-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50051,7 +50051,7 @@
         "word:someone-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50100,7 +50100,7 @@
         "word:something-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50153,7 +50153,7 @@
         "word:son-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50202,7 +50202,7 @@
         "word:song-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50247,7 +50247,7 @@
         "word:soon-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50298,7 +50298,7 @@
         "word:sorry-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50347,7 +50347,7 @@
         "word:soup-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50394,7 +50394,7 @@
         "word:speak-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50443,7 +50443,7 @@
         "word:special-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50494,7 +50494,7 @@
         "word:speech-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50559,7 +50559,7 @@
         "word:spell-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50614,7 +50614,7 @@
         "word:spend-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50663,7 +50663,7 @@
         "word:sport-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50712,7 +50712,7 @@
         "word:spot-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50771,7 +50771,7 @@
         "word:spring-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50824,7 +50824,7 @@
         "word:spy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50886,7 +50886,7 @@
         "word:stage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50939,7 +50939,7 @@
         "word:stand-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -50992,7 +50992,7 @@
         "word:star-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51045,7 +51045,7 @@
         "word:start-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51101,7 +51101,7 @@
         "word:start-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51154,7 +51154,7 @@
         "word:station-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51209,7 +51209,7 @@
         "word:stay-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51260,7 +51260,7 @@
         "word:step-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51311,7 +51311,7 @@
         "word:still-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51364,7 +51364,7 @@
         "word:stone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51415,7 +51415,7 @@
         "word:stop-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51462,7 +51462,7 @@
         "word:stop-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51518,7 +51518,7 @@
         "word:store-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51583,7 +51583,7 @@
         "word:story-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51632,7 +51632,7 @@
         "word:straight-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51681,7 +51681,7 @@
         "word:strange-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51732,7 +51732,7 @@
         "word:street-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51781,7 +51781,7 @@
         "word:strict-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51830,7 +51830,7 @@
         "word:strong-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51883,7 +51883,7 @@
         "word:student-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51939,7 +51939,7 @@
         "word:study-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -51988,7 +51988,7 @@
         "word:subject-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52039,7 +52039,7 @@
         "word:subway-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52090,7 +52090,7 @@
         "word:successful-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52143,7 +52143,7 @@
         "word:sugar-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52194,7 +52194,7 @@
         "word:suggestion-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52249,7 +52249,7 @@
         "word:sum-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52308,7 +52308,7 @@
         "word:summer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52367,7 +52367,7 @@
         "word:sun-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52426,7 +52426,7 @@
         "word:sunday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52485,7 +52485,7 @@
         "word:sunny-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52534,7 +52534,7 @@
         "word:sunshine-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52583,7 +52583,7 @@
         "word:super-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52634,7 +52634,7 @@
         "word:supermarket-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52683,7 +52683,7 @@
         "word:sure-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52742,7 +52742,7 @@
         "word:surf-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52795,7 +52795,7 @@
         "word:surprise-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52844,7 +52844,7 @@
         "word:survey-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52893,7 +52893,7 @@
         "word:sweet-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52942,7 +52942,7 @@
         "word:swim-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -52991,7 +52991,7 @@
         "word:swim-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53040,7 +53040,7 @@
         "word:swimming-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53093,7 +53093,7 @@
         "word:swimming-pool-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53141,7 +53141,7 @@
         "word:t-shirt-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53192,7 +53192,7 @@
         "word:table-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53243,7 +53243,7 @@
         "word:take-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53305,7 +53305,7 @@
         "word:talk-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53354,7 +53354,7 @@
         "word:tall-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53407,7 +53407,7 @@
         "word:taxi-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53466,7 +53466,7 @@
         "word:tea-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53517,7 +53517,7 @@
         "word:teach-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53566,7 +53566,7 @@
         "word:teacher-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53617,7 +53617,7 @@
         "word:team-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53666,7 +53666,7 @@
         "word:technology-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53717,7 +53717,7 @@
         "word:telephone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53773,7 +53773,7 @@
         "word:television-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53822,7 +53822,7 @@
         "word:tell-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53877,7 +53877,7 @@
         "word:temple-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53924,7 +53924,7 @@
         "word:ten-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -53980,7 +53980,7 @@
         "word:tennis-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54029,7 +54029,7 @@
         "word:terrible-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54088,7 +54088,7 @@
         "word:test-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54141,7 +54141,7 @@
         "word:than-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54190,7 +54190,7 @@
         "word:than-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54243,7 +54243,7 @@
         "word:thank-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54290,7 +54290,7 @@
         "word:thanks-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54341,7 +54341,7 @@
         "word:that-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54390,7 +54390,7 @@
         "word:that-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54436,7 +54436,7 @@
         "word:that-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54482,7 +54482,7 @@
         "word:the-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54535,7 +54535,7 @@
         "word:theater-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54583,7 +54583,7 @@
         "word:their-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54631,7 +54631,7 @@
         "word:them-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54685,7 +54685,7 @@
         "word:then-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54734,7 +54734,7 @@
         "word:there-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54780,7 +54780,7 @@
         "word:these-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54826,7 +54826,7 @@
         "word:these-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54875,7 +54875,7 @@
         "word:they-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54923,7 +54923,7 @@
         "word:thick-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -54971,7 +54971,7 @@
         "word:thin-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55032,7 +55032,7 @@
         "word:thing-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55082,7 +55082,7 @@
         "word:think-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55132,7 +55132,7 @@
         "word:thirteen-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55184,7 +55184,7 @@
         "word:thirty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55230,7 +55230,7 @@
         "word:this-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55276,7 +55276,7 @@
         "word:this-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55324,7 +55324,7 @@
         "word:those-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55370,7 +55370,7 @@
         "word:those-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55416,7 +55416,7 @@
         "word:three-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55464,7 +55464,7 @@
         "word:through-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55512,7 +55512,7 @@
         "word:throw-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55568,7 +55568,7 @@
         "word:thursday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55620,7 +55620,7 @@
         "word:ticket-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55670,7 +55670,7 @@
         "word:tiger-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55719,7 +55719,7 @@
         "word:tight-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55765,7 +55765,7 @@
         "word:time-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55820,7 +55820,7 @@
         "word:tired-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55869,7 +55869,7 @@
         "word:to-infinitive-to"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55920,7 +55920,7 @@
         "word:to-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -55975,7 +55975,7 @@
         "word:today-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56022,7 +56022,7 @@
         "word:today-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56080,7 +56080,7 @@
         "word:together-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56133,7 +56133,7 @@
         "word:toilet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56181,7 +56181,7 @@
         "word:tomato-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56236,7 +56236,7 @@
         "word:tomorrow-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56280,7 +56280,7 @@
         "word:tomorrow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56327,7 +56327,7 @@
         "word:tonight-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56375,7 +56375,7 @@
         "word:too-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56429,7 +56429,7 @@
         "word:tool-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56487,7 +56487,7 @@
         "word:tooth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56543,7 +56543,7 @@
         "word:top-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56595,7 +56595,7 @@
         "word:topic-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56648,7 +56648,7 @@
         "word:touch-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56701,7 +56701,7 @@
         "word:towel-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56751,7 +56751,7 @@
         "word:tower-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56801,7 +56801,7 @@
         "word:town-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56851,7 +56851,7 @@
         "word:toy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56902,7 +56902,7 @@
         "word:train-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -56950,7 +56950,7 @@
         "word:travel-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57004,7 +57004,7 @@
         "word:tree-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57065,7 +57065,7 @@
         "word:trip-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57115,7 +57115,7 @@
         "word:trousers-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57169,7 +57169,7 @@
         "word:truck-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57215,7 +57215,7 @@
         "word:true-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57263,7 +57263,7 @@
         "word:try-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57315,7 +57315,7 @@
         "word:tube-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57374,7 +57374,7 @@
         "word:tuesday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57422,7 +57422,7 @@
         "word:turkey-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57477,7 +57477,7 @@
         "word:turn-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57526,7 +57526,7 @@
         "word:turn-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57581,7 +57581,7 @@
         "word:tv-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57633,7 +57633,7 @@
         "word:twelve-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57681,7 +57681,7 @@
         "word:twenty-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57727,7 +57727,7 @@
         "word:two-num"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57779,7 +57779,7 @@
         "word:type-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57827,7 +57827,7 @@
         "word:ugly-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57878,7 +57878,7 @@
         "word:umbrella-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57928,7 +57928,7 @@
         "word:uncle-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -57978,7 +57978,7 @@
         "word:under-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58028,7 +58028,7 @@
         "word:underline-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58079,7 +58079,7 @@
         "word:until-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58127,7 +58127,7 @@
         "word:up-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58173,7 +58173,7 @@
         "word:us-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58221,7 +58221,7 @@
         "word:use-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58269,7 +58269,7 @@
         "word:usually-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58327,7 +58327,7 @@
         "word:vacation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58377,7 +58377,7 @@
         "word:vase-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58425,7 +58425,7 @@
         "word:vegetable-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58473,7 +58473,7 @@
         "word:very-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58523,7 +58523,7 @@
         "word:video-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58571,7 +58571,7 @@
         "word:visit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58629,7 +58629,7 @@
         "word:visit-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58679,7 +58679,7 @@
         "word:volleyball-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58725,7 +58725,7 @@
         "word:vote-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58774,7 +58774,7 @@
         "word:wait-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58822,7 +58822,7 @@
         "word:waiter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58870,7 +58870,7 @@
         "word:waitress-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58920,7 +58920,7 @@
         "word:wake-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -58968,7 +58968,7 @@
         "word:walk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59026,7 +59026,7 @@
         "word:walk-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59078,7 +59078,7 @@
         "word:wall-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59128,7 +59128,7 @@
         "word:want-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59180,7 +59180,7 @@
         "word:war-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59235,7 +59235,7 @@
         "word:warm-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59290,7 +59290,7 @@
         "word:was-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59338,7 +59338,7 @@
         "word:wash-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59397,7 +59397,7 @@
         "word:wash-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59445,7 +59445,7 @@
         "word:watch-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59504,7 +59504,7 @@
         "word:watch-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59554,7 +59554,7 @@
         "word:water-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59606,7 +59606,7 @@
         "word:way-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59652,7 +59652,7 @@
         "word:we-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59710,7 +59710,7 @@
         "word:wear-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59765,7 +59765,7 @@
         "word:weather-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59824,7 +59824,7 @@
         "word:wednesday-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59875,7 +59875,7 @@
         "word:week-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59927,7 +59927,7 @@
         "word:weekend-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -59973,7 +59973,7 @@
         "word:welcome-int"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60031,7 +60031,7 @@
         "word:welcome-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60086,7 +60086,7 @@
         "word:well-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60134,7 +60134,7 @@
         "word:well-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60192,7 +60192,7 @@
         "word:were-be-verb"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60241,7 +60241,7 @@
         "word:what-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60287,7 +60287,7 @@
         "word:what-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60335,7 +60335,7 @@
         "word:wheel-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60381,7 +60381,7 @@
         "word:when-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60442,7 +60442,7 @@
         "word:when-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60488,7 +60488,7 @@
         "word:where-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60540,7 +60540,7 @@
         "word:where-conj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60590,7 +60590,7 @@
         "word:which-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60636,7 +60636,7 @@
         "word:which-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60684,7 +60684,7 @@
         "word:white-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60733,7 +60733,7 @@
         "word:white-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60779,7 +60779,7 @@
         "word:who-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60825,7 +60825,7 @@
         "word:whose-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60880,7 +60880,7 @@
         "word:whose-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60927,7 +60927,7 @@
         "word:why-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -60975,7 +60975,7 @@
         "word:wife-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61030,7 +61030,7 @@
         "word:will-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61078,7 +61078,7 @@
         "word:win-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61136,7 +61136,7 @@
         "word:wind-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61182,7 +61182,7 @@
         "word:window-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61240,7 +61240,7 @@
         "word:winter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61295,7 +61295,7 @@
         "word:wish-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61343,7 +61343,7 @@
         "word:with-prep"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61391,7 +61391,7 @@
         "word:woman-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61441,7 +61441,7 @@
         "word:wonderful-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61489,7 +61489,7 @@
         "word:word-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61550,7 +61550,7 @@
         "word:work-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61600,7 +61600,7 @@
         "word:work-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61651,7 +61651,7 @@
         "word:worker-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61704,7 +61704,7 @@
         "word:world-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61756,7 +61756,7 @@
         "word:worry-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61805,7 +61805,7 @@
         "word:would-modal"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61853,7 +61853,7 @@
         "word:write-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61901,7 +61901,7 @@
         "word:writer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61947,7 +61947,7 @@
         "word:wrong-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -61997,7 +61997,7 @@
         "word:yard-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62050,7 +62050,7 @@
         "word:year-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62098,7 +62098,7 @@
         "word:yellow-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62150,7 +62150,7 @@
         "word:yellow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62196,7 +62196,7 @@
         "word:yes-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62248,7 +62248,7 @@
         "word:yesterday-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62297,7 +62297,7 @@
         "word:yet-adv"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62345,7 +62345,7 @@
         "word:yogurt-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62392,7 +62392,7 @@
         "word:you-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62440,7 +62440,7 @@
         "word:young-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62486,7 +62486,7 @@
         "word:your-det"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62532,7 +62532,7 @@
         "word:yours-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62579,7 +62579,7 @@
         "word:yourself-pron"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "A1",
@@ -62630,6 +62630,6 @@
         "word:zoo-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]
