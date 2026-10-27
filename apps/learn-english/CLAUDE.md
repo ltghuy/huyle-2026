@@ -13,6 +13,10 @@ Commands (in this folder, or from the root with `pnpm --filter learn-english …
 `pnpm dev` (port 3002) · `pnpm build` · `pnpm lint` · `pnpm typecheck` · `pnpm test` ·
 `pnpm e2e` (Cloudflare preview on port 3102) · `pnpm cf:preview` · `pnpm cf:typegen`
 
+Local content: `pnpm dev` reads the local D1 database, so load the approved
+content into it with `pnpm content:publish --local` (audio plays from the
+deployed audio Workers).
+
 Specs live at the repo root in `.artifacts/features/learn-english/` (feature
 001 is the app itself: spec, decisions, design, tasks); knowledge in
 `.agents/knowledge.md` under `### learn-english`.
