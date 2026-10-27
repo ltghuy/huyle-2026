@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/s
 
 const LINK_BUTTON = cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4");
 
-export default function CaiDatPage() {
+export default function SettingsPage() {
   return (
     <>
       <PageHeader title="Cài đặt" description="Trình độ, sao lưu, đồng bộ và hướng dẫn." />

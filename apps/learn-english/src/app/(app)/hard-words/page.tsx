@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/shell/page-header";
 
 export const metadata: Metadata = pageMetadata({ title: "Từ khó", path: "/hard-words", description: "Những từ bạn hay sai hoặc nhớ lâu, gom lại để luyện riêng.", index: false });
 
-export default function TuKhoPage() {
+export default function HardWordsPage() {
   return (
     <>
       <PageHeader title="Từ khó" description="Những từ bạn hay sai hoặc nhớ lâu." />

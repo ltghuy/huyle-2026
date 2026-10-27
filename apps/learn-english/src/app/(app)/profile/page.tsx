@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/shell/page-header";
 
 export const metadata: Metadata = pageMetadata({ title: "Hồ sơ", path: "/profile", description: "Điểm chuyên cần, chuỗi ngày học và tiến bộ của bạn.", index: false });
 
-export default function HoSoPage() {
+export default function ProfilePage() {
   return (
     <>
       <PageHeader title="Hồ sơ" description="Điểm chuyên cần, chuỗi ngày học và tiến bộ của bạn." />

@@ -7,7 +7,7 @@ import { VocabularyBrowser } from "@/components/vocabulary/vocabulary-browser";
 
 export const metadata: Metadata = pageMetadata({ title: "Từ vựng", path: "/vocabulary", description: "Từ vựng tiếng Anh theo trình độ và chủ đề, kèm phiên âm IPA, phát âm, nghĩa tiếng Việt và câu ví dụ." });
 
-export default function TuVungPage() {
+export default function VocabularyPage() {
   return (
     <>
       <PageHeader title="Từ vựng" description="Từ vựng theo trình độ và chủ đề." />
