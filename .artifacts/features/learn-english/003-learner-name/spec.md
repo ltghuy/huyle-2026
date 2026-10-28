@@ -50,7 +50,7 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 
 **Acceptance Criteria:**
 
-- [x] AC-006: WHEN a learner with a name opens the home screen THEN system SHALL greet them by name ("Chào {tên}!"), and the first-visit welcome dialog SHALL address them by name
+- [x] AC-006: WHEN a learner with a name opens any page with navigation THEN system SHALL greet them by name ("Chào {tên}!") in the top-right corner of the page header, left of the profile link (moved from above the home lesson card in quick task 010), and the first-visit welcome dialog SHALL address them by name
 - [x] AC-007: WHEN the learner opens Settings THEN system SHALL show their name in an editable field and save a change with the same rules as AC-003, confirming with a Vietnamese message
 
 ## Edge Cases

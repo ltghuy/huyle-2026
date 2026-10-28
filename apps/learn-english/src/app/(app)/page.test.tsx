@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import HomePage from "./page";
 
-vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), push: vi.fn() }) }));
+vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), push: vi.fn() }), usePathname: () => "/" }));
 
 describe("HomePage", () => {
   it("shows today's lesson heading in Vietnamese", () => {

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* The greeting's 👋 waves twice when the home page opens. */
+  /* The header greeting's 👋 waves twice when a page opens. */
   --animate-wave: wave 1.2s ease-in-out 2;
   @keyframes wave {
     0%, 60%, 100% { transform: rotate(0deg); }

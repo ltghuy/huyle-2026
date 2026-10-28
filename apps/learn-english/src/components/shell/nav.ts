@@ -1,6 +1,5 @@
 import {
   BookOpenText,
-  CircleUserRound,
   Dumbbell,
   House,
   type LucideIcon,
@@ -18,6 +17,7 @@ export interface NavItem {
   tour: string;
 }
 
+// "Hồ sơ" isn't listed: it sits in the top-right corner of the page header (`AccountLink`).
 export const NAV_ITEMS = [
   { href: "/", label: "Hôm nay", icon: House, tour: "lesson" },
   { href: "/vocabulary", label: "Từ vựng", icon: BookOpenText, tour: "vocabulary" },
@@ -25,7 +25,6 @@ export const NAV_ITEMS = [
   { href: "/review", label: "Ôn tập", icon: RotateCcw, tour: "review" },
   { href: "/exercises", label: "Bài tập", icon: Dumbbell, tour: "exercises" },
   { href: "/hard-words", label: "Từ khó", icon: TriangleAlert, tour: "hard-words" },
-  { href: "/profile", label: "Hồ sơ", icon: CircleUserRound, tour: "profile" },
   { href: "/settings", label: "Cài đặt", icon: Settings, tour: "settings" },
 ] as const satisfies readonly NavItem[];
 

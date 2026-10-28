@@ -63,14 +63,6 @@ export function TodayLesson() {
 
   return (
     <div className="grid gap-4 px-4 md:px-8">
-      {ready.displayName ? (
-        <p className="flex items-center gap-2 text-xl font-semibold">
-          <span className="inline-block origin-[70%_70%] animate-wave" aria-hidden>
-            👋
-          </span>
-          Chào {ready.displayName}!
-        </p>
-      ) : null}
       <StreakSummary timeZone={ready.timeZone} />
       <section className="rounded-xl border bg-card p-5" data-tour="lesson-card" aria-labelledby="today-title">
         <div className="flex items-start justify-between gap-3">
