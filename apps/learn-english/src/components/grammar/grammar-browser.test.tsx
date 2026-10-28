@@ -91,8 +91,13 @@ describe("GrammarBrowser", () => {
     await answer("are");
     await answer("is");
 
+    // The wrong one comes back until it is right (feature 006); only the first try is saved.
+    fireEvent.click(await screen.findByRole("button", { name: "Làm lại câu sai" }));
+    await answer("am");
+
     expect(await screen.findByText("Hoàn thành bài tập")).toBeInTheDocument();
     expect(screen.getByText("1/2")).toBeInTheDocument();
+    expect(screen.getByText(/sửa đúng cả 1 câu sai/)).toBeInTheDocument();
     await vi.waitFor(async () => expect(await getCard("grammar:present-simple")).toBeDefined());
     await vi.waitFor(async () => expect(await getAllAttempts()).toHaveLength(2));
     const attempts = await getAllAttempts();

@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/test";
 import { playThrough, skipPlacement, skipWelcome } from "../helpers";
 
-test("an exercise set from the library ends with a score", async ({ page }) => {
+test("an exercise set from the library ends with a score once every answer is right (006)", async ({ page }) => {
   await skipPlacement(page);
   await skipWelcome(page);
   await page.goto("/exercises");
   await page.getByRole("button", { name: /Bắt đầu|Làm bài/ }).first().click();
-  await playThrough(page, /\d+\/\d+ câu đúng|Kết quả|Làm lại/);
-  await expect(page.getByRole("button", { name: "Làm lại" })).toBeVisible();
+  await playThrough(page, "Hoàn thành bài tập");
+  await expect(page.getByRole("button", { name: "Làm lại", exact: true })).toBeVisible();
 });
 
 test("content still loads from the browser cache when the server is unreachable", async ({ page }) => {

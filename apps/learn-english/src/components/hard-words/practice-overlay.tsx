@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { ExerciseRunner, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
+import { ExerciseRunner, type RunnerScore, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
 import { recordOutcome } from "@/lib/session/record";
 
 function handleOutcome(_step: RunnerStep, outcome: StepOutcome) {
@@ -20,14 +20,15 @@ export function PracticeOverlay({ steps, onClose }: { steps: RunnerStep[]; onClo
     };
   }, []);
 
-  function handleFinish({ correct, total }: { correct: number; total: number }) {
-    toast.success(`Xong rồi! Bạn trả lời đúng ${correct}/${total} câu.`);
+  function handleFinish({ correct, total, corrected }: RunnerScore) {
+    const fixed = corrected ? ` Bạn cũng đã sửa đúng cả ${corrected} câu sai.` : "";
+    toast.success(`Xong rồi! Bạn trả lời đúng ${correct}/${total} câu ngay lần đầu.${fixed}`);
     onClose();
   }
 
   return (
     <div role="dialog" aria-modal="true" aria-label="Luyện từ khó" className="fixed inset-0 z-50 overflow-y-auto bg-background">
-      <ExerciseRunner steps={steps} onOutcome={handleOutcome} onFinish={handleFinish} onExit={onClose} />
+      <ExerciseRunner steps={steps} retryWrong onOutcome={handleOutcome} onFinish={handleFinish} onExit={onClose} />
     </div>
   );
 }

@@ -3,13 +3,11 @@
 import { useMemo, useState } from "react";
 import { ListX } from "lucide-react";
 import { toast } from "sonner";
-import { ExerciseRunner, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
+import { ExerciseRunner, type RunnerScore, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
 import { Button } from "@/components/ui/button";
 import { recordOutcome } from "@/lib/session/record";
 import { FocusOverlay } from "./focus-overlay";
 import { ScoreScreen } from "./score-screen";
-
-type Score = { correct: number; total: number };
 
 /** A random first round (never 0, the unshuffled grammar order), so each open gets a new question order. */
 function randomRound(): number {
@@ -37,13 +35,13 @@ interface ExerciseRunProps {
   shuffled?: boolean;
 }
 
-/** A practice run in focus mode: the runner, then the score with "Làm lại". */
+/** A practice run in focus mode: the runner (wrong answers retried until all are right), then the score with "Làm lại". */
 export function ExerciseRun({ title, buildSteps, onFinished, onClose, doneLabel, shuffled = false }: ExerciseRunProps) {
   const [round, setRound] = useState(() => (shuffled ? randomRound() : 0));
-  const [score, setScore] = useState<Score | null>(null);
+  const [score, setScore] = useState<RunnerScore | null>(null);
   const steps = useMemo(() => buildSteps(round), [buildSteps, round]);
 
-  async function handleFinish(result: Score) {
+  async function handleFinish(result: RunnerScore) {
     setScore(result);
     await onFinished?.();
   }
@@ -67,7 +65,7 @@ export function ExerciseRun({ title, buildSteps, onFinished, onClose, doneLabel,
           </Button>
         </div>
       ) : (
-        <ExerciseRunner key={round} steps={steps} onOutcome={saveOutcome} onFinish={handleFinish} onExit={onClose} />
+        <ExerciseRunner key={round} steps={steps} retryWrong onOutcome={saveOutcome} onFinish={handleFinish} onExit={onClose} />
       )}
     </FocusOverlay>
   );

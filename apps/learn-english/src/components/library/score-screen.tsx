@@ -1,10 +1,11 @@
 import { CheckCircle2, ListChecks, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import type { RunnerScore } from "@/components/exercise/exercise-runner";
 
 interface ScoreScreenProps {
   title: string;
-  score: { correct: number; total: number };
+  score: RunnerScore;
   onRetry: () => void;
   onDone: () => void;
   doneLabel?: string;
@@ -35,6 +36,11 @@ export function ScoreScreen({ title, score, onRetry, onDone, doneLabel = "Về d
         <p className="text-sm text-muted-foreground">câu đúng</p>
         <Progress value={percent} aria-label={`Đúng ${percent}%`} />
         <p>{encouragement(score)}</p>
+        {score.corrected ? (
+          <p className="text-sm text-muted-foreground">
+            Bạn đã làm lại và sửa đúng cả {score.corrected} câu sai. Điểm trên là kết quả lần đầu.
+          </p>
+        ) : null}
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         <Button variant="outline" size="lg" className="h-12 text-base" onClick={onRetry}>

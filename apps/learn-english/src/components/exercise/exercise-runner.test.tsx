@@ -105,6 +105,72 @@ describe("ExerciseRunner", () => {
   });
 });
 
+describe("retrying wrong answers (feature 006)", () => {
+  const other = buildMcq({ target: pool[0], pool: [target, ...pool.slice(1)], direction: "en-vi" }, 2)!;
+  const steps: RunnerStep[] = [
+    { key: "a", type: "exercise", instance: mcq, seed: 1 },
+    { key: "b", type: "exercise", instance: other, seed: 2 },
+  ];
+
+  function retrySetup(retryWrong = true) {
+    const onOutcome = vi.fn();
+    const onFinish = vi.fn();
+    render(<ExerciseRunner steps={steps} retryWrong={retryWrong} onOutcome={onOutcome} onFinish={onFinish} onExit={vi.fn()} />);
+    return { onOutcome, onFinish };
+  }
+
+  async function answer(instance: typeof mcq, correct: boolean) {
+    const choice = correct ? instance.answerIndex : (instance.answerIndex + 1) % instance.options.length;
+    fireEvent.click(screen.getAllByRole("radio")[choice]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+  }
+
+  it("brings back only the wrong answers, round after round, until all are right (AC-001 to AC-005)", async () => {
+    const { onOutcome, onFinish } = retrySetup();
+    await answer(mcq, false);
+    await answer(other, true);
+
+    expect(onFinish).not.toHaveBeenCalled();
+    expect(screen.getByRole("heading", { name: "Còn 1 câu chưa đúng" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Làm lại câu sai" }));
+    expect(screen.getByText("Làm lại câu sai")).toBeInTheDocument();
+    expect(screen.getByText("1/1")).toBeInTheDocument();
+
+    await answer(mcq, false);
+    expect(screen.getByRole("heading", { name: "Còn 1 câu chưa đúng" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Làm lại câu sai" }));
+    await answer(mcq, true);
+
+    // First try only: 1 of 2, one corrected; retries were never recorded (AC-006, AC-007).
+    expect(onFinish).toHaveBeenCalledWith({ correct: 1, total: 2, corrected: 1 });
+    expect(onOutcome).toHaveBeenCalledTimes(2);
+  });
+
+  it("finishes at once when every first answer was right", async () => {
+    const { onFinish } = retrySetup();
+    await answer(mcq, true);
+    await answer(other, true);
+    expect(onFinish).toHaveBeenCalledWith({ correct: 2, total: 2 });
+  });
+
+  it("never retries when the caller doesn't ask for it (daily lesson, Ôn tập)", async () => {
+    const { onFinish } = retrySetup(false);
+    await answer(mcq, false);
+    await answer(other, true);
+    expect(onFinish).toHaveBeenCalledWith({ correct: 1, total: 2 });
+  });
+
+  it("asks before leaving during a retry", async () => {
+    retrySetup();
+    await answer(mcq, false);
+    await answer(other, true);
+    fireEvent.click(screen.getByRole("button", { name: "Làm lại câu sai" }));
+    fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
+    expect(await screen.findByText("Dừng bài ở đây?")).toBeInTheDocument();
+  });
+});
+
 describe("sentence exercises", () => {
   it("accepts a word order built from tiles and shows the translation", async () => {
     const { buildWordOrder } = await import("@/learning/exercises/word-order");
