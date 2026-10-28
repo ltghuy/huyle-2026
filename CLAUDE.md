@@ -42,8 +42,9 @@ every app (cached except `dev`/`e2e`); `start`, `test:watch` and `cf:*` forward 
 - `pnpm lint` — run ESLint
 - `pnpm typecheck` — run `tsc --noEmit`
 - `pnpm test` / `pnpm e2e` — unit (Vitest) / end-to-end (Playwright) tests
-- `pnpm --filter <app> add <pkg>` — add a dependency to one app. Keep `@types/react`
-  and `@playwright/test` on one version across apps (see `.agents/knowledge.md`).
+- `pnpm --filter <app> add <pkg>` — add a dependency to one app. A dependency two or
+  more packages use is listed as `"catalog:"` and its version is set once in the
+  `catalog` of `pnpm-workspace.yaml` (see `.agents/knowledge.md`).
 - `pnpm cf:preview` — build for Cloudflare and serve it locally
 - `pnpm cf:deploy` — build for Cloudflare and deploy (never `pnpm deploy`: that is a pnpm built-in)
 - `pnpm cf:build` + `pnpm cf:deploy:prebuilt` — the split build/deploy steps Workers Builds runs

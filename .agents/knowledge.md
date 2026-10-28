@@ -12,6 +12,12 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
   scripts** that delegate with `pnpm --filter web`. Roll out in two phases (stable
   script names first, then the move) because a push to `main` auto-deploys.
   Deploy/preview bypass turbo (uncacheable; strict env mode strips Cloudflare vars).
+- A dependency used by two or more workspace packages takes its version from the
+  default `catalog` in `pnpm-workspace.yaml` and is listed as `"catalog:"` in each
+  package.json; a dependency only one package uses keeps its own range. To bump a
+  shared package, change the catalog and run `pnpm install`. `catalogMode: prefer`
+  makes `pnpm add` write `catalog:` for packages already in the catalog -- the apps
+  had drifted apart (web on next 16.3.0, the others on 16.3.8) <!-- quick:003 date:2026-10-28 -->
 
 ### web
 
@@ -151,12 +157,11 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
   - `@types/react`: pnpm publicly hoists `*types*`; with two versions, the
     portfolio type-checked against the hoisted copy while R3F augments its own →
     `'group' does not exist on type 'JSX.IntrinsicElements'`. Keep one version
-    (lock it with `pnpm --filter <app> add -D @types/react@<v>`, then restore the
-    `^19` range; pnpm keeps the locked version).
+    (both are in the pnpm catalog, quick 003).
   - Playwright: playwright-bdd imports `playwright` without declaring it and gets
     pnpm's hoisted copy; a second Playwright version makes it read the wrong
     internals → `bddTestData not found` (full-suite runs only). Keep
-    `@playwright/test` on one version in every app.
+    `@playwright/test` on one exact version in the catalog.
 - **`.claude/rules` frontmatter: only `paths:` is read.** Any other key (this repo
   used `appliesTo:`) is ignored without an error, so the rule silently loads for
   every file. Verified in the Claude Code memory docs (2026-10-26, feature 005).
