@@ -14,14 +14,12 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useVerbs } from "@/hooks/use-verbs";
 import { filterVerbs, PATTERN_LABELS, VERB_PATTERNS, type VerbEntry, type VerbPattern } from "@/learning/verbs";
-import type { Level } from "@/learning/types";
+import { LEVELS } from "@/learning/types";
 import { parseLevel, updateSearchParams } from "@/lib/search-params";
 import { verbPracticeSteps } from "./verb-practice";
 import { VerbDialog } from "./verb-dialog";
 
 const ALL = "all";
-/** Levels with irregular verbs; C1 has none in the course. */
-const VERB_LEVELS: Level[] = ["A1", "A2", "B1", "B2"];
 
 const parsePattern = (value: string | null): VerbPattern | null => VERB_PATTERNS.find((pattern) => pattern === value) ?? null;
 
@@ -101,11 +99,11 @@ export function VerbsBrowser() {
 
         <Tabs value={level ?? ALL} onValueChange={(next) => handleLevelChange(String(next))}>
           <TabsList aria-label="Trình độ" className="w-full group-data-horizontal/tabs:h-11 sm:w-fit">
-            <TabsTrigger value={ALL} className="px-3 text-base">
+            <TabsTrigger value={ALL} className="px-2 text-base sm:px-3">
               Tất cả
             </TabsTrigger>
-            {VERB_LEVELS.map((item) => (
-              <TabsTrigger key={item} value={item} className="min-w-14 px-3 text-base">
+            {LEVELS.map((item) => (
+              <TabsTrigger key={item} value={item} className="px-2 text-base sm:min-w-14 sm:px-3">
                 {item}
               </TabsTrigger>
             ))}

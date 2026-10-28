@@ -1,0 +1,107 @@
+[
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "forms:overdraw-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:overdraw-v",
+      "past": [
+        {
+          "text": "overdrew",
+          "ipa": "/ˌoʊvɚˈdru/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "overdrawn",
+          "ipa": "/ˌoʊvɚˈdrɔn/"
+        }
+      ],
+      "audio": "a26a660db7d810dcaf1a6e630c858fa2541b31181c5cc0eddd78efbe6cd21563",
+      "practice": [
+        {
+          "en": "She ___ her account to pay for the car repairs.",
+          "answer": "past",
+          "vi": "Cô ấy đã rút quá số dư tài khoản để trả tiền sửa xe."
+        },
+        {
+          "en": "If your account is ___, the bank will charge you a fee.",
+          "answer": "participle",
+          "vi": "Nếu tài khoản của bạn bị rút quá số dư, ngân hàng sẽ tính phí."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "forms:oversee-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:oversee-v",
+      "past": [
+        {
+          "text": "oversaw",
+          "ipa": "/ˌoʊvɚˈsɔ/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "overseen",
+          "ipa": "/ˌoʊvɚˈsin/"
+        }
+      ],
+      "audio": "64fb8a15d30eff9ff85c034263f0d16081aff375ed395f45e7c3d7c6f02a980e",
+      "practice": [
+        {
+          "en": "Last year she ___ the opening of three new stores.",
+          "answer": "past",
+          "vi": "Năm ngoái cô ấy giám sát việc khai trương ba cửa hàng mới."
+        },
+        {
+          "en": "The project has been ___ by an independent team from the start.",
+          "answer": "participle",
+          "vi": "Dự án được một nhóm độc lập giám sát ngay từ đầu."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "forms:shed-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:shed-v",
+      "past": [
+        {
+          "text": "shed",
+          "ipa": "/ʃɛd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "shed",
+          "ipa": "/ʃɛd/"
+        }
+      ],
+      "audio": "458b101815af7abd279c58534ba95300daa37d23e016a19e97dd53223c47bc0e",
+      "practice": [
+        {
+          "en": "The trees ___ their leaves early because of the dry summer.",
+          "answer": "past",
+          "vi": "Cây rụng lá sớm vì mùa hè khô hạn."
+        },
+        {
+          "en": "The company has ___ almost a thousand jobs this year.",
+          "answer": "participle",
+          "vi": "Năm nay công ty đã cắt giảm gần một nghìn việc làm."
+        }
+      ]
+    },
+    "status": "approved"
+  }
+]

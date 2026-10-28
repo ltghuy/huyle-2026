@@ -35,7 +35,7 @@ pattern, practice, and their own place in the review schedule.
 | Feature | Reason |
 |---------|--------|
 | Regular verbs (-ed) | The rule is taught in Past Simple; no list to learn |
-| Rarer irregular verbs beyond the common set (forsake, tread, …) | Owner chose the ~108 common verbs first (2026-10-28) |
+| Rarer irregular verbs that are not in the course's word lists (forsake, tread, …) | Owner chose the ~108 common verbs first (2026-10-28); the irregular verbs of the C1 word list were added later (quick task 014) |
 | Third person -s, -ing forms | Covered by Present Simple and Present Continuous |
 | Irregular verbs in the daily lesson plan | Keeps the lesson within its 15-minute budget; can follow once the section is used |
 | British/American differences beyond listing both forms | Both forms are shown; the voice is American |
@@ -113,6 +113,7 @@ None.
 - With one clip per verb, the listening exercise asks for the spelling of the whole set instead of a single heard form (proposed with the owner's audio choice).
 - Forms are drafted in a Claude Code session and reviewed by the owner before publishing, like all course content; phonetic spelling comes from the CMU Pronouncing Dictionary step, audio from the local voice (Kokoro, am_adam).
 - Coverage check (2026-10-28): 107 of 108 common irregular verbs are already verbs in the word lists (A1 60, A2 23, B1 20, B2 4); "sting" is missing.
+- Owner decision (2026-10-28, after C1 went live): add the irregular verbs of the C1 word list too: oversee, overdraw and shed (quick task 014). The section then has 111 verbs, and its level filter gains C1.
 
 ## Evidence
 

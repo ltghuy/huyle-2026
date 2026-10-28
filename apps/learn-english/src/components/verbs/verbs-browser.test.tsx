@@ -13,6 +13,7 @@ const words = [
   word("cut-v", { headword: "cut", pos: "verb", meaningsVi: ["cắt"] }),
   word("get-v", { headword: "get", pos: "verb", meaningsVi: ["nhận được"] }),
   word("lie-v", { headword: "lie", pos: "verb", meaningsVi: ["nằm"] }, "A2"),
+  word("shed-v", { headword: "shed", pos: "verb", meaningsVi: ["rụng", "loại bỏ"] }, "C1"),
 ];
 const items = [
   forms("go-v", ["went"], ["gone"], { wordId: "word:go-v", audio: "a".repeat(64) }),
@@ -29,6 +30,7 @@ const items = [
     },
   },
   forms("lie-v", ["lay"], ["lain"], { wordId: "word:lie-v", noteVi: "Với nghĩa \"nói dối\": lie → lied → lied." }, "A2"),
+  forms("shed-v", ["shed"], ["shed"], { wordId: "word:shed-v" }, "C1"),
 ];
 let state: { status: string; verbs?: unknown[] } = { status: "ready", verbs: verbEntries(items, words) };
 vi.mock("@/hooks/use-verbs", () => ({ useVerbs: () => ({ ...state, retry: () => {} }) }));
@@ -49,17 +51,17 @@ beforeEach(async () => {
 describe("VerbsBrowser", () => {
   it("lists every verb with its three forms, meaning and level (AC-001, AC-002)", () => {
     visit();
-    expect(names()).toEqual(["cut", "get", "go", "lie"]);
+    expect(names()).toEqual(["cut", "get", "go", "lie", "shed"]);
     expect(cards()[1]).toHaveTextContent("get – got – gotten / got");
-    expect(screen.getByRole("status")).toHaveTextContent("4 động từ");
+    expect(screen.getByRole("status")).toHaveTextContent("5 động từ");
     // The table for wide screens has the same rows.
-    expect(screen.getAllByRole("row")).toHaveLength(5);
+    expect(screen.getAllByRole("row")).toHaveLength(6);
   });
 
   it("filters by pattern, and keeps it in the address (AC-004)", () => {
     visit();
     fireEvent.click(screen.getByRole("button", { name: "A – A – A, ví dụ cut – cut – cut" }));
-    expect(names()).toEqual(["cut"]);
+    expect(names()).toEqual(["cut", "shed"]);
     expect(window.location.search).toBe("?pattern=AAA");
     expect(screen.getByText(/Cả ba dạng giống nhau/)).toBeInTheDocument();
   });
@@ -67,6 +69,8 @@ describe("VerbsBrowser", () => {
   it("filters by level and searches forms and meanings without accents (AC-005)", () => {
     visit("?level=A2");
     expect(names()).toEqual(["lie"]);
+    fireEvent.click(screen.getByRole("tab", { name: "C1" }));
+    expect(names()).toEqual(["shed"]);
     fireEvent.click(screen.getByRole("tab", { name: "Tất cả" }));
     const search = screen.getByRole("searchbox", { name: "Tìm động từ" });
     fireEvent.change(search, { target: { value: "wen" } });
