@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { screen, within } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
+import { toast } from "sonner";
 import { render } from "@/test-utils/render";
 import { localDate } from "@/learning/attendance";
 import { addAttempt } from "@/storage/attempts";
@@ -9,7 +10,15 @@ import { createDefaultProfile, saveProfile } from "@/storage/meta";
 import { makeAttempt, makeCard, resetStorage } from "@/storage/test-utils";
 import { AttendanceSummary } from "./attendance-summary";
 import { ProgressInsights } from "./progress-insights";
+import { achievementText, certificateFileName, certificatePng, vietnameseDate } from "./certificate";
 import { calendarWeeks, weekStart } from "./progress-math";
+
+vi.mock("sonner", () => ({ toast: Object.assign(vi.fn(), { error: vi.fn(), success: vi.fn() }) }));
+// jsdom has no canvas: the drawing is replaced by a fixed PNG blob.
+vi.mock("./certificate", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("./certificate")>()),
+  certificatePng: vi.fn(async () => new Blob(["png"], { type: "image/png" })),
+}));
 
 vi.mock("@/hooks/use-content-index", async () => {
   const { buildContentIndex } = await import("@/lib/session/content-index");
@@ -109,5 +118,55 @@ describe("ProgressInsights", () => {
 
     expect(screen.getByText("75%")).toBeInTheDocument();
     expect(screen.getByText("đúng 3/4 câu")).toBeInTheDocument();
+  });
+});
+
+describe("certificate text (009 AC-004, AC-006)", () => {
+  it("names what was finished, the file and the date in Vietnamese", () => {
+    expect(achievementText("word", "A1", 1164)).toBe("1.164 từ vựng trình độ A1");
+    expect(achievementText("grammar", "A1", 12)).toBe("12 chủ điểm ngữ pháp trình độ A1");
+    expect(achievementText("forms", "C1", 3)).toBe("3 động từ bất quy tắc trình độ C1");
+    expect(certificateFileName("forms", "C1")).toBe("chung-nhan-dong-tu-bat-quy-tac-C1.png");
+    expect(vietnameseDate("2026-10-28")).toBe("ngày 28 tháng 10 năm 2026");
+  });
+});
+
+describe("progress certificates (009)", () => {
+  const learnedAt = Date.UTC(2026, 9, 27, 12); // 27 October 2026, 19:00 in Vietnam
+
+  beforeEach(async () => {
+    await resetStorage();
+    await saveProfile({ ...createDefaultProfile(0), timeZone: TZ, displayName: "Minh Anh" });
+    vi.mocked(toast).mockClear();
+    vi.stubGlobal("URL", Object.assign(URL, { createObjectURL: vi.fn(() => "blob:certificate"), revokeObjectURL: vi.fn() }));
+  });
+
+  it("locks every unfinished row and says how much is left (AC-001, AC-002, AC-005)", async () => {
+    await putCards([makeCard("word:apple", 0, { addedAt: learnedAt })]);
+    render(<ProgressInsights />);
+    const words = await screen.findByRole("list", { name: "Từ đã học" });
+    const locked = within(words).getByRole("button", { name: "Chứng nhận từ vựng A1: chưa đạt, còn 1 từ" });
+    fireEvent.click(locked);
+    expect(toast).toHaveBeenCalledWith("Còn 1 từ nữa là bạn nhận chứng nhận từ vựng A1.");
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("opens a finished row's certificate with the name and date, and saves it as a PNG (AC-003, AC-004, AC-006)", async () => {
+    await putCards([makeCard("forms:go", 0, { addedAt: learnedAt - DAY_MS }), makeCard("forms:eat", 0, { addedAt: learnedAt })]);
+    render(<ProgressInsights />);
+    const verbs = await screen.findByRole("list", { name: "Động từ bất quy tắc đã học" });
+    fireEvent.click(within(verbs).getByRole("button", { name: "Xem chứng nhận động từ bất quy tắc A1" }));
+
+    const dialog = await screen.findByRole("dialog");
+    expect(within(dialog).getByText("Bạn đã học xong 2 động từ bất quy tắc trình độ A1.")).toBeInTheDocument();
+    const image = await within(dialog).findByRole("img");
+    expect(image).toHaveAttribute("alt", "Chứng nhận Minh Anh đã học xong 2 động từ bất quy tắc trình độ A1, ngày 27 tháng 10 năm 2026, English with Evan.");
+    expect(vi.mocked(certificatePng)).toHaveBeenLastCalledWith({ kind: "forms", level: "A1", total: 2, name: "Minh Anh", date: "2026-10-27" });
+
+    const click = vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
+    fireEvent.click(within(dialog).getByRole("button", { name: "Tải về" }));
+    expect(click).toHaveBeenCalledTimes(1);
+    expect(click.mock.contexts[0]).toHaveProperty("download", "chung-nhan-dong-tu-bat-quy-tac-A1.png");
+    click.mockRestore();
   });
 });

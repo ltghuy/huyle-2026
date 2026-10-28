@@ -46,19 +46,26 @@ export interface LevelCount {
   level: Level;
   learned: number;
   total: number;
+  /** When the most recently added of the learned items was first learned (ms); undefined with none. */
+  lastLearnedAt?: number;
 }
 
+export type ProgressKind = "word" | "grammar" | "forms";
+
 /** Cards per level for one item kind, joined with the content's levels; unknown items are skipped. */
-export function countByLevel(cards: readonly StoredCard[], index: ContentIndex, kind: "word" | "grammar" | "forms"): LevelCount[] {
+export function countByLevel(cards: readonly StoredCard[], index: ContentIndex, kind: ProgressKind): LevelCount[] {
   const learned = new Map<Level, number>();
+  const lastLearnedAt = new Map<Level, number>();
   for (const card of cards) {
     if (!card.itemId.startsWith(`${kind}:`)) continue;
     const item = index.byId.get(card.itemId);
-    if (item?.kind === kind) learned.set(item.level, (learned.get(item.level) ?? 0) + 1);
+    if (item?.kind !== kind) continue;
+    learned.set(item.level, (learned.get(item.level) ?? 0) + 1);
+    lastLearnedAt.set(item.level, Math.max(lastLearnedAt.get(item.level) ?? 0, card.addedAt));
   }
   const total = (level: Level) =>
     kind === "word" ? (index.wordsByLevel[level]?.length ?? 0) : kind === "grammar" ? (index.grammarByLevel[level]?.length ?? 0) : index.forms.filter((item) => item.level === level).length;
-  return LEVELS.map((level) => ({ level, learned: learned.get(level) ?? 0, total: total(level) }));
+  return LEVELS.map((level) => ({ level, learned: learned.get(level) ?? 0, total: total(level), lastLearnedAt: lastLearnedAt.get(level) }));
 }
 
 export interface Accuracy {
