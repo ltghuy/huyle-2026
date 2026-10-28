@@ -63,15 +63,6 @@
     "topicHints": []
   },
   {
-    "id": "word:enviable-adv",
-    "headword": "enviable",
-    "variants": [],
-    "pos": "adverb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:organizational-adj",
     "headword": "organizational",
     "variants": [],
@@ -220,15 +211,6 @@
     "headword": "conform",
     "variants": [],
     "pos": "verb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:norms-n",
-    "headword": "norms",
-    "variants": [],
-    "pos": "noun",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -499,15 +481,6 @@
     "headword": "purity",
     "variants": [],
     "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:gruelling-adj",
-    "headword": "gruelling",
-    "variants": [],
-    "pos": "adjective",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -2088,24 +2061,6 @@
     "topicHints": []
   },
   {
-    "id": "word:repellant-n",
-    "headword": "repellant",
-    "variants": [],
-    "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:repellant-adj",
-    "headword": "repellant",
-    "variants": [],
-    "pos": "adjective",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:aqua-adj",
     "headword": "aqua",
     "variants": [],
@@ -2416,15 +2371,6 @@
   {
     "id": "word:splatter-v",
     "headword": "splatter",
-    "variants": [],
-    "pos": "verb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:automatic-v",
-    "headword": "automatic",
     "variants": [],
     "pos": "verb",
     "level": "C1",
@@ -3874,24 +3820,6 @@
     "topicHints": []
   },
   {
-    "id": "word:chauffer-n",
-    "headword": "chauffer",
-    "variants": [],
-    "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:chauffer-v",
-    "headword": "chauffer",
-    "variants": [],
-    "pos": "verb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:sedentary-adj",
     "headword": "sedentary",
     "variants": [],
@@ -4982,15 +4910,6 @@
     "headword": "batter",
     "variants": [],
     "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:batter-",
-    "headword": "batter",
-    "variants": [],
-    "pos": "",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -7376,15 +7295,6 @@
     "topicHints": []
   },
   {
-    "id": "word:overdraft-v",
-    "headword": "overdraft",
-    "variants": [],
-    "pos": "verb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:overdraft-n",
     "headword": "overdraft",
     "variants": [],
@@ -7425,15 +7335,6 @@
     "headword": "contested",
     "variants": [],
     "pos": "adjective",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:verandah-n",
-    "headword": "verandah",
-    "variants": [],
-    "pos": "noun",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -7558,15 +7459,6 @@
   {
     "id": "word:versatility-n",
     "headword": "versatility",
-    "variants": [],
-    "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:stimuli-n",
-    "headword": "stimuli",
     "variants": [],
     "pos": "noun",
     "level": "C1",
@@ -8334,15 +8226,6 @@
     "topicHints": []
   },
   {
-    "id": "word:tastebud-n",
-    "headword": "tastebud",
-    "variants": [],
-    "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:amateur-n",
     "headword": "amateur",
     "variants": [],
@@ -8554,15 +8437,6 @@
     "topicHints": []
   },
   {
-    "id": "word:unscathing-adj",
-    "headword": "unscathing",
-    "variants": [],
-    "pos": "adjective",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:convoluted-adj",
     "headword": "convoluted",
     "variants": [],
@@ -8666,15 +8540,6 @@
     "headword": "chisel",
     "variants": [],
     "pos": "verb",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:chiselled-adj",
-    "headword": "chiselled",
-    "variants": [],
-    "pos": "adjective",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -8893,15 +8758,6 @@
     "headword": "quirky",
     "variants": [],
     "pos": "adjective",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
-    "id": "word:quirky-n",
-    "headword": "quirky",
-    "variants": [],
-    "pos": "noun",
     "level": "C1",
     "source": "octanove-1.0",
     "topicHints": []
@@ -9324,15 +9180,6 @@
     "topicHints": []
   },
   {
-    "id": "word:mark-up-n",
-    "headword": "mark-up",
-    "variants": [],
-    "pos": "noun",
-    "level": "C1",
-    "source": "octanove-1.0",
-    "topicHints": []
-  },
-  {
     "id": "word:complementary-adj",
     "headword": "complementary",
     "variants": [],
@@ -9447,6 +9294,132 @@
     "pos": "noun",
     "level": "C1",
     "source": "octanove-1.0",
+    "topicHints": []
+  },
+  {
+    "id": "word:chauffeur-n",
+    "headword": "chauffeur",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:chauffeur-v",
+    "headword": "chauffeur",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:unscathed-adj",
+    "headword": "unscathed",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:repellent-n",
+    "headword": "repellent",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:repellent-adj",
+    "headword": "repellent",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:enviable-adj",
+    "headword": "enviable",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:norm-n",
+    "headword": "norm",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:stimulus-n",
+    "headword": "stimulus",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:overdraw-v",
+    "headword": "overdraw",
+    "variants": [],
+    "pos": "verb",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:grueling-adj",
+    "headword": "grueling",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:chiseled-adj",
+    "headword": "chiseled",
+    "variants": [],
+    "pos": "adjective",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:veranda-n",
+    "headword": "veranda",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:taste-bud-n",
+    "headword": "taste bud",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
+    "topicHints": []
+  },
+  {
+    "id": "word:markup-n",
+    "headword": "markup",
+    "variants": [],
+    "pos": "noun",
+    "level": "C1",
+    "source": "added",
     "topicHints": []
   }
 ]

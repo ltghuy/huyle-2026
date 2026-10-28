@@ -1,0 +1,602 @@
+[
+  {
+    "level": "C1",
+    "sort": 42,
+    "id": "grammar:cleft-sentences",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Cleft sentences",
+      "titleVi": "Câu chẻ",
+      "ruleVi": "Câu chẻ (cleft sentence) tách một câu thành hai phần để làm nổi bật một thông tin. Kiểu \"It is/was + phần nhấn mạnh + that/who...\" nhấn vào người, vật, thời gian hay nơi chốn; kiểu \"What + S + V + is/was...\" nhấn vào điều được nói ở cuối câu. Tiếng Việt có \"Chính... là người...\" và \"Điều tôi cần là...\", nhưng tiếng Anh bắt buộc có chủ ngữ \"It\" hoặc từ \"What\" ở đầu câu.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "It + is/was + focus + that/who + clause  |  What + S + V + is/was + focus"
+        },
+        {
+          "form": "negative",
+          "en": "It + isn't/wasn't + focus + that/who + clause"
+        },
+        {
+          "form": "question",
+          "en": "Is/Was + it + focus + that/who + clause?"
+        }
+      ],
+      "usageVi": [
+        "Nhấn mạnh ai làm việc gì: \"It was Tom who called.\"",
+        "Nhấn mạnh thời gian hay nơi chốn: \"It was in June that we met.\"",
+        "Nhấn mạnh điều mình muốn hay cần với \"What\": \"What I need is sleep.\"",
+        "Sửa lại thông tin sai: \"It wasn't me who broke it.\"",
+        "\"All\" thay cho \"What\" khi muốn nói \"chỉ\": \"All I want is a coffee.\""
+      ],
+      "signalWords": [
+        "it is... that",
+        "it was... who",
+        "what I need is",
+        "all I want is"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Is my sister who called you.",
+          "right": "It was my sister who called you.",
+          "explanationVi": "Câu chẻ tiếng Anh bắt buộc có chủ ngữ \"It\" ở đầu câu."
+        },
+        {
+          "wrong": "It was my sister which called you.",
+          "right": "It was my sister who called you.",
+          "explanationVi": "Phần nhấn mạnh là người nên dùng \"who\" hoặc \"that\", không dùng \"which\"."
+        },
+        {
+          "wrong": "What I want is go home.",
+          "right": "What I want is to go home.",
+          "explanationVi": "Sau \"What I want is\" động từ cần \"to\": \"to go home\"."
+        },
+        {
+          "wrong": "What I need are more time.",
+          "right": "What I need is more time.",
+          "explanationVi": "Mệnh đề \"What...\" được xem là số ít nên dùng \"is\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-cleft-sentences-1",
+        "sentence:g-cleft-sentences-2",
+        "sentence:g-cleft-sentences-3",
+        "sentence:g-cleft-sentences-4"
+      ],
+      "practice": [
+        {
+          "prompt": "It was the noise ___ kept me awake all night.",
+          "options": [
+            "that",
+            "what",
+            "where",
+            "it"
+          ],
+          "answer": "that",
+          "explanationVi": "Câu chẻ \"It was... that...\" dùng \"that\" để nối phần nhấn mạnh với mệnh đề sau."
+        },
+        {
+          "prompt": "___ I love about this city is the food.",
+          "options": [
+            "What",
+            "That",
+            "It",
+            "Which"
+          ],
+          "answer": "What",
+          "explanationVi": "Mở đầu câu chẻ nhấn mạnh phần cuối câu dùng \"What\" (điều mà)."
+        },
+        {
+          "prompt": "It ___ until midnight that we finally got home.",
+          "options": [
+            "wasn't",
+            "didn't",
+            "hadn't",
+            "weren't"
+          ],
+          "answer": "wasn't",
+          "explanationVi": "Câu chẻ dùng \"It + be\"; chủ ngữ \"It\" ở quá khứ đi với \"wasn't\"."
+        },
+        {
+          "prompt": "All I want for my birthday ___ a quiet dinner.",
+          "options": [
+            "is",
+            "are",
+            "be",
+            "being"
+          ],
+          "answer": "is",
+          "explanationVi": "\"All I want\" được xem là số ít nên dùng \"is\"."
+        },
+        {
+          "prompt": "Điền một từ: ___ was in this small café that we first met.",
+          "answer": "It",
+          "explanationVi": "Câu chẻ nhấn mạnh nơi chốn bắt đầu bằng \"It was... that\"."
+        },
+        {
+          "prompt": "Điền một từ: What surprised me most ___ how friendly everyone was.",
+          "answer": "was",
+          "explanationVi": "Câu kể về quá khứ và mệnh đề \"What...\" là số ít nên dùng \"was\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 39,
+    "id": "grammar:future-perfect-continuous",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Future Perfect Continuous",
+      "titleVi": "Thì tương lai hoàn thành tiếp diễn",
+      "ruleVi": "Thì tương lai hoàn thành tiếp diễn (Future Perfect Continuous) nhấn mạnh một hành động sẽ kéo dài liên tục cho đến một thời điểm trong tương lai. Cấu trúc là will have been + V-ing, thường đi với \"by + mốc thời gian\" và \"for + khoảng thời gian\". Tiếng Việt không chia thì nên chỉ nói \"đến tháng sau là tôi làm ở đây được năm năm\"; tiếng Anh phải dùng đủ ba phần \"will have been\" và động từ thêm -ing.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + will have been + V-ing"
+        },
+        {
+          "form": "negative",
+          "en": "S + won't (will not) have been + V-ing"
+        },
+        {
+          "form": "question",
+          "en": "(How long) + will + S + have been + V-ing?"
+        }
+      ],
+      "usageVi": [
+        "Nói hành động sẽ kéo dài bao lâu tính đến một mốc tương lai: \"By May, I will have been teaching for ten years.\"",
+        "Giải thích kết quả hay trạng thái ở một thời điểm tương lai: \"She'll be tired because she will have been working all day.\"",
+        "Hỏi về khoảng thời gian tính đến tương lai: \"How long will you have been living here by June?\"",
+        "Không dùng với động từ chỉ trạng thái như know, own, believe; khi đó dùng tương lai hoàn thành: \"I will have known her for ten years.\""
+      ],
+      "signalWords": [
+        "by next year",
+        "by the time",
+        "for + khoảng thời gian",
+        "by the end of"
+      ],
+      "mistakes": [
+        {
+          "wrong": "By next month, I will be working here for five years.",
+          "right": "By next month, I will have been working here for five years.",
+          "explanationVi": "Muốn nói hành động kéo dài đến mốc tương lai thì cần \"will have been\" + V-ing, không phải \"will be\" + V-ing."
+        },
+        {
+          "wrong": "By 2030, she will have been live here for ten years.",
+          "right": "By 2030, she will have been living here for ten years.",
+          "explanationVi": "Sau \"have been\" động từ phải thêm -ing."
+        },
+        {
+          "wrong": "When he will arrive, we will have been waiting for two hours.",
+          "right": "When he arrives, we will have been waiting for two hours.",
+          "explanationVi": "Trong mệnh đề thời gian bắt đầu bằng \"when\", dùng hiện tại đơn chứ không dùng \"will\"."
+        },
+        {
+          "wrong": "I will have been knowing her for ten years next month.",
+          "right": "I will have known her for ten years next month.",
+          "explanationVi": "\"Know\" là động từ chỉ trạng thái nên không dùng dạng tiếp diễn; dùng tương lai hoàn thành."
+        }
+      ],
+      "examples": [
+        "sentence:g-future-perfect-continuous-1",
+        "sentence:g-future-perfect-continuous-2",
+        "sentence:g-future-perfect-continuous-3",
+        "sentence:g-future-perfect-continuous-4"
+      ],
+      "practice": [
+        {
+          "prompt": "By 6 p.m., she ___ for eight hours straight.",
+          "options": [
+            "will have been driving",
+            "has been driving",
+            "had been driving",
+            "will been driving"
+          ],
+          "answer": "will have been driving",
+          "explanationVi": "\"By 6 p.m.\" là mốc tương lai và \"for eight hours\" là khoảng thời gian, nên dùng \"will have been\" + V-ing."
+        },
+        {
+          "prompt": "By the time the movie ends, we ___ sitting here for three hours.",
+          "options": [
+            "will have been",
+            "had been",
+            "have been",
+            "will has been"
+          ],
+          "answer": "will have been",
+          "explanationVi": "Hành động kéo dài đến lúc phim kết thúc trong tương lai nên dùng \"will have been\"; sau \"will\" luôn là \"have\"."
+        },
+        {
+          "prompt": "They will have been ___ for two days by the time they reach the coast.",
+          "options": [
+            "traveling",
+            "traveled",
+            "travel",
+            "travels"
+          ],
+          "answer": "traveling",
+          "explanationVi": "Sau \"will have been\" động từ ở dạng V-ing."
+        },
+        {
+          "prompt": "How long ___ you have been working on this project by December?",
+          "options": [
+            "will",
+            "do",
+            "have",
+            "are"
+          ],
+          "answer": "will",
+          "explanationVi": "Câu hỏi ở thì này đưa \"will\" lên trước chủ ngữ: \"will you have been working\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"run\": By noon, he will have been ___ for three hours.",
+          "answer": "running",
+          "explanationVi": "Sau \"will have been\" dùng V-ing; \"run\" nhân đôi phụ âm cuối thành \"running\"."
+        },
+        {
+          "prompt": "Điền từ còn thiếu: By the end of the year, I will have ___ learning English for five years.",
+          "answer": "been",
+          "explanationVi": "Cấu trúc đầy đủ là \"will have been\" + V-ing, nên còn thiếu \"been\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 41,
+    "id": "grammar:inversion",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Inversion for emphasis",
+      "titleVi": "Đảo ngữ để nhấn mạnh",
+      "ruleVi": "Đảo ngữ (inversion) là đưa một trạng từ hay cụm từ mang nghĩa phủ định hoặc hạn chế (Never, Rarely, Not only, Only after, Hardly...) lên đầu câu để nhấn mạnh, rồi đảo trợ động từ lên trước chủ ngữ giống như câu hỏi. Nếu câu không có trợ động từ thì thêm do/does/did, và động từ chính trở về nguyên mẫu. Cấu trúc này trang trọng, hay gặp trong văn viết và bài phát biểu. Tiếng Việt nhấn mạnh bằng từ như \"chưa bao giờ... lại\" mà không đổi trật tự từ, nên người học hay quên đảo trợ động từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Never/Rarely/Seldom/Not only/Only after... + auxiliary (do/does/did, have, can...) + S + V"
+        }
+      ],
+      "usageVi": [
+        "Sau các trạng từ phủ định như Never, Rarely, Seldom: \"Never have I seen such rain.\"",
+        "Với \"Not only... but also\": \"Not only did he call, but he also came.\"",
+        "Sau Only after/Only when/Only then, đảo ngữ ở mệnh đề chính: \"Only then did I understand.\"",
+        "Hai việc xảy ra liền nhau với Hardly... when / No sooner... than: \"Hardly had we left when it rained.\"",
+        "Lời cảnh báo trang trọng với Under no circumstances: \"Under no circumstances should you open it.\""
+      ],
+      "signalWords": [
+        "never",
+        "rarely",
+        "seldom",
+        "not only",
+        "only after",
+        "hardly",
+        "no sooner",
+        "under no circumstances"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Never I have been so tired.",
+          "right": "Never have I been so tired.",
+          "explanationVi": "Sau \"Never\" đứng đầu câu phải đảo trợ động từ \"have\" lên trước chủ ngữ."
+        },
+        {
+          "wrong": "Not only he speaks French, but he also speaks Spanish.",
+          "right": "Not only does he speak French, but he also speaks Spanish.",
+          "explanationVi": "Sau \"Not only\" cần thêm \"does\" trước chủ ngữ và động từ trở về nguyên mẫu."
+        },
+        {
+          "wrong": "Hardly I had sat down when the phone rang.",
+          "right": "Hardly had I sat down when the phone rang.",
+          "explanationVi": "Sau \"Hardly\" đứng đầu câu phải đảo \"had\" lên trước chủ ngữ."
+        },
+        {
+          "wrong": "Only then I understood the problem.",
+          "right": "Only then did I understand the problem.",
+          "explanationVi": "Sau \"Only then\" cần thêm \"did\" trước chủ ngữ và dùng nguyên mẫu \"understand\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-inversion-1",
+        "sentence:g-inversion-2",
+        "sentence:g-inversion-3",
+        "sentence:g-inversion-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Seldom ___ such a talented young player.",
+          "options": [
+            "have I seen",
+            "I have seen",
+            "I saw",
+            "seen I have"
+          ],
+          "answer": "have I seen",
+          "explanationVi": "\"Seldom\" đứng đầu câu nên trợ động từ \"have\" đảo lên trước chủ ngữ."
+        },
+        {
+          "prompt": "No sooner ___ arrived than it started to rain.",
+          "options": [
+            "had we",
+            "we had",
+            "did we",
+            "we have"
+          ],
+          "answer": "had we",
+          "explanationVi": "\"No sooner\" đi với quá khứ hoàn thành đảo ngữ: \"had we arrived\"."
+        },
+        {
+          "prompt": "Under no circumstances ___ leave the door unlocked.",
+          "options": [
+            "should you",
+            "you should",
+            "you must",
+            "you can"
+          ],
+          "answer": "should you",
+          "explanationVi": "Sau \"Under no circumstances\" trợ động từ phải đứng trước chủ ngữ."
+        },
+        {
+          "prompt": "Little ___ know that the surprise party was for him.",
+          "options": [
+            "did he",
+            "he did",
+            "he",
+            "was he"
+          ],
+          "answer": "did he",
+          "explanationVi": "\"Little\" mang nghĩa phủ định nên cần đảo \"did\" lên trước chủ ngữ, theo sau là nguyên mẫu \"know\"."
+        },
+        {
+          "prompt": "Điền trợ động từ: Not until I got home ___ I notice my phone was missing.",
+          "answer": "did",
+          "explanationVi": "Sau \"Not until...\" mệnh đề chính đảo ngữ với \"did\" vì động từ \"notice\" ở nguyên mẫu."
+        },
+        {
+          "prompt": "Điền trợ động từ: Hardly ___ we started dinner when the lights went out.",
+          "answer": "had",
+          "explanationVi": "\"Hardly... when\" dùng quá khứ hoàn thành đảo ngữ: \"had we started\"."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 40,
+    "id": "grammar:mixed-conditionals",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Mixed conditionals",
+      "titleVi": "Câu điều kiện hỗn hợp",
+      "ruleVi": "Câu điều kiện hỗn hợp (mixed conditionals) kết hợp hai thời điểm khác nhau trong cùng một câu: điều kiện ở quá khứ và kết quả ở hiện tại, hoặc ngược lại. Kiểu phổ biến nhất là If + had + V3/ed, S + would + V: một việc trong quá khứ đã khác thì bây giờ sẽ khác. Kiểu thứ hai là If + V2/were, S + would have + V3/ed: một đặc điểm luôn đúng đã ảnh hưởng đến một việc trong quá khứ. Tiếng Việt chỉ nói \"nếu hồi đó... thì bây giờ...\", nên bạn cần chọn đúng dạng động từ cho từng vế.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "If + S + had + V3/ed, S + would + V (now)  |  If + S + V2/were, S + would have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "If + S + hadn't + V3/ed, S + wouldn't + V  |  If + S + weren't/didn't + V, S + wouldn't have + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Would + S + V + if + S + had + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Quá khứ khác đi thì hiện tại sẽ khác: \"If I had saved money, I would be rich now.\"",
+        "Đặc điểm hiện tại (luôn đúng) ảnh hưởng đến một việc trong quá khứ: \"If I weren't shy, I would have spoken.\"",
+        "Diễn tả sự tiếc nuối về một quyết định cũ: \"If I hadn't moved, I would still know them.\"",
+        "Mệnh đề \"if\" có thể đứng sau: \"I would be there now if I had caught the bus.\""
+      ],
+      "signalWords": [
+        "now",
+        "today",
+        "yesterday",
+        "last year",
+        "still"
+      ],
+      "mistakes": [
+        {
+          "wrong": "If I had taken that job, I would have lived in another city now.",
+          "right": "If I had taken that job, I would live in another city now.",
+          "explanationVi": "Kết quả nói về hiện tại (\"now\") nên dùng \"would\" + V, không dùng \"would have\" + V3/ed."
+        },
+        {
+          "wrong": "If I weren't afraid of heights, I would climb that mountain last year.",
+          "right": "If I weren't afraid of heights, I would have climbed that mountain last year.",
+          "explanationVi": "Kết quả nói về quá khứ (\"last year\") nên dùng \"would have\" + V3/ed."
+        },
+        {
+          "wrong": "If she had listened to me, she will be happier now.",
+          "right": "If she had listened to me, she would be happier now.",
+          "explanationVi": "Câu điều kiện không có thật dùng \"would\", không dùng \"will\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-mixed-conditionals-1",
+        "sentence:g-mixed-conditionals-2",
+        "sentence:g-mixed-conditionals-3",
+        "sentence:g-mixed-conditionals-4"
+      ],
+      "practice": [
+        {
+          "prompt": "If he had saved more money, he ___ rich now.",
+          "options": [
+            "would be",
+            "will be",
+            "had been",
+            "is"
+          ],
+          "answer": "would be",
+          "explanationVi": "Điều kiện ở quá khứ, kết quả ở hiện tại (\"now\") nên dùng \"would\" + V."
+        },
+        {
+          "prompt": "If I ___ afraid of flying, I would have visited you last summer.",
+          "options": [
+            "weren't",
+            "am not",
+            "haven't been",
+            "won't be"
+          ],
+          "answer": "weren't",
+          "explanationVi": "Nỗi sợ bay là đặc điểm hiện tại, trái với thực tế, nên dùng \"weren't\"."
+        },
+        {
+          "prompt": "She would be fluent now if she ___ practicing every day.",
+          "options": [
+            "had kept",
+            "has kept",
+            "keeps",
+            "would keep"
+          ],
+          "answer": "had kept",
+          "explanationVi": "Việc không làm trong quá khứ dùng quá khứ hoàn thành \"had kept\"; mệnh đề \"if\" không dùng \"would\"."
+        },
+        {
+          "prompt": "If you were more careful, you ___ that mistake yesterday.",
+          "options": [
+            "wouldn't have made",
+            "wouldn't make",
+            "won't make",
+            "didn't make"
+          ],
+          "answer": "wouldn't have made",
+          "explanationVi": "Kết quả ở quá khứ (\"yesterday\") nên dùng \"wouldn't have\" + V3/ed."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"take\": If I had ___ the job abroad, I would live there now.",
+          "answer": "taken",
+          "explanationVi": "Sau \"had\" dùng quá khứ phân từ \"taken\"."
+        },
+        {
+          "prompt": "Điền một từ ở dạng phủ định rút gọn: If we had left earlier, we ___ be stuck in traffic now.",
+          "answer": "wouldn't",
+          "explanationVi": "Kết quả không có thật ở hiện tại dùng \"wouldn't\" + V."
+        }
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 43,
+    "id": "grammar:participle-clauses",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Participle clauses",
+      "titleVi": "Mệnh đề phân từ",
+      "ruleVi": "Mệnh đề phân từ (participle clause) là cách rút gọn một mệnh đề bằng V-ing, V3/ed hoặc Having + V3/ed, giúp câu ngắn gọn và trang trọng hơn. V-ing mang nghĩa chủ động, V3/ed mang nghĩa bị động, còn Having + V3/ed nhấn mạnh việc đã xong trước hành động chính. Chủ ngữ của mệnh đề phân từ phải trùng với chủ ngữ của mệnh đề chính. Tiếng Việt có thể lược chủ ngữ khá tự do, nên người học hay viết câu mà chủ ngữ hai vế không khớp nhau.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "V-ing / V3/ed / Having + V3/ed + ..., S + V"
+        },
+        {
+          "form": "negative",
+          "en": "Not + V-ing / Not having + V3/ed + ..., S + V"
+        }
+      ],
+      "usageVi": [
+        "Thay cho mệnh đề chỉ lý do hoặc thời gian, nghĩa chủ động: \"Feeling hungry, she made a sandwich.\"",
+        "Nghĩa bị động dùng V3/ed: \"Made by hand, the cups are expensive.\"",
+        "Việc xong trước rồi mới đến hành động chính: \"Having eaten, we left.\"",
+        "Phủ định thêm \"not\" ở đầu: \"Not knowing the answer, he stayed quiet.\""
+      ],
+      "signalWords": [
+        "having",
+        "not knowing",
+        "after",
+        "while"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Walking down the street, the rain started.",
+          "right": "Walking down the street, I got caught in the rain.",
+          "explanationVi": "Chủ ngữ của mệnh đề chính phải là người đang đi bộ; \"the rain\" không thể \"walking\"."
+        },
+        {
+          "wrong": "Finished the work, she went home.",
+          "right": "Having finished the work, she went home.",
+          "explanationVi": "Việc làm xong trước rồi mới về nên dùng \"Having finished\" (chủ động)."
+        },
+        {
+          "wrong": "Don't having enough money, he stayed home.",
+          "right": "Not having enough money, he stayed home.",
+          "explanationVi": "Mệnh đề phân từ phủ định dùng \"not\" đứng trước, không dùng \"don't\"."
+        },
+        {
+          "wrong": "Writing in 1990, the book is still popular.",
+          "right": "Written in 1990, the book is still popular.",
+          "explanationVi": "Cuốn sách được viết, mang nghĩa bị động, nên dùng V3/ed \"Written\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-participle-clauses-1",
+        "sentence:g-participle-clauses-2",
+        "sentence:g-participle-clauses-3",
+        "sentence:g-participle-clauses-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ the news, she burst into tears.",
+          "options": [
+            "Hearing",
+            "Heard",
+            "Hear",
+            "To hearing"
+          ],
+          "answer": "Hearing",
+          "explanationVi": "Cô ấy là người nghe tin (chủ động) nên dùng V-ing \"Hearing\"."
+        },
+        {
+          "prompt": "___ in 1920, the house needs a lot of repairs.",
+          "options": [
+            "Built",
+            "Building",
+            "Having built",
+            "Build"
+          ],
+          "answer": "Built",
+          "explanationVi": "Ngôi nhà được xây (bị động) nên dùng V3/ed \"Built\"."
+        },
+        {
+          "prompt": "___ his keys, he couldn't get into the apartment.",
+          "options": [
+            "Having lost",
+            "Having losing",
+            "Have lost",
+            "Lost"
+          ],
+          "answer": "Having lost",
+          "explanationVi": "Việc mất chìa khóa xảy ra trước nên dùng \"Having\" + V3/ed."
+        },
+        {
+          "prompt": "___ what to say, I stayed quiet.",
+          "options": [
+            "Not knowing",
+            "Don't knowing",
+            "No knowing",
+            "Not know"
+          ],
+          "answer": "Not knowing",
+          "explanationVi": "Mệnh đề phân từ phủ định là \"Not\" + V-ing."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"write\": ___ in simple English, the book is easy to read.",
+          "answer": "Written",
+          "explanationVi": "Cuốn sách được viết (bị động) nên dùng quá khứ phân từ \"Written\"."
+        },
+        {
+          "prompt": "Viết dạng đúng của \"take\": Having ___ a shower, he felt much better.",
+          "answer": "taken",
+          "explanationVi": "Sau \"Having\" dùng quá khứ phân từ \"taken\"."
+        }
+      ]
+    },
+    "status": "draft"
+  }
+]

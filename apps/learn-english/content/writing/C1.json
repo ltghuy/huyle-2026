@@ -1,0 +1,254 @@
+[
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "writing:c1-1-few-technologies-have-pr",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một bài luận ngắn (8–10 câu): Trí tuệ nhân tạo sẽ tạo ra nhiều việc làm hơn hay lấy đi nhiều việc làm hơn? Lập luận chặt chẽ và có kết luận rõ ràng.",
+      "useItems": [
+        "word:shift-n",
+        "word:ultimately-adv",
+        "word:transition-n",
+        "word:genuine-adj"
+      ],
+      "modelAnswers": [
+        "Few technologies have provoked as much debate as artificial intelligence, particularly regarding its impact on employment. Pessimists point out that routine tasks, from data entry to customer service, are already being automated at an unprecedented rate. Workers in these roles may find it difficult to retrain, especially later in their careers. Optimists, however, argue that every major technological shift has ultimately created more jobs than it destroyed. New professions, such as data ethicists and AI trainers, did not exist a decade ago. Moreover, by taking over repetitive work, AI could free people to focus on tasks that require creativity and empathy. The real question, therefore, is not whether jobs will change, but how quickly societies can adapt. Governments and companies need to invest heavily in lifelong learning. On balance, I believe AI will create opportunities, provided that the transition is managed fairly.",
+        "Artificial intelligence is often portrayed as a threat to employment, but this view is, in my opinion, overly simplistic. It is true that certain jobs are likely to disappear, and the people affected deserve genuine support. Nevertheless, history suggests that technology tends to transform work rather than eliminate it. When computers became widespread, many feared mass unemployment, yet entirely new industries emerged. AI is likely to follow a similar pattern, increasing productivity and lowering costs. The greater risk lies in inequality: the benefits may flow mainly to those who already have the skills and capital to exploit them. Addressing this requires deliberate policy, such as accessible training and stronger social safety nets. Only then can the gains from AI be widely shared."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 9,
+    "id": "writing:c1-10-built-in-the-early-twent",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu mô tả một quá trình hoặc sự kiện, dùng mệnh đề phân từ (Having finished…, Built in…, Walking through…).",
+      "useItems": [
+        "word:preserve-v",
+        "word:heritage-n",
+        "word:participant-n",
+        "word:contribution-n"
+      ],
+      "modelAnswers": [
+        "Built in the early twentieth century, the old railway station has recently been turned into a cultural center. Having stood empty for decades, the building was in poor condition when the project began. Working closely with historians, the architects preserved the original iron roof and tiled floors. Walking through the main hall today, visitors can still sense its former grandeur. The old ticket offices, now converted into small galleries, display work by local artists. Opened to the public last spring, the center has already attracted thousands of visitors. Encouraged by its success, the city plans to restore several other historic buildings. The project shows how heritage can be given new life without losing its character.",
+        "Having spent months preparing, our team finally launched the charity run last weekend. Arriving at dawn, volunteers set up tables, banners and water stations along the route. Organized in just three months, the event attracted over a thousand runners. Supported by local businesses, we were able to offer every participant a free T-shirt. Running alongside students and retirees, I felt a remarkable sense of community. Exhausted but proud, we counted the donations late that evening. Raised entirely through small contributions, the money will fund a new library for a village school."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 10,
+    "id": "writing:c1-11-by-the-end-of-next-year",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu về những gì bạn sẽ đã và đang làm vào một thời điểm trong tương lai (dùng tương lai hoàn thành tiếp diễn).",
+      "useItems": [
+        "word:considerable-adj",
+        "word:consultancy-n",
+        "word:retire-v",
+        "word:sacrifice-v"
+      ],
+      "modelAnswers": [
+        "By the end of next year, I will have been working at my current company for a decade. In that time, I will have been managing the same team for almost six years. I am proud of what we have achieved, but I sense that I need a new challenge. By the time I turn forty, I hope I will have been running my own consultancy for a few years. I will have been saving for this goal since my late twenties. Of course, starting a business involves considerable risk. Still, I would rather try and fail than wonder what might have been.",
+        "Next June, my parents will have been living in the same house for thirty years. My father will have been teaching at the local secondary school for even longer. They have watched the neighborhood change from rice fields to busy streets. By the time they retire, they will have been planning their dream trip for over a decade. I am hoping to surprise them by paying for part of it. It is the least I can do after everything they have sacrificed for us."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 11,
+    "id": "writing:c1-12-good-evening-everyone-an",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một bài phát biểu ngắn (8–9 câu) thuyết phục người nghe tham gia một hoạt động cộng đồng.",
+      "useItems": [
+        "word:campaign-n",
+        "word:commitment-n",
+        "word:guidance-n",
+        "word:professional-n"
+      ],
+      "modelAnswers": [
+        "Good evening, everyone, and thank you for coming. I would like to invite you to join our neighborhood clean-up campaign, which begins next month. Every weekend, our streets and canals collect bags of litter that harm wildlife and block drains. Not only does this rubbish look terrible, but it also contributes to flooding during the rainy season. We cannot expect the authorities to solve this problem alone. If each of us gave just two hours a month, the difference would be remarkable. Volunteering is also a wonderful way to meet neighbors and teach children responsibility. We will provide gloves, bags and, of course, plenty of iced tea. Please sign up at the table by the door and help us make our community something to be proud of.",
+        "Friends and colleagues, I am here to ask for a small commitment that could change many lives. Our company is launching a mentoring program for students from low-income families. These young people are talented, but they often lack guidance and professional connections. By sharing your experience for one hour a week, you could help a student choose a career or prepare for an interview. Research consistently shows that mentoring improves both confidence and academic results. Many of us benefited from someone who believed in us; this is our chance to return the favor. Registration is open until Friday, and training will be provided. I sincerely hope you will consider taking part."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 1,
+    "id": "writing:c1-2-dear-sir-or-madam-i-am-w",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một bức thư trang trọng (8–9 câu) gửi chính quyền địa phương đề xuất cải thiện không gian công cộng trong khu phố của bạn.",
+      "useItems": [
+        "word:resident-n",
+        "word:initiative-n",
+        "word:community-n",
+        "word:convenience-n"
+      ],
+      "modelAnswers": [
+        "Dear Sir or Madam, I am writing on behalf of residents of Ward 5 to propose improvements to the small park on Le Loi Street. At present, the park is poorly lit and has very few benches, which discourages families from using it. Several elderly residents have also expressed concern about the uneven paths. We would therefore like to suggest installing better lighting, adding seating and repairing the walkways. In addition, a small playground would make the area far more attractive to young families. Many residents have offered to help maintain the space if the council provides the initial funding. We believe these changes would strengthen the sense of community in our neighborhood. I would be grateful for the opportunity to discuss this proposal at your convenience. Yours faithfully, Tran Thi Mai",
+        "Dear Councillor, I am writing to draw your attention to the lack of green space in our district. Over the past five years, rapid construction has replaced most of the open areas where children used to play. As a consequence, many residents now have nowhere to exercise or relax outdoors. I would like to propose that the empty lot behind the market be converted into a community garden. Such a project would be relatively inexpensive and could involve local schools. Similar initiatives in other cities have reduced stress and encouraged neighbors to get to know one another. I have enclosed a petition signed by over two hundred residents in support of the idea. Thank you for considering this request; I look forward to your reply."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 2,
+    "id": "writing:c1-3-remote-work-once-a-rare",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu phân tích ưu và nhược điểm của việc làm việc từ xa, sau đó đưa ra quan điểm cá nhân.",
+      "useItems": [
+        "word:flexibility-n",
+        "word:drawback-n",
+        "word:collaboration-n",
+        "word:arrangement-n"
+      ],
+      "modelAnswers": [
+        "Remote work, once a rare privilege, has become a permanent feature of many industries. Its most obvious advantage is flexibility: employees can organize their day around family commitments and avoid long commutes. Companies, in turn, can reduce office costs and recruit talent from a much wider area. However, working from home is not without drawbacks. Many people struggle to separate their professional and personal lives, which can lead to burnout. Collaboration and mentoring also tend to suffer when colleagues rarely meet face to face. Younger employees, in particular, may miss out on the informal learning that happens in an office. In my view, a hybrid arrangement offers the best of both worlds. It preserves flexibility while still giving teams regular opportunities to connect.",
+        "Supporters of remote work often claim that it boosts productivity, and in many cases they are right. Without constant interruptions, employees can concentrate on demanding tasks for longer periods. Remote work can also make the job market more inclusive for people with disabilities or caring responsibilities. On the other hand, isolation is a genuine risk, and not everyone has a quiet place to work at home. Managers may find it harder to recognize good performance or notice when someone is struggling. Personally, I have found that I am more efficient at home but less creative. For that reason, I believe the decision should depend on the nature of the work rather than on a single company-wide rule."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 3,
+    "id": "writing:c1-4-until-i-volunteered-at-a",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu kể về một trải nghiệm đã thay đổi cách nhìn của bạn về một vấn đề. Dùng ít nhất một câu đảo ngữ (Never had I…, Not until…).",
+      "useItems": [
+        "word:volunteer-v",
+        "word:eager-adj",
+        "word:gratitude-n",
+        "word:priority-n"
+      ],
+      "modelAnswers": [
+        "Until I volunteered at a rural school, I had taken my own education for granted. The school had no library, and several students walked over an hour to attend class. Never had I seen children so eager to learn with so little. One girl copied every word I wrote on the board, determined not to miss anything. Not until I left did I realize how much she had taught me in return. I began to see that motivation matters at least as much as resources. Since then, I have tried to approach my own studies with more gratitude. I also donate books to rural schools whenever I can. That month changed not only my views but also my priorities.",
+        "For years I believed that success meant earning a high salary in a large company. That belief was challenged when my father fell seriously ill. Only then did I understand how little my job title mattered. I spent months caring for him and learned more about patience than I ever had at work. Rarely have I felt so useful or so exhausted. When he recovered, I chose a job with fewer hours and lower pay. Some friends considered the decision reckless. However, I have never regretted putting my family first."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 4,
+    "id": "writing:c1-5-the-novel-i-have-just-fi",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết một bài đánh giá (8–9 câu) về một cuốn sách, bộ phim hoặc triển lãm, phân tích điểm mạnh và điểm yếu.",
+      "useItems": [
+        "word:vivid-adj",
+        "word:moving-adj",
+        "word:impressed-adj",
+        "word:overall-adj"
+      ],
+      "modelAnswers": [
+        "The novel I have just finished is an ambitious portrait of three generations of a fishing family. Its greatest strength lies in the vivid descriptions of coastal life, which make the setting feel almost tangible. The author also handles the shifting point of view with remarkable skill. That said, the middle section drags, and some minor characters are introduced without clear purpose. The dialogue occasionally feels stiff, as if the characters are explaining themes rather than living them. Despite these flaws, the final chapters are deeply moving. The book raises thought-provoking questions about tradition and change. I would recommend it to patient readers who enjoy rich, slow-paced fiction.",
+        "The photography exhibition at the city museum explores how urban life has changed over the last fifty years. What impressed me most was the careful pairing of old and new photographs of the same streets. The contrast makes the scale of development strikingly clear. The exhibition is well organized, with concise captions in both Vietnamese and English. However, it offers little reflection on the people who were displaced by these changes. A few personal stories would have given the images greater emotional depth. Overall, it is a visually compelling show that is well worth an hour of your time."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 5,
+    "id": "writing:c1-6-when-i-was-nineteen-i-tu",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu về một quyết định trong quá khứ và ảnh hưởng của nó đến hiện tại (dùng câu điều kiện hỗn hợp).",
+      "useItems": [
+        "word:scholarship-n",
+        "word:hesitation-n",
+        "word:stubborn-adj",
+        "word:consistent-adj"
+      ],
+      "modelAnswers": [
+        "When I was nineteen, I turned down a scholarship to study abroad because I was afraid of leaving my family. If I had accepted it, I would probably be living in another country now. I might also be working in a completely different field. At the time, the decision felt safe and sensible. Looking back, I realize that fear, rather than reason, shaped my choice. If I were braver by nature, I would have taken the risk without hesitation. Even so, staying allowed me to build close relationships that I value enormously. I have learned to accept the past while making bolder choices today.",
+        "Ten years ago, I decided to learn programming in my spare time. If I hadn't made that decision, I wouldn't have the job I have now. I would still be working long shifts in a restaurant, with little chance of promotion. The early months were frustrating, and I almost gave up several times. If I weren't so stubborn, I probably would have quit. Instead, I kept going and eventually built a small portfolio of projects. That portfolio is what got me my first interview. It taught me that small, consistent efforts can change the direction of a life."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 6,
+    "id": "writing:c1-7-mass-tourism-brings-unde",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu thảo luận: Du lịch đại trà mang lại lợi ích hay gây hại cho các điểm đến nổi tiếng?",
+      "useItems": [
+        "word:spread-v",
+        "word:preservation-n",
+        "word:peak-n",
+        "word:sustainable-adj"
+      ],
+      "modelAnswers": [
+        "Mass tourism brings undeniable economic benefits to popular destinations. It creates jobs, supports small businesses and funds the preservation of historic sites. In many coastal towns, tourism has replaced declining industries and lifted families out of poverty. Yet the costs are becoming increasingly visible. Overcrowding damages fragile environments, and rising rents force local residents out of city centers. Traditional culture can also be reduced to a performance staged for visitors. The solution is not to discourage tourism altogether but to manage it more intelligently. Measures such as visitor caps, tourist taxes and support for lesser-known areas can spread the benefits more evenly. Ultimately, sustainable tourism must serve local communities as well as visitors.",
+        "It is often assumed that tourism is good for any destination that attracts it, but the reality is more complicated. Although visitors bring money, much of it flows to international hotel chains rather than local people. Popular beaches and old towns can become so crowded that they lose the very charm that attracted tourists in the first place. Water shortages and waste management problems are common in small islands during peak season. On the other hand, carefully planned tourism can fund conservation and give young people reasons to stay in their hometowns. The key, therefore, lies in regulation and local ownership. Without them, destinations risk being loved to death."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 7,
+    "id": "writing:c1-8-one-trend-i-have-noticed",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu tóm tắt và bình luận về một xu hướng xã hội mà bạn quan sát được trong những năm gần đây.",
+      "useItems": [
+        "word:independence-n",
+        "word:mobility-n",
+        "word:awareness-n",
+        "word:impersonal-adj"
+      ],
+      "modelAnswers": [
+        "One trend I have noticed in recent years is the growing number of young people choosing to live alone. A decade ago, it was common for adult children to stay with their parents until marriage. Today, many prefer the independence of a small rented apartment, even if it is expensive. This shift partly reflects rising incomes and changing attitudes toward privacy. It may also be linked to later marriages and greater career mobility. However, living alone can increase loneliness, particularly in large, impersonal cities. Some young people compensate by forming close networks of friends or sharing communal spaces. In my view, the trend is neither good nor bad in itself. What matters is whether people have strong relationships, wherever they live.",
+        "A striking trend in my city is the rapid growth of second-hand clothing shops. What was once seen as a sign of poverty has become fashionable among students and young professionals. This change is driven partly by environmental awareness, since the fashion industry produces enormous amounts of waste. Social media has also played a role, with influencers promoting vintage styles. At the same time, cheap fast fashion remains extremely popular, so the impact may be limited. Critics also point out that some second-hand shops now charge surprisingly high prices. Nevertheless, I find the trend encouraging because it challenges the idea that newer is always better."
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "C1",
+    "sort": 8,
+    "id": "writing:c1-9-what-our-education-syste",
+    "kind": "writing",
+    "body": {
+      "kind": "short-writing",
+      "promptVi": "Viết 8–9 câu nhấn mạnh ý kiến của bạn về giáo dục, dùng câu chẻ (It is… that…, What… is…).",
+      "useItems": [
+        "word:independently-adv",
+        "word:curiosity-n",
+        "word:experiment-v",
+        "word:compromise-v"
+      ],
+      "modelAnswers": [
+        "What our education system needs most is not more exams but more opportunities to think independently. At present, students spend countless hours memorizing information that they quickly forget. It is the ability to ask good questions, rather than to repeat answers, that will matter in their future careers. What worries me is that creativity is often treated as an optional extra. It was a teacher who encouraged debate in class who first made me enjoy learning. Teachers like her deserve more training, more time and more recognition. What parents can do is support schools that value curiosity over test scores. It is only by rethinking our priorities that we can prepare students for a changing world.",
+        "It is often said that education is the key to success, but what is rarely discussed is what kind of education we mean. What employers increasingly value is the capacity to adapt, communicate and work in teams. It is these skills that traditional classrooms, focused on individual exams, tend to neglect. What I would like to see is more project-based learning, where students solve real problems together. It was through group projects at university that I learned to compromise and lead. What schools lack is not talent but the freedom to experiment. Giving teachers that freedom would benefit everyone."
+      ]
+    },
+    "status": "draft"
+  }
+]

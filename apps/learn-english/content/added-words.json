@@ -4,5 +4,89 @@
     "pos": "verb",
     "level": "B2",
     "reason": "Common irregular verb (sting, stung, stung) missing from CEFR-J and Octanove; added for the irregular verbs section (feature 008)"
+  },
+  {
+    "headword": "chauffeur",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "Octanove misspells it \"chauffer\""
+  },
+  {
+    "headword": "chauffeur",
+    "pos": "verb",
+    "level": "C1",
+    "reason": "Octanove misspells it \"chauffer\""
+  },
+  {
+    "headword": "unscathed",
+    "pos": "adjective",
+    "level": "C1",
+    "reason": "Octanove lists \"unscathing\", which is not an English word"
+  },
+  {
+    "headword": "repellent",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "\"repellant\" is a rare spelling; American English uses \"repellent\""
+  },
+  {
+    "headword": "repellent",
+    "pos": "adjective",
+    "level": "C1",
+    "reason": "\"repellant\" is a rare spelling; American English uses \"repellent\""
+  },
+  {
+    "headword": "enviable",
+    "pos": "adjective",
+    "level": "C1",
+    "reason": "Octanove tags \"enviable\" as an adverb"
+  },
+  {
+    "headword": "norm",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "Octanove lists the plural \"norms\""
+  },
+  {
+    "headword": "stimulus",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "Octanove lists the plural \"stimuli\""
+  },
+  {
+    "headword": "overdraw",
+    "pos": "verb",
+    "level": "C1",
+    "reason": "Octanove lists \"overdraft\" as a verb; the verb is \"overdraw\""
+  },
+  {
+    "headword": "grueling",
+    "pos": "adjective",
+    "level": "C1",
+    "reason": "American spelling of Octanove's \"gruelling\""
+  },
+  {
+    "headword": "chiseled",
+    "pos": "adjective",
+    "level": "C1",
+    "reason": "American spelling of Octanove's \"chiselled\""
+  },
+  {
+    "headword": "veranda",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "American spelling of Octanove's \"verandah\""
+  },
+  {
+    "headword": "taste bud",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "Written as two words; Octanove has \"tastebud\""
+  },
+  {
+    "headword": "markup",
+    "pos": "noun",
+    "level": "C1",
+    "reason": "American spelling of Octanove's \"mark-up\""
   }
 ]

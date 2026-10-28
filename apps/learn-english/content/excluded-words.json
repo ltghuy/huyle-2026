@@ -1,5 +1,22 @@
 [
   { "id": "word:gook-n", "reason": "Slur against East and Southeast Asian people, including Vietnamese" },
   { "id": "word:retard-v", "reason": "Its common use is a slur against people with intellectual disabilities" },
-  { "id": "word:cripple-n", "reason": "Offensive term for a disabled person" }
+  { "id": "word:cripple-n", "reason": "Offensive term for a disabled person" },
+  { "id": "word:batter-", "reason": "Source row with no part of speech; duplicates batter-n and batter-v" },
+  { "id": "word:chauffer-n", "reason": "Replaced by word:chauffeur-n: Octanove misspells it \"chauffer\"" },
+  { "id": "word:chauffer-v", "reason": "Replaced by word:chauffeur-v: Octanove misspells it \"chauffer\"" },
+  { "id": "word:unscathing-adj", "reason": "Replaced by word:unscathed-adj: Octanove lists \"unscathing\", which is not an English word" },
+  { "id": "word:repellant-n", "reason": "Replaced by word:repellent-n: \"repellant\" is a rare spelling; American English uses \"repellent\"" },
+  { "id": "word:repellant-adj", "reason": "Replaced by word:repellent-adj: \"repellant\" is a rare spelling; American English uses \"repellent\"" },
+  { "id": "word:enviable-adv", "reason": "Replaced by word:enviable-adj: Octanove tags \"enviable\" as an adverb" },
+  { "id": "word:norms-n", "reason": "Replaced by word:norm-n: Octanove lists the plural \"norms\"" },
+  { "id": "word:stimuli-n", "reason": "Replaced by word:stimulus-n: Octanove lists the plural \"stimuli\"" },
+  { "id": "word:overdraft-v", "reason": "Replaced by word:overdraw-v: Octanove lists \"overdraft\" as a verb; the verb is \"overdraw\"" },
+  { "id": "word:gruelling-adj", "reason": "Replaced by word:grueling-adj: American spelling of Octanove's \"gruelling\"" },
+  { "id": "word:chiselled-adj", "reason": "Replaced by word:chiseled-adj: American spelling of Octanove's \"chiselled\"" },
+  { "id": "word:verandah-n", "reason": "Replaced by word:veranda-n: American spelling of Octanove's \"verandah\"" },
+  { "id": "word:tastebud-n", "reason": "Replaced by word:taste-bud-n: Written as two words; Octanove has \"tastebud\"" },
+  { "id": "word:mark-up-n", "reason": "Replaced by word:markup-n: American spelling of Octanove's \"mark-up\"" },
+  { "id": "word:quirky-n", "reason": "Duplicate of word:quirk-n" },
+  { "id": "word:automatic-v", "reason": "Duplicate of word:automatic-adj (A2)" }
 ]
