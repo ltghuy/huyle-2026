@@ -15,7 +15,7 @@ async function loadCardIds(): Promise<string[]> {
  * tabs. "Learned" means a card exists. `ids` is null until storage answers.
  */
 export function useCardIds(): { ids: ReadonlySet<string> | null; failed: boolean; reload: () => void } {
-  const query = useStorageQuery(loadCardIds, STORES);
+  const query = useStorageQuery(["card-ids"], loadCardIds, STORES);
   const data = query.status === "ready" ? query.data : null;
   const ids = useMemo(() => (data ? new Set(data) : null), [data]);
   return { ids, failed: query.status === "error", reload: query.reload };

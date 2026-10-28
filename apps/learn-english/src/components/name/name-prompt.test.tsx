@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { NameSetting } from "@/components/settings/name-setting";
 import { createDefaultProfile, getProfile, saveProfile } from "@/storage/meta";
 import { resetStorage } from "@/storage/test-utils";

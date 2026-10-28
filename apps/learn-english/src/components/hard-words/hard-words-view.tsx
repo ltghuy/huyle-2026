@@ -22,7 +22,7 @@ const ATTEMPT_STORES = ["attempts"] as const;
 /** Sorted hard words with their reason, and a practice session over only those words (AC-030, AC-031). */
 export function HardWordsView() {
   const profile = useProfile();
-  const attempts = useStorageQuery(getAllAttempts, ATTEMPT_STORES);
+  const attempts = useStorageQuery(["attempts"], getAllAttempts, ATTEMPT_STORES);
   const level = profile.status === "ready" ? profile.data.level : null;
   const levels = useMemo(() => (level ? levelsFor(level) : null), [level]);
   const content = useContentIndex(levels);

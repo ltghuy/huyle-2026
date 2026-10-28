@@ -74,14 +74,15 @@ export function getContentVersion({ force = false }: { force?: boolean } = {}): 
 }
 
 /**
- * Asks the server for the version again (call on app open and window focus).
- * Resolves `true` when it changed, so the caller reloads its content. Never
- * throws: offline simply means nothing changed.
+ * Asks the server for the version again (call on window focus), at most once
+ * per `VERSION_TTL_MS`: switching back and forth between windows doesn't
+ * call the API each time. Resolves `true` when it changed, so the caller
+ * reloads its content. Never throws: offline simply means nothing changed.
  */
 export async function refreshIfChanged(): Promise<boolean> {
   const previous = memo?.version;
   try {
-    const version = await getContentVersion({ force: true });
+    const version = await getContentVersion();
     return previous !== undefined && version !== previous;
   } catch {
     return false;

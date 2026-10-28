@@ -89,9 +89,11 @@ describe("content client", () => {
   });
 
   it("refetches the items after a version change (AC-052)", async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
     await loadContent("word", "A1");
     server.state.version = 2;
 
+    vi.setSystemTime(Date.now() + VERSION_TTL_MS + 1);
     expect(await refreshIfChanged()).toBe(true);
     const next = await loadContent("word", "A1");
     expect(next).toEqual({ items: [word("word:apple"), word("word:book")], version: 2, stale: false });
@@ -134,6 +136,20 @@ describe("content client", () => {
     const error = await loadContent("word", "B1").catch((caught: unknown) => caught);
     expect(error).toBeInstanceOf(ContentUnavailableError);
     expect(error).toMatchObject({ kind: "word", level: "B1" });
+  });
+
+  it("checks the version on focus at most once per VERSION_TTL_MS", async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    await getContentVersion();
+    server.state.version = 2;
+
+    expect(await refreshIfChanged()).toBe(false);
+    expect(await refreshIfChanged()).toBe(false);
+    expect(server.calls("/api/content/version")).toBe(1);
+
+    vi.setSystemTime(Date.now() + VERSION_TTL_MS + 1);
+    expect(await refreshIfChanged()).toBe(true);
+    expect(server.calls("/api/content/version")).toBe(2);
   });
 
   it("never throws from refreshIfChanged while offline", async () => {

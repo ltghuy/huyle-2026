@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { buildSnapshot, bytesToBase64, encodeSnapshot } from "@/learning/snapshot";
 import { createDefaultProfile, getProfile, saveProfile } from "@/storage/meta";
 import { makeCard, resetStorage } from "@/storage/test-utils";

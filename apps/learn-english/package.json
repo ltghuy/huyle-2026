@@ -30,6 +30,7 @@
     "@base-ui/react": "catalog:",
     "@base-ui/utils": "^0.5.0",
     "@floating-ui/react-dom": "^2.1.9",
+    "@tanstack/react-query": "catalog:",
     "class-variance-authority": "catalog:",
     "cn": "catalog:",
     "drizzle-orm": "0.45.4",

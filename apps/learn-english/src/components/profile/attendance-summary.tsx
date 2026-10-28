@@ -23,7 +23,7 @@ async function loadAttendance() {
 
 /** Total points, current and longest streak, and the attendance calendar (AC-017, AC-018). */
 export function AttendanceSummary() {
-  const query = useStorageQuery(loadAttendance, STORES);
+  const query = useStorageQuery(["attendance-summary"], loadAttendance, STORES);
 
   if (query.status === "error") return <StorageError onRetry={query.reload} />;
   if (query.status === "loading") {

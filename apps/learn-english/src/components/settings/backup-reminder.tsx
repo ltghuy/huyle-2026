@@ -39,7 +39,7 @@ async function loadReminder(): Promise<boolean> {
  * (sync off). Dismissed for the rest of the browser session. Reusable on any page.
  */
 export function BackupReminder({ className }: { className?: string }) {
-  const query = useStorageQuery(loadReminder, STORES);
+  const query = useStorageQuery(["backup-reminder"], loadReminder, STORES);
   const [dismissed, setDismissed] = useState(false);
   const [busy, setBusy] = useState(false);
 

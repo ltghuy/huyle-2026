@@ -24,7 +24,7 @@ async function loadProgress() {
 
 /** Words learned per level, grammar topics completed and 30-day accuracy (AC-037). */
 export function ProgressInsights() {
-  const progress = useStorageQuery(loadProgress, STORES);
+  const progress = useStorageQuery(["progress"], loadProgress, STORES);
   // Learned words can come from any level (vocabulary browsing, placement), so all levels are loaded.
   const content = useContentIndex(LEVELS);
 

@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import HomePage from "./page";
 

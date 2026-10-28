@@ -26,7 +26,7 @@ export function ReviewOverview() {
     if (!ready || !index) return null;
     return reviewQueue(await getAllCards(), ready, index, Date.now());
   }, [ready, index]);
-  const queue = useStorageQuery(query, STORES);
+  const queue = useStorageQuery(["review-queue", ready?.level, ready?.timeZone, content.status === "ready" ? content.version : null], query, STORES);
 
   if (content.status === "error") return <ContentError onRetry={content.retry} />;
   if (queue.status !== "ready" || !queue.data) return <ListSkeleton rows={2} />;

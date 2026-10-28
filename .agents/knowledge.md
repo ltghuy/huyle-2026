@@ -143,6 +143,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - Words left out of the course on purpose (slurs) are listed with a reason in `content/excluded-words.json`; `content:import` skips them, so they never reach drafting. Add to that file rather than deleting rows from the generated word lists <!-- feature:001 date:2026-10-27 -->
 - Every page asks for the learner's name (`displayName` on the profile) until one is saved, in a dialog that can't be dismissed; it travels in backups and sync (last change wins) and never in stats. The welcome dialog waits for it. E2E helpers answer it in `enterName`, which `skipPlacement` calls <!-- feature:003 date:2026-10-27 -->
 - Light/dark mode is next-themes (`theme` in localStorage); the main colour is `data-accent` on `<html>` (`learn-english:accent` in localStorage), set before first paint by `ACCENT_SCRIPT` in the root layout's `<head>`, and mapped to `--primary`, `--link`, `--ring`, `--selection`, `--sidebar-primary`/`-ring` and `--sidebar-accent`/`-foreground` (active and hover menu item) in `globals.css`; a new tinted token needs a value per accent too. Both are device preferences, not in backups or sync. Any new accent must keep 4.5:1 for primary buttons in both modes <!-- feature:004 date:2026-10-27 -->
+- Data read in the browser goes through one TanStack Query cache per visit (`QueryProvider` in the root layout, `src/lib/query-client.ts`), on top of the IndexedDB copies; owner's choice over the handbook's hand-built hook (feature 005). Content (`src/content/queries.ts`: one query per kind/level, plus an index per level set) never goes stale by time and is invalidated on window focus when a new version is published or what is shown came from an offline fallback. Progress reads use `useStorageQuery(key, query, stores)`: `key` must hold every input of `query`, and a write announced with `notifyChanged` re-reads every query whose `stores` include it, synchronously in this tab and by BroadcastChannel in others. Component tests render with `@/test-utils/render`, which gives each test its own cache <!-- feature:005 date:2026-10-28 -->
 
 ## Gotchas
 
@@ -162,6 +163,10 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
     pnpm's hoisted copy; a second Playwright version makes it read the wrong
     internals → `bddTestData not found` (full-suite runs only). Keep
     `@playwright/test` on one exact version in the catalog.
+- **`pnpm add <pkg>@catalog:` rewrites `pnpm-workspace.yaml`**: it sorts the
+  catalog alphabetically and moves the comments, so the grouping is lost. Add the
+  entry to the catalog by hand and run `pnpm install` instead (quick 003, feature
+  learn-english 005). <!-- feature:005 date:2026-10-28 -->
 - **`.claude/rules` frontmatter: only `paths:` is read.** Any other key (this repo
   used `appliesTo:`) is ignored without an error, so the rule silently loads for
   every file. Verified in the Claude Code memory docs (2026-10-26, feature 005).
@@ -376,6 +381,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - A page that sets `openGraph` or `twitter` metadata replaces the root segment's `opengraph-image`/`twitter-image` files as well as the layout's fields, so pages lost `og:image` until `pageMetadata` (`src/lib/site.ts`) named the image routes explicitly. Routes are English since quick 002; the old Vietnamese paths and query keys (`bai`, `tu`, `loai`) 308-redirect in `next.config.ts`, and those redirects keep the old key next to the new one because Next passes the query string through <!-- quick:002 date:2026-10-27 -->
 - shadcn's `combobox` (base-nova registry) generated `import { cn } from "cn"` in `combobox.tsx` and `input-group.tsx`; it must be `@/lib/utils`. In tests, the Base UI combobox opens only for typed input, so fire `fireEvent.input(box, { target: { value }, inputType: "insertText" })`: `fireEvent.change` updates the value but never opens the list <!-- feature:002 date:2026-10-27 -->
 - shadcn `SelectContent` (Base UI) defaults to `alignItemWithTrigger`, which opens the list over its box; pass `alignItemWithTrigger={false} className="p-1"`. Size a `SelectTrigger` with `data-[size=default]:h-11`, since a plain `h-11` loses to the generated `data-[size=default]:h-8` <!-- quick:006 date:2026-10-27 -->
+- A cached progress read must not be shown to a screen opened right after a write in the same tab: the home page read "placement pending" from memory right after the test was skipped and sent the learner back to the placement test. `notifyChanged` records each store's write time (`lastChangedAt`) and tells this tab's cache synchronously; `useStorageQuery` treats a result read before the last write to its stores as loading. Keep new storage writes going through `notifyChanged` <!-- feature:005 date:2026-10-28 -->
 
 ## Codebase Feedback
 

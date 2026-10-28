@@ -16,5 +16,5 @@ export async function ensureProfile(): Promise<Profile> {
 const STORES = ["meta"] as const;
 
 export function useProfile() {
-  return useStorageQuery(ensureProfile, STORES);
+  return useStorageQuery(["profile"], ensureProfile, STORES);
 }

@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { buildSnapshot, parseSnapshot } from "@/learning/snapshot";
 import type { Profile } from "@/learning/types";
 import { addAttempt, getAllAttempts } from "@/storage/attempts";

@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { BookOpenCheck, CheckCircle2, Circle, PartyPopper } from "lucide-react";
 import { estimateMinutes } from "@/learning/lesson-plan";
-import type { DailyLesson } from "@/learning/types";
 import { buttonVariants } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
 import { levelsFor, useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
+import { useStorageQuery } from "@/hooks/use-storage-query";
 import { cn } from "@/lib/utils";
 import { flattenLesson, getOrCreateTodayLesson, PART_LABELS } from "@/lib/session/today";
 import { StreakSummary } from "./streak-summary";
+
+const LESSON_STORES = ["lessons"] as const;
 
 /** Home page body: today's lesson with its parts, progress and a start button (AC-014). */
 export function TodayLesson() {
@@ -21,7 +23,6 @@ export function TodayLesson() {
   const profile = useProfile();
   const ready = profile.status === "ready" ? profile.data : null;
   const content = useContentIndex(ready && ready.placement !== "pending" ? levelsFor(ready.level) : null);
-  const [lesson, setLesson] = useState<DailyLesson | null>(null);
 
   const pendingPlacement = ready?.placement === "pending";
   useEffect(() => {
@@ -30,16 +31,13 @@ export function TodayLesson() {
 
   const index = content.status === "ready" ? content.index : null;
   const version = content.status === "ready" ? content.version : 0;
-  useEffect(() => {
-    if (!ready || !index) return;
-    let active = true;
-    void getOrCreateTodayLesson({ profile: ready, index, contentVersion: version, now: Date.now() }).then(
-      (today) => active && setLesson(today),
-    );
-    return () => {
-      active = false;
-    };
+  // Through the shared cache, so coming back to the home page shows the card at once.
+  const loadLesson = useCallback(async () => {
+    if (!ready || !index) return null;
+    return getOrCreateTodayLesson({ profile: ready, index, contentVersion: version, now: Date.now() });
   }, [ready, index, version]);
+  const today = useStorageQuery(["today-lesson", ready?.level, ready?.timeZone, index ? version : null], loadLesson, LESSON_STORES);
+  const lesson = today.status === "ready" ? today.data : null;
 
   if (pendingPlacement) return null;
   if (content.status === "error") return <ContentError onRetry={content.retry} />;

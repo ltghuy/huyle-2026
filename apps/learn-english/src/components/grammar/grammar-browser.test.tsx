@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, fireEvent, screen, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { grammar, sentence } from "@/learning/exercises/fixtures";
 import { buildContentIndex } from "@/lib/session/content-index";
 import { getAllAttempts } from "@/storage/attempts";

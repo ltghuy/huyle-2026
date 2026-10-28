@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { localDate } from "@/learning/attendance";
 import { addAttempt } from "@/storage/attempts";
 import { addAttendance } from "@/storage/attendance";

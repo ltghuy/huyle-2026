@@ -15,7 +15,7 @@ export function StreakSummary({ timeZone }: { timeZone: string }) {
     const today = localDate(Date.now(), timeZone);
     return { streak: streaks(rows.map((row) => row.date), today).current, points: totalPoints(rows) };
   }, [timeZone]);
-  const summary = useStorageQuery(query, STORES);
+  const summary = useStorageQuery(["streak", timeZone], query, STORES);
   if (summary.status !== "ready") return <div className="h-16" aria-hidden />;
   const { streak, points } = summary.data;
   return (

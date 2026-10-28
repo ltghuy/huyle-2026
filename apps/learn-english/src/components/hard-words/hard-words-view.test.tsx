@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { addAttempt } from "@/storage/attempts";
 import { makeAttempt, resetStorage } from "@/storage/test-utils";
 import { HardWordsView } from "./hard-words-view";

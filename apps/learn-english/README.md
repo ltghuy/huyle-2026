@@ -49,6 +49,7 @@ sources and licenses are in `content/sources/SOURCES.md` and on the app's
 - [Next.js 16](https://nextjs.org) (App Router) + React 19 + TypeScript
 - Tailwind CSS v4 + [shadcn/ui](https://ui.shadcn.com) (`base-nova` style, Base UI primitives) + `lucide-react`
 - IndexedDB through `idb` for learner progress; `ts-fsrs` for review scheduling
+- TanStack Query as the in-memory cache shared by every screen, on top of the IndexedDB copies
 - Cloudflare Workers through `@opennextjs/cloudflare`, with D1 (Drizzle ORM) for content, sync blobs and anonymous stats
 - Zod for content schemas, API input and env parsing
 - Vitest + Testing Library (unit), Playwright (end to end)

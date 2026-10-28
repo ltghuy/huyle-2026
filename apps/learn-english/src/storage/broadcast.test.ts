@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { closeBroadcast, notifyChanged, subscribeChanges, type ChangedMessage } from "./broadcast";
+import { closeBroadcast, lastChangedAt, notifyChanged, subscribeChanges, subscribeLocalChanges, TAB_ID, type ChangedMessage } from "./broadcast";
 import { putLesson } from "./lessons";
 import { resetStorage } from "./test-utils";
 
@@ -20,7 +20,7 @@ describe("broadcast", () => {
     notifyChanged(["cards", "attempts"]);
     const { message, unsubscribe } = await received;
     unsubscribe();
-    expect(message).toEqual({ type: "changed", stores: ["cards", "attempts"] });
+    expect(message).toEqual({ type: "changed", stores: ["cards", "attempts"], tab: TAB_ID });
   });
 
   it("announces repository writes", async () => {
@@ -30,6 +30,18 @@ describe("broadcast", () => {
     const { message, unsubscribe } = await received;
     unsubscribe();
     expect(message.stores).toEqual(["lessons"]);
+  });
+
+  it("tells listeners in this tab before returning, and records when each store changed", () => {
+    const heard: string[][] = [];
+    const unsubscribe = subscribeLocalChanges((stores) => heard.push([...stores]));
+    const before = Date.now();
+    notifyChanged(["meta"]);
+    unsubscribe();
+    expect(heard).toEqual([["meta"]]);
+    expect(lastChangedAt(["meta"])).toBeGreaterThanOrEqual(before);
+    expect(lastChangedAt(["cards", "meta"])).toBe(lastChangedAt(["meta"]));
+    expect(lastChangedAt(["cards"])).toBe(0);
   });
 
   it("is a no-op without BroadcastChannel", () => {
