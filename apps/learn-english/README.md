@@ -190,8 +190,17 @@ on the custom domain `english.huyle.work`. It uses these bindings:
 - `SYNC_LOOKUP_LIMITER`: a rate limit on wrong sync-code lookups, 10 per minute per IP
 - `STATS_SALT`: a secret, set with `wrangler secret put STATS_SALT`
 
-Deploy with `pnpm cf:english:deploy` from the repo root (needs
-`wrangler login`). Apply new migrations to production with
+- **Automatic:** Cloudflare Workers Builds deploys pushes to `main` of the
+  monorepo and uploads a preview version for other branches. Settings: root
+  directory `/`, build command `pnpm cf:english:build`, deploy command
+  `pnpm cf:english:deploy:prebuilt`, non-production branch deploy command
+  `pnpm cf:english:upload:prebuilt`, build watch paths
+  `apps/learn-english/*, packages/*, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, turbo.json`.
+  Each command needs the `pnpm` prefix: Workers Builds runs it in a plain
+  shell, so `cf:english:build` alone fails with `not found`.
+- **Manual:** `pnpm cf:english:deploy` from the repo root (needs `wrangler login`).
+
+Neither applies D1 migrations. Apply new ones to production with
 `pnpm exec wrangler d1 migrations apply learn-english --remote` before
 deploying code that needs them.
 
