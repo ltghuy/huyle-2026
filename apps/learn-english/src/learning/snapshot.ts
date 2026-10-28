@@ -62,6 +62,7 @@ const PROFILE_KEYS = [
   "lastBackupAt",
   "sync",
   "statsOptOut",
+  "leaderboard",
   "deviceId",
   "schemaVersion",
   "fieldUpdatedAt",
@@ -136,6 +137,12 @@ const metaSchema = z.object({
   timeZone: z.string().min(1),
   lastBackupAt: time.optional(),
   statsOptOut: z.boolean(),
+  leaderboard: z
+    .discriminatedUnion("status", [
+      z.object({ status: z.literal("declined") }),
+      z.object({ status: z.literal("joined"), id: z.uuid(), token: z.string().regex(/^[A-Za-z0-9_-]{43}$/), name: z.string().min(1).max(NAME_MAX_LENGTH * 2) }),
+    ])
+    .optional(),
   schemaVersion: count,
   fieldUpdatedAt: z.partialRecord(z.enum(PROFILE_KEYS), time),
 }) satisfies z.ZodType<SnapshotMeta>;

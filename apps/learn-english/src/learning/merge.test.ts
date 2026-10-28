@@ -149,6 +149,13 @@ describe("mergeSnapshots", () => {
     expect(merged.fieldUpdatedAt).toEqual({ level: 300, tourSeen: 400, statsOptOut: 50 });
   });
 
+  it("takes the leaderboard choice made last, so two devices share one board entry (007 AC-011)", () => {
+    const joined = { status: "joined" as const, id: "00000000-0000-4000-8000-000000000001", token: "a".repeat(43), name: "Gia Huy" };
+    const mine = { ...profile, leaderboard: { status: "declined" as const }, fieldUpdatedAt: { leaderboard: 100 } };
+    const theirs = toSnapshotMeta({ ...profile, leaderboard: joined, fieldUpdatedAt: { leaderboard: 200 } });
+    expect(mergeSnapshots(local({ profile: mine }), remote({ meta: theirs })).profile.leaderboard).toEqual(joined);
+  });
+
   it("lets a timestamped field beat one without, and keeps local on a missing remote stamp", () => {
     const theirs = toSnapshotMeta({
       ...profile,

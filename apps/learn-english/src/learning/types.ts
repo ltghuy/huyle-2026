@@ -118,11 +118,19 @@ export interface Profile {
   lastBackupAt?: number;
   sync?: SyncState;
   statsOptOut: boolean;
+  /**
+   * The weekly leaderboard (feature 007): undefined until the learner answers
+   * the consent question. `id` and `token` (the entry's secret) travel in
+   * backups and sync, so the learner's devices share one entry.
+   */
+  leaderboard?: LeaderboardState;
   /** Random per-browser id; only ever sent hashed with the day (usage stats). */
   deviceId: string;
   schemaVersion: number;
   /** Last change time per field, for last-writer-wins merging across devices. */
   fieldUpdatedAt: Partial<Record<keyof Profile, number>>;
 }
+
+export type LeaderboardState = { status: "declined" } | { status: "joined"; id: string; token: string; name: string };
 
 export const DEFAULT_TIME_ZONE = "Asia/Ho_Chi_Minh";

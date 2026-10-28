@@ -7,6 +7,7 @@ import { Flame, PartyPopper } from "lucide-react";
 import type { DailyLesson } from "@/learning/types";
 import { ExerciseRunner, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
 import { buttonVariants } from "@/components/ui/button";
+import { BoardAfterLesson } from "@/components/leaderboard/board-after-lesson";
 import { ContentError, ListSkeleton } from "@/components/shell/load-states";
 import { levelsFor, useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
@@ -101,6 +102,8 @@ function LessonComplete({ completion }: { completion: Completion }) {
       <Link href="/" className={cn(buttonVariants({ size: "lg" }), "h-12 w-full text-base")}>
         Về trang chính
       </Link>
+      {/* Only for the lesson that just earned its points: a reopened finished lesson shows no board. */}
+      {awarded ? <BoardAfterLesson /> : null}
     </main>
   );
 }

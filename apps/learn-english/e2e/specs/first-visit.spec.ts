@@ -30,6 +30,15 @@ test("first visit: placement, welcome and tour, then today's lesson awards point
   await playThrough(page, "Hoàn thành bài hôm nay!");
   await expect(page.getByText("+10 điểm chuyên cần")).toBeVisible();
 
+  // Weekly board (feature 007): asked once after the lesson; joining sends this week's points.
+  const consent = page.getByRole("dialog", { name: "Tham gia bảng xếp hạng tuần?" });
+  await expect(consent.getByLabel("Tên hiện trên bảng")).toHaveValue("Minh Anh");
+  await consent.getByRole("button", { name: "Tham gia" }).click();
+  const board = page.getByRole("dialog", { name: "Bảng xếp hạng tuần này" });
+  await expect(board.getByRole("listitem").filter({ hasText: "Minh Anh" })).toContainText("10 điểm");
+  await board.getByRole("button", { name: "Tiếp tục" }).click();
+  await expect(board).toBeHidden();
+
   await page.getByRole("link", { name: "Về trang chính" }).click();
   await expect(page.getByText("Bạn đã học xong hôm nay")).toBeVisible();
   await expect(page.getByText("1 ngày")).toBeVisible();

@@ -28,7 +28,9 @@ answers.
 | Cài đặt | `/settings` | Name, level, appearance, sync, backup files, and replaying the guided tour |
 
 A first visit asks for the learner's name, offers a placement test and then a
-short guided tour. Lessons, review sessions and the placement test run full
+short guided tour. After a daily lesson, learners who joined the weekly
+leaderboard (asked once, opt-in, leave any time in Cài đặt) see their place
+this week among the other learners, ranked by attendance points since Monday. Lessons, review sessions and the placement test run full
 screen, outside the navigation (`src/app/(focus)/`).
 
 Published content today covers A1 to B2:
@@ -144,7 +146,7 @@ src/
 ├── app/
 │   ├── (app)/           pages with navigation (today, vocabulary, grammar, review, …)
 │   ├── (focus)/         full-screen lesson, review session and placement test
-│   └── api/             route handlers: content, sync, stats
+│   └── api/             route handlers: content, sync, stats, leaderboard
 ├── components/{area}/   UI by feature, shell (sidebar, mobile nav, page header), shadcn/ui primitives (ui/)
 ├── learning/            pure rules: scheduling, lesson plan, streaks, exercise generators, snapshot/merge
 ├── storage/             IndexedDB repositories (the only code that touches IndexedDB)
@@ -186,8 +188,9 @@ The rules ask Claude Code to load the same four skills as the handbook
 The app is the Worker `learn-english` (`wrangler.jsonc`, `open-next.config.ts`)
 on the custom domain `english.huyle.work`. It uses these bindings:
 
-- `DB`: the D1 database `learn-english` (content, sync blobs, anonymous stats)
+- `DB`: the D1 database `learn-english` (content, sync blobs, anonymous stats, the weekly leaderboard)
 - `SYNC_LOOKUP_LIMITER`: a rate limit on wrong sync-code lookups, 10 per minute per IP
+- `LEADERBOARD_LIMITER`: a rate limit on leaderboard writes, 20 per minute per IP
 - `STATS_SALT`: a secret, set with `wrangler secret put STATS_SALT`
 
 - **Automatic:** Cloudflare Workers Builds deploys pushes to `main` of the

@@ -123,6 +123,14 @@ describe("parseSnapshot", () => {
     expect(parsed.ok && parsed.snapshot.data.meta.fieldUpdatedAt.displayName).toBe(NOW);
   });
 
+  it("keeps the leaderboard entry, so a restored device stays the same learner on the board (007 AC-011)", () => {
+    const leaderboard = { status: "joined" as const, id: "00000000-0000-4000-8000-000000000001", token: "a".repeat(43), name: "Gia Huy" };
+    const joined = buildSnapshot({ ...state, profile: { ...profile, leaderboard, fieldUpdatedAt: { leaderboard: NOW } } }, NOW, TZ);
+    const parsed = parseSnapshot(JSON.stringify(joined));
+    expect(parsed.ok && parsed.snapshot.data.meta.leaderboard).toEqual(leaderboard);
+    expect(parsed.ok && parsed.snapshot.data.meta.fieldUpdatedAt.leaderboard).toBe(NOW);
+  });
+
   it("accepts its own output, as an object or as JSON text", () => {
     expect(parseSnapshot(snapshot)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });

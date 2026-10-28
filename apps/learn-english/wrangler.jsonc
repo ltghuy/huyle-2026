@@ -26,6 +26,12 @@
       "name": "SYNC_LOOKUP_LIMITER",
       "namespace_id": "1001",
       "simple": { "limit": 10, "period": 60 }
+    },
+    // Throttles leaderboard writes per IP (feature 007); a learner posts about once a day.
+    {
+      "name": "LEADERBOARD_LIMITER",
+      "namespace_id": "1002",
+      "simple": { "limit": 20, "period": 60 }
     }
   ],
   "routes": [{ "pattern": "english.huyle.work", "custom_domain": true }]

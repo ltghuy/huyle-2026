@@ -60,3 +60,21 @@ export const statsDevices = sqliteTable(
   },
   (table) => [primaryKey({ columns: [table.day, table.deviceHash] })],
 );
+
+// Weekly leaderboard (feature 007), opt-in and separate from the anonymous
+// stats. One row per learner: `id` is random and made in the browser, only the
+// SHA-256 of its secret is stored, and a new week overwrites `week` and
+// `points`. Rows untouched for 90 days are deleted.
+export const leaderboardEntries = sqliteTable(
+  "leaderboard_entries",
+  {
+    id: text("id").primaryKey(),
+    tokenHash: text("token_hash").notNull(),
+    name: text("name").notNull(),
+    week: text("week").notNull(),
+    points: integer("points").notNull(),
+    reachedAt: integer("reached_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [index("leaderboard_entries_week_points").on(table.week, table.points)],
+);
