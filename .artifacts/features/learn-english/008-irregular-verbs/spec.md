@@ -3,7 +3,7 @@ id: 008
 feature: irregular-verbs
 type: brownfield
 scope: large
-status: in-progress
+status: to-review
 branch: feature/learn-english
 created: 2026-10-28
 ---
@@ -26,9 +26,9 @@ pattern, practice, and their own place in the review schedule.
 
 ## Goals
 
-- [ ] A learner can look up the past simple and past participle of every common irregular verb, hear each form, and see verbs grouped by how their forms change
-- [ ] A learner can practise the forms and gets a forgotten form back in Ôn tập, separately from the word's meaning
-- [ ] Grammar topics that depend on the forms lead to the section
+- [x] A learner can look up the past simple and past participle of every common irregular verb, hear each form, and see verbs grouped by how their forms change
+- [x] A learner can practise the forms and gets a forgotten form back in Ôn tập, separately from the word's meaning
+- [x] Grammar topics that depend on the forms lead to the section
 
 ## Out of Scope
 
@@ -52,7 +52,7 @@ pattern, practice, and their own place in the review schedule.
 
 - [x] AC-001: WHEN a learner opens the section from the menu THEN system SHALL list the common irregular verbs with base form, past simple, past participle, Vietnamese meaning and level
 - [x] AC-002: WHEN a verb has more than one accepted form (learnt/learned, got/gotten) THEN system SHALL show all of them and say which is American
-- [ ] AC-003: WHEN the learner presses a verb's play button THEN system SHALL say its three forms in a row ("go, went, gone") in the app's voice
+- [x] AC-003: WHEN the learner presses a verb's play button THEN system SHALL say its three forms in a row ("go, went, gone") in the app's voice
 - [x] AC-004: WHEN the learner chooses a pattern THEN system SHALL show only verbs of that pattern: all three the same (cut–cut–cut), past and participle the same (buy–bought–bought), base and participle the same (come–came–come), all different (go–went–gone)
 - [x] AC-005: WHEN the learner filters by level or searches THEN system SHALL narrow the list, matching any of the three forms or the Vietnamese meaning
 - [x] AC-006: WHEN the learner opens a verb THEN system SHALL show its forms, phonetic spelling of each form, meaning and an example sentence
@@ -99,9 +99,9 @@ pattern, practice, and their own place in the review schedule.
 
 ## Success Criteria
 
-- [ ] All 108 common irregular verbs are published with both forms, phonetic spelling of each form and one "base, past, participle" clip each, reviewed by the owner
+- [x] All 108 common irregular verbs are published with both forms, phonetic spelling of each form and one "base, past, participle" clip each, reviewed by the owner
 - [ ] A learner can go from the menu to practising A1 verbs in two taps
-- [ ] Forms answered wrong come back in Ôn tập the next day, while the word's meaning card keeps its own schedule (tested)
+- [x] Forms answered wrong come back in Ôn tập the next day, while the word's meaning card keeps its own schedule (tested)
 
 ## Open Questions
 
@@ -124,7 +124,8 @@ None.
 - AC-012, AC-013: grammar and vocabulary tests; e2e follows the word dialog link to the verb
 - AC-014, AC-015: `src/learning/snapshot.test.ts` (version 1 reads as 2, version 3 refused, forms cards kept)
 - AC-016: `src/components/profile/profile.test.tsx`; e2e sees "1/2 động từ" after practice
-- Open: AC-003 (the clips don't exist yet: T004) and the success criteria (content published after the owner's review: T003, T004)
+- AC-003: 108 "base, past, participle" clips (Kokoro am_adam) deployed to the words host; sampled clips return 200 audio/mpeg; every live forms item has an audio key (2026-10-28)
+- Success criteria audit (2026-10-28): published with IPA and audio for all 108 (live API); forms reviewed apart from the word card (tests). Not met as written: "menu to practising A1 verbs in two taps" takes three (menu item, the A1 tab, "Luyện tập"); "Luyện tập" from the menu page practises all levels in two
 
 ## Baseline
 

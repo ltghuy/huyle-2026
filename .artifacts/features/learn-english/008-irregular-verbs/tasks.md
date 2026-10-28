@@ -8,7 +8,7 @@ created: 2026-10-28
 
 ## Summary
 
-Total: 9 | Completed: 8 | Remaining: 1
+Total: 9 | Completed: 9 | Remaining: 0
 
 ## Execution Plan
 
@@ -36,8 +36,8 @@ Run after each task or batch:
   - **Done when:** `content:draft import --check` passes; a review sheet per level lists every verb -- DONE 2026-10-28: 108 forms drafts (A1 60, A2 23, B1 20, B2 5) and `word:sting-v` with 2 sentences imported as drafts; sheets in `content/.review/{A1,A2,B1,B2}.html`
 - [x] T003 [B:T002] Owner reviews and approves the drafts (`content:review sheet` / `approve`)
   - **Done when:** all 108 verbs and "sting" are approved -- DONE 2026-10-28: approved by the owner (`content:review approve <level> --all`): 108 forms, `word:sting-v` and its 2 sentences
-- [ ] T004 [B:T003] Extend `build-ipa.ts` and `generate-audio.ts` for `forms`; generate IPA and the 108 "base, past, participle" clips; deploy audio; publish (local, then remote with the owner)
-  - **Done when:** every approved verb has IPA per form and an audio key; `content:publish --dry-run` is clean -- PROGRESS 2026-10-28: `build-ipa.ts` fills form IPA (same spelling takes the approved base IPA; "read" → /rɛd/; "forbidden" fixed by hand to /fɚˈbɪdən/), 0 forms missing; `generate-audio.ts` makes "go, went, gone" clips (Kokoro am_adam, 111 clips in 74 s, keys saved); published locally (content v8: 108 forms). Left: `content:audio deploy` and `content:publish --remote`, with the owner
+- [x] T004 [B:T003] Extend `build-ipa.ts` and `generate-audio.ts` for `forms`; generate IPA and the 108 "base, past, participle" clips; deploy audio; publish (local, then remote with the owner)
+  - **Done when:** every approved verb has IPA per form and an audio key; `content:publish --dry-run` is clean -- PROGRESS 2026-10-28: `build-ipa.ts` fills form IPA (same spelling takes the approved base IPA; "read" → /rɛd/; "forbidden" fixed by hand to /fɚˈbɪdən/), 0 forms missing; `generate-audio.ts` makes "go, went, gone" clips (Kokoro am_adam, 111 clips in 74 s, keys saved); published locally (content v8: 108 forms). DONE 2026-10-28: audio deployed (109 word-host and 2 sentence-host clips; sampled clips 200 audio/mpeg), published to production as content v5 (`--levels A1,A2,B1,B2`: 123 upserts, 0 tombstones; the live API serves 108 forms, all with audio, and `word:sting-v`); app deployed as version 51fdaeb7
 
 ### App
 
