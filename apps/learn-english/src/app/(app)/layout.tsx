@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { AccountLink } from "@/components/shell/account-link";
 import { AppSidebar } from "@/components/shell/app-sidebar";
 import { NamePrompt } from "@/components/name/name-prompt";
 import { MobileNav } from "@/components/shell/mobile-nav";
@@ -16,6 +17,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       <AppSidebar />
       <SidebarInset>
         <StorageBanner />
+        <AccountLink />
         {/* Bottom padding keeps content clear of the mobile nav (h-14 + safe area). */}
         <main className="flex-1 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-8">{children}</main>
       </SidebarInset>
