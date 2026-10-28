@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Info } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -13,20 +13,29 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { NAV_ITEMS, isActive } from "./nav";
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const { state } = useSidebar();
+  const toggleLabel = state === "expanded" ? "Thu gọn thanh bên" : "Mở rộng thanh bên";
   return (
     // Floating: a rounded panel off the screen edge (quick 013). The inner
     // panel is CLI-styled `rounded-lg`; match the cards' `rounded-2xl` here.
     <Sidebar collapsible="icon" variant="floating" className="hidden md:flex [&_[data-slot=sidebar-inner]]:rounded-2xl">
-      <SidebarHeader>
-        <Link href="/" className="flex items-center gap-2 rounded-md px-2 py-1.5 font-semibold group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+      {/* The toggle sits right of the name; collapsed, it goes under the logo (quick 019). */}
+      <SidebarHeader className="flex-row items-center gap-1 group-data-[collapsible=icon]:flex-col">
+        <Link
+          href="/"
+          className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-2 py-1.5 font-semibold group-data-[collapsible=icon]:flex-none group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
+        >
           <GraduationCap className="size-6 shrink-0 text-primary" aria-hidden />
           <span className="truncate group-data-[collapsible=icon]:hidden">English with Evan</span>
         </Link>
+        <SidebarTrigger aria-label={toggleLabel} title={toggleLabel} className="shrink-0 text-muted-foreground" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -53,12 +62,20 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <Link
-          href="/credits"
-          className="px-2 py-1 text-xs text-muted-foreground underline-offset-4 hover:underline group-data-[collapsible=icon]:hidden"
-        >
-          Nguồn dữ liệu
-        </Link>
+        {/* A menu row like the items above, so its icon and label line up with theirs (quick 015). */}
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              render={<Link href="/credits" />}
+              isActive={isActive(pathname, "/credits")}
+              tooltip="Nguồn dữ liệu"
+              className="text-xs text-muted-foreground group-data-[collapsible=icon]:justify-center"
+            >
+              <Info aria-hidden />
+              <span className="group-data-[collapsible=icon]:hidden">Nguồn dữ liệu</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
