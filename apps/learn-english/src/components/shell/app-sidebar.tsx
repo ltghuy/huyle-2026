@@ -19,7 +19,9 @@ import { NAV_ITEMS, isActive } from "./nav";
 export function AppSidebar() {
   const pathname = usePathname();
   return (
-    <Sidebar collapsible="icon" className="hidden md:flex">
+    // Floating: a rounded panel off the screen edge (quick 013). The inner
+    // panel is CLI-styled `rounded-lg`; match the cards' `rounded-2xl` here.
+    <Sidebar collapsible="icon" variant="floating" className="hidden md:flex [&_[data-slot=sidebar-inner]]:rounded-2xl">
       <SidebarHeader>
         <Link href="/" className="flex items-center gap-2 rounded-md px-2 py-1.5 font-semibold group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <GraduationCap className="size-6 shrink-0 text-primary" aria-hidden />
