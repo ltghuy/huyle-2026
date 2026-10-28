@@ -1,6 +1,6 @@
 ---
 slug: c1-irregular-verbs
-status: in-progress
+status: done
 branch: feature/learn-english
 created: 2026-10-28
 ---
