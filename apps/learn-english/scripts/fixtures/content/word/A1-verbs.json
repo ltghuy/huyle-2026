@@ -1,0 +1,48 @@
+[
+  {
+    "id": "word:go-v",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 5,
+    "status": "approved",
+    "body": {
+      "headword": "go",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ɡoʊ/",
+      "meaningsVi": [
+        "đi"
+      ],
+      "examples": [
+        "sentence:fx-go-v"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:eat-v",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 6,
+    "status": "approved",
+    "body": {
+      "headword": "eat",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/it/",
+      "meaningsVi": [
+        "ăn"
+      ],
+      "examples": [
+        "sentence:fx-eat-v"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  }
+]

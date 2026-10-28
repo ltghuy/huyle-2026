@@ -6,7 +6,7 @@ import { getCard, putCards } from "@/storage/cards";
 import type { StepOutcome } from "@/components/exercise/exercise-runner";
 import { countAttempt } from "@/stats/stats-client";
 
-const isCardId = (id: string): id is CardItemId => id.startsWith("word:") || id.startsWith("grammar:");
+const isCardId = (id: string): id is CardItemId => id.startsWith("word:") || id.startsWith("grammar:") || id.startsWith("forms:");
 
 interface RecordInput {
   outcome: StepOutcome;

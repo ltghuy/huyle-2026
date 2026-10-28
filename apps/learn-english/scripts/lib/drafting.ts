@@ -230,6 +230,64 @@ export function buildWord(
   return built;
 }
 
+// ---------- irregular verb forms (feature 008) ----------
+
+export interface FormsDraft {
+  /** The verb's word id, e.g. "word:go-v". */
+  wordId: string;
+  /** The taught form first; `region` only for a form used in just one of US or UK English. */
+  past: { text: string; region?: "us" | "uk" }[];
+  participle: { text: string; region?: "us" | "uk" }[];
+  noteVi?: string;
+  /** At least one sentence for each form, with "___" where the form goes. */
+  practice: { en: string; answer: "past" | "participle"; vi: string }[];
+  notes?: string;
+}
+
+/** Problems with one verb's forms draft against the drafting rules. */
+export function checkFormsDraft(level: Level, draft: FormsDraft): string[] {
+  const problems: string[] = [];
+  const where = draft.wordId;
+  const answers = new Set(draft.practice.map((sentence) => sentence.answer));
+  if (!answers.has("past") || !answers.has("participle")) problems.push(`${where}: needs a practice sentence for the past and one for the participle`);
+  for (const [i, sentence] of draft.practice.entries()) {
+    const blanks = sentence.en.split("___").length - 1;
+    if (blanks !== 1) problems.push(`${where} practice ${i + 1}: ${blanks} blanks, expected 1`);
+    const words = splitTokens(sentence.en.replace("___", "x")).length;
+    if (words > MAX_WORDS[level]) problems.push(`${where} practice ${i + 1}: ${words} words, ${level} allows ${MAX_WORDS[level]}`);
+    if (!sentence.vi.trim()) problems.push(`${where} practice ${i + 1}: missing Vietnamese translation`);
+  }
+  for (const form of [...draft.past, ...draft.participle]) {
+    if (!/^[a-z]+$/.test(form.text)) problems.push(`${where}: form "${form.text}" should be one lowercase word`);
+  }
+  return problems;
+}
+
+/** One verb's forms draft → a `forms:` source item (IPA is filled in by content:ipa). */
+export function buildForms(row: WordlistRow, draft: FormsDraft): Built {
+  const problems: string[] = [];
+  // "verb", and be/do/have, which the word list files as "be-verb", "do-verb", "have-verb".
+  if (!/(^|-)verb$/.test(row.pos)) problems.push(`${draft.wordId}: not a verb (${row.pos})`);
+  const reviewNotes = draft.notes?.trim() ? [draft.notes.trim()] : [];
+  const form = (entry: FormsDraft["past"][number]) => ({ text: entry.text.trim(), ipa: "", ...(entry.region ? { region: entry.region } : {}) });
+  const item = {
+    id: `forms:${row.id.slice("word:".length)}`,
+    kind: "forms",
+    level: row.level,
+    status: "draft",
+    ...(reviewNotes.length ? { reviewNotes } : {}),
+    body: {
+      wordId: row.id,
+      past: draft.past.map(form),
+      participle: draft.participle.map(form),
+      ...(draft.noteVi?.trim() ? { noteVi: draft.noteVi.trim() } : {}),
+      audio: "",
+      practice: draft.practice.map((sentence) => ({ en: sentence.en.trim(), answer: sentence.answer, vi: sentence.vi.trim() })),
+    },
+  };
+  return validated([item], problems);
+}
+
 export interface GrammarTopicRow {
   slug: string;
   level: Level;

@@ -5,6 +5,7 @@ import {
   bytesToBase64,
   decodeSnapshot,
   encodeSnapshot,
+  MIGRATIONS,
   parseSnapshot,
   type LearnerState,
   type Migration,
@@ -83,7 +84,7 @@ const state: LearnerState = {
 describe("buildSnapshot", () => {
   it("drops the device id and computes the summary", () => {
     const snapshot = buildSnapshot(state, NOW, TZ);
-    expect(snapshot).toMatchObject({ app: "learn-english", version: 1, exportedAt: NOW });
+    expect(snapshot).toMatchObject({ app: "learn-english", version: 2, exportedAt: NOW });
     expect(snapshot.data.meta).not.toHaveProperty("deviceId");
     expect(snapshot.summary).toEqual({ wordsLearned: 2, points: 50, streak: 3 });
   });
@@ -151,7 +152,7 @@ describe("parseSnapshot", () => {
   });
 
   it("rejects a newer version", () => {
-    expect(parseSnapshot({ ...snapshot, version: 2 })).toEqual({ ok: false, reason: "newer-version" });
+    expect(parseSnapshot({ ...snapshot, version: 3 })).toEqual({ ok: false, reason: "newer-version" });
   });
 
   it("upgrades an older version through the migration chain", () => {
@@ -163,9 +164,23 @@ describe("parseSnapshot", () => {
         const { profile: oldMeta, ...data } = raw.data as Record<string, unknown>;
         return { ...raw, data: { ...data, meta: oldMeta } };
       },
+      1: MIGRATIONS[1],
     };
     expect(parseSnapshot(v0, migrations)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(v0)).toEqual({ ok: false, reason: "invalid" });
+  });
+
+  it("reads a version 1 file (before verb forms) as version 2 (008 AC-014)", () => {
+    expect(parseSnapshot({ ...snapshot, version: 1 })).toEqual({ ok: true, snapshot });
+  });
+
+  it("keeps verb forms cards apart from the verb's word card (008 AC-008, AC-014)", () => {
+    const card = (itemId: string) => ({ ...state.cards[0], itemId: itemId as CardItemId });
+    const withForms = buildSnapshot({ ...state, cards: [card("word:go-v"), card("forms:go-v")] }, NOW, TZ);
+    const parsed = parseSnapshot(JSON.stringify(withForms));
+    expect(parsed.ok && parsed.snapshot.data.cards.map((c) => c.itemId)).toEqual(["word:go-v", "forms:go-v"]);
+    // Words learned counts words only.
+    expect(parsed.ok && parsed.snapshot.summary.wordsLearned).toBe(1);
   });
 
   it("treats a throwing migration as invalid", () => {

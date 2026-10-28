@@ -8,7 +8,7 @@ export const contentItems = sqliteTable(
   "content_items",
   {
     id: text("id").primaryKey(),
-    kind: text("kind", { enum: ["word", "grammar", "sentence", "writing", "placement"] }).notNull(),
+    kind: text("kind", { enum: ["word", "grammar", "sentence", "writing", "placement", "forms"] }).notNull(),
     level: text("level", { enum: ["A1", "A2", "B1", "B2", "C1"] }).notNull(),
     topic: text("topic"),
     sort: integer("sort").notNull().default(0),

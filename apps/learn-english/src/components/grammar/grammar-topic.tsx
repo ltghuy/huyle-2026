@@ -2,11 +2,12 @@
 
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookX, CheckCircle2, Dumbbell, Plus, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookX, CheckCircle2, Dumbbell, Plus, Shuffle, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import type { ContentItemOf } from "@/content/schema";
 import { newCard } from "@/learning/srs";
 import type { CardItemId } from "@/learning/types";
+import { TOPICS_USING_FORMS } from "@/learning/verbs";
 import type { ContentIndex } from "@/lib/session/content-index";
 import { getCard, putCards } from "@/storage/cards";
 import { AudioButton } from "@/components/exercise/audio-button";
@@ -101,6 +102,8 @@ export function GrammarTopic({ grammar, index, done, onCardsChanged }: GrammarTo
       <Section title="Quy tắc">
         <p className="text-lg">{body.ruleVi}</p>
       </Section>
+
+      <FormsLink slug={grammar.id.slice("grammar:".length)} />
 
       <Section title="Cấu trúc">
         <dl className="grid gap-2">
@@ -203,6 +206,26 @@ export function GrammarTopic({ grammar, index, done, onCardsChanged }: GrammarTo
         />
       ) : null}
     </article>
+  );
+}
+
+const FORM_USE = { past: "dạng quá khứ (V2)", participle: "quá khứ phân từ (V3)" } as const;
+
+/** For tenses built on an irregular verb form: where to learn those forms (feature 008, AC-012). */
+function FormsLink({ slug }: { slug: string }) {
+  const form = TOPICS_USING_FORMS[slug];
+  if (!form) return null;
+  return (
+    <Link
+      href="/irregular-verbs"
+      className="flex items-center gap-3 rounded-xl border border-primary/40 bg-primary/5 px-4 py-3 hover:bg-primary/10 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+    >
+      <Shuffle className="size-5 shrink-0 text-primary" aria-hidden />
+      <span className="flex-1">
+        Thì này dùng {FORM_USE[form]} của động từ. Với động từ bất quy tắc, xem bảng <span className="font-medium text-primary">Động từ bất quy tắc</span>.
+      </span>
+      <ArrowRight className="size-4 shrink-0 text-primary" aria-hidden />
+    </Link>
   );
 }
 

@@ -26476,5 +26476,14 @@
     "level": "B2",
     "source": "cefrj-1.5",
     "topicHints": []
+  },
+  {
+    "id": "word:sting-v",
+    "headword": "sting",
+    "variants": [],
+    "pos": "verb",
+    "level": "B2",
+    "source": "added",
+    "topicHints": []
   }
 ]

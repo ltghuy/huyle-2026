@@ -8,6 +8,7 @@ import type { ContentItemOf } from "@/content/schema";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import { LEVELS, type Level } from "@/learning/types";
+import { formsIdOf } from "@/learning/verbs";
 import type { ContentIndex } from "@/lib/session/content-index";
 import { parseLevel, updateSearchParams, withParams } from "@/lib/search-params";
 import { compareTopics, topicOf, topicTitle } from "@/lib/topics";
@@ -54,7 +55,8 @@ function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], still
     const item = index?.byId.get(id);
     if (item?.kind === "word") {
       const examples = item.body.examples.map((exampleId) => index?.byId.get(exampleId)).filter((entry) => entry?.kind === "sentence");
-      return { status: "found", word: item, examples: examples as ContentItemOf<"sentence">[] };
+      const forms = index?.byId.get(formsIdOf(item.id));
+      return { status: "found", word: item, examples: examples as ContentItemOf<"sentence">[], forms: forms?.kind === "forms" ? forms : undefined };
     }
   }
   return stillLoading ? { status: "loading" } : { status: "missing" };

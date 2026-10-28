@@ -21,6 +21,7 @@ answers.
 | Hôm nay | `/` | The daily lesson: review old words, learn new ones, a grammar point, sentence building and a short writing task. Finishing it adds attendance points and extends the streak |
 | Từ vựng | `/vocabulary` | Words by level and topic, each with a Vietnamese meaning, IPA, example sentences and audio; search across every level |
 | Ngữ pháp | `/grammar` | Grammar points and the 12 tenses, explained in Vietnamese with examples and practice |
+| Động từ bất quy tắc | `/irregular-verbs` | The 108 common irregular verbs with past and past participle, Vietnamese meaning, IPA and one "go, went, gone" clip each; filters by level and by pattern (cut – cut – cut, buy – bought – bought, come – came – come, go – went – gone); practice whose answers get their own review schedule in Ôn tập |
 | Ôn tập | `/review` | Reviews due today, scheduled with FSRS so each item comes back just before it would be forgotten |
 | Bài tập | `/exercises` | Free practice: multiple choice, spelling, listening, sentence ordering |
 | Từ khó | `/hard-words` | The words a learner gets wrong most often or takes longest to recall |
@@ -125,10 +126,10 @@ owner's machine; none of them ship in the app bundle.
 | Step | Command | What it does |
 |------|---------|--------------|
 | 1 | `pnpm content:import` | Build the word list skeleton (`content/wordlist/{level}.json`) from the CEFR-J and Octanove CSVs |
-| 2 | `pnpm content:ipa` | Add General American IPA from the CMU Pronouncing Dictionary; list the words that need a hand-written transcription |
-| 3 | `pnpm content:draft` | Draft words, grammar and writing tasks with Claude through the Message Batches API (`submit`, `status`, `collect`; needs `ANTHROPIC_API_KEY` and costs money), or `import` drafts written elsewhere for free |
+| 2 | `pnpm content:ipa` | Add General American IPA from the CMU Pronouncing Dictionary; list the words that need a hand-written transcription. Also fills empty IPA of irregular verb forms (`content/forms/`) |
+| 3 | `pnpm content:draft` | Draft words, grammar, writing tasks and irregular verb forms with Claude through the Message Batches API (`submit`, `status`, `collect`; needs `ANTHROPIC_API_KEY` and costs money), or `import` drafts written elsewhere for free |
 | 4 | `pnpm content:review` | List drafts, write an HTML review sheet per level, and `approve` or `unapprove` items. An item can only be approved once everything it references is approved |
-| 5 | `pnpm content:audio` | Generate one male American English voice for every approved word and example sentence without a clip (Kokoro runs locally for free), then `deploy` the clips to the two audio Workers |
+| 5 | `pnpm content:audio` | Generate one male American English voice for every approved word, example sentence and irregular verb ("go, went, gone") without a clip (Kokoro runs locally for free), then `deploy` the clips to the two audio Workers |
 | 6 | `pnpm content:publish` | Validate the approved content, check references, build the placement test and upsert changed rows into D1 (`--local` or `--remote`, `--levels`, `--dry-run`) |
 
 Publishing bumps the content version last, so browsers refetch only after every

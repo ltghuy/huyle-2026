@@ -65021,6 +65021,34 @@
   },
   {
     "level": "B2",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:sting-v",
+    "kind": "word",
+    "body": {
+      "headword": "sting",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/stɪŋ/",
+      "meaningsVi": [
+        "đốt, chích (côn trùng)",
+        "làm đau rát, làm cay (mắt, da)"
+      ],
+      "examples": [
+        "sentence:sting-v-1",
+        "sentence:sting-v-2"
+      ],
+      "synonyms": [],
+      "audio": "3e87fa01986443b35b3633ca4f5d9efb22a43e642c46a1ebb298ad58f9f5f8d5",
+      "source": "added"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "Added on purpose (content/added-words.json): not in CEFR-J or Octanove, needed for the irregular verbs section (feature 008)."
+    ]
+  },
+  {
+    "level": "B2",
     "topic": "feelings-character",
     "sort": 0,
     "id": "word:stingy-adj",

@@ -2,14 +2,17 @@ import { describe, expect, it } from "vitest";
 import type { SourceItem } from "../../src/content/schema";
 import type { WordlistRow } from "../import-wordlists";
 import {
+  buildForms,
   buildSentence,
   buildWord,
   buildWriting,
+  checkFormsDraft,
   checkSentenceDraft,
   checkWordDraft,
   mergeDrafts,
   orderFromSentence,
   splitTokens,
+  type FormsDraft,
   type SentenceDraft,
   type WordDraft,
 } from "./drafting";
@@ -202,5 +205,53 @@ describe("buildWriting", () => {
       'writing:a1-1-i-like-rice: "bread" is not in the word list',
       "writing:a1-1-i-like-rice: unknown word id word:nope-n",
     ]);
+  });
+});
+
+describe("irregular verb forms (feature 008)", () => {
+  const verb: WordlistRow = { id: "word:get-v", headword: "get", variants: [], pos: "verb", level: "A1", source: "cefrj-1.5", topicHints: [] };
+  const draft: FormsDraft = {
+    wordId: "word:get-v",
+    past: [{ text: "got" }],
+    participle: [{ text: "gotten", region: "us" }, { text: "got" }],
+    practice: [
+      { en: "I ___ a letter yesterday.", answer: "past", vi: "Hôm qua tôi nhận được một lá thư." },
+      { en: "She has ___ better.", answer: "participle", vi: "Cô ấy đã khỏe hơn." },
+    ],
+  };
+
+  it("builds a forms item with the word's id and level, IPA left for content:ipa", () => {
+    const built = buildForms(verb, draft);
+    expect(built.problems).toEqual([]);
+    expect(built.items[0]).toMatchObject({
+      id: "forms:get-v",
+      kind: "forms",
+      level: "A1",
+      status: "draft",
+      body: { wordId: "word:get-v", past: [{ text: "got", ipa: "" }], participle: [{ text: "gotten", ipa: "", region: "us" }, { text: "got", ipa: "" }] },
+    });
+  });
+
+  it("passes a complete draft", () => {
+    expect(checkFormsDraft("A1", draft)).toEqual([]);
+  });
+
+  it("asks for a sentence per form, one blank each, within the level's length", () => {
+    const problems = checkFormsDraft("A1", {
+      ...draft,
+      past: [{ text: "Got" }],
+      practice: [{ en: "I ___ it and ___ it again after that long day at work.", answer: "past", vi: "" }, { en: "x ___ y", answer: "past", vi: "x" }],
+    });
+    expect(problems).toEqual([
+      "word:get-v: needs a practice sentence for the past and one for the participle",
+      "word:get-v practice 1: 2 blanks, expected 1",
+      "word:get-v practice 1: 13 words, A1 allows 10",
+      "word:get-v practice 1: missing Vietnamese translation",
+      'word:get-v: form "Got" should be one lowercase word',
+    ]);
+  });
+
+  it("refuses a word that isn't a verb", () => {
+    expect(buildForms({ ...verb, pos: "noun" }, draft).problems).toEqual(["word:get-v: not a verb (noun)"]);
   });
 });

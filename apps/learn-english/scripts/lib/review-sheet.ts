@@ -1,6 +1,7 @@
 // Builds the owner's review page for one level (`pnpm content:review sheet A1`):
 // a self-contained HTML file listing every draft as a review unit (a word or a
-// grammar topic with its example sentences, or a writing task). The owner marks
+// grammar topic with its example sentences, a writing task, or an irregular
+// verb's forms). The owner marks
 // each unit OK or "Needs fix" with a note; marks live in the browser's
 // localStorage, keyed by a hash of the unit's content so an edited unit asks
 // again. "Download decisions" saves a JSON file that `approve --ids-file` reads.
@@ -10,7 +11,7 @@ import type { SourceItem } from "../../src/content/schema";
 export interface ReviewUnit {
   /** The unit's main item id (word, grammar or writing). */
   id: string;
-  kind: "word" | "grammar" | "writing";
+  kind: "word" | "grammar" | "writing" | "forms";
   /** Every id approved together with the unit: the main item and its sentences. */
   ids: string[];
   /** Short hash of the unit's content; a changed unit drops its old mark. */
@@ -19,6 +20,8 @@ export interface ReviewUnit {
   topic: string;
   item: SourceItem;
   sentences: SourceItem[];
+  /** For forms: the verb's base form, from its word item. */
+  headword?: string;
 }
 
 export interface Decisions {
@@ -32,11 +35,12 @@ export interface Decisions {
 /** Groups a level's drafts into review units, flagged ones first, then by topic and id. */
 export function reviewUnits(items: readonly SourceItem[]): ReviewUnit[] {
   const sentences = new Map(items.filter((item) => item.kind === "sentence").map((item) => [item.id, item]));
+  const headwords = new Map(items.flatMap((item) => (item.kind === "word" ? [[item.id, item.body.headword] as const] : [])));
   const units: ReviewUnit[] = [];
   for (const item of items) {
     if (item.status !== "draft") continue;
-    if (item.kind !== "word" && item.kind !== "grammar" && item.kind !== "writing") continue;
-    const own = item.kind === "writing" ? [] : item.body.examples.flatMap((id) => sentences.get(id) ?? []);
+    if (item.kind !== "word" && item.kind !== "grammar" && item.kind !== "writing" && item.kind !== "forms") continue;
+    const own = item.kind === "writing" || item.kind === "forms" ? [] : item.body.examples.flatMap((id) => sentences.get(id) ?? []);
     const pending = own.filter((sentence) => sentence.status === "draft");
     const hash = createHash("sha256").update(JSON.stringify([item, own])).digest("hex").slice(0, 12);
     units.push({
@@ -48,9 +52,10 @@ export function reviewUnits(items: readonly SourceItem[]): ReviewUnit[] {
       topic: item.kind === "word" ? (item.topic ?? "") : item.kind,
       item,
       sentences: own,
+      ...(item.kind === "forms" ? { headword: headwords.get(item.body.wordId) ?? item.body.wordId.replace(/^word:|-v$/g, "") } : {}),
     });
   }
-  const order = { grammar: 0, writing: 1, word: 2 } as const;
+  const order = { grammar: 0, writing: 1, forms: 2, word: 3 } as const;
   return units.sort(
     (a, b) =>
       Number(b.flagged) - Number(a.flagged) ||
@@ -96,6 +101,7 @@ export function buildSheet(level: string, units: readonly ReviewUnit[], topicTit
       <option value="all">All</option>
       <option value="grammar">Grammar</option>
       <option value="writing">Writing</option>
+      <option value="forms">Verb forms</option>
       <option value="word">Words</option>
     </select></label>
     <input id="search" type="search" placeholder="Search English or Vietnamese">
@@ -186,6 +192,13 @@ function bodyHtml(unit) {
       (b.signalWords.length ? '<div class="muted">Signal words: ' + b.signalWords.map(esc).join(", ") + "</div>" : "") +
       "<b>Common mistakes</b><ul>" + b.mistakes.map((m) => '<li><span class="wrong">' + esc(m.wrong) + "</span> → " + esc(m.right) + ": " + esc(m.explanationVi) + "</li>").join("") + "</ul>" +
       "<b>Practice</b><ul>" + b.practice.map((p) => "<li>" + esc(p.prompt) + (p.options ? ' <span class="muted">[' + p.options.map(esc).join(" | ") + "]</span>" : ' <span class="muted">(typed)</span>') + " → <b>" + esc(p.answer) + "</b>: " + esc(p.explanationVi) + "</li>").join("") + "</ul>";
+  }
+  if (unit.kind === "forms") {
+    const list = (forms) => forms.map((f) => esc(f.text) + (f.region ? " (" + f.region.toUpperCase() + " only)" : "") + (f.ipa ? ' <span class="muted">' + esc(f.ipa) + "</span>" : "")).join(" / ");
+    return '<div class="head"><h2>' + esc(unit.headword) + " – " + esc(b.past[0].text) + " – " + esc(b.participle[0].text) + '</h2><span class="tag">verb forms</span></div>' +
+      "<div><b>Past:</b> " + list(b.past) + "</div><div><b>Past participle:</b> " + list(b.participle) + "</div>" +
+      (b.noteVi ? '<div class="muted">Note: ' + esc(b.noteVi) + "</div>" : "") +
+      "<b>Practice</b><ul>" + b.practice.map((p) => "<li>" + esc(p.en) + " → <b>" + esc(p.answer === "past" ? b.past[0].text : b.participle[0].text) + '</b> <span class="muted">(' + esc(p.answer) + ") " + esc(p.vi) + "</span></li>").join("") + "</ul>";
   }
   return '<div class="head"><h2>' + esc(b.promptVi) + '</h2><span class="tag">writing</span></div>' +
     "<ul>" + b.modelAnswers.map((a) => "<li>" + esc(a) + "</li>").join("") + "</ul>" +

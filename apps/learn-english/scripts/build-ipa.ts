@@ -1,8 +1,10 @@
 // Adds General American IPA to the word list: looks each headword up in the
 // CMU Pronouncing Dictionary and converts it with arpabetToIpa. Writes
 // content/wordlist/ipa.json ({ wordId: "/…/" }) and ipa-missing.json (words
-// that need a hand-written transcription). CMUdict is downloaded once into
-// content/sources/.cache (not committed).
+// that need a hand-written transcription). Also fills the empty `ipa` of each
+// irregular verb form in content/forms/{level}.json (feature 008), and lists
+// forms it can't find. CMUdict is downloaded once into content/sources/.cache
+// (not committed).
 //
 //   pnpm content:ipa   (from apps/learn-english, after content:import)
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -63,6 +65,53 @@ export function lookupIpa(
   return undefined;
 }
 
+/** Forms spelled like their base but said differently: read /rid/, past read /rɛd/. */
+const SAID_DIFFERENTLY = new Set(["read"]);
+
+/**
+ * IPA of an irregular verb form. A form spelled like its base is said like
+ * the base, so it takes the approved word's IPA (`baseIpa`: cost /kɑst/, not
+ * CMUdict's other /kɔst/). The exceptions in SAID_DIFFERENTLY take the
+ * CMUdict pronunciation that differs from the base's.
+ */
+export function lookupFormIpa(dict: Map<string, string[]>, form: string, base: string, baseIpa?: string): string | undefined {
+  const sameSpelling = form.toLowerCase() === base.toLowerCase();
+  if (sameSpelling && SAID_DIFFERENTLY.has(form.toLowerCase())) {
+    const prons = dict.get(form.toLowerCase()) ?? [];
+    const said = baseIpa || lookupIpa(dict, base, [], "verb");
+    return prons.map((pron) => `/${arpabetToIpa(pron)}/`).find((ipa) => ipa !== said);
+  }
+  if (sameSpelling && baseIpa) return baseIpa;
+  return lookupIpa(dict, form, [], "verb");
+}
+
+interface FormsSource {
+  id: string;
+  body: { wordId: string; past: { text: string; ipa: string }[]; participle: { text: string; ipa: string }[] };
+}
+
+/** The approved word behind a verb's forms: its headword and IPA. */
+export interface VerbWord {
+  headword: string;
+  ipa: string;
+}
+
+/** Fills empty form IPA in place; returns the forms it couldn't find. */
+export function fillFormsIpa(dict: Map<string, string[]>, items: FormsSource[], words: ReadonlyMap<string, VerbWord>): string[] {
+  const missing: string[] = [];
+  for (const item of items) {
+    const word = words.get(item.body.wordId);
+    const base = word?.headword ?? item.body.wordId.replace(/^word:|-v$|-[a-z]+-verb$/g, "");
+    for (const form of [...item.body.past, ...item.body.participle]) {
+      if (form.ipa) continue;
+      const found = lookupFormIpa(dict, form.text, base, word?.ipa);
+      if (found) form.ipa = found;
+      else missing.push(`${item.id}: ${form.text}`);
+    }
+  }
+  return missing;
+}
+
 async function loadCmudict(cacheDir: string): Promise<Map<string, string[]>> {
   const file = path.join(cacheDir, "cmudict.dict");
   if (!existsSync(file)) {
@@ -91,6 +140,25 @@ async function main() {
   await writeFile(path.join(wordlistDir, "ipa.json"), JSON.stringify(ipa, null, 2) + "\n");
   await writeFile(path.join(wordlistDir, "ipa-missing.json"), JSON.stringify(missing, null, 2) + "\n");
   console.log(`IPA found: ${Object.keys(ipa).length}, missing: ${missing.length} (see content/wordlist/ipa-missing.json)`);
+
+  // Irregular verb forms: only empty IPA is filled, so a hand fix is never overwritten.
+  // The verbs' approved word items carry the reviewed IPA of the base form.
+  const words = new Map<string, VerbWord>();
+  for (const level of LEVELS) {
+    const file = path.join(root, "content/word", `${level}.json`);
+    if (!existsSync(file)) continue;
+    const items: { id: string; body: VerbWord }[] = JSON.parse(await readFile(file, "utf8"));
+    for (const item of items) words.set(item.id, { headword: item.body.headword, ipa: item.body.ipa });
+  }
+  const formsMissing: string[] = [];
+  for (const level of LEVELS) {
+    const file = path.join(root, "content/forms", `${level}.json`);
+    if (!existsSync(file)) continue;
+    const items: FormsSource[] = JSON.parse(await readFile(file, "utf8"));
+    formsMissing.push(...fillFormsIpa(dict, items, words));
+    await writeFile(file, JSON.stringify(items, null, 2) + "\n");
+  }
+  console.log(`Verb forms without IPA: ${formsMissing.length}${formsMissing.length ? `\n  ${formsMissing.join("\n  ")}` : ""}`);
 }
 
 if (process.argv[1]?.endsWith("build-ipa.ts")) void main();

@@ -28,9 +28,11 @@ import type { SourceItem } from "../src/content/schema";
 import { LEVELS, type Level } from "../src/learning/types";
 import type { WordlistRow } from "./import-wordlists";
 import {
+  buildForms,
   buildGrammar,
   buildWord,
   buildWriting,
+  checkFormsDraft,
   checkGrammarDraft,
   checkWordDraft,
   grammarOutputSchema,
@@ -38,6 +40,7 @@ import {
   wordsOutputSchema,
   writingOutputSchema,
   type Built,
+  type FormsDraft,
   type GrammarDraft,
   type GrammarTopicRow,
   type WordDraft,
@@ -179,7 +182,7 @@ const costOf = (u: Usage) =>
 
 /** Merges drafted items into content/{kind}/{level}.json (approved items are kept). */
 async function writeDrafted(level: Level, drafted: SourceItem[]) {
-  for (const kind of ["word", "sentence", "grammar", "writing"] as const) {
+  for (const kind of ["word", "sentence", "grammar", "writing", "forms"] as const) {
     const items = drafted.filter((item) => item.kind === kind);
     if (items.length === 0) continue;
     const file = sourceFile(kind, level);
@@ -190,7 +193,8 @@ async function writeDrafted(level: Level, drafted: SourceItem[]) {
 type ManualDraft =
   | { kind: "words"; level: Level; words: WordDraft[] }
   | { kind: "grammar"; slug: string; draft: GrammarDraft }
-  | { kind: "writing"; level: Level; tasks: WritingDraft["tasks"] };
+  | { kind: "writing"; level: Level; tasks: WritingDraft["tasks"] }
+  | { kind: "forms"; level: Level; verbs: FormsDraft[] };
 
 /** Builds hand-written draft files; with `check` only reports problems. */
 async function importDrafts(files: string[], check: boolean) {
@@ -230,6 +234,22 @@ async function importDrafts(files: string[], check: boolean) {
       const one = buildGrammar(topic, input.draft);
       built.items.push(...one.items);
       built.problems.push(...one.problems);
+    } else if (input.kind === "forms") {
+      level = input.level;
+      const seen = new Set<string>();
+      for (const draft of input.verbs) {
+        const row = rowsById.get(draft.wordId);
+        if (!row || row.level !== level) {
+          built.problems.push(`${draft.wordId}: not a ${level} word in the word list`);
+          continue;
+        }
+        if (seen.has(draft.wordId)) built.problems.push(`${draft.wordId}: drafted twice`);
+        seen.add(draft.wordId);
+        built.problems.push(...checkFormsDraft(level, draft));
+        const one = buildForms(row, draft);
+        built.items.push(...one.items);
+        built.problems.push(...one.problems);
+      }
     } else {
       level = input.level;
       const one = buildWriting(level, { tasks: input.tasks }, wordIndex);

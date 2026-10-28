@@ -22,7 +22,7 @@ async function loadProgress() {
   return { cards, accuracy: accuracy(attempts, (at) => localDate(at, profile.timeZone)) };
 }
 
-/** Words learned per level, grammar topics completed and 30-day accuracy (AC-037). */
+/** Words learned per level, grammar topics completed, irregular verbs practised (008 AC-016) and 30-day accuracy (AC-037). */
 export function ProgressInsights() {
   const progress = useStorageQuery(["progress"], loadProgress, STORES);
   // Learned words can come from any level (vocabulary browsing, placement), so all levels are loaded.
@@ -60,6 +60,22 @@ export function ProgressInsights() {
           )}
         </CardContent>
       </Card>
+      {/* Hidden until verb forms are published (feature 008, AC-016). */}
+      {content.status === "ready" && content.index.forms.length > 0 ? (
+        <Card className="md:col-span-2">
+          <CardHeader>
+            <CardTitle>Động từ bất quy tắc đã học</CardTitle>
+            <CardDescription>Động từ bạn đã luyện dạng quá khứ và quá khứ phân từ.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {progress.status === "ready" ? (
+              <LevelBars rows={countByLevel(progress.data.cards, content.index, "forms")} unit="động từ" label="Động từ bất quy tắc đã học" />
+            ) : (
+              <BarsSkeleton />
+            )}
+          </CardContent>
+        </Card>
+      ) : null}
       <Card className="md:col-span-2">
         <CardHeader>
           <CardTitle>Độ chính xác 30 ngày qua</CardTitle>

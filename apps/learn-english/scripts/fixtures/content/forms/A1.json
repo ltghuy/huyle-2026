@@ -1,0 +1,72 @@
+[
+  {
+    "id": "forms:eat-v",
+    "kind": "forms",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "wordId": "word:eat-v",
+      "past": [
+        {
+          "text": "ate",
+          "ipa": "/eɪt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "eaten",
+          "ipa": "/ˈitn/"
+        }
+      ],
+      "audio": "",
+      "practice": [
+        {
+          "en": "We ___ noodles yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua chúng tôi ăn mì."
+        },
+        {
+          "en": "Have you ___ lunch?",
+          "answer": "participle",
+          "vi": "Bạn ăn trưa chưa?"
+        }
+      ]
+    }
+  },
+  {
+    "id": "forms:go-v",
+    "kind": "forms",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "wordId": "word:go-v",
+      "past": [
+        {
+          "text": "went",
+          "ipa": "/wɛnt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "gone",
+          "ipa": "/ɡɔn/"
+        }
+      ],
+      "audio": "",
+      "practice": [
+        {
+          "en": "We ___ to the beach last summer.",
+          "answer": "past",
+          "vi": "Mùa hè năm ngoái chúng tôi đi biển."
+        },
+        {
+          "en": "She has ___ to the market.",
+          "answer": "participle",
+          "vi": "Cô ấy đã đi chợ."
+        }
+      ]
+    }
+  }
+]

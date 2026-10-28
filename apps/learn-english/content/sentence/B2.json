@@ -263791,6 +263791,139 @@
   {
     "level": "B2",
     "sort": 0,
+    "id": "sentence:sting-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A bee stung my arm while I was in the garden.",
+      "vi": "Một con ong đã đốt vào tay tôi khi tôi đang ở trong vườn.",
+      "audio": "88fb2578196a99682b8b5ff9527160347e79b0b5dec9b778622c6f94771f902a",
+      "tokens": [
+        "A",
+        "bee",
+        "stung",
+        "my",
+        "arm",
+        "while",
+        "I",
+        "was",
+        "in",
+        "the",
+        "garden"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A bee stinged my arm while I was in the garden.",
+          "explanationVi": "\"sting\" là động từ bất quy tắc, quá khứ là \"stung\", không phải \"stinged\"."
+        },
+        {
+          "en": "A bee stung my arm while I am in the garden.",
+          "explanationVi": "Cả câu kể chuyện quá khứ nên phải dùng \"was\", không dùng \"am\"."
+        },
+        {
+          "en": "A bee stung me arm while I was in the garden.",
+          "explanationVi": "Trước danh từ \"arm\" phải dùng tính từ sở hữu \"my\", không dùng \"me\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        10
+      ],
+      "wordIds": [
+        "word:sting-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:sting-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The smoke made my eyes sting for a few minutes.",
+      "vi": "Khói làm mắt tôi cay xè trong vài phút.",
+      "audio": "1dda1192b0c9180cf7b8c2f0bad3698d733f57f2e12fd9ac80fe6da3205352a7",
+      "tokens": [
+        "The",
+        "smoke",
+        "made",
+        "my",
+        "eyes",
+        "sting",
+        "for",
+        "a",
+        "few",
+        "minutes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The smoke made my eyes to sting for a few minutes.",
+          "explanationVi": "Sau \"make + người/vật\" dùng động từ nguyên mẫu không có \"to\"."
+        },
+        {
+          "en": "The smoke made my eyes stinging for a few minutes.",
+          "explanationVi": "Cấu trúc \"make somebody do something\" dùng động từ nguyên mẫu, không dùng dạng -ing."
+        },
+        {
+          "en": "The smoke made my eyes sting for a few minute.",
+          "explanationVi": "Sau \"a few\" danh từ phải ở số nhiều: \"minutes\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        1
+      ],
+      "wordIds": [
+        "word:sting-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
     "id": "sentence:stingy-adj-1",
     "kind": "sentence",
     "body": {

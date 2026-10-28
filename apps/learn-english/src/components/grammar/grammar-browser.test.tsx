@@ -33,7 +33,8 @@ const presentSimple = {
   },
 };
 const example = sentence("ps-1", { tokens: ["I", "drink", "tea"], vi: "Tôi uống trà.", audio: "c".repeat(64) });
-const index = buildContentIndex([presentSimple, example]);
+const pastSimple = { ...grammar("past-simple", [{ prompt: "She ___ home.", options: ["go", "went", "gone", "goes"], answer: "went", explanationVi: "x" }]), level: "A2" as const };
+const index = buildContentIndex([presentSimple, example, pastSimple]);
 
 vi.mock("@/hooks/use-content-index", () => ({
   useContentIndex: (levels: string[] | null) =>
@@ -55,6 +56,18 @@ async function answer(text: string) {
 describe("GrammarBrowser", () => {
   beforeEach(async () => {
     await resetStorage();
+  });
+
+  it("links tenses built on verb forms to the irregular verbs section (008 AC-012)", async () => {
+    visit("?topic=past-simple");
+    const link = await screen.findByRole("link", { name: /Thì này dùng dạng quá khứ \(V2\)/ });
+    expect(link).toHaveAttribute("href", "/irregular-verbs");
+  });
+
+  it("shows no verb forms link on other topics", async () => {
+    visit("?topic=present-simple");
+    await screen.findByRole("heading", { name: "Present Simple" });
+    expect(screen.queryByRole("link", { name: /Động từ bất quy tắc/ })).not.toBeInTheDocument();
   });
 
   it("lists topics by level, published ones as links and the rest as coming soon (AC-023)", async () => {

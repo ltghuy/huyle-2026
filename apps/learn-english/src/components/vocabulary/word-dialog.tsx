@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CheckCircle2, Plus, SearchX } from "lucide-react";
 import { toast } from "sonner";
 import type { ContentItemOf } from "@/content/schema";
@@ -16,7 +17,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 type Word = ContentItemOf<"word">;
 type Sentence = ContentItemOf<"sentence">;
 
-export type WordLookup = { status: "loading" } | { status: "missing" } | { status: "found"; word: Word; examples: Sentence[] };
+export type WordLookup =
+  | { status: "loading" }
+  | { status: "missing" }
+  /** `forms`: the verb's past and participle, when it is an irregular verb (feature 008). */
+  | { status: "found"; word: Word; examples: Sentence[]; forms?: ContentItemOf<"forms"> };
 
 interface WordDialogProps {
   open: boolean;
@@ -37,7 +42,7 @@ export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDi
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent showCloseButton={false} className="max-h-[calc(100svh-2rem)] gap-5 overflow-y-auto p-5 sm:max-w-lg">
         {lookup.status === "found" ? (
-          <WordDetails word={lookup.word} examples={lookup.examples} learned={learned} onLearned={onLearned} />
+          <WordDetails word={lookup.word} examples={lookup.examples} forms={lookup.forms} learned={learned} onLearned={onLearned} />
         ) : lookup.status === "missing" ? (
           <DialogHeader className="items-center py-6 text-center">
             <SearchX className="size-8 text-muted-foreground" aria-hidden />
@@ -58,7 +63,15 @@ export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDi
   );
 }
 
-function WordDetails({ word, examples, learned, onLearned }: { word: Word; examples: Sentence[]; learned: boolean; onLearned: () => void }) {
+interface WordDetailsProps {
+  word: Word;
+  examples: Sentence[];
+  forms?: ContentItemOf<"forms">;
+  learned: boolean;
+  onLearned: () => void;
+}
+
+function WordDetails({ word, examples, forms, learned, onLearned }: WordDetailsProps) {
   const { body } = word;
   const [saving, setSaving] = useState(false);
 
@@ -108,6 +121,23 @@ function WordDetails({ word, examples, learned, onLearned }: { word: Word; examp
           ))}
         </ol>
       </section>
+
+      {forms ? (
+        <section aria-labelledby="word-forms" className="grid gap-2">
+          <h3 id="word-forms" className="text-sm font-medium text-muted-foreground">
+            Động từ bất quy tắc
+          </h3>
+          <Link
+            href={`/irregular-verbs?verb=${forms.id.slice("forms:".length)}`}
+            className="flex items-center gap-3 rounded-xl bg-muted p-3 hover:bg-muted/70 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+          >
+            <span className="flex-1 text-lg font-medium" lang="en">
+              {body.headword} – {forms.body.past.map((form) => form.text).join(" / ")} – {forms.body.participle.map((form) => form.text).join(" / ")}
+            </span>
+            <span className="text-sm text-primary">Xem cách dùng</span>
+          </Link>
+        </section>
+      ) : null}
 
       {examples.length > 0 ? (
         <section aria-labelledby="word-examples" className="grid gap-2">

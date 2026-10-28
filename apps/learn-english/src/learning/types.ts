@@ -7,7 +7,7 @@ export const LEVELS = ["A1", "A2", "B1", "B2", "C1"] as const;
 export type Level = (typeof LEVELS)[number];
 
 /** `word:<id>` or `grammar:<slug>`: the items that get a review schedule. */
-export type CardItemId = `word:${string}` | `grammar:${string}`;
+export type CardItemId = `word:${string}` | `grammar:${string}` | `forms:${string}`;
 
 /** ts-fsrs card state (State enum: 0 New, 1 Learning, 2 Review, 3 Relearning). */
 export type CardStateValue = 0 | 1 | 2 | 3;
@@ -40,6 +40,10 @@ export const EXERCISE_KINDS = [
   "choose-sentence",
   "tile-translate",
   "writing",
+  // An irregular verb's past and participle (feature 008).
+  "forms-typing",
+  "forms-gap",
+  "forms-listening",
   // A word or grammar card shown before its check; never produces an attempt.
   "study",
 ] as const;

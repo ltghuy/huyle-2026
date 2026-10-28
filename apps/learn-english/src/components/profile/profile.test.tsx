@@ -13,13 +13,15 @@ import { calendarWeeks, weekStart } from "./progress-math";
 
 vi.mock("@/hooks/use-content-index", async () => {
   const { buildContentIndex } = await import("@/lib/session/content-index");
-  const { grammar, word } = await import("@/learning/exercises/fixtures");
+  const { forms, grammar, word } = await import("@/learning/exercises/fixtures");
   const index = buildContentIndex([
     word("apple"),
     word("cat"),
     word("big", {}, "A2"),
     grammar("present-simple", []),
     { ...grammar("past-simple", []), level: "A2" },
+    forms("go", ["went"], ["gone"]),
+    forms("eat", ["ate"], ["eaten"]),
   ]);
   return { useContentIndex: () => ({ status: "ready", index, version: 1, stale: false, retry: () => {} }) };
 });
@@ -75,6 +77,13 @@ describe("ProgressInsights", () => {
   beforeEach(async () => {
     await resetStorage();
     await saveProfile({ ...createDefaultProfile(0), timeZone: TZ });
+  });
+
+  it("counts irregular verbs whose forms were practised, apart from words (008 AC-016)", async () => {
+    await putCards([makeCard("forms:go", Date.now()), makeCard("word:eat", Date.now())]);
+    render(<ProgressInsights />);
+    const list = await screen.findByRole("list", { name: "Động từ bất quy tắc đã học" });
+    expect(list).toHaveTextContent("1/2 động từ");
   });
 
   it("shows words per level, grammar topics and 30-day accuracy from storage", async () => {

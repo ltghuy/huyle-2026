@@ -1,5 +1,6 @@
 import type { ContentItemOf } from "@/content/schema";
 import { buildChooseSentence } from "@/learning/exercises/choose-sentence";
+import { buildFormsGap, buildFormsListening, buildFormsTyping } from "@/learning/exercises/forms";
 import { buildGrammarGap } from "@/learning/exercises/grammar-gap";
 import { buildListeningChoice, buildListeningTyping } from "@/learning/exercises/listening";
 import { buildMcq } from "@/learning/exercises/mcq";
@@ -47,6 +48,12 @@ function distractorWords(index: ContentIndex, sentence: Sentence): string[] {
   return (index.wordsByLevel[sentence.level] ?? []).filter((word) => !own.has(word.id)).map((word) => word.body.headword);
 }
 
+/** A forms item with its verb, or null when either is gone. */
+function verbOf(index: ContentIndex, item: ContentItemOf<"forms">) {
+  const word = index.byId.get(item.body.wordId);
+  return word?.kind === "word" ? { forms: item, word } : null;
+}
+
 function exerciseStep(key: string, seed: number, instance: ExerciseInstance | null, extra: Partial<Extract<RunnerStep, { type: "exercise" }>> = {}): RunnerStep | null {
   return instance ? { key, type: "exercise", instance, seed, ...extra } : null;
 }
@@ -91,6 +98,16 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
       return item.kind === "sentence"
         ? exerciseStep(key, seed, buildTileTranslate({ sentence: item, distractorPool: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) })
         : null;
+    case "forms-typing":
+    case "forms-gap":
+    case "forms-listening": {
+      const verb = item.kind === "forms" ? verbOf(index, item) : null;
+      if (!verb) return null;
+      if (descriptor.kind === "forms-typing") return exerciseStep(key, seed, buildFormsTyping(verb, seed));
+      if (descriptor.kind === "forms-gap") return exerciseStep(key, seed, buildFormsGap(verb, seed) ?? buildFormsTyping(verb, seed));
+      // A clip that can't play swaps to typing, like word listening.
+      return exerciseStep(key, seed, buildFormsListening(verb, seed) ?? buildFormsTyping(verb, seed), { fallback: buildFormsTyping(verb, seed) });
+    }
     case "writing":
       return item.kind === "writing"
         ? exerciseStep(key, seed, { kind: "writing", writingId: item.id, promptVi: item.body.promptVi, modelAnswers: item.body.modelAnswers })

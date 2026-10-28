@@ -1,0 +1,177 @@
+[
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "forms:slide-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:slide-v",
+      "past": [
+        {
+          "text": "slid",
+          "ipa": "/slɪd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "slid",
+          "ipa": "/slɪd/"
+        }
+      ],
+      "audio": "e510a48252cd7517de5a89b2309d8f6d3c532693dd458e354612ef7bdc6031b9",
+      "practice": [
+        {
+          "en": "The children ___ down the snowy hill on plastic bags.",
+          "answer": "past",
+          "vi": "Bọn trẻ trượt xuống ngọn đồi phủ tuyết bằng túi nhựa."
+        },
+        {
+          "en": "Sales have ___ steadily since the start of the year.",
+          "answer": "participle",
+          "vi": "Doanh số đã giảm dần đều từ đầu năm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "forms:spread-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:spread-v",
+      "past": [
+        {
+          "text": "spread",
+          "ipa": "/sprɛd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "spread",
+          "ipa": "/sprɛd/"
+        }
+      ],
+      "audio": "a6c93946d7c3fc27194d98b504232306d0d636fbd283895f1344dc54a5d14837",
+      "practice": [
+        {
+          "en": "She ___ butter on the bread and handed it to me.",
+          "answer": "past",
+          "vi": "Cô ấy phết bơ lên bánh mì rồi đưa cho tôi."
+        },
+        {
+          "en": "The news has ___ quickly across social media.",
+          "answer": "participle",
+          "vi": "Tin tức đã lan nhanh trên mạng xã hội."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "forms:sting-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:sting-v",
+      "past": [
+        {
+          "text": "stung",
+          "ipa": "/stʌŋ/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "stung",
+          "ipa": "/stʌŋ/"
+        }
+      ],
+      "audio": "270ebe4fafc42a718692b60d50cc5f4e677556021fa8deeeeb63c54860eab3ed",
+      "practice": [
+        {
+          "en": "A bee ___ my little brother while he was playing outside.",
+          "answer": "past",
+          "vi": "Một con ong đã đốt em trai tôi khi em đang chơi ngoài trời."
+        },
+        {
+          "en": "I have been ___ by jellyfish twice at this beach.",
+          "answer": "participle",
+          "vi": "Tôi đã bị sứa đốt hai lần ở bãi biển này."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "forms:sweep-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:sweep-v",
+      "past": [
+        {
+          "text": "swept",
+          "ipa": "/swɛpt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "swept",
+          "ipa": "/swɛpt/"
+        }
+      ],
+      "audio": "27645ef55db5ba5c64e62f8b2adfb3bfc0e3bba36610bdadb3c4288ab83905fc",
+      "practice": [
+        {
+          "en": "He ___ the yard before the guests arrived.",
+          "answer": "past",
+          "vi": "Anh ấy quét sân trước khi khách đến."
+        },
+        {
+          "en": "A new fashion trend has ___ through the country.",
+          "answer": "participle",
+          "vi": "Một xu hướng thời trang mới đã lan khắp cả nước."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "forms:swing-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:swing-v",
+      "past": [
+        {
+          "text": "swung",
+          "ipa": "/swʌŋ/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "swung",
+          "ipa": "/swʌŋ/"
+        }
+      ],
+      "audio": "3ea212d0f3010e37a8b44534f1100a518253164239f6cb10e20723a7672cfdb7",
+      "practice": [
+        {
+          "en": "The monkey ___ from one branch to another.",
+          "answer": "past",
+          "vi": "Con khỉ đu từ cành này sang cành khác."
+        },
+        {
+          "en": "Public opinion has ___ against the new plan.",
+          "answer": "participle",
+          "vi": "Dư luận đã quay sang phản đối kế hoạch mới."
+        }
+      ]
+    },
+    "status": "approved"
+  }
+]

@@ -175,6 +175,12 @@ describe("buildLessonPlan", () => {
     expect(estimateSeconds(steps(backlog))).toBeGreaterThan(LESSON_BUDGET_SECONDS - 60);
   });
 
+  it("leaves verb forms cards to Ôn tập: the lesson never reviews them (008)", () => {
+    const cards = [card("forms:go-v"), card("word:a1-00")];
+    const review = part(buildLessonPlan(input({ cards })), "review")!.exercises;
+    expect(review.map((e) => e.itemIds[0])).toEqual(["word:a1-00"]);
+  });
+
   it("only reviews cards due by the end of the learner's day", () => {
     // 23:00 local today is due; 01:00 local tomorrow is not.
     const today = card("word:a1-00", { dueIn: Date.parse("2026-10-28T16:00:00Z") - NOW });

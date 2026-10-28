@@ -194,7 +194,7 @@ describe("SQL", () => {
     expect(files[2]).toContain("UPDATE content_items SET deleted = 1, updated_version = 5 WHERE id = 'word:gone-n';");
     expect(files[3]).toBe(
       "INSERT INTO content_meta (id, version, published_at, counts) VALUES (1, 5, 1000, " +
-        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0}') ` +
+        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0,"forms":0}') ` +
         "ON CONFLICT(id) DO UPDATE SET version = excluded.version, published_at = excluded.published_at, counts = excluded.counts;\n",
     );
   });

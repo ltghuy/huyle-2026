@@ -91,6 +91,8 @@ export function entriesOf(files: readonly SourceFile[]): { entries: Entry[]; pro
 export function referencesOf(item: SourceItem): string[] {
   if (item.kind === "word" || item.kind === "grammar") return [...item.body.examples];
   if (item.kind === "sentence") return [...item.body.wordIds, ...(item.body.grammarSlug ? [`grammar:${item.body.grammarSlug}`] : [])];
+  // A verb's forms are only shown with the verb itself (feature 008).
+  if (item.kind === "forms") return [item.body.wordId];
   return [];
 }
 

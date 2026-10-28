@@ -4,12 +4,15 @@ import { LEVELS, type Level } from "@/learning/types";
 
 type Word = ContentItemOf<"word">;
 type Grammar = ContentItemOf<"grammar">;
+type Forms = ContentItemOf<"forms">;
 
 /** Lookups over the loaded content, shared by the planner and the step builder. */
 export interface ContentIndex {
   byId: ReadonlyMap<string, ContentItem>;
   wordsByLevel: Partial<Record<Level, readonly Word[]>>;
   grammarByLevel: Partial<Record<Level, readonly Grammar[]>>;
+  /** Irregular verbs' forms (feature 008), by level, sort, then id. */
+  forms: readonly Forms[];
   lesson: LessonContent;
 }
 
@@ -28,6 +31,7 @@ export function buildContentIndex(items: readonly ContentItem[], tombstones: Rea
     byId,
     wordsByLevel,
     grammarByLevel,
+    forms: live.filter((item): item is Forms => item.kind === "forms").sort((a, b) => a.level.localeCompare(b.level) || bySortThenId(a, b)),
     lesson: {
       wordsByLevel,
       grammarByLevel,

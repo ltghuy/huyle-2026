@@ -24,6 +24,7 @@ import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promi
 import path from "node:path";
 import { parseArgs, promisify } from "node:util";
 import type { SourceItem } from "../src/content/schema";
+import { formsSequence } from "../src/learning/verbs";
 import { LEVELS, type Level } from "../src/learning/types";
 
 const run = promisify(execFile);
@@ -120,13 +121,28 @@ export interface AudioJob {
   key: string;
 }
 
-/** Approved words and sentences whose clip is missing or was made with another voice. */
-export function collectJobs(items: readonly SourceItem[], voice: string): AudioJob[] {
+/** What a clip says: the word, the sentence, or an irregular verb's three forms ("go, went, gone"). */
+function clipText(item: SourceItem, headwords: ReadonlyMap<string, string>): string | undefined {
+  if (item.kind === "word") return item.body.headword;
+  if (item.kind === "sentence") return item.body.en;
+  if (item.kind === "forms") {
+    const headword = headwords.get(item.body.wordId);
+    return headword ? formsSequence(headword, item.body) : undefined;
+  }
+  return undefined;
+}
+
+/**
+ * Approved words, sentences and verb forms whose clip is missing or was made
+ * with another voice. Forms need their verb's headword (`headwords`, by word id).
+ */
+export function collectJobs(items: readonly SourceItem[], voice: string, headwords: ReadonlyMap<string, string> = new Map()): AudioJob[] {
   const jobs: AudioJob[] = [];
   for (const item of items) {
     if (item.status !== "approved") continue;
-    if (item.kind !== "word" && item.kind !== "sentence") continue;
-    const text = item.kind === "word" ? item.body.headword : item.body.en;
+    if (item.kind !== "word" && item.kind !== "sentence" && item.kind !== "forms") continue;
+    const text = clipText(item, headwords);
+    if (text === undefined) continue;
     const key = audioKey(voice, text);
     if (item.body.audio !== key) jobs.push({ itemId: item.id, text, key });
   }
@@ -137,7 +153,7 @@ export function collectJobs(items: readonly SourceItem[], voice: string): AudioJ
 export function applyKeys(items: SourceItem[], done: ReadonlyMap<string, string>): SourceItem[] {
   return items.map((item) => {
     const key = done.get(item.id);
-    if (!key || (item.kind !== "word" && item.kind !== "sentence")) return item;
+    if (!key || (item.kind !== "word" && item.kind !== "sentence" && item.kind !== "forms")) return item;
     return { ...item, body: { ...item.body, audio: key } } as SourceItem;
   });
 }
@@ -188,11 +204,18 @@ async function generate(provider: Provider, voice: string, options: { level?: Le
   const cacheDir = path.join(root, "content/.audio", voice);
   await mkdir(cacheDir, { recursive: true });
   const levels = options.level ? [options.level] : [...LEVELS];
-  for (const kind of ["word", "sentence"] as const) {
+  // Verb forms say their verb's headword first, from any level.
+  const headwords = new Map<string, string>();
+  for (const level of LEVELS) {
+    for (const item of await readJson<SourceItem[]>(path.join(root, "content/word", `${level}.json`), [])) {
+      if (item.kind === "word") headwords.set(item.id, item.body.headword);
+    }
+  }
+  for (const kind of ["word", "sentence", "forms"] as const) {
     for (const level of levels) {
       const file = path.join(root, "content", kind, `${level}.json`);
       const items = await readJson<SourceItem[]>(file, []);
-      let jobs = collectJobs(items, voice);
+      let jobs = collectJobs(items, voice, headwords);
       if (options.limit) jobs = jobs.slice(0, options.limit);
       if (jobs.length === 0) continue;
       console.log(`${kind} ${level}: ${jobs.length} clips`);
@@ -221,7 +244,8 @@ export function referencedKeys(items: readonly SourceItem[]): { words: Set<strin
   const sentences = new Set<string>();
   for (const item of items) {
     if (item.status !== "approved") continue;
-    if (item.kind === "word" && item.body.audio) words.add(item.body.audio);
+    // Verb forms clips are short like words, so they share the words Worker.
+    if ((item.kind === "word" || item.kind === "forms") && item.body.audio) words.add(item.body.audio);
     if (item.kind === "sentence" && item.body.audio) sentences.add(item.body.audio);
   }
   return { words, sentences };
@@ -236,7 +260,7 @@ async function deploy() {
   const root = process.cwd();
   const cacheRoot = path.join(root, "content/.audio");
   const items: SourceItem[] = [];
-  for (const kind of ["word", "sentence"] as const) {
+  for (const kind of ["word", "sentence", "forms"] as const) {
     for (const level of LEVELS) items.push(...(await readJson<SourceItem[]>(path.join(root, "content", kind, `${level}.json`), [])));
   }
   const voices = (await readdir(cacheRoot, { withFileTypes: true })).filter((entry) => entry.isDirectory() && !["dist", "samples"].includes(entry.name));

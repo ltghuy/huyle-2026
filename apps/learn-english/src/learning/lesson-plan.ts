@@ -46,6 +46,10 @@ export const STEP_SECONDS: Record<ExerciseKind, number> = {
   "choose-sentence": 20,
   "tile-translate": 35,
   writing: 150,
+  // Ôn tập only (feature 008); the lesson never plans them.
+  "forms-typing": 12,
+  "forms-gap": 12,
+  "forms-listening": 15,
 };
 /** Reading a grammar point takes longer than a word card. */
 const GRAMMAR_STUDY_SECONDS = 90;
@@ -55,6 +59,7 @@ const SENTENCE_RESERVE_SECONDS = 35;
 const NEW_WORD_SECONDS = STEP_SECONDS.study + STEP_SECONDS.mcq;
 
 const WORD_REVIEW_KINDS = ["mcq", "missing-letters", "listening", "recall"] as const;
+const FORMS_REVIEW_KINDS = ["forms-typing", "forms-gap", "forms-listening"] as const;
 const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "tile-translate"] as const;
 
 /** The content the planner reads; the caller builds it from the content cache. */
@@ -157,23 +162,31 @@ export function pickNewWords(level: Level, cards: readonly StoredCard[], content
 /**
  * One exercise per card to review. Grammar gets gap-fill; words rotate
  * through the word kinds with `reps`, so an item gets a different kind each
- * time it comes back (AC-012). Listening needs audio. At least one is
- * multiple choice when any word is reviewed.
+ * time it comes back (AC-012), and an irregular verb's forms (`forms:`
+ * cards, feature 008) rotate through the forms kinds. Listening needs audio
+ * (`audioOf` gives a forms item's clip). At least one is multiple choice when
+ * any word is reviewed.
  */
 export function reviewExercises(
   reviewed: readonly StoredCard[],
   wordsById: ReadonlyMap<string, WordItem>,
   seedOf: (index: number, itemId: string) => number,
+  audioOf: (formsId: string) => string = () => "",
 ): ExerciseDescriptor[] {
   const review: ExerciseDescriptor[] = reviewed.map((card, i) => {
     const descriptor = (kind: ExerciseKind): ExerciseDescriptor => ({ kind, itemIds: [card.itemId], seed: seedOf(i, card.itemId) });
+    const turn = hashString(card.itemId) + card.reps;
     if (card.itemId.startsWith("grammar:")) return descriptor("grammar-gap");
+    if (card.itemId.startsWith("forms:")) {
+      const kinds = FORMS_REVIEW_KINDS.filter((kind) => kind !== "forms-listening" || audioOf(card.itemId) !== "");
+      return descriptor(kinds[turn % kinds.length]);
+    }
     const word = wordsById.get(card.itemId);
     const kinds = WORD_REVIEW_KINDS.filter((kind) => kind !== "listening" || (word?.body.audio ?? "") !== "");
-    return descriptor(kinds[(hashString(card.itemId) + card.reps) % kinds.length]);
+    return descriptor(kinds[turn % kinds.length]);
   });
   if (review.length > 0 && !review.some((exercise) => exercise.kind === "mcq")) {
-    const first = review.findIndex((exercise) => exercise.kind !== "grammar-gap");
+    const first = review.findIndex((exercise) => exercise.itemIds[0]?.startsWith("word:"));
     if (first !== -1) review[first] = { ...review[first], kind: "mcq" };
   }
   return review;
@@ -230,8 +243,9 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
 
   // Review: the most-forgotten due items first, as many as fit in the time
   // left after the fixed parts and 10 new words. When they don't all fit, new
-  // words drop to 5 to make room; the rest roll to later days.
-  const due = dueCards(input);
+  // words drop to 5 to make room; the rest roll to later days. Irregular verb
+  // forms are reviewed in Ôn tập only (feature 008), not in the lesson.
+  const due = dueCards(input).filter((card) => !card.itemId.startsWith("forms:"));
   const seedReview = (i: number, itemId: string) => seedFor("review", i, itemId);
   const reviewCandidates = reviewExercises(due.slice(0, REVIEW_CAP), wordsById, seedReview);
   const reserved = estimateSeconds([...grammarSteps, ...writingSteps]) + SENTENCE_TASKS * SENTENCE_RESERVE_SECONDS;

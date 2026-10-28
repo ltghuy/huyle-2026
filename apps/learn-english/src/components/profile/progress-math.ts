@@ -49,15 +49,16 @@ export interface LevelCount {
 }
 
 /** Cards per level for one item kind, joined with the content's levels; unknown items are skipped. */
-export function countByLevel(cards: readonly StoredCard[], index: ContentIndex, kind: "word" | "grammar"): LevelCount[] {
+export function countByLevel(cards: readonly StoredCard[], index: ContentIndex, kind: "word" | "grammar" | "forms"): LevelCount[] {
   const learned = new Map<Level, number>();
   for (const card of cards) {
     if (!card.itemId.startsWith(`${kind}:`)) continue;
     const item = index.byId.get(card.itemId);
     if (item?.kind === kind) learned.set(item.level, (learned.get(item.level) ?? 0) + 1);
   }
-  const totals = kind === "word" ? index.wordsByLevel : index.grammarByLevel;
-  return LEVELS.map((level) => ({ level, learned: learned.get(level) ?? 0, total: totals[level]?.length ?? 0 }));
+  const total = (level: Level) =>
+    kind === "word" ? (index.wordsByLevel[level]?.length ?? 0) : kind === "grammar" ? (index.grammarByLevel[level]?.length ?? 0) : index.forms.filter((item) => item.level === level).length;
+  return LEVELS.map((level) => ({ level, learned: learned.get(level) ?? 0, total: total(level) }));
 }
 
 export interface Accuracy {

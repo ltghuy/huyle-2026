@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { lookupIpa, parseCmudict } from "./build-ipa";
+import { fillFormsIpa, lookupFormIpa, lookupIpa, parseCmudict } from "./build-ipa";
 
 const dict = parseCmudict(
   [
@@ -41,5 +41,30 @@ describe("lookupIpa", () => {
 
   it("returns undefined when nothing matches", () => {
     expect(lookupIpa(dict, "zzz")).toBeUndefined();
+  });
+});
+
+describe("irregular verb forms (feature 008)", () => {
+  // CMUdict's own order: "read" /rɛd/ first.
+  const dict = parseCmudict(["read  R EH1 D", "read(2)  R IY1 D", "went  W EH1 N T", "cut  K AH1 T"].join("\n"));
+
+  it("says a form spelled like its base the other way, from the approved base IPA: read /rid/ → /rɛd/", () => {
+    expect(lookupFormIpa(dict, "read", "read", "/rid/")).toBe("/rɛd/");
+    expect(lookupFormIpa(dict, "cut", "cut")).toBe("/kʌt/");
+    // Any other form spelled like its base is said like the approved base.
+    const withCost = parseCmudict(["cost  K AA1 S T", "cost(2)  K AO1 S T"].join("\n"));
+    expect(lookupFormIpa(withCost, "cost", "cost", "/kɑst/")).toBe("/kɑst/");
+    expect(lookupFormIpa(dict, "went", "go")).toBe("/wɛnt/");
+  });
+
+  it("fills only empty IPA and lists what it can't find", () => {
+    const items = [
+      { id: "forms:go-v", body: { wordId: "word:go-v", past: [{ text: "went", ipa: "" }], participle: [{ text: "gone", ipa: "/ɡɔn/" }] } },
+      { id: "forms:x-v", body: { wordId: "word:x-v", past: [{ text: "xed", ipa: "" }], participle: [{ text: "xed", ipa: "" }] } },
+    ];
+    const missing = fillFormsIpa(dict, items, new Map([["word:go-v", { headword: "go", ipa: "/ɡoʊ/" }]]));
+    expect(items[0].body.past[0].ipa).toBe("/wɛnt/");
+    expect(items[0].body.participle[0].ipa).toBe("/ɡɔn/");
+    expect(missing).toEqual(["forms:x-v: xed", "forms:x-v: xed"]);
   });
 });

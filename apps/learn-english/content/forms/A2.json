@@ -1,0 +1,831 @@
+[
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:bend-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:bend-v",
+      "past": [
+        {
+          "text": "bent",
+          "ipa": "/bɛnt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "bent",
+          "ipa": "/bɛnt/"
+        }
+      ],
+      "audio": "2c47612b0cc94cb60d90848de67cd5b278b9c152f03e2201b677ea2f5fc4974f",
+      "practice": [
+        {
+          "en": "He ___ down to pick up the coin.",
+          "answer": "past",
+          "vi": "Anh ấy cúi xuống nhặt đồng xu."
+        },
+        {
+          "en": "The wind has ___ the small tree.",
+          "answer": "participle",
+          "vi": "Gió đã làm cong cái cây nhỏ."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:cost-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:cost-v",
+      "past": [
+        {
+          "text": "cost",
+          "ipa": "/kɑst/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "cost",
+          "ipa": "/kɑst/"
+        }
+      ],
+      "audio": "b34f0e72688ed4382e8cb76b918faa24be93cd8e4500aad1c51c1b3c23e99811",
+      "practice": [
+        {
+          "en": "The concert tickets ___ fifty dollars last year.",
+          "answer": "past",
+          "vi": "Năm ngoái vé buổi hòa nhạc có giá năm mươi đô la."
+        },
+        {
+          "en": "The trip has ___ more than we planned.",
+          "answer": "participle",
+          "vi": "Chuyến đi đã tốn nhiều hơn chúng tôi dự tính."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:dream-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:dream-v",
+      "past": [
+        {
+          "text": "dreamed",
+          "ipa": "/drimd/"
+        },
+        {
+          "text": "dreamt",
+          "ipa": "/drɛmt/",
+          "region": "uk"
+        }
+      ],
+      "participle": [
+        {
+          "text": "dreamed",
+          "ipa": "/drimd/"
+        },
+        {
+          "text": "dreamt",
+          "ipa": "/drɛmt/",
+          "region": "uk"
+        }
+      ],
+      "noteVi": "\"dreamt\" là cách viết của tiếng Anh Anh.",
+      "audio": "f02d548d39bafb8a74767e9c1ac95dbf80b15d482b9a03b5675cd1c3acd21978",
+      "practice": [
+        {
+          "en": "I ___ about my old school last night.",
+          "answer": "past",
+          "vi": "Tối qua tôi mơ về ngôi trường cũ."
+        },
+        {
+          "en": "She has always ___ of living by the sea.",
+          "answer": "participle",
+          "vi": "Cô ấy luôn mơ ước được sống gần biển."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:drive-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:drive-v",
+      "past": [
+        {
+          "text": "drove",
+          "ipa": "/droʊv/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "driven",
+          "ipa": "/ˈdrɪvən/"
+        }
+      ],
+      "audio": "df36ea21d881459b48e4b85ce5749f98e0a738fee85c3a42967d0c2b527ea51b",
+      "practice": [
+        {
+          "en": "Dad ___ us to the station yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua bố chở chúng tôi ra ga."
+        },
+        {
+          "en": "Have you ever ___ a truck?",
+          "answer": "participle",
+          "vi": "Bạn đã bao giờ lái xe tải chưa?"
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:fall-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:fall-v",
+      "past": [
+        {
+          "text": "fell",
+          "ipa": "/fɛl/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "fallen",
+          "ipa": "/ˈfɑlən/"
+        }
+      ],
+      "audio": "b9c8ea6abe4870df6c4557b596481ccaa91af639683f9f5a67cb9e014479214b",
+      "practice": [
+        {
+          "en": "The boy ___ off his bike yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua cậu bé bị ngã xe đạp."
+        },
+        {
+          "en": "Prices have ___ this month.",
+          "answer": "participle",
+          "vi": "Tháng này giá cả đã giảm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:forbid-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:forbid-v",
+      "past": [
+        {
+          "text": "forbade",
+          "ipa": "/fɚˈbeɪd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "forbidden",
+          "ipa": "/fɚˈbɪdən/"
+        }
+      ],
+      "audio": "5fc74c64906d1715ffefe2a5232a10c42e9bdfac20cdf2c09442dc56d90ea94e",
+      "practice": [
+        {
+          "en": "His parents ___ him to go out late.",
+          "answer": "past",
+          "vi": "Bố mẹ cấm cậu ấy đi chơi khuya."
+        },
+        {
+          "en": "Smoking is ___ in the hospital.",
+          "answer": "participle",
+          "vi": "Hút thuốc bị cấm trong bệnh viện."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:freeze-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:freeze-v",
+      "past": [
+        {
+          "text": "froze",
+          "ipa": "/froʊz/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "frozen",
+          "ipa": "/ˈfroʊzən/"
+        }
+      ],
+      "audio": "ba5840bcb1afa478d5bbaeaf98242a8cf9a7d6f62f33cc3a528e21d4a9fad650",
+      "practice": [
+        {
+          "en": "The lake ___ last winter.",
+          "answer": "past",
+          "vi": "Mùa đông năm ngoái mặt hồ đóng băng."
+        },
+        {
+          "en": "I have ___ the rest of the soup.",
+          "answer": "participle",
+          "vi": "Tôi đã cho phần súp còn lại vào ngăn đá."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:hit-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:hit-v",
+      "past": [
+        {
+          "text": "hit",
+          "ipa": "/hɪt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "hit",
+          "ipa": "/hɪt/"
+        }
+      ],
+      "audio": "87137f9599cb80256157c2c29c7d3467bf30b06a3d43b54cf17ef1b42ee10e1d",
+      "practice": [
+        {
+          "en": "The ball ___ the window yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua quả bóng đập vào cửa sổ."
+        },
+        {
+          "en": "A storm has ___ the coast.",
+          "answer": "participle",
+          "vi": "Một cơn bão đã đổ bộ vào bờ biển."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:hold-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:hold-v",
+      "past": [
+        {
+          "text": "held",
+          "ipa": "/hɛld/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "held",
+          "ipa": "/hɛld/"
+        }
+      ],
+      "audio": "7f87faadd211bd13435254c2c79782722659f73f3429c64ed42cb0bda4a86919",
+      "practice": [
+        {
+          "en": "She ___ the baby in her arms.",
+          "answer": "past",
+          "vi": "Cô ấy bế em bé trong vòng tay."
+        },
+        {
+          "en": "The meeting was ___ last Friday.",
+          "answer": "participle",
+          "vi": "Cuộc họp được tổ chức vào thứ Sáu tuần trước."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:lend-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:lend-v",
+      "past": [
+        {
+          "text": "lent",
+          "ipa": "/lɛnt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "lent",
+          "ipa": "/lɛnt/"
+        }
+      ],
+      "audio": "9143b9ed577f822c84368a78c5dc95fdf13f3832fd3dd0d0bc5105f2eee63d57",
+      "practice": [
+        {
+          "en": "My friend ___ me his car last week.",
+          "answer": "past",
+          "vi": "Tuần trước bạn tôi cho tôi mượn xe."
+        },
+        {
+          "en": "I have ___ that book to my cousin.",
+          "answer": "participle",
+          "vi": "Tôi đã cho em họ mượn cuốn sách đó."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:lie-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:lie-v",
+      "past": [
+        {
+          "text": "lay",
+          "ipa": "/leɪ/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "lain",
+          "ipa": "/leɪn/"
+        }
+      ],
+      "noteVi": "Với nghĩa \"nói dối\", \"lie\" là động từ có quy tắc: lie → lied → lied.",
+      "audio": "fc2e034276c4a9e7ec73f280e8f49f8a2db49c00c2099e97dbbd5e660b224398",
+      "practice": [
+        {
+          "en": "She ___ on the sofa all afternoon.",
+          "answer": "past",
+          "vi": "Cô ấy nằm trên ghế sofa cả buổi chiều."
+        },
+        {
+          "en": "He has ___ in bed since Monday.",
+          "answer": "participle",
+          "vi": "Anh ấy đã nằm trên giường từ thứ Hai."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:lose-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:lose-v",
+      "past": [
+        {
+          "text": "lost",
+          "ipa": "/lɔst/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "lost",
+          "ipa": "/lɔst/"
+        }
+      ],
+      "audio": "ed1bc5970304fe6186e5cc7b5fa64e1f271f2857164360cca050ef54dc6cefcf",
+      "practice": [
+        {
+          "en": "I ___ my wallet on the bus yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua tôi làm mất ví trên xe buýt."
+        },
+        {
+          "en": "Our team has ___ three games.",
+          "answer": "participle",
+          "vi": "Đội chúng tôi đã thua ba trận."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:quit-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:quit-v",
+      "past": [
+        {
+          "text": "quit",
+          "ipa": "/kwɪt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "quit",
+          "ipa": "/kwɪt/"
+        }
+      ],
+      "audio": "e3d9b58206529de911748ecfcd93c6828cde209a9f1083ca725cc71d2d24ef07",
+      "practice": [
+        {
+          "en": "He ___ his job last month.",
+          "answer": "past",
+          "vi": "Tháng trước anh ấy đã nghỉ việc."
+        },
+        {
+          "en": "My father has ___ smoking.",
+          "answer": "participle",
+          "vi": "Bố tôi đã bỏ thuốc lá."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:seek-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:seek-v",
+      "past": [
+        {
+          "text": "sought",
+          "ipa": "/sɔt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "sought",
+          "ipa": "/sɔt/"
+        }
+      ],
+      "audio": "a2dbee6d8a866bc076ad88c51ea6586cc472893ba5500851e7e36f0ce5e4c585",
+      "practice": [
+        {
+          "en": "They ___ help from the police.",
+          "answer": "past",
+          "vi": "Họ đã tìm kiếm sự giúp đỡ từ cảnh sát."
+        },
+        {
+          "en": "She has ___ advice from her teacher.",
+          "answer": "participle",
+          "vi": "Cô ấy đã xin lời khuyên từ cô giáo."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:send-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:send-v",
+      "past": [
+        {
+          "text": "sent",
+          "ipa": "/sɛnt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "sent",
+          "ipa": "/sɛnt/"
+        }
+      ],
+      "audio": "44ca987d2fd76efc6a8e04174b03a8a200fd484af311b4a2675e4fe836f420fa",
+      "practice": [
+        {
+          "en": "I ___ you a message this morning.",
+          "answer": "past",
+          "vi": "Sáng nay tôi đã gửi cho bạn một tin nhắn."
+        },
+        {
+          "en": "Have you ___ the email yet?",
+          "answer": "participle",
+          "vi": "Bạn đã gửi email chưa?"
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:shine-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:shine-v",
+      "past": [
+        {
+          "text": "shone",
+          "ipa": "/ʃoʊn/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "shone",
+          "ipa": "/ʃoʊn/"
+        }
+      ],
+      "noteVi": "Với nghĩa \"đánh bóng\" (giày), dùng dạng có quy tắc: shine → shined → shined.",
+      "audio": "e5c486ae00d54a5391e14a3fc4abfdd001e24b7fb2bf30ac3093c529545b8e4e",
+      "practice": [
+        {
+          "en": "The sun ___ all day yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua mặt trời chiếu sáng cả ngày."
+        },
+        {
+          "en": "The sun has ___ every day this week.",
+          "answer": "participle",
+          "vi": "Tuần này ngày nào trời cũng nắng."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:shoot-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:shoot-v",
+      "past": [
+        {
+          "text": "shot",
+          "ipa": "/ʃɑt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "shot",
+          "ipa": "/ʃɑt/"
+        }
+      ],
+      "audio": "c5e6ca5ad77aced56fc74ab1ef7dcafd920050e08aadc1a4f1e0d5178a1490be",
+      "practice": [
+        {
+          "en": "He ___ the ball into the goal.",
+          "answer": "past",
+          "vi": "Anh ấy sút bóng vào khung thành."
+        },
+        {
+          "en": "They have ___ a film in our town.",
+          "answer": "participle",
+          "vi": "Họ đã quay một bộ phim ở thị trấn của chúng tôi."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:shut-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:shut-v",
+      "past": [
+        {
+          "text": "shut",
+          "ipa": "/ʃʌt/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "shut",
+          "ipa": "/ʃʌt/"
+        }
+      ],
+      "audio": "664a4eb375bf5034c143e489955aef776b5fc77bc4e984c6c895ce7ba3739511",
+      "practice": [
+        {
+          "en": "She ___ the door quietly last night.",
+          "answer": "past",
+          "vi": "Tối qua cô ấy khẽ đóng cửa."
+        },
+        {
+          "en": "The shop has ___ for the day.",
+          "answer": "participle",
+          "vi": "Cửa hàng đã đóng cửa cho hôm nay."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:spill-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:spill-v",
+      "past": [
+        {
+          "text": "spilled",
+          "ipa": "/spɪld/"
+        },
+        {
+          "text": "spilt",
+          "ipa": "/spɪlt/",
+          "region": "uk"
+        }
+      ],
+      "participle": [
+        {
+          "text": "spilled",
+          "ipa": "/spɪld/"
+        },
+        {
+          "text": "spilt",
+          "ipa": "/spɪlt/",
+          "region": "uk"
+        }
+      ],
+      "noteVi": "\"spilt\" là cách viết của tiếng Anh Anh.",
+      "audio": "406f9c24df2a0e6f7f878941ee9878172efec51b91b3546f80492bf70a91ec3f",
+      "practice": [
+        {
+          "en": "I ___ coffee on my shirt this morning.",
+          "answer": "past",
+          "vi": "Sáng nay tôi làm đổ cà phê lên áo."
+        },
+        {
+          "en": "Someone has ___ water on the floor.",
+          "answer": "participle",
+          "vi": "Ai đó đã làm đổ nước ra sàn."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:stand-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:stand-v",
+      "past": [
+        {
+          "text": "stood",
+          "ipa": "/stʊd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "stood",
+          "ipa": "/stʊd/"
+        }
+      ],
+      "audio": "4821cc8168b18cddd9e11d09bcd1b512d0b2501c83ea1e50eab58bdd707f82de",
+      "practice": [
+        {
+          "en": "We ___ in line for an hour yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua chúng tôi xếp hàng một tiếng."
+        },
+        {
+          "en": "This old house has ___ here for a century.",
+          "answer": "participle",
+          "vi": "Ngôi nhà cổ này đã đứng ở đây cả trăm năm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:steal-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:steal-v",
+      "past": [
+        {
+          "text": "stole",
+          "ipa": "/stoʊl/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "stolen",
+          "ipa": "/ˈstoʊlən/"
+        }
+      ],
+      "audio": "ddacce6756c94b4576b835a1238d5d9db3e7991ec0b07ee5df3160ff4c761c4d",
+      "practice": [
+        {
+          "en": "Someone ___ my bike last night.",
+          "answer": "past",
+          "vi": "Tối qua ai đó đã lấy trộm xe đạp của tôi."
+        },
+        {
+          "en": "My phone has been ___.",
+          "answer": "participle",
+          "vi": "Điện thoại của tôi đã bị trộm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:throw-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:throw-v",
+      "past": [
+        {
+          "text": "threw",
+          "ipa": "/θru/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "thrown",
+          "ipa": "/θroʊn/"
+        }
+      ],
+      "audio": "d8f2587842d3b84d0d87eeac6a3f48da8de6ab531df9576692256619924d0147",
+      "practice": [
+        {
+          "en": "He ___ the ball to his dog.",
+          "answer": "past",
+          "vi": "Anh ấy ném bóng cho con chó."
+        },
+        {
+          "en": "Have you ___ away the old newspapers?",
+          "answer": "participle",
+          "vi": "Bạn đã vứt những tờ báo cũ chưa?"
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "forms:understand-v",
+    "kind": "forms",
+    "body": {
+      "wordId": "word:understand-v",
+      "past": [
+        {
+          "text": "understood",
+          "ipa": "/ˌʌndɚˈstʊd/"
+        }
+      ],
+      "participle": [
+        {
+          "text": "understood",
+          "ipa": "/ˌʌndɚˈstʊd/"
+        }
+      ],
+      "audio": "0f99c5b86e0341d73e415a413292e8374cdff5382eb9e47961b168baada4e3ed",
+      "practice": [
+        {
+          "en": "I ___ the lesson very well yesterday.",
+          "answer": "past",
+          "vi": "Hôm qua tôi hiểu bài rất rõ."
+        },
+        {
+          "en": "Have you ___ the question?",
+          "answer": "participle",
+          "vi": "Bạn đã hiểu câu hỏi chưa?"
+        }
+      ]
+    },
+    "status": "approved"
+  }
+]

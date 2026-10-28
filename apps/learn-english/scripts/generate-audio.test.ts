@@ -28,6 +28,30 @@ describe("collectJobs", () => {
   });
 });
 
+describe("verb forms clips (feature 008)", () => {
+  const forms = (audio = "") =>
+    ({
+      id: "forms:go-v",
+      kind: "forms",
+      level: "A1",
+      sort: 0,
+      status: "approved",
+      body: { wordId: "word:go-v", past: [{ text: "went", ipa: "" }], participle: [{ text: "gone", ipa: "" }], audio, practice: [] },
+    }) as unknown as SourceItem;
+
+  it("says the three forms, with the verb's headword", () => {
+    const [job] = collectJobs([forms()], "v", new Map([["word:go-v", "go"]]));
+    expect(job).toEqual({ itemId: "forms:go-v", text: "go, went, gone", key: audioKey("v", "go, went, gone") });
+  });
+
+  it("skips forms whose verb isn't known, and serves forms clips from the words host", () => {
+    expect(collectJobs([forms()], "v")).toEqual([]);
+    const [withKey] = applyKeys([forms()], new Map([["forms:go-v", "d".repeat(64)]]));
+    expect(withKey).toMatchObject({ body: { audio: "d".repeat(64) } });
+    expect([...referencedKeys([withKey]).words]).toEqual(["d".repeat(64)]);
+  });
+});
+
 describe("applyKeys", () => {
   it("only changes the audio field of finished items", () => {
     const items = [word("cat", "approved"), word("dog", "approved")];

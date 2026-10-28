@@ -1,5 +1,6 @@
 // Builds the word list skeleton (content/wordlist/{level}.json) from the
-// CEFR-J 1.5 (A1–B2) and Octanove C1 CSVs in content/sources. Idempotent:
+// CEFR-J 1.5 (A1–B2) and Octanove C1 CSVs in content/sources, minus
+// content/excluded-words.json and plus content/added-words.json. Idempotent:
 // rerunning rewrites the same files. Drafting (draft-content.ts) turns these
 // rows into full word items.
 //
@@ -15,7 +16,7 @@ export interface WordlistRow {
   variants: string[];
   pos: string;
   level: Level;
-  source: "cefrj-1.5" | "octanove-1.0";
+  source: "cefrj-1.5" | "octanove-1.0" | "added";
   /** CEFR-J's own topic labels (Core Inventory / Threshold), a hint for drafting. */
   topicHints: string[];
 }
@@ -60,8 +61,24 @@ function rowsOf(csv: string): Record<string, string>[] {
     .map((row) => Object.fromEntries(header.map((name, i) => [name, (row[i] ?? "").trim()])));
 }
 
-/** `excluded`: ids left out of the course on purpose (content/excluded-words.json). */
-export function buildWordlist(cefrjCsv: string, octanoveCsv: string, excluded: ReadonlySet<string> = new Set()): WordlistRow[] {
+/** A word the course needs that neither list has, with the reason (content/added-words.json). */
+export interface AddedWord {
+  headword: string;
+  pos: string;
+  level: Level;
+  reason: string;
+}
+
+/**
+ * `excluded`: ids left out of the course on purpose (content/excluded-words.json).
+ * `added`: words added on purpose; a word a list already has keeps the list's row.
+ */
+export function buildWordlist(
+  cefrjCsv: string,
+  octanoveCsv: string,
+  excluded: ReadonlySet<string> = new Set(),
+  added: readonly AddedWord[] = [],
+): WordlistRow[] {
   const byId = new Map<string, WordlistRow>();
   const add = (row: WordlistRow) => {
     if (excluded.has(row.id)) return;
@@ -82,6 +99,9 @@ export function buildWordlist(cefrjCsv: string, octanoveCsv: string, excluded: R
     const { headword, variants } = splitHeadword(row.headword);
     add({ id: wordId(headword, row.pos), headword, variants, pos: row.pos, level: "C1", source: "octanove-1.0", topicHints: [] });
   }
+  for (const word of added) {
+    add({ id: wordId(word.headword, word.pos), headword: word.headword, variants: [], pos: word.pos, level: word.level, source: "added", topicHints: [] });
+  }
   return [...byId.values()];
 }
 
@@ -93,7 +113,8 @@ async function main() {
     readFile(path.join(sources, "octanove-vocabulary-profile-c1c2-1.0.csv"), "utf8"),
   ]);
   const excluded = JSON.parse(await readFile(path.join(root, "content/excluded-words.json"), "utf8")) as { id: string }[];
-  const rows = buildWordlist(cefrj, octanove, new Set(excluded.map((entry) => entry.id)));
+  const added = JSON.parse(await readFile(path.join(root, "content/added-words.json"), "utf8")) as AddedWord[];
+  const rows = buildWordlist(cefrj, octanove, new Set(excluded.map((entry) => entry.id)), added);
   const outDir = path.join(root, "content/wordlist");
   await mkdir(outDir, { recursive: true });
   for (const level of LEVELS) {

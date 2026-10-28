@@ -123,13 +123,14 @@ export function checkReferences(items: readonly ContentItem[]): string[] {
       for (const ref of item.body.wordIds) need(item.id, ref);
       if (item.body.grammarSlug) need(item.id, `grammar:${item.body.grammarSlug}`);
     }
+    if (item.kind === "forms") need(item.id, item.body.wordId);
   }
   return errors;
 }
 
-/** Ids of words and sentences that have no audio yet. */
+/** Ids of words, sentences and verb forms that have no audio yet. */
 export function missingAudio(items: readonly ContentItem[]): string[] {
-  return items.flatMap((item) => ((item.kind === "word" || item.kind === "sentence") && item.body.audio === "" ? [item.id] : []));
+  return items.flatMap((item) => ((item.kind === "word" || item.kind === "sentence" || item.kind === "forms") && item.body.audio === "" ? [item.id] : []));
 }
 
 type PlacementItem = ContentItemOf<"placement">;

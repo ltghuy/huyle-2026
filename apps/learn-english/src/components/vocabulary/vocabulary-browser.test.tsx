@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { act, fireEvent, screen, within } from "@testing-library/react";
 import { render } from "@/test-utils/render";
-import { sentence, word } from "@/learning/exercises/fixtures";
+import { forms, sentence, word } from "@/learning/exercises/fixtures";
 import { buildContentIndex } from "@/lib/session/content-index";
 import { getCard, putCards } from "@/storage/cards";
 import { makeCard, resetStorage } from "@/storage/test-utils";
@@ -16,6 +16,9 @@ const items = [
   { ...word("kitchen", { meaningsVi: ["nhà bếp"] }), topic: "home" },
   { ...word("travel", { meaningsVi: ["du lịch"] }, "A2"), topic: "travel-transport" },
   { ...sentence("mother-1", { tokens: ["My", "mother", "cooks"], vi: "Mẹ tôi nấu ăn.", audio: "b".repeat(64) }) },
+  // B1 here only so the A1 and A2 lists other tests count stay the same.
+  { ...word("go-v", { headword: "go", pos: "verb", meaningsVi: ["đi"] }, "B1"), topic: "travel-transport" },
+  forms("go-v", ["went"], ["gone"], { wordId: "word:go-v" }, "B1"),
 ];
 const index = buildContentIndex(items);
 
@@ -55,6 +58,12 @@ describe("VocabularyBrowser", () => {
     fireEvent.click(screen.getByRole("button", { name: "Nhà cửa: đã học 0/1" }));
     expect(within(screen.getByRole("region", { name: "Danh sách từ" })).getAllByRole("link")).toHaveLength(1);
     expect(window.location.search).toBe("?level=A1&topic=home");
+  });
+
+  it("shows an irregular verb's forms with a link to the section (008 AC-013)", async () => {
+    visit("?level=B1&word=word%3Ago-v");
+    const link = await screen.findByRole("link", { name: /go – went – gone/ });
+    expect(link).toHaveAttribute("href", "/irregular-verbs?verb=go-v");
   });
 
   it("opens a word from a ?word= link with every field and marks it learned (AC-007, AC-009)", async () => {

@@ -7,7 +7,7 @@ import { LEVELS } from "../learning/types";
 
 export const levelSchema = z.enum(LEVELS);
 
-export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement"] as const;
+export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement", "forms"] as const;
 export const contentKindSchema = z.enum(CONTENT_KINDS);
 export type ContentKind = z.infer<typeof contentKindSchema>;
 
@@ -27,7 +27,8 @@ export const wordBodySchema = z.object({
   examples: z.array(idOf("sentence")).min(1),
   synonyms: z.array(idOf("word")).default([]),
   audio: audioKey,
-  source: z.enum(["cefrj-1.5", "octanove-1.0"]),
+  // "added": a word the course needs that neither list has (content/added-words.json).
+  source: z.enum(["cefrj-1.5", "octanove-1.0", "added"]),
 });
 
 export const grammarBodySchema = z.object({
@@ -98,6 +99,30 @@ export const placementBodySchema = z
   })
   .refine((body) => new Set(body.options).size === 4, { message: "options must be distinct" });
 
+// One accepted spelling of a past or past participle; `region` marks a form
+// used only in American or only in British English (got / gotten).
+const verbForm = z.object({ text: nonEmpty, ipa: z.string(), region: z.enum(["us", "uk"]).optional() });
+
+/**
+ * The past and past participle of an irregular verb (feature 008). The item
+ * id is `forms:<the word's slug>`, and it is also the review card id, so
+ * forms are scheduled apart from the word's meaning.
+ */
+export const formsBodySchema = z.object({
+  wordId: idOf("word"),
+  // The first form is the one taught first; later ones are accepted variants.
+  past: z.array(verbForm).min(1),
+  participle: z.array(verbForm).min(1),
+  // Another sense with other forms: "treo cổ: hang → hanged → hanged".
+  noteVi: z.string().optional(),
+  // One clip saying "base, past, participle".
+  audio: audioKey,
+  // Sentences with "___" where a form goes, for "choose the right form".
+  practice: z
+    .array(z.object({ en: z.string().regex(/___/, "needs a ___ blank"), answer: z.enum(["past", "participle"]), vi: nonEmpty }))
+    .min(2),
+});
+
 const base = { level: levelSchema, topic: z.string().optional(), sort: z.number().int().default(0) };
 
 export const contentItemSchema = z.discriminatedUnion("kind", [
@@ -106,6 +131,7 @@ export const contentItemSchema = z.discriminatedUnion("kind", [
   z.object({ ...base, id: idOf("sentence"), kind: z.literal("sentence"), body: sentenceBodySchema }),
   z.object({ ...base, id: idOf("writing"), kind: z.literal("writing"), body: writingBodySchema }),
   z.object({ ...base, id: idOf("placement"), kind: z.literal("placement"), body: placementBodySchema }),
+  z.object({ ...base, id: idOf("forms"), kind: z.literal("forms"), body: formsBodySchema }),
 ]);
 export type ContentItem = z.infer<typeof contentItemSchema>;
 export type ContentItemOf<K extends ContentKind> = Extract<ContentItem, { kind: K }>;

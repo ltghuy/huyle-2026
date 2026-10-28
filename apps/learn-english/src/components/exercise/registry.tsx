@@ -1,5 +1,13 @@
 import type { ComponentType } from "react";
 import { gradeChooseSentence, type ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
+import {
+  gradeFormsGap,
+  gradeFormsListening,
+  gradeFormsTyping,
+  type FormsGapInstance,
+  type FormsListeningInstance,
+  type FormsTypingInstance,
+} from "@/learning/exercises/forms";
 import { gradeGrammarGap, type GrammarGapInstance } from "@/learning/exercises/grammar-gap";
 import {
   gradeListeningChoice,
@@ -24,6 +32,7 @@ import {
   WritingView,
   type WritingInstance,
 } from "./sentence-exercises";
+import { FormsGapView, FormsListeningView, FormsTypingView } from "./forms-exercises";
 import type { ExerciseViewProps } from "./types";
 import {
   GrammarGapView,
@@ -46,7 +55,10 @@ export type ExerciseInstance =
   | TileTranslateInstance
   | SentenceGapInstance
   | ChooseSentenceInstance
-  | WritingInstance;
+  | WritingInstance
+  | FormsTypingInstance
+  | FormsGapInstance
+  | FormsListeningInstance;
 
 interface Entry<I, A> {
   exercise: ExerciseKind;
@@ -81,6 +93,12 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
       return entry({ exercise: "choose-sentence", View: ChooseSentenceView, grade: gradeChooseSentence });
     case "writing":
       return entry({ exercise: "writing", View: WritingView, grade: gradeWriting });
+    case "forms-typing":
+      return entry({ exercise: "forms-typing", View: FormsTypingView, grade: gradeFormsTyping });
+    case "forms-gap":
+      return entry({ exercise: "forms-gap", View: FormsGapView, grade: gradeFormsGap });
+    case "forms-listening":
+      return entry({ exercise: "forms-listening", View: FormsListeningView, grade: gradeFormsListening });
   }
 }
 

@@ -5,7 +5,8 @@ import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
 import { buildListeningChoice, buildListeningTyping } from "@/learning/exercises/listening";
 import { buildRecall } from "@/learning/exercises/recall";
-import { word } from "@/learning/exercises/fixtures";
+import { forms, word } from "@/learning/exercises/fixtures";
+import { buildFormsGap, buildFormsListening, buildFormsTyping } from "@/learning/exercises/forms";
 import { isSoundEnabled, playAnswerSound } from "@/lib/answer-sound";
 import { ExerciseRunner, type RunnerStep } from "./exercise-runner";
 import { CORRECT_FEEDBACK_MS } from "./feedback-panel";
@@ -330,5 +331,37 @@ describe("finishing", () => {
       await answer(true);
       expect(play).not.toHaveBeenCalled();
     });
+  });
+});
+
+describe("verb forms exercises (feature 008)", () => {
+  const go = word("go", { pos: "verb", meaningsVi: ["đi"] });
+  const goForms = forms("go", ["went"], ["gone"], { audio: "c".repeat(64) });
+
+  it("types the past form and reveals all three forms", async () => {
+    const { onOutcome } = setup([{ key: "t", type: "exercise", instance: buildFormsTyping({ forms: goForms, word: go, form: "past" }, 0), seed: 0 }]);
+    expect(screen.getByText("Gõ dạng quá khứ (V2) của động từ")).toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText("Dạng quá khứ (V2)"), { target: { value: "went" } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(screen.getByRole("group", { name: "Ba dạng của động từ" })).toHaveTextContent("go – went – gone");
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ itemId: "forms:go", exercise: "forms-typing", result: { correct: true } });
+  });
+
+  it("chooses the form for a sentence", async () => {
+    const instance = buildFormsGap({ forms: goForms, word: go }, 0)!;
+    const { onOutcome } = setup([{ key: "g", type: "exercise", instance, seed: 0 }]);
+    expect(screen.getByText("Yesterday she ___ home.")).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole("radio")[instance.answerIndex]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "forms-gap", result: { correct: true, expected: "went" } });
+  });
+
+  it("listens to the three forms and chooses the spelling", async () => {
+    const instance = buildFormsListening({ forms: goForms, word: go }, 1)!;
+    const { onOutcome } = setup([{ key: "l", type: "exercise", instance, seed: 1 }]);
+    expect(screen.getByRole("button", { name: /ba dạng cần nghe/ })).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole("radio")[(instance.answerIndex + 1) % 4]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "forms-listening", result: { correct: false, expected: "go, went, gone" } });
   });
 });

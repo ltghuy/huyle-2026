@@ -24,6 +24,8 @@ export function levelsFor(level: Level): Level[] {
 async function loadIndex(client: QueryClient, levels: readonly Level[]): Promise<LoadedIndex> {
   const requests = [
     fetchContent(client, "grammar"),
+    // All levels in one small request, like grammar (feature 008).
+    fetchContent(client, "forms"),
     ...levels.flatMap((level) => [fetchContent(client, "word", level), fetchContent(client, "sentence", level), fetchContent(client, "writing", level)]),
   ];
   const [loaded, tombstones] = await Promise.all([Promise.all(requests), loadTombstones()]);
@@ -36,7 +38,8 @@ async function loadIndex(client: QueryClient, levels: readonly Level[]): Promise
 }
 
 /**
- * Words, sentences and writing tasks for `levels`, plus all grammar, in one
+ * Words, sentences and writing tasks for `levels`, plus all grammar and all
+ * irregular verb forms, in one
  * lookup index. Each kind/level is loaded once per visit and shared, and the
  * index is built once per set of levels, so a screen opened again shows its
  * content at once. Nothing loads while `levels` is null.

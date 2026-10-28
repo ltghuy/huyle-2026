@@ -12,7 +12,12 @@ import {
 } from "./types";
 
 export const SNAPSHOT_APP = "learn-english";
-export const SNAPSHOT_VERSION = 1;
+/**
+ * 2 (feature 008): cards can be `forms:` (an irregular verb's forms). A
+ * version 1 file has none, so it upgrades unchanged; an app that only knows
+ * version 1 refuses version 2 as "newer-version" instead of dropping cards.
+ */
+export const SNAPSHOT_VERSION = 2;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LESSON_DAYS = 14;
@@ -73,7 +78,7 @@ const count = z.number().int().nonnegative();
 const level = z.enum(LEVELS);
 
 const cardSchema = z.object({
-  itemId: z.union([z.templateLiteral(["word:", z.string()]), z.templateLiteral(["grammar:", z.string()])]),
+  itemId: z.union([z.templateLiteral(["word:", z.string()]), z.templateLiteral(["grammar:", z.string()]), z.templateLiteral(["forms:", z.string()])]),
   due: time,
   stability: z.number(),
   difficulty: z.number(),
@@ -232,7 +237,10 @@ export type ParseResult =
 export type Migration = (raw: Record<string, unknown>) => Record<string, unknown>;
 
 /** Keyed by the version they upgrade from. Version 1 is the first, so none yet. */
-export const MIGRATIONS: Record<number, Migration> = {};
+export const MIGRATIONS: Record<number, Migration> = {
+  // 1 → 2: only adds `forms:` cards, which a version 1 file can't contain.
+  1: (snapshot) => snapshot,
+};
 
 /** Validates a backup file (text or parsed JSON), upgrading older versions. */
 export function parseSnapshot(input: unknown, migrations: Record<number, Migration> = MIGRATIONS): ParseResult {

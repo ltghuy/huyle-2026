@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { grammar, sentence, word } from "@/learning/exercises/fixtures";
+import { forms, grammar, sentence, word } from "@/learning/exercises/fixtures";
+import { reviewSession } from "./review";
 import { getAllAttempts } from "@/storage/attempts";
 import { getCard, putCards } from "@/storage/cards";
 import { makeCard, resetStorage } from "@/storage/test-utils";
@@ -20,7 +21,9 @@ const example = sentence("apple-1", {
   grammarSlug: "present-simple",
   gapCandidates: [3],
 });
-const index = buildContentIndex([...words, simple, example], new Set(["word:house-gone"]));
+const go = word("go", { pos: "verb", meaningsVi: ["đi"] });
+const goForms = forms("go", ["went"], ["gone"], { audio: "b".repeat(64) });
+const index = buildContentIndex([...words, simple, example, go, goForms], new Set(["word:house-gone"]));
 
 describe("prepareStep", () => {
   it("builds a study card with its example sentences", () => {
@@ -52,6 +55,25 @@ describe("prepareStep", () => {
   });
 });
 
+describe("verb forms steps (feature 008)", () => {
+  it.each(["forms-typing", "forms-gap", "forms-listening"] as const)("builds %s on the forms card", (kind) => {
+    const step = prepareStep({ kind, itemIds: ["forms:go"], seed: 2 }, index, "k");
+    expect(step).toMatchObject({ type: "exercise", instance: { kind, targetId: "forms:go", verb: { headword: "go" } } });
+  });
+
+  it("gives listening a typing fallback, and skips forms whose verb is gone", () => {
+    expect(prepareStep({ kind: "forms-listening", itemIds: ["forms:go"], seed: 1 }, index, "k")).toMatchObject({ fallback: { kind: "forms-typing" } });
+    const orphan = buildContentIndex([forms("fly", ["flew"], ["flown"])]);
+    expect(prepareStep({ kind: "forms-typing", itemIds: ["forms:fly"], seed: 1 }, orphan, "k")).toBeNull();
+  });
+
+  it("reviews forms cards with forms exercises, never multiple choice (AC-009)", () => {
+    const due = [makeCard("forms:go", 0, { reps: 0 }), makeCard("forms:go", 0, { reps: 1 }), makeCard("forms:go", 0, { reps: 2 })];
+    const kinds = reviewSession(due, index, 0).map((descriptor) => descriptor.kind);
+    expect(new Set(kinds)).toEqual(new Set(["forms-typing", "forms-gap", "forms-listening"]));
+  });
+});
+
 describe("recordOutcome", () => {
   const now = Date.UTC(2026, 9, 27, 3);
 
@@ -69,6 +91,17 @@ describe("recordOutcome", () => {
     expect(card?.reps).toBe(1);
     const [attempt] = await getAllAttempts();
     expect(attempt).toMatchObject({ itemId: "word:apple", correct: true, rating: "good", context: "lesson", selfMarked: false });
+  });
+
+  it("schedules a verb's forms on their own card, leaving its word card alone (008 AC-008)", async () => {
+    await putCards([makeCard("word:go", now + 5 * 86_400_000, { reps: 4 })]);
+    await recordOutcome({
+      outcome: { itemId: "forms:go", exercise: "forms-typing", result: { correct: false, expected: "went" }, ms: 4000, related: [] },
+      context: "review",
+      now,
+    });
+    expect(await getCard("forms:go")).toMatchObject({ itemId: "forms:go", reps: 1 });
+    expect(await getCard("word:go")).toMatchObject({ due: now + 5 * 86_400_000, reps: 4 });
   });
 
   it("brings related cards forward after a wrong sentence answer", async () => {

@@ -56,3 +56,35 @@ describe("buildSheet", () => {
     expect(data).toContain("\\u003c/script>");
   });
 });
+
+describe("verb forms units (feature 008)", () => {
+  const verb = { ...(word("go", "travel") as object), id: "word:go-v", status: "approved", body: { ...((word("go", "travel") as { body: object }).body), headword: "go", pos: "verb" } } as SourceItem;
+  const forms = {
+    id: "forms:go-v",
+    kind: "forms",
+    level: "A1",
+    status: "draft",
+    body: {
+      wordId: "word:go-v",
+      past: [{ text: "went", ipa: "/wɛnt/" }],
+      participle: [{ text: "gone", ipa: "" }],
+      audio: "",
+      practice: [{ en: "She ___ home.", answer: "past", vi: "Cô ấy về nhà." }, { en: "They have ___.", answer: "participle", vi: "Họ đã đi." }],
+    },
+  } as unknown as SourceItem;
+
+  it("makes a unit with the verb's base form, after writing and before words", () => {
+    const units = reviewUnits([verb, forms, word("tea", "food-drink")]);
+    expect(units.map((unit) => [unit.id, unit.kind, unit.headword])).toEqual([
+      ["forms:go-v", "forms", "go"],
+      ["word:tea", "word", undefined],
+    ]);
+    expect(units[0].ids).toEqual(["forms:go-v"]);
+  });
+
+  it("shows the three forms and the practice answers on the sheet", () => {
+    const html = buildSheet("A1", reviewUnits([verb, forms]), {});
+    expect(html).toContain('<option value="forms">Verb forms</option>');
+    expect(html).toContain('"headword":"go"');
+  });
+});

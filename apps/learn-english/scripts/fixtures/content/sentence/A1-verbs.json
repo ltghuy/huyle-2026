@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sentence:fx-go-v",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I go to school.",
+      "vi": "Tôi đi học.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "go",
+        "to",
+        "school"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:go-v"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-eat-v",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "We eat rice.",
+      "vi": "Chúng tôi ăn cơm.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "eat",
+        "rice"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:eat-v"
+      ]
+    }
+  }
+]

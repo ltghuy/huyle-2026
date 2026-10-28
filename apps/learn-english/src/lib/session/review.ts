@@ -23,5 +23,9 @@ export function reviewSession(due: readonly StoredCard[], index: ContentIndex, n
   const wordsById = new Map<string, ContentItemOf<"word">>();
   for (const item of index.byId.values()) if (item.kind === "word") wordsById.set(item.id, item);
   const base = hashString(String(Math.floor(now / 60_000)));
-  return reviewExercises(due.slice(0, REVIEW_CAP), wordsById, (i, itemId) => hashString(`${base}|review|${i}|${itemId}`));
+  const audioOf = (id: string) => {
+    const item = index.byId.get(id);
+    return item?.kind === "forms" ? item.body.audio : "";
+  };
+  return reviewExercises(due.slice(0, REVIEW_CAP), wordsById, (i, itemId) => hashString(`${base}|review|${i}|${itemId}`), audioOf);
 }
