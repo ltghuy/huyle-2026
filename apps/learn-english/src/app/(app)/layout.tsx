@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { AccountLink } from "@/components/shell/account-link";
 import { AppSidebar } from "@/components/shell/app-sidebar";
+import { BackToTop } from "@/components/shell/back-to-top";
 import { NamePrompt } from "@/components/name/name-prompt";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
@@ -22,6 +23,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-8">{children}</main>
       </SidebarInset>
       <MobileNav />
+      <BackToTop />
       <SyncRunner />
       <StatsRunner />
       <NamePrompt />

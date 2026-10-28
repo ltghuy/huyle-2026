@@ -183,7 +183,7 @@ export function GrammarTopic({ grammar, index, done, onCardsChanged }: GrammarTo
       ) : null}
 
       {body.practice.length > 0 || !done ? (
-        <div className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] -mx-4 border-t bg-background/95 px-4 py-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
+        <div data-bottom-bar className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] -mx-4 border-t bg-background/95 px-4 py-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
           {body.practice.length > 0 ? (
             <Button size="lg" className="h-12 w-full text-base sm:w-auto sm:px-8" onClick={() => setPracticing(true)}>
               <Dumbbell aria-hidden /> Luyện tập

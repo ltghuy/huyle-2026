@@ -391,6 +391,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - CMUdict's first entry isn't always the right one for a verb form: "read" lists /rɛd/ first, "cost" has /kɑst/ and /kɔst/, "forbidden" has odd entries. `build-ipa.ts` gives a form spelled like its base the base word's reviewed IPA, except "read" (/rɛd/); check new forms against their base before approving <!-- feature:008 date:2026-10-28 -->
 - The e2e fixture's base files (`scripts/fixtures/content/{kind}/A1.json`) are pinned by the script tests (counts, generated placement); add e2e-only content in separate files (`A1-verbs.json`), which the publish step reads too <!-- feature:008 date:2026-10-28 -->
 - A new D1 migration must be applied to production (`pnpm exec wrangler d1 migrations apply learn-english --remote`) before deploying code that reads the table; the e2e seed applies every migration to its own local state <!-- feature:007 date:2026-10-28 -->
+- Floating corner buttons on phones (`BackToTop`, quick 020) sit above the bottom nav, but a page's own sticky bottom action bar (the grammar topic's "Luyện tập") would cover them. Give such a bar `data-bottom-bar`: `BackToTop` moves up while `body:has([data-bottom-bar])` matches, below `md` only <!-- quick:020 date:2026-10-28 -->
 
 ## Codebase Feedback
 
