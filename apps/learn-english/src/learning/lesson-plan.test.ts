@@ -4,7 +4,10 @@ import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
 import {
   buildLessonPlan,
   dueCards,
+  estimateMinutes,
+  estimateSeconds,
   isGrammarDay,
+  LESSON_BUDGET_SECONDS,
   isLevelExhausted,
   type LessonContent,
   type LessonPlanInput,
@@ -141,23 +144,35 @@ describe("buildLessonPlan", () => {
     expect(ids.slice(0, 3)).toEqual(["word:a1-01", "word:a1-03", "word:a1-04"]);
   });
 
-  it("caps review at 50, lowest retrievability first, and drops to 5 new words on a backlog", () => {
+  it("reviews as many due items as fit in the time budget, lowest retrievability first, and drops to 5 new words on a backlog", () => {
     const cards = Array.from({ length: 60 }, (_, i) => card(`word:a1-${String(i % 30).padStart(2, "0")}-${i}`, { stability: 1 + i, daysSinceReview: 10 }));
     const lesson = buildLessonPlan(input({ cards }));
     const review = part(lesson, "review")!.exercises;
-    expect(review).toHaveLength(50);
+    expect(review.length).toBeGreaterThan(0);
+    expect(review.length).toBeLessThan(60);
     const r = review.map((e) => retrievability(cards.find((c) => c.itemId === e.itemIds[0])!, NOW));
     expect(r).toEqual([...r].sort((a, b) => a - b));
-    // The most stable (best remembered) ten roll to later days.
+    // The most stable (best remembered) items roll to later days.
     expect(review.map((e) => e.itemIds[0])).not.toContain(cards[59].itemId);
     expect(part(lesson, "new-words")!.exercises.filter((e) => e.kind === "study")).toHaveLength(5);
   });
 
-  it("keeps 10 new words with exactly 50 due", () => {
-    const cards = Array.from({ length: 50 }, (_, i) => card(`word:x-${i}`));
+  it("keeps 10 new words when every due review fits", () => {
+    const cards = Array.from({ length: 5 }, (_, i) => card(`word:x-${i}`));
     const lesson = buildLessonPlan(input({ cards }));
-    expect(part(lesson, "review")!.exercises).toHaveLength(50);
+    expect(part(lesson, "review")!.exercises).toHaveLength(5);
     expect(part(lesson, "new-words")!.exercises.filter((e) => e.kind === "study")).toHaveLength(10);
+  });
+
+  it.each([GRAMMAR_DATE, PLAIN_DATE])("keeps the lesson within 15 minutes, even with 200 reviews due (%s)", (date) => {
+    const steps = (cards: StoredCard[]) => buildLessonPlan(input({ date, cards })).plan.flatMap((p) => p.exercises);
+    const backlog = Array.from({ length: 200 }, (_, i) => card(`word:b-${i}`, { stability: 1 + i }));
+    for (const cards of [[], backlog]) {
+      expect(estimateSeconds(steps(cards))).toBeLessThanOrEqual(LESSON_BUDGET_SECONDS);
+      expect(estimateMinutes(steps(cards))).toBeLessThanOrEqual(15);
+    }
+    // The backlog fills most of the budget instead of leaving it unused.
+    expect(estimateSeconds(steps(backlog))).toBeGreaterThan(LESSON_BUDGET_SECONDS - 60);
   });
 
   it("only reviews cards due by the end of the learner's day", () => {

@@ -117,7 +117,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [x] AC-014: WHEN a learner opens the home screen THEN system SHALL show today's lesson made of, in order: review of due vocabulary and grammar, new vocabulary, a grammar point (when scheduled), sentence construction, and a written assignment, with multiple-choice questions mixed into the parts
+- [x] AC-014: WHEN a learner opens the home screen THEN system SHALL show today's lesson made of, in order: review of due vocabulary and grammar, new vocabulary, a grammar point (when scheduled), sentence construction, and a written assignment, with multiple-choice questions mixed into the parts, sized to take about 15 minutes at most (quick task 011)
 - [x] AC-015: WHEN a learner completes every part of today's lesson THEN system SHALL award attendance points once for that day and increase the streak by one
 - [x] AC-016: WHEN a learner leaves a lesson partway THEN system SHALL save their place and resume from the same part when they return the same day
 - [x] AC-017: WHEN a learner views their profile THEN system SHALL show total points, current streak, longest streak and a calendar of days attended
@@ -290,6 +290,6 @@ version of the app. Anonymous usage counts show how the app is used.
 - Revised by the owner (2026-10-26): no sign-in, so the app stays within free hosting. Progress lives on the learner's device with an export/import backup file. Then (same day) AI was dropped from the running app: sentence tasks are generated from reviewed content with fixed answers, free writing is self-checked against model answers. The owner kept a backend and database for three jobs: serving content (updatable without a release), sync codes, and anonymous usage counts.
 - AC-046 (bot check for AI feedback) was retired with the AI feedback; its ID is not reused.
 - Proposals accepted by the owner (2026-10-26):
-  - Daily lesson: 10 new words; at most 50 reviews (backlog beyond that rolls to later days).
+  - Daily lesson: 10 new words; at most 50 reviews (backlog beyond that rolls to later days). Revised 2026-10-28 (quick task 011): the lesson also fits a 15-minute budget of estimated seconds per exercise kind; due reviews fill the time left after the fixed parts, and new words drop to 5 when they don't all fit.
   - Attendance: 10 points per completed day; +20 bonus when the streak reaches 7, 30 and 100 days.
   - Address: english.huyle.work.

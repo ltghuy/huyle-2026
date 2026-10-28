@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BookOpenCheck, CheckCircle2, Circle, PartyPopper } from "lucide-react";
+import { estimateMinutes } from "@/learning/lesson-plan";
 import type { DailyLesson } from "@/learning/types";
 import { buttonVariants } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -71,7 +72,7 @@ export function TodayLesson() {
               {done ? "Bạn đã học xong hôm nay" : startAt > 0 ? "Học tiếp bài hôm nay" : "Bài hôm nay đã sẵn sàng"}
             </h2>
             <p className="text-sm text-muted-foreground">
-              {done ? "Hẹn gặp lại bạn ngày mai." : `${steps.length} bước · khoảng ${Math.max(5, Math.round(steps.length * 0.4))} phút`}
+              {done ? "Hẹn gặp lại bạn ngày mai." : `${steps.length} bước · khoảng ${estimateMinutes(lesson.plan.flatMap((part) => part.exercises))} phút`}
             </p>
           </div>
           {done ? <PartyPopper className="size-7 text-success" aria-hidden /> : null}

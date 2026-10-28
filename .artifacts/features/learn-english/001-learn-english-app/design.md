@@ -266,7 +266,7 @@ Greenfield: every field is new.
 | `ts-fsrs` pinned to `5.4.2`, imported only by `src/learning/srs.ts` | 6.0 beta renames the API |
 | Rating: wrong → Again; correct with hint, typo or `ms > 8000` → Hard; otherwise Good; self-marked right → Good, wrong → Again | Spec's 8 s slow-recall threshold; research says Hard is never for a wrong answer |
 | Daily plan built once per local date, stored with its content version; exercise variants seeded by `(itemId, date)` | Resume consistency (AC-016) |
-| Review cap 50 by lowest retrievability; new words 10, or 5 when more than 50 reviews are overdue (tentative) | Spec numbers + backlog edge case |
+| Review cap 50 by lowest retrievability, and only as many as fit a 15-minute budget (`LESSON_BUDGET_SECONDS`, per-kind `STEP_SECONDS`); new words 10, or 5 when the due reviews don't all fit (revised in quick 011, was "more than 50 overdue") | Spec numbers + backlog edge case |
 | IndexedDB via `idb`; cross-tab via `BroadcastChannel`; attendance written with `add()` keyed by date | Indexed queries; double award impossible across tabs |
 | **Sync: snapshot + client-side merge + optimistic concurrency (`rev`)** | Simple server (store a blob). Merge rules: attempts union by UUID; card with later `last_review` wins (tie: more `reps`); attendance union by date (first row wins, so no double points); lessons per date: completed wins, else the further position; profile fields last-writer-wins by `fieldUpdatedAt` (AC-050) |
 | Sync code: 12 Crockford base32 chars (60 bits) shown `XXXX-XXXX-XXXX`, generated server-side; only `SHA-256(code)` is stored | Easy to type, no 0/O or 1/I confusion; infeasible to guess; a D1 leak doesn't reveal codes |
@@ -492,7 +492,7 @@ Keep `@playwright/test` at the workspace version (1.64.1) and one `@types/react`
 | Component | Test File | Scenarios |
 |-----------|-----------|-----------|
 | SRS + rating | `src/learning/srs.test.ts`, `rating.test.ts` | wrong → soon; fast correct → longer; slow/typo → Hard; self-mark mapping |
-| Planner | `src/learning/lesson-plan.test.ts` | part order; cap 50 by retrievability; 10/5 new; deterministic per date; tombstoned items skipped |
+| Planner | `src/learning/lesson-plan.test.ts` | part order; reviews by retrievability within the 15-minute budget; 10/5 new; deterministic per date; tombstoned items skipped |
 | Attendance | `src/learning/attendance.test.ts` | streak +1, reset, longest kept, bonuses, time-zone boundary |
 | Hard words | `src/learning/hard-words.test.ts` | 3-of-8, avg > 8 s, exit after 4 fast correct |
 | Placement | `src/learning/placement.test.ts` | ≤ 30 items, staging, estimate |
@@ -542,5 +542,5 @@ Keep `@playwright/test` at the workspace version (1.64.1) and one `@types/react`
 
 - [ ] One-off drafting cost (Opus 5.5 via Batches) for ~9k words + sentences + grammar + writing tasks: roughly $40–80 (estimate). Acceptable?
 - [ ] Chirp 3 HD voice: owner picks from 4 male samples before the full batch.
-- [ ] Tentative: new words drop from 10 to 5 when more than 50 reviews are overdue.
+- [ ] Tentative: new words drop from 10 to 5 when the due reviews don't all fit in the 15-minute budget (quick 011). The per-kind seconds in `STEP_SECONDS` are estimates; check them against real attempt times.
 - [ ] To verify during implementation: `caches.default` inside OpenNext route handlers; Rate Limiting binding on the free plan; D1 `execute --file` limits; the D1 test double for Vitest.

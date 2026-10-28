@@ -1,6 +1,7 @@
 // Builds one day's lesson (AC-014): review → new words → grammar (when
-// scheduled) → sentences → writing. Pure and deterministic: the same inputs
-// always give the same plan, so a lesson can be rebuilt and resumed.
+// scheduled) → sentences → writing, sized to fit LESSON_BUDGET_SECONDS. Pure
+// and deterministic: the same inputs always give the same plan, so a lesson
+// can be rebuilt and resumed.
 import type { ContentItemOf } from "../content/schema";
 import { localDate } from "./attendance";
 import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
@@ -21,10 +22,37 @@ export type WritingItem = ContentItemOf<"writing">;
 
 export const REVIEW_CAP = 50;
 export const NEW_WORDS = 10;
-/** New words on a day with more than REVIEW_CAP reviews due (backlog). */
+/** New words on a day when the due reviews don't all fit in the budget (backlog). */
 export const NEW_WORDS_BACKLOG = 5;
 export const SENTENCE_TASKS = 3;
 export const GRAMMAR_PRACTICE = 3;
+
+/** A daily lesson should take about 15 minutes at most (quick 011). */
+export const LESSON_BUDGET_SECONDS = 15 * 60;
+
+/**
+ * Rough seconds a learner spends on one step of each kind. These are
+ * estimates, not measurements; they size the lesson and its "khoảng N phút".
+ */
+export const STEP_SECONDS: Record<ExerciseKind, number> = {
+  study: 20,
+  mcq: 10,
+  "missing-letters": 15,
+  listening: 15,
+  recall: 12,
+  "grammar-gap": 20,
+  "word-order": 25,
+  "sentence-gap": 20,
+  "choose-sentence": 20,
+  "tile-translate": 35,
+  writing: 150,
+};
+/** Reading a grammar point takes longer than a word card. */
+const GRAMMAR_STUDY_SECONDS = 90;
+/** Seconds set aside per sentence task before the kinds are chosen: the slowest kind. */
+const SENTENCE_RESERVE_SECONDS = 35;
+/** A new word is a study card plus a multiple-choice check. */
+const NEW_WORD_SECONDS = STEP_SECONDS.study + STEP_SECONDS.mcq;
 
 const WORD_REVIEW_KINDS = ["mcq", "missing-letters", "listening", "recall"] as const;
 const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "tile-translate"] as const;
@@ -62,6 +90,31 @@ export function hashString(text: string): number {
     hash = Math.imul(hash, 0x01000193);
   }
   return hash >>> 0;
+}
+
+export function stepSeconds(step: ExerciseDescriptor): number {
+  return step.kind === "study" && step.itemIds[0]?.startsWith("grammar:") ? GRAMMAR_STUDY_SECONDS : STEP_SECONDS[step.kind];
+}
+
+export function estimateSeconds(steps: readonly ExerciseDescriptor[]): number {
+  return steps.reduce((total, step) => total + stepSeconds(step), 0);
+}
+
+/** Whole minutes for "khoảng N phút", at least 1. */
+export function estimateMinutes(steps: readonly ExerciseDescriptor[]): number {
+  return Math.max(1, Math.round(estimateSeconds(steps) / 60));
+}
+
+/** How many of `candidates`, taken in order, fit in `seconds`. */
+function countThatFit(candidates: readonly ExerciseDescriptor[], seconds: number): number {
+  let used = 0;
+  let count = 0;
+  for (const candidate of candidates) {
+    used += stepSeconds(candidate);
+    if (used > seconds) break;
+    count++;
+  }
+  return count;
 }
 
 function dayNumber(date: string): number {
@@ -153,18 +206,6 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
   const grammarById = new Map<string, GrammarItem>();
   for (const level of LEVELS) for (const topic of content.grammarByLevel[level] ?? []) grammarById.set(topic.id, topic);
 
-  // Review: the most-forgotten due items first; the rest roll to later days.
-  const due = dueCards(input);
-  const reviewed = due.slice(0, REVIEW_CAP);
-  const review = reviewExercises(reviewed, wordsById, (i, itemId) => seedFor("review", i, itemId));
-
-  // New words: a study card, then a multiple-choice check, for each.
-  const newWords = pickNewWords(profile.level, cards, content, due.length > REVIEW_CAP ? NEW_WORDS_BACKLOG : NEW_WORDS);
-  const newWordSteps = newWords.flatMap((word, i) => [
-    step("new-words", 2 * i, "study", word.id),
-    step("new-words", 2 * i + 1, "mcq", word.id),
-  ]);
-
   // Grammar: every 2nd day, the next topic at the level the learner hasn't started.
   const carded = new Set<string>(cards.map((card) => card.itemId));
   const topic = isGrammarDay(date)
@@ -178,6 +219,33 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
         ),
       ]
     : [];
+
+  // Writing: one task at the level, not one used recently when possible.
+  const writingPool = content.writing.filter((task) => task.level === profile.level && !content.skip.has(task.id));
+  const recent = new Set(input.recentWritingIds ?? []);
+  const fresh = writingPool.filter((task) => !recent.has(task.id));
+  const choices = fresh.length > 0 ? fresh : writingPool;
+  const writingTask = choices.length > 0 ? choices[dayNumber(date) % choices.length] : undefined;
+  const writingSteps = writingTask ? [step("writing", 0, "writing", writingTask.id)] : [];
+
+  // Review: the most-forgotten due items first, as many as fit in the time
+  // left after the fixed parts and 10 new words. When they don't all fit, new
+  // words drop to 5 to make room; the rest roll to later days.
+  const due = dueCards(input);
+  const seedReview = (i: number, itemId: string) => seedFor("review", i, itemId);
+  const reviewCandidates = reviewExercises(due.slice(0, REVIEW_CAP), wordsById, seedReview);
+  const reserved = estimateSeconds([...grammarSteps, ...writingSteps]) + SENTENCE_TASKS * SENTENCE_RESERVE_SECONDS;
+  const reviewsFor = (newCount: number) => countThatFit(reviewCandidates, LESSON_BUDGET_SECONDS - reserved - newCount * NEW_WORD_SECONDS);
+  const newCount = reviewsFor(NEW_WORDS) < due.length ? NEW_WORDS_BACKLOG : NEW_WORDS;
+  const reviewed = due.slice(0, reviewsFor(newCount));
+  const review = reviewExercises(reviewed, wordsById, seedReview);
+
+  // New words: a study card, then a multiple-choice check, for each.
+  const newWords = pickNewWords(profile.level, cards, content, newCount);
+  const newWordSteps = newWords.flatMap((word, i) => [
+    step("new-words", 2 * i, "study", word.id),
+    step("new-words", 2 * i + 1, "mcq", word.id),
+  ]);
 
   // Sentences: from today's new words' examples, then the grammar topic's,
   // then the reviewed words' as a fallback.
@@ -201,14 +269,6 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
       break;
     }
   }
-
-  // Writing: one task at the level, not one used recently when possible.
-  const writingPool = content.writing.filter((task) => task.level === profile.level && !content.skip.has(task.id));
-  const recent = new Set(input.recentWritingIds ?? []);
-  const fresh = writingPool.filter((task) => !recent.has(task.id));
-  const choices = fresh.length > 0 ? fresh : writingPool;
-  const writingTask = choices.length > 0 ? choices[dayNumber(date) % choices.length] : undefined;
-  const writingSteps = writingTask ? [step("writing", 0, "writing", writingTask.id)] : [];
 
   const parts: [LessonPartKind, ExerciseDescriptor[]][] = [
     ["review", review],
