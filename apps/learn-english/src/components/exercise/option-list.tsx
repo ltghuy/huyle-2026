@@ -13,22 +13,27 @@ interface OptionListProps {
   /** Language of the option text, for screen readers. */
   lang?: "en" | "vi";
   label: string;
+  /** "letters" marks options A–D (exam style) and also takes the A–D keys. */
+  marks?: "numbers" | "letters";
 }
 
-/** Big single-choice buttons; keys 1–4 pick an option until it is graded. */
-export function OptionList({ options, selected, onSelect, answerIndex, lang, label }: OptionListProps) {
+const LETTERS = "ABCDEFGH";
+
+/** Big single-choice buttons; keys 1–4 (and A–D when lettered) pick an option until it is graded. */
+export function OptionList({ options, selected, onSelect, answerIndex, lang, label, marks = "numbers" }: OptionListProps) {
   const graded = answerIndex !== undefined;
 
   useEffect(() => {
     if (graded) return;
     function handleKey(event: KeyboardEvent) {
       if (event.target instanceof HTMLInputElement || event.metaKey || event.ctrlKey) return;
-      const index = Number(event.key) - 1;
+      const letter = marks === "letters" && event.key.length === 1 ? LETTERS.indexOf(event.key.toUpperCase()) : -1;
+      const index = letter >= 0 ? letter : Number(event.key) - 1;
       if (Number.isInteger(index) && index >= 0 && index < options.length) onSelect(index);
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [graded, options.length, onSelect]);
+  }, [graded, options.length, onSelect, marks]);
 
   return (
     <div role="radiogroup" aria-label={label} className="grid gap-3">
@@ -52,7 +57,7 @@ export function OptionList({ options, selected, onSelect, answerIndex, lang, lab
             )}
           >
             <span className="flex size-7 shrink-0 items-center justify-center rounded-md border text-sm text-muted-foreground" aria-hidden>
-              {index + 1}
+              {marks === "letters" ? LETTERS[index] : index + 1}
             </span>
             <span className="flex-1" lang={lang}>
               {option}

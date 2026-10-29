@@ -9,6 +9,7 @@ import {
   type FormsTypingInstance,
 } from "@/learning/exercises/forms";
 import { gradeDictation, type DictationInstance } from "@/learning/exercises/dictation";
+import { gradeFindError, type FindErrorInstance } from "@/learning/exercises/find-error";
 import { gradeGrammarGap, type GrammarGapInstance } from "@/learning/exercises/grammar-gap";
 import {
   gradeListeningChoice,
@@ -35,6 +36,7 @@ import {
 } from "./sentence-exercises";
 import { FormsGapView, FormsListeningView, FormsTypingView } from "./forms-exercises";
 import { DictationView } from "./dictation-exercise";
+import { FindErrorView } from "./find-error-exercise";
 import type { ExerciseViewProps } from "./types";
 import {
   GrammarGapView,
@@ -59,6 +61,7 @@ export type ExerciseInstance =
   | ChooseSentenceInstance
   | WritingInstance
   | DictationInstance
+  | FindErrorInstance
   | FormsTypingInstance
   | FormsGapInstance
   | FormsListeningInstance;
@@ -96,6 +99,8 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
       return entry({ exercise: "choose-sentence", View: ChooseSentenceView, grade: gradeChooseSentence });
     case "writing":
       return entry({ exercise: "writing", View: WritingView, grade: gradeWriting });
+    case "find-error":
+      return entry({ exercise: "find-error", View: FindErrorView, grade: gradeFindError });
     case "dictation":
       return entry({ exercise: "dictation", View: DictationView, grade: gradeDictation });
     case "forms-typing":
@@ -117,6 +122,7 @@ export function itemIdOf(instance: ExerciseInstance): string {
     case "sentence-gap":
     case "choose-sentence":
     case "dictation":
+    case "find-error":
       return instance.sentenceId;
     case "writing":
       return instance.writingId;

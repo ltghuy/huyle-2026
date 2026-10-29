@@ -461,3 +461,52 @@ describe("dictation (feature 010)", () => {
   });
 });
 
+describe("find the error (feature 011)", () => {
+  async function findErrorStep() {
+    const { buildFindError } = await import("@/learning/exercises/find-error");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("ability", {
+      tokens: ["She", "has", "the", "ability", "to", "learn", "languages", "fast."],
+      vi: "Cô ấy có khả năng học ngôn ngữ nhanh.",
+      wrongVariants: [{ en: "She has the ability to learning languages fast.", explanationVi: "Sau \"to\" dùng động từ nguyên mẫu." }],
+    });
+    const instance = buildFindError({ sentence: item }, 5)!;
+    return { step: { key: "f", type: "exercise" as const, instance, seed: 5 }, instance };
+  }
+
+  it("letters four underlined parts and their choices A to D (AC-001, AC-004)", async () => {
+    const { step, instance } = await findErrorStep();
+    setup([step]);
+    expect(screen.getByText("Chọn phần sai trong câu")).toBeInTheDocument();
+    const choices = screen.getAllByRole("radio");
+    expect(choices).toHaveLength(4);
+    expect(choices.map((choice) => choice.textContent)).toEqual(instance.parts.map((part, i) => `${"ABCD"[i]}${part}`));
+    fireEvent.keyDown(window, { key: "c" });
+    expect(choices[2]).toHaveAttribute("aria-checked", "true");
+  });
+
+  it("explains the error and its replacement after a right pick (AC-005, AC-006)", async () => {
+    const { step, instance } = await findErrorStep();
+    const { onOutcome } = setup([step]);
+    fireEvent.keyDown(window, { key: "ABCD"[instance.answerIndex] });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ itemId: "sentence:ability", exercise: "find-error", result: { correct: true } });
+    const correction = screen.getByRole("group", { name: "Giải thích lỗi sai" });
+    expect(correction).toHaveTextContent("learning");
+    expect(correction).toHaveTextContent("learn");
+    expect(correction).toHaveTextContent("Sau \"to\" dùng động từ nguyên mẫu.");
+    expect(screen.getByText("Cô ấy có khả năng học ngôn ngữ nhanh.")).toBeInTheDocument();
+  });
+
+  it("says which part was picked and which was wrong after a wrong pick (AC-007, AC-008)", async () => {
+    const { step, instance } = await findErrorStep();
+    setup([step]);
+    const wrong = (instance.answerIndex + 1) % 4;
+    fireEvent.click(screen.getAllByRole("radio")[wrong]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Giải thích lỗi sai" })).toHaveTextContent(`Bạn chọn (${"ABCD"[wrong]}) ${instance.parts[wrong]}, phần này đúng.`);
+    expect(screen.getByText(", phần sai")).toBeInTheDocument();
+    expect(screen.getByText(", bạn đã chọn")).toBeInTheDocument();
+  });
+});

@@ -240,6 +240,22 @@ describe("buildLessonPlan", () => {
     expect(silent).not.toContain("dictation");
   });
 
+  it("includes find-the-error when a wrong version replaces one part (011 AC-011)", () => {
+    const plain = makeContent();
+    const findable = {
+      ...plain,
+      sentences: plain.sentences.map((s) => ({
+        ...s,
+        body: { ...s.body, en: "She has the ability to learn languages fast.", wrongVariants: [{ en: "She has the ability to learning languages fast.", explanationVi: "x" }] },
+      })),
+    };
+    const dates = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25"];
+    const kinds = dates.flatMap((date) => part(buildLessonPlan(input({ date, content: findable })), "sentences")!.exercises.map((e) => e.kind));
+    expect(kinds).toContain("find-error");
+    const plainKinds = dates.flatMap((date) => part(buildLessonPlan(input({ date })), "sentences")!.exercises.map((e) => e.kind));
+    expect(plainKinds).not.toContain("find-error");
+  });
+
   it("picks one writing task at the level, avoiding recent ones", () => {
     const lesson = buildLessonPlan(input({ recentWritingIds: ["writing:one", "writing:two"] }));
     expect(part(lesson, "writing")!.exercises).toEqual([expect.objectContaining({ kind: "writing", itemIds: ["writing:three"] })]);

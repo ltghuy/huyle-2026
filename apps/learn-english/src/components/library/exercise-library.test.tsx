@@ -50,6 +50,17 @@ describe("exercise sets", () => {
     expect(TYPE_LABELS.dictation).toBe("Nghe chép");
   });
 
+  it("lists Tìm lỗi sai for sentences with a usable wrong version (011 AC-009)", () => {
+    const findable = sentence("home-3", {
+      tokens: ["She", "has", "the", "ability", "to", "learn", "languages", "fast."],
+      wrongVariants: [{ en: "She has the ability to learning languages fast.", explanationVi: "Sau to dùng động từ nguyên mẫu." }],
+    });
+    const local = buildContentIndex([...items, { ...findable, topic: "home" }]);
+    const card = listSetCards(local, "A1").find((c) => c.key === "sentence.home")!;
+    expect(card.sets.find((set) => set.type === "find-error")).toMatchObject({ id: "find-error.A1.home", itemIds: ["sentence:home-3"] });
+    expect(TYPE_LABELS["find-error"]).toBe("Tìm lỗi sai");
+  });
+
   it("is deterministic per set and round", () => {
     const set = listSetCards(index, "A1")[0].sets[0];
     const keys = (round: number) => buildSetSteps(set, index, round).map((step) => (step.type === "exercise" ? JSON.stringify(step.instance) : ""));

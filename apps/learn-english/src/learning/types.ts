@@ -42,6 +42,8 @@ export const EXERCISE_KINDS = [
   "writing",
   // Hear a sentence and type it (feature 010).
   "dictation",
+  // Pick the underlined part that is wrong (feature 011).
+  "find-error",
   // An irregular verb's past and participle (feature 008).
   "forms-typing",
   "forms-gap",

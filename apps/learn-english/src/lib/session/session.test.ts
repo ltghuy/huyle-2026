@@ -59,6 +59,21 @@ describe("prepareStep", () => {
     expect(prepareStep({ kind: "dictation", itemIds: ["sentence:apple-1"], seed: 1 }, index, "k")).toBeNull(); // no audio
   });
 
+  it("builds find-the-error with the sentence's related cards, and skips sentences it can't use (011)", () => {
+    const findable = sentence("ability", {
+      tokens: ["She", "has", "the", "ability", "to", "learn", "languages", "fast."],
+      wrongVariants: [{ en: "She has the ability to learning languages fast.", explanationVi: "Sau to dùng động từ nguyên mẫu." }],
+      wordIds: ["word:apple"],
+    });
+    const local = buildContentIndex([...words, findable]);
+    expect(prepareStep({ kind: "find-error", itemIds: ["sentence:ability"], seed: 1 }, local, "k")).toMatchObject({
+      type: "exercise",
+      instance: { kind: "find-error", correction: "learn" },
+      related: { cardIds: ["word:apple"] },
+    });
+    expect(prepareStep({ kind: "find-error", itemIds: ["sentence:apple-1"], seed: 1 }, index, "k")).toBeNull();
+  });
+
   it("skips steps whose content is missing or can't support the exercise", () => {
     const descriptors = [
       { kind: "mcq" as const, itemIds: ["word:missing"], seed: 1 },

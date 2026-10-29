@@ -5,6 +5,7 @@
 import type { ContentItemOf } from "../content/schema";
 import { localDate } from "./attendance";
 import { canDictate } from "./exercises/dictation";
+import { canFindError } from "./exercises/find-error";
 import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
 import { retrievability } from "./srs";
 import {
@@ -48,6 +49,7 @@ export const STEP_SECONDS: Record<ExerciseKind, number> = {
   "tile-translate": 35,
   writing: 150,
   dictation: 35,
+  "find-error": 20,
   // Ôn tập only (feature 008); the lesson never plans them.
   "forms-typing": 12,
   "forms-gap": 12,
@@ -62,7 +64,7 @@ const NEW_WORD_SECONDS = STEP_SECONDS.study + STEP_SECONDS.mcq;
 
 const WORD_REVIEW_KINDS = ["mcq", "missing-letters", "listening", "recall"] as const;
 const FORMS_REVIEW_KINDS = ["forms-typing", "forms-gap", "forms-listening"] as const;
-const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "tile-translate", "dictation"] as const;
+const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "tile-translate", "dictation", "find-error"] as const;
 
 /** The content the planner reads; the caller builds it from the content cache. */
 export interface LessonContent {
@@ -304,5 +306,6 @@ function supports(kind: (typeof SENTENCE_KINDS)[number], sentence: SentenceItem)
   if (kind === "sentence-gap") return sentence.body.gapCandidates.length > 0;
   if (kind === "choose-sentence") return sentence.body.wrongVariants.length >= 3;
   if (kind === "dictation") return canDictate(sentence);
+  if (kind === "find-error") return canFindError(sentence);
   return true;
 }
