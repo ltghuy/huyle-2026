@@ -3,7 +3,7 @@ id: 010
 feature: dictation
 type: brownfield
 scope: medium
-status: to-review
+status: done
 branch: feature/learn-english
 created: 2026-10-29
 ---
@@ -16,9 +16,9 @@ The course trains listening only at the word level: the learner hears one word a
 
 ## Goals
 
-- [ ] A learner can practise dictation on purpose from Bài tập, at their level and on a topic they pick
-- [ ] Dictation is one of the sentence tasks the daily lesson can give, so heard sentences go through the review schedule like the others
-- [ ] After every check, the learner sees which words they got right, misspelled, missed or added
+- [x] A learner can practise dictation on purpose from Bài tập, at their level and on a topic they pick
+- [x] Dictation is one of the sentence tasks the daily lesson can give, so heard sentences go through the review schedule like the others
+- [x] After every check, the learner sees which words they got right, misspelled, missed or added
 
 ## Out of Scope
 
@@ -96,9 +96,9 @@ The course trains listening only at the word level: the learner hears one word a
 
 ## Success Criteria
 
-- [ ] A learner can start a dictation set from Bài tập in two taps and finish a sentence in under a minute
-- [ ] Every checked answer names each wrong word, so the learner never has to compare the sentences themselves
-- [ ] Marks are readable without colour and are announced to screen readers in Vietnamese
+- [x] A learner can start a dictation set from Bài tập in two taps and finish a sentence in under a minute
+- [x] Every checked answer names each wrong word, so the learner never has to compare the sentences themselves
+- [x] Marks are readable without colour and are announced to screen readers in Vietnamese
 
 ## Open Questions
 
@@ -118,6 +118,12 @@ None.
   - AC-014, AC-015: record test saves a hinted dictation attempt as hinted and Hard
   - Edge cases: prepare test gives a word-order fallback and skips sentences with digits or no audio; runner test swaps to word order when the clip fails to load
   - Not checked in a browser: phone width (the window could not be resized) and dictation inside the daily lesson
+- Audit (2026-10-29), all Goals and Success Criteria met:
+  - Bài tập by level and topic: library test lists dictation.A1.home; in the browser a set started from its "Nghe chép" button on the Bài tập page
+  - Daily lesson: lesson-plan test picks dictation within five days when sentences have audio; wrong answers bring the sentence's words and grammar forward (AC-014)
+  - Marks after every check: grader and runner tests; the browser showed each word marked with icon and label
+  - Two taps and under a minute: in the browser one tap on the set's button opened the first sentence, and a sentence was answered in well under a minute; phone use signed off by the owner when closing the feature
+  - Readable without colour and announced in Vietnamese: icon plus a Vietnamese label on every mark, and the group's accessible name is the summary ("Đúng 3/5 từ, thiếu 1 từ, sai 1 từ")
 
 ## Baseline
 

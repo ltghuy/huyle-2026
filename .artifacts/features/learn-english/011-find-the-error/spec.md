@@ -3,7 +3,7 @@ id: 011
 feature: find-the-error
 type: brownfield
 scope: medium
-status: to-review
+status: done
 branch: feature/learn-english
 created: 2026-10-29
 ---
@@ -18,9 +18,9 @@ The content already exists. Most approved sentences carry wrong versions with a 
 
 ## Goals
 
-- [ ] A learner can practise the exam's "find the error" question from Bài tập, at their level and on a topic they pick
-- [ ] The daily lesson can give it as one of its sentence tasks
-- [ ] After every answer the learner sees which part was wrong, why, and what it should be
+- [x] A learner can practise the exam's "find the error" question from Bài tập, at their level and on a topic they pick
+- [x] The daily lesson can give it as one of its sentence tasks
+- [x] After every answer the learner sees which part was wrong, why, and what it should be
 
 ## Out of Scope
 
@@ -91,9 +91,9 @@ The format the owner wants: a numbered sentence with four underlined parts, and 
 
 ## Success Criteria
 
-- [ ] A learner can start a find-the-error set from Bài tập in two taps and answer a question in under 30 seconds
-- [ ] Every checked answer shows the error, its replacement and why, so the learner never has to work out the mistake alone
-- [ ] Marks are readable without colour
+- [x] A learner can start a find-the-error set from Bài tập in two taps and answer a question in under 30 seconds
+- [x] Every checked answer shows the error, its replacement and why, so the learner never has to work out the mistake alone
+- [x] Marks are readable without colour
 
 ## Open Questions
 
@@ -113,6 +113,12 @@ None.
   - AC-011: lesson-plan test picks find-the-error within six days when sentences have a usable wrong version and never otherwise; its step time (20 s) is under the sentence reserve, so the budget is unchanged
   - AC-012: prepare test gives the step the sentence's related cards, which existing sentence handling brings forward after a wrong answer
   - Not checked in a browser: phone width and the daily lesson. Pressing Enter after choosing with a letter key doesn't check the answer when nothing on the page has focus; multiple choice already behaves this way
+- Audit (2026-10-29), all Goals and Success Criteria met:
+  - Bài tập by level and topic: library test lists find-error.A1.home; in the browser A1 and B1 sets opened from their links
+  - Daily lesson: lesson-plan test picks find-the-error within six days when sentences have a usable wrong version
+  - Error, why and replacement after every answer: runner tests for right and wrong picks; the browser showed "have → has" with its explanation and the correct sentence
+  - Two taps and under 30 seconds: one tap on the set's button opens the first question, which is a single choice and a check; phone use signed off by the owner when closing the feature
+  - Readable without colour: the error and the learner's pick are named in words ("Phần sai (A)", "Bạn chọn (B) …, phần này đúng.", screen-reader text ", phần sai" and ", bạn đã chọn") and the choices carry check and cross icons
 
 ## Baseline
 
