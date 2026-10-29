@@ -31,14 +31,18 @@ test.describe("home page smoke", () => {
     ).toHaveAttribute("rel", /noopener/);
   });
 
-  test("work renders a 2x2 grid: the handbook plus placeholders", async ({ page }) => {
+  test("work renders a 2x2 grid: the projects plus placeholders", async ({ page }) => {
     await page.goto("/");
     const work = page.locator("#work");
     await expect(work.locator("article")).toHaveCount(4);
     await expect(work.getByRole("heading", { name: "Frontend Handbook" })).toHaveCount(1);
-    await expect(work.getByRole("heading", { name: "Coming soon" })).toHaveCount(3);
+    await expect(work.getByRole("heading", { name: "English with Evan" })).toHaveCount(1);
+    await expect(work.getByRole("heading", { name: "Coming soon" })).toHaveCount(2);
     await expect(
       work.locator('a[href="https://learn.huyle.work/"]'),
+    ).toHaveAttribute("rel", /noopener/);
+    await expect(
+      work.locator('a[href="https://english.huyle.work/"]'),
     ).toHaveAttribute("rel", /noopener/);
   });
 

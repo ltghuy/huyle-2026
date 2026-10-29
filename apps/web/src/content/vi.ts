@@ -82,6 +82,13 @@ const projectOverrides: Array<Partial<Project>> = [
     description:
       "Các bài toán UI kinh điển được dựng từ đầu, như toast, infinite scroll, danh sách ảo hóa và data grid, cùng các chủ đề xoay quanh: trình duyệt, hiệu năng, khả năng tiếp cận, bảo mật, thiết kế hệ thống, kiểm thử và SEO. Mỗi trang đi kèm ghi chú ngắn và một demo trực tiếp để bạn thoải mái phá thử.",
   },
+  {
+    role: "Dự án cá nhân · english.huyle.work",
+    oneLiner:
+      "Khóa học tiếng Anh miễn phí cho người Việt: từ vựng theo trình độ, ngữ pháp và bài học ngắn mỗi ngày, nhắc lại từ đúng lúc bạn sắp quên.",
+    description:
+      "Từ vựng từ A1 đến C1 kèm phiên âm IPA, phát âm và nghĩa tiếng Việt, ngữ pháp và 12 thì giải thích bằng tiếng Việt, động từ bất quy tắc, cùng bài tập chọn theo chủ đề. Lịch ôn tập ngắt quãng lo phần ôn bài. Không cần tài khoản: tiến độ lưu ngay trên trình duyệt và đồng bộ giữa các thiết bị bằng một mã.",
+  },
 ];
 
 export const projectsVi: Project[] = projectsEn.map((p, i) => ({

@@ -38,4 +38,16 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "Tailwind CSS"],
     links: { demo: "https://learn.huyle.work/" },
   },
+  {
+    id: "english-with-evan",
+    index: 2,
+    name: "English with Evan",
+    role: "Personal project · english.huyle.work",
+    oneLiner:
+      "A free English course for Vietnamese speakers: vocabulary by level, grammar, and short daily lessons that bring words back right before you forget them.",
+    description:
+      "Words from A1 to C1 with IPA, audio, and Vietnamese meanings, grammar and the 12 tenses explained in Vietnamese, irregular verbs, and exercises you can pick by topic. Spaced repetition plans each review. There are no accounts: progress stays in your browser and syncs between devices with a code.",
+    tech: ["Next.js", "React", "Cloudflare D1"],
+    links: { demo: "https://english.huyle.work/" },
+  },
 ];
