@@ -17,19 +17,23 @@
 //   { "kind": "words", "level": "A1", "words": WordDraft[] }
 //   { "kind": "grammar", "slug": "present-simple", "draft": GrammarDraft }
 //   { "kind": "writing", "level": "A1", "tasks": WritingDraft["tasks"] }
+//   { "kind": "set", ...SetDraft }   (a vocabulary set, feature 012: reused word
+//     ids and new specialized words, into content/{set,word,sentence}/set-<slug>.json)
 // It checks them against the drafting rules and, without --check, merges the
 // items into the content files exactly like `collect` does.
 import Anthropic from "@anthropic-ai/sdk";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import type { SourceItem } from "../src/content/schema";
 import { LEVELS, type Level } from "../src/learning/types";
+import { loadCmudict, lookupIpa } from "./build-ipa";
 import type { WordlistRow } from "./import-wordlists";
 import {
   buildForms,
   buildGrammar,
+  buildSet,
   buildWord,
   buildWriting,
   checkFormsDraft,
@@ -43,10 +47,12 @@ import {
   type FormsDraft,
   type GrammarDraft,
   type GrammarTopicRow,
+  type SetDraft,
   type WordDraft,
   type WritingDraft,
 } from "./lib/drafting";
 import { GRAMMAR_SYSTEM, WORDS_SYSTEM, WRITING_SYSTEM } from "./lib/prompts";
+import { scopesOf } from "./lib/scope";
 
 const MODEL = "claude-opus-5-5";
 // Batch prices for Claude Opus 5.5 in USD per million tokens (half the standard
@@ -79,7 +85,8 @@ async function writeJson(file: string, value: unknown) {
   await writeFile(file, JSON.stringify(value, null, 2) + "\n");
 }
 
-const sourceFile = (kind: SourceItem["kind"], level: Level) => path.join(contentDir, kind, `${level}.json`);
+/** content/{kind}/{scope}.json; a scope is a level or `set-<slug>` (feature 012). */
+const sourceFile = (kind: SourceItem["kind"], scope: string) => path.join(contentDir, kind, `${scope}.json`);
 
 async function loadWordlist(): Promise<WordlistRow[]> {
   const rows = await Promise.all(LEVELS.map((level) => readJson<WordlistRow[]>(path.join(contentDir, "wordlist", `${level}.json`), [])));
@@ -180,12 +187,12 @@ const costOf = (u: Usage) =>
     (u.cache_read_input_tokens ?? 0) * PRICE.cacheRead) /
   1_000_000;
 
-/** Merges drafted items into content/{kind}/{level}.json (approved items are kept). */
-async function writeDrafted(level: Level, drafted: SourceItem[]) {
-  for (const kind of ["word", "sentence", "grammar", "writing", "forms"] as const) {
+/** Merges drafted items into content/{kind}/{scope}.json (approved items are kept). */
+async function writeDrafted(scope: string, drafted: SourceItem[]) {
+  for (const kind of ["word", "sentence", "grammar", "writing", "forms", "set"] as const) {
     const items = drafted.filter((item) => item.kind === kind);
     if (items.length === 0) continue;
-    const file = sourceFile(kind, level);
+    const file = sourceFile(kind, scope);
     await writeJson(file, mergeDrafts(await readJson<SourceItem[]>(file, []), items));
   }
 }
@@ -194,7 +201,24 @@ type ManualDraft =
   | { kind: "words"; level: Level; words: WordDraft[] }
   | { kind: "grammar"; slug: string; draft: GrammarDraft }
   | { kind: "writing"; level: Level; tasks: WritingDraft["tasks"] }
-  | { kind: "forms"; level: Level; verbs: FormsDraft[] };
+  | { kind: "forms"; level: Level; verbs: FormsDraft[] }
+  | ({ kind: "set" } & SetDraft);
+
+/**
+ * "headword|pos" → id of every course word and every word of the other sets,
+ * so a set reuses them instead of drafting a duplicate (AC-016).
+ */
+async function knownWords(wordlist: WordlistRow[], exceptScope: string): Promise<Map<string, string>> {
+  const known = wordIndexOf(wordlist);
+  const wordDir = path.join(contentDir, "word");
+  const sets = scopesOf(existsSync(wordDir) ? await readdir(wordDir) : []).filter((scope) => scope.startsWith("set-") && scope !== exceptScope);
+  for (const scope of sets) {
+    for (const item of await readJson<SourceItem[]>(sourceFile("word", scope), [])) {
+      if (item.kind === "word") known.set(`${item.body.headword.toLowerCase()}|${item.body.pos}`, item.id);
+    }
+  }
+  return known;
+}
 
 /** Builds hand-written draft files; with `check` only reports problems. */
 async function importDrafts(files: string[], check: boolean) {
@@ -209,8 +233,15 @@ async function importDrafts(files: string[], check: boolean) {
   for (const file of files) {
     const input = JSON.parse(await readFile(file, "utf8")) as ManualDraft;
     const built: Built = { items: [], problems: [] };
-    let level: Level;
-    if (input.kind === "words") {
+    let level: string;
+    if (input.kind === "set") {
+      level = `set-${input.slug}`;
+      const known = await knownWords(wordlist, level);
+      const dict = await loadCmudict(path.join(contentDir, "sources/.cache"));
+      const one = buildSet(input, topicSlugs, known, (row) => lookupIpa(dict, row.headword, row.variants, row.pos));
+      built.items.push(...one.items);
+      built.problems.push(...one.problems);
+    } else if (input.kind === "words") {
       level = input.level;
       const seen = new Set<string>();
       for (const draft of input.words) {
@@ -230,7 +261,7 @@ async function importDrafts(files: string[], check: boolean) {
       const topic = grammarTopics.find((row) => row.slug === input.slug);
       if (!topic) throw new Error(`${file}: unknown grammar topic ${input.slug}`);
       level = topic.level;
-      built.problems.push(...checkGrammarDraft(input.slug, level, input.draft));
+      built.problems.push(...checkGrammarDraft(input.slug, topic.level, input.draft));
       const one = buildGrammar(topic, input.draft);
       built.items.push(...one.items);
       built.problems.push(...one.problems);
@@ -245,14 +276,14 @@ async function importDrafts(files: string[], check: boolean) {
         }
         if (seen.has(draft.wordId)) built.problems.push(`${draft.wordId}: drafted twice`);
         seen.add(draft.wordId);
-        built.problems.push(...checkFormsDraft(level, draft));
+        built.problems.push(...checkFormsDraft(input.level, draft));
         const one = buildForms(row, draft);
         built.items.push(...one.items);
         built.problems.push(...one.problems);
       }
     } else {
       level = input.level;
-      const one = buildWriting(level, { tasks: input.tasks }, wordIndex);
+      const one = buildWriting(input.level, { tasks: input.tasks }, wordIndex);
       built.items.push(...one.items);
       built.problems.push(...one.problems);
     }

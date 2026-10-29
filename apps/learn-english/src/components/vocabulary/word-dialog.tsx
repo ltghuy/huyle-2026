@@ -20,8 +20,11 @@ type Sentence = ContentItemOf<"sentence">;
 export type WordLookup =
   | { status: "loading" }
   | { status: "missing" }
-  /** `forms`: the verb's past and participle, when it is an irregular verb (feature 008). */
-  | { status: "found"; word: Word; examples: Sentence[]; forms?: ContentItemOf<"forms"> };
+  /**
+   * `forms`: the verb's past and participle, when it is an irregular verb (feature 008).
+   * `setTitle`: the set a specialized word belongs to, shown in place of a level (feature 012).
+   */
+  | { status: "found"; word: Word; examples: Sentence[]; forms?: ContentItemOf<"forms">; setTitle?: string };
 
 interface WordDialogProps {
   open: boolean;
@@ -42,7 +45,7 @@ export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDi
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent showCloseButton={false} className="max-h-[calc(100svh-2rem)] gap-5 overflow-y-auto p-5 sm:max-w-lg">
         {lookup.status === "found" ? (
-          <WordDetails word={lookup.word} examples={lookup.examples} forms={lookup.forms} learned={learned} onLearned={onLearned} />
+          <WordDetails word={lookup.word} examples={lookup.examples} forms={lookup.forms} setTitle={lookup.setTitle} learned={learned} onLearned={onLearned} />
         ) : lookup.status === "missing" ? (
           <DialogHeader className="items-center py-6 text-center">
             <SearchX className="size-8 text-muted-foreground" aria-hidden />
@@ -67,11 +70,12 @@ interface WordDetailsProps {
   word: Word;
   examples: Sentence[];
   forms?: ContentItemOf<"forms">;
+  setTitle?: string;
   learned: boolean;
   onLearned: () => void;
 }
 
-function WordDetails({ word, examples, forms, learned, onLearned }: WordDetailsProps) {
+function WordDetails({ word, examples, forms, setTitle, learned, onLearned }: WordDetailsProps) {
   const { body } = word;
   const [saving, setSaving] = useState(false);
 
@@ -104,10 +108,15 @@ function WordDetails({ word, examples, forms, learned, onLearned }: WordDetailsP
           </div>
           <AudioButton source="word" audioKey={body.audio} label={body.headword} size="lg" />
         </div>
-        {learned ? (
-          <Badge variant="secondary" className="mt-2">
-            <CheckCircle2 className="text-success" aria-hidden /> Đã học
-          </Badge>
+        {learned || setTitle ? (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {setTitle ? <Badge variant="outline">Chuyên ngành: {setTitle}</Badge> : null}
+            {learned ? (
+              <Badge variant="secondary">
+                <CheckCircle2 className="text-success" aria-hidden /> Đã học
+              </Badge>
+            ) : null}
+          </div>
         ) : null}
       </DialogHeader>
 

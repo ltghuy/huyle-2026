@@ -7,6 +7,7 @@ import { localDate } from "./attendance";
 import { canDictate } from "./exercises/dictation";
 import { canFindError } from "./exercises/find-error";
 import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
+import { nextSetWords } from "./sets";
 import { retrievability } from "./srs";
 import {
   LEVELS,
@@ -76,12 +77,16 @@ export interface LessonContent {
   writing: readonly WritingItem[];
   /** Tombstoned or unknown ids: never planned, not even as reviews. */
   skip: ReadonlySet<string>;
+  /** Each specialized vocabulary set's words, in learning order (feature 012). */
+  setWords?: ReadonlyMap<string, readonly WordItem[]>;
+  /** Every example sentence embedded in the sets. */
+  setSentences?: readonly SentenceItem[];
 }
 
 export interface LessonPlanInput {
   date: string;
   now: number;
-  profile: Pick<Profile, "level" | "timeZone">;
+  profile: Pick<Profile, "level" | "timeZone" | "vocabSet">;
   cards: readonly StoredCard[];
   content: LessonContent;
   contentVersion: number;
@@ -150,14 +155,26 @@ function uncardedWords(level: Level, carded: ReadonlySet<string>, content: Lesso
   return (content.wordsByLevel[level] ?? []).filter((word) => !carded.has(word.id) && !content.skip.has(word.id));
 }
 
-/** `count` not-yet-carded words from the learner's level, then the levels above it. */
-export function pickNewWords(level: Level, cards: readonly StoredCard[], content: LessonContent, count: number): WordItem[] {
+/**
+ * `count` not-yet-carded words: the followed set's first, in its order
+ * (feature 012), then the learner's level and the levels above it. A set
+ * missing from the content is ignored.
+ */
+export function pickNewWords(
+  level: Level,
+  cards: readonly StoredCard[],
+  content: LessonContent,
+  count: number,
+  vocabSet?: string,
+): WordItem[] {
   const carded = new Set(cards.map((card) => card.itemId));
-  const picked: WordItem[] = [];
+  const setWords = vocabSet ? (content.setWords?.get(vocabSet) ?? []) : [];
+  const picked = nextSetWords(setWords, carded, content.skip, count);
+  const taken = new Set(picked.map((word) => word.id));
   for (const next of LEVELS.slice(LEVELS.indexOf(level))) {
     for (const word of uncardedWords(next, carded, content)) {
       if (picked.length === count) return picked;
-      picked.push(word);
+      if (!taken.has(word.id)) picked.push(word);
     }
   }
   return picked;
@@ -218,8 +235,9 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
   });
 
   const wordsById = new Map<string, WordItem>();
+  for (const words of content.setWords?.values() ?? []) for (const word of words) wordsById.set(word.id, word);
   for (const level of LEVELS) for (const word of content.wordsByLevel[level] ?? []) wordsById.set(word.id, word);
-  const sentencesById = new Map(content.sentences.map((sentence) => [sentence.id, sentence]));
+  const sentencesById = new Map([...(content.setSentences ?? []), ...content.sentences].map((sentence) => [sentence.id, sentence]));
   const grammarById = new Map<string, GrammarItem>();
   for (const level of LEVELS) for (const topic of content.grammarByLevel[level] ?? []) grammarById.set(topic.id, topic);
 
@@ -259,7 +277,7 @@ export function buildLessonPlan(input: LessonPlanInput): DailyLesson {
   const review = reviewExercises(reviewed, wordsById, seedReview);
 
   // New words: a study card, then a multiple-choice check, for each.
-  const newWords = pickNewWords(profile.level, cards, content, newCount);
+  const newWords = pickNewWords(profile.level, cards, content, newCount, profile.vocabSet);
   const newWordSteps = newWords.flatMap((word, i) => [
     step("new-words", 2 * i, "study", word.id),
     step("new-words", 2 * i + 1, "mcq", word.id),

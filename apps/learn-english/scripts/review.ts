@@ -1,10 +1,14 @@
 // Owner review of drafted content in content/{kind}/{level}.json (T011, AC-053).
 //
-//   pnpm content:review list [--level A1] [--kind word]
-//   pnpm content:review sheet <level>   (writes content/.review/<level>.html, a page to review the drafts in)
-//   pnpm content:review approve <file-or-level> [--kind word] (--ids id1,id2 | --ids-file review-A1.json | --all) [--dry-run]
-//   pnpm content:review unapprove <file-or-level> [--kind word] (--ids id1,id2 | --all) [--dry-run]
+//   pnpm content:review list [--scope A1] [--kind word]
+//   pnpm content:review sheet <scope>   (writes content/.review/<scope>.html, a page to review the drafts in)
+//   pnpm content:review approve <file-or-scope> [--kind word] (--ids id1,id2 | --ids-file review-A1.json | --all) [--dry-run]
+//   pnpm content:review unapprove <file-or-scope> [--kind word] (--ids id1,id2 | --all) [--dry-run]
 //   (--content-dir <path> reads another content folder; default content)
+//
+// A scope is a level (A1…C1) or a vocabulary set (set-it: content/set/set-it.json
+// plus the set's new words and sentences in content/{word,sentence}/set-it.json,
+// feature 012). A set is approved like any item, once all its words are.
 //
 // Approving flips `status` to "approved" only for the selected drafts that pass
 // the source schema and whose references (word and grammar examples, sentence
@@ -17,8 +21,8 @@ import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import { buildSheet, idsFromDecisions, reviewUnits } from "./lib/review-sheet";
+import { isScope, SCOPE_HINT } from "./lib/scope";
 import { CONTENT_KINDS, sourceItemSchema, type ContentKind, type SourceItem } from "../src/content/schema";
-import { LEVELS, type Level } from "../src/learning/types";
 
 export type Status = "draft" | "approved";
 
@@ -26,7 +30,7 @@ export interface SourceFile {
   /** Path relative to the working directory; also the file's identity. */
   file: string;
   kind: ContentKind;
-  /** File name without `.json` (the level for regular files). */
+  /** File name without `.json`: the scope (a level, or `set-<slug>`). */
   level: string;
   /** Parsed JSON, or a string describing why it couldn't be read. */
   data: unknown;
@@ -39,6 +43,8 @@ export interface Entry {
   id: string;
   kind: string;
   level: string;
+  /** The file's scope: its level, or `set-<slug>` for a vocabulary set's files. */
+  scope: string;
   status: string;
   item?: SourceItem;
   /** Schema problems, when the item doesn't validate. */
@@ -77,6 +83,7 @@ export function entriesOf(files: readonly SourceFile[]): { entries: Entry[]; pro
         id: typeof raw.id === "string" ? raw.id : `${file}[${index}]`,
         kind: typeof raw.kind === "string" ? raw.kind : kind,
         level: typeof raw.level === "string" ? raw.level : level,
+        scope: level,
         status: typeof raw.status === "string" ? raw.status : "?",
         ...(parsed.success
           ? { item: parsed.data }
@@ -93,6 +100,8 @@ export function referencesOf(item: SourceItem): string[] {
   if (item.kind === "sentence") return [...item.body.wordIds, ...(item.body.grammarSlug ? [`grammar:${item.body.grammarSlug}`] : [])];
   // A verb's forms are only shown with the verb itself (feature 008).
   if (item.kind === "forms") return [item.body.wordId];
+  // A set is published with all its words (feature 012).
+  if (item.kind === "set") return [...item.body.wordIds];
   return [];
 }
 
@@ -104,12 +113,12 @@ export interface SummaryRow {
   invalid: number;
 }
 
-/** Draft / approved / invalid counts per kind and level, in kind then level order. */
+/** Draft / approved / invalid counts per kind and scope (level or set), in kind then scope order. */
 export function summarize(entries: readonly Entry[]): SummaryRow[] {
   const rows = new Map<string, SummaryRow>();
   for (const entry of entries) {
-    const key = `${entry.kind}|${entry.level}`;
-    const row = rows.get(key) ?? { kind: entry.kind, level: entry.level, draft: 0, approved: 0, invalid: 0 };
+    const key = `${entry.kind}|${entry.scope}`;
+    const row = rows.get(key) ?? { kind: entry.kind, level: entry.scope, draft: 0, approved: 0, invalid: 0 };
     if (entry.error) row.invalid++;
     else if (entry.status === "approved") row.approved++;
     else row.draft++;
@@ -119,8 +128,8 @@ export function summarize(entries: readonly Entry[]): SummaryRow[] {
   return [...rows.values()].sort((a, b) => kindOrder(a.kind) - kindOrder(b.kind) || (a.level < b.level ? -1 : a.level > b.level ? 1 : 0));
 }
 
-export function filterEntries(entries: readonly Entry[], { level, kind }: { level?: string; kind?: string }): Entry[] {
-  return entries.filter((entry) => (!level || entry.level === level) && (!kind || entry.kind === kind));
+export function filterEntries(entries: readonly Entry[], { scope, kind }: { scope?: string; kind?: string }): Entry[] {
+  return entries.filter((entry) => (!scope || entry.scope === scope) && (!kind || entry.kind === kind));
 }
 
 // ---- Selecting ----
@@ -231,14 +240,14 @@ export function applyStatus(files: readonly SourceFile[], changed: readonly Entr
   return output;
 }
 
-/** Files a `<file-or-level>` target covers: a level (optionally one kind), or one file path. */
+/** Files a `<file-or-scope>` target covers: a level or set scope (optionally one kind), or one file path. */
 export function resolveTarget(target: string, files: readonly SourceFile[], kind?: string): Set<string> {
-  if ((LEVELS as readonly string[]).includes(target)) {
+  if (isScope(target)) {
     return new Set(files.filter((f) => f.level === target && (!kind || f.kind === kind)).map((f) => f.file));
   }
   const wanted = path.resolve(target);
   const match = files.find((f) => path.resolve(f.file) === wanted);
-  if (!match) throw new Error(`${target} is neither a level (${LEVELS.join(", ")}) nor a content file`);
+  if (!match) throw new Error(`${target} is neither a scope (${SCOPE_HINT}) nor a content file`);
   if (kind && match.kind !== kind) throw new Error(`${target} holds ${match.kind} items, not ${kind}`);
   return new Set([match.file]);
 }
@@ -284,6 +293,8 @@ export async function run(argv: string[]): Promise<number> {
     args: argv,
     allowPositionals: true,
     options: {
+      scope: { type: "string" },
+      // The old name of --scope.
       level: { type: "string" },
       kind: { type: "string" },
       ids: { type: "string" },
@@ -295,18 +306,19 @@ export async function run(argv: string[]): Promise<number> {
   });
   const [command, target] = positionals;
   if (values.kind && !(CONTENT_KINDS as readonly string[]).includes(values.kind)) throw new Error(`Unknown kind ${values.kind}`);
-  if (values.level && !(LEVELS as readonly string[]).includes(values.level as Level)) throw new Error(`Unknown level ${values.level}`);
+  const listScope = values.scope ?? values.level;
+  if (listScope && !isScope(listScope)) throw new Error(`Unknown scope ${listScope}: use ${SCOPE_HINT}`);
 
   const files = await readSourceFiles(path.resolve(values["content-dir"]));
   const { entries, problems } = entriesOf(files);
 
   if (command === "list") {
-    printList(filterEntries(entries, values), problems);
+    printList(filterEntries(entries, { scope: listScope, kind: values.kind }), problems);
     return 0;
   }
   if (command === "sheet") {
-    if (!target || !(LEVELS as readonly string[]).includes(target)) throw new Error(`Pass a level to sheet: ${LEVELS.join(", ")}`);
-    const items = entries.filter((entry) => entry.level === target && entry.item).map((entry) => entry.item!);
+    if (!target || !isScope(target)) throw new Error(`Pass a scope to sheet: ${SCOPE_HINT}`);
+    const items = entries.filter((entry) => entry.scope === target && entry.item).map((entry) => entry.item!);
     const topics = JSON.parse(await readFile(path.resolve(values["content-dir"], "topics.json"), "utf8")) as { slug: string; titleVi: string }[];
     const units = reviewUnits(items);
     const out = path.resolve(values["content-dir"], ".review", `${target}.html`);
@@ -314,12 +326,13 @@ export async function run(argv: string[]): Promise<number> {
     await writeFile(out, buildSheet(target, units, Object.fromEntries(topics.map((topic) => [topic.slug, topic.titleVi]))));
     console.log(`${units.length} units to review → ${path.relative(process.cwd(), out)}`);
     console.log(`Open it in a browser, then: pnpm content:review approve ${target} --ids-file <downloaded review-${target}.json>`);
+    if (target.startsWith("set-")) console.log(`Then approve the set itself: pnpm content:review approve content/set/${target}.json --all`);
     return 0;
   }
   if (command !== "approve" && command !== "unapprove") {
-    throw new Error("Usage: content:review list | sheet <level> | approve <file-or-level> | unapprove <file-or-level>");
+    throw new Error("Usage: content:review list | sheet <scope> | approve <file-or-scope> | unapprove <file-or-scope>");
   }
-  if (!target) throw new Error(`Pass the file or level to ${command}`);
+  if (!target) throw new Error(`Pass the file or scope to ${command}`);
 
   const scope = resolveTarget(target, files, values.kind);
   const ids = values["ids-file"]

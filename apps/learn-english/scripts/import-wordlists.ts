@@ -16,7 +16,8 @@ export interface WordlistRow {
   variants: string[];
   pos: string;
   level: Level;
-  source: "cefrj-1.5" | "octanove-1.0" | "added";
+  // "specialized": a vocabulary set's own word (feature 012), never in the word lists.
+  source: "cefrj-1.5" | "octanove-1.0" | "added" | "specialized";
   /** CEFR-J's own topic labels (Core Inventory / Threshold), a hint for drafting. */
   topicHints: string[];
 }

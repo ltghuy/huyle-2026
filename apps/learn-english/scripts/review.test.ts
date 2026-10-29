@@ -193,4 +193,21 @@ describe("run (temp copy of the fixtures)", () => {
     expect(await run(["list", "--level", "A1", "--content-dir", dir])).toBe(0);
     expect(readFileSync(path.join(dir, "word/A1.json"), "utf8")).toBe(before);
   });
+
+  it("approves a vocabulary set's scope only once its words are approved (feature 012)", async () => {
+    const readScope = (kind: string) => JSON.parse(readFileSync(path.join(dir, kind, "set-fx-office.json"), "utf8")) as Raw[];
+    expect(await run(["unapprove", "set-fx-office", "--all", "--content-dir", dir])).toBe(0);
+    expect(readScope("word").every((item) => item.status === "draft")).toBe(true);
+    expect(readScope("set")[0].status).toBe("draft");
+
+    // The set alone is refused while its new words are drafts.
+    expect(await run(["approve", path.join(dir, "set/set-fx-office.json"), "--all", "--content-dir", dir])).toBe(1);
+    expect(readScope("set")[0].status).toBe("draft");
+
+    expect(await run(["approve", "set-fx-office", "--all", "--content-dir", dir])).toBe(0);
+    expect(readScope("set")[0].status).toBe("approved");
+    expect(readScope("sentence").every((item) => item.status === "approved")).toBe(true);
+    // The level files are untouched by a set scope.
+    expect(statusOf("word", "word:book-n")).toBe("approved");
+  });
 });

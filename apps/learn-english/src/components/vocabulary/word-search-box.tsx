@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { SearchIcon } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import { useAllWords, type AllWordsState } from "@/hooks/use-all-words";
+import { setLabel, type VocabSetItem } from "@/learning/sets";
 import { Badge } from "@/components/ui/badge";
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox";
 import { InputGroupAddon } from "@/components/ui/input-group";
@@ -12,6 +13,7 @@ import { searchWords } from "./word-search";
 type Word = ContentItemOf<"word">;
 
 const NO_WORDS: readonly Word[] = [];
+const NO_SETS: ReadonlyMap<string, readonly VocabSetItem[]> = new Map();
 
 function headwordOf(word: Word): string {
   return word.body.headword;
@@ -31,6 +33,7 @@ export function WordSearchBox({ onSelect }: { onSelect: (wordId: string) => void
   const [wanted, setWanted] = useState(false);
   const all = useAllWords(wanted);
   const words = all.status === "ready" ? all.words : NO_WORDS;
+  const setsByWord = all.status === "ready" ? all.setsByWord : NO_SETS;
   const results = useMemo(() => searchWords(words, query), [words, query]);
   const hasQuery = query.trim() !== "";
 
@@ -86,8 +89,8 @@ export function WordSearchBox({ onSelect }: { onSelect: (wordId: string) => void
                   <span lang="en">{word.body.pos}</span> · {word.body.meaningsVi[0]}
                 </span>
               </span>
-              <Badge variant="outline" className="shrink-0 tabular-nums">
-                {word.level}
+              <Badge variant="outline" className="max-w-[40%] shrink-0 truncate tabular-nums">
+                {setLabel(word, setsByWord.get(word.id) ?? [])}
               </Badge>
             </ComboboxItem>
           )}

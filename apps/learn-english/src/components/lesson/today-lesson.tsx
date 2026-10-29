@@ -13,6 +13,7 @@ import { useProfile } from "@/hooks/use-profile";
 import { useStorageQuery } from "@/hooks/use-storage-query";
 import { cn } from "@/lib/utils";
 import { flattenLesson, getOrCreateTodayLesson, PART_LABELS } from "@/lib/session/today";
+import { FollowedSetCard } from "./followed-set-card";
 import { StreakSummary } from "./streak-summary";
 
 const LESSON_STORES = ["lessons"] as const;
@@ -36,7 +37,7 @@ export function TodayLesson() {
     if (!ready || !index) return null;
     return getOrCreateTodayLesson({ profile: ready, index, contentVersion: version, now: Date.now() });
   }, [ready, index, version]);
-  const today = useStorageQuery(["today-lesson", ready?.level, ready?.timeZone, index ? version : null], loadLesson, LESSON_STORES);
+  const today = useStorageQuery(["today-lesson", ready?.level, ready?.timeZone, ready?.vocabSet, index ? version : null], loadLesson, LESSON_STORES);
   const lesson = today.status === "ready" ? today.data : null;
 
   if (pendingPlacement) return null;
@@ -102,6 +103,7 @@ export function TodayLesson() {
           </Link>
         )}
       </section>
+      <FollowedSetCard vocabSet={ready.vocabSet} index={index} />
     </div>
   );
 }

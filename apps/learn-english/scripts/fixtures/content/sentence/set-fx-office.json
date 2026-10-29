@@ -1,0 +1,68 @@
+[
+  {
+    "id": "sentence:fx-deadline-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "The deadline is Friday.",
+      "vi": "Hạn chót là thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "deadline",
+        "is",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:deadline-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-invoice-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "Please send the invoice.",
+      "vi": "Vui lòng gửi hóa đơn.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "send",
+        "the",
+        "invoice"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:invoice-n"
+      ]
+    }
+  }
+]

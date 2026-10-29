@@ -6,7 +6,7 @@
 import type { Level } from "../../src/learning/types";
 import { sourceItemSchema, type SourceItem } from "../../src/content/schema";
 import type { WordlistRow } from "../import-wordlists";
-import { slugify } from "../import-wordlists";
+import { slugify, wordId } from "../import-wordlists";
 
 // ---------- model output shapes ----------
 
@@ -446,4 +446,104 @@ export function checkGrammarDraft(slug: string, level: Level, draft: GrammarDraf
   });
   if (draft.mistakes.length < 2 || draft.mistakes.length > 4) problems.push(`${slug}: ${draft.mistakes.length} mistakes, expected 2 to 4`);
   return problems;
+}
+
+// ---------- specialized vocabulary sets (feature 012) ----------
+
+/** A new specialized word: a word draft that also names the word, since no word list has it. */
+export interface SpecializedWordDraft extends Omit<WordDraft, "id"> {
+  headword: string;
+  pos: string;
+  variants?: string[];
+}
+
+/** One set, in learning order: ids of course words (or other sets' words) to reuse, and new words. */
+export interface SetDraft {
+  slug: string;
+  level: Level;
+  titleVi: string;
+  titleEn: string;
+  descriptionVi: string;
+  words: (string | SpecializedWordDraft)[];
+}
+
+/** A set should hold about 100 words (AC-015). */
+export const SET_SIZE = { min: 90, max: 120 } as const;
+
+const wordKey = (headword: string, pos: string) => `${headword.trim().toLowerCase()}|${pos}`;
+
+/** The word-list-like row a specialized word is built from; its level is the set's. */
+export function specializedRow(draft: SpecializedWordDraft, level: Level): WordlistRow {
+  return {
+    id: wordId(draft.headword.trim(), draft.pos),
+    headword: draft.headword.trim(),
+    variants: draft.variants ?? [],
+    pos: draft.pos,
+    level,
+    source: "specialized",
+    topicHints: [],
+  };
+}
+
+/**
+ * Problems with a new specialized word. A word the course already has (same
+ * headword and part of speech) is rejected: the set lists its id instead, so
+ * the learner's progress on it is shared (AC-016). `known` maps
+ * "headword|pos" to the id of every course word and every other set's word.
+ */
+export function checkSpecializedDraft(
+  draft: SpecializedWordDraft,
+  level: Level,
+  topicSlugs: ReadonlySet<string>,
+  known: ReadonlyMap<string, string>,
+): string[] {
+  const id = wordId(draft.headword.trim(), draft.pos);
+  const existing = known.get(wordKey(draft.headword, draft.pos));
+  if (existing) return [`${id}: "${draft.headword}" (${draft.pos}) is already ${existing}; list that id in the set instead`];
+  return checkWordDraft(level, { ...draft, id }, topicSlugs);
+}
+
+/**
+ * Builds a set draft: the set item plus each new word with its examples, all
+ * status draft. `known` is as for checkSpecializedDraft; `ipa` gives CMUdict's
+ * transcription for a new word when it has one. Reused ids must be in `known`.
+ */
+export function buildSet(
+  draft: SetDraft,
+  topicSlugs: ReadonlySet<string>,
+  known: ReadonlyMap<string, string>,
+  ipa: (row: WordlistRow) => string | undefined,
+): Built {
+  const items: SourceItem[] = [];
+  const problems: string[] = [];
+  const knownIds = new Set(known.values());
+  const synonymIndex = new Map(known);
+  const wordIds: string[] = [];
+  for (const entry of draft.words) {
+    if (typeof entry === "string") {
+      if (!knownIds.has(entry)) problems.push(`set:${draft.slug}: ${entry} is neither a course word nor another set's word`);
+      wordIds.push(entry);
+      continue;
+    }
+    const row = specializedRow(entry, draft.level);
+    problems.push(...checkSpecializedDraft(entry, draft.level, topicSlugs, known));
+    const one = buildWord(row, { ...entry, id: row.id }, ipa(row), synonymIndex);
+    items.push(...one.items);
+    problems.push(...one.problems);
+    wordIds.push(row.id);
+    synonymIndex.set(wordKey(row.headword, row.pos), row.id);
+  }
+  const repeated = wordIds.filter((id, i) => wordIds.indexOf(id) !== i);
+  if (repeated.length) problems.push(`set:${draft.slug}: listed twice: ${[...new Set(repeated)].join(", ")}`);
+  if (wordIds.length < SET_SIZE.min || wordIds.length > SET_SIZE.max) {
+    problems.push(`set:${draft.slug}: ${wordIds.length} words, expected ${SET_SIZE.min} to ${SET_SIZE.max}`);
+  }
+  const set = {
+    id: `set:${draft.slug}`,
+    kind: "set",
+    level: draft.level,
+    status: "draft",
+    body: { titleVi: draft.titleVi.trim(), titleEn: draft.titleEn.trim(), descriptionVi: draft.descriptionVi.trim(), wordIds },
+  };
+  return validated([set, ...items], problems);
 }

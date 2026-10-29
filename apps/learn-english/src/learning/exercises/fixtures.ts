@@ -1,4 +1,5 @@
 // Test-only builders for content items used by the exercise tests.
+import type { ContentItemOf } from "../../content/schema";
 import type { Level } from "../types";
 import type { FormsItem } from "../verbs";
 import type { GrammarItem, SentenceItem, WordItem } from "./types";
@@ -92,6 +93,24 @@ export function forms(
         { en: "They have ___ home.", answer: "participle", vi: "Họ đã về nhà." },
       ],
       ...body,
+    },
+  };
+}
+
+/** A specialized vocabulary set (feature 012) with its words and sentences embedded. */
+export function vocabSet(slug: string, words: WordItem[], sentences: SentenceItem[] = [], sort = 0): ContentItemOf<"set"> {
+  return {
+    id: `set:${slug}`,
+    kind: "set",
+    level: "A2",
+    sort,
+    body: {
+      titleVi: `Bộ ${slug}`,
+      titleEn: `Set ${slug}`,
+      descriptionVi: `Mô tả ${slug}`,
+      wordIds: words.map((item) => item.id),
+      words,
+      sentences,
     },
   };
 }

@@ -19,18 +19,14 @@ export const PART_LABELS: Record<LessonPartKind, string> = {
 
 const DAY_MS = 86_400_000;
 
-/** Today's lesson for this learner, planned once per local date and stored (AC-016). */
-export async function getOrCreateTodayLesson(input: {
-  profile: Pick<Profile, "level" | "timeZone">;
+interface TodayInput {
+  profile: Pick<Profile, "level" | "timeZone" | "vocabSet">;
   index: ContentIndex;
   contentVersion: number;
   now: number;
-}): Promise<DailyLesson> {
-  const { profile, index, contentVersion, now } = input;
-  const date = localDate(now, profile.timeZone);
-  const existing = await getLesson(date);
-  if (existing) return existing;
+}
 
+async function planToday({ profile, index, contentVersion, now }: TodayInput, date: string): Promise<DailyLesson> {
   const [cards, lessons] = await Promise.all([getAllCards(), getAllLessons()]);
   const since = localDate(now - 14 * DAY_MS, profile.timeZone);
   const recentWritingIds = lessons
@@ -39,6 +35,30 @@ export async function getOrCreateTodayLesson(input: {
   const lesson = buildLessonPlan({ date, now, profile, cards, content: index.lesson, contentVersion, recentWritingIds });
   await putLesson(lesson);
   return lesson;
+}
+
+/** Today's lesson for this learner, planned once per local date and stored (AC-016). */
+export async function getOrCreateTodayLesson(input: TodayInput): Promise<DailyLesson> {
+  const date = localDate(input.now, input.profile.timeZone);
+  return (await getLesson(date)) ?? planToday(input, date);
+}
+
+const isUnstarted = (lesson: DailyLesson) => !lesson.completedAt && lesson.position.part === 0 && lesson.position.index === 0;
+
+/**
+ * After following or unfollowing a vocabulary set (feature 012): plans
+ * today's lesson again when nothing in it is done yet, so it takes the new
+ * words. The new plan is stamped `now`, so it also wins a sync merge over the
+ * old one. Returns false when today's lesson is under way and was kept: the
+ * change applies from tomorrow.
+ */
+export async function replanTodayIfUnstarted(input: TodayInput): Promise<boolean> {
+  const date = localDate(input.now, input.profile.timeZone);
+  const existing = await getLesson(date);
+  if (!existing) return true;
+  if (!isUnstarted(existing)) return false;
+  await planToday(input, date);
+  return true;
 }
 
 export interface FlatLesson {

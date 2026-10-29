@@ -10,6 +10,12 @@
 // Changed rows are found by comparing each approved item with the row read
 // back from D1 (kind, level, topic, sort and body), so nothing extra is
 // stored and unchanged rows keep their updated_version.
+//
+// Vocabulary sets (feature 012) come from content/set/set-<slug>.json, with
+// their new words and sentences in content/{word,sentence}/set-<slug>.json.
+// Those words and sentences never become rows of their own: each set is
+// published as one row with its words and their examples embedded, and only
+// once the set and everything it embeds is approved.
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
@@ -74,12 +80,20 @@ export function stableStringify(value: unknown): string {
  * Validates every source item and keeps the approved ones, without `status`
  * and `reviewNotes`. Drafts are counted, not errors.
  */
-export function collectApproved(files: readonly SourceFile[]): { items: ContentItem[]; drafts: number; errors: string[] } {
+export function collectApproved(files: readonly SourceFile[]): {
+  items: ContentItem[];
+  drafts: number;
+  errors: string[];
+  /** Ids of the words and sentences in vocabulary set files (`set-<slug>.json`), which publish only inside their set. */
+  setScoped: Set<string>;
+} {
   const items: ContentItem[] = [];
   const errors: string[] = [];
   const seen = new Map<string, string>();
+  const setScoped = new Set<string>();
   let drafts = 0;
   for (const { file, data } of files) {
+    const inSetFile = path.basename(file).startsWith("set-");
     if (!Array.isArray(data)) {
       errors.push(`${file}: ${typeof data === "string" ? data : "expected an array of items"}`);
       continue;
@@ -100,6 +114,7 @@ export function collectApproved(files: readonly SourceFile[]): { items: ContentI
         return;
       }
       seen.set(item.id, file);
+      if (inSetFile && item.kind !== "set") setScoped.add(item.id);
       if (status !== "approved") {
         drafts++;
         return;
@@ -107,7 +122,54 @@ export function collectApproved(files: readonly SourceFile[]): { items: ContentI
       items.push(item);
     });
   }
-  return { items, drafts, errors };
+  return { items, drafts, errors, setScoped };
+}
+
+type SetItem = ContentItemOf<"set">;
+
+/**
+ * Each approved set with its words (in `wordIds` order) and every example of
+ * those words embedded. A set is held back, with the reason, while a word or
+ * an example it needs isn't approved (AC-017).
+ */
+export function bundleSets(items: readonly ContentItem[]): { sets: SetItem[]; held: string[] } {
+  const byId = new Map(items.map((item) => [item.id, item]));
+  const sets: SetItem[] = [];
+  const held: string[] = [];
+  for (const set of items) {
+    if (set.kind !== "set") continue;
+    const missing: string[] = [];
+    const words: ContentItemOf<"word">[] = [];
+    const sentences = new Map<string, ContentItemOf<"sentence">>();
+    for (const id of set.body.wordIds) {
+      const word = byId.get(id);
+      if (word?.kind !== "word") {
+        missing.push(id);
+        continue;
+      }
+      words.push(word);
+      for (const exampleId of word.body.examples) {
+        const example = byId.get(exampleId);
+        if (example?.kind === "sentence") sentences.set(example.id, example);
+        else missing.push(exampleId);
+      }
+    }
+    if (missing.length) {
+      held.push(`${set.id}: held back, not approved yet: ${missing.slice(0, 5).join(", ")}${missing.length > 5 ? ` and ${missing.length - 5} more` : ""}`);
+      continue;
+    }
+    sets.push({ ...set, body: { ...set.body, words, sentences: [...sentences.values()] } });
+  }
+  return { sets, held };
+}
+
+/**
+ * The items that become rows: everything approved except set files' words
+ * and sentences, with each set replaced by its bundle (or left out while held back).
+ */
+export function rowItemsOf(items: readonly ContentItem[], setScoped: ReadonlySet<string>): { items: ContentItem[]; sets: SetItem[]; held: string[] } {
+  const bundles = bundleSets(items);
+  return { items: [...items.filter((item) => item.kind !== "set" && !setScoped.has(item.id)), ...bundles.sets], ...bundles };
 }
 
 /** References that point at ids missing from the approved set. */
@@ -312,11 +374,15 @@ async function main() {
   const contentDir = path.resolve(root, values["content-dir"]);
 
   const collected = collectApproved(await readSourceFiles(contentDir));
-  const { drafts, errors } = collected;
-  const approved = levels ? collected.items.filter((item) => levels.has(item.level)) : collected.items;
-  if (levels) console.log(`Publishing levels ${[...levels].join(", ")} only (${collected.items.length - approved.length} approved item(s) of other levels held back)`);
-  errors.push(...checkReferences(approved));
-  const sourced = approved.filter((item) => item.kind !== "placement");
+  const { drafts, errors, setScoped } = collected;
+  // Sets embed words of any level, so they are built from everything approved.
+  const { items: rowItems, ...bundles } = rowItemsOf(collected.items, setScoped);
+  const approved = levels ? rowItems.filter((item) => levels.has(item.level)) : rowItems;
+  if (levels) console.log(`Publishing levels ${[...levels].join(", ")} only (${rowItems.length - approved.length} approved item(s) of other levels held back)`);
+  errors.push(...checkReferences(levels ? collected.items.filter((item) => levels.has(item.level)) : collected.items));
+  for (const set of bundles.sets) console.log(`${set.id}: ${set.body.words.length} words, ${set.body.sentences.length} sentences`);
+  for (const reason of bundles.held) console.log(reason);
+  const sourced = approved.filter((item) => item.kind !== "placement" && item.kind !== "set");
   const placement = generatePlacement(sourced);
   for (const item of placement) {
     if (approved.some((other) => other.id === item.id)) errors.push(`${item.id}: generated placement id clashes with a source item`);
@@ -328,7 +394,8 @@ async function main() {
     return;
   }
 
-  const silent = missingAudio(approved);
+  const embedded = bundles.sets.flatMap((set) => [...set.body.words, ...set.body.sentences]);
+  const silent = [...new Set(missingAudio([...approved, ...embedded]))];
   if (silent.length > 0) {
     console.log(`${silent.length} approved item(s) have no audio yet`);
     if (!values["allow-missing-audio"]) {

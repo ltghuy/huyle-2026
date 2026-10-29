@@ -156,6 +156,20 @@ describe("mergeSnapshots", () => {
     expect(mergeSnapshots(local({ profile: mine }), remote({ meta: theirs })).profile.leaderboard).toEqual(joined);
   });
 
+  it("takes the set followed or unfollowed last (012 AC-012)", () => {
+    const following = { ...profile, vocabSet: "set:it", fieldUpdatedAt: { vocabSet: 100 } };
+    const switched = toSnapshotMeta({ ...profile, vocabSet: "set:office", fieldUpdatedAt: { vocabSet: 200 } });
+    expect(mergeSnapshots(local({ profile: following }), remote({ meta: switched })).profile.vocabSet).toBe("set:office");
+
+    const unfollowed = toSnapshotMeta({ ...profile, fieldUpdatedAt: { vocabSet: 300 } });
+    const merged = mergeSnapshots(local({ profile: following }), remote({ meta: unfollowed })).profile;
+    expect(merged.vocabSet).toBeUndefined();
+    expect(merged.fieldUpdatedAt.vocabSet).toBe(300);
+
+    const olderUnfollow = toSnapshotMeta({ ...profile, fieldUpdatedAt: { vocabSet: 50 } });
+    expect(mergeSnapshots(local({ profile: following }), remote({ meta: olderUnfollow })).profile.vocabSet).toBe("set:it");
+  });
+
   it("lets a timestamped field beat one without, and keeps local on a missing remote stamp", () => {
     const theirs = toSnapshotMeta({
       ...profile,

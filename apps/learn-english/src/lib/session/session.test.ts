@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { forms, grammar, sentence, word } from "@/learning/exercises/fixtures";
+import { forms, grammar, sentence, vocabSet, word } from "@/learning/exercises/fixtures";
 import { reviewSession } from "./review";
 import { getAllAttempts } from "@/storage/attempts";
 import { getCard, putCards } from "@/storage/cards";
@@ -24,6 +24,43 @@ const example = sentence("apple-1", {
 const go = word("go", { pos: "verb", meaningsVi: ["đi"] });
 const goForms = forms("go", ["went"], ["gone"], { audio: "b".repeat(64) });
 const index = buildContentIndex([...words, simple, example, go, goForms], new Set(["word:house-gone"]));
+
+describe("prepareStep with vocabulary sets (feature 012)", () => {
+  const jargon = ["deploy", "commit", "merge", "branch", "server", "bug", "release", "backend", "frontend", "database", "cache"].map((slug) =>
+    word(`it-${slug}`, { source: "specialized", meaningsVi: [`nghĩa ${slug}`], examples: [`sentence:it-${slug}-1`] }, "A1"),
+  );
+  const deployExample = sentence("it-deploy-1", { tokens: ["We", "deploy", "today"], wordIds: ["word:it-deploy"], gapCandidates: [1] });
+  const withSet = buildContentIndex([...words, vocabSet("it", jargon, [deployExample])]);
+  const setIds = new Set(jargon.map((item) => item.id));
+
+  it("draws a specialized word's multiple-choice options from its set", () => {
+    for (let seed = 1; seed <= 20; seed++) {
+      const step = prepareStep({ kind: "mcq", itemIds: ["word:it-deploy"], seed }, withSet, "k");
+      if (step?.type !== "exercise" || step.instance.kind !== "mcq") throw new Error("expected an mcq");
+      expect(step.instance.options.every((option) => setIds.has(option.wordId))).toBe(true);
+    }
+  });
+
+  it("keeps level words' options at their level", () => {
+    const step = prepareStep({ kind: "mcq", itemIds: ["word:apple"], seed: 4 }, withSet, "k");
+    if (step?.type !== "exercise" || step.instance.kind !== "mcq") throw new Error("expected an mcq");
+    expect(step.instance.options.some((option) => setIds.has(option.wordId))).toBe(false);
+  });
+
+  it("tops up a small set's pool with level words", () => {
+    const small = buildContentIndex([...words, vocabSet("tiny", jargon.slice(0, 2))]);
+    expect(prepareStep({ kind: "mcq", itemIds: ["word:it-deploy"], seed: 1 }, small, "k")).not.toBeNull();
+  });
+
+  it("uses set words as gap distractors for a specialized word's example", () => {
+    const step = prepareStep({ kind: "sentence-gap", itemIds: ["sentence:it-deploy-1"], seed: 5 }, withSet, "k");
+    if (step?.type !== "exercise" || step.instance.kind !== "sentence-gap") throw new Error("expected a gap");
+    const headwords = new Set(jargon.map((item) => item.body.headword));
+    const options = (step.instance.options ?? []).filter((option) => option !== "deploy");
+    expect(options.length).toBeGreaterThan(0);
+    expect(options.every((option) => headwords.has(option))).toBe(true);
+  });
+});
 
 describe("prepareStep", () => {
   it("builds a study card with its example sentences", () => {

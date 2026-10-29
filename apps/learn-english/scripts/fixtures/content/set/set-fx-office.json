@@ -1,0 +1,19 @@
+[
+  {
+    "id": "set:fx-office",
+    "kind": "set",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "titleVi": "Văn phòng (thử)",
+      "titleEn": "Office (test)",
+      "descriptionVi": "Bộ từ thử cho kiểm thử tự động.",
+      "wordIds": [
+        "word:deadline-n",
+        "word:book-n",
+        "word:invoice-n"
+      ]
+    }
+  }
+]

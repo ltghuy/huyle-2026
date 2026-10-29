@@ -7,7 +7,7 @@ import { LEVELS } from "../learning/types";
 
 export const levelSchema = z.enum(LEVELS);
 
-export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement", "forms"] as const;
+export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement", "forms", "set"] as const;
 export const contentKindSchema = z.enum(CONTENT_KINDS);
 export type ContentKind = z.infer<typeof contentKindSchema>;
 
@@ -28,7 +28,8 @@ export const wordBodySchema = z.object({
   synonyms: z.array(idOf("word")).default([]),
   audio: audioKey,
   // "added": a word the course needs that neither list has (content/added-words.json).
-  source: z.enum(["cefrj-1.5", "octanove-1.0", "added"]),
+  // "specialized": a job word that exists only inside a vocabulary set (feature 012).
+  source: z.enum(["cefrj-1.5", "octanove-1.0", "added", "specialized"]),
 });
 
 export const grammarBodySchema = z.object({
@@ -125,13 +126,35 @@ export const formsBodySchema = z.object({
 
 const base = { level: levelSchema, topic: z.string().optional(), sort: z.number().int().default(0) };
 
+const wordItemSchema = z.object({ ...base, id: idOf("word"), kind: z.literal("word"), body: wordBodySchema });
+const sentenceItemSchema = z.object({ ...base, id: idOf("sentence"), kind: z.literal("sentence"), body: sentenceBodySchema });
+
+/**
+ * A specialized vocabulary set (feature 012). `wordIds` is the learning
+ * order. In source files `words` and `sentences` are empty; publish fills
+ * them with the set's words and every example of those words, so the app
+ * loads a whole set in one request.
+ */
+export const setBodySchema = z.object({
+  titleVi: nonEmpty,
+  titleEn: nonEmpty,
+  descriptionVi: nonEmpty,
+  wordIds: z
+    .array(idOf("word"))
+    .min(1)
+    .refine((ids) => new Set(ids).size === ids.length, { message: "word ids must be unique" }),
+  words: z.array(wordItemSchema).default([]),
+  sentences: z.array(sentenceItemSchema).default([]),
+});
+
 export const contentItemSchema = z.discriminatedUnion("kind", [
-  z.object({ ...base, id: idOf("word"), kind: z.literal("word"), body: wordBodySchema }),
+  wordItemSchema,
   z.object({ ...base, id: idOf("grammar"), kind: z.literal("grammar"), body: grammarBodySchema }),
-  z.object({ ...base, id: idOf("sentence"), kind: z.literal("sentence"), body: sentenceBodySchema }),
+  sentenceItemSchema,
   z.object({ ...base, id: idOf("writing"), kind: z.literal("writing"), body: writingBodySchema }),
   z.object({ ...base, id: idOf("placement"), kind: z.literal("placement"), body: placementBodySchema }),
   z.object({ ...base, id: idOf("forms"), kind: z.literal("forms"), body: formsBodySchema }),
+  z.object({ ...base, id: idOf("set"), kind: z.literal("set"), body: setBodySchema }),
 ]);
 export type ContentItem = z.infer<typeof contentItemSchema>;
 export type ContentItemOf<K extends ContentKind> = Extract<ContentItem, { kind: K }>;

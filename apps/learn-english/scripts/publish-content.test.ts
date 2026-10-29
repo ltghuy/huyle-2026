@@ -11,6 +11,7 @@ import {
   generatePlacement,
   missingAudio,
   planPublish,
+  rowItemsOf,
   sqlString,
   stableStringify,
   upsertSql,
@@ -194,7 +195,7 @@ describe("SQL", () => {
     expect(files[2]).toContain("UPDATE content_items SET deleted = 1, updated_version = 5 WHERE id = 'word:gone-n';");
     expect(files[3]).toBe(
       "INSERT INTO content_meta (id, version, published_at, counts) VALUES (1, 5, 1000, " +
-        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0,"forms":0}') ` +
+        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0,"forms":0,"set":0}') ` +
         "ON CONFLICT(id) DO UPDATE SET version = excluded.version, published_at = excluded.published_at, counts = excluded.counts;\n",
     );
   });
@@ -209,5 +210,59 @@ describe("SQL", () => {
 describe("stableStringify", () => {
   it("sorts keys at every depth and drops undefined", () => {
     expect(stableStringify({ b: 1, a: { d: [2, { f: 1, e: 0 }], c: undefined } })).toBe('{"a":{"d":[2,{"e":0,"f":1}]},"b":1}');
+  });
+});
+
+describe("vocabulary sets (feature 012)", () => {
+  const setFixture = (kind: string): SourceFile => ({
+    file: `${kind}/set-fx-office.json`,
+    data: JSON.parse(readFileSync(path.join(FIXTURES, kind, "set-fx-office.json"), "utf8")),
+  });
+  const withSet = (edit: (files: SourceFile[]) => void = () => {}) => {
+    const files = [...fixtureFiles(), ...["word", "sentence", "set"].map(setFixture)];
+    edit(files);
+    return collectApproved(files);
+  };
+  const setDraft = (files: SourceFile[], id: string) => {
+    for (const file of files) {
+      if (!Array.isArray(file.data)) continue;
+      file.data = (file.data as { id: string }[]).map((item) => (item.id === id ? { ...item, status: "draft" } : item));
+    }
+  };
+
+  it("builds one row per set with its words in order and every example embedded", () => {
+    const collected = withSet();
+    const { items, sets, held } = rowItemsOf(collected.items, collected.setScoped);
+    expect(held).toEqual([]);
+    expect(sets).toHaveLength(1);
+    expect(sets[0].body.words.map((word) => word.id)).toEqual(["word:deadline-n", "word:book-n", "word:invoice-n"]);
+    expect(sets[0].body.sentences.map((sentence) => sentence.id).sort()).toEqual(["sentence:fx-book-n", "sentence:fx-deadline-n", "sentence:fx-invoice-n"]);
+    expect(contentItemSchema.safeParse(sets[0]).success).toBe(true);
+    expect(items.filter((item) => item.kind === "set")).toEqual(sets);
+  });
+
+  it("never turns a set file's words and sentences into rows of their own", () => {
+    const collected = withSet();
+    const ids = rowItemsOf(collected.items, collected.setScoped).items.map((item) => item.id);
+    expect(ids).not.toContain("word:deadline-n");
+    expect(ids).not.toContain("sentence:fx-invoice-n");
+    expect(ids).toContain("word:book-n");
+    expect(countsByKind(rowItemsOf(collected.items, collected.setScoped).items).set).toBe(1);
+  });
+
+  it("holds a set back while one of its words or examples is a draft (AC-017)", () => {
+    for (const id of ["word:invoice-n", "sentence:fx-deadline-n", "set:fx-office"]) {
+      const collected = withSet((files) => setDraft(files, id));
+      const { items, held } = rowItemsOf(collected.items, collected.setScoped);
+      expect(items.some((item) => item.kind === "set")).toBe(false);
+      if (id !== "set:fx-office") expect(held[0]).toContain(id);
+    }
+  });
+
+  it("keeps specialized words out of the placement test", () => {
+    const collected = withSet();
+    const rows = rowItemsOf(collected.items, collected.setScoped).items.filter((item) => item.kind !== "set");
+    const prompts = generatePlacement(rows).map((item) => item.body.prompt);
+    expect(prompts).not.toContain("deadline");
   });
 });

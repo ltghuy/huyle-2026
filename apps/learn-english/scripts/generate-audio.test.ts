@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { SourceItem } from "../src/content/schema";
 import { applyKeys, audioKey, collectJobs, encodeMp3, referencedKeys } from "./generate-audio";
+import { scopesOf } from "./lib/scope";
 
 const word = (id: string, status: "draft" | "approved", audio = "") =>
   ({
@@ -78,5 +79,18 @@ describe("encodeMp3", () => {
     // Frame sync: 11 set bits at the start of the first frame.
     expect(mp3[0]).toBe(0xff);
     expect(mp3[1] & 0xe0).toBe(0xe0);
+  });
+});
+
+describe("scopesOf (feature 012)", () => {
+  const names = ["B1.json", "set-it.json", "A1.json", "set-office.json", "notes.txt", "A1-verbs.json"];
+
+  it("lists levels in order, then vocabulary sets, and nothing else", () => {
+    expect(scopesOf(names)).toEqual(["A1", "B1", "set-it", "set-office"]);
+  });
+
+  it("narrows to one scope, so audio can be generated for one set", () => {
+    expect(scopesOf(names, "set-it")).toEqual(["set-it"]);
+    expect(scopesOf(names, "C1")).toEqual([]);
   });
 });

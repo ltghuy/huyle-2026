@@ -4,6 +4,9 @@ import type { WordlistRow } from "../import-wordlists";
 import {
   buildForms,
   buildSentence,
+  buildSet,
+  checkSpecializedDraft,
+  SET_SIZE,
   buildWord,
   buildWriting,
   checkFormsDraft,
@@ -14,6 +17,7 @@ import {
   splitTokens,
   type FormsDraft,
   type SentenceDraft,
+  type SpecializedWordDraft,
   type WordDraft,
 } from "./drafting";
 
@@ -253,5 +257,77 @@ describe("irregular verb forms (feature 008)", () => {
 
   it("refuses a word that isn't a verb", () => {
     expect(buildForms({ ...verb, pos: "noun" }, draft).problems).toEqual(["word:get-v: not a verb (noun)"]);
+  });
+});
+
+describe("specialized vocabulary sets (feature 012)", () => {
+  const topics = new Set(["technology", "work-jobs"]);
+  const known = new Map([
+    ["meeting|noun", "word:meeting-n"],
+    ["computer|noun", "word:computer-n"],
+  ]);
+  const deployExample: SentenceDraft = {
+    en: "We deploy the app on Friday.",
+    vi: "Chúng tôi triển khai ứng dụng vào thứ Sáu.",
+    alternativeOrders: ["On Friday we deploy the app."],
+    gapWords: ["deploy"],
+    wrongVariants: [
+      { en: "We deploys the app on Friday.", explanationVi: "Chủ ngữ số nhiều không thêm -s." },
+      { en: "We deploying the app on Friday.", explanationVi: "Thiếu trợ động từ." },
+      { en: "We deploy the app in Friday.", explanationVi: "Dùng on với ngày trong tuần." },
+    ],
+  };
+  const newWord = (headword: string, pos = "verb"): SpecializedWordDraft => ({
+    headword,
+    pos,
+    topic: "technology",
+    meaningsVi: ["triển khai"],
+    synonyms: [],
+    ipaOk: false,
+    ipaSuggestion: "/dɪˈplɔɪ/",
+    examples: [deployExample],
+    notes: "",
+  });
+
+  it("rejects a new word the course already has, naming the id to reuse (AC-016)", () => {
+    expect(checkSpecializedDraft(newWord("Meeting", "noun"), "A2", topics, known)).toEqual([
+      expect.stringContaining("already word:meeting-n; list that id in the set instead"),
+    ]);
+    expect(checkSpecializedDraft(newWord("meeting", "verb"), "A2", topics, known)).toEqual([]);
+  });
+
+  it("builds the set and its new words as drafts, with words in the listed order", () => {
+    const fillers = Array.from({ length: SET_SIZE.min - 3 }, (_, i) => `word:filler-${i}-n`);
+    const all = new Map([...known, ...fillers.map((id) => [id, id] as const)]);
+    const built = buildSet(
+      { slug: "it", level: "A2", titleVi: "Công nghệ thông tin", titleEn: "IT", descriptionVi: "Từ cho dân IT.", words: ["word:computer-n", newWord("deploy"), "word:meeting-n", ...fillers] },
+      topics,
+      all,
+      () => undefined,
+    );
+    expect(built.problems).toEqual([]);
+    const set = built.items.find((item) => item.kind === "set");
+    if (set?.kind !== "set") throw new Error("expected a set");
+    expect(set.body.wordIds.slice(0, 3)).toEqual(["word:computer-n", "word:deploy-v", "word:meeting-n"]);
+    const word = built.items.find((item) => item.id === "word:deploy-v");
+    expect(word).toMatchObject({ status: "draft", level: "A2", body: { source: "specialized", ipa: "/dɪˈplɔɪ/", examples: ["sentence:deploy-v-1"] } });
+    expect(built.items.find((item) => item.id === "sentence:deploy-v-1")).toMatchObject({ kind: "sentence", level: "A2" });
+  });
+
+  it("reports unknown reused ids, repeats and a set of the wrong size", () => {
+    const built = buildSet(
+      { slug: "it", level: "A2", titleVi: "IT", titleEn: "IT", descriptionVi: "IT", words: ["word:computer-n", "word:computer-n", "word:nope-n"] },
+      topics,
+      known,
+      () => undefined,
+    );
+    // The set's schema also rejects the repeat.
+    expect(built.problems).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("word:nope-n is neither a course word"),
+        expect.stringContaining("listed twice: word:computer-n"),
+        expect.stringContaining("3 words, expected 90 to 120"),
+      ]),
+    );
   });
 });

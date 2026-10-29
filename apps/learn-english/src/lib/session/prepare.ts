@@ -20,8 +20,32 @@ type Word = ContentItemOf<"word">;
 type Grammar = ContentItemOf<"grammar">;
 type Sentence = ContentItemOf<"sentence">;
 
-function sameLevelWords(index: ContentIndex, word: { level: Word["level"] }): readonly Word[] {
-  return index.wordsByLevel[word.level] ?? [];
+/**
+ * Words of the sets holding any of `wordIds` that is a specialized word
+ * (feature 012), so jargon is mixed with jargon, not with everyday words.
+ * Empty when none of them is specialized.
+ */
+function setWordsFor(index: ContentIndex, wordIds: readonly string[]): Word[] {
+  const setIds = new Set(
+    wordIds.flatMap((id) => {
+      const word = index.byId.get(id);
+      return word?.kind === "word" && word.body.source === "specialized" ? (index.setsByWord.get(id) ?? []) : [];
+    }),
+  );
+  return index.sets.filter((set) => setIds.has(set.item.id)).flatMap((set) => set.words);
+}
+
+/** Below this many set words, a specialized word's pool is topped up with its level's words. */
+const MIN_SET_POOL = 10;
+
+/** Distractor pool for a word: its level's words, or its sets' words for a specialized word. */
+function sameLevelWords(index: ContentIndex, word: Word): readonly Word[] {
+  const levelWords = index.wordsByLevel[word.level] ?? [];
+  const setWords = setWordsFor(index, [word.id]);
+  if (setWords.length === 0) return levelWords;
+  const pool = new Map(setWords.map((entry) => [entry.id, entry]));
+  if (pool.size < MIN_SET_POOL) for (const entry of levelWords) pool.set(entry.id, entry);
+  return [...pool.values()];
 }
 
 function examplesOf(index: ContentIndex, ids: readonly string[]): Sentence[] {
@@ -44,10 +68,15 @@ function sentenceRelated(index: ContentIndex, sentence: Sentence): RelatedItems 
   return { cardIds, link: word?.kind === "word" ? { href: `/vocabulary?word=${encodeURIComponent(word.id)}`, label: word.body.headword } : undefined };
 }
 
-/** Headwords at the sentence's level, minus the words the sentence itself practises. */
+/**
+ * Headwords at the sentence's level (or of the sets of a specialized word it
+ * practises), minus the words the sentence itself practises.
+ */
 function distractorWords(index: ContentIndex, sentence: Sentence): string[] {
   const own = new Set(sentence.body.wordIds);
-  return (index.wordsByLevel[sentence.level] ?? []).filter((word) => !own.has(word.id)).map((word) => word.body.headword);
+  const setWords = setWordsFor(index, sentence.body.wordIds);
+  const pool = setWords.length > 0 ? setWords : (index.wordsByLevel[sentence.level] ?? []);
+  return [...new Set(pool.filter((word) => !own.has(word.id)).map((word) => word.body.headword))];
 }
 
 /** A forms item with its verb, or null when either is gone. */

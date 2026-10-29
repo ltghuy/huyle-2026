@@ -96,6 +96,47 @@ describe("contentItemSchema", () => {
   });
 });
 
+const set = {
+  id: "set:it",
+  kind: "set",
+  level: "A2",
+  body: { titleVi: "Công nghệ thông tin", titleEn: "Information technology", descriptionVi: "Từ vựng cho người làm IT.", wordIds: ["word:homework-n", "word:deploy-v"] },
+};
+
+describe("set items", () => {
+  it("accepts a set and defaults its embedded words and sentences to empty", () => {
+    const parsed = contentItemSchema.parse(set);
+    if (parsed.kind !== "set") throw new Error("expected a set");
+    expect(parsed.body.words).toEqual([]);
+    expect(parsed.body.sentences).toEqual([]);
+  });
+
+  it("accepts embedded words and sentences", () => {
+    const body = { ...set.body, words: [word], sentences: [sentence] };
+    expect(contentItemSchema.safeParse({ ...set, body }).success).toBe(true);
+  });
+
+  it("rejects an embedded item of another kind", () => {
+    const body = { ...set.body, words: [sentence] };
+    expect(contentItemSchema.safeParse({ ...set, body }).success).toBe(false);
+  });
+
+  it("rejects a bad set id", () => {
+    expect(contentItemSchema.safeParse({ ...set, id: "set:IT" }).success).toBe(false);
+    expect(contentItemSchema.safeParse({ ...set, id: "word:it" }).success).toBe(false);
+  });
+
+  it("rejects empty or repeated word ids", () => {
+    expect(contentItemSchema.safeParse({ ...set, body: { ...set.body, wordIds: [] } }).success).toBe(false);
+    const repeated = ["word:homework-n", "word:homework-n"];
+    expect(contentItemSchema.safeParse({ ...set, body: { ...set.body, wordIds: repeated } }).success).toBe(false);
+  });
+
+  it("accepts a specialized word", () => {
+    expect(contentItemSchema.safeParse({ ...word, body: { ...word.body, source: "specialized" } }).success).toBe(true);
+  });
+});
+
 describe("sourceItemSchema", () => {
   it("requires a review status", () => {
     expect(sourceItemSchema.safeParse(word).success).toBe(false);

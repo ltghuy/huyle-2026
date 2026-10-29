@@ -1,0 +1,48 @@
+[
+  {
+    "id": "word:deadline-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "deadline",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdɛdˌlaɪn/",
+      "meaningsVi": [
+        "hạn chót"
+      ],
+      "examples": [
+        "sentence:fx-deadline-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    }
+  },
+  {
+    "id": "word:invoice-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "invoice",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɪnˌvɔɪs/",
+      "meaningsVi": [
+        "hóa đơn"
+      ],
+      "examples": [
+        "sentence:fx-invoice-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    }
+  }
+]

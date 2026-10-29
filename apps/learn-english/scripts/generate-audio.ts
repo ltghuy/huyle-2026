@@ -7,7 +7,7 @@
 // the owner's machine only; the app never synthesises speech.
 //
 //   pnpm content:audio samples --provider kokoro|google|aura   (a few clips per candidate voice)
-//   pnpm content:audio generate --provider kokoro --voice am_michael [--level A1] [--limit N]
+//   pnpm content:audio generate --provider kokoro --voice am_michael [--scope A1|set-it] [--limit N]
 //   pnpm content:audio deploy                                  (after generate, before content:publish)
 //
 // kokoro is free: the open Kokoro-82M model (Apache-2.0) runs on this machine
@@ -25,7 +25,7 @@ import path from "node:path";
 import { parseArgs, promisify } from "node:util";
 import type { SourceItem } from "../src/content/schema";
 import { formsSequence } from "../src/learning/verbs";
-import { LEVELS, type Level } from "../src/learning/types";
+import { isScope, SCOPE_HINT, scopesOf } from "./lib/scope";
 
 const run = promisify(execFile);
 const FREE_PLAN_FILE_LIMIT = 20_000;
@@ -199,21 +199,26 @@ async function samples(provider: Provider, outDir: string) {
   console.log(`Listen in ${outDir} and pick one voice for "generate".`);
 }
 
-async function generate(provider: Provider, voice: string, options: { level?: Level; limit?: number }) {
+/** Source files of `kind` in `root`/content, one per scope (levels, then vocabulary sets), or only `scope`. */
+async function scopeFiles(root: string, kind: string, scope?: string): Promise<{ scope: string; file: string }[]> {
+  const dir = path.join(root, "content", kind);
+  const names = existsSync(dir) ? await readdir(dir) : [];
+  return scopesOf(names, scope).map((name) => ({ scope: name, file: path.join(dir, `${name}.json`) }));
+}
+
+async function generate(provider: Provider, voice: string, options: { scope?: string; limit?: number }) {
   const root = process.cwd();
   const cacheDir = path.join(root, "content/.audio", voice);
   await mkdir(cacheDir, { recursive: true });
-  const levels = options.level ? [options.level] : [...LEVELS];
   // Verb forms say their verb's headword first, from any level.
   const headwords = new Map<string, string>();
-  for (const level of LEVELS) {
-    for (const item of await readJson<SourceItem[]>(path.join(root, "content/word", `${level}.json`), [])) {
+  for (const { file } of await scopeFiles(root, "word")) {
+    for (const item of await readJson<SourceItem[]>(file, [])) {
       if (item.kind === "word") headwords.set(item.id, item.body.headword);
     }
   }
   for (const kind of ["word", "sentence", "forms"] as const) {
-    for (const level of levels) {
-      const file = path.join(root, "content", kind, `${level}.json`);
+    for (const { scope: level, file } of await scopeFiles(root, kind, options.scope)) {
       const items = await readJson<SourceItem[]>(file, []);
       let jobs = collectJobs(items, voice, headwords);
       if (options.limit) jobs = jobs.slice(0, options.limit);
@@ -261,7 +266,7 @@ async function deploy() {
   const cacheRoot = path.join(root, "content/.audio");
   const items: SourceItem[] = [];
   for (const kind of ["word", "sentence", "forms"] as const) {
-    for (const level of LEVELS) items.push(...(await readJson<SourceItem[]>(path.join(root, "content", kind, `${level}.json`), [])));
+    for (const { file } of await scopeFiles(root, kind)) items.push(...(await readJson<SourceItem[]>(file, [])));
   }
   const voices = (await readdir(cacheRoot, { withFileTypes: true })).filter((entry) => entry.isDirectory() && !["dist", "samples"].includes(entry.name));
   const findClip = (key: string) => voices.map((voice) => path.join(cacheRoot, voice.name, `${key}.mp3`)).find((file) => existsSync(file));
@@ -288,6 +293,8 @@ async function main() {
     options: {
       provider: { type: "string" },
       voice: { type: "string" },
+      scope: { type: "string" },
+      // The old name of --scope.
       level: { type: "string" },
       limit: { type: "string" },
     },
@@ -297,11 +304,11 @@ async function main() {
   if (positionals[0] === "samples") return samples(provider, path.join(process.cwd(), "content/.audio/samples"));
   if (positionals[0] === "generate") {
     if (!values.voice) throw new Error("--voice is required");
-    const level = values.level as Level | undefined;
-    if (level && !LEVELS.includes(level)) throw new Error(`--level must be one of ${LEVELS.join(", ")}`);
-    return generate(provider, values.voice, { level, limit: values.limit ? Number(values.limit) : undefined });
+    const scope = values.scope ?? values.level;
+    if (scope && !isScope(scope)) throw new Error(`--scope must be ${SCOPE_HINT}`);
+    return generate(provider, values.voice, { scope, limit: values.limit ? Number(values.limit) : undefined });
   }
-  console.log("Usage: content:audio samples --provider kokoro|google|aura | generate --provider … --voice … [--level A1] [--limit N] | deploy");
+  console.log("Usage: content:audio samples --provider kokoro|google|aura | generate --provider … --voice … [--scope A1|set-it] [--limit N] | deploy");
 }
 
 if (process.argv[1]?.endsWith("generate-audio.ts")) void main();

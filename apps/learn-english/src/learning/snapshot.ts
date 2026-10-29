@@ -68,6 +68,7 @@ const PROFILE_KEYS = [
   "sync",
   "statsOptOut",
   "leaderboard",
+  "vocabSet",
   "deviceId",
   "schemaVersion",
   "fieldUpdatedAt",
@@ -148,6 +149,7 @@ const metaSchema = z.object({
       z.object({ status: z.literal("joined"), id: z.uuid(), token: z.string().regex(/^[A-Za-z0-9_-]{43}$/), name: z.string().min(1).max(NAME_MAX_LENGTH * 2) }),
     ])
     .optional(),
+  vocabSet: z.string().regex(/^set:[a-z0-9][a-z0-9-]*$/).optional(),
   schemaVersion: count,
   fieldUpdatedAt: z.partialRecord(z.enum(PROFILE_KEYS), time),
 }) satisfies z.ZodType<SnapshotMeta>;

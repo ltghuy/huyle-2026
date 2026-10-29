@@ -112,7 +112,7 @@ export function fillFormsIpa(dict: Map<string, string[]>, items: FormsSource[], 
   return missing;
 }
 
-async function loadCmudict(cacheDir: string): Promise<Map<string, string[]>> {
+export async function loadCmudict(cacheDir: string): Promise<Map<string, string[]>> {
   const file = path.join(cacheDir, "cmudict.dict");
   if (!existsSync(file)) {
     await mkdir(cacheDir, { recursive: true });

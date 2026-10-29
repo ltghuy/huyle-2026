@@ -132,6 +132,20 @@ describe("parseSnapshot", () => {
     expect(parsed.ok && parsed.snapshot.data.meta.fieldUpdatedAt.leaderboard).toBe(NOW);
   });
 
+  it("keeps the followed vocabulary set (012 AC-012)", () => {
+    const following = buildSnapshot({ ...state, profile: { ...profile, vocabSet: "set:it", fieldUpdatedAt: { vocabSet: NOW } } }, NOW, TZ);
+    const parsed = parseSnapshot(JSON.stringify(following));
+    expect(parsed.ok && parsed.snapshot.data.meta.vocabSet).toBe("set:it");
+    expect(parsed.ok && parsed.snapshot.data.meta.fieldUpdatedAt.vocabSet).toBe(NOW);
+  });
+
+  it("still parses a snapshot made before vocabulary sets, and rejects a malformed set id", () => {
+    const parsed = parseSnapshot(JSON.stringify(snapshot));
+    expect(parsed.ok && parsed.snapshot.data.meta.vocabSet).toBeUndefined();
+    const bad = buildSnapshot({ ...state, profile: { ...profile, vocabSet: "word:it" } }, NOW, TZ);
+    expect(parseSnapshot(JSON.stringify(bad)).ok).toBe(false);
+  });
+
   it("accepts its own output, as an object or as JSON text", () => {
     expect(parseSnapshot(snapshot)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });

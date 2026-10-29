@@ -132,6 +132,8 @@ export interface Profile {
    * backups and sync, so the learner's devices share one entry.
    */
   leaderboard?: LeaderboardState;
+  /** The followed specialized vocabulary set (feature 012), `set:<slug>`; its words come first in the daily lesson. */
+  vocabSet?: string;
   /** Random per-browser id; only ever sent hashed with the day (usage stats). */
   deviceId: string;
   schemaVersion: number;

@@ -311,3 +311,49 @@ describe("buildLessonPlan", () => {
     expect(lesson.plan[0].kind).toBe("new-words");
   });
 });
+
+describe("buildLessonPlan with a followed vocabulary set (feature 012)", () => {
+  const specialized = Array.from({ length: 12 }, (_, i) =>
+    word(`it-${String(i).padStart(2, "0")}`, { source: "specialized", examples: [`sentence:it-${i}`], audio: "a".repeat(64) }, "A2"),
+  );
+  // Reuses a course word in the middle of the set.
+  const setWords = [specialized[0], wordsAt("A1", 1)[0], ...specialized.slice(1)];
+  const setSentences = specialized.map((_, i) => richSentence(`it-${i}`));
+  const content = makeContent({ setWords: new Map([["set:it", setWords]]), setSentences });
+  const following = (overrides: Partial<LessonPlanInput> = {}) =>
+    input({ content, profile: { level: "A1", timeZone: "Asia/Ho_Chi_Minh", vocabSet: "set:it" }, ...overrides });
+  const newIds = (lesson: ReturnType<typeof buildLessonPlan>) =>
+    part(lesson, "new-words")!.exercises.filter((e) => e.kind === "study").map((e) => e.itemIds[0]);
+
+  it("takes new words from the set first, in the set's order (AC-008)", () => {
+    expect(newIds(buildLessonPlan(following()))).toEqual(setWords.slice(0, 10).map((w) => w.id));
+  });
+
+  it("skips set words already learned, wherever they were learned", () => {
+    const cards = [card("word:a1-00", { dueIn: DAY }), card("word:it-00", { dueIn: DAY })];
+    expect(newIds(buildLessonPlan(following({ cards })))).toEqual(specialized.slice(1, 11).map((w) => w.id));
+  });
+
+  it("tops up from the learner's level when the set has fewer words left", () => {
+    const cards = setWords.slice(0, 11).map((w) => card(w.id, { dueIn: DAY }));
+    expect(newIds(buildLessonPlan(following({ cards })))).toEqual([
+      "word:it-10",
+      "word:it-11",
+      ...Array.from({ length: 8 }, (_, i) => `word:a1-0${i + 1}`),
+    ]);
+  });
+
+  it("builds sentence tasks from the set words' embedded examples", () => {
+    const sentenceIds = part(buildLessonPlan(following()), "sentences")!.exercises.map((e) => e.itemIds[0]);
+    expect(sentenceIds).toEqual(["sentence:it-0", "sentence:a1-0", "sentence:it-1"]);
+  });
+
+  it("falls back to level words when the followed set is missing", () => {
+    const missing = input({ profile: { level: "A1", timeZone: "Asia/Ho_Chi_Minh", vocabSet: "set:gone" } });
+    expect(newIds(buildLessonPlan(missing))).toEqual(newIds(buildLessonPlan(input())));
+  });
+
+  it("stays deterministic", () => {
+    expect(buildLessonPlan(following())).toEqual(buildLessonPlan(following()));
+  });
+});

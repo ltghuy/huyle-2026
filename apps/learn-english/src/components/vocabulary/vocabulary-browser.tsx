@@ -1,34 +1,36 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { BookOpen, Check, CheckCircle2, ChevronDown } from "lucide-react";
+import { BookOpen, Check, ChevronDown } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import { LEVELS, type Level } from "@/learning/types";
 import { formsIdOf } from "@/learning/verbs";
 import type { ContentIndex } from "@/lib/session/content-index";
-import { parseLevel, updateSearchParams, withParams } from "@/lib/search-params";
+import { parseLevel, updateSearchParams } from "@/lib/search-params";
 import { compareTopics, topicOf, topicTitle } from "@/lib/topics";
 import { cn } from "@/lib/utils";
 import { LevelTabs } from "@/components/library/level-tabs";
 import { LEVEL_LABELS } from "@/components/settings/level-setting";
 import { useCardIds } from "@/components/library/use-card-ids";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { WordDialog, type WordLookup } from "./word-dialog";
+import { SetList } from "./set-list";
+import { SetView } from "./set-view";
+import { WordList } from "./word-list";
 import { WordSearchBox } from "./word-search-box";
 
 type Word = ContentItemOf<"word">;
 
 const ALL_TOPICS = "all";
-/** Words rendered per chunk; long levels grow with "Xem thêm". */
-const CHUNK = 60;
+/** The "Chuyên ngành" tab's value, next to the levels (feature 012). */
+const SETS_TAB = "sets";
+const SETS_TAB_INFO = { value: SETS_TAB, label: "Chuyên ngành" } as const;
 /** Topics shown before "Xem thêm"; the selected one is always shown. */
 const TOPICS_SHOWN = 8;
 
@@ -50,13 +52,26 @@ function groupByTopic(words: readonly Word[], learned: ReadonlySet<string>): Top
   return [...groups.values()].sort((a, b) => compareTopics(a.slug, b.slug));
 }
 
+/** The first set's name for a specialized word (AC-004); undefined for course words. */
+function specializedSetTitle(index: ContentIndex, word: Word): string | undefined {
+  if (word.body.source !== "specialized") return undefined;
+  const first = index.byId.get(index.setsByWord.get(word.id)?.[0] ?? "");
+  return first?.kind === "set" ? first.body.titleVi : undefined;
+}
+
 function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], stillLoading: boolean): WordLookup {
   for (const index of indexes) {
     const item = index?.byId.get(id);
     if (item?.kind === "word") {
       const examples = item.body.examples.map((exampleId) => index?.byId.get(exampleId)).filter((entry) => entry?.kind === "sentence");
       const forms = index?.byId.get(formsIdOf(item.id));
-      return { status: "found", word: item, examples: examples as ContentItemOf<"sentence">[], forms: forms?.kind === "forms" ? forms : undefined };
+      return {
+        status: "found",
+        word: item,
+        examples: examples as ContentItemOf<"sentence">[],
+        forms: forms?.kind === "forms" ? forms : undefined,
+        setTitle: index ? specializedSetTitle(index, item) : undefined,
+      };
     }
   }
   return stillLoading ? { status: "loading" } : { status: "missing" };
@@ -64,10 +79,16 @@ function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], still
 
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
-/** `/vocabulary`: search, words by level and topic, learned markers and the word dialog (AC-006–AC-009; 002). */
+/**
+ * `/vocabulary`: search, words by level and topic, learned markers and the
+ * word dialog (AC-006–AC-009; 002). `?view=sets` lists the specialized
+ * vocabulary sets and `?set=<slug>` opens one (feature 012).
+ */
 export function VocabularyBrowser() {
   const params = useSearchParams();
   const profile = useProfile();
+  const setSlug = params.get("set");
+  const showSets = params.get("view") === SETS_TAB || setSlug !== null;
   const levelParam = parseLevel(params.get("level"));
   const level: Level | null = levelParam ?? (profile.status === "ready" ? profile.data.level : profile.status === "error" ? "A1" : null);
   const topic = params.get("topic") ?? ALL_TOPICS;
@@ -100,6 +121,7 @@ export function VocabularyBrowser() {
   if (content.status === "error") return <ContentError onRetry={content.retry} />;
 
   const search = params.toString();
+  const followedSet = profile.status === "ready" ? profile.data.vocabSet : undefined;
   const activeGroup = topic === ALL_TOPICS ? null : groups.find((group) => group.slug === topic);
   const shown = topic === ALL_TOPICS ? words : (activeGroup?.words ?? []);
   const learnedCount = groups.reduce((sum, group) => sum + group.learned, 0);
@@ -111,8 +133,9 @@ export function VocabularyBrowser() {
     ? lookupWord(wordId, [index, fallback.status === "ready" ? fallback.index : null], needsAllLevels && fallback.status === "loading")
     : { status: "loading" };
 
-  function handleLevelChange(next: Level) {
-    updateSearchParams({ level: next, topic: null });
+  function handleTabChange(next: Level | typeof SETS_TAB) {
+    if (next === SETS_TAB) updateSearchParams({ view: SETS_TAB, set: null, topic: null });
+    else updateSearchParams({ level: next, topic: null, view: null, set: null });
     setAllTopics(false);
   }
 
@@ -145,10 +168,23 @@ export function VocabularyBrowser() {
         <div className="md:w-full md:max-w-md">
           <WordSearchBox onSelect={handleSearchSelect} />
         </div>
-        <LevelTabs value={level} onChange={handleLevelChange} />
+        <LevelTabs value={showSets ? SETS_TAB : level} onChange={handleTabChange} extra={SETS_TAB_INFO} />
       </div>
 
-      {words.length === 0 ? (
+      {showSets ? (
+        setSlug !== null ? (
+          <SetView
+            set={content.index.sets.find((set) => set.item.id === `set:${setSlug}`)}
+            index={content.index}
+            learned={learned}
+            followed={followedSet === `set:${setSlug}`}
+            search={search}
+            onOpenWord={handleOpenWord}
+          />
+        ) : (
+          <SetList sets={content.index.sets} learned={learned} followed={followedSet} search={search} />
+        )
+      ) : words.length === 0 ? (
         <EmptyState icon={BookOpen} title={`Chưa có từ vựng trình độ ${level}`}>
           <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
         </EmptyState>
@@ -241,58 +277,5 @@ function TopicChip({ value, title, learned, total, className }: { value: string;
         {learned}/{total}
       </span>
     </ToggleGroupItem>
-  );
-}
-
-function WordList({ words, learned, search, onOpen }: { words: readonly Word[]; learned: ReadonlySet<string>; search: string; onOpen: () => void }) {
-  const [limit, setLimit] = useState(CHUNK);
-  const visible = words.slice(0, limit);
-  return (
-    <section aria-label="Danh sách từ" className="grid gap-4">
-      <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {visible.map((word) => (
-          <li key={word.id} className="[contain-intrinsic-size:auto_6rem] [content-visibility:auto]">
-            <WordCard word={word} learned={learned.has(word.id)} href={`/vocabulary${withParams(search, { word: word.id })}`} onOpen={onOpen} />
-          </li>
-        ))}
-      </ul>
-      {words.length > limit ? (
-        <Button variant="outline" className="h-11 justify-self-center px-6" onClick={() => setLimit((value) => value + CHUNK)}>
-          Xem thêm {Math.min(CHUNK, words.length - limit)} từ
-        </Button>
-      ) : null}
-    </section>
-  );
-}
-
-function WordCard({ word, learned, href, onOpen }: { word: Word; learned: boolean; href: string; onOpen: () => void }) {
-  const { body } = word;
-  return (
-    <Link
-      href={href}
-      scroll={false}
-      onClick={onOpen}
-      className={cn(
-        "flex min-h-24 flex-col gap-1 rounded-xl border bg-card p-4 transition-colors outline-none hover:bg-muted/60 focus-visible:ring-3 focus-visible:ring-ring/50",
-        learned && "border-success/40",
-      )}
-    >
-      <span className="flex items-start gap-2">
-        <span className="min-w-0 flex-1 text-xl font-semibold break-words" lang="en">
-          {body.headword}
-        </span>
-        {learned ? (
-          <Badge variant="secondary" className="shrink-0">
-            <CheckCircle2 className="text-success" aria-hidden /> Đã học
-          </Badge>
-        ) : null}
-      </span>
-      <span className="text-sm text-muted-foreground">
-        {body.ipa ? <span className="ipa">{body.ipa}</span> : null}
-        {body.ipa ? " · " : null}
-        <span lang="en">{body.pos}</span>
-      </span>
-      <span className="line-clamp-1">{body.meaningsVi[0]}</span>
-    </Link>
   );
 }
