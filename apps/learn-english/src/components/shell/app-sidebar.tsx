@@ -73,6 +73,10 @@ export function AppSidebar() {
             >
               <Info aria-hidden />
               <span className="group-data-[collapsible=icon]:hidden">Nguồn dữ liệu</span>
+              {/* The app version from package.json, at the row's right end (quick 022). */}
+              <span className="ml-auto tabular-nums group-data-[collapsible=icon]:hidden">
+                v{process.env.NEXT_PUBLIC_APP_VERSION}
+              </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { version } from "./package.json";
 
 // Routes were renamed from Vietnamese to English; old links and bookmarks keep
 // working. Query strings are passed through, so the old keys are renamed too.
@@ -24,6 +25,9 @@ const RENAMED_KEYS = [
 ] as const;
 
 const nextConfig: NextConfig = {
+  // Inlined at build time for the sidebar footer, so the client bundle
+  // doesn't carry the whole package.json (quick 022).
+  env: { NEXT_PUBLIC_APP_VERSION: version },
   redirects() {
     return Promise.resolve([
       // Listed first: the first matching redirect wins.
