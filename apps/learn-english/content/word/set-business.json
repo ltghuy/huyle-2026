@@ -1,0 +1,1298 @@
+[
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:account-manager-n",
+    "kind": "word",
+    "body": {
+      "headword": "account manager",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/əˈkaʊnt ˈmænədʒɚ/",
+      "meaningsVi": [
+        "người quản lý khách hàng",
+        "chuyên viên phụ trách khách hàng"
+      ],
+      "examples": [
+        "sentence:account-manager-n-1",
+        "sentence:account-manager-n-2"
+      ],
+      "synonyms": [],
+      "audio": "c0c99c1b47fd7dce5a8f5ed52cd7b9b3c1571f5853def285ec188ec690a63095",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:annual-report-n",
+    "kind": "word",
+    "body": {
+      "headword": "annual report",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈænjuəl riˈpɔrt/",
+      "meaningsVi": [
+        "báo cáo thường niên"
+      ],
+      "examples": [
+        "sentence:annual-report-n-1",
+        "sentence:annual-report-n-2"
+      ],
+      "synonyms": [],
+      "audio": "ae797b70b94a2cda939fd1028815b960986ff2803182e35367181ffa28d121c9",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:asset-n",
+    "kind": "word",
+    "body": {
+      "headword": "asset",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈæˌsɛt/",
+      "meaningsVi": [
+        "tài sản",
+        "điều quý giá, lợi thế"
+      ],
+      "examples": [
+        "sentence:asset-n-1",
+        "sentence:asset-n-2"
+      ],
+      "synonyms": [],
+      "audio": "aeea99d8ebd459532152971eecca81c0cc41bf204774fee14ab7188720f8b5a3",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:balance-sheet-n",
+    "kind": "word",
+    "body": {
+      "headword": "balance sheet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbæləns ʃit/",
+      "meaningsVi": [
+        "bảng cân đối kế toán"
+      ],
+      "examples": [
+        "sentence:balance-sheet-n-1",
+        "sentence:balance-sheet-n-2"
+      ],
+      "synonyms": [],
+      "audio": "9d78549d8eee6e0e2df3c024c219d6b7fc2286d5c168d44608e479b827f2c23b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:break-even-v",
+    "kind": "word",
+    "body": {
+      "headword": "break even",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/breɪk ˈivən/",
+      "meaningsVi": [
+        "hòa vốn"
+      ],
+      "examples": [
+        "sentence:break-even-v-1",
+        "sentence:break-even-v-2"
+      ],
+      "synonyms": [],
+      "audio": "55b9c518378ebe4fb30fc9e823607665c268cfe92157ad5d080b16ffb5641883",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /breɪk ˈivɪn/",
+      "Phrasal verb; the noun/adjective is spelled “break-even”."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:business-model-n",
+    "kind": "word",
+    "body": {
+      "headword": "business model",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbɪznəs ˈmɑdəl/",
+      "meaningsVi": [
+        "mô hình kinh doanh"
+      ],
+      "examples": [
+        "sentence:business-model-n-1",
+        "sentence:business-model-n-2"
+      ],
+      "synonyms": [],
+      "audio": "4616f0411366df7b302b2993ce774c2d082e3639fe18ac91d341285344e0ac73",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:business-plan-n",
+    "kind": "word",
+    "body": {
+      "headword": "business plan",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbɪznəs plæn/",
+      "meaningsVi": [
+        "kế hoạch kinh doanh"
+      ],
+      "examples": [
+        "sentence:business-plan-n-1",
+        "sentence:business-plan-n-2"
+      ],
+      "synonyms": [],
+      "audio": "7ff94f2f281708631ab16fddd8fe5db64d324b7de5d4baf717017b0b5f09dfed",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:cash-flow-n",
+    "kind": "word",
+    "body": {
+      "headword": "cash flow",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæʃ floʊ/",
+      "meaningsVi": [
+        "dòng tiền"
+      ],
+      "examples": [
+        "sentence:cash-flow-n-1",
+        "sentence:cash-flow-n-2"
+      ],
+      "synonyms": [],
+      "audio": "a0ba2128fb369730283e4d42725b65a0175c0f23e35051ebcdf769e4b236beb8",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:ceo-n",
+    "kind": "word",
+    "body": {
+      "headword": "CEO",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌsiˌiˈoʊ/",
+      "meaningsVi": [
+        "giám đốc điều hành",
+        "tổng giám đốc"
+      ],
+      "examples": [
+        "sentence:ceo-n-1",
+        "sentence:ceo-n-2"
+      ],
+      "synonyms": [],
+      "audio": "283cab0dc1085d8b99064acea4c4bdb74f84f778a07f17d9b4ed267af06c263d",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /ˈsiˌiˈoʊ/",
+      "Acronym, read letter by letter (C-E-O)."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:cold-call-n",
+    "kind": "word",
+    "body": {
+      "headword": "cold call",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/koʊld kɔl/",
+      "meaningsVi": [
+        "cuộc gọi chào hàng (cho người chưa quen)"
+      ],
+      "examples": [
+        "sentence:cold-call-n-1",
+        "sentence:cold-call-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b8da65074d8e57f660ac389d7ff1ac08f2d83a19cb9a7a03e5c319037802b7ba",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "Noun; the verb is usually written “cold-call”."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:competitive-advantage-n",
+    "kind": "word",
+    "body": {
+      "headword": "competitive advantage",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kəmˈpɛtətɪv ædˈvæntɪdʒ/",
+      "meaningsVi": [
+        "lợi thế cạnh tranh"
+      ],
+      "examples": [
+        "sentence:competitive-advantage-n-1",
+        "sentence:competitive-advantage-n-2"
+      ],
+      "synonyms": [],
+      "audio": "c9feab5a53bbd4fdcdbf1954a3e94f7c4e64925666c73dd77b0b20b2f6b2ba6d",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:customer-base-n",
+    "kind": "word",
+    "body": {
+      "headword": "customer base",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkʌstəmɚ beɪs/",
+      "meaningsVi": [
+        "lượng khách hàng",
+        "tệp khách hàng"
+      ],
+      "examples": [
+        "sentence:customer-base-n-1",
+        "sentence:customer-base-n-2"
+      ],
+      "synonyms": [],
+      "audio": "316316b46a5c10ce865cb6854af65c645e155dc118f369c9f384ae4b90b897d0",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:customer-service-n",
+    "kind": "word",
+    "body": {
+      "headword": "customer service",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkʌstəmɚ ˈsɝvəs/",
+      "meaningsVi": [
+        "dịch vụ chăm sóc khách hàng",
+        "bộ phận chăm sóc khách hàng"
+      ],
+      "examples": [
+        "sentence:customer-service-n-1",
+        "sentence:customer-service-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b9a1665b6c97f5c5816107d4f6653e68c368347a4a7f146328d3653620f69af1",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:diversify-v",
+    "kind": "word",
+    "body": {
+      "headword": "diversify",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/daɪˈvɝsəˌfaɪ/",
+      "meaningsVi": [
+        "đa dạng hóa"
+      ],
+      "examples": [
+        "sentence:diversify-v-1",
+        "sentence:diversify-v-2"
+      ],
+      "synonyms": [],
+      "audio": "e78bf80973ccb0f4037dadc213a83700dfb40edf8003717b2a123e3d11248e9f",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:dividend-n",
+    "kind": "word",
+    "body": {
+      "headword": "dividend",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdɪvɪˌdɛnd/",
+      "meaningsVi": [
+        "cổ tức"
+      ],
+      "examples": [
+        "sentence:dividend-n-1",
+        "sentence:dividend-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2fe2370cc999a68f67e909e40ad319b28e13422f19fca47cd61eda76a4fc680f",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:expenditure-n",
+    "kind": "word",
+    "body": {
+      "headword": "expenditure",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɪkˈspɛndətʃɚ/",
+      "meaningsVi": [
+        "khoản chi tiêu",
+        "sự chi tiêu"
+      ],
+      "examples": [
+        "sentence:expenditure-n-1",
+        "sentence:expenditure-n-2"
+      ],
+      "synonyms": [
+        "word:expense-n"
+      ],
+      "audio": "68fb0eee868e2e0b24bac24c2bde8d53861d79bfec75e1b819304049abef0944",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:fiscal-year-n",
+    "kind": "word",
+    "body": {
+      "headword": "fiscal year",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfɪskəl jɪr/",
+      "meaningsVi": [
+        "năm tài chính"
+      ],
+      "examples": [
+        "sentence:fiscal-year-n-1",
+        "sentence:fiscal-year-n-2"
+      ],
+      "synonyms": [],
+      "audio": "8c0509f6dd946936dbdd1e29a0de947940ee8969f29fe8eab18b46809b519880",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "American term; British English also says “financial year”."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:founder-n",
+    "kind": "word",
+    "body": {
+      "headword": "founder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfaʊndɚ/",
+      "meaningsVi": [
+        "người sáng lập"
+      ],
+      "examples": [
+        "sentence:founder-n-1",
+        "sentence:founder-n-2"
+      ],
+      "synonyms": [],
+      "audio": "c971c9a51023f512a3648a60cceda6e37f20f12ab1d173e96f8a7ae0142716d1",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:franchise-n",
+    "kind": "word",
+    "body": {
+      "headword": "franchise",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfrænˌtʃaɪz/",
+      "meaningsVi": [
+        "nhượng quyền thương mại",
+        "cửa hàng nhượng quyền"
+      ],
+      "examples": [
+        "sentence:franchise-n-1",
+        "sentence:franchise-n-2"
+      ],
+      "synonyms": [],
+      "audio": "547bf4d7689645a5b716d10a58a4588173e354453d64078471f44886bc80546c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:kpi-n",
+    "kind": "word",
+    "body": {
+      "headword": "KPI",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌkeɪˌpiˈaɪ/",
+      "meaningsVi": [
+        "chỉ số đo lường hiệu quả (KPI)"
+      ],
+      "examples": [
+        "sentence:kpi-n-1",
+        "sentence:kpi-n-2"
+      ],
+      "synonyms": [],
+      "audio": "20a8a6d6c1efc73c62be6a112082a00dde54a57fc07657e5f16ef606e508f72e",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription",
+      "Key performance indicator; acronym read letter by letter (K-P-I)."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:lead-time-n",
+    "kind": "word",
+    "body": {
+      "headword": "lead time",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/lid taɪm/",
+      "meaningsVi": [
+        "thời gian chờ hàng",
+        "thời gian từ lúc đặt đến lúc giao"
+      ],
+      "examples": [
+        "sentence:lead-time-n-1",
+        "sentence:lead-time-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b7209ee750a469c069678f6886a74aff7d42fc8e8f6d00763eb6ae4fc0b9bb95",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /lɛd taɪm/",
+      "“Lead” is pronounced /lid/ here."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:liability-n",
+    "kind": "word",
+    "body": {
+      "headword": "liability",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌlaɪəˈbɪlɪti/",
+      "meaningsVi": [
+        "khoản nợ phải trả",
+        "trách nhiệm pháp lý"
+      ],
+      "examples": [
+        "sentence:liability-n-1",
+        "sentence:liability-n-2"
+      ],
+      "synonyms": [],
+      "audio": "6dd0fa2c04499ee752b704020aa4f6eb8451a317f5a83cbfc4731060dc823df6",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:logistics-n",
+    "kind": "word",
+    "body": {
+      "headword": "logistics",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ləˈdʒɪstɪks/",
+      "meaningsVi": [
+        "hậu cần, logistics",
+        "việc vận chuyển và lưu kho hàng hóa"
+      ],
+      "examples": [
+        "sentence:logistics-n-1",
+        "sentence:logistics-n-2"
+      ],
+      "synonyms": [],
+      "audio": "9ff14e5b08586df1bbb0f996b5b73f9eafbc36bc46d77e0cf80f92e0916a1993",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:market-research-n",
+    "kind": "word",
+    "body": {
+      "headword": "market research",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmɑrkət riˈsɝtʃ/",
+      "meaningsVi": [
+        "nghiên cứu thị trường"
+      ],
+      "examples": [
+        "sentence:market-research-n-1",
+        "sentence:market-research-n-2"
+      ],
+      "synonyms": [],
+      "audio": "e440a63825bc6f34896c544be9e13175db0c03e69d152a75783d71fa594de65e",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:market-share-n",
+    "kind": "word",
+    "body": {
+      "headword": "market share",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmɑrkət ʃɛr/",
+      "meaningsVi": [
+        "thị phần"
+      ],
+      "examples": [
+        "sentence:market-share-n-1",
+        "sentence:market-share-n-2"
+      ],
+      "synonyms": [],
+      "audio": "f0221e7a7a283b14017948ee5280f616cbf11326dceec99fd49d2304b69891cf",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:networking-n",
+    "kind": "word",
+    "body": {
+      "headword": "networking",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈnɛtˌwɝkɪŋ/",
+      "meaningsVi": [
+        "việc xây dựng mối quan hệ (công việc)",
+        "giao lưu kết nối"
+      ],
+      "examples": [
+        "sentence:networking-n-1",
+        "sentence:networking-n-2"
+      ],
+      "synonyms": [],
+      "audio": "a669d279e1e69ec99ef1df070017cad57c1b657d83bd08fea78b115c0a01717e",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /ˈnɛˌtwɝkɪŋ/",
+      "Business sense (building contacts); in IT it also means computer networks."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:out-of-stock-adj",
+    "kind": "word",
+    "body": {
+      "headword": "out of stock",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/aʊt ʌv stɑk/",
+      "meaningsVi": [
+        "hết hàng"
+      ],
+      "examples": [
+        "sentence:out-of-stock-adj-1",
+        "sentence:out-of-stock-adj-2"
+      ],
+      "synonyms": [],
+      "audio": "5739232635ed349672250b92cf8c4be1dc3fe72dac81ff7bc0e3b55ad4e26e34",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:outsource-v",
+    "kind": "word",
+    "body": {
+      "headword": "outsource",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˌaʊtˈsɔrs/",
+      "meaningsVi": [
+        "thuê ngoài",
+        "giao cho bên ngoài làm"
+      ],
+      "examples": [
+        "sentence:outsource-v-1",
+        "sentence:outsource-v-2"
+      ],
+      "synonyms": [],
+      "audio": "5e1e3e26163587394a1590d1ac576e3e165badc98e6977346b0fec150d9825db",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:overhead-n",
+    "kind": "word",
+    "body": {
+      "headword": "overhead",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈoʊvɚˌhɛd/",
+      "meaningsVi": [
+        "chi phí chung",
+        "chi phí cố định (tiền thuê, điện nước)"
+      ],
+      "examples": [
+        "sentence:overhead-n-1",
+        "sentence:overhead-n-2"
+      ],
+      "synonyms": [],
+      "audio": "92e8e62ca73377caf1496e79c281f63bb4def7a25159002eb91d59f2ba6b5113",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /ˈoʊvɚˈhɛd/",
+      "American usage; British English usually says “overheads”."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:pricing-n",
+    "kind": "word",
+    "body": {
+      "headword": "pricing",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpraɪsɪŋ/",
+      "meaningsVi": [
+        "việc định giá",
+        "chính sách giá"
+      ],
+      "examples": [
+        "sentence:pricing-n-1",
+        "sentence:pricing-n-2"
+      ],
+      "synonyms": [],
+      "audio": "dcdc294d3484e24a8e37e87e5b064ff04b039eeb1bec0c297a7ea7614663dd9d",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:profit-margin-n",
+    "kind": "word",
+    "body": {
+      "headword": "profit margin",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈprɑfət ˈmɑrdʒən/",
+      "meaningsVi": [
+        "biên lợi nhuận",
+        "tỷ suất lợi nhuận"
+      ],
+      "examples": [
+        "sentence:profit-margin-n-1",
+        "sentence:profit-margin-n-2"
+      ],
+      "synonyms": [],
+      "audio": "73bc8256a121e26d9c6aa9bc104a76a61f3a495506427f3658d345e5fa29355f",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:quarterly-adj",
+    "kind": "word",
+    "body": {
+      "headword": "quarterly",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/ˈkwɔrtɚli/",
+      "meaningsVi": [
+        "hằng quý",
+        "theo quý"
+      ],
+      "examples": [
+        "sentence:quarterly-adj-1",
+        "sentence:quarterly-adj-2"
+      ],
+      "synonyms": [],
+      "audio": "0c5a9518c54a43f017311d90530c167f902ad4d2226a0188e5856f1413e7f170",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:rebrand-v",
+    "kind": "word",
+    "body": {
+      "headword": "rebrand",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/riˈbrænd/",
+      "meaningsVi": [
+        "đổi thương hiệu",
+        "tái định vị thương hiệu"
+      ],
+      "examples": [
+        "sentence:rebrand-v-1",
+        "sentence:rebrand-v-2"
+      ],
+      "synonyms": [],
+      "audio": "2681a428aa3754835852c7a14b59b72ceaf0f5d0cfdb905621ead4e162e2bb71",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:return-on-investment-n",
+    "kind": "word",
+    "body": {
+      "headword": "return on investment",
+      "variants": [
+        "ROI"
+      ],
+      "pos": "noun",
+      "ipa": "/rɪˈtɝn ɑn ɪnˈvɛstmənt/",
+      "meaningsVi": [
+        "lợi tức đầu tư",
+        "tỷ suất hoàn vốn (ROI)"
+      ],
+      "examples": [
+        "sentence:return-on-investment-n-1",
+        "sentence:return-on-investment-n-2"
+      ],
+      "synonyms": [],
+      "audio": "3f5ab45a2ee2a5d31f0c507e6d465475b1be30810fcf38f8ddb4f89ac9e733eb",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /rɪˈtɝn ɑn ˌɪnˈvɛstmənt/",
+      "Often shortened to ROI."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:sales-forecast-n",
+    "kind": "word",
+    "body": {
+      "headword": "sales forecast",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/seɪlz ˈfɔrˌkæst/",
+      "meaningsVi": [
+        "dự báo doanh số"
+      ],
+      "examples": [
+        "sentence:sales-forecast-n-1",
+        "sentence:sales-forecast-n-2"
+      ],
+      "synonyms": [],
+      "audio": "a742304643eb2ebd770e439895dc56698bef1d5aa72271ded47300971c1e1ade",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:sales-pitch-n",
+    "kind": "word",
+    "body": {
+      "headword": "sales pitch",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/seɪlz pɪtʃ/",
+      "meaningsVi": [
+        "lời chào hàng",
+        "bài thuyết phục bán hàng"
+      ],
+      "examples": [
+        "sentence:sales-pitch-n-1",
+        "sentence:sales-pitch-n-2"
+      ],
+      "synonyms": [],
+      "audio": "6e4878fa029925af0d6afbd385b8eeea13801bd39149c8df3f2b89d445862a36",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:sales-representative-n",
+    "kind": "word",
+    "body": {
+      "headword": "sales representative",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/seɪlz ˌrɛprəˈzɛntətɪv/",
+      "meaningsVi": [
+        "nhân viên kinh doanh",
+        "đại diện bán hàng"
+      ],
+      "examples": [
+        "sentence:sales-representative-n-1",
+        "sentence:sales-representative-n-2"
+      ],
+      "synonyms": [],
+      "audio": "55735a2c8512fa2eb090c0e2b7427b6150c68190bad8646ba9c68cceebbd969c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:shareholder-n",
+    "kind": "word",
+    "body": {
+      "headword": "shareholder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈʃɛrˌhoʊldɚ/",
+      "meaningsVi": [
+        "cổ đông"
+      ],
+      "examples": [
+        "sentence:shareholder-n-1",
+        "sentence:shareholder-n-2"
+      ],
+      "synonyms": [],
+      "audio": "e2f303e78f262ec57e06510a46fade2376abf336303e9b5abfccce2fce64cef0",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:shipment-n",
+    "kind": "word",
+    "body": {
+      "headword": "shipment",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈʃɪpmənt/",
+      "meaningsVi": [
+        "lô hàng",
+        "chuyến hàng"
+      ],
+      "examples": [
+        "sentence:shipment-n-1",
+        "sentence:shipment-n-2"
+      ],
+      "synonyms": [],
+      "audio": "f064967d4376a31856c646308ac66240992f84879889632914e41b4adb173cd9",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:startup-n",
+    "kind": "word",
+    "body": {
+      "headword": "startup",
+      "variants": [
+        "start-up"
+      ],
+      "pos": "noun",
+      "ipa": "/ˈstɑrˌtʌp/",
+      "meaningsVi": [
+        "công ty khởi nghiệp"
+      ],
+      "examples": [
+        "sentence:startup-n-1",
+        "sentence:startup-n-2"
+      ],
+      "synonyms": [],
+      "audio": "7975a0fa07be1526f1e52f3b958e37e0f1a78309f0765cce6de1d7d222ee21ab",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:stock-exchange-n",
+    "kind": "word",
+    "body": {
+      "headword": "stock exchange",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/stɑk ɪksˈtʃeɪndʒ/",
+      "meaningsVi": [
+        "sở giao dịch chứng khoán",
+        "sàn chứng khoán"
+      ],
+      "examples": [
+        "sentence:stock-exchange-n-1",
+        "sentence:stock-exchange-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0931afc4fbcfaefb95c5a8d9a4444051f20bb7a1075834d102c2abf35d4e0050",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:subscription-n",
+    "kind": "word",
+    "body": {
+      "headword": "subscription",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/səbˈskrɪpʃən/",
+      "meaningsVi": [
+        "gói đăng ký (định kỳ)",
+        "sự đăng ký thuê bao"
+      ],
+      "examples": [
+        "sentence:subscription-n-1",
+        "sentence:subscription-n-2"
+      ],
+      "synonyms": [],
+      "audio": "7eeee356be5bc10676838e7e41d0e24e11a07e9243feca75f3b9aaec5d1defb7",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:subsidiary-n",
+    "kind": "word",
+    "body": {
+      "headword": "subsidiary",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/səbˈsɪdiˌɛri/",
+      "meaningsVi": [
+        "công ty con"
+      ],
+      "examples": [
+        "sentence:subsidiary-n-1",
+        "sentence:subsidiary-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b9ff4869520db31c8d68f9f7b8fbce99e0e6ae4d8af56902bac59de50af0aeac",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:supply-chain-n",
+    "kind": "word",
+    "body": {
+      "headword": "supply chain",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/səˈplaɪ tʃeɪn/",
+      "meaningsVi": [
+        "chuỗi cung ứng"
+      ],
+      "examples": [
+        "sentence:supply-chain-n-1",
+        "sentence:supply-chain-n-2"
+      ],
+      "synonyms": [],
+      "audio": "37507430b57a718ece54b5559a290a118f29eb1bd87a1abce0a8604b921432f2",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:takeover-n",
+    "kind": "word",
+    "body": {
+      "headword": "takeover",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈteɪˌkoʊvɚ/",
+      "meaningsVi": [
+        "sự thâu tóm",
+        "sự tiếp quản (công ty)"
+      ],
+      "examples": [
+        "sentence:takeover-n-1",
+        "sentence:takeover-n-2"
+      ],
+      "synonyms": [
+        "word:acquisition-n"
+      ],
+      "audio": "7deb322af5cf1b0da1cc55ff206adca158c555ef56643e332a163bb189703a91",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:target-market-n",
+    "kind": "word",
+    "body": {
+      "headword": "target market",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtɑrɡət ˈmɑrkət/",
+      "meaningsVi": [
+        "thị trường mục tiêu"
+      ],
+      "examples": [
+        "sentence:target-market-n-1",
+        "sentence:target-market-n-2"
+      ],
+      "synonyms": [],
+      "audio": "60844855dd5045d96c38fb10264033fb1d59d88fce6257f38cf37efda83b6288",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:tariff-n",
+    "kind": "word",
+    "body": {
+      "headword": "tariff",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtɛrəf/",
+      "meaningsVi": [
+        "thuế quan",
+        "thuế nhập khẩu"
+      ],
+      "examples": [
+        "sentence:tariff-n-1",
+        "sentence:tariff-n-2"
+      ],
+      "synonyms": [],
+      "audio": "39e58d3bd098b4a553ef1d4bbb3811443e9d424a5ea2692d9fa830902274727b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:terms-and-conditions-n",
+    "kind": "word",
+    "body": {
+      "headword": "terms and conditions",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/tɝmz ənd kənˈdɪʃənz/",
+      "meaningsVi": [
+        "điều khoản và điều kiện"
+      ],
+      "examples": [
+        "sentence:terms-and-conditions-n-1",
+        "sentence:terms-and-conditions-n-2"
+      ],
+      "synonyms": [],
+      "audio": "c2c4292665cf09ee3efc3bad35c9be97dd686e6fd49698c46d401424f42b81f4",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:trade-show-n",
+    "kind": "word",
+    "body": {
+      "headword": "trade show",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/treɪd ʃoʊ/",
+      "meaningsVi": [
+        "hội chợ thương mại",
+        "triển lãm thương mại"
+      ],
+      "examples": [
+        "sentence:trade-show-n-1",
+        "sentence:trade-show-n-2"
+      ],
+      "synonyms": [],
+      "audio": "6cfc637288b287a771f83b08aafbd853bbc4c1ae23ba2a02049aff68e2f76296",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:venture-capital-n",
+    "kind": "word",
+    "body": {
+      "headword": "venture capital",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈvɛntʃɚ ˈkæpətəl/",
+      "meaningsVi": [
+        "vốn đầu tư mạo hiểm"
+      ],
+      "examples": [
+        "sentence:venture-capital-n-1",
+        "sentence:venture-capital-n-2"
+      ],
+      "synonyms": [],
+      "audio": "a356b2d4f9253d94e0273420ba529407eff1c2efc01a0c42ea8fc8aa20fb430b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:wholesaler-n",
+    "kind": "word",
+    "body": {
+      "headword": "wholesaler",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhoʊlˌseɪlɚ/",
+      "meaningsVi": [
+        "nhà bán buôn",
+        "đại lý bán sỉ"
+      ],
+      "examples": [
+        "sentence:wholesaler-n-1",
+        "sentence:wholesaler-n-2"
+      ],
+      "synonyms": [],
+      "audio": "edc6baf21a7ca4ecf668ab3fae4707b5584c57d51a6c10f4a59e506403219a51",
+      "source": "specialized"
+    },
+    "status": "approved"
+  }
+]

@@ -1,0 +1,5886 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:account-manager-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Each big client has its own account manager.",
+      "vi": "Mỗi khách hàng lớn có một người quản lý khách hàng riêng.",
+      "audio": "a8431b5a72ae8cf1e22e9849e4eaec3f1de75dcd1206535d8b2aace1ad05ec04",
+      "tokens": [
+        "Each",
+        "big",
+        "client",
+        "has",
+        "its",
+        "own",
+        "account",
+        "manager"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each big clients has its own account manager.",
+          "explanationVi": "Sau “each” danh từ ở số ít: “client”."
+        },
+        {
+          "en": "Each big client has it's own account manager.",
+          "explanationVi": "Tính từ sở hữu là “its”, không có dấu nháy."
+        },
+        {
+          "en": "Each big client have its own account manager.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “has”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [
+        "word:account-manager-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:account-manager-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My account manager answered my email within an hour.",
+      "vi": "Người quản lý khách hàng của tôi đã trả lời email của tôi trong vòng một giờ.",
+      "audio": "8d46013c37c961ef6bb429fa3eac77bb3e5d38d6488deaf2421b46d566b4f953",
+      "tokens": [
+        "My",
+        "account",
+        "manager",
+        "answered",
+        "my",
+        "email",
+        "within",
+        "an",
+        "hour"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My account manager answer my email within an hour.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “answered”."
+        },
+        {
+          "en": "My account manager answered my email within a hour.",
+          "explanationVi": "“Hour” bắt đầu bằng âm nguyên âm nên dùng “an”."
+        },
+        {
+          "en": "My account manager answered to my email within an hour.",
+          "explanationVi": "“Answer” không cần giới từ “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:account-manager-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:annual-report-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The annual report shows how much profit the company made.",
+      "vi": "Báo cáo thường niên cho thấy công ty đã kiếm được bao nhiêu lợi nhuận.",
+      "audio": "802b84ab38addf2b567ece954177fba0068811f76932efcef26fed386efe7812",
+      "tokens": [
+        "The",
+        "annual",
+        "report",
+        "shows",
+        "how",
+        "much",
+        "profit",
+        "the",
+        "company",
+        "made"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The annual report shows how many profit the company made.",
+          "explanationVi": "“Profit” ở đây không đếm được nên dùng “how much”."
+        },
+        {
+          "en": "The annual report shows how much profit did the company make.",
+          "explanationVi": "Câu hỏi gián tiếp không đảo: “how much profit the company made”."
+        },
+        {
+          "en": "The annual report show how much profit the company made.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “shows”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:annual-report-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:annual-report-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Every shareholder gets a copy of the annual report.",
+      "vi": "Mỗi cổ đông nhận được một bản báo cáo thường niên.",
+      "audio": "4d3d027a13a152a22d2e59f9ae6a60dd042fa5f55111eae7a38653732d3b1399",
+      "tokens": [
+        "Every",
+        "shareholder",
+        "gets",
+        "a",
+        "copy",
+        "of",
+        "the",
+        "annual",
+        "report"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Every shareholders gets a copy of the annual report.",
+          "explanationVi": "Sau “every” danh từ ở số ít: “shareholder”."
+        },
+        {
+          "en": "Every shareholder get a copy of the annual report.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “gets”."
+        },
+        {
+          "en": "Every shareholder gets a copy of annual report.",
+          "explanationVi": "Báo cáo cụ thể cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        4
+      ],
+      "wordIds": [
+        "word:annual-report-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:asset-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The building is the most valuable asset of the company.",
+      "vi": "Tòa nhà là tài sản giá trị nhất của công ty.",
+      "audio": "3555faa160edc93f684a0b50b0214f4f4842c07d818a5e3d36f000c21ddd8ea8",
+      "tokens": [
+        "The",
+        "building",
+        "is",
+        "the",
+        "most",
+        "valuable",
+        "asset",
+        "of",
+        "the",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The building is the most valuable asset of company.",
+          "explanationVi": "Cần mạo từ “the”: “of the company”."
+        },
+        {
+          "en": "The building is the valuablest asset of the company.",
+          "explanationVi": "Tính từ dài dùng “the most valuable”."
+        },
+        {
+          "en": "The building is the more valuable asset of the company.",
+          "explanationVi": "So sánh nhất dùng “the most”, không dùng “more”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:asset-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:asset-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our people are our greatest asset.",
+      "vi": "Con người là tài sản lớn nhất của chúng tôi.",
+      "audio": "da43bfabaf9660a7b498a9f56f0389abdecdd725075d5cc26b1268c39fc7748f",
+      "tokens": [
+        "Our",
+        "people",
+        "are",
+        "our",
+        "greatest",
+        "asset"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our people is our greatest asset.",
+          "explanationVi": "“People” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Our people are our most great asset.",
+          "explanationVi": "So sánh nhất của “great” là “greatest”."
+        },
+        {
+          "en": "Our people are ours greatest asset.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “our”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:asset-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:balance-sheet-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The accountant prepares the balance sheet at the end of each year.",
+      "vi": "Kế toán viên lập bảng cân đối kế toán vào cuối mỗi năm.",
+      "audio": "4320f534f4c1c181a40fda1437088210381fb4e7ca99623514e8823220169ae1",
+      "tokens": [
+        "The",
+        "accountant",
+        "prepares",
+        "the",
+        "balance",
+        "sheet",
+        "at",
+        "the",
+        "end",
+        "of",
+        "each",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The accountant prepares the balance sheet in the end of each year.",
+          "explanationVi": "“Vào cuối” là “at the end of”."
+        },
+        {
+          "en": "The accountant prepare the balance sheet at the end of each year.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “prepares”."
+        },
+        {
+          "en": "The accountant prepares the balance sheet at the end of each years.",
+          "explanationVi": "Sau “each” danh từ ở số ít: “year”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        1
+      ],
+      "wordIds": [
+        "word:balance-sheet-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:balance-sheet-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Investors read the balance sheet to check if a company is healthy.",
+      "vi": "Nhà đầu tư đọc bảng cân đối kế toán để kiểm tra công ty có lành mạnh không.",
+      "audio": "7c27836f5042cb8ae06ca61627d747456226b622cd3859d4722afb6bfd9a8c68",
+      "tokens": [
+        "Investors",
+        "read",
+        "the",
+        "balance",
+        "sheet",
+        "to",
+        "check",
+        "if",
+        "a",
+        "company",
+        "is",
+        "healthy"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Investors reads the balance sheet to check if a company is healthy.",
+          "explanationVi": "“Investors” là số nhiều nên dùng “read”."
+        },
+        {
+          "en": "Investors read the balance sheet for check if a company is healthy.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to check”."
+        },
+        {
+          "en": "Investors read the balance sheet to check if is a company healthy.",
+          "explanationVi": "Câu hỏi gián tiếp không đảo: “if a company is healthy”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        0
+      ],
+      "wordIds": [
+        "word:balance-sheet-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:break-even-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The new coffee shop should break even in its second year.",
+      "vi": "Quán cà phê mới dự kiến sẽ hòa vốn trong năm thứ hai.",
+      "audio": "8081dce654ce399ffcaa867ef81c131db7f35323ff69ebe182e900b16ad19d5e",
+      "tokens": [
+        "The",
+        "new",
+        "coffee",
+        "shop",
+        "should",
+        "break",
+        "even",
+        "in",
+        "its",
+        "second",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The new coffee shop should breaks even in its second year.",
+          "explanationVi": "Sau “should” dùng động từ nguyên mẫu: “break”."
+        },
+        {
+          "en": "The new coffee shop should break even in it's second year.",
+          "explanationVi": "Tính từ sở hữu là “its”, không có dấu nháy."
+        },
+        {
+          "en": "The new coffee shop should to break even in its second year.",
+          "explanationVi": "Sau “should” không có “to”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:break-even-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:break-even-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We didn't break even last year, but this year looks better.",
+      "vi": "Năm ngoái chúng tôi không hòa vốn, nhưng năm nay có vẻ khả quan hơn.",
+      "audio": "916b78d1a3a78912270c3a5a85cf6e94f3fe9cbbb6be616326cd9207bee8d334",
+      "tokens": [
+        "We",
+        "didn't",
+        "break",
+        "even",
+        "last",
+        "year",
+        "but",
+        "this",
+        "year",
+        "looks",
+        "better"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We didn't broke even last year, but this year looks better.",
+          "explanationVi": "Sau “didn't” dùng động từ nguyên mẫu: “break”."
+        },
+        {
+          "en": "We don't break even last year, but this year looks better.",
+          "explanationVi": "Có “last year” nên dùng quá khứ “didn't”."
+        },
+        {
+          "en": "We didn't break even last year, but this year looks more good.",
+          "explanationVi": "So sánh hơn của “good” là “better”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        10
+      ],
+      "wordIds": [
+        "word:break-even-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-model-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Their business model depends on monthly payments from users.",
+      "vi": "Mô hình kinh doanh của họ dựa vào các khoản thanh toán hằng tháng từ người dùng.",
+      "audio": "abdb09fd0205dbaa447b95f2b3f3ba7dfa45509eced4fcdb054d46fad8e01a7c",
+      "tokens": [
+        "Their",
+        "business",
+        "model",
+        "depends",
+        "on",
+        "monthly",
+        "payments",
+        "from",
+        "users"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Their business model depends of monthly payments from users.",
+          "explanationVi": "“Depend” đi với giới từ “on”."
+        },
+        {
+          "en": "Their business model depend on monthly payments from users.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “depends”."
+        },
+        {
+          "en": "There business model depends on monthly payments from users.",
+          "explanationVi": "Tính từ sở hữu là “their”, không phải “there”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:business-model-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-model-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The startup changed its business model after the first year.",
+      "vi": "Công ty khởi nghiệp đã thay đổi mô hình kinh doanh sau năm đầu tiên.",
+      "audio": "5a37dc7fefb412c8af912e174cf8bd91e73e2f7c44e7012e04b4bc63ce83818a",
+      "tokens": [
+        "The",
+        "startup",
+        "changed",
+        "its",
+        "business",
+        "model",
+        "after",
+        "the",
+        "first",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The startup change its business model after the first year.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “changed”."
+        },
+        {
+          "en": "The startup changed its business model after first year.",
+          "explanationVi": "Số thứ tự cần “the”: “the first year”."
+        },
+        {
+          "en": "The startup changed it business model after the first year.",
+          "explanationVi": "Tính từ sở hữu là “its”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:business-model-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-plan-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The bank asked to see our business plan before the loan.",
+      "vi": "Ngân hàng yêu cầu xem kế hoạch kinh doanh của chúng tôi trước khi cho vay.",
+      "audio": "44a3d9068741866d55c8a3b7986039e114079c192f876e7d7ca66fcc02421651",
+      "tokens": [
+        "The",
+        "bank",
+        "asked",
+        "to",
+        "see",
+        "our",
+        "business",
+        "plan",
+        "before",
+        "the",
+        "loan"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The bank asked see our business plan before the loan.",
+          "explanationVi": "Sau “ask” cần “to” + động từ: “asked to see”."
+        },
+        {
+          "en": "The bank ask to see our business plan before the loan.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “asked”."
+        },
+        {
+          "en": "The bank asked to see our plan business before the loan.",
+          "explanationVi": "Sai trật tự: cụm đúng là “business plan”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        10
+      ],
+      "wordIds": [
+        "word:business-plan-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-plan-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A good business plan explains how the company will make money.",
+      "vi": "Một kế hoạch kinh doanh tốt giải thích công ty sẽ kiếm tiền như thế nào.",
+      "audio": "5a80492b7ce2531d4fb04169e07ae6526d53c0705e27897888b3d91fd498a480",
+      "tokens": [
+        "A",
+        "good",
+        "business",
+        "plan",
+        "explains",
+        "how",
+        "the",
+        "company",
+        "will",
+        "make",
+        "money"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A good business plan explain how the company will make money.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “explains”."
+        },
+        {
+          "en": "A good business plan explains how will the company make money.",
+          "explanationVi": "Câu hỏi gián tiếp không đảo: “how the company will make money”."
+        },
+        {
+          "en": "A good business plan explains how the company will do money.",
+          "explanationVi": "Kiếm tiền là “make money”, không dùng “do”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:business-plan-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-flow-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Late payments from clients cause cash flow problems.",
+      "vi": "Khách hàng thanh toán trễ gây ra các vấn đề về dòng tiền.",
+      "audio": "a1d46aac760818c9e8ab7d98fd3f33d0adffb4d003d3aac2d11aeca9c284e354",
+      "tokens": [
+        "Late",
+        "payments",
+        "from",
+        "clients",
+        "cause",
+        "cash",
+        "flow",
+        "problems"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Late payments from clients causes cash flow problems.",
+          "explanationVi": "“Payments” là số nhiều nên dùng “cause”."
+        },
+        {
+          "en": "Late payments from clients cause cash flow problem.",
+          "explanationVi": "Danh từ đếm được cần số nhiều “problems” hoặc “a problem”."
+        },
+        {
+          "en": "Late payments from clients cause problems cash flow.",
+          "explanationVi": "Danh từ bổ nghĩa đứng trước: “cash flow problems”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        1
+      ],
+      "wordIds": [
+        "word:cash-flow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-flow-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A business with good cash flow can pay its bills on time.",
+      "vi": "Một doanh nghiệp có dòng tiền tốt có thể trả các hóa đơn đúng hạn.",
+      "audio": "d5752ad9d3b616d66e9233e1cf94aa6b34dcbb73c98582d1aa85614c14079cb6",
+      "tokens": [
+        "A",
+        "business",
+        "with",
+        "good",
+        "cash",
+        "flow",
+        "can",
+        "pay",
+        "its",
+        "bills",
+        "on",
+        "time"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A business with good cash flow can pays its bills on time.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu: “pay”."
+        },
+        {
+          "en": "A business with good cash flow can pay it's bills on time.",
+          "explanationVi": "Tính từ sở hữu là “its”, không có dấu nháy."
+        },
+        {
+          "en": "Business with good cash flow can pay its bills on time.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        9
+      ],
+      "wordIds": [
+        "word:cash-flow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:ceo-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The CEO announced a new plan to cut costs.",
+      "vi": "Giám đốc điều hành đã công bố kế hoạch mới để cắt giảm chi phí.",
+      "audio": "8db131377edc4bac6e3c1762927bc0d0c01a2e056972301b071628951e462136",
+      "tokens": [
+        "The",
+        "CEO",
+        "announced",
+        "a",
+        "new",
+        "plan",
+        "to",
+        "cut",
+        "costs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The CEO announced a new plan for cut costs.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to cut”."
+        },
+        {
+          "en": "The CEO announce a new plan to cut costs.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “announced”."
+        },
+        {
+          "en": "The CEO announced new plan to cut costs.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        8
+      ],
+      "wordIds": [
+        "word:ceo-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:ceo-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our CEO travels to Asia several times a year.",
+      "vi": "Giám đốc điều hành của chúng tôi đến châu Á vài lần mỗi năm.",
+      "audio": "20c216e6a45408e7dd0c7b505e6448d824527ff164d0bb7bc3d546da9fcf9269",
+      "tokens": [
+        "Our",
+        "CEO",
+        "travels",
+        "to",
+        "Asia",
+        "several",
+        "times",
+        "a",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our CEO travel to Asia several times a year.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “travels”."
+        },
+        {
+          "en": "Our CEO travels to Asia several time a year.",
+          "explanationVi": "Sau “several” danh từ phải ở số nhiều: “times”."
+        },
+        {
+          "en": "Our CEO travels to the Asia several times a year.",
+          "explanationVi": "Không dùng “the” trước tên châu lục."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:ceo-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cold-call-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Most cold calls end in less than a minute.",
+      "vi": "Hầu hết các cuộc gọi chào hàng kết thúc trong chưa đầy một phút.",
+      "audio": "b786038183d26de9a451e2620969ed1b92c2d84801c33da48b5da438fb8cd6c1",
+      "tokens": [
+        "Most",
+        "cold",
+        "calls",
+        "end",
+        "in",
+        "less",
+        "than",
+        "a",
+        "minute"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Most cold calls ends in less than a minute.",
+          "explanationVi": "“Calls” là số nhiều nên dùng “end”."
+        },
+        {
+          "en": "Most of cold calls end in less than a minute.",
+          "explanationVi": "Dùng “most cold calls” hoặc “most of the cold calls”."
+        },
+        {
+          "en": "Most cold calls end in less than minute.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:cold-call-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cold-call-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She makes twenty cold calls every morning.",
+      "vi": "Cô ấy thực hiện hai mươi cuộc gọi chào hàng mỗi sáng.",
+      "audio": "fce0cb0c2328dedd08a6f8a5a5d3e7c1629653c425fa6bc267b46ef4759ae7b7",
+      "tokens": [
+        "She",
+        "makes",
+        "twenty",
+        "cold",
+        "calls",
+        "every",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She make twenty cold calls every morning.",
+          "explanationVi": "Chủ ngữ “she” nên động từ cần -s: “makes”."
+        },
+        {
+          "en": "She makes twenty cold call every morning.",
+          "explanationVi": "Sau “twenty” danh từ phải ở số nhiều: “calls”."
+        },
+        {
+          "en": "She does twenty cold calls every morning.",
+          "explanationVi": "Thực hiện cuộc gọi là “make a call”, không dùng “do”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:cold-call-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:competitive-advantage-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Fast delivery gives us a competitive advantage.",
+      "vi": "Giao hàng nhanh mang lại cho chúng tôi lợi thế cạnh tranh.",
+      "audio": "4bb6b3c86794a787e1a455a4846d64a587f1e2d13fbe2f866246528afbfb1083",
+      "tokens": [
+        "Fast",
+        "delivery",
+        "gives",
+        "us",
+        "a",
+        "competitive",
+        "advantage"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Fast delivery give us a competitive advantage.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “gives”."
+        },
+        {
+          "en": "Fast delivery gives to us a competitive advantage.",
+          "explanationVi": "“Give somebody something” không cần “to”."
+        },
+        {
+          "en": "Fast delivery gives we a competitive advantage.",
+          "explanationVi": "Sau động từ dùng đại từ tân ngữ “us”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        1
+      ],
+      "wordIds": [
+        "word:competitive-advantage-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:competitive-advantage-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our low prices are our main competitive advantage.",
+      "vi": "Giá thấp là lợi thế cạnh tranh chính của chúng tôi.",
+      "audio": "1c94683a306c1411ba108713e856d2559bc4a2afeccdba4e0a7033743ebb8077",
+      "tokens": [
+        "Our",
+        "low",
+        "prices",
+        "are",
+        "our",
+        "main",
+        "competitive",
+        "advantage"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our low prices is our main competitive advantage.",
+          "explanationVi": "“Prices” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Our prices low are our main competitive advantage.",
+          "explanationVi": "Tính từ đứng trước danh từ: “low prices”."
+        },
+        {
+          "en": "Our low prices are ours main competitive advantage.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “our”, không phải “ours”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        5
+      ],
+      "wordIds": [
+        "word:competitive-advantage-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:customer-base-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The shop has a loyal customer base in the neighborhood.",
+      "vi": "Cửa hàng có một lượng khách hàng trung thành trong khu phố.",
+      "audio": "63828ae781ecf819cf81acd9257849b4b46353feabc57a5f29ac1df38edacac5",
+      "tokens": [
+        "The",
+        "shop",
+        "has",
+        "a",
+        "loyal",
+        "customer",
+        "base",
+        "in",
+        "the",
+        "neighborhood"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The shop has loyal customer base in the neighborhood.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        },
+        {
+          "en": "The shop have a loyal customer base in the neighborhood.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “has”."
+        },
+        {
+          "en": "The shop has a loyal customer base on the neighborhood.",
+          "explanationVi": "Ở trong khu phố dùng giới từ “in”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        4
+      ],
+      "wordIds": [
+        "word:customer-base-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:customer-base-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We want to grow our customer base by twenty percent this year.",
+      "vi": "Chúng tôi muốn tăng lượng khách hàng thêm hai mươi phần trăm trong năm nay.",
+      "audio": "17b6ddba29aa1ea86f7f743045b2fd0bcf2195e057826617b9aa17f2c08643f0",
+      "tokens": [
+        "We",
+        "want",
+        "to",
+        "grow",
+        "our",
+        "customer",
+        "base",
+        "by",
+        "twenty",
+        "percent",
+        "this",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We want grow our customer base by twenty percent this year.",
+          "explanationVi": "Sau “want” cần “to” + động từ: “want to grow”."
+        },
+        {
+          "en": "We want to grow our customer base by twenty percents this year.",
+          "explanationVi": "“Percent” sau số không thêm -s."
+        },
+        {
+          "en": "We wants to grow our customer base by twenty percent this year.",
+          "explanationVi": "Chủ ngữ “we” dùng “want”, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:customer-base-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:customer-service-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Good customer service brings customers back again and again.",
+      "vi": "Dịch vụ chăm sóc khách hàng tốt khiến khách quay lại nhiều lần.",
+      "audio": "6242e8e3d725d6afa04f3dc976c9280378fd5fef982bdfcd0a06972d5072a60f",
+      "tokens": [
+        "Good",
+        "customer",
+        "service",
+        "brings",
+        "customers",
+        "back",
+        "again",
+        "and",
+        "again"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Good customer service bring customers back again and again.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “brings”."
+        },
+        {
+          "en": "Good service customer brings customers back again and again.",
+          "explanationVi": "Sai trật tự: cụm đúng là “customer service”."
+        },
+        {
+          "en": "Good customer service brings customer back again and again.",
+          "explanationVi": "Nói chung nhiều khách nên dùng số nhiều “customers”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:customer-service-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:customer-service-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Call customer service if your order is damaged.",
+      "vi": "Hãy gọi bộ phận chăm sóc khách hàng nếu đơn hàng của bạn bị hư hỏng.",
+      "audio": "c54f5e803284360b53b5eb10bf4b73e1b80eea189b31f4f3328935472467cbeb",
+      "tokens": [
+        "Call",
+        "customer",
+        "service",
+        "if",
+        "your",
+        "order",
+        "is",
+        "damaged"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Call customer service if your order is damage.",
+          "explanationVi": "Bị động cần quá khứ phân từ: “is damaged”."
+        },
+        {
+          "en": "Call customer service if your order will be damaged.",
+          "explanationVi": "Mệnh đề “if” dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Call to customer service if your order is damaged.",
+          "explanationVi": "“Call” (gọi điện) không đi với “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:customer-service-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:diversify-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The farm diversified by selling cheese and offering tours.",
+      "vi": "Trang trại đã đa dạng hóa bằng cách bán phô mai và tổ chức tham quan.",
+      "audio": "168b44837a09da66baa12fbb0559fe60889281cb98ab929f4fefde07bdac07d9",
+      "tokens": [
+        "The",
+        "farm",
+        "diversified",
+        "by",
+        "selling",
+        "cheese",
+        "and",
+        "offering",
+        "tours"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The farm diversified by sell cheese and offering tours.",
+          "explanationVi": "Sau giới từ “by” dùng V-ing: “selling”."
+        },
+        {
+          "en": "The farm diversifyed by selling cheese and offering tours.",
+          "explanationVi": "Động từ tận cùng phụ âm + y đổi thành -ied: “diversified”."
+        },
+        {
+          "en": "The farm diversified by selling cheese and offer tours.",
+          "explanationVi": "Hai vế song song cùng dạng V-ing: “offering”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:diversify-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:diversify-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Investors should diversify to reduce their risk.",
+      "vi": "Nhà đầu tư nên đa dạng hóa để giảm rủi ro.",
+      "audio": "d76e8aefc42f1f4ce5322ec961a78b301dcee6fcc7ff539f143753e6b323b209",
+      "tokens": [
+        "Investors",
+        "should",
+        "diversify",
+        "to",
+        "reduce",
+        "their",
+        "risk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Investors should diversifies to reduce their risk.",
+          "explanationVi": "Sau “should” dùng động từ nguyên mẫu: “diversify”."
+        },
+        {
+          "en": "Investors should diversify for reduce their risk.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to reduce”."
+        },
+        {
+          "en": "Investors should diversify to reduce they risk.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “their”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:diversify-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dividend-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The company pays a dividend to shareholders twice a year.",
+      "vi": "Công ty trả cổ tức cho cổ đông hai lần mỗi năm.",
+      "audio": "5a06b1bdf6b280556856e91815e484e60cfb3a0d2ca611938f475198a7249b31",
+      "tokens": [
+        "The",
+        "company",
+        "pays",
+        "a",
+        "dividend",
+        "to",
+        "shareholders",
+        "twice",
+        "a",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company pay a dividend to shareholders twice a year.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “pays”."
+        },
+        {
+          "en": "The company pays a dividend to shareholders twice in year.",
+          "explanationVi": "“Hai lần một năm” là “twice a year”."
+        },
+        {
+          "en": "The company pays dividend to shareholders twice a year.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:dividend-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dividend-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "There was no dividend this year because profits were low.",
+      "vi": "Năm nay không có cổ tức vì lợi nhuận thấp.",
+      "audio": "c0a3abc26958ea3b9e8f736e49b899965b95feceaf6a351f29380694e19c3020",
+      "tokens": [
+        "There",
+        "was",
+        "no",
+        "dividend",
+        "this",
+        "year",
+        "because",
+        "profits",
+        "were",
+        "low"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There were no dividend this year because profits were low.",
+          "explanationVi": "“Dividend” ở số ít nên dùng “there was”."
+        },
+        {
+          "en": "There was no dividend this year because profits was low.",
+          "explanationVi": "“Profits” là số nhiều nên dùng “were”."
+        },
+        {
+          "en": "There was no dividend this year because of profits were low.",
+          "explanationVi": "Trước một mệnh đề dùng “because”, không dùng “because of”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:dividend-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:expenditure-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The company cut its expenditure on travel this year.",
+      "vi": "Công ty đã cắt giảm chi tiêu cho việc đi công tác trong năm nay.",
+      "audio": "559a279daf38d0fda0959a9a128ba4378ba459403c04a08bea55e2897b57cf52",
+      "tokens": [
+        "The",
+        "company",
+        "cut",
+        "its",
+        "expenditure",
+        "on",
+        "travel",
+        "this",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company cut its expenditure in travel this year.",
+          "explanationVi": "Chi tiêu cho cái gì dùng “expenditure on”."
+        },
+        {
+          "en": "The company cutted its expenditure on travel this year.",
+          "explanationVi": "“Cut” là động từ bất quy tắc: quá khứ vẫn là “cut”."
+        },
+        {
+          "en": "The company cut it's expenditure on travel this year.",
+          "explanationVi": "Tính từ sở hữu là “its”, không có dấu nháy."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:expenditure-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:expenditure-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our expenditure was higher than our income last month.",
+      "vi": "Tháng trước chi tiêu của chúng tôi cao hơn thu nhập.",
+      "audio": "ac283f9247b8f437e6c96c972a0e63ac2551d114ea3ff99eb14ea937df850195",
+      "tokens": [
+        "Our",
+        "expenditure",
+        "was",
+        "higher",
+        "than",
+        "our",
+        "income",
+        "last",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our expenditure was more high than our income last month.",
+          "explanationVi": "So sánh hơn của “high” là “higher”."
+        },
+        {
+          "en": "Our expenditure is higher than our income last month.",
+          "explanationVi": "Có “last month” nên dùng quá khứ “was”."
+        },
+        {
+          "en": "Our expenditure was higher that our income last month.",
+          "explanationVi": "So sánh hơn đi với “than”, không phải “that”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:expenditure-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fiscal-year-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our fiscal year starts in July and ends in June.",
+      "vi": "Năm tài chính của chúng tôi bắt đầu vào tháng Bảy và kết thúc vào tháng Sáu.",
+      "audio": "3493b257b4c843554e4fe7a336985d1233291371117e9a3b632b24e80381b900",
+      "tokens": [
+        "Our",
+        "fiscal",
+        "year",
+        "starts",
+        "in",
+        "July",
+        "and",
+        "ends",
+        "in",
+        "June"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our fiscal year starts on July and ends in June.",
+          "explanationVi": "Trước tên tháng dùng giới từ “in”."
+        },
+        {
+          "en": "Our fiscal year starts in July and end in June.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “ends”."
+        },
+        {
+          "en": "Our year fiscal starts in July and ends in June.",
+          "explanationVi": "Tính từ đứng trước danh từ: “fiscal year”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:fiscal-year-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fiscal-year-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Sales grew by ten percent in the last fiscal year.",
+      "vi": "Doanh số tăng mười phần trăm trong năm tài chính vừa qua.",
+      "audio": "9631c37f62e5391c66b721ac3d9352b794db9b3b52eed59f6c85f1ebfc978007",
+      "tokens": [
+        "Sales",
+        "grew",
+        "by",
+        "ten",
+        "percent",
+        "in",
+        "the",
+        "last",
+        "fiscal",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Sales growed by ten percent in the last fiscal year.",
+          "explanationVi": "“Grow” là động từ bất quy tắc: quá khứ là “grew”."
+        },
+        {
+          "en": "Sales grew by ten percents in the last fiscal year.",
+          "explanationVi": "“Percent” sau số không thêm -s."
+        },
+        {
+          "en": "Sales grew by ten percent in last fiscal year.",
+          "explanationVi": "Cần mạo từ “the”: “in the last fiscal year”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        1
+      ],
+      "wordIds": [
+        "word:fiscal-year-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:founder-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The founder started the company in her garage.",
+      "vi": "Người sáng lập đã bắt đầu công ty trong nhà để xe của bà ấy.",
+      "audio": "8a6cdf7496598a191315a7b7c6e292cd75d587d55f0c17b2feb93a18646fc995",
+      "tokens": [
+        "The",
+        "founder",
+        "started",
+        "the",
+        "company",
+        "in",
+        "her",
+        "garage"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The founder start the company in her garage.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “started”."
+        },
+        {
+          "en": "The founder started the company on her garage.",
+          "explanationVi": "Ở trong một nơi dùng “in”: “in her garage”."
+        },
+        {
+          "en": "Founder started the company in her garage.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ: “The founder”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:founder-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:founder-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Both founders still work at the company every day.",
+      "vi": "Cả hai người sáng lập vẫn làm việc ở công ty mỗi ngày.",
+      "audio": "270324cce7e926ad4b719f1b122dd34de109574d5356091124bf2c52b79e67b2",
+      "tokens": [
+        "Both",
+        "founders",
+        "still",
+        "work",
+        "at",
+        "the",
+        "company",
+        "every",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Both founder still work at the company every day.",
+          "explanationVi": "Sau “both” danh từ phải ở số nhiều: “founders”."
+        },
+        {
+          "en": "Both founders still works at the company every day.",
+          "explanationVi": "“Founders” là số nhiều nên dùng “work”."
+        },
+        {
+          "en": "Both founders work still at the company every day.",
+          "explanationVi": "“Still” đứng trước động từ thường: “still work”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:founder-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:franchise-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "He bought a coffee franchise and opened his first shop.",
+      "vi": "Anh ấy mua nhượng quyền một chuỗi cà phê và mở cửa hàng đầu tiên.",
+      "audio": "0309fd49729f0c954cab94fa3812f3608328b5fb9b9e8c80b9b3eb5c753af88f",
+      "tokens": [
+        "He",
+        "bought",
+        "a",
+        "coffee",
+        "franchise",
+        "and",
+        "opened",
+        "his",
+        "first",
+        "shop"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He buyed a coffee franchise and opened his first shop.",
+          "explanationVi": "“Buy” là động từ bất quy tắc: quá khứ là “bought”."
+        },
+        {
+          "en": "He bought a coffee franchise and open his first shop.",
+          "explanationVi": "Hai hành động cùng ở quá khứ: “opened”."
+        },
+        {
+          "en": "He bought coffee franchise and opened his first shop.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:franchise-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:franchise-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Each franchise must follow the rules of the main brand.",
+      "vi": "Mỗi cửa hàng nhượng quyền phải tuân theo quy định của thương hiệu chính.",
+      "audio": "4ffd835c1ab8306258c48a2518d97b565b89892becc8404efa8d54a989bef69d",
+      "tokens": [
+        "Each",
+        "franchise",
+        "must",
+        "follow",
+        "the",
+        "rules",
+        "of",
+        "the",
+        "main",
+        "brand"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each franchise must follows the rules of the main brand.",
+          "explanationVi": "Sau “must” dùng động từ nguyên mẫu: “follow”."
+        },
+        {
+          "en": "Each franchise must to follow the rules of the main brand.",
+          "explanationVi": "Sau “must” không có “to”."
+        },
+        {
+          "en": "Each franchises must follow the rules of the main brand.",
+          "explanationVi": "Sau “each” danh từ ở số ít: “franchise”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:franchise-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:kpi-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our main KPI this quarter is the number of new customers.",
+      "vi": "KPI chính của chúng tôi trong quý này là số lượng khách hàng mới.",
+      "audio": "a22d805f8cc115e9d993c3e89e9e145d3a639f19e4629503e2f3230a0950b50a",
+      "tokens": [
+        "Our",
+        "main",
+        "KPI",
+        "this",
+        "quarter",
+        "is",
+        "the",
+        "number",
+        "of",
+        "new",
+        "customers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our main KPI this quarter are the number of new customers.",
+          "explanationVi": "Chủ ngữ “KPI” số ít nên dùng “is”."
+        },
+        {
+          "en": "Our main KPI this quarter is the number of new customer.",
+          "explanationVi": "Sau “the number of” danh từ ở số nhiều: “customers”."
+        },
+        {
+          "en": "Our main KPI this quarter is the amount of new customers.",
+          "explanationVi": "Danh từ đếm được dùng “the number of”, không dùng “the amount of”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        10
+      ],
+      "wordIds": [
+        "word:kpi-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:kpi-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Each team sets its own KPIs at the start of the year.",
+      "vi": "Mỗi nhóm tự đặt KPI riêng vào đầu năm.",
+      "audio": "822b4d18c4bcfe98a94e40d85a0a38c47d9204a6eed6db6c613cadce7632c12c",
+      "tokens": [
+        "Each",
+        "team",
+        "sets",
+        "its",
+        "own",
+        "KPIs",
+        "at",
+        "the",
+        "start",
+        "of",
+        "the",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each team set its own KPIs at the start of the year.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “sets”."
+        },
+        {
+          "en": "Each teams sets its own KPIs at the start of the year.",
+          "explanationVi": "Sau “each” danh từ ở số ít: “team”."
+        },
+        {
+          "en": "Each team sets its own KPIs in the start of the year.",
+          "explanationVi": "“Vào đầu” là “at the start of”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:kpi-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:lead-time-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The lead time for custom furniture is about six weeks.",
+      "vi": "Thời gian chờ hàng với đồ nội thất đặt làm là khoảng sáu tuần.",
+      "audio": "313a3705f53a3ff97c6695fded9778e24a6564536c867bbfd7a809f93f97c771",
+      "tokens": [
+        "The",
+        "lead",
+        "time",
+        "for",
+        "custom",
+        "furniture",
+        "is",
+        "about",
+        "six",
+        "weeks"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The lead time for custom furnitures is about six weeks.",
+          "explanationVi": "“Furniture” không đếm được, không thêm -s."
+        },
+        {
+          "en": "The lead time for custom furniture are about six weeks.",
+          "explanationVi": "Chủ ngữ “lead time” số ít nên dùng “is”."
+        },
+        {
+          "en": "The lead time for custom furniture is about six week.",
+          "explanationVi": "Sau “six” danh từ phải ở số nhiều: “weeks”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:lead-time-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:lead-time-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please order early because the lead time is long.",
+      "vi": "Vui lòng đặt hàng sớm vì thời gian chờ hàng khá lâu.",
+      "audio": "141783ac8229357c14374792f7fcbf76967dd7faa6c321203f8b17a572485b6a",
+      "tokens": [
+        "Please",
+        "order",
+        "early",
+        "because",
+        "the",
+        "lead",
+        "time",
+        "is",
+        "long"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please order early because of the lead time is long.",
+          "explanationVi": "Trước một mệnh đề dùng “because”, không dùng “because of”."
+        },
+        {
+          "en": "Please order early because the lead time long.",
+          "explanationVi": "Thiếu động từ “to be”: “is long”."
+        },
+        {
+          "en": "Please to order early because the lead time is long.",
+          "explanationVi": "Sau “please” dùng động từ nguyên mẫu, không có “to”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [
+        "word:lead-time-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:liability-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Loans from the bank are a liability for the company.",
+      "vi": "Các khoản vay ngân hàng là khoản nợ phải trả của công ty.",
+      "audio": "88406593fe01d3649c116a616bbb4486856205689a3a33722edc022130600339",
+      "tokens": [
+        "Loans",
+        "from",
+        "the",
+        "bank",
+        "are",
+        "a",
+        "liability",
+        "for",
+        "the",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Loans from the bank is a liability for the company.",
+          "explanationVi": "“Loans” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Loan from the bank are a liability for the company.",
+          "explanationVi": "Động từ “are” đi với số nhiều: “Loans”."
+        },
+        {
+          "en": "Loans from bank are a liability for the company.",
+          "explanationVi": "Ngân hàng cụ thể cần mạo từ: “from the bank”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        0
+      ],
+      "wordIds": [
+        "word:liability-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:liability-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The balance sheet lists all assets and liabilities.",
+      "vi": "Bảng cân đối kế toán liệt kê tất cả tài sản và nợ phải trả.",
+      "audio": "90ca67a43e093c83fbb08c8159b80846857ecf1a4f579e8dca84755abac3fdb5",
+      "tokens": [
+        "The",
+        "balance",
+        "sheet",
+        "lists",
+        "all",
+        "assets",
+        "and",
+        "liabilities"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The balance sheet list all assets and liabilities.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “lists”."
+        },
+        {
+          "en": "The balance sheet lists all asset and liabilities.",
+          "explanationVi": "Sau “all” danh từ đếm được ở số nhiều: “assets”."
+        },
+        {
+          "en": "The balance sheet lists all assets and liabilitys.",
+          "explanationVi": "Danh từ tận cùng phụ âm + y đổi thành -ies: “liabilities”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        5
+      ],
+      "wordIds": [
+        "word:liability-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:logistics-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She works in logistics and plans how goods are moved.",
+      "vi": "Cô ấy làm trong ngành logistics và lên kế hoạch vận chuyển hàng hóa.",
+      "audio": "65058a506f8c240513b91199ba5f1dfd9ec62aff23c041ea60ed2ed7124673e3",
+      "tokens": [
+        "She",
+        "works",
+        "in",
+        "logistics",
+        "and",
+        "plans",
+        "how",
+        "goods",
+        "are",
+        "moved"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She work in logistics and plans how goods are moved.",
+          "explanationVi": "Chủ ngữ “she” nên động từ cần -s: “works”."
+        },
+        {
+          "en": "She works in logistics and plans how goods are move.",
+          "explanationVi": "Bị động cần quá khứ phân từ: “are moved”."
+        },
+        {
+          "en": "She works in logistics and plans how are goods moved.",
+          "explanationVi": "Câu hỏi gián tiếp không đảo: “how goods are moved”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        9
+      ],
+      "wordIds": [
+        "word:logistics-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:logistics-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A logistics company stores and delivers our products.",
+      "vi": "Một công ty logistics lưu kho và giao sản phẩm của chúng tôi.",
+      "audio": "fa95bcea404d6a5802212aa2fa17a4d6dbd9b051d2dcba304f25e1677d1d9105",
+      "tokens": [
+        "A",
+        "logistics",
+        "company",
+        "stores",
+        "and",
+        "delivers",
+        "our",
+        "products"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A logistics company store and delivers our products.",
+          "explanationVi": "Chủ ngữ số ít nên cả hai động từ cần -s: “stores”."
+        },
+        {
+          "en": "A logistics company stores and delivers ours products.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “our”."
+        },
+        {
+          "en": "Logistics company stores and delivers our products.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:logistics-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:market-research-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We did market research before we opened the new store.",
+      "vi": "Chúng tôi đã nghiên cứu thị trường trước khi mở cửa hàng mới.",
+      "audio": "72156c082a992501872102d693b4385dd05844ef38b574306f7d550c575797a9",
+      "tokens": [
+        "We",
+        "did",
+        "market",
+        "research",
+        "before",
+        "we",
+        "opened",
+        "the",
+        "new",
+        "store"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We did a market researches before we opened the new store.",
+          "explanationVi": "“Research” không đếm được: không dùng “a” và không thêm -es."
+        },
+        {
+          "en": "We did market research before we open the new store.",
+          "explanationVi": "Cả câu ở quá khứ nên dùng “opened”."
+        },
+        {
+          "en": "We made market research before we opened the new store.",
+          "explanationVi": "Cụm đúng là “do research”, không phải “make research”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:market-research-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:market-research-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The market research shows that customers want faster delivery.",
+      "vi": "Nghiên cứu thị trường cho thấy khách hàng muốn giao hàng nhanh hơn.",
+      "audio": "596dd4e06a87c0ccf3ee9b7de17545fd98d3a3b527a378390b2e41ce2c8268ab",
+      "tokens": [
+        "The",
+        "market",
+        "research",
+        "shows",
+        "that",
+        "customers",
+        "want",
+        "faster",
+        "delivery"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The market research show that customers want faster delivery.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “shows”."
+        },
+        {
+          "en": "The market research shows that customers want more fast delivery.",
+          "explanationVi": "So sánh hơn của “fast” là “faster”."
+        },
+        {
+          "en": "The market research shows that customers wants faster delivery.",
+          "explanationVi": "“Customers” là số nhiều nên dùng “want”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:market-research-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:market-share-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The company lost market share to a cheaper competitor.",
+      "vi": "Công ty bị mất thị phần vào tay một đối thủ rẻ hơn.",
+      "audio": "75fd4f04b9c9551d9bbbe8ba724316ece5766cf9ae60ff35a0c28095588ca534",
+      "tokens": [
+        "The",
+        "company",
+        "lost",
+        "market",
+        "share",
+        "to",
+        "a",
+        "cheaper",
+        "competitor"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company losed market share to a cheaper competitor.",
+          "explanationVi": "“Lose” là động từ bất quy tắc: quá khứ là “lost”."
+        },
+        {
+          "en": "The company lost market share to a more cheap competitor.",
+          "explanationVi": "So sánh hơn của “cheap” là “cheaper”."
+        },
+        {
+          "en": "The company lost market share to cheaper competitor.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        8
+      ],
+      "wordIds": [
+        "word:market-share-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:market-share-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our market share has increased since last spring.",
+      "vi": "Thị phần của chúng tôi đã tăng kể từ mùa xuân năm ngoái.",
+      "audio": "4be1e5320f92526af044656e516a969c990292c90ee7a3ac66cb8c9f9276d6e4",
+      "tokens": [
+        "Our",
+        "market",
+        "share",
+        "has",
+        "increased",
+        "since",
+        "last",
+        "spring"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our market share has increase since last spring.",
+          "explanationVi": "Hiện tại hoàn thành cần quá khứ phân từ: “has increased”."
+        },
+        {
+          "en": "Our market share increases since last spring.",
+          "explanationVi": "Với “since” dùng thì hiện tại hoàn thành: “has increased”."
+        },
+        {
+          "en": "Our market share has increased for last spring.",
+          "explanationVi": "Mốc thời gian dùng “since”, không dùng “for”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:market-share-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:networking-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Networking events are a great way to meet new partners.",
+      "vi": "Các sự kiện giao lưu kết nối là cách tuyệt vời để gặp đối tác mới.",
+      "audio": "1fce076361f3cc7f1c452f23340b4aaf3aef1fc6a6461e6891a148c34ba44b33",
+      "tokens": [
+        "Networking",
+        "events",
+        "are",
+        "a",
+        "great",
+        "way",
+        "to",
+        "meet",
+        "new",
+        "partners"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Networking events is a great way to meet new partners.",
+          "explanationVi": "“Events” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Networking events are a great way for meet new partners.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to meet”."
+        },
+        {
+          "en": "Networking events are great way to meet new partners.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        9
+      ],
+      "wordIds": [
+        "word:networking-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:networking-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He found his first big client through networking.",
+      "vi": "Anh ấy tìm được khách hàng lớn đầu tiên nhờ việc kết nối quan hệ.",
+      "audio": "b8893800fbb3921dc7edb3d6ea9972a54006d07842498df2180d61af67c678ae",
+      "tokens": [
+        "He",
+        "found",
+        "his",
+        "first",
+        "big",
+        "client",
+        "through",
+        "networking"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He finded his first big client through networking.",
+          "explanationVi": "“Find” là động từ bất quy tắc: quá khứ là “found”."
+        },
+        {
+          "en": "He found his big first client through networking.",
+          "explanationVi": "Số thứ tự đứng trước tính từ: “first big client”."
+        },
+        {
+          "en": "He found him first big client through networking.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “his”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        5
+      ],
+      "wordIds": [
+        "word:networking-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:out-of-stock-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Sorry, this size is out of stock right now.",
+      "vi": "Xin lỗi, cỡ này hiện đang hết hàng.",
+      "audio": "2998cda2a0619711cfda3c50e3a3f31cce8cb198ee304ac0f3c3f4488321523b",
+      "tokens": [
+        "Sorry",
+        "this",
+        "size",
+        "is",
+        "out",
+        "of",
+        "stock",
+        "right",
+        "now"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Sorry, this size out of stock right now.",
+          "explanationVi": "Thiếu động từ “to be”: “is out of stock”."
+        },
+        {
+          "en": "Sorry, this size is out of the stock right now.",
+          "explanationVi": "Cụm cố định là “out of stock”, không có “the”."
+        },
+        {
+          "en": "Sorry, this size is out from stock right now.",
+          "explanationVi": "Cụm cố định là “out of stock”, không dùng “from”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [
+        "word:out-of-stock-adj"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:out-of-stock-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The phone was out of stock for two weeks.",
+      "vi": "Chiếc điện thoại đã hết hàng trong hai tuần.",
+      "audio": "5281b50d68e7f4e3e8709358c0f190f9912336c5400bee9138ab78fe1e5ae4b3",
+      "tokens": [
+        "The",
+        "phone",
+        "was",
+        "out",
+        "of",
+        "stock",
+        "for",
+        "two",
+        "weeks"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The phone was out of stock since two weeks.",
+          "explanationVi": "Khoảng thời gian dùng “for”; “since” đi với mốc thời gian."
+        },
+        {
+          "en": "The phone were out of stock for two weeks.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “was”."
+        },
+        {
+          "en": "The phone was out of stock for two week.",
+          "explanationVi": "Sau “two” danh từ phải ở số nhiều: “weeks”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:out-of-stock-adj"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:outsource-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Many companies outsource their customer service to other countries.",
+      "vi": "Nhiều công ty thuê ngoài dịch vụ chăm sóc khách hàng ở các nước khác.",
+      "audio": "c57d0d1a82a0a5dc0d13e077213717e434ee624fb7ae3faadd5e8141fe866913",
+      "tokens": [
+        "Many",
+        "companies",
+        "outsource",
+        "their",
+        "customer",
+        "service",
+        "to",
+        "other",
+        "countries"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many companies outsources their customer service to other countries.",
+          "explanationVi": "“Companies” là số nhiều nên dùng “outsource”."
+        },
+        {
+          "en": "Many company outsource their customer service to other countries.",
+          "explanationVi": "Sau “many” danh từ phải ở số nhiều: “companies”."
+        },
+        {
+          "en": "Many companies outsource their customer service to another countries.",
+          "explanationVi": "Với danh từ số nhiều dùng “other”, không dùng “another”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:outsource-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:outsource-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We decided to outsource our accounting to save time.",
+      "vi": "Chúng tôi quyết định thuê ngoài công việc kế toán để tiết kiệm thời gian.",
+      "audio": "ae9c03f99c59b69bb2804e23b6107b9dec5bd0d138d4765bf220d1349491ffa2",
+      "tokens": [
+        "We",
+        "decided",
+        "to",
+        "outsource",
+        "our",
+        "accounting",
+        "to",
+        "save",
+        "time"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We decided outsource our accounting to save time.",
+          "explanationVi": "Sau “decide” cần “to” + động từ: “decided to outsource”."
+        },
+        {
+          "en": "We decided to outsourcing our accounting to save time.",
+          "explanationVi": "Sau “to” dùng động từ nguyên mẫu: “to outsource”."
+        },
+        {
+          "en": "We decided to outsource our accounting for save time.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to save”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:outsource-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overhead-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Working from home helps the company reduce its overhead.",
+      "vi": "Làm việc tại nhà giúp công ty giảm chi phí chung.",
+      "audio": "c0a687b685ad31e2dbfd7576c796c60a73e23e25b57c9acaa705fce4b48a16f8",
+      "tokens": [
+        "Working",
+        "from",
+        "home",
+        "helps",
+        "the",
+        "company",
+        "reduce",
+        "its",
+        "overhead"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Working from home helps the company to reducing its overhead.",
+          "explanationVi": "Sau “help somebody (to)” dùng động từ nguyên mẫu: “reduce”."
+        },
+        {
+          "en": "Work from home helps the company reduce its overhead.",
+          "explanationVi": "Hoạt động làm chủ ngữ dùng V-ing: “Working”."
+        },
+        {
+          "en": "Working from home help the company reduce its overhead.",
+          "explanationVi": "Chủ ngữ V-ing là số ít nên dùng “helps”."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        6
+      ],
+      "wordIds": [
+        "word:overhead-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overhead-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Rent and electricity are a big part of our overhead.",
+      "vi": "Tiền thuê và tiền điện chiếm phần lớn chi phí chung của chúng tôi.",
+      "audio": "e9d0d67f27dd09e6ecd44443b65ca3f4cd5f2f6a5ea94e54710716f6c07b8068",
+      "tokens": [
+        "Rent",
+        "and",
+        "electricity",
+        "are",
+        "a",
+        "big",
+        "part",
+        "of",
+        "our",
+        "overhead"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Rent and electricity is a big part of our overhead.",
+          "explanationVi": "Hai chủ ngữ nối bằng “and” dùng “are”."
+        },
+        {
+          "en": "Rent and electricity are a big part from our overhead.",
+          "explanationVi": "“Một phần của” là “a part of”."
+        },
+        {
+          "en": "Rent and electricity are big part of our overhead.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        0
+      ],
+      "wordIds": [
+        "word:overhead-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pricing-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our pricing is simple: one price for every customer.",
+      "vi": "Cách định giá của chúng tôi rất đơn giản: một mức giá cho mọi khách hàng.",
+      "audio": "df98639a9445a776d9e7dcb3d08815851cf89478aae79e8ef30a760fb11a5b1f",
+      "tokens": [
+        "Our",
+        "pricing",
+        "is",
+        "simple",
+        "one",
+        "price",
+        "for",
+        "every",
+        "customer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our pricing are simple: one price for every customer.",
+          "explanationVi": "“Pricing” không đếm được, đi với “is”."
+        },
+        {
+          "en": "Our pricing is simple: one price for every customers.",
+          "explanationVi": "Sau “every” danh từ ở số ít: “customer”."
+        },
+        {
+          "en": "Our pricing simple: one price for every customer.",
+          "explanationVi": "Thiếu động từ “to be”: “is simple”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:pricing-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pricing-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The team is reviewing the pricing of the new product.",
+      "vi": "Nhóm đang xem xét lại việc định giá sản phẩm mới.",
+      "audio": "bc2d7e5e308296591d49187721a420ae1fe938823a7a3bfaec79c871a20e3778",
+      "tokens": [
+        "The",
+        "team",
+        "is",
+        "reviewing",
+        "the",
+        "pricing",
+        "of",
+        "the",
+        "new",
+        "product"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The team is review the pricing of the new product.",
+          "explanationVi": "Thì tiếp diễn cần V-ing: “is reviewing”."
+        },
+        {
+          "en": "The team reviewing the pricing of the new product.",
+          "explanationVi": "Thiếu “is” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "The team is reviewing the pricing of new the product.",
+          "explanationVi": "Mạo từ đứng trước tính từ: “the new product”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        3
+      ],
+      "wordIds": [
+        "word:pricing-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:profit-margin-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Restaurants often have a small profit margin.",
+      "vi": "Các nhà hàng thường có biên lợi nhuận thấp.",
+      "audio": "9d063d90bf5a342211885840ddbfb785cec651e4b3acf284b15d01a43e67b681",
+      "tokens": [
+        "Restaurants",
+        "often",
+        "have",
+        "a",
+        "small",
+        "profit",
+        "margin"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Restaurants have often a small profit margin.",
+          "explanationVi": "Trạng từ tần suất đứng trước động từ thường: “often have”."
+        },
+        {
+          "en": "Restaurants often has a small profit margin.",
+          "explanationVi": "“Restaurants” là số nhiều nên dùng “have”."
+        },
+        {
+          "en": "Restaurants often have small profit margin.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        1
+      ],
+      "wordIds": [
+        "word:profit-margin-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:profit-margin-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We raised prices to improve our profit margin.",
+      "vi": "Chúng tôi đã tăng giá để cải thiện biên lợi nhuận.",
+      "audio": "794222ce56090f89920d257fff51b5328d30a08c3323eae84dc07879e1f4ed61",
+      "tokens": [
+        "We",
+        "raised",
+        "prices",
+        "to",
+        "improve",
+        "our",
+        "profit",
+        "margin"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We rose prices to improve our profit margin.",
+          "explanationVi": "“Rise” không có tân ngữ; tăng giá là “raise”, quá khứ “raised”."
+        },
+        {
+          "en": "We raised prices for improve our profit margin.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to improve”."
+        },
+        {
+          "en": "We raised prices to improving our profit margin.",
+          "explanationVi": "Sau “to” chỉ mục đích dùng động từ nguyên mẫu: “to improve”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        1
+      ],
+      "wordIds": [
+        "word:profit-margin-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:quarterly-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The manager presents the quarterly results to the team.",
+      "vi": "Người quản lý trình bày kết quả hằng quý cho nhóm.",
+      "audio": "bb85694e19978f095efc5f04dc2db996949167bbe38e489999f107b7e9283280",
+      "tokens": [
+        "The",
+        "manager",
+        "presents",
+        "the",
+        "quarterly",
+        "results",
+        "to",
+        "the",
+        "team"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The manager present the quarterly results to the team.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “presents”."
+        },
+        {
+          "en": "The manager presents the quarterly results to team.",
+          "explanationVi": "Nhóm cụ thể cần mạo từ: “to the team”."
+        },
+        {
+          "en": "The manager presents the results quarterlies to the team.",
+          "explanationVi": "Tính từ không thêm -s và đứng trước danh từ: “quarterly results”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:quarterly-adj"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:quarterly-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We send quarterly reports to all our investors.",
+      "vi": "Chúng tôi gửi báo cáo hằng quý cho tất cả nhà đầu tư.",
+      "audio": "22c853382966d64d8effe9b2fd494ac8ddb5b2fdcf943ea51d1e84bf96d57325",
+      "tokens": [
+        "We",
+        "send",
+        "quarterly",
+        "reports",
+        "to",
+        "all",
+        "our",
+        "investors"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We sends quarterly reports to all our investors.",
+          "explanationVi": "Chủ ngữ “we” dùng “send”, không thêm -s."
+        },
+        {
+          "en": "We send quarterly report to all our investors.",
+          "explanationVi": "Nói chung nhiều báo cáo nên dùng số nhiều “reports”."
+        },
+        {
+          "en": "We send quarterly reports to all ours investors.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “our”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:quarterly-adj"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:rebrand-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The hotel chain rebranded with a new name and logo.",
+      "vi": "Chuỗi khách sạn đã đổi thương hiệu với tên và logo mới.",
+      "audio": "7d17fb7de84142e01c490516b8db220651759c581097c1228f25d2fe32c5b7d1",
+      "tokens": [
+        "The",
+        "hotel",
+        "chain",
+        "rebranded",
+        "with",
+        "a",
+        "new",
+        "name",
+        "and",
+        "logo"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hotel chain rebranded with new name and logo.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”: “a new name”."
+        },
+        {
+          "en": "The chain hotel rebranded with a new name and logo.",
+          "explanationVi": "Sai trật tự: cụm đúng là “hotel chain” (chuỗi khách sạn)."
+        },
+        {
+          "en": "The hotel chain rebranded by a new name and logo.",
+          "explanationVi": "Đi kèm cái gì dùng “with”, không dùng “by”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        9
+      ],
+      "wordIds": [
+        "word:rebrand-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:rebrand-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We plan to rebrand the company next spring.",
+      "vi": "Chúng tôi dự định đổi thương hiệu công ty vào mùa xuân tới.",
+      "audio": "abea2555c8dd483db63ed8b382727c032ec49ff42a464f05ebf093c93a9e9263",
+      "tokens": [
+        "We",
+        "plan",
+        "to",
+        "rebrand",
+        "the",
+        "company",
+        "next",
+        "spring"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We plan rebrand the company next spring.",
+          "explanationVi": "Sau “plan” cần “to” + động từ: “plan to rebrand”."
+        },
+        {
+          "en": "We plan to rebrand the company in next spring.",
+          "explanationVi": "Trước “next spring” không dùng giới từ “in”."
+        },
+        {
+          "en": "We plans to rebrand the company next spring.",
+          "explanationVi": "Chủ ngữ “we” dùng “plan”, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:rebrand-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:return-on-investment-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The new machine gave us a good return on investment.",
+      "vi": "Chiếc máy mới mang lại cho chúng tôi lợi tức đầu tư tốt.",
+      "audio": "23f42bc4cac1bba9edc951e1a8350e0a3653001777d382d43fd0aa923a8c5baa",
+      "tokens": [
+        "The",
+        "new",
+        "machine",
+        "gave",
+        "us",
+        "a",
+        "good",
+        "return",
+        "on",
+        "investment"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The new machine gived us a good return on investment.",
+          "explanationVi": "“Give” là động từ bất quy tắc: quá khứ là “gave”."
+        },
+        {
+          "en": "The new machine gave us a good return of investment.",
+          "explanationVi": "Cụm cố định là “return on investment”."
+        },
+        {
+          "en": "The new machine gave to us a good return on investment.",
+          "explanationVi": "“Give somebody something” không cần “to”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [
+        "word:return-on-investment-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:return-on-investment-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Before we spend money, we check the return on investment.",
+      "vi": "Trước khi chi tiền, chúng tôi kiểm tra lợi tức đầu tư.",
+      "audio": "e9d92a2d26388410650e7fd6e22aaf82a42dd13715a85d3d006d8ee2e2ef3f6a",
+      "tokens": [
+        "Before",
+        "we",
+        "spend",
+        "money",
+        "we",
+        "check",
+        "the",
+        "return",
+        "on",
+        "investment"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Before we will spend money, we check the return on investment.",
+          "explanationVi": "Sau “before” dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Before we spend money, we checks the return on investment.",
+          "explanationVi": "Chủ ngữ “we” dùng “check”, không thêm -s."
+        },
+        {
+          "en": "Before we spend moneys, we check the return on investment.",
+          "explanationVi": "“Money” không đếm được, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [
+        "word:return-on-investment-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-forecast-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The sales forecast for next month looks very positive.",
+      "vi": "Dự báo doanh số cho tháng tới trông rất khả quan.",
+      "audio": "10a315264bbc810790dd1feb2152841480f54bd9c2ade037a4bf87d9d4b32170",
+      "tokens": [
+        "The",
+        "sales",
+        "forecast",
+        "for",
+        "next",
+        "month",
+        "looks",
+        "very",
+        "positive"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The sales forecast for next month look very positive.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “looks”."
+        },
+        {
+          "en": "The sales forecast for next month looks very positively.",
+          "explanationVi": "Sau “look” (trông có vẻ) dùng tính từ “positive”."
+        },
+        {
+          "en": "The forecast sales for next month looks very positive.",
+          "explanationVi": "Sai trật tự: cụm đúng là “sales forecast”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:sales-forecast-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-forecast-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We use the numbers from last year to make the sales forecast.",
+      "vi": "Chúng tôi dùng số liệu năm ngoái để lập dự báo doanh số.",
+      "audio": "26af54c32fc9450062ac4f542acc81b7fc00650ef484960e3d4970f4051763da",
+      "tokens": [
+        "We",
+        "use",
+        "the",
+        "numbers",
+        "from",
+        "last",
+        "year",
+        "to",
+        "make",
+        "the",
+        "sales",
+        "forecast"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We use the numbers from last year for make the sales forecast.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to make”."
+        },
+        {
+          "en": "We uses the numbers from last year to make the sales forecast.",
+          "explanationVi": "Chủ ngữ “we” dùng “use”, không thêm -s."
+        },
+        {
+          "en": "We use the number from last year to make the sales forecast.",
+          "explanationVi": "Số liệu gồm nhiều con số nên dùng “numbers”."
+        }
+      ],
+      "gapCandidates": [
+        11,
+        3
+      ],
+      "wordIds": [
+        "word:sales-forecast-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-pitch-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Keep your sales pitch short and clear.",
+      "vi": "Hãy giữ lời chào hàng của bạn ngắn gọn và rõ ràng.",
+      "audio": "69fe9acd950e70c8f2c297f0ef343ea003d94b05441746128549d18e3ab35466",
+      "tokens": [
+        "Keep",
+        "your",
+        "sales",
+        "pitch",
+        "short",
+        "and",
+        "clear"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Keep your sales pitch short and clearly.",
+          "explanationVi": "Sau “keep something” dùng tính từ: “short and clear”."
+        },
+        {
+          "en": "Keeps your sales pitch short and clear.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu: “Keep”."
+        },
+        {
+          "en": "Keep you sales pitch short and clear.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “your”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:sales-pitch-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-pitch-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The customer listened to the sales pitch but didn't buy anything.",
+      "vi": "Khách hàng đã nghe lời chào hàng nhưng không mua gì cả.",
+      "audio": "b07923f5950ca84ef9a2c07c775f198af845359dd5f13a16b7ca44de904623d4",
+      "tokens": [
+        "The",
+        "customer",
+        "listened",
+        "to",
+        "the",
+        "sales",
+        "pitch",
+        "but",
+        "didn't",
+        "buy",
+        "anything"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The customer listened the sales pitch but didn't buy anything.",
+          "explanationVi": "“Listen” cần giới từ “to”: “listened to”."
+        },
+        {
+          "en": "The customer listened to the sales pitch but didn't bought anything.",
+          "explanationVi": "Sau “didn't” dùng động từ nguyên mẫu: “buy”."
+        },
+        {
+          "en": "The customer listened to the sales pitch but didn't buy nothing.",
+          "explanationVi": "Tiếng Anh không dùng phủ định kép: “didn't buy anything”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        10
+      ],
+      "wordIds": [
+        "word:sales-pitch-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-representative-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our sales representative visits five clients every week.",
+      "vi": "Nhân viên kinh doanh của chúng tôi gặp năm khách hàng mỗi tuần.",
+      "audio": "5f64e877dc27f8b4512b176dea2bf1d854c9c3775a11532c023a797e2dc1e0fa",
+      "tokens": [
+        "Our",
+        "sales",
+        "representative",
+        "visits",
+        "five",
+        "clients",
+        "every",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our sales representative visit five clients every week.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “visits”."
+        },
+        {
+          "en": "Our sales representative visits five client every week.",
+          "explanationVi": "Sau “five” danh từ phải ở số nhiều: “clients”."
+        },
+        {
+          "en": "Our representative sales visits five clients every week.",
+          "explanationVi": "Sai trật tự: cụm đúng là “sales representative”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:sales-representative-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sales-representative-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please call the sales representative if you have questions about prices.",
+      "vi": "Vui lòng gọi cho nhân viên kinh doanh nếu bạn có thắc mắc về giá.",
+      "audio": "98af7ead107fe66f3818a0a13e250b17da6bfb5b3c7d736637267f7b41e2d865",
+      "tokens": [
+        "Please",
+        "call",
+        "the",
+        "sales",
+        "representative",
+        "if",
+        "you",
+        "have",
+        "questions",
+        "about",
+        "prices"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please call to the sales representative if you have questions about prices.",
+          "explanationVi": "“Call” (gọi điện) không đi với “to”."
+        },
+        {
+          "en": "Please call the sales representative if you have question about prices.",
+          "explanationVi": "“Questions” cần số nhiều ở đây."
+        },
+        {
+          "en": "Please call the sales representative if you will have questions about prices.",
+          "explanationVi": "Mệnh đề “if” dùng hiện tại đơn, không dùng “will”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        10
+      ],
+      "wordIds": [
+        "word:sales-representative-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shareholder-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The shareholders meet once a year to discuss the results.",
+      "vi": "Các cổ đông họp mỗi năm một lần để thảo luận về kết quả.",
+      "audio": "a19ace61756cf7a4877546c5fc3d42a7c43a43c1bb6914c022c492bd23d615c1",
+      "tokens": [
+        "The",
+        "shareholders",
+        "meet",
+        "once",
+        "a",
+        "year",
+        "to",
+        "discuss",
+        "the",
+        "results"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The shareholders meet once a year to discuss about the results.",
+          "explanationVi": "“Discuss” không đi với “about”."
+        },
+        {
+          "en": "The shareholders meets once a year to discuss the results.",
+          "explanationVi": "“Shareholders” là số nhiều nên dùng “meet”."
+        },
+        {
+          "en": "The shareholders meet once a year for discuss the results.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to discuss”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:shareholder-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shareholder-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Each shareholder receives a part of the profit.",
+      "vi": "Mỗi cổ đông nhận một phần lợi nhuận.",
+      "audio": "f90a5aa9dc13957260447ad55bebca82d73f164f1e2da8f753d6493efb29dcbe",
+      "tokens": [
+        "Each",
+        "shareholder",
+        "receives",
+        "a",
+        "part",
+        "of",
+        "the",
+        "profit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each shareholder receive a part of the profit.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “receives”."
+        },
+        {
+          "en": "Each shareholders receives a part of the profit.",
+          "explanationVi": "Sau “each” danh từ ở số ít: “shareholder”."
+        },
+        {
+          "en": "Each shareholder receives a part from the profit.",
+          "explanationVi": "“Một phần của” là “a part of”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:shareholder-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shipment-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The next shipment will arrive at the port on Monday.",
+      "vi": "Lô hàng tiếp theo sẽ đến cảng vào thứ Hai.",
+      "audio": "d9d17a92786ffaa247cd43036b3a9f7d4b94c163ebd295a96c82b2368278bf5a",
+      "tokens": [
+        "The",
+        "next",
+        "shipment",
+        "will",
+        "arrive",
+        "at",
+        "the",
+        "port",
+        "on",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The next shipment will arrive to the port on Monday.",
+          "explanationVi": "Đến một nơi dùng “arrive at”, không dùng “arrive to”."
+        },
+        {
+          "en": "The next shipment will arrives at the port on Monday.",
+          "explanationVi": "Sau “will” dùng động từ nguyên mẫu: “arrive”."
+        },
+        {
+          "en": "The next shipment will arrive at the port in Monday.",
+          "explanationVi": "Trước thứ trong tuần dùng “on”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:shipment-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shipment-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "One shipment was late because of bad weather.",
+      "vi": "Một lô hàng bị trễ vì thời tiết xấu.",
+      "audio": "fd8b5a423ef45bdf32c7759f236bdc3b13bc7edd31b284cf981e49130a7e611c",
+      "tokens": [
+        "One",
+        "shipment",
+        "was",
+        "late",
+        "because",
+        "of",
+        "bad",
+        "weather"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "One shipment was late because bad weather.",
+          "explanationVi": "Trước cụm danh từ dùng “because of”."
+        },
+        {
+          "en": "One shipment were late because of bad weather.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “was”."
+        },
+        {
+          "en": "One shipment was late because of a bad weather.",
+          "explanationVi": "“Weather” không đếm được, không dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:shipment-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:startup-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She left her bank job to work for a small startup.",
+      "vi": "Cô ấy rời công việc ở ngân hàng để làm cho một công ty khởi nghiệp nhỏ.",
+      "audio": "a54d202c6fbebbb0f0d3359e7e6992166604ba561c3135e5031e5753d0f2d949",
+      "tokens": [
+        "She",
+        "left",
+        "her",
+        "bank",
+        "job",
+        "to",
+        "work",
+        "for",
+        "a",
+        "small",
+        "startup"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She leaved her bank job to work for a small startup.",
+          "explanationVi": "“Leave” là động từ bất quy tắc: quá khứ là “left”."
+        },
+        {
+          "en": "She left her bank job for work for a small startup.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to work”."
+        },
+        {
+          "en": "She left her bank job to work for small startup.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        10,
+        1
+      ],
+      "wordIds": [
+        "word:startup-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:startup-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Many startups fail in their first three years.",
+      "vi": "Nhiều công ty khởi nghiệp thất bại trong ba năm đầu.",
+      "audio": "1f403b154f2cce4370a93b26e10fd62d0f5e3120a6e7c34c359601ea16bef0a2",
+      "tokens": [
+        "Many",
+        "startups",
+        "fail",
+        "in",
+        "their",
+        "first",
+        "three",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many startup fail in their first three years.",
+          "explanationVi": "Sau “many” danh từ phải ở số nhiều: “startups”."
+        },
+        {
+          "en": "Many startups fails in their first three years.",
+          "explanationVi": "“Startups” là số nhiều nên dùng “fail”."
+        },
+        {
+          "en": "Many startups fail in their three first years.",
+          "explanationVi": "Thứ tự đúng là “first three years”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:startup-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stock-exchange-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Shares of the company are sold on the stock exchange.",
+      "vi": "Cổ phiếu của công ty được bán trên sàn giao dịch chứng khoán.",
+      "audio": "ab49e8977e440d1faed105903b85475efbbaef8bff2db077393ea4030d1c7376",
+      "tokens": [
+        "Shares",
+        "of",
+        "the",
+        "company",
+        "are",
+        "sold",
+        "on",
+        "the",
+        "stock",
+        "exchange"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Shares of the company are sell on the stock exchange.",
+          "explanationVi": "Bị động cần quá khứ phân từ: “are sold”."
+        },
+        {
+          "en": "Shares of the company is sold on the stock exchange.",
+          "explanationVi": "Chủ ngữ “shares” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Shares of the company are sold in the stock exchange.",
+          "explanationVi": "Giao dịch trên sàn dùng “on the stock exchange”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        5
+      ],
+      "wordIds": [
+        "word:stock-exchange-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stock-exchange-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Prices on the stock exchange fell sharply this morning.",
+      "vi": "Giá trên sàn chứng khoán giảm mạnh sáng nay.",
+      "audio": "aa4671db1c80c256ed626c0ab9814b55acef0dd15cafab4be1d534b281025e72",
+      "tokens": [
+        "Prices",
+        "on",
+        "the",
+        "stock",
+        "exchange",
+        "fell",
+        "sharply",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Prices on the stock exchange falled sharply this morning.",
+          "explanationVi": "“Fall” là động từ bất quy tắc: quá khứ là “fell”."
+        },
+        {
+          "en": "Prices on the stock exchange fell sharp this morning.",
+          "explanationVi": "Bổ nghĩa cho động từ dùng trạng từ “sharply”."
+        },
+        {
+          "en": "Prices on the stock exchange fell sharply in this morning.",
+          "explanationVi": "Trước “this morning” không dùng “in”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:stock-exchange-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:subscription-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Customers pay a monthly subscription to use the software.",
+      "vi": "Khách hàng trả phí đăng ký hằng tháng để dùng phần mềm.",
+      "audio": "97014139524b3cab8395b95fc6bed6361e555fd2f7de53303e4785a9a9330430",
+      "tokens": [
+        "Customers",
+        "pay",
+        "a",
+        "monthly",
+        "subscription",
+        "to",
+        "use",
+        "the",
+        "software"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Customers pays a monthly subscription to use the software.",
+          "explanationVi": "“Customers” là số nhiều nên dùng “pay”."
+        },
+        {
+          "en": "Customers pay a monthly subscription for use the software.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to use”."
+        },
+        {
+          "en": "Customers pay monthly subscription to use the software.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:subscription-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:subscription-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "You can cancel your subscription at any time.",
+      "vi": "Bạn có thể hủy gói đăng ký bất cứ lúc nào.",
+      "audio": "176d6c7131480da3a8e89e3e5f4c4d30ed94a5a07050aa3b9228f35b974e1455",
+      "tokens": [
+        "You",
+        "can",
+        "cancel",
+        "your",
+        "subscription",
+        "at",
+        "any",
+        "time"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You can cancels your subscription at any time.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu: “cancel”."
+        },
+        {
+          "en": "You can cancel your subscription in any time.",
+          "explanationVi": "Cụm cố định là “at any time”."
+        },
+        {
+          "en": "You can cancel you subscription at any time.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “your”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:subscription-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:subsidiary-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The bank opened a subsidiary in another country last year.",
+      "vi": "Ngân hàng đã mở một công ty con ở nước khác vào năm ngoái.",
+      "audio": "d1fa6464d87146a7c6d1b6c2321f5d4894bbb8f94e776444fdd7f54b73a6e95b",
+      "tokens": [
+        "The",
+        "bank",
+        "opened",
+        "a",
+        "subsidiary",
+        "in",
+        "another",
+        "country",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The bank opened a subsidiary in other country last year.",
+          "explanationVi": "Với danh từ số ít dùng “another”, không dùng “other”."
+        },
+        {
+          "en": "The bank has opened a subsidiary in another country last year.",
+          "explanationVi": "Có “last year” nên dùng quá khứ đơn “opened”."
+        },
+        {
+          "en": "The bank opened subsidiary in another country last year.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:subsidiary-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:subsidiary-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The subsidiary sells the products of the parent company.",
+      "vi": "Công ty con bán sản phẩm của công ty mẹ.",
+      "audio": "0c00fe0ff448afe1f18efff8fe940d7bf16f910e2b346d9ed6bfddc170068b5a",
+      "tokens": [
+        "The",
+        "subsidiary",
+        "sells",
+        "the",
+        "products",
+        "of",
+        "the",
+        "parent",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The subsidiary sell the products of the parent company.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “sells”."
+        },
+        {
+          "en": "The subsidiary sells the products of the company parent.",
+          "explanationVi": "Sai trật tự: cụm đúng là “parent company”."
+        },
+        {
+          "en": "The subsidiary is sell the products of the parent company.",
+          "explanationVi": "Thừa “is”: hiện tại đơn là “sells”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:subsidiary-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:supply-chain-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A problem at one factory can stop the whole supply chain.",
+      "vi": "Một sự cố ở một nhà máy có thể làm ngưng trệ cả chuỗi cung ứng.",
+      "audio": "bfd65ff1f544c116d323383e59883ab7229b88208462ae38440b9f676e1413a3",
+      "tokens": [
+        "A",
+        "problem",
+        "at",
+        "one",
+        "factory",
+        "can",
+        "stop",
+        "the",
+        "whole",
+        "supply",
+        "chain"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A problem at one factory can stops the whole supply chain.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu: “stop”."
+        },
+        {
+          "en": "A problem at one factory can stop the all supply chain.",
+          "explanationVi": "“Toàn bộ” trước danh từ số ít là “the whole”."
+        },
+        {
+          "en": "A problem at one factory can to stop the whole supply chain.",
+          "explanationVi": "Sau “can” không có “to”."
+        }
+      ],
+      "gapCandidates": [
+        10,
+        4
+      ],
+      "wordIds": [
+        "word:supply-chain-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:supply-chain-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We are making our supply chain shorter and cheaper.",
+      "vi": "Chúng tôi đang làm cho chuỗi cung ứng ngắn hơn và rẻ hơn.",
+      "audio": "ee0b390b88b4e3a2909d133edce2447558b6e337caaa03af8375ef4be021dc37",
+      "tokens": [
+        "We",
+        "are",
+        "making",
+        "our",
+        "supply",
+        "chain",
+        "shorter",
+        "and",
+        "cheaper"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We are making our supply chain more short and cheaper.",
+          "explanationVi": "So sánh hơn của “short” là “shorter”."
+        },
+        {
+          "en": "We making our supply chain shorter and cheaper.",
+          "explanationVi": "Thiếu “are” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "We are make our supply chain shorter and cheaper.",
+          "explanationVi": "Thì tiếp diễn cần V-ing: “are making”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:supply-chain-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:takeover-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "After the takeover, many managers lost their jobs.",
+      "vi": "Sau vụ thâu tóm, nhiều quản lý đã mất việc.",
+      "audio": "cc067ec766eb310baf1e5f5f1a5c59abe0b9a0b651bf3af5300d4b02a968ba9e",
+      "tokens": [
+        "After",
+        "the",
+        "takeover",
+        "many",
+        "managers",
+        "lost",
+        "their",
+        "jobs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "After the takeover, many manager lost their jobs.",
+          "explanationVi": "Sau “many” danh từ phải ở số nhiều: “managers”."
+        },
+        {
+          "en": "After the takeover, many managers losed their jobs.",
+          "explanationVi": "“Lose” là động từ bất quy tắc: quá khứ là “lost”."
+        },
+        {
+          "en": "After the takeover, much managers lost their jobs.",
+          "explanationVi": "Danh từ đếm được dùng “many”, không dùng “much”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:takeover-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:takeover-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The board rejected the takeover offer from a rival firm.",
+      "vi": "Hội đồng quản trị đã từ chối lời đề nghị thâu tóm từ một công ty đối thủ.",
+      "audio": "8ac4a12d73301b0f64d1a93f2541bddd0bbf4430e556f8a643974e288d9bcaa9",
+      "tokens": [
+        "The",
+        "board",
+        "rejected",
+        "the",
+        "takeover",
+        "offer",
+        "from",
+        "a",
+        "rival",
+        "firm"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The board reject the takeover offer from a rival firm.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “rejected”."
+        },
+        {
+          "en": "The board rejected the offer takeover from a rival firm.",
+          "explanationVi": "Sai trật tự: cụm đúng là “takeover offer”."
+        },
+        {
+          "en": "The board rejected the takeover offer from rival firm.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:takeover-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:target-market-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our target market is young people who live in big cities.",
+      "vi": "Thị trường mục tiêu của chúng tôi là những người trẻ sống ở các thành phố lớn.",
+      "audio": "2ce90ce4e199ab257afd7e0c47ce1d9c16fd202de7cdf908430612cf9fee1eee",
+      "tokens": [
+        "Our",
+        "target",
+        "market",
+        "is",
+        "young",
+        "people",
+        "who",
+        "live",
+        "in",
+        "big",
+        "cities"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our target market is young people who lives in big cities.",
+          "explanationVi": "“People” là số nhiều nên dùng “live”."
+        },
+        {
+          "en": "Our target market is young people which live in big cities.",
+          "explanationVi": "Đại từ quan hệ chỉ người là “who”, không phải “which”."
+        },
+        {
+          "en": "Our market target is young people who live in big cities.",
+          "explanationVi": "Sai trật tự: cụm đúng là “target market”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:target-market-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:target-market-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Before you advertise, you need to know your target market.",
+      "vi": "Trước khi quảng cáo, bạn cần biết thị trường mục tiêu của mình.",
+      "audio": "b2b2c9da440745a51f7837af8422940a6a473fd699917cf795014f87545ea1b7",
+      "tokens": [
+        "Before",
+        "you",
+        "advertise",
+        "you",
+        "need",
+        "to",
+        "know",
+        "your",
+        "target",
+        "market"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Before you advertise, you need know your target market.",
+          "explanationVi": "Sau “need” cần “to” + động từ: “need to know”."
+        },
+        {
+          "en": "Before you will advertise, you need to know your target market.",
+          "explanationVi": "Sau “before” dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Before you advertise, you need to know you target market.",
+          "explanationVi": "Trước danh từ dùng tính từ sở hữu “your”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        2
+      ],
+      "wordIds": [
+        "word:target-market-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tariff-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A new tariff made imported steel more expensive.",
+      "vi": "Một mức thuế quan mới khiến thép nhập khẩu đắt hơn.",
+      "audio": "6f99f755a0d8e4f8f57e52e5de3a135186ff2dfa4dfd6c2721c5024324ce4a47",
+      "tokens": [
+        "A",
+        "new",
+        "tariff",
+        "made",
+        "imported",
+        "steel",
+        "more",
+        "expensive"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A new tariff made import steel more expensive.",
+          "explanationVi": "Thép “được nhập khẩu” dùng tính từ “imported”."
+        },
+        {
+          "en": "A new tariff made imported steel expensiver.",
+          "explanationVi": "Tính từ dài dùng “more expensive”."
+        },
+        {
+          "en": "A new tariff maked imported steel more expensive.",
+          "explanationVi": "“Make” là động từ bất quy tắc: quá khứ là “made”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:tariff-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tariff-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Companies pay a tariff when they bring goods into the country.",
+      "vi": "Các công ty phải trả thuế quan khi đưa hàng hóa vào trong nước.",
+      "audio": "5cb5c566370de30cf95078b700b3f315a0cbb90de1f789012de2b65232072974",
+      "tokens": [
+        "Companies",
+        "pay",
+        "a",
+        "tariff",
+        "when",
+        "they",
+        "bring",
+        "goods",
+        "into",
+        "the",
+        "country"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Companies pays a tariff when they bring goods into the country.",
+          "explanationVi": "“Companies” là số nhiều nên dùng “pay”."
+        },
+        {
+          "en": "Companies pay a tariff when they will bring goods into the country.",
+          "explanationVi": "Sau “when” (thời gian) dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Companies pay a tariff when they bring goods in the country.",
+          "explanationVi": "Chỉ sự di chuyển vào bên trong dùng “into”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:tariff-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:terms-and-conditions-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please read the terms and conditions before you sign.",
+      "vi": "Vui lòng đọc các điều khoản và điều kiện trước khi ký.",
+      "audio": "562ddedc69763224e79ec8bb5ec37f48f4401cc77a1292f15d89ff22a1efd088",
+      "tokens": [
+        "Please",
+        "read",
+        "the",
+        "terms",
+        "and",
+        "conditions",
+        "before",
+        "you",
+        "sign"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please read the terms and conditions before you will sign.",
+          "explanationVi": "Sau “before” dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Please reading the terms and conditions before you sign.",
+          "explanationVi": "Sau “please” dùng động từ nguyên mẫu: “read”."
+        },
+        {
+          "en": "Please read the terms and conditions before sign.",
+          "explanationVi": "Cần chủ ngữ “before you sign” hoặc V-ing “before signing”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        8
+      ],
+      "wordIds": [
+        "word:terms-and-conditions-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:terms-and-conditions-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The terms and conditions explain how refunds work.",
+      "vi": "Các điều khoản và điều kiện giải thích cách hoàn tiền hoạt động.",
+      "audio": "8c70058cf0fe9644c50a77fe69856e11c907865789aac19e46c7633ac5930243",
+      "tokens": [
+        "The",
+        "terms",
+        "and",
+        "conditions",
+        "explain",
+        "how",
+        "refunds",
+        "work"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The terms and conditions explains how refunds work.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “explain”."
+        },
+        {
+          "en": "The terms and conditions explain how do refunds work.",
+          "explanationVi": "Câu hỏi gián tiếp không đảo trợ động từ: “how refunds work”."
+        },
+        {
+          "en": "The terms and conditions explain how refunds works.",
+          "explanationVi": "“Refunds” là số nhiều nên dùng “work”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:terms-and-conditions-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:trade-show-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We met three new clients at the trade show.",
+      "vi": "Chúng tôi đã gặp ba khách hàng mới tại hội chợ thương mại.",
+      "audio": "a6b4b6280b07464593e1ca256f26e36700f8d021166c0369c6abd5dff5811089",
+      "tokens": [
+        "We",
+        "met",
+        "three",
+        "new",
+        "clients",
+        "at",
+        "the",
+        "trade",
+        "show"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We met three new client at the trade show.",
+          "explanationVi": "Sau “three” danh từ phải ở số nhiều: “clients”."
+        },
+        {
+          "en": "We meeted three new clients at the trade show.",
+          "explanationVi": "“Meet” là động từ bất quy tắc: quá khứ là “met”."
+        },
+        {
+          "en": "We met three clients new at the trade show.",
+          "explanationVi": "Tính từ đứng trước danh từ: “new clients”."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        4
+      ],
+      "wordIds": [
+        "word:trade-show-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:trade-show-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our team is preparing a booth for the trade show.",
+      "vi": "Nhóm chúng tôi đang chuẩn bị một gian hàng cho hội chợ thương mại.",
+      "audio": "0be341ab45306947b9268cdc404816ffb61412070edf27aeed8ff0ca1d468bc5",
+      "tokens": [
+        "Our",
+        "team",
+        "is",
+        "preparing",
+        "a",
+        "booth",
+        "for",
+        "the",
+        "trade",
+        "show"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our team is prepare a booth for the trade show.",
+          "explanationVi": "Thì tiếp diễn cần V-ing: “is preparing”."
+        },
+        {
+          "en": "Our team preparing a booth for the trade show.",
+          "explanationVi": "Thiếu “is” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "Our team is preparing booth for the trade show.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        5
+      ],
+      "wordIds": [
+        "word:trade-show-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:venture-capital-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The startup raised venture capital to build its first app.",
+      "vi": "Công ty khởi nghiệp đã gọi được vốn đầu tư mạo hiểm để xây dựng ứng dụng đầu tiên.",
+      "audio": "977f543bfbb14b958bc5eeb01365cb501029a3a3c02a1ccc86a2f275656d391d",
+      "tokens": [
+        "The",
+        "startup",
+        "raised",
+        "venture",
+        "capital",
+        "to",
+        "build",
+        "its",
+        "first",
+        "app"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The startup rised venture capital to build its first app.",
+          "explanationVi": "Huy động vốn là “raise”, quá khứ “raised”."
+        },
+        {
+          "en": "The startup raised a venture capitals to build its first app.",
+          "explanationVi": "“Capital” (vốn) không đếm được: không dùng “a” và không thêm -s."
+        },
+        {
+          "en": "The startup raised venture capital for build its first app.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ: “to build”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:venture-capital-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:venture-capital-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Venture capital firms invest in young companies with big ideas.",
+      "vi": "Các quỹ đầu tư mạo hiểm rót vốn vào các công ty trẻ có ý tưởng lớn.",
+      "audio": "d4d56595e5ccd0bbee86df99b78597ada3a9540bf467e431931ff46525b0912e",
+      "tokens": [
+        "Venture",
+        "capital",
+        "firms",
+        "invest",
+        "in",
+        "young",
+        "companies",
+        "with",
+        "big",
+        "ideas"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Venture capital firms invests in young companies with big ideas.",
+          "explanationVi": "“Firms” là số nhiều nên dùng “invest”."
+        },
+        {
+          "en": "Venture capital firms invest on young companies with big ideas.",
+          "explanationVi": "“Invest” đi với giới từ “in”."
+        },
+        {
+          "en": "Venture capital firms invest in young companies with big idea.",
+          "explanationVi": "Nói chung nhiều ý tưởng nên dùng “ideas”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:venture-capital-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:wholesaler-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Small shops buy their goods from a wholesaler.",
+      "vi": "Các cửa hàng nhỏ mua hàng từ một nhà bán buôn.",
+      "audio": "e46d0baa061046441e21508e5d76a2077ea0a0498770892ef9227baf94c7d6ff",
+      "tokens": [
+        "Small",
+        "shops",
+        "buy",
+        "their",
+        "goods",
+        "from",
+        "a",
+        "wholesaler"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Small shops buys their goods from a wholesaler.",
+          "explanationVi": "“Shops” là số nhiều nên dùng “buy”."
+        },
+        {
+          "en": "Small shops buy their goods of a wholesaler.",
+          "explanationVi": "Mua từ ai dùng “buy from”."
+        },
+        {
+          "en": "Small shops buy their good from a wholesaler.",
+          "explanationVi": "“Hàng hóa” trong tiếng Anh luôn là “goods”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        4
+      ],
+      "wordIds": [
+        "word:wholesaler-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:wholesaler-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The wholesaler gives a lower price for large orders.",
+      "vi": "Nhà bán buôn đưa ra giá thấp hơn cho các đơn hàng lớn.",
+      "audio": "21849a37971dc2570e4f91fb6e8a5a1530b7adbd9776b6f9745d330f3f9961ec",
+      "tokens": [
+        "The",
+        "wholesaler",
+        "gives",
+        "a",
+        "lower",
+        "price",
+        "for",
+        "large",
+        "orders"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The wholesaler gives a more low price for large orders.",
+          "explanationVi": "So sánh hơn của “low” là “lower”."
+        },
+        {
+          "en": "The wholesaler give a lower price for large orders.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “gives”."
+        },
+        {
+          "en": "The wholesaler gives a lower price for large order.",
+          "explanationVi": "Nói chung các đơn hàng lớn cần số nhiều “orders”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        8
+      ],
+      "wordIds": [
+        "word:wholesaler-n"
+      ]
+    },
+    "status": "approved"
+  }
+]
