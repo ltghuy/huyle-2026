@@ -1,6 +1,7 @@
 // Certificates for finished progress rows (feature 009). The certificate is
 // drawn on a canvas in the browser, so what the learner sees and the PNG they
-// save are the same image, made offline.
+// save are the same image, made offline. The image is in English; the dialog
+// around it and its alt text stay in Vietnamese.
 import type { Level } from "@/learning/types";
 import type { ProgressKind } from "./progress-math";
 
@@ -36,6 +37,21 @@ export function certificateTitle(kind: ProgressKind, level: Level): string {
 /** "chung-nhan-dong-tu-bat-quy-tac-C1.png" (AC-006). */
 export function certificateFileName(kind: ProgressKind, level: Level): string {
   return `chung-nhan-${KIND_TEXT[kind].slug}-${level}.png`;
+}
+
+const KIND_ENGLISH: Record<ProgressKind, string> = { word: "word", grammar: "grammar topic", forms: "irregular verb" };
+
+/** "1,164 words at level A1", the achievement on the English certificate image. */
+export function englishAchievementText(kind: ProgressKind, level: Level, total: number): string {
+  return `${total.toLocaleString("en-US")} ${KIND_ENGLISH[kind]}${total === 1 ? "" : "s"} at level ${level}`;
+}
+
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+/** "2026-10-28" → "October 28, 2026". */
+export function englishDate(date: string): string {
+  const [y, m, d] = date.split("-").map(Number);
+  return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
 /** "2026-10-28" → "ngày 28 tháng 10 năm 2026". */
@@ -103,10 +119,10 @@ export async function drawCertificate(canvas: HTMLCanvasElement, data: Certifica
   ctx.strokeRect(64, 64, W - 128, H - 128);
 
   text(ctx, "ENGLISH WITH EVAN", cx, 180, `600 28px ${family}`, ACCENT, 6);
-  text(ctx, "CHỨNG NHẬN", cx, 300, `700 96px ${family}`, INK, 4);
-  text(ctx, "HOÀN THÀNH", cx, 356, `600 30px ${family}`, GOLD, 10);
+  text(ctx, "CERTIFICATE", cx, 300, `700 96px ${family}`, INK, 4);
+  text(ctx, "OF COMPLETION", cx, 356, `600 30px ${family}`, GOLD, 10);
 
-  text(ctx, "Chứng nhận rằng", cx, 460, `400 32px ${family}`, MUTED);
+  text(ctx, "This certifies that", cx, 460, `400 32px ${family}`, MUTED);
   const nameSize = fitSize(ctx, data.name, 700, family, 88, W - 360);
   text(ctx, data.name, cx, 565, `700 ${nameSize}px ${family}`, INK);
   ctx.strokeStyle = GOLD;
@@ -116,8 +132,8 @@ export async function drawCertificate(canvas: HTMLCanvasElement, data: Certifica
   ctx.lineTo(cx + 420, 605);
   ctx.stroke();
 
-  text(ctx, "đã học xong", cx, 675, `400 32px ${family}`, MUTED);
-  const achievement = achievementText(data.kind, data.level, data.total);
+  text(ctx, "has completed", cx, 675, `400 32px ${family}`, MUTED);
+  const achievement = englishAchievementText(data.kind, data.level, data.total);
   const achievementSize = fitSize(ctx, achievement, 600, family, 48, W - 360);
   text(ctx, achievement, cx, 745, `600 ${achievementSize}px ${family}`, INK);
 
@@ -132,13 +148,13 @@ export async function drawCertificate(canvas: HTMLCanvasElement, data: Certifica
   ctx.beginPath();
   ctx.arc(cx, sealY, 80, 0, Math.PI * 2);
   ctx.stroke();
-  text(ctx, "TRÌNH ĐỘ", cx, sealY - 28, `600 18px ${family}`, PAPER, 3);
+  text(ctx, "LEVEL", cx, sealY - 28, `600 18px ${family}`, PAPER, 3);
   text(ctx, data.level, cx, sealY + 36, `700 64px ${family}`, PAPER);
 
   // Date on the left, issuer on the right.
   for (const [x, label, value] of [
-    [340, "Ngày cấp", vietnameseDate(data.date)],
-    [W - 340, "Cấp bởi", "english.huyle.work"],
+    [340, "Date", englishDate(data.date)],
+    [W - 340, "Issued by", "english.huyle.work"],
   ] as const) {
     ctx.strokeStyle = MUTED;
     ctx.lineWidth = 1;

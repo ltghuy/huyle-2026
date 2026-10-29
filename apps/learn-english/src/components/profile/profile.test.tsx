@@ -10,7 +10,7 @@ import { createDefaultProfile, saveProfile } from "@/storage/meta";
 import { makeAttempt, makeCard, resetStorage } from "@/storage/test-utils";
 import { AttendanceSummary } from "./attendance-summary";
 import { ProgressInsights } from "./progress-insights";
-import { achievementText, certificateFileName, certificatePng, vietnameseDate } from "./certificate";
+import { achievementText, certificateFileName, certificatePng, englishAchievementText, englishDate, vietnameseDate } from "./certificate";
 import { calendarWeeks, weekStart } from "./progress-math";
 
 vi.mock("sonner", () => ({ toast: Object.assign(vi.fn(), { error: vi.fn(), success: vi.fn() }) }));
@@ -128,6 +128,15 @@ describe("certificate text (009 AC-004, AC-006)", () => {
     expect(achievementText("forms", "C1", 3)).toBe("3 động từ bất quy tắc trình độ C1");
     expect(certificateFileName("forms", "C1")).toBe("chung-nhan-dong-tu-bat-quy-tac-C1.png");
     expect(vietnameseDate("2026-10-28")).toBe("ngày 28 tháng 10 năm 2026");
+  });
+});
+
+describe("certificate image text (009 AC-004)", () => {
+  it("names what was finished and the date in English", () => {
+    expect(englishAchievementText("word", "A1", 1164)).toBe("1,164 words at level A1");
+    expect(englishAchievementText("grammar", "A1", 1)).toBe("1 grammar topic at level A1");
+    expect(englishAchievementText("forms", "C1", 3)).toBe("3 irregular verbs at level C1");
+    expect(englishDate("2026-10-28")).toBe("October 28, 2026");
   });
 });
 

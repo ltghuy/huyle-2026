@@ -43,7 +43,7 @@ Hồ sơ shows how far the learner has got with each level, in three groups: wor
 - [x] AC-001: WHEN Hồ sơ shows a progress row (words, grammar topics or irregular verbs, for a level) THEN system SHALL show a certificate icon at its right end
 - [x] AC-002: WHEN the row is not finished THEN system SHALL show the icon locked (dimmed), and pressing it SHALL say in Vietnamese how many items are left to earn the certificate, without opening one
 - [x] AC-003: WHEN every item of the row is learned THEN system SHALL show the icon active, and pressing it SHALL open the certificate over the page
-- [x] AC-004: WHEN a certificate is open THEN system SHALL show the learner's name, what was finished ("1.164 từ vựng trình độ A1", "12 chủ điểm ngữ pháp trình độ A1", "60 động từ bất quy tắc trình độ A1"), the level, the date the last item was learned and the app's name
+- [x] AC-004: WHEN a certificate is open THEN system SHALL show, in English on the certificate image, the learner's name, what was finished ("1,164 words at level A1", "12 grammar topics at level A1", "60 irregular verbs at level A1"), the level, the date the last item was learned ("October 28, 2026") and the app's name. The dialog around it and the image's alt text stay in Vietnamese ("Bạn đã học xong 1.164 từ vựng trình độ A1.")
 - [x] AC-005: WHEN the icon is read by a screen reader THEN system SHALL name the row and its state ("Chứng nhận từ vựng A1: chưa đạt, còn 1.018 từ" / "Xem chứng nhận từ vựng A1")
 
 ### P1: Save a certificate
@@ -82,6 +82,7 @@ None.
 
 ## Notes
 
+- Owner decision (2026-10-29): the certificate image is in English ("CERTIFICATE OF COMPLETION", "This certifies that", "has completed", "LEVEL", "Date", "Issued by"), since the app teaches English and the image is meant to be shown to others. Only the image changed; the dialog, buttons, alt text and file name are unchanged.
 - Owner decisions (2026-10-28): the icon shows on every row, locked until the row is finished; the certificate can be viewed and downloaded as an image, without a share button.
 - The date on the certificate is the day the row's last item was first learned, so it does not change when the learner reviews.
 - At the time of writing, the owner's own profile has one finished row: C1 irregular verbs (3/3).
