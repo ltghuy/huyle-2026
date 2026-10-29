@@ -17,7 +17,7 @@ import { compareTopics, grammarSlug, grammarTopicMeta, topicOf, topicTitle } fro
 type Grammar = ContentItemOf<"grammar">;
 
 export const WORD_TYPES = ["mcq", "missing-letters", "listening", "recall"] as const;
-export const SENTENCE_TYPES = ["word-order", "sentence-gap", "choose-sentence", "tile-translate"] as const;
+export const SENTENCE_TYPES = ["word-order", "sentence-gap", "choose-sentence", "tile-translate", "dictation"] as const;
 export const SET_TYPES = [...WORD_TYPES, "grammar-gap", ...SENTENCE_TYPES] as const;
 export type SetType = (typeof SET_TYPES)[number];
 export type SetGroup = "word" | "grammar" | "sentence";
@@ -32,6 +32,7 @@ export const TYPE_LABELS: Record<SetType, string> = {
   "sentence-gap": "Điền từ vào câu",
   "choose-sentence": "Chọn câu đúng",
   "tile-translate": "Dịch bằng thẻ từ",
+  dictation: "Nghe chép",
 };
 
 /** Most steps in one run of a set. */

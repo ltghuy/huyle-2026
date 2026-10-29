@@ -6,7 +6,7 @@ import { buildContentIndex } from "@/lib/session/content-index";
 import { getAllAttempts } from "@/storage/attempts";
 import { getCard } from "@/storage/cards";
 import { resetStorage } from "@/storage/test-utils";
-import { buildSetSteps, hashString, listSetCards } from "./exercise-sets";
+import { buildSetSteps, hashString, listSetCards, TYPE_LABELS } from "./exercise-sets";
 import { ExerciseLibrary } from "./exercise-library";
 
 vi.mock("next/navigation", () => import("@/components/library/test-navigation"));
@@ -40,6 +40,14 @@ describe("exercise sets", () => {
     expect(cards.map((card) => card.key)).toEqual(["word.people-family", "word.home", "grammar.to-be", "sentence.home"]);
     // No wrong variants → no "choose the correct sentence"; no other topics → still enough tile distractors.
     expect(cards[3].sets.map((set) => set.type)).toEqual(["word-order", "sentence-gap", "tile-translate"]);
+  });
+
+  it("lists Nghe chép for sentences with audio (010 AC-011)", () => {
+    const heard = buildContentIndex([...items, { ...sentence("home-2", { tokens: ["The", "table", "is", "new."], audio: "c".repeat(64) }), topic: "home" }]);
+    const card = listSetCards(heard, "A1").find((c) => c.key === "sentence.home")!;
+    const dictation = card.sets.find((set) => set.type === "dictation");
+    expect(dictation).toMatchObject({ id: "dictation.A1.home", itemIds: ["sentence:home-2"] });
+    expect(TYPE_LABELS.dictation).toBe("Nghe chép");
   });
 
   it("is deterministic per set and round", () => {

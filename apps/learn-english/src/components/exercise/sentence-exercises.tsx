@@ -20,7 +20,7 @@ function Instruction({ children }: { children: React.ReactNode }) {
 }
 
 /** The correct sentence with its translation and audio, shown once the answer is checked. */
-function CorrectSentence({ en, vi, audio }: { en: string; vi: string; audio: string }) {
+export function CorrectSentence({ en, vi, audio }: { en: string; vi: string; audio: string }) {
   return (
     <div className="flex items-start gap-3 rounded-xl bg-muted p-4">
       <div className="min-w-0 flex-1">

@@ -45,6 +45,20 @@ describe("prepareStep", () => {
     });
   });
 
+  it("gives dictation a word-order fallback and skips sentences it can't use (010)", () => {
+    const heard = sentence("heard", { tokens: ["I", "eat", "an", "apple."], audio: "c".repeat(64), wordIds: ["word:apple"] });
+    const year = sentence("year", { tokens: ["It", "opened", "in", "1990."], audio: "d".repeat(64) });
+    const local = buildContentIndex([...words, heard, year]);
+    expect(prepareStep({ kind: "dictation", itemIds: ["sentence:heard"], seed: 1 }, local, "k")).toMatchObject({
+      type: "exercise",
+      instance: { kind: "dictation", wordCount: 4 },
+      fallback: { kind: "word-order" },
+      related: { cardIds: ["word:apple"] },
+    });
+    expect(prepareStep({ kind: "dictation", itemIds: ["sentence:year"], seed: 1 }, local, "k")).toBeNull();
+    expect(prepareStep({ kind: "dictation", itemIds: ["sentence:apple-1"], seed: 1 }, index, "k")).toBeNull(); // no audio
+  });
+
   it("skips steps whose content is missing or can't support the exercise", () => {
     const descriptors = [
       { kind: "mcq" as const, itemIds: ["word:missing"], seed: 1 },
@@ -114,6 +128,16 @@ describe("recordOutcome", () => {
     expect((await getCard("grammar:present-simple"))?.due).toBe(now);
     expect((await getCard("word:apple"))?.due).toBe(now);
     expect(await getCard("sentence:apple-1" as never)).toBeUndefined();
+  });
+
+  it("records a hinted answer as hinted and Hard (010 AC-015)", async () => {
+    await recordOutcome({
+      outcome: { itemId: "sentence:apple-1", exercise: "dictation", result: { correct: true, hinted: true, expected: "I eat an apple" }, ms: 3000, related: [] },
+      context: "exercise",
+      now,
+    });
+    const [attempt] = await getAllAttempts();
+    expect(attempt).toMatchObject({ exercise: "dictation", hinted: true, rating: "hard" });
   });
 
   it("marks free writing as self-checked", async () => {

@@ -229,6 +229,17 @@ describe("buildLessonPlan", () => {
     expect(kinds.every((kind) => kind === "word-order" || kind === "tile-translate")).toBe(true);
   });
 
+  it("includes dictation among the sentence kinds when the sentence has audio (010 AC-013)", () => {
+    const plain = makeContent();
+    const heard = { ...plain, sentences: plain.sentences.map((s) => ({ ...s, body: { ...s.body, en: "I like tea.", audio: "c".repeat(64) } })) };
+    const dates = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24"];
+    const kinds = dates.flatMap((date) => part(buildLessonPlan(input({ date, content: heard })), "sentences")!.exercises.map((e) => e.kind));
+    expect(kinds).toContain("dictation");
+    // Without audio it is never picked.
+    const silent = dates.flatMap((date) => part(buildLessonPlan(input({ date })), "sentences")!.exercises.map((e) => e.kind));
+    expect(silent).not.toContain("dictation");
+  });
+
   it("picks one writing task at the level, avoiding recent ones", () => {
     const lesson = buildLessonPlan(input({ recentWritingIds: ["writing:one", "writing:two"] }));
     expect(part(lesson, "writing")!.exercises).toEqual([expect.objectContaining({ kind: "writing", itemIds: ["writing:three"] })]);

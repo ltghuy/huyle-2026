@@ -40,6 +40,8 @@ export const EXERCISE_KINDS = [
   "choose-sentence",
   "tile-translate",
   "writing",
+  // Hear a sentence and type it (feature 010).
+  "dictation",
   // An irregular verb's past and participle (feature 008).
   "forms-typing",
   "forms-gap",

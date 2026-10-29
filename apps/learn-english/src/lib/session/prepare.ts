@@ -1,5 +1,6 @@
 import type { ContentItemOf } from "@/content/schema";
 import { buildChooseSentence } from "@/learning/exercises/choose-sentence";
+import { buildDictation } from "@/learning/exercises/dictation";
 import { buildFormsGap, buildFormsListening, buildFormsTyping } from "@/learning/exercises/forms";
 import { buildGrammarGap } from "@/learning/exercises/grammar-gap";
 import { buildListeningChoice, buildListeningTyping } from "@/learning/exercises/listening";
@@ -97,6 +98,11 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
     case "tile-translate":
       return item.kind === "sentence"
         ? exerciseStep(key, seed, buildTileTranslate({ sentence: item, distractorPool: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) })
+        : null;
+    case "dictation":
+      // A clip that can't play swaps to putting the words in order, which needs no audio.
+      return item.kind === "sentence"
+        ? exerciseStep(key, seed, buildDictation({ sentence: item }), { related: sentenceRelated(index, item), fallback: buildWordOrder({ sentence: item }, seed) })
         : null;
     case "forms-typing":
     case "forms-gap":

@@ -24,7 +24,7 @@ interface RecordInput {
 export async function recordOutcome({ outcome, context, now, lessonPosition }: RecordInput): Promise<void> {
   const { result, ms, itemId, exercise } = outcome;
   const selfMarked = exercise === "writing";
-  const rating = rate({ correct: result.correct, ms, hinted: false, typo: Boolean(result.typo), selfMarked });
+  const rating = rate({ correct: result.correct, ms, hinted: Boolean(result.hinted), typo: Boolean(result.typo), selfMarked });
 
   let card: StoredCard | undefined;
   if (isCardId(itemId)) {
@@ -39,7 +39,7 @@ export async function recordOutcome({ outcome, context, now, lessonPosition }: R
       at: now,
       correct: result.correct,
       ms,
-      hinted: false,
+      hinted: Boolean(result.hinted),
       typo: Boolean(result.typo),
       selfMarked,
       exercise,

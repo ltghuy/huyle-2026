@@ -365,3 +365,99 @@ describe("verb forms exercises (feature 008)", () => {
     expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "forms-listening", result: { correct: false, expected: "go, went, gone" } });
   });
 });
+
+describe("dictation (feature 010)", () => {
+  /** A fake clip that remembers how it was played and can fail to load. */
+  class FakeAudio {
+    static last: FakeAudio | null = null;
+    static plays: number[] = [];
+    currentTime = 0;
+    playbackRate = 1;
+    listeners: Record<string, (() => void)[]> = {};
+    constructor() {
+      FakeAudio.last = this;
+    }
+    addEventListener(type: string, listener: () => void) {
+      (this.listeners[type] ??= []).push(listener);
+    }
+    removeEventListener() {}
+    pause() {}
+    play() {
+      FakeAudio.plays.push(this.playbackRate);
+      return Promise.resolve();
+    }
+    fail() {
+      for (const listener of this.listeners.error ?? []) listener();
+    }
+  }
+
+  async function dictationStep() {
+    const { buildDictation } = await import("@/learning/exercises/dictation");
+    const { buildWordOrder } = await import("@/learning/exercises/word-order");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("s", { tokens: ["She", "works", "at", "a", "hospital."], vi: "Cô ấy làm việc ở bệnh viện.", audio: "c".repeat(64) });
+    return { key: "d", type: "exercise" as const, instance: buildDictation({ sentence: item })!, seed: 1, fallback: buildWordOrder({ sentence: item }, 1) };
+  }
+
+  function typeSentence(text: string) {
+    fireEvent.change(screen.getByRole("textbox", { name: "Câu bạn nghe được" }), { target: { value: text } });
+  }
+
+  afterEach(() => {
+    FakeAudio.last = null;
+    FakeAudio.plays = [];
+  });
+
+  it("plays the sentence on open, hides its text, and replays at normal or slow speed (AC-001 to AC-003)", async () => {
+    vi.stubGlobal("Audio", FakeAudio);
+    setup([await dictationStep()]);
+    expect(FakeAudio.plays).toEqual([1]);
+    expect(screen.queryByText("She works at a hospital.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Cô ấy làm việc ở bệnh viện.")).not.toBeInTheDocument();
+    expect(screen.getByText("Câu có 5 từ")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Nghe chậm" }));
+    fireEvent.click(screen.getByRole("button", { name: "Nghe lại" }));
+    expect(FakeAudio.plays).toEqual([1, 0.75, 1]);
+
+    typeSentence("she works at");
+    expect(screen.getByText("Câu có 5 từ, bạn đã gõ 3 từ")).toBeInTheDocument();
+  });
+
+  it("accepts a forgiving answer and shows the sentence and meaning (AC-004, AC-005, AC-010)", async () => {
+    vi.stubGlobal("Audio", FakeAudio);
+    const { onOutcome } = setup([await dictationStep()]);
+    typeSentence("SHE works at a hospital");
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ itemId: "sentence:s", exercise: "dictation", result: { correct: true } });
+    expect(screen.getByText("Cô ấy làm việc ở bệnh viện.")).toBeInTheDocument();
+  });
+
+  it("marks each word after a wrong answer, with a Vietnamese summary (AC-008, AC-009)", async () => {
+    vi.stubGlobal("Audio", FakeAudio);
+    setup([await dictationStep()]);
+    typeSentence("she work at hospital");
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(screen.getByRole("group", { name: "Đúng 3/5 từ, thiếu 1 từ, sai 1 từ" })).toBeInTheDocument();
+    expect(screen.getByText("thiếu")).toBeInTheDocument();
+    expect(screen.getByText("work")).toBeInTheDocument();
+  });
+
+  it("shows the meaning as a hint and records the answer as hinted (AC-015, AC-016)", async () => {
+    vi.stubGlobal("Audio", FakeAudio);
+    const { onOutcome } = setup([await dictationStep()]);
+    typeSentence("she works at a hospital");
+    fireEvent.click(screen.getByRole("button", { name: "Gợi ý" }));
+    expect(screen.getByText("Cô ấy làm việc ở bệnh viện.")).toBeInTheDocument();
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ result: { correct: true, hinted: true } });
+  });
+
+  it("swaps to putting the words in order when the clip can't load", async () => {
+    vi.stubGlobal("Audio", FakeAudio);
+    setup([await dictationStep()]);
+    act(() => FakeAudio.last!.fail());
+    expect(screen.getByText("Sắp xếp các từ thành câu đúng")).toBeInTheDocument();
+  });
+});
+
