@@ -19,10 +19,10 @@
         "sentence:administrator-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "0b56db3762f0922a4ed53250522a6fd63a66752793375fb7feb3400eafda4057",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Office sense; in IT it also means a system administrator."
     ]
@@ -49,10 +49,10 @@
         "word:store-v",
         "word:file-v"
       ],
-      "audio": "",
+      "audio": "8feb40846d4333868fe18bfcbfe693eb1b66517eddd928dd247e2ce0fb0d64bc",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -75,10 +75,10 @@
       "synonyms": [
         "word:participant-n"
       ],
-      "audio": "",
+      "audio": "e8f24cb699244661b38b62d6d970c7d4a4a8dcee9acd6474ce35540b7daa13c7",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -103,10 +103,10 @@
         "word:approval-n",
         "word:permission-n"
       ],
-      "audio": "",
+      "audio": "e4bb2e3e37fea8db3b93530c39fdf620c33d36ff93d53661ec5719d0226707ca",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -129,10 +129,10 @@
       "synonyms": [
         "word:folder-n"
       ],
-      "audio": "",
+      "audio": "f9774bb2a9a851619d491e986387d91478fb8bb9d2adc92d72f909779c2e1071",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American; British often \"ring binder\" or \"file\"."
     ]
@@ -156,10 +156,10 @@
         "sentence:business-trip-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "9944aa24a4937fa0bc4703d8977e96533b5285af6698286fb487bd22c7328d48",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -183,10 +183,10 @@
       "synonyms": [
         "word:copy-v"
       ],
-      "audio": "",
+      "audio": "fa728f411eda316af692f151aabbc6e7334563e337b85ed39ca1cd97e2cc38ea",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Past form spelled cc'd or cc'ed; examples avoid it."
     ]
@@ -212,10 +212,10 @@
       "synonyms": [
         "word:call-n"
       ],
-      "audio": "",
+      "audio": "1298c66bf478de67e573d85e9721c206904ba26b8090a72a2340e52e2ffd7f48",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -236,10 +236,10 @@
         "sentence:conference-room-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "9759162f5bd2c4322ae5e890c590dc4d8886f498b40bd612ca5d5e7d61c3860c",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -263,10 +263,10 @@
         "word:organize-v",
         "word:arrange-v"
       ],
-      "audio": "",
+      "audio": "ccf0a31b4716b34b94ba71efb797d6886782524ead6fc97d9e82a413f0d3b96b",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -289,10 +289,10 @@
       "synonyms": [
         "word:organizer-n"
       ],
-      "audio": "",
+      "audio": "50146c32991a1b17b7a7176a854681843ece498b28d06302e39882403efc070d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -316,10 +316,10 @@
       "synonyms": [
         "word:messenger-n"
       ],
-      "audio": "",
+      "audio": "acfdbd55abc4cdb347db91d3f21f2614ee3631cf8d370d81e52ebcc8dfa40631",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American also /ˈkɝiɚ/; check which to show."
     ]
@@ -345,10 +345,10 @@
       "synonyms": [
         "word:deadline-n"
       ],
-      "audio": "",
+      "audio": "f85f0bdd2e747254c4ea16ece061a7c038cfb5c0c2c1284f8f8441b0e0045ed7",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -369,10 +369,10 @@
         "sentence:expense-report-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "8f6bb338a5efc0c927c3adb6ad83f781d907adfaf42e5793db5183d75a727bd4",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -393,10 +393,10 @@
         "sentence:filing-cabinet-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "fb57644a3ee27a41bcf6c93c8066c50ee811e404df87b28064340b0f75583646",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American English also says \"file cabinet\"."
     ]
@@ -420,10 +420,10 @@
         "sentence:filing-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "354a282d3b9c4100725c5bea4f4a60dd2a060171176f129a1c90e99fe4ba9414",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -445,10 +445,10 @@
         "sentence:follow-up-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "7e65defd7feba3028c74d01ddaa74005e9c24c449e53635a9d24059d545ab416",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Phrasal verb; the noun/adjective is spelled \"follow-up\"."
     ]
@@ -473,10 +473,10 @@
         "sentence:forward-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "5f6fc3ba2c76594393416e3bd9f1eb72c2f2201113d98e6c81cf9587e721087a",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -499,10 +499,10 @@
       "synonyms": [
         "word:reception-n"
       ],
-      "audio": "",
+      "audio": "836262b37857084c6b62d3697d84b0b4ad1019d91859825da8194d7a60191324",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -523,10 +523,10 @@
         "sentence:handover-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "c357bef6b7718235da29c3c702181ebf9dfbe6c21ab534fdf86191f65fec3393",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -547,10 +547,10 @@
         "sentence:hard-copy-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "671153aeb5b648f737bdad11cae440e7fe601c2cf6093df16c64667c2a72f9e6",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -571,10 +571,10 @@
         "sentence:inbox-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e3228385873c7f2e56523c1d95d961d353e7c512786646ecc2c681d114052de3",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -598,10 +598,10 @@
       "synonyms": [
         "word:stock-n"
       ],
-      "audio": "",
+      "audio": "c26961899065d74032eaab57907173344ba81d6d2d4830ffa7344cdc9088b2fd",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -622,10 +622,10 @@
         "sentence:key-card-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "16e3715447808d0120f1db9cb04ece047b4cef120614bac578b5f04b8506b03e",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also written \"keycard\"."
     ]
@@ -649,10 +649,10 @@
         "sentence:letterhead-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "af3fbe718a8d7cb4ec769899c52a10f40e2c3d218ba18bb9b45a1b42ccd04379",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -673,10 +673,10 @@
         "sentence:mailroom-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "5044105b544ea25f73b7e8049669d24616faec199052a69bce53ccd7da62072e",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American; British often \"post room\"."
     ]
@@ -700,10 +700,10 @@
         "sentence:meeting-minutes-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "fc8303eeb9588b76c1aee31cfaf119a28e6e975445d09534065d0c52b28b5d6a",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Always plural; often just \"the minutes\"."
     ]
@@ -729,10 +729,10 @@
       "synonyms": [
         "word:note-n"
       ],
-      "audio": "",
+      "audio": "f28c33160cb57b59c908a382ddbe57b0565086c31a8937a74b6a642d8436e670",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -755,10 +755,10 @@
       "synonyms": [
         "word:certify-v"
       ],
-      "audio": "",
+      "audio": "113406e8a64acedbf04c35ebcf63d56aa0de414202526b6ca789b9fc002bbd62",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription",
       "American spelling; British \"notarise\"."
@@ -786,10 +786,10 @@
         "word:inform-v",
         "word:tell-v"
       ],
-      "audio": "",
+      "audio": "dd8e6adf6fa8a4f09395a1bdffc0b6fedb2837b280fcfa76e39b10276cc77f93",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -812,10 +812,10 @@
       "synonyms": [
         "word:stationery-n"
       ],
-      "audio": "",
+      "audio": "0fcafbc53180b3f1f2a4f600bc0504748acd850dda28552ab2445b7372332f94",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Plural compound; American English."
     ]
@@ -841,10 +841,10 @@
       "synonyms": [
         "word:late-adj"
       ],
-      "audio": "",
+      "audio": "1fb1dda0202c63feadea97c3122d5a56f35a13cfbe01a03dc8ab6fac4f25d8fc",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -866,10 +866,10 @@
         "sentence:payroll-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "d0bfe53af6fdec28a825aa40fb4a333df2c2b019d772eefc3f0097f7cc2b828c",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -892,10 +892,10 @@
       "synonyms": [
         "word:allowance-n"
       ],
-      "audio": "",
+      "audio": "a7ef4a82a5d4027ff64f86a85636ffd60f2955deca87fa3afa8d1a5673e6ca44",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Latin; also pronounced /pɚ ˈdaɪəm/. Common in American companies."
     ]
@@ -920,10 +920,10 @@
         "sentence:petty-cash-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "d35c6d23c07f7bb2dd0a1cb084d786e54a9e0fc930b6625b065633fd651a529c",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -944,10 +944,10 @@
         "sentence:photocopier-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "c859c1965417215770ce9bb3a4d1ef576383641d617c709fcb70626bd4e29c46",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Americans often just say \"copier\" or \"copy machine\"."
     ]
@@ -971,10 +971,10 @@
         "sentence:postage-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "6c44ea693bb7f33b47529cc1c5d7087d9ef8058be4c05a0d6ef85864d6635c00",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -995,10 +995,10 @@
         "sentence:procurement-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "8bbbf5d3eb9abddbee5b360b611299956a6a355387dda7a4aa6870b64268ca87",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1019,10 +1019,10 @@
         "sentence:projector-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "f3ee6227593709155a7f8a8456a3bb931a270e8cd4a9f633770d3b33499a0507",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1045,10 +1045,10 @@
       "synonyms": [
         "word:check-v"
       ],
-      "audio": "",
+      "audio": "c9d0f59e345449c05d187c33d582e95e9b77e21319cdbd4d551844e05d45b385",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Past tense proofread is pronounced /ˈprufˌrɛd/."
     ]
@@ -1074,10 +1074,10 @@
       "synonyms": [
         "word:order-n"
       ],
-      "audio": "",
+      "audio": "3797fae0617f73bef05064ce716b5906d95ec12f726787b2592986f8c2247df1",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Often shortened to \"PO\"."
     ]
@@ -1103,10 +1103,10 @@
       "synonyms": [
         "word:addressee-n"
       ],
-      "audio": "",
+      "audio": "9aff08fc7a1ca95cf530a472b6b3df3bea9480b79afaafe22c2c99200bdcedb3",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1129,10 +1129,10 @@
       "synonyms": [
         "word:repay-v"
       ],
-      "audio": "",
+      "audio": "bbb07cd3af15b533e366dc14dda7ce62310dc714212c90a4209e90f3be41303f",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1155,10 +1155,10 @@
       "synonyms": [
         "word:refund-n"
       ],
-      "audio": "",
+      "audio": "8560f54759329be589750500219dbd6b7d78b5d2b7f89b8289a985f4e8ff25f8",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1182,10 +1182,10 @@
         "word:postpone-v",
         "word:rearrange-v"
       ],
-      "audio": "",
+      "audio": "7e52b21fe65cc81c3dd6a2e76addab1d76dab3f67f360ddc64a6046292c9d1d6",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "British often /riːˈʃɛdjuːl/."
     ]
@@ -1209,10 +1209,10 @@
         "sentence:scanner-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "c07a019977a142f50ea02151c6d06b91bcafbe27961868d87b13ac358178a2a5",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1235,10 +1235,10 @@
       "synonyms": [
         "word:destroy-v"
       ],
-      "audio": "",
+      "audio": "532e6d4b619e6eee0921f417c1ace35ddf20d074d9909c6962ccd4a32b28bf9e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1259,10 +1259,10 @@
         "sentence:shredder-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "3079e9885d389cac83debf9a781c6a59865826f7a4a936ad8fd2a3c248bd4854",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1283,10 +1283,10 @@
         "sentence:stapler-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "645869cdd190be2f37d7442197fa75166f82fe2ec278320e30e5ef8f26d5f83e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1307,10 +1307,10 @@
         "sentence:stationery-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "5b57326fbfbb69ced7247b569f2b369ae60ebc4e2dc62e68c76614f9c85f0e27",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Uncountable. Do not confuse with \"stationary\" (adjective, not moving)."
     ]
@@ -1336,10 +1336,10 @@
       "synonyms": [
         "word:format-n"
       ],
-      "audio": "",
+      "audio": "bb8350f280b258383a6af5ff1b7f2275778299f65c5279a5fdd403c6d46d7659",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1360,10 +1360,10 @@
         "sentence:timesheet-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "4fbfcd384cf5ace2dc16cf8c494c8bbf4692c750376e2ddec0d824496208a076",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription"
     ]
@@ -1389,10 +1389,10 @@
       "synonyms": [
         "word:ink-n"
       ],
-      "audio": "",
+      "audio": "b34ac31a5f8bc06895e205d201a87706f993d42ac2ff4e45dba7245c9ba887bc",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1416,10 +1416,10 @@
         "word:supplier-n",
         "word:seller-n"
       ],
-      "audio": "",
+      "audio": "7f71df5854c9deb6e7559dd19e8d3b21f701baf61543ced98555b3637938ca3e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1442,10 +1442,10 @@
       "synonyms": [
         "word:message-n"
       ],
-      "audio": "",
+      "audio": "0fcd34d1f62544ec704aa59361ad5da2bc1c7491a626ae8b85015c0264f77aed",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1468,10 +1468,10 @@
       "synonyms": [
         "word:board-n"
       ],
-      "audio": "",
+      "audio": "12eae9c5ce70009df7983e483535a09444a57350e5d041b8f349ccab0ada6441",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription"
     ]

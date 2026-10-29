@@ -15,6 +15,7 @@ import {
   sqlString,
   stableStringify,
   upsertSql,
+  BODY_CHUNK_CHARS,
   type ExistingRow,
   type SourceFile,
 } from "./publish-content";
@@ -177,6 +178,22 @@ describe("SQL", () => {
     expect(sql).toMatch(/^INSERT INTO content_items \(id, kind, level, topic, sort, body, deleted, updated_version\) VALUES \('word:cat-n', 'word', 'A1'/);
     expect(sql).toContain("ON CONFLICT(id) DO UPDATE SET");
     expect(sql).toContain(", 0, 3) ");
+  });
+
+  it("writes a body too long for one D1 statement in pieces, each under 100 KB (feature 012)", () => {
+    const [word] = approvedFixture();
+    const long = { ...word, body: { ...word.body, meaningsVi: ["ờ'" .repeat(BODY_CHUNK_CHARS)] } } as ContentItem;
+    const statements = upsertSql(long, 4).split("\n");
+    expect(statements.length).toBeGreaterThan(2);
+    expect(statements[0]).toMatch(/^INSERT INTO content_items/);
+    for (const statement of statements.slice(1)) expect(statement).toMatch(/^UPDATE content_items SET body = body \|\| '.*' WHERE id = 'word:cat-n';$/);
+    for (const statement of statements) expect(Buffer.byteLength(statement)).toBeLessThan(100_000);
+    // Unquoting and joining the pieces gives the body back.
+    const pieces = statements.map((statement, i) => {
+      const quoted = i === 0 ? statement.match(/, 0, '((?:[^']|'')*)', 0, 4\)/)![1] : statement.match(/body \|\| '((?:[^']|'')*)' WHERE/)![1];
+      return quoted.replace(/''/g, "'");
+    });
+    expect(JSON.parse(pieces.join(""))).toEqual(long.body);
   });
 
   it("writes NULL for a missing topic", () => {

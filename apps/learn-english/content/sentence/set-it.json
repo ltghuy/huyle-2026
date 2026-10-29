@@ -7,7 +7,7 @@
     "body": {
       "en": "We are building a mobile app for a bank.",
       "vi": "Chúng tôi đang xây dựng một ứng dụng di động cho một ngân hàng.",
-      "audio": "",
+      "audio": "6f9a549f32b65c1081da34a223c26ea4cbb7fe094fd799127252101b81effccd",
       "tokens": [
         "We",
         "are",
@@ -53,7 +53,7 @@
         "word:app-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -63,7 +63,7 @@
     "body": {
       "en": "The app crashed when I opened the settings page.",
       "vi": "Ứng dụng bị sập khi tôi mở trang cài đặt.",
-      "audio": "",
+      "audio": "be62aec8b517054b28eee092b4c42d2e0612619e118d954514c8b8bf97460df2",
       "tokens": [
         "The",
         "app",
@@ -121,7 +121,7 @@
         "word:app-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -131,7 +131,7 @@
     "body": {
       "en": "The app uses two-step authentication for every user.",
       "vi": "Ứng dụng dùng xác thực hai bước cho mọi người dùng.",
-      "audio": "",
+      "audio": "406a9842b595499d741275bed1d07830f87dccf7ea63092d4f9c22a0eed15e65",
       "tokens": [
         "The",
         "app",
@@ -175,7 +175,7 @@
         "word:authentication-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -185,7 +185,7 @@
     "body": {
       "en": "Authentication failed because the password was wrong.",
       "vi": "Xác thực thất bại vì mật khẩu sai.",
-      "audio": "",
+      "audio": "27105122bd0091f2290eaf60ad165f94c390ea6b71a59d9903a77ac73cc95255",
       "tokens": [
         "Authentication",
         "failed",
@@ -227,7 +227,7 @@
         "word:authentication-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -237,7 +237,7 @@
     "body": {
       "en": "We want to automate the tests that we run every day.",
       "vi": "Chúng tôi muốn tự động hóa các bài kiểm thử chạy hằng ngày.",
-      "audio": "",
+      "audio": "94827cc6219f3b8b048c141b5a2f573a583a379116bb9ba5812e10d33d2de748",
       "tokens": [
         "We",
         "want",
@@ -287,7 +287,7 @@
         "word:automate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -297,7 +297,7 @@
     "body": {
       "en": "The deployment process was automated last year.",
       "vi": "Quy trình triển khai đã được tự động hóa vào năm ngoái.",
-      "audio": "",
+      "audio": "8b596922cf15c1cb7ca2982633389cb98b0daed93c1ff88302cddde3a2f3b934",
       "tokens": [
         "The",
         "deployment",
@@ -339,7 +339,7 @@
         "word:automate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -349,7 +349,7 @@
     "body": {
       "en": "The back end sends the data to the mobile app.",
       "vi": "Phần phía máy chủ gửi dữ liệu đến ứng dụng di động.",
-      "audio": "",
+      "audio": "fbf851fc598208b56df945516da861ae38ccc48eaa30814d83980ed226723ea4",
       "tokens": [
         "The",
         "back",
@@ -398,7 +398,7 @@
         "word:back-end-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -408,7 +408,7 @@
     "body": {
       "en": "Is the back end ready for testing yet?",
       "vi": "Phần phía máy chủ đã sẵn sàng để kiểm thử chưa?",
-      "audio": "",
+      "audio": "b28e602218cfc1052ee21f6220550e2dd21970aa4a11fedd5f7b1e7381768854",
       "tokens": [
         "Is",
         "the",
@@ -453,7 +453,7 @@
         "word:back-end-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -463,7 +463,7 @@
     "body": {
       "en": "Add this idea to the backlog, and we will discuss it later.",
       "vi": "Hãy thêm ý tưởng này vào backlog, chúng ta sẽ bàn sau.",
-      "audio": "",
+      "audio": "49e9f05b64eb5b70e1b4c14e26763c59f1ded9905191940d4071ec6d1577216a",
       "tokens": [
         "Add",
         "this",
@@ -515,7 +515,7 @@
         "word:backlog-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -525,7 +525,7 @@
     "body": {
       "en": "Our backlog has more than two hundred tickets.",
       "vi": "Backlog của chúng tôi có hơn hai trăm phiếu công việc.",
-      "audio": "",
+      "audio": "f8e7ad7a2cdfb8a337aa687829d4b41ec4b00cdd0d372e6ae3ba0928604f3b73",
       "tokens": [
         "Our",
         "backlog",
@@ -569,7 +569,7 @@
         "word:backlog-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -579,7 +579,7 @@
     "body": {
       "en": "Video calls use a lot of bandwidth.",
       "vi": "Các cuộc gọi video dùng rất nhiều băng thông.",
-      "audio": "",
+      "audio": "c81ebd535862577e34c342bdee2c84f285328c9d7d886d373a083e790078183d",
       "tokens": [
         "Video",
         "calls",
@@ -621,7 +621,7 @@
         "word:bandwidth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -631,7 +631,7 @@
     "body": {
       "en": "Sorry, I don't have the bandwidth for another task this week.",
       "vi": "Xin lỗi, tuần này tôi không còn sức để nhận thêm việc.",
-      "audio": "",
+      "audio": "07b7862086ba17b323c4bd4b0449dd0ad8cc5f66e802d02834901d02f5e4707a",
       "tokens": [
         "Sorry",
         "I",
@@ -681,7 +681,7 @@
         "word:bandwidth-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -691,7 +691,7 @@
     "body": {
       "en": "Do you have any blockers today?",
       "vi": "Hôm nay bạn có vấn đề gì cản trở không?",
-      "audio": "",
+      "audio": "10ca41a618228e78eba9f06bfded96c133014f5bfd2e1d46c4b6c317328d578e",
       "tokens": [
         "Do",
         "you",
@@ -731,7 +731,7 @@
         "word:blocker-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -741,7 +741,7 @@
     "body": {
       "en": "This bug is a blocker, so we cannot release.",
       "vi": "Lỗi này là lỗi chặn nên chúng tôi không thể phát hành.",
-      "audio": "",
+      "audio": "6182eeeb495921c1c9926d436716e419051ee8f8dadad06303553bea210b3f93",
       "tokens": [
         "This",
         "bug",
@@ -787,7 +787,7 @@
         "word:blocker-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -797,7 +797,7 @@
     "body": {
       "en": "This release includes ten bug fixes and one new feature.",
       "vi": "Bản phát hành này có mười bản sửa lỗi và một tính năng mới.",
-      "audio": "",
+      "audio": "bfb55062515630c00fff360ccd2189218f81184df35ac404a52a2a6a7537875a",
       "tokens": [
         "This",
         "release",
@@ -846,7 +846,7 @@
         "word:bug-fix-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -856,7 +856,7 @@
     "body": {
       "en": "The bug fix was tested by two people.",
       "vi": "Bản sửa lỗi đã được hai người kiểm tra.",
-      "audio": "",
+      "audio": "4ac78cc2bbb8e708e58092e508702f30ef81a20048f90cd1b839356b8f68bbf5",
       "tokens": [
         "The",
         "bug",
@@ -901,7 +901,7 @@
         "word:bug-fix-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -911,7 +911,7 @@
     "body": {
       "en": "A good bug report explains how to repeat the problem.",
       "vi": "Một báo cáo lỗi tốt giải thích cách tái hiện sự cố.",
-      "audio": "",
+      "audio": "7cc2098db54901734513eaeb925dccb29c22f5a65ea16433e777ae9566b2c478",
       "tokens": [
         "A",
         "good",
@@ -960,7 +960,7 @@
         "word:bug-report-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -970,7 +970,7 @@
     "body": {
       "en": "Did the client send a bug report this morning?",
       "vi": "Sáng nay khách hàng có gửi báo cáo lỗi không?",
-      "audio": "",
+      "audio": "94f3948bf9e3b5ac4a03193d08a4f37cf2b836f1c01f35318b380181bf976b10",
       "tokens": [
         "Did",
         "the",
@@ -1017,7 +1017,7 @@
         "word:bug-report-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1027,7 +1027,7 @@
     "body": {
       "en": "Clear the cache if the page still shows old data.",
       "vi": "Hãy xóa bộ nhớ đệm nếu trang vẫn hiện dữ liệu cũ.",
-      "audio": "",
+      "audio": "b53db8a7d2d8de694bef0a5bfb4d3f62ab724b51b0207c6ee90eafc42048b1e8",
       "tokens": [
         "Clear",
         "the",
@@ -1087,7 +1087,7 @@
         "word:cache-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1097,7 +1097,7 @@
     "body": {
       "en": "The cache makes the website much faster.",
       "vi": "Bộ nhớ đệm làm trang web nhanh hơn nhiều.",
-      "audio": "",
+      "audio": "4512b5662addcc91d4c2ce16448522eaa913f246522a7200da5c832ada82e4f4",
       "tokens": [
         "The",
         "cache",
@@ -1139,7 +1139,7 @@
         "word:cache-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1149,7 +1149,7 @@
     "body": {
       "en": "Every change needs a code review before we merge it.",
       "vi": "Mọi thay đổi đều cần được rà soát mã trước khi chúng tôi gộp vào.",
-      "audio": "",
+      "audio": "1c7c744d5392d9d2b8b55b24f0338f4d1695d4e8653864d5de96755c2c2d7c22",
       "tokens": [
         "Every",
         "change",
@@ -1198,7 +1198,7 @@
         "word:code-review-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1208,7 +1208,7 @@
     "body": {
       "en": "Minh left five comments during the code review.",
       "vi": "Minh đã để lại năm bình luận trong buổi rà soát mã.",
-      "audio": "",
+      "audio": "27516534611569bad268cadc2b687c3cbc9184ef172bf42efa1982c2ef10b73a",
       "tokens": [
         "Minh",
         "left",
@@ -1253,7 +1253,7 @@
         "word:code-review-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1263,7 +1263,7 @@
     "body": {
       "en": "I changed the configuration, and now the page loads faster.",
       "vi": "Tôi đã thay đổi cấu hình, và bây giờ trang tải nhanh hơn.",
-      "audio": "",
+      "audio": "c21ce677347298ee0c1435f0446c7bbb3eb55f6b36fa69e72e50eec84bd6603a",
       "tokens": [
         "I",
         "changed",
@@ -1311,7 +1311,7 @@
         "word:configuration-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1321,7 +1321,7 @@
     "body": {
       "en": "Where is the configuration file for the test server?",
       "vi": "Tệp cấu hình của máy chủ kiểm thử nằm ở đâu?",
-      "audio": "",
+      "audio": "7beeee329b998fff121984ec8f4996992ec28c40d06b8167ff14006c147a1dae",
       "tokens": [
         "Where",
         "is",
@@ -1367,7 +1367,7 @@
         "word:configuration-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1377,7 +1377,7 @@
     "body": {
       "en": "You need to configure the database before you start the app.",
       "vi": "Bạn cần cấu hình cơ sở dữ liệu trước khi khởi động ứng dụng.",
-      "audio": "",
+      "audio": "4d0c62e83ed4f3581667d233f9584f52fd019aac632968268e81163e08146a97",
       "tokens": [
         "You",
         "need",
@@ -1427,7 +1427,7 @@
         "word:configure-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1437,7 +1437,7 @@
     "body": {
       "en": "The email server was not configured correctly.",
       "vi": "Máy chủ email đã không được cấu hình đúng.",
-      "audio": "",
+      "audio": "259f906973bd3b09e29b9b9ba8f380a3287629fb5f9d8954606e320d9e0ec556",
       "tokens": [
         "The",
         "email",
@@ -1479,7 +1479,7 @@
         "word:configure-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1489,7 +1489,7 @@
     "body": {
       "en": "The dashboard shows how many users are online right now.",
       "vi": "Trang tổng quan hiển thị bao nhiêu người dùng đang trực tuyến lúc này.",
-      "audio": "",
+      "audio": "44019fc31e8cd32df41041b37e908c827ee97101d61214a5c057c58f3df32634",
       "tokens": [
         "The",
         "dashboard",
@@ -1537,7 +1537,7 @@
         "word:dashboard-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1547,7 +1547,7 @@
     "body": {
       "en": "I added a new chart to the sales dashboard.",
       "vi": "Tôi đã thêm một biểu đồ mới vào trang tổng quan doanh số.",
-      "audio": "",
+      "audio": "6875f1c47e0150e0a09fcd6801031df2a4a91a058c7ff2d0008185d3072a4aca",
       "tokens": [
         "I",
         "added",
@@ -1593,7 +1593,7 @@
         "word:dashboard-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1603,7 +1603,7 @@
     "body": {
       "en": "I spent all morning debugging the payment page.",
       "vi": "Tôi đã mất cả buổi sáng để gỡ lỗi trang thanh toán.",
-      "audio": "",
+      "audio": "751fddbd0ebfb4b8b133a4c5488ca9848452adabdbe829c345f880c6fdb567ae",
       "tokens": [
         "I",
         "spent",
@@ -1647,7 +1647,7 @@
         "word:debug-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1657,7 +1657,7 @@
     "body": {
       "en": "Can you help me debug this code?",
       "vi": "Bạn có thể giúp tôi gỡ lỗi đoạn mã này không?",
-      "audio": "",
+      "audio": "6b282282799588aab8bf74aaa126873c3c9ea9d3bdd32bce1ff6db9a201c77a2",
       "tokens": [
         "Can",
         "you",
@@ -1699,7 +1699,7 @@
         "word:debug-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1709,7 +1709,7 @@
     "body": {
       "en": "The main deliverables are the app and its user guide.",
       "vi": "Các hạng mục bàn giao chính là ứng dụng và hướng dẫn sử dụng.",
-      "audio": "",
+      "audio": "e0cc06c03ade2d6c3cb6a29be84cbb5cc0b59a1260ce6004612a34cf5978d16b",
       "tokens": [
         "The",
         "main",
@@ -1757,7 +1757,7 @@
         "word:deliverable-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1767,7 +1767,7 @@
     "body": {
       "en": "Did we send all the deliverables to the client?",
       "vi": "Chúng ta đã gửi hết các hạng mục bàn giao cho khách hàng chưa?",
-      "audio": "",
+      "audio": "1f10a93cd4353390ff405bc73928cc2670734f4709fa346eeccb451d80c26850",
       "tokens": [
         "Did",
         "we",
@@ -1813,7 +1813,7 @@
         "word:deliverable-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1823,7 +1823,7 @@
     "body": {
       "en": "This project has too many old dependencies.",
       "vi": "Dự án này có quá nhiều thư viện phụ thuộc cũ.",
-      "audio": "",
+      "audio": "980f1cfe4b2cca52726a5202cd8ad5a15cf8164694331422e3f21e26a9c5db2c",
       "tokens": [
         "This",
         "project",
@@ -1865,7 +1865,7 @@
         "word:dependency-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1875,7 +1875,7 @@
     "body": {
       "en": "We updated every dependency before the release.",
       "vi": "Chúng tôi đã cập nhật mọi thư viện phụ thuộc trước bản phát hành.",
-      "audio": "",
+      "audio": "23f81b932d87f7d3b3b8aa034dd0ee97b080eeaa384b76f4d84c019656e1256d",
       "tokens": [
         "We",
         "updated",
@@ -1917,7 +1917,7 @@
         "word:dependency-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1927,7 +1927,7 @@
     "body": {
       "en": "We deploy the new version every Friday afternoon.",
       "vi": "Chúng tôi triển khai phiên bản mới vào mỗi chiều thứ Sáu.",
-      "audio": "",
+      "audio": "71af5461709125a83735801508681e7faba487a24b155e00663bc03b63ce8878",
       "tokens": [
         "We",
         "deploy",
@@ -1981,7 +1981,7 @@
         "word:deploy-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1991,7 +1991,7 @@
     "body": {
       "en": "Did you deploy the fix to the test server?",
       "vi": "Bạn đã triển khai bản sửa lỗi lên máy chủ kiểm thử chưa?",
-      "audio": "",
+      "audio": "f5c1b67bbee2c6294482386373e188286b2ddff6e7638395855235d9dce04c51",
       "tokens": [
         "Did",
         "you",
@@ -2037,7 +2037,7 @@
         "word:deploy-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2047,7 +2047,7 @@
     "body": {
       "en": "The deployment took two hours because of a database problem.",
       "vi": "Đợt triển khai mất hai tiếng vì một sự cố cơ sở dữ liệu.",
-      "audio": "",
+      "audio": "031885ad53f50672aa32b8af25a94834f9a6f75171f2f58bcfaa72ffe8e490da",
       "tokens": [
         "The",
         "deployment",
@@ -2095,7 +2095,7 @@
         "word:deployment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2105,7 +2105,7 @@
     "body": {
       "en": "Is the next deployment planned for Monday?",
       "vi": "Đợt triển khai tiếp theo có được lên kế hoạch vào thứ Hai không?",
-      "audio": "",
+      "audio": "5c68f0329604af82978a60a181c5e9ea6cd251ee232062bea45cd338bf3ad61e",
       "tokens": [
         "Is",
         "the",
@@ -2147,7 +2147,7 @@
         "word:deployment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2157,7 +2157,7 @@
     "body": {
       "en": "Our team has five developers and two testers.",
       "vi": "Nhóm chúng tôi có năm lập trình viên và hai kiểm thử viên.",
-      "audio": "",
+      "audio": "b04820c881af425bf2d99b8c5654e7d1b62b10cf33a6f21247f3ba0033bb7eda",
       "tokens": [
         "Our",
         "team",
@@ -2201,7 +2201,7 @@
         "word:developer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2211,7 +2211,7 @@
     "body": {
       "en": "She worked as a web developer for three years.",
       "vi": "Cô ấy đã làm lập trình viên web trong ba năm.",
-      "audio": "",
+      "audio": "a9fdedd09d7e426096a7f4ba8dbf5642c90629b049c01f54b22ea9303bbdbf14",
       "tokens": [
         "She",
         "worked",
@@ -2257,7 +2257,7 @@
         "word:developer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2267,7 +2267,7 @@
     "body": {
       "en": "Please read the documentation before you use the new tool.",
       "vi": "Vui lòng đọc tài liệu hướng dẫn trước khi dùng công cụ mới.",
-      "audio": "",
+      "audio": "f2e8fe357b22f136961137073289a1550480dbba970dbdc68402db8fc93709d4",
       "tokens": [
         "Please",
         "read",
@@ -2315,7 +2315,7 @@
         "word:documentation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2325,7 +2325,7 @@
     "body": {
       "en": "The documentation for this feature is out of date.",
       "vi": "Tài liệu cho tính năng này đã lỗi thời.",
-      "audio": "",
+      "audio": "ab533250148b6028dcdba2224de67e249180436f76756252bd5326227eaaa1bd",
       "tokens": [
         "The",
         "documentation",
@@ -2371,7 +2371,7 @@
         "word:documentation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2381,7 +2381,7 @@
     "body": {
       "en": "We planned one hour of downtime for the database upgrade.",
       "vi": "Chúng tôi đã lên kế hoạch một giờ ngừng hoạt động để nâng cấp cơ sở dữ liệu.",
-      "audio": "",
+      "audio": "82755d6fbdba35f3db00ef2bcadeca7babb6c82ad6ca055ff8e85a2093ca8b67",
       "tokens": [
         "We",
         "planned",
@@ -2429,7 +2429,7 @@
         "word:downtime-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2439,7 +2439,7 @@
     "body": {
       "en": "Customers will not notice any downtime during the move.",
       "vi": "Khách hàng sẽ không nhận thấy bất kỳ thời gian ngừng hoạt động nào trong lúc chuyển đổi.",
-      "audio": "",
+      "audio": "8df4de0ebae6efb00eb490fdc45aeb4ee63525a12820294c4fb3272491c2aaa9",
       "tokens": [
         "Customers",
         "will",
@@ -2485,7 +2485,7 @@
         "word:downtime-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2495,7 +2495,7 @@
     "body": {
       "en": "Don't forget to test the edge cases, like empty names.",
       "vi": "Đừng quên kiểm thử các trường hợp biên, như tên để trống.",
-      "audio": "",
+      "audio": "73d7ed40d750150352c057528b11f04be564385efa1b34be4517245dab50376e",
       "tokens": [
         "Don't",
         "forget",
@@ -2544,7 +2544,7 @@
         "word:edge-case-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2554,7 +2554,7 @@
     "body": {
       "en": "That bug only happens in a rare edge case.",
       "vi": "Lỗi đó chỉ xảy ra trong một trường hợp biên hiếm gặp.",
-      "audio": "",
+      "audio": "633cf1790d109320a5fdec0b9b42097331402820b4086a786ee8a99d5c7ff191",
       "tokens": [
         "That",
         "bug",
@@ -2601,7 +2601,7 @@
         "word:edge-case-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2611,7 +2611,7 @@
     "body": {
       "en": "We encrypt all passwords before we save them.",
       "vi": "Chúng tôi mã hóa mọi mật khẩu trước khi lưu chúng.",
-      "audio": "",
+      "audio": "511486a99db7c00a9177017704d39d916ed1178be8040c8556a97be44825485f",
       "tokens": [
         "We",
         "encrypt",
@@ -2655,7 +2655,7 @@
         "word:encrypt-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2665,7 +2665,7 @@
     "body": {
       "en": "Is the customer data encrypted on the server?",
       "vi": "Dữ liệu khách hàng có được mã hóa trên máy chủ không?",
-      "audio": "",
+      "audio": "7e3bfd1fcd05d4f48af04fc6649a1fdf799b65854ffcaa862a0c6236b71a2ceb",
       "tokens": [
         "Is",
         "the",
@@ -2709,7 +2709,7 @@
         "word:encrypt-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2719,7 +2719,7 @@
     "body": {
       "en": "Which framework do you use for the front end?",
       "vi": "Bạn dùng framework nào cho phần giao diện?",
-      "audio": "",
+      "audio": "560302eb7f69da2c48bc5f93ba55e47656e6bf3a50429b3dc808cb9be6cfc4d9",
       "tokens": [
         "Which",
         "framework",
@@ -2765,7 +2765,7 @@
         "word:framework-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2775,7 +2775,7 @@
     "body": {
       "en": "We moved the project to a newer framework last year.",
       "vi": "Năm ngoái chúng tôi đã chuyển dự án sang một framework mới hơn.",
-      "audio": "",
+      "audio": "bbab9ff81937e69b81a026657ae8090b8da9fd96cddbd82e176c451a85e1cd46",
       "tokens": [
         "We",
         "moved",
@@ -2835,7 +2835,7 @@
         "word:framework-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2845,7 +2845,7 @@
     "body": {
       "en": "Lan works on the front end, and I work on the back end.",
       "vi": "Lan làm phần giao diện, còn tôi làm phần xử lý phía máy chủ.",
-      "audio": "",
+      "audio": "75d2bc14f67635c9cb35752e4a5a468e9949c6b89e4c8f8e5d3caabf5cc60d6f",
       "tokens": [
         "Lan",
         "works",
@@ -2915,7 +2915,7 @@
         "word:front-end-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2925,7 +2925,7 @@
     "body": {
       "en": "The front end was slow, so we changed the framework.",
       "vi": "Phần giao diện chạy chậm nên chúng tôi đã đổi framework.",
-      "audio": "",
+      "audio": "25f59e35bc3f7a487858e43c8293076729784f1c6e75720717ed78da779557a8",
       "tokens": [
         "The",
         "front",
@@ -2974,7 +2974,7 @@
         "word:front-end-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2984,7 +2984,7 @@
     "body": {
       "en": "If your laptop breaks, call the help desk.",
       "vi": "Nếu máy tính xách tay của bạn hỏng, hãy gọi bộ phận hỗ trợ kỹ thuật.",
-      "audio": "",
+      "audio": "ed4cb33f6a5838708bf6a4df47dd7b42633f3ca12dfce231e1dfb16b8c4972c4",
       "tokens": [
         "If",
         "your",
@@ -3039,7 +3039,7 @@
         "word:help-desk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3049,7 +3049,7 @@
     "body": {
       "en": "The help desk opened a ticket for my problem.",
       "vi": "Bộ phận hỗ trợ kỹ thuật đã tạo một phiếu yêu cầu cho sự cố của tôi.",
-      "audio": "",
+      "audio": "b27926439f9c998e8976352a0fb1d17947ffb8f32fbdcfe97f19cf67cbeec1a0",
       "tokens": [
         "The",
         "help",
@@ -3096,7 +3096,7 @@
         "word:help-desk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3106,7 +3106,7 @@
     "body": {
       "en": "We need a hotfix tonight because users cannot log in.",
       "vi": "Chúng tôi cần một bản vá khẩn cấp tối nay vì người dùng không đăng nhập được.",
-      "audio": "",
+      "audio": "4bdcda06f2ff777ffd958a6c34253b276aa71aa96a64d3af0e82ba2df5c58f2e",
       "tokens": [
         "We",
         "need",
@@ -3154,7 +3154,7 @@
         "word:hotfix-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3164,7 +3164,7 @@
     "body": {
       "en": "The hotfix was released an hour after the outage.",
       "vi": "Bản vá khẩn cấp được phát hành một giờ sau sự cố ngừng dịch vụ.",
-      "audio": "",
+      "audio": "a333d7bfa4c7cdbfe97068dfe6f62a04018e15bc9226088a0ce17354a9972ff9",
       "tokens": [
         "The",
         "hotfix",
@@ -3210,7 +3210,7 @@
         "word:hotfix-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3220,7 +3220,7 @@
     "body": {
       "en": "The integration with the payment system is almost finished.",
       "vi": "Việc tích hợp với hệ thống thanh toán gần như đã xong.",
-      "audio": "",
+      "audio": "57b6407fd44a72231c44055aac463d286d86ba5b6e390a444d769f6b32446808",
       "tokens": [
         "The",
         "integration",
@@ -3266,7 +3266,7 @@
         "word:integration-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3276,7 +3276,7 @@
     "body": {
       "en": "We tested the integration for two days.",
       "vi": "Chúng tôi đã kiểm thử phần tích hợp trong hai ngày.",
-      "audio": "",
+      "audio": "61d73ea667cca804b65e9b14f4e56224e67a11c09fb30c52b602364fd1934581",
       "tokens": [
         "We",
         "tested",
@@ -3318,7 +3318,7 @@
         "word:integration-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3328,7 +3328,7 @@
     "body": {
       "en": "Users like the new interface because it is simple.",
       "vi": "Người dùng thích giao diện mới vì nó đơn giản.",
-      "audio": "",
+      "audio": "7add02f1e2a6bf1b17baa7d6c891a7726b571eda930b52419a49e5ab57df26f4",
       "tokens": [
         "Users",
         "like",
@@ -3374,7 +3374,7 @@
         "word:interface-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3384,7 +3384,7 @@
     "body": {
       "en": "Who designed the user interface for this app?",
       "vi": "Ai đã thiết kế giao diện người dùng cho ứng dụng này?",
-      "audio": "",
+      "audio": "806e0db833de647a583f976bdc0610010a28add8b10bd067dc67d79e86112f23",
       "tokens": [
         "Who",
         "designed",
@@ -3428,7 +3428,7 @@
         "word:interface-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3438,7 +3438,7 @@
     "body": {
       "en": "Users log in with their email and password.",
       "vi": "Người dùng đăng nhập bằng email và mật khẩu của họ.",
-      "audio": "",
+      "audio": "cff975a5db7182cb7b4d7e873c3cd1ebd16f1e6d6580bc79a32f25e7c2eff031",
       "tokens": [
         "Users",
         "log",
@@ -3483,7 +3483,7 @@
         "word:log-in-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3493,7 +3493,7 @@
     "body": {
       "en": "I couldn't log in to the test server this morning.",
       "vi": "Sáng nay tôi không đăng nhập được vào máy chủ kiểm thử.",
-      "audio": "",
+      "audio": "ca24714a1cc57997bbeb85a1b88a9bfd5883cf61006421d1d19e732c9f828a5b",
       "tokens": [
         "I",
         "couldn't",
@@ -3542,7 +3542,7 @@
         "word:log-in-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3552,7 +3552,7 @@
     "body": {
       "en": "We are migrating our data to a new server this month.",
       "vi": "Tháng này chúng tôi đang chuyển dữ liệu sang một máy chủ mới.",
-      "audio": "",
+      "audio": "7ff28aebf583753cd4d0c82fee0c08cac7968eb50edd84f66a23522249ab2d0a",
       "tokens": [
         "We",
         "are",
@@ -3602,7 +3602,7 @@
         "word:migrate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3612,7 +3612,7 @@
     "body": {
       "en": "Did the team migrate all the old users?",
       "vi": "Nhóm đã chuyển đổi hết người dùng cũ chưa?",
-      "audio": "",
+      "audio": "8df99c757d205ee5cc62c6c24795f64afef68e809847c2ec65fa3f875804e8d5",
       "tokens": [
         "Did",
         "the",
@@ -3656,7 +3656,7 @@
         "word:migrate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3666,7 +3666,7 @@
     "body": {
       "en": "The first milestone is a working prototype by March.",
       "vi": "Mốc đầu tiên là một bản mẫu chạy được trước tháng Ba.",
-      "audio": "",
+      "audio": "e746fa807ffb36aa4cee0c09e4e3437e5edd1fa50c5d865ed9b2d6ed032a1bf7",
       "tokens": [
         "The",
         "first",
@@ -3712,7 +3712,7 @@
         "word:milestone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3722,7 +3722,7 @@
     "body": {
       "en": "We reached an important milestone last week.",
       "vi": "Tuần trước chúng tôi đã đạt được một mốc quan trọng.",
-      "audio": "",
+      "audio": "6162a21558237b387ce0e9e0980146b8382b5773e982c63fc79bfd02cd46b1b1",
       "tokens": [
         "We",
         "reached",
@@ -3764,7 +3764,7 @@
         "word:milestone-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3774,7 +3774,7 @@
     "body": {
       "en": "The outage lasted three hours and affected all customers.",
       "vi": "Sự cố ngừng dịch vụ kéo dài ba giờ và ảnh hưởng đến tất cả khách hàng.",
-      "audio": "",
+      "audio": "8d17674ab12f94c29ce396cc2bd7f6d9b38ee7d6b10ce264cfc074821fb2bea2",
       "tokens": [
         "The",
         "outage",
@@ -3820,7 +3820,7 @@
         "word:outage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3830,7 +3830,7 @@
     "body": {
       "en": "What caused the server outage last night?",
       "vi": "Điều gì đã gây ra sự cố ngừng máy chủ tối qua?",
-      "audio": "",
+      "audio": "6ea97b07ae9295288b0a890d6841448f33fe02e6acc5a5a58a96089301a19c6d",
       "tokens": [
         "What",
         "caused",
@@ -3872,7 +3872,7 @@
         "word:outage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3882,7 +3882,7 @@
     "body": {
       "en": "The pipeline runs all the tests after each commit.",
       "vi": "Quy trình tự động chạy tất cả các bài kiểm thử sau mỗi lần commit.",
-      "audio": "",
+      "audio": "8aa3cd1a8a09dd9e7cf5bc17b09dd354f717e0d776e751c4a4b408b35f4bcb80",
       "tokens": [
         "The",
         "pipeline",
@@ -3928,7 +3928,7 @@
         "word:pipeline-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3938,7 +3938,7 @@
     "body": {
       "en": "Why did the pipeline fail this morning?",
       "vi": "Tại sao quy trình tự động bị lỗi sáng nay?",
-      "audio": "",
+      "audio": "a1f2082ffc3831c4a5ad4c718637de389be8f48bad4a644d6ee343ff8eb9ed6c",
       "tokens": [
         "Why",
         "did",
@@ -3980,7 +3980,7 @@
         "word:pipeline-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3990,7 +3990,7 @@
     "body": {
       "en": "The designer made a quick prototype of the new screen.",
       "vi": "Nhà thiết kế đã làm một bản mẫu nhanh cho màn hình mới.",
-      "audio": "",
+      "audio": "b5252371763175cf6653572a25b5eb9e1047e4cc3676cd3675f173add61d9771",
       "tokens": [
         "The",
         "designer",
@@ -4038,7 +4038,7 @@
         "word:prototype-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4048,7 +4048,7 @@
     "body": {
       "en": "Can we test the prototype with real users?",
       "vi": "Chúng ta có thể thử bản mẫu với người dùng thật không?",
-      "audio": "",
+      "audio": "d2aeb203966bb9f948029d30d21b7f0ec2378aef2aa6b527e2100b9b9439a1c2",
       "tokens": [
         "Can",
         "we",
@@ -4092,7 +4092,7 @@
         "word:prototype-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4102,7 +4102,7 @@
     "body": {
       "en": "I opened a pull request for the login feature.",
       "vi": "Tôi đã mở một pull request cho tính năng đăng nhập.",
-      "audio": "",
+      "audio": "c401a59d65f5965fccec6b81d2e17c848e8cbaa8c26681d6917de70ade85532f",
       "tokens": [
         "I",
         "opened",
@@ -4149,7 +4149,7 @@
         "word:pull-request-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4159,7 +4159,7 @@
     "body": {
       "en": "Has anyone reviewed my pull request yet?",
       "vi": "Đã có ai xem pull request của tôi chưa?",
-      "audio": "",
+      "audio": "e4f071b000bf41af872edd4b0d16839d86add8fee2a9809db18b1bff0bdeb0d2",
       "tokens": [
         "Has",
         "anyone",
@@ -4202,7 +4202,7 @@
         "word:pull-request-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4212,7 +4212,7 @@
     "body": {
       "en": "We should refactor this old code before we add new features.",
       "vi": "Chúng ta nên tái cấu trúc đoạn mã cũ này trước khi thêm tính năng mới.",
-      "audio": "",
+      "audio": "e9976d9be5f51d04d076e3be6a9c4066d5f14a94f082d33c6c696ac22c7db265",
       "tokens": [
         "We",
         "should",
@@ -4262,7 +4262,7 @@
         "word:refactor-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4272,7 +4272,7 @@
     "body": {
       "en": "Hung refactored the payment module last sprint.",
       "vi": "Hùng đã tái cấu trúc mô-đun thanh toán trong sprint trước.",
-      "audio": "",
+      "audio": "9dec0a2375da665286897b5049adfb42a08cdf401c23f0caef6cd21730112e55",
       "tokens": [
         "Hung",
         "refactored",
@@ -4314,7 +4314,7 @@
         "word:refactor-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4324,7 +4324,7 @@
     "body": {
       "en": "The release notes list all the changes in this version.",
       "vi": "Ghi chú phát hành liệt kê mọi thay đổi trong phiên bản này.",
-      "audio": "",
+      "audio": "11eb2ca50e4271e543f50951e41201c57cc75a0c16e66180245b74a1e89d4969",
       "tokens": [
         "The",
         "release",
@@ -4373,7 +4373,7 @@
         "word:release-notes-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4383,7 +4383,7 @@
     "body": {
       "en": "Who is writing the release notes for tomorrow?",
       "vi": "Ai đang viết ghi chú phát hành cho ngày mai?",
-      "audio": "",
+      "audio": "d143a587bacab9ce79f00d37f21fe188ca5adf716ba94ce7da6a7452c8b36b49",
       "tokens": [
         "Who",
         "is",
@@ -4428,7 +4428,7 @@
         "word:release-notes-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4438,7 +4438,7 @@
     "body": {
       "en": "All our source code is stored in one repository.",
       "vi": "Toàn bộ mã nguồn của chúng tôi được lưu trong một kho mã.",
-      "audio": "",
+      "audio": "7fe0421db637d493943489ffe6d8cc3bb0ffe937d5ae26dd8d1f475058729480",
       "tokens": [
         "All",
         "our",
@@ -4484,7 +4484,7 @@
         "word:repository-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4494,7 +4494,7 @@
     "body": {
       "en": "I created a new repository for the mobile project.",
       "vi": "Tôi đã tạo một kho mã mới cho dự án di động.",
-      "audio": "",
+      "audio": "797c529f5eb2b293ce68364abf6247a82f54f8b5094e29d7be760271667e2e87",
       "tokens": [
         "I",
         "created",
@@ -4540,7 +4540,7 @@
         "word:repository-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4550,7 +4550,7 @@
     "body": {
       "en": "Please restart your computer after the update.",
       "vi": "Vui lòng khởi động lại máy tính sau khi cập nhật.",
-      "audio": "",
+      "audio": "10a89906c1e0d320d28d363cc39a69cca10737055ae63250624e8fc047e96061",
       "tokens": [
         "Please",
         "restart",
@@ -4592,7 +4592,7 @@
         "word:restart-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4602,7 +4602,7 @@
     "body": {
       "en": "Have you tried restarting the server?",
       "vi": "Bạn đã thử khởi động lại máy chủ chưa?",
-      "audio": "",
+      "audio": "ddfc3b9adcff2c9623122fce9ca8248cd62826d1ed46bffa23a49abf90384d7e",
       "tokens": [
         "Have",
         "you",
@@ -4642,7 +4642,7 @@
         "word:restart-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4652,7 +4652,7 @@
     "body": {
       "en": "In the retrospective, we talk about what went well.",
       "vi": "Trong buổi họp rút kinh nghiệm, chúng tôi nói về những gì đã làm tốt.",
-      "audio": "",
+      "audio": "c1017da168f7de25bf7fe4d689197c6a8f74e8cf2cf7de5a3830499b9ce233c6",
       "tokens": [
         "In",
         "the",
@@ -4709,7 +4709,7 @@
         "word:retrospective-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4719,7 +4719,7 @@
     "body": {
       "en": "The team agreed on two changes after the retrospective.",
       "vi": "Nhóm đã thống nhất hai thay đổi sau buổi họp rút kinh nghiệm.",
-      "audio": "",
+      "audio": "4d56908d0bf4c72458f2fe034f8f27871faeea44d0ba9e7c18441660142610eb",
       "tokens": [
         "The",
         "team",
@@ -4765,7 +4765,7 @@
         "word:retrospective-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4775,7 +4775,7 @@
     "body": {
       "en": "If the release breaks anything, we will roll back.",
       "vi": "Nếu bản phát hành làm hỏng gì, chúng tôi sẽ khôi phục về phiên bản trước.",
-      "audio": "",
+      "audio": "7986bb2cabee85561e4bac7c06eaf74b3a2b919bff2b708d1fe3dcf5f2092b9e",
       "tokens": [
         "If",
         "the",
@@ -4833,7 +4833,7 @@
         "word:roll-back-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4843,7 +4843,7 @@
     "body": {
       "en": "They rolled back the update after users reported errors.",
       "vi": "Họ đã khôi phục bản cập nhật sau khi người dùng báo lỗi.",
-      "audio": "",
+      "audio": "537fd5d7649bb614af893b0e18625f53c896bf99f0543c8fec88ff2650e10c2f",
       "tokens": [
         "They",
         "rolled",
@@ -4901,7 +4901,7 @@
         "word:roll-back-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4911,7 +4911,7 @@
     "body": {
       "en": "We still don't know the root cause of the crash.",
       "vi": "Chúng tôi vẫn chưa biết nguyên nhân gốc rễ của sự cố sập.",
-      "audio": "",
+      "audio": "a8de52c33ff4f71714a829638b5734b2148fa044d8c33ed511394b83676bdcd1",
       "tokens": [
         "We",
         "still",
@@ -4960,7 +4960,7 @@
         "word:root-cause-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4970,7 +4970,7 @@
     "body": {
       "en": "The root cause was a missing setting on the server.",
       "vi": "Nguyên nhân gốc rễ là một thiết lập bị thiếu trên máy chủ.",
-      "audio": "",
+      "audio": "a90f9ae6eeb6f3feb40abffe71bc42b46824c8c353b1d941aaf67f1bbd0ae677",
       "tokens": [
         "The",
         "root",
@@ -5019,7 +5019,7 @@
         "word:root-cause-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5029,7 +5029,7 @@
     "body": {
       "en": "The new system is scalable, so it can handle more users.",
       "vi": "Hệ thống mới có khả năng mở rộng nên có thể phục vụ nhiều người dùng hơn.",
-      "audio": "",
+      "audio": "a3f0e52f52226d5dbc84987909f44d44e559bbb0d46d5004a958d5b87e604ca6",
       "tokens": [
         "The",
         "new",
@@ -5079,7 +5079,7 @@
         "word:scalable-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5089,7 +5089,7 @@
     "body": {
       "en": "We need a more scalable solution for next year.",
       "vi": "Chúng tôi cần một giải pháp có khả năng mở rộng tốt hơn cho năm sau.",
-      "audio": "",
+      "audio": "8aeb4e8b71e3a18567c7db080e3e7bf1b12c563bf355a2a950a69a1852db1d55",
       "tokens": [
         "We",
         "need",
@@ -5135,7 +5135,7 @@
         "word:scalable-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5145,7 +5145,7 @@
     "body": {
       "en": "Please attach a screenshot of the error message.",
       "vi": "Vui lòng đính kèm ảnh chụp màn hình thông báo lỗi.",
-      "audio": "",
+      "audio": "7452b7a5154d8c01605abc6f424222342debba3ad7ae5889b474a4617197d353",
       "tokens": [
         "Please",
         "attach",
@@ -5189,7 +5189,7 @@
         "word:screenshot-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5199,7 +5199,7 @@
     "body": {
       "en": "I took a screenshot when the page stopped working.",
       "vi": "Tôi đã chụp màn hình khi trang ngừng hoạt động.",
-      "audio": "",
+      "audio": "ab33998758102c7e95019209b63041ec012df0575d7c445e7e3b985302e8617c",
       "tokens": [
         "I",
         "took",
@@ -5256,7 +5256,7 @@
         "word:screenshot-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5266,7 +5266,7 @@
     "body": {
       "en": "Only developers can see the source code.",
       "vi": "Chỉ lập trình viên mới xem được mã nguồn.",
-      "audio": "",
+      "audio": "02b17369b7d4a2a8c500c7321fab2c0ad5dc53c30787c92985b17d4815bbfaa3",
       "tokens": [
         "Only",
         "developers",
@@ -5309,7 +5309,7 @@
         "word:source-code-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5319,7 +5319,7 @@
     "body": {
       "en": "Please don't share the source code outside the company.",
       "vi": "Vui lòng không chia sẻ mã nguồn ra ngoài công ty.",
-      "audio": "",
+      "audio": "babfe0e153094c521a014909df32ef18e9a713b8ed5cbec22d4d24a3276bad72",
       "tokens": [
         "Please",
         "don't",
@@ -5366,7 +5366,7 @@
         "word:source-code-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5376,7 +5376,7 @@
     "body": {
       "en": "We show a demo to the stakeholders every two weeks.",
       "vi": "Hai tuần một lần chúng tôi trình diễn bản demo cho các bên liên quan.",
-      "audio": "",
+      "audio": "acb6b40544b59676a691def611cc504510ba89b9a7f9538f7c0c5f47e72ba46c",
       "tokens": [
         "We",
         "show",
@@ -5436,7 +5436,7 @@
         "word:stakeholder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5446,7 +5446,7 @@
     "body": {
       "en": "Which stakeholders need to approve this change?",
       "vi": "Những bên liên quan nào cần phê duyệt thay đổi này?",
-      "audio": "",
+      "audio": "fc9893d9a9b3a84974587c8542a51d55a151b39eab9032ac19e5d741f5dd6a16",
       "tokens": [
         "Which",
         "stakeholders",
@@ -5488,7 +5488,7 @@
         "word:stakeholder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5498,7 +5498,7 @@
     "body": {
       "en": "Our stand-up starts at nine and takes fifteen minutes.",
       "vi": "Buổi stand-up của chúng tôi bắt đầu lúc chín giờ và kéo dài mười lăm phút.",
-      "audio": "",
+      "audio": "d75bd31d9e83d87dff19143c24988d8a72adecbedefd55a0c9c92499173db2e5",
       "tokens": [
         "Our",
         "stand-up",
@@ -5544,7 +5544,7 @@
         "word:stand-up-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5554,7 +5554,7 @@
     "body": {
       "en": "I mentioned the server problem in the stand-up today.",
       "vi": "Hôm nay tôi đã nhắc đến sự cố máy chủ trong buổi stand-up.",
-      "audio": "",
+      "audio": "f473cb4c8e5410dfffef5c3f5ef99a206165f9009d154eee69628d02c95bb9ac",
       "tokens": [
         "I",
         "mentioned",
@@ -5600,7 +5600,7 @@
         "word:stand-up-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5610,7 +5610,7 @@
     "body": {
       "en": "We wrote twenty test cases for the payment feature.",
       "vi": "Chúng tôi đã viết hai mươi trường hợp kiểm thử cho tính năng thanh toán.",
-      "audio": "",
+      "audio": "f2add8a7097b47ed73d6f1b2e61c7d26bbf0be0d0005252cb4452e1ff7540329",
       "tokens": [
         "We",
         "wrote",
@@ -5657,7 +5657,7 @@
         "word:test-case-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5667,7 +5667,7 @@
     "body": {
       "en": "This test case fails when the user has no email.",
       "vi": "Trường hợp kiểm thử này thất bại khi người dùng không có email.",
-      "audio": "",
+      "audio": "b24d4155798e4c83888e0a0499682eef7892d6a055e845f72344a26e6467458d",
       "tokens": [
         "This",
         "test",
@@ -5716,7 +5716,7 @@
         "word:test-case-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5726,7 +5726,7 @@
     "body": {
       "en": "The tester found three bugs in the new login page.",
       "vi": "Kiểm thử viên đã tìm thấy ba lỗi trên trang đăng nhập mới.",
-      "audio": "",
+      "audio": "cb83e9b024c60e92757ee40e82818af9a571e7dd48fb0ec915958471b7453bbb",
       "tokens": [
         "The",
         "tester",
@@ -5774,7 +5774,7 @@
         "word:tester-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5784,7 +5784,7 @@
     "body": {
       "en": "Can the testers check this feature before Friday?",
       "vi": "Các kiểm thử viên có thể kiểm tra tính năng này trước thứ Sáu không?",
-      "audio": "",
+      "audio": "802b4562f4ac3cb1201d3e02d544da44ddd479776a729fa41a802d8bf6aed633",
       "tokens": [
         "Can",
         "the",
@@ -5828,7 +5828,7 @@
         "word:tester-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5838,7 +5838,7 @@
     "body": {
       "en": "The timeline for this project is very tight.",
       "vi": "Tiến độ của dự án này rất gấp.",
-      "audio": "",
+      "audio": "9cbe9a7ad73b92112ca82cc455700c02549952cef5e300c29453d53bcee24996",
       "tokens": [
         "The",
         "timeline",
@@ -5882,7 +5882,7 @@
         "word:timeline-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5892,7 +5892,7 @@
     "body": {
       "en": "Can you share the timeline with the client by Monday?",
       "vi": "Bạn có thể chia sẻ tiến độ với khách hàng trước thứ Hai không?",
-      "audio": "",
+      "audio": "e9efeab986420af00dfc279e68c9516f21c0ddff6d211cd370f2492fa271dd4e",
       "tokens": [
         "Can",
         "you",
@@ -5940,7 +5940,7 @@
         "word:timeline-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5950,7 +5950,7 @@
     "body": {
       "en": "The IT team is troubleshooting the network problem now.",
       "vi": "Nhóm IT đang xử lý sự cố mạng ngay bây giờ.",
-      "audio": "",
+      "audio": "62d387e2a0f521a58c9eef3efa07e80ee19d6164a978bb194f2263fa7c01d704",
       "tokens": [
         "The",
         "IT",
@@ -5996,7 +5996,7 @@
         "word:troubleshoot-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6006,7 +6006,7 @@
     "body": {
       "en": "How do you troubleshoot a slow website?",
       "vi": "Bạn xử lý sự cố một trang web chạy chậm như thế nào?",
-      "audio": "",
+      "audio": "f30e2a1a9f3fdfc6d456e922b30289dd80c3c87f346b4c2055d21331513fc481",
       "tokens": [
         "How",
         "do",
@@ -6048,7 +6048,7 @@
         "word:troubleshoot-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6058,7 +6058,7 @@
     "body": {
       "en": "Each user story describes one thing the user wants to do.",
       "vi": "Mỗi user story mô tả một việc người dùng muốn làm.",
-      "audio": "",
+      "audio": "748da691e0b981a5deed23a1f31741060b9adb95c9876bd0b841f29e3966717c",
       "tokens": [
         "Each",
         "user",
@@ -6109,7 +6109,7 @@
         "word:user-story-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6119,7 +6119,7 @@
     "body": {
       "en": "The product owner wrote five new user stories yesterday.",
       "vi": "Hôm qua product owner đã viết năm user story mới.",
-      "audio": "",
+      "audio": "5aa5165e6687853b748193fde61131a0f4dcb2a1b4d2863ee456efdb6875659b",
       "tokens": [
         "The",
         "product",
@@ -6166,7 +6166,7 @@
         "word:user-story-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6176,7 +6176,7 @@
     "body": {
       "en": "The security team found a vulnerability in the login page.",
       "vi": "Nhóm bảo mật đã tìm thấy một lỗ hổng trên trang đăng nhập.",
-      "audio": "",
+      "audio": "819cb7a1be5a1726f67e59f483211e5a4ea78605443ee1398643970c5d777b37",
       "tokens": [
         "The",
         "security",
@@ -6224,7 +6224,7 @@
         "word:vulnerability-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6234,7 +6234,7 @@
     "body": {
       "en": "We must fix this vulnerability before the release.",
       "vi": "Chúng tôi phải sửa lỗ hổng này trước khi phát hành.",
-      "audio": "",
+      "audio": "6a1229a8cf446e3424efe8edb0da1d695625835990c03a5c095b52c421d33879",
       "tokens": [
         "We",
         "must",
@@ -6278,7 +6278,7 @@
         "word:vulnerability-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6288,7 +6288,7 @@
     "body": {
       "en": "There is no fix yet, but we have a workaround.",
       "vi": "Chưa có bản sửa lỗi, nhưng chúng tôi có cách xử lý tạm thời.",
-      "audio": "",
+      "audio": "46479a854c85c3071b8625594f7715c3546a388fe02586a15b193c2f2cb5c673",
       "tokens": [
         "There",
         "is",
@@ -6336,7 +6336,7 @@
         "word:workaround-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6346,7 +6346,7 @@
     "body": {
       "en": "Can you send the workaround to the client today?",
       "vi": "Bạn có thể gửi cách xử lý tạm thời cho khách hàng hôm nay không?",
-      "audio": "",
+      "audio": "8c607dff3a7ecd7a5d5fc72570ad40eeeed8785032de3157cd9210d9d51c6fdf",
       "tokens": [
         "Can",
         "you",
@@ -6392,7 +6392,7 @@
         "word:workaround-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6402,7 +6402,7 @@
     "body": {
       "en": "Our workflow has three steps: develop, test and deploy.",
       "vi": "Quy trình làm việc của chúng tôi có ba bước: phát triển, kiểm thử và triển khai.",
-      "audio": "",
+      "audio": "443236ed8319d0b64c87afc3ce8793653ce4c19331b2e475fdd77bc77952f226",
       "tokens": [
         "Our",
         "workflow",
@@ -6448,7 +6448,7 @@
         "word:workflow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6458,7 +6458,7 @@
     "body": {
       "en": "The new tool made our workflow much simpler.",
       "vi": "Công cụ mới đã làm quy trình làm việc của chúng tôi đơn giản hơn nhiều.",
-      "audio": "",
+      "audio": "c77d73662a42c92a8c78c5a28b68767c950bdb67444cb8c940f6fa83c4504896",
       "tokens": [
         "The",
         "new",
@@ -6502,6 +6502,6 @@
         "word:workflow-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

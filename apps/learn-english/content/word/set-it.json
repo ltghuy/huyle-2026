@@ -20,10 +20,10 @@
       "synonyms": [
         "word:application-n"
       ],
-      "audio": "",
+      "audio": "654242df87226ca182b68330de1bc2061e464f940dc5ba5b0e3f5a1848285e3e",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Short for \"application\"; course word application-n may only carry the 'đơn xin' sense."
     ]
@@ -47,10 +47,10 @@
         "sentence:authentication-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e3d8c6a0d5c982704612f2baea5941ea38bded81aecf8b07679309a27363c25f",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -73,10 +73,10 @@
       "synonyms": [
         "word:mechanize-v"
       ],
-      "audio": "",
+      "audio": "addf731f20f503cee2840322f6914815c3bb694fd335ff85a76b2d112339df09",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -97,10 +97,10 @@
         "sentence:back-end-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "0b24138ca72013481f9122d2e77f7c1d825288b1f0322a229edd8eebe57b1cbc",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Spelled \"back end\" (noun) or \"back-end\" (adjective); some teams write \"backend\"."
     ]
@@ -125,10 +125,10 @@
         "sentence:backlog-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "14010e19f49121c6e4df9313050bb8228e9d1c04fa7442aa66afd0d27340b7c4",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -152,10 +152,10 @@
       "synonyms": [
         "word:capacity-n"
       ],
-      "audio": "",
+      "audio": "a731c75c74388e3e63b5088a8ccb9cc8f67a154bc6a0fa522165387268d96355",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Second meaning ('I don't have the bandwidth') is informal office use."
     ]
@@ -182,10 +182,10 @@
         "word:obstacle-n",
         "word:problem-n"
       ],
-      "audio": "",
+      "audio": "78ee41509c47e84fc6c13e33897483803d7a5f645817a9e40d5b7e6c7ad90728",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -209,10 +209,10 @@
         "word:fix-n",
         "word:patch-n"
       ],
-      "audio": "",
+      "audio": "1c0146c3b06d6d1eba802f316d67248df257b8d1aaa5b2d03c97b745634f4ee3",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -233,10 +233,10 @@
         "sentence:bug-report-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "9d303d3648a08fed199486d3d35781ce0603c9c1b3fb466deac1331b5bc7eb2c",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -259,10 +259,10 @@
       "synonyms": [
         "word:memory-n"
       ],
-      "audio": "",
+      "audio": "5dbbdea70a8b9877c52045840299a03ee2fb559b0d1e4023d94f0898770fc248",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Pronounced like \"cash\"."
     ]
@@ -288,10 +288,10 @@
       "synonyms": [
         "word:review-n"
       ],
-      "audio": "",
+      "audio": "61a4a0ae2d53aeeb87d61f3e6b1b225de96465ed6c566e2ff668c1ceaf85f891",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -313,10 +313,10 @@
         "sentence:configuration-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "7a61eb466bb4e26ec1d275669445b58a3d2940d5d4337c280413d517f2d91231",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -337,10 +337,10 @@
         "sentence:configure-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "6b7325f44a5a7996df0149f96b6bb50d4f29cfcda3e305e883d92936d9004fd6",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -361,10 +361,10 @@
         "sentence:dashboard-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "fd21a4700c5033dafba5e1d60b478147eec1176e91606b8191f1c22f159335f4",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also the car dashboard; here the software screen."
     ]
@@ -388,10 +388,10 @@
         "sentence:debug-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "78330d87a9b74aa3070f75cf5132f0abfca79c1bc9290e862221633d033e07e5",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -414,10 +414,10 @@
       "synonyms": [
         "word:output-n"
       ],
-      "audio": "",
+      "audio": "e55fbfce136299882bf7cdcfbce482a988078d5d9284cdd4afe1d5d35ed00b5e",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Usually plural."
     ]
@@ -445,10 +445,10 @@
         "word:library-n",
         "word:package-n"
       ],
-      "audio": "",
+      "audio": "8b6994e629bfa393f623da36ae6126d80a0e197d7b4864b04dad79c7c7ca3418",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -472,10 +472,10 @@
       "synonyms": [
         "word:release-v"
       ],
-      "audio": "",
+      "audio": "6ba4199a5f17a0e4c8cd3170c0344d858ffb1522b1363a9e6f36496d7a9e5509",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -498,10 +498,10 @@
       "synonyms": [
         "word:release-n"
       ],
-      "audio": "",
+      "audio": "ea9d437aa4f587a06f3162825b0b110d277b3a1b1a6e855e87e49aafd434d29f",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -525,10 +525,10 @@
       "synonyms": [
         "word:programmer-n"
       ],
-      "audio": "",
+      "audio": "1bd72290102898966ff2fef9507e9042ec71865fc5357a66c6a2de8ae9e8c59e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -551,10 +551,10 @@
       "synonyms": [
         "word:manual-n"
       ],
-      "audio": "",
+      "audio": "6c7ea9ab05fd8e9fadf94c939a8927eaf5970a30851334bc934aa29e838b35bf",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -577,10 +577,10 @@
       "synonyms": [
         "word:outage-n"
       ],
-      "audio": "",
+      "audio": "10c64c33a2c95ca618550d44698e17a805bafa28cf8dda42a5a351c85b5b7236",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also means 'free time to relax' in everyday English."
     ]
@@ -604,10 +604,10 @@
         "sentence:edge-case-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "26ba4770c46e8cf41e4a4925f6d9621fbca76b0779899663567b80f14801f322",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -628,10 +628,10 @@
         "sentence:encrypt-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "a88a4aa9914660921f4a8deae21aba29c0badf8cccf3964d7712c0c1bcc2ba2d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -656,10 +656,10 @@
         "word:platform-n",
         "word:library-n"
       ],
-      "audio": "",
+      "audio": "a754e31856df604bf9d049fb1731ec7cd9a22dba9f5322884818f11c710257a7",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -680,10 +680,10 @@
         "sentence:front-end-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "fab881a54b341cfe35695be295efc7e050846accd96dc5e31611fd57757f8605",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Spelled \"front end\" (noun) or \"front-end\" (adjective); some teams write \"frontend\"."
     ]
@@ -709,10 +709,10 @@
       "synonyms": [
         "word:support-n"
       ],
-      "audio": "",
+      "audio": "4318e10eaf26e5cc2a1b41441789a1037c3bb07b67fd5c0f047cabd6f90160ad",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -736,10 +736,10 @@
         "word:patch-n",
         "word:bug-fix-n"
       ],
-      "audio": "",
+      "audio": "adb124b3375a2c15808ae14dfb9907e36811b0154f4691ef0f8b7c5bd84d7b88",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription"
     ]
@@ -765,10 +765,10 @@
       "synonyms": [
         "word:connection-n"
       ],
-      "audio": "",
+      "audio": "2060a3532525ebdd2a5dc62655404bc5bb47c34db4fab2b80769098f785d62ce",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -791,10 +791,10 @@
       "synonyms": [
         "word:screen-n"
       ],
-      "audio": "",
+      "audio": "b5460f264182dbf58469eed66bc667b5e90cdf7469bed1da95e397ad6f8b4890",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -815,10 +815,10 @@
         "sentence:log-in-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "febbe7c40292046de4b3ccfebacdb80114b6d4e0de81fa782d2e53219c3654e4",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Phrasal verb; the noun/adjective is written \"login\"."
     ]
@@ -845,10 +845,10 @@
         "word:move-v",
         "word:transfer-v"
       ],
-      "audio": "",
+      "audio": "2c114ba6797e2863f622409be4628398b34b49e7686df32c63edf5670dc4bf77",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -872,10 +872,10 @@
         "word:goal-n",
         "word:checkpoint-n"
       ],
-      "audio": "",
+      "audio": "73df3a35590939317d90768caab648e42dc3684d3dfb859180c07a43388652d0",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -898,10 +898,10 @@
       "synonyms": [
         "word:failure-n"
       ],
-      "audio": "",
+      "audio": "512b4b51407a9fd393ceafb3e53a83a4f1e57f1a0a437139fa21d300059a7f44",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -925,10 +925,10 @@
       "synonyms": [
         "word:workflow-n"
       ],
-      "audio": "",
+      "audio": "4f26241140e80b6cce5b32a27b56de75417f2534dc50800cb9fd777457992107",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -952,10 +952,10 @@
       "synonyms": [
         "word:model-n"
       ],
-      "audio": "",
+      "audio": "e9f458aef10a9a2404fa38a5df20595ade57603dff3cdcefe62b6dedaab5ac2e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -976,10 +976,10 @@
         "sentence:pull-request-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "c703bc55f8a5f36e17d614f0271b42ebafda3d596280092624af68b4b3100976",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Often shortened to \"PR\"."
     ]
@@ -1005,10 +1005,10 @@
       "synonyms": [
         "word:rewrite-v"
       ],
-      "audio": "",
+      "audio": "0d794a05a98ac40b8d16ed75b61ba833cffe63a5b5381cc89be53fbcbb6fbaa7",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription"
     ]
@@ -1032,10 +1032,10 @@
         "sentence:release-notes-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "0af1147238e7d099b970be905492a2a3f588d0e7fbc31edf60ba185e31636885",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Always plural in this meaning."
     ]
@@ -1060,10 +1060,10 @@
         "sentence:repository-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "68bfbad485a5539948f53926fed31389fcf576d77b48f62a39e680cef5053b38",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Often shortened to \"repo\" at work."
     ]
@@ -1087,10 +1087,10 @@
         "sentence:restart-v-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "d618298d39aabf31b4254c618ba0f3cd5cc185946f5335a7f62eb5825c7d1dfe",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1113,10 +1113,10 @@
       "synonyms": [
         "word:review-n"
       ],
-      "audio": "",
+      "audio": "7e3b6c80f93f0e437b1057d63747c92b5d06458f1ed0f2a633c4e02608a9a7e9",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Often shortened to \"retro\"."
     ]
@@ -1142,10 +1142,10 @@
       "synonyms": [
         "word:undo-v"
       ],
-      "audio": "",
+      "audio": "897a428129018dbf16417c483cda1c3f70a56a2e03dc9d598c2f26175379c83f",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Phrasal verb; the noun is \"rollback\"."
     ]
@@ -1172,10 +1172,10 @@
         "word:cause-n",
         "word:source-n"
       ],
-      "audio": "",
+      "audio": "b819748a088d4eded0dfc5e10995d27120a39558480ad3293e28dacc22978302",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1198,10 +1198,10 @@
       "synonyms": [
         "word:flexible-adj"
       ],
-      "audio": "",
+      "audio": "17e4d39bf9ce603647cee2e36777865f51bb51af733f258c4825f1b1d2927b56",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1222,10 +1222,10 @@
         "sentence:screenshot-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e02d3e303af5927d0c3490bca3dc3fa5890a78ddde9954c4df7f5484ff3f882d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1248,10 +1248,10 @@
       "synonyms": [
         "word:code-n"
       ],
-      "audio": "",
+      "audio": "3894dea3c28199fe1f3d6f3684b59356d6a96a47051d751c7114843e37c7c6bc",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1275,10 +1275,10 @@
         "word:client-n",
         "word:sponsor-n"
       ],
-      "audio": "",
+      "audio": "88f74bb45bb854e5e5961358a02dec51fe36de0bbf1faac109ed435f9fd36c9e",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1299,10 +1299,10 @@
         "sentence:stand-up-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "1d112c93453bf9f904a2fbe5440b3b75e56778def33de527d2460e08c46a7a1e",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also \"stand-up meeting\" or \"daily stand-up\"; also spelled \"standup\"."
     ]
@@ -1326,10 +1326,10 @@
         "sentence:test-case-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "bc56f2677d84269283b638ca8172d81e40de27feef9dd9fea3624441e6e7a4a2",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1351,10 +1351,10 @@
         "sentence:tester-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "02ad4b851c21d4095a263d3d04b6a3fb7ebe8d6237ba60fc9559a9789750e7f0",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1378,10 +1378,10 @@
         "word:schedule-n",
         "word:plan-n"
       ],
-      "audio": "",
+      "audio": "ffc23381f61693c80527d65d363adbfa80668382d906fdf35df61e03cbd66120",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1405,10 +1405,10 @@
         "word:debug-v",
         "word:fix-v"
       ],
-      "audio": "",
+      "audio": "2a24437174d806dcb6ebf4783610cf548159d07d1c27cb642d84decd2a57bd89",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1431,10 +1431,10 @@
       "synonyms": [
         "word:requirement-n"
       ],
-      "audio": "",
+      "audio": "d55253e5e9555330c8be1b81d2818aa99fd765326f8ea38f8459abc22d234c21",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1458,10 +1458,10 @@
       "synonyms": [
         "word:weakness-n"
       ],
-      "audio": "",
+      "audio": "9c5fe30ed8ec779fbcee6329eb5c9c8b9e353d76dd99fae3f73a9e06af39dbfd",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1482,10 +1482,10 @@
         "sentence:workaround-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "592bc06abce3170aabcfea4ce567a83d056dc7b8ce6f9782cc349acff8f3c47d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1509,9 +1509,9 @@
         "word:process-n",
         "word:procedure-n"
       ],
-      "audio": "",
+      "audio": "026bf522d021a1778055f4dda9c0fb910a61001bd0e5b5634d6de43da90cd019",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

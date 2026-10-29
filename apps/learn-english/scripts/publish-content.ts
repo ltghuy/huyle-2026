@@ -282,14 +282,32 @@ export function sqlString(value: string): string {
   return `'${value.replace(/'/g, "''")}'`;
 }
 
+/**
+ * Characters of row body per statement. D1 caps one SQL statement at 100 KB;
+ * 20,000 characters stay under it even when every character takes 3 bytes in
+ * UTF-8 and every quote is doubled.
+ */
+export const BODY_CHUNK_CHARS = 20_000;
+
+/**
+ * The statement(s) that write one item, joined by newlines. A body longer
+ * than BODY_CHUNK_CHARS (a vocabulary set's bundle) is written in pieces: the
+ * upsert carries the first piece and each UPDATE appends the next. Clients
+ * only refetch after the version bump, which runs last.
+ */
 export function upsertSql(item: ContentItem, version: number): string {
   const topic = item.topic === undefined ? "NULL" : sqlString(item.topic);
-  return (
+  const body = JSON.stringify(item.body);
+  const pieces: string[] = [];
+  for (let i = 0; i < body.length; i += BODY_CHUNK_CHARS) pieces.push(body.slice(i, i + BODY_CHUNK_CHARS));
+  const [first = "", ...rest] = pieces;
+  const upsert =
     "INSERT INTO content_items (id, kind, level, topic, sort, body, deleted, updated_version) " +
-    `VALUES (${sqlString(item.id)}, ${sqlString(item.kind)}, ${sqlString(item.level)}, ${topic}, ${item.sort}, ${sqlString(JSON.stringify(item.body))}, 0, ${version}) ` +
+    `VALUES (${sqlString(item.id)}, ${sqlString(item.kind)}, ${sqlString(item.level)}, ${topic}, ${item.sort}, ${sqlString(first)}, 0, ${version}) ` +
     "ON CONFLICT(id) DO UPDATE SET kind = excluded.kind, level = excluded.level, topic = excluded.topic, sort = excluded.sort, " +
-    "body = excluded.body, deleted = 0, updated_version = excluded.updated_version;"
-  );
+    "body = excluded.body, deleted = 0, updated_version = excluded.updated_version;";
+  const appends = rest.map((piece) => `UPDATE content_items SET body = body || ${sqlString(piece)} WHERE id = ${sqlString(item.id)};`);
+  return [upsert, ...appends].join("\n");
 }
 
 export function tombstoneSql(id: string, version: number): string {

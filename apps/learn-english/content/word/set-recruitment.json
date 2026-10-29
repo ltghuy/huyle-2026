@@ -21,10 +21,10 @@
       "synonyms": [
         "word:achievement-n"
       ],
-      "audio": "",
+      "audio": "39f974bb00ba2061bc915d8f3cd026fea880bef9e9f7717e573c8599ca953258",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -49,10 +49,10 @@
         "word:performance-review-n",
         "word:evaluation-n"
       ],
-      "audio": "",
+      "audio": "07c4ea72495785332db1aa3032a888056a2b95e08c7fa7a87bdadf45e1e8d22f",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "More common in British English; American offices usually say 'performance review'."
     ]
@@ -76,10 +76,10 @@
         "sentence:background-check-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "149cb595afbc2a661bd423031a87b0a7e131d9f6dd2907121199e18266652a54",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -101,10 +101,10 @@
         "sentence:benefits-package-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "8b4f802f05cfa0fd928bc402d29360003bde98a5b8ada37ac99cd8d3db2cc751",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -126,10 +126,10 @@
         "sentence:career-path-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "767ebd8d9e236278b208486b906ec549d19699cb9e51bb3d498bf799aa090f7a",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -151,10 +151,10 @@
         "sentence:counteroffer-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "a31ad5c6bf85cdf9c6e11b30737db96e4b8e0b7e828f23b9778faec9ea46425d",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also spelled counter-offer."
     ]
@@ -179,10 +179,10 @@
         "sentence:cover-letter-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "a8cd817c16b92463cac47c6c98afb04c2c02873391ccba1339c721b063fc151a",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -205,10 +205,10 @@
       "synonyms": [
         "word:fit-n"
       ],
-      "audio": "",
+      "audio": "ad03369f435e85f66c339771108aa6c7c1dcd93c585c4ad0e77f14b0ff2313b4",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Some HR teams now prefer 'culture add'."
     ]
@@ -232,10 +232,10 @@
         "sentence:dress-code-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "948076e1df4a649d096e79d7e747052d2fea7b1d00d07f0e663c8f50fa1be86b",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -256,10 +256,10 @@
         "sentence:employment-contract-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "debdee68d3b85d2b56011224ddab25672f280c58f64ef8eb7f9af4760eb96ffe",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -283,10 +283,10 @@
       "synonyms": [
         "word:junior-adj"
       ],
-      "audio": "",
+      "audio": "70280e971fe4bbc2732ae17026d656cf74adb0118a44193b8a0cf8c51a32dad3",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -307,10 +307,10 @@
         "sentence:exit-interview-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e01b8d809f6e9f5a81008e3b17567717d5fe7f49c400b83242c70ec15abddac2",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -332,10 +332,10 @@
         "sentence:headcount-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "d0e256288d80c4a3da8e5e3c2acd06b05c49d99b55fc7549181566ea13d472ee",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "In offices 'a headcount' can also mean one approved open position; only the number-of-staff meaning is shown."
     ]
@@ -362,10 +362,10 @@
       "synonyms": [
         "word:recruiter-n"
       ],
-      "audio": "",
+      "audio": "92327bc4070691766c4c75ec5d1fd628a2a7041448a6ec648c3bdaba1b63371d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -387,10 +387,10 @@
         "sentence:health-insurance-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e696e2bc73a904a1bdc0e6b0715adc80c024ccbf16dd93a097c3db47f349fa12",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -412,10 +412,10 @@
         "sentence:hiring-manager-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "cbf16c349c45ea1388a619453ef6eebe9275931c351f36c1da44f41fb1b5be87",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "In some companies the hiring manager is the future boss, not an HR person."
     ]
@@ -442,10 +442,10 @@
       "synonyms": [
         "word:personnel-n"
       ],
-      "audio": "",
+      "audio": "b39030e593174113b9ce21a75719a02095d04c885ffb8856fb06ed55b5c09f88",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Usually shortened to HR in speech."
     ]
@@ -471,10 +471,10 @@
       "synonyms": [
         "word:trainee-n"
       ],
-      "audio": "",
+      "audio": "d70b1d6bc60845f0fd323bda69fa3794997de900e902a6a03f6cba6f96a303c4",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -496,10 +496,10 @@
         "sentence:internship-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "dad020ba1a633aea6eabae75f033cfccc9c10ea10010a4291460987a8d50f02b",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -521,10 +521,10 @@
         "sentence:job-description-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "9238eee0765ee419bf05fb282269d724b5453e9fbabc06bee4ac98663798579a",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -546,10 +546,10 @@
         "sentence:job-fair-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "332923ed14376c2b32ea831df77135d3f70904f41ce0112d2cd57a74c9576c66",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -571,10 +571,10 @@
         "sentence:job-hunting-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "09e9a18790ebdac869555659cbe60b446633546853d536fa6310e0f5d1738461",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -597,10 +597,10 @@
       "synonyms": [
         "word:offer-n"
       ],
-      "audio": "",
+      "audio": "585b0e3f5868335de6cb2c349531db0f9e4eb05e883317683d1e92ec28c9c422",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -622,10 +622,10 @@
         "sentence:job-posting-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "b2931caf85ca68f1795605c1ed120715a11d2a20199d55aaaceebf70b8f74ad2",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -646,10 +646,10 @@
         "sentence:job-seeker-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e05c102e5f03c11f7f46bb1dbe8c007d83cea6b10390b6c5956fdb7d2c524ca7",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -672,10 +672,10 @@
       "synonyms": [
         "word:title-n"
       ],
-      "audio": "",
+      "audio": "93fc33ff2880769b53080986dc305bb72dc0f14f6b43f9662685e5079e5c5e81",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -698,10 +698,10 @@
       "synonyms": [
         "word:dismiss-v"
       ],
-      "audio": "",
+      "audio": "f08d260a03c4464b31c072e1ed2a73af2e2a851544e7341866ceee9fc36e4d07",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Phrasal verb; separable (lay someone off). Sensitive topic."
     ]
@@ -726,10 +726,10 @@
         "sentence:layoff-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "4a398b26651d3d479b1cd055020683c4156628b6dcb54812ae110fbcb4be7ea5",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Sensitive topic (job loss) but standard HR vocabulary."
     ]
@@ -753,10 +753,10 @@
         "sentence:maternity-leave-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "7231e3c9f796f9ec61509bf002354d7a5afa7b29f1da6ed20172e86101de9c46",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Paternity leave is the father's version."
     ]
@@ -782,10 +782,10 @@
       "synonyms": [
         "word:notice-n"
       ],
-      "audio": "",
+      "audio": "8039fa53de344dc3011d50fc454c458553bc7b4022ba96f61b3677d2500ce31b",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Common in Vietnam and the UK; in the US people often just say 'two weeks' notice'."
     ]
@@ -809,10 +809,10 @@
         "sentence:offer-letter-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "5de8e49423a72b493874c2f9d3a5ad3e28883a37168bd6460145676d11200490",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -836,10 +836,10 @@
       "synonyms": [
         "word:induct-v"
       ],
-      "audio": "",
+      "audio": "7852cf0627d72fe0dd2c5d0ec6a746b975cc4fcd32dff198a11e0e692eb8436c",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Workplace jargon; also spelled 'on-board'."
     ]
@@ -866,10 +866,10 @@
       "synonyms": [
         "word:induction-n"
       ],
-      "audio": "",
+      "audio": "e91618634ecdcb50602eb2cb5835d99edd0a683228c5fea324ad38528326def8",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "IPA missing from CMUdict: check the drafted transcription"
     ]
@@ -897,10 +897,10 @@
         "word:onboarding-n",
         "word:induction-n"
       ],
-      "audio": "",
+      "audio": "46df3ef331e3079fa75e837209e01caca034fdc0145ade19a8d6320987a68815",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -921,10 +921,10 @@
         "sentence:overqualified-adj-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "59f24f181564f8b1e18b25139e980a2e48c9827bda4b54a464c5e4c270a25e5b",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -948,10 +948,10 @@
       "synonyms": [
         "word:vacation-n"
       ],
-      "audio": "",
+      "audio": "9cf94e0a39d592caf1ff6f076500a6e0256d17baa61d405e0cbe045d05e0ec22",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American usage; British English says 'annual leave' or 'holiday'. Often shortened to PTO."
     ]
@@ -976,10 +976,10 @@
         "sentence:panel-interview-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "09637e4b955fde1297be285335f828bf00c465796c0fcad6ac154d64f176eee2",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1003,10 +1003,10 @@
       "synonyms": [
         "word:evaluation-n"
       ],
-      "audio": "",
+      "audio": "f977708c23f030116898fbe78eac3181ba06959deafbf6bd96e7cde8997a0acf",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1030,10 +1030,10 @@
       "synonyms": [
         "word:benefit-n"
       ],
-      "audio": "",
+      "audio": "69e1653edb1c45be8330786aef2e54c8a16a467758db2e37dbddcf3d37cb8345",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1054,10 +1054,10 @@
         "sentence:probation-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "1af6092ec9892299f66867ab5ad50105ff5ba08b90d0213d5afae60428a2b4c9",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Also a legal word (criminal probation); here only the job meaning."
     ]
@@ -1082,10 +1082,10 @@
         "sentence:recruiter-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "aabe933f6232a8e3bc03a17a8e6aa9627aa010f3a8959fe142e9fd897f9a12e4",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1107,10 +1107,10 @@
         "sentence:recruitment-agency-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "77233db13c4bdf46b0a6b2099642a80f1a59e213a306c0a8801bb4d932168ff6",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American English also says 'staffing agency'."
     ]
@@ -1134,10 +1134,10 @@
         "sentence:recruitment-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "f4d38b02d5af86b5a08f2d64e6a87ccaca95c78c0e185d0b9ad0df6c217360b8",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1159,10 +1159,10 @@
         "sentence:reference-check-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "5d05224cdd3cadcbfde746f36536d8107e82d234597db994bbd60f9347e668b1",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1186,10 +1186,10 @@
       "synonyms": [
         "word:recommendation-n"
       ],
-      "audio": "",
+      "audio": "48dac090107379ce1942350d2daf2b3d025fb4710fd24d22458574d2445afbef",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1214,10 +1214,10 @@
         "word:move-v",
         "word:transfer-v"
       ],
-      "audio": "",
+      "audio": "9d6af1987b55b1c573760001ec8ad228a5ebb4b82d947269965c2fe8b8561094",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1242,10 +1242,10 @@
         "word:move-n",
         "word:transfer-n"
       ],
-      "audio": "",
+      "audio": "e36ae6ea45d9e0f82f2477047ba77a9cb35671adb1e6963732982bd6e61dd163",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1269,10 +1269,10 @@
       "synonyms": [
         "word:cv-n"
       ],
-      "audio": "",
+      "audio": "2685934b0ad82e6898b576619162840cc20a67c351800d990a2c10492b8696c8",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "American English; British English usually says CV. Also spelled résumé."
     ]
@@ -1297,10 +1297,10 @@
         "sentence:salary-range-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "e5c9e2088b81b73d856f9849dc10743024f21aab45b0ebeac3a56a9f6ab34fec",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1322,10 +1322,10 @@
         "sentence:screening-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "c519786756cf1d7661f17e1956783e6b136859cc6e5ad56e800213571a5c9486",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1346,10 +1346,10 @@
         "sentence:severance-pay-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "b012b96c5edd60feb8196d671820f6c35783ef78d189387db443dacfb7d8f073",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1371,10 +1371,10 @@
         "sentence:sick-leave-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "41dd7081c7bf7bf762787ea2f57d2136d6540c851588e68c8f008be24369398d",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1396,10 +1396,10 @@
         "sentence:signing-bonus-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "fd8e731163011260d28f7c730658831ec87942b4979d3265ae4565f6e9f20be8",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1420,10 +1420,10 @@
         "sentence:soft-skills-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "236dcd8a4d4c867b8f5acac701107ac1e8434da59641f5798462887b0db2dce1",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "Usually plural; singular 'soft skill' is possible. Opposite: hard skills."
     ]
@@ -1447,10 +1447,10 @@
         "sentence:start-date-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "2323fa6a326564a90da23836711282cba9444df3240a0121e6b881209c678d3a",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1472,10 +1472,10 @@
         "sentence:talent-pool-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "2cc269d43169b66747af26eca32e2724eace655e48d6e9363ba1dc316e265a63",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1497,10 +1497,10 @@
         "sentence:team-player-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "ca4bfe1b37125e171285b6c93c2af7f847dcb22329752ad8bc06d6cdaa9ebb08",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1524,10 +1524,10 @@
       "synonyms": [
         "word:record-n"
       ],
-      "audio": "",
+      "audio": "4fbd651f3c0d6c6ce18272a3ddf9b7c1929659677cf4c1bd0a9d0dd9ffc6d256",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1549,10 +1549,10 @@
         "sentence:turnover-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "552578e0d2e615781b8602850a513eb99a0f1011dbaba98a68356626e3495e05",
       "source": "specialized"
     },
-    "status": "draft",
+    "status": "approved",
     "reviewNotes": [
       "'Turnover' also means company revenue in British English; here only staff turnover."
     ]
@@ -1576,9 +1576,9 @@
         "sentence:work-permit-n-2"
       ],
       "synonyms": [],
-      "audio": "",
+      "audio": "3d2a24ce9afd54ecc901cc3c984844a3f9a9f466dcdd2497f6ae54a01ce350f7",
       "source": "specialized"
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

@@ -7,7 +7,7 @@
     "body": {
       "en": "Tell me about your biggest accomplishment at work.",
       "vi": "Hãy kể cho tôi về thành tựu lớn nhất của bạn trong công việc.",
-      "audio": "",
+      "audio": "9471acfce23bcbbb5b30881738e072da0d5677b8977cf0bafa858f3309e35f0f",
       "tokens": [
         "Tell",
         "me",
@@ -51,7 +51,7 @@
         "word:accomplishment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -61,7 +61,7 @@
     "body": {
       "en": "List your key accomplishments under each job.",
       "vi": "Hãy liệt kê các thành tích chính của bạn dưới mỗi công việc.",
-      "audio": "",
+      "audio": "6c98d2620a0e82b00369e90698731f72577b2e77b689412fc294598904ea5fb1",
       "tokens": [
         "List",
         "your",
@@ -103,7 +103,7 @@
         "word:accomplishment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -113,7 +113,7 @@
     "body": {
       "en": "Your annual appraisal is next Thursday.",
       "vi": "Buổi đánh giá năng lực hằng năm của bạn là vào thứ Năm tới.",
-      "audio": "",
+      "audio": "caf3a64e9c2791d6a26994d6acd0abb96423e5017a95dc6ac1b3c07cfd44c1e5",
       "tokens": [
         "Your",
         "annual",
@@ -153,7 +153,7 @@
         "word:appraisal-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -163,7 +163,7 @@
     "body": {
       "en": "Did your appraisal go well?",
       "vi": "Buổi đánh giá của bạn có suôn sẻ không?",
-      "audio": "",
+      "audio": "122f9dd825021ec098aa569171415f43862908a25363633dbf4d481b811c9080",
       "tokens": [
         "Did",
         "your",
@@ -201,7 +201,7 @@
         "word:appraisal-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -211,7 +211,7 @@
     "body": {
       "en": "All new employees must pass a background check.",
       "vi": "Tất cả nhân viên mới phải vượt qua việc kiểm tra lý lịch.",
-      "audio": "",
+      "audio": "4eac8e57b03366b140ee8c4c42a83744583dc5eb4dfdb5e566dfd2acda740cf6",
       "tokens": [
         "All",
         "new",
@@ -256,7 +256,7 @@
         "word:background-check-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -266,7 +266,7 @@
     "body": {
       "en": "Has the background check come back yet?",
       "vi": "Kết quả kiểm tra lý lịch đã có chưa?",
-      "audio": "",
+      "audio": "dcd68bd7006e45da15a35c57bf67bf391c9d20d1620f8d01d8a3359b2577c8a8",
       "tokens": [
         "Has",
         "the",
@@ -309,7 +309,7 @@
         "word:background-check-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -319,7 +319,7 @@
     "body": {
       "en": "Our benefits package includes health insurance and a gym.",
       "vi": "Gói phúc lợi của chúng tôi gồm bảo hiểm y tế và phòng tập thể dục.",
-      "audio": "",
+      "audio": "d5bcef769fca14b84609ec2e99cffb6e139eefff2a20b060169c1ab9bb750a90",
       "tokens": [
         "Our",
         "benefits",
@@ -366,7 +366,7 @@
         "word:benefits-package-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -376,7 +376,7 @@
     "body": {
       "en": "Can you tell me more about the benefits package?",
       "vi": "Bạn có thể cho tôi biết thêm về gói phúc lợi không?",
-      "audio": "",
+      "audio": "7f57ec7ea24bbbc14f7d15f676ffeb5aa308882deed1ff20aa8d8439ddca5ce2",
       "tokens": [
         "Can",
         "you",
@@ -423,7 +423,7 @@
         "word:benefits-package-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -433,7 +433,7 @@
     "body": {
       "en": "We show every new hire a clear career path.",
       "vi": "Chúng tôi cho mỗi nhân viên mới thấy một lộ trình sự nghiệp rõ ràng.",
-      "audio": "",
+      "audio": "a58d6a49a8273c50c3d84778625db3fabfa8d2eac72943a6885f0f194deafced",
       "tokens": [
         "We",
         "show",
@@ -480,7 +480,7 @@
         "word:career-path-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -490,7 +490,7 @@
     "body": {
       "en": "What career path do you see for yourself?",
       "vi": "Bạn thấy lộ trình sự nghiệp của mình như thế nào?",
-      "audio": "",
+      "audio": "57c4ee875f514ee8f9661e6fc2810636a7fd6b9eb9d5b2030df93a98cf98d41b",
       "tokens": [
         "What",
         "career",
@@ -535,7 +535,7 @@
         "word:career-path-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -545,7 +545,7 @@
     "body": {
       "en": "My manager made me a counteroffer when I resigned.",
       "vi": "Khi tôi xin nghỉ, quản lý đã đưa ra đề nghị giữ chân tôi.",
-      "audio": "",
+      "audio": "eee0e2b9da062424b22546bc2cb915fbf46a97eb961cffb186c0dcb2b8b7a0f8",
       "tokens": [
         "My",
         "manager",
@@ -591,7 +591,7 @@
         "word:counteroffer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -601,7 +601,7 @@
     "body": {
       "en": "Did you accept their counteroffer?",
       "vi": "Bạn có nhận đề nghị ngược lại của họ không?",
-      "audio": "",
+      "audio": "27979cd1b4dfea2a2a9bc4a89edc1e660e946d85f1b7ab51d24c4d7f75d643ce",
       "tokens": [
         "Did",
         "you",
@@ -639,7 +639,7 @@
         "word:counteroffer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -649,7 +649,7 @@
     "body": {
       "en": "A short cover letter can help your application stand out.",
       "vi": "Một lá thư xin việc ngắn có thể giúp hồ sơ của bạn nổi bật.",
-      "audio": "",
+      "audio": "5cb8df21a39d1397b0ff9eb361d4e13dfde084d036f4dcc2e598f1ce415a3961",
       "tokens": [
         "A",
         "short",
@@ -698,7 +698,7 @@
         "word:cover-letter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -708,7 +708,7 @@
     "body": {
       "en": "Did you write a new cover letter for this position?",
       "vi": "Bạn đã viết thư xin việc mới cho vị trí này chưa?",
-      "audio": "",
+      "audio": "7b96b0d031f9bca706adf67b6d7a695e0802034f82373b1ce76b0c4d751e799c",
       "tokens": [
         "Did",
         "you",
@@ -757,7 +757,7 @@
         "word:cover-letter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -767,7 +767,7 @@
     "body": {
       "en": "The last interview checks for culture fit.",
       "vi": "Buổi phỏng vấn cuối cùng đánh giá sự phù hợp với văn hóa công ty.",
-      "audio": "",
+      "audio": "7a7b3a1f28f44a33180ed3abe27a8b0a3c98b5382a7516b4151656c97fd95ced",
       "tokens": [
         "The",
         "last",
@@ -810,7 +810,7 @@
         "word:culture-fit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -820,7 +820,7 @@
     "body": {
       "en": "She was skilled, but she was not a good culture fit.",
       "vi": "Cô ấy có năng lực, nhưng không thật phù hợp với văn hóa công ty.",
-      "audio": "",
+      "audio": "0ae5a82ad245e41292eb8a69b9b0d148f78c433c399514070f5e329a38e823bd",
       "tokens": [
         "She",
         "was",
@@ -871,7 +871,7 @@
         "word:culture-fit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -881,7 +881,7 @@
     "body": {
       "en": "Is there a dress code for the interview?",
       "vi": "Buổi phỏng vấn có quy định về trang phục không?",
-      "audio": "",
+      "audio": "0cf3fff1661b404995546bf468f9d43d97495d2efaf8ed399047921ea1219da3",
       "tokens": [
         "Is",
         "there",
@@ -926,7 +926,7 @@
         "word:dress-code-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -936,7 +936,7 @@
     "body": {
       "en": "Our office has a relaxed dress code on Fridays.",
       "vi": "Văn phòng chúng tôi có quy định trang phục thoải mái vào thứ Sáu.",
-      "audio": "",
+      "audio": "e3f3a183304cc9aa4c91ccb5261589e462fd809f0fec7a9bd52baee82d0a792f",
       "tokens": [
         "Our",
         "office",
@@ -994,7 +994,7 @@
         "word:dress-code-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1004,7 +1004,7 @@
     "body": {
       "en": "Read your employment contract before you sign it.",
       "vi": "Hãy đọc hợp đồng lao động trước khi ký.",
-      "audio": "",
+      "audio": "0e72ffae957c2b9791edf992de6b95ec8fd8da9c1c1e2c2414c01758194acd6c",
       "tokens": [
         "Read",
         "your",
@@ -1049,7 +1049,7 @@
         "word:employment-contract-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1059,7 +1059,7 @@
     "body": {
       "en": "My employment contract is for two years.",
       "vi": "Hợp đồng lao động của tôi có thời hạn hai năm.",
-      "audio": "",
+      "audio": "8a5cbf86ddd64f74863114163ef98ee71c94b654f65055fdcc62fa87d0b7935a",
       "tokens": [
         "My",
         "employment",
@@ -1102,7 +1102,7 @@
         "word:employment-contract-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1112,7 +1112,7 @@
     "body": {
       "en": "This is an entry-level job for new graduates.",
       "vi": "Đây là công việc cấp đầu vào dành cho sinh viên mới tốt nghiệp.",
-      "audio": "",
+      "audio": "a35584df19d3fa527e3e6f308883986fa3b140cfae7f52f3566cec5d23edbaa9",
       "tokens": [
         "This",
         "is",
@@ -1156,7 +1156,7 @@
         "word:entry-level-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1166,7 +1166,7 @@
     "body": {
       "en": "Do entry-level positions require any experience?",
       "vi": "Các vị trí cấp đầu vào có yêu cầu kinh nghiệm không?",
-      "audio": "",
+      "audio": "8ed105b41a883581027c0572cf60b5e1cc4f14ae4977067aacfffdfed1f88aeb",
       "tokens": [
         "Do",
         "entry-level",
@@ -1206,7 +1206,7 @@
         "word:entry-level-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1216,7 +1216,7 @@
     "body": {
       "en": "HR holds an exit interview with every leaving employee.",
       "vi": "Phòng nhân sự tổ chức phỏng vấn nghỉ việc với mọi nhân viên sắp nghỉ.",
-      "audio": "",
+      "audio": "3a7710680e42951c19642540b26fe176e33210305bc44e409632e6c6ea734416",
       "tokens": [
         "HR",
         "holds",
@@ -1263,7 +1263,7 @@
         "word:exit-interview-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1273,7 +1273,7 @@
     "body": {
       "en": "What did you say in your exit interview?",
       "vi": "Bạn đã nói gì trong buổi phỏng vấn nghỉ việc?",
-      "audio": "",
+      "audio": "09245418b67e9d3a541cd3ef87e95fb1583992438718503e4e6738c8e0ed60b4",
       "tokens": [
         "What",
         "did",
@@ -1318,7 +1318,7 @@
         "word:exit-interview-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1328,7 +1328,7 @@
     "body": {
       "en": "Our team got approval to increase headcount by two.",
       "vi": "Nhóm chúng tôi được duyệt tăng thêm hai nhân sự.",
-      "audio": "",
+      "audio": "326aab5a163f58535aef60565729f54bcbb7f61807bcd9c2c6f5892b7479ab20",
       "tokens": [
         "Our",
         "team",
@@ -1374,7 +1374,7 @@
         "word:headcount-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1384,7 +1384,7 @@
     "body": {
       "en": "The company plans to reduce its headcount this year.",
       "vi": "Công ty dự định cắt giảm số lượng nhân sự trong năm nay.",
-      "audio": "",
+      "audio": "1d9d8000e017073aaac729009df064376ee2640ad64cc5b21d4d6d8e7809c702",
       "tokens": [
         "The",
         "company",
@@ -1430,7 +1430,7 @@
         "word:headcount-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1440,7 +1440,7 @@
     "body": {
       "en": "A headhunter contacted him about a director role.",
       "vi": "Một người săn đầu người đã liên hệ với anh ấy về vị trí giám đốc.",
-      "audio": "",
+      "audio": "19a9c99ba344491e4cbcca55383fa9f4581e9524e984be88f5ca4a89ad0252af",
       "tokens": [
         "A",
         "headhunter",
@@ -1484,7 +1484,7 @@
         "word:headhunter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1494,7 +1494,7 @@
     "body": {
       "en": "Companies often use headhunters for senior positions.",
       "vi": "Các công ty thường dùng người săn đầu người cho các vị trí cấp cao.",
-      "audio": "",
+      "audio": "42c610b9ca7031f2348945ce17080236c396ec1fba49e6269a54f200b494a3b3",
       "tokens": [
         "Companies",
         "often",
@@ -1536,7 +1536,7 @@
         "word:headhunter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1546,7 +1546,7 @@
     "body": {
       "en": "Full-time employees get health insurance from day one.",
       "vi": "Nhân viên toàn thời gian được hưởng bảo hiểm y tế từ ngày đầu tiên.",
-      "audio": "",
+      "audio": "5cb94f6a18d6c3053b6000c100b7dab091f722463c169e74dfa8e63bd8e688ea",
       "tokens": [
         "Full-time",
         "employees",
@@ -1591,7 +1591,7 @@
         "word:health-insurance-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1601,7 +1601,7 @@
     "body": {
       "en": "Does the company pay for family health insurance?",
       "vi": "Công ty có chi trả bảo hiểm y tế cho gia đình không?",
-      "audio": "",
+      "audio": "a030042abc863fccda5a58ad19eb4152aac3e9a5485374f7aea55efea8b06a32",
       "tokens": [
         "Does",
         "the",
@@ -1646,7 +1646,7 @@
         "word:health-insurance-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1656,7 +1656,7 @@
     "body": {
       "en": "The hiring manager will join your second interview.",
       "vi": "Người quản lý tuyển dụng sẽ tham gia buổi phỏng vấn thứ hai của bạn.",
-      "audio": "",
+      "audio": "1e8e77424aa317977eb23223344ee71b828663ac929e317684a0ba7bcb56eda9",
       "tokens": [
         "The",
         "hiring",
@@ -1701,7 +1701,7 @@
         "word:hiring-manager-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1711,7 +1711,7 @@
     "body": {
       "en": "Did the hiring manager like my portfolio?",
       "vi": "Người quản lý tuyển dụng có thích hồ sơ năng lực của tôi không?",
-      "audio": "",
+      "audio": "502fefba6c23f13e4866edcd1ef946e5ffa8a8d9ac77bea40380b2e3833a4992",
       "tokens": [
         "Did",
         "the",
@@ -1754,7 +1754,7 @@
         "word:hiring-manager-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1764,7 +1764,7 @@
     "body": {
       "en": "Please contact human resources if you have questions.",
       "vi": "Vui lòng liên hệ phòng nhân sự nếu bạn có câu hỏi.",
-      "audio": "",
+      "audio": "d959b92f7d245c75e01364efc3b2efd9ff8085ba141648530537f87f41a39964",
       "tokens": [
         "Please",
         "contact",
@@ -1809,7 +1809,7 @@
         "word:human-resources-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1819,7 +1819,7 @@
     "body": {
       "en": "He moved from sales to human resources last year.",
       "vi": "Năm ngoái anh ấy chuyển từ phòng kinh doanh sang phòng nhân sự.",
-      "audio": "",
+      "audio": "8fc27509d6b122faaa717ef047861b502309cf5d27fa9b1c6fabf81a5223b045",
       "tokens": [
         "He",
         "moved",
@@ -1877,7 +1877,7 @@
         "word:human-resources-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1887,7 +1887,7 @@
     "body": {
       "en": "We are hiring two marketing interns this summer.",
       "vi": "Mùa hè này chúng tôi tuyển hai thực tập sinh marketing.",
-      "audio": "",
+      "audio": "949fb0075b0ce4105c4bdcb33c2af101a06925eaf2a876410639240ebf620c9d",
       "tokens": [
         "We",
         "are",
@@ -1941,7 +1941,7 @@
         "word:intern-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1951,7 +1951,7 @@
     "body": {
       "en": "She started as an intern and is now a manager.",
       "vi": "Cô ấy bắt đầu là thực tập sinh và giờ đã là quản lý.",
-      "audio": "",
+      "audio": "a07158728f3f88783cf8565ea1a9936e4889e5f106739cf55a2e6f352210f74b",
       "tokens": [
         "She",
         "started",
@@ -1999,7 +1999,7 @@
         "word:intern-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2009,7 +2009,7 @@
     "body": {
       "en": "I did a three-month internship at an accounting firm.",
       "vi": "Tôi đã thực tập ba tháng tại một công ty kế toán.",
-      "audio": "",
+      "audio": "5391ba3ea6dbf53e4d7ddc3b9e4000f4dd34ea37ff54e40752628fb593103d80",
       "tokens": [
         "I",
         "did",
@@ -2055,7 +2055,7 @@
         "word:internship-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2065,7 +2065,7 @@
     "body": {
       "en": "Is this internship paid?",
       "vi": "Kỳ thực tập này có được trả lương không?",
-      "audio": "",
+      "audio": "2737793548db07433ab75b24972649d2287c118d5b7156e34bdfe569eed639cf",
       "tokens": [
         "Is",
         "this",
@@ -2101,7 +2101,7 @@
         "word:internship-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2111,7 +2111,7 @@
     "body": {
       "en": "Please read the job description carefully before you apply.",
       "vi": "Vui lòng đọc kỹ bản mô tả công việc trước khi bạn nộp đơn.",
-      "audio": "",
+      "audio": "7eee9b14eab8004e3a05123727e4ebcbf1fefb93f0106c72c47d91dfbdb3da98",
       "tokens": [
         "Please",
         "read",
@@ -2157,7 +2157,7 @@
         "word:job-description-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2167,7 +2167,7 @@
     "body": {
       "en": "The job description lists five main responsibilities.",
       "vi": "Bản mô tả công việc liệt kê năm trách nhiệm chính.",
-      "audio": "",
+      "audio": "74ba20976b23088e5557787d26c9fdc715de231d71d377a28ae2367bdcac928b",
       "tokens": [
         "The",
         "job",
@@ -2209,7 +2209,7 @@
         "word:job-description-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2219,7 +2219,7 @@
     "body": {
       "en": "Our company will join the job fair next month.",
       "vi": "Công ty chúng tôi sẽ tham gia hội chợ việc làm vào tháng sau.",
-      "audio": "",
+      "audio": "d7d1959a9b158d356a4a0ef2318dd704eb19f35c5f429f42b4199aeaf90ee229",
       "tokens": [
         "Our",
         "company",
@@ -2276,7 +2276,7 @@
         "word:job-fair-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2286,7 +2286,7 @@
     "body": {
       "en": "I met three recruiters at the job fair.",
       "vi": "Tôi đã gặp ba chuyên viên tuyển dụng tại hội chợ việc làm.",
-      "audio": "",
+      "audio": "277d702cbd9b98b9b850d196433694cbb1046e3be12c120ae3f2db8e12b24424",
       "tokens": [
         "I",
         "met",
@@ -2330,7 +2330,7 @@
         "word:job-fair-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2340,7 +2340,7 @@
     "body": {
       "en": "Job hunting can take several months.",
       "vi": "Việc tìm việc có thể mất vài tháng.",
-      "audio": "",
+      "audio": "8bd3937b249d0406e403e1cc551c64def8306e2b11bd07cac46d748e7e763582",
       "tokens": [
         "Job",
         "hunting",
@@ -2380,7 +2380,7 @@
         "word:job-hunting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2390,7 +2390,7 @@
     "body": {
       "en": "I started job hunting after I graduated.",
       "vi": "Tôi bắt đầu tìm việc sau khi tốt nghiệp.",
-      "audio": "",
+      "audio": "e28f06b9de23b0233103debce6c8c651f820933b9443aea8d403dd359985ad5a",
       "tokens": [
         "I",
         "started",
@@ -2432,7 +2432,7 @@
         "word:job-hunting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2442,7 +2442,7 @@
     "body": {
       "en": "I received a job offer from a bank last week.",
       "vi": "Tuần trước tôi đã nhận được lời mời làm việc từ một ngân hàng.",
-      "audio": "",
+      "audio": "9ca84927dc0ad57cef820670de19a511ac1e250069e21b0deee9f2355cbb0485",
       "tokens": [
         "I",
         "received",
@@ -2503,7 +2503,7 @@
         "word:job-offer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2513,7 +2513,7 @@
     "body": {
       "en": "Should I accept the job offer or wait?",
       "vi": "Tôi nên nhận lời mời làm việc hay chờ thêm?",
-      "audio": "",
+      "audio": "43986eed04fb68a1d0bda1b9622d85f6f36bc690583769bc28c86c82d8e06de2",
       "tokens": [
         "Should",
         "I",
@@ -2558,7 +2558,7 @@
         "word:job-offer-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2568,7 +2568,7 @@
     "body": {
       "en": "I saw your job posting on a careers website.",
       "vi": "Tôi đã thấy tin tuyển dụng của bạn trên một trang web việc làm.",
-      "audio": "",
+      "audio": "dc36ad3496861afebdc628d93fc6907bb3f6f4ac38e7f41e5371222144739515",
       "tokens": [
         "I",
         "saw",
@@ -2614,7 +2614,7 @@
         "word:job-posting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2624,7 +2624,7 @@
     "body": {
       "en": "We will close the job posting at the end of May.",
       "vi": "Chúng tôi sẽ đóng tin tuyển dụng vào cuối tháng Năm.",
-      "audio": "",
+      "audio": "5c1c96fd25c988d5c4b2321869d73e1e38fa1f94a3639e4a24d223a0e7cc28d5",
       "tokens": [
         "We",
         "will",
@@ -2687,7 +2687,7 @@
         "word:job-posting-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2697,7 +2697,7 @@
     "body": {
       "en": "Many job seekers prepare for interviews with a friend.",
       "vi": "Nhiều người tìm việc luyện tập phỏng vấn cùng một người bạn.",
-      "audio": "",
+      "audio": "2a7187d88f299843037adfc9cc521d449378f7cd8d469858394f787b66b34278",
       "tokens": [
         "Many",
         "job",
@@ -2743,7 +2743,7 @@
         "word:job-seeker-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2753,7 +2753,7 @@
     "body": {
       "en": "Is this website free for job seekers?",
       "vi": "Trang web này có miễn phí cho người tìm việc không?",
-      "audio": "",
+      "audio": "293a85a0f4af38f7f4fb3e7a890e5f9592d0a918c8ce9be3035d8acffd7cdddc",
       "tokens": [
         "Is",
         "this",
@@ -2795,7 +2795,7 @@
         "word:job-seeker-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2805,7 +2805,7 @@
     "body": {
       "en": "What is your current job title?",
       "vi": "Chức danh công việc hiện tại của bạn là gì?",
-      "audio": "",
+      "audio": "16b0b3bcbd876efae59044eb7872936aa865d62ca720c5950f0dde5512fc9d8a",
       "tokens": [
         "What",
         "is",
@@ -2845,7 +2845,7 @@
         "word:job-title-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2855,7 +2855,7 @@
     "body": {
       "en": "Her job title changed to senior designer last year.",
       "vi": "Năm ngoái chức danh của cô ấy đã đổi thành nhà thiết kế cấp cao.",
-      "audio": "",
+      "audio": "57698a3c79f0030374863e27f92f1784eef5451324cdbc2e6a3a93654cc7ae58",
       "tokens": [
         "Her",
         "job",
@@ -2912,7 +2912,7 @@
         "word:job-title-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2922,7 +2922,7 @@
     "body": {
       "en": "The factory laid off fifty workers last month.",
       "vi": "Tháng trước nhà máy đã cho năm mươi công nhân nghỉ việc.",
-      "audio": "",
+      "audio": "92fa53de205d0754cc967b3f4975d066d23c478250e31366c77f280b4c68e68d",
       "tokens": [
         "The",
         "factory",
@@ -2977,7 +2977,7 @@
         "word:lay-off-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2987,7 +2987,7 @@
     "body": {
       "en": "Will they lay off more people this year?",
       "vi": "Năm nay họ có cho thêm người nghỉ việc không?",
-      "audio": "",
+      "audio": "37713a5ddfb5adfaf70b4336e019b9d24eadcbe2b7d19a4c5a92f4ec0044a5a7",
       "tokens": [
         "Will",
         "they",
@@ -3032,7 +3032,7 @@
         "word:lay-off-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3042,7 +3042,7 @@
     "body": {
       "en": "The company announced layoffs in its sales team.",
       "vi": "Công ty đã thông báo cắt giảm nhân sự ở bộ phận kinh doanh.",
-      "audio": "",
+      "audio": "7b64c50f1e11c70a3596f031fee5bf3cc745e7f79d65ac056306d98a47e66173",
       "tokens": [
         "The",
         "company",
@@ -3086,7 +3086,7 @@
         "word:layoff-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3096,7 +3096,7 @@
     "body": {
       "en": "Were you affected by the layoffs?",
       "vi": "Bạn có bị ảnh hưởng bởi đợt cắt giảm nhân sự không?",
-      "audio": "",
+      "audio": "410e010dc50a04aab2a6106964cac9ca123bd342935fba70b262801e7609b3d1",
       "tokens": [
         "Were",
         "you",
@@ -3137,7 +3137,7 @@
         "word:layoff-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3147,7 +3147,7 @@
     "body": {
       "en": "She will return from maternity leave in June.",
       "vi": "Cô ấy sẽ trở lại làm việc sau kỳ nghỉ thai sản vào tháng Sáu.",
-      "audio": "",
+      "audio": "a102e8f073fae6ae79f8c46b3e74b51a417367e894931b0417e8ee84b42e6970",
       "tokens": [
         "She",
         "will",
@@ -3202,7 +3202,7 @@
         "word:maternity-leave-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3212,7 +3212,7 @@
     "body": {
       "en": "How long is maternity leave at your company?",
       "vi": "Ở công ty bạn được nghỉ thai sản bao lâu?",
-      "audio": "",
+      "audio": "dda0b4b677a0d73988cc24886c235dcdc13b2e5b89b53e4328aa9ee963b4cec4",
       "tokens": [
         "How",
         "long",
@@ -3257,7 +3257,7 @@
         "word:maternity-leave-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3267,7 +3267,7 @@
     "body": {
       "en": "My notice period is thirty days.",
       "vi": "Thời gian báo trước khi nghỉ việc của tôi là ba mươi ngày.",
-      "audio": "",
+      "audio": "e4b26e92be8f17bd5c2fe6a45eab9ca2c9a8cb6995b145eb12def2e7d4c787ba",
       "tokens": [
         "My",
         "notice",
@@ -3308,7 +3308,7 @@
         "word:notice-period-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3318,7 +3318,7 @@
     "body": {
       "en": "Can you start after your notice period ends?",
       "vi": "Bạn có thể bắt đầu sau khi hết thời gian báo trước không?",
-      "audio": "",
+      "audio": "288a03c75e9642a2f35434b8eb74fc31061b2d34c6f3ddfb3523284856c69468",
       "tokens": [
         "Can",
         "you",
@@ -3363,7 +3363,7 @@
         "word:notice-period-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3373,7 +3373,7 @@
     "body": {
       "en": "HR will email you the offer letter tomorrow.",
       "vi": "Phòng nhân sự sẽ gửi email thư mời nhận việc cho bạn vào ngày mai.",
-      "audio": "",
+      "audio": "87aa003203012a19e6a909fa554e1c6117b0e58bf6a8de7fe14e994f672ce24a",
       "tokens": [
         "HR",
         "will",
@@ -3428,7 +3428,7 @@
         "word:offer-letter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3438,7 +3438,7 @@
     "body": {
       "en": "Please sign the offer letter and send it back.",
       "vi": "Vui lòng ký thư mời nhận việc và gửi lại.",
-      "audio": "",
+      "audio": "4091e764776d0f911b590ebd894c2ed06837d90e54ac8ca58f93dafe29fcbd39",
       "tokens": [
         "Please",
         "sign",
@@ -3485,7 +3485,7 @@
         "word:offer-letter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3495,7 +3495,7 @@
     "body": {
       "en": "HR onboards new hires every Monday.",
       "vi": "Phòng nhân sự tiếp nhận nhân viên mới vào mỗi thứ Hai.",
-      "audio": "",
+      "audio": "efd3133c945dd2daa38aa96556be23b2a9d4cc8856e5cf3cbb548f611554ea69",
       "tokens": [
         "HR",
         "onboards",
@@ -3543,7 +3543,7 @@
         "word:onboard-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3553,7 +3553,7 @@
     "body": {
       "en": "We onboarded twelve people last quarter.",
       "vi": "Quý trước chúng tôi đã tiếp nhận mười hai nhân viên mới.",
-      "audio": "",
+      "audio": "4156d3e4e2df6608f6a95a5c82d21e914baeb69e9dc5c73ce68680d323e17ce8",
       "tokens": [
         "We",
         "onboarded",
@@ -3601,7 +3601,7 @@
         "word:onboard-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3611,7 +3611,7 @@
     "body": {
       "en": "Onboarding takes two weeks for new engineers.",
       "vi": "Quá trình hội nhập kéo dài hai tuần đối với kỹ sư mới.",
-      "audio": "",
+      "audio": "e1b25b1d542c5e2c5623dc15e1d81f603d6d1e2d236f218c74d48a64746d7969",
       "tokens": [
         "Onboarding",
         "takes",
@@ -3653,7 +3653,7 @@
         "word:onboarding-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3663,7 +3663,7 @@
     "body": {
       "en": "A buddy helped me a lot during onboarding.",
       "vi": "Một người đồng hành đã giúp tôi rất nhiều trong quá trình hội nhập.",
-      "audio": "",
+      "audio": "7f7d3d3baca117be290d4b4c87e0f5f583bc2d6e887f38dd21d74e651bad0aee",
       "tokens": [
         "A",
         "buddy",
@@ -3707,7 +3707,7 @@
         "word:onboarding-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3717,7 +3717,7 @@
     "body": {
       "en": "New employees attend orientation on their first day.",
       "vi": "Nhân viên mới tham gia buổi định hướng vào ngày đầu tiên.",
-      "audio": "",
+      "audio": "cbb716ae182d7a4feeb851fb2c4822ca26d788dc4b2c9edac7085416d1544378",
       "tokens": [
         "New",
         "employees",
@@ -3761,7 +3761,7 @@
         "word:orientation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3771,7 +3771,7 @@
     "body": {
       "en": "The orientation covered company rules and safety.",
       "vi": "Buổi định hướng đã nói về quy định công ty và an toàn.",
-      "audio": "",
+      "audio": "c00c17e08babbf88bec57236679e0f24d1eb7c53396635505047d00970108162",
       "tokens": [
         "The",
         "orientation",
@@ -3813,7 +3813,7 @@
         "word:orientation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3823,7 +3823,7 @@
     "body": {
       "en": "They said I was overqualified for the role.",
       "vi": "Họ nói rằng tôi thừa trình độ cho vị trí đó.",
-      "audio": "",
+      "audio": "41c36a80a152ca4365cb60c3e38d12c98c525471682268674eb80e7b9b3c1536",
       "tokens": [
         "They",
         "said",
@@ -3867,7 +3867,7 @@
         "word:overqualified-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3877,7 +3877,7 @@
     "body": {
       "en": "Are you worried that he is overqualified?",
       "vi": "Bạn có lo rằng anh ấy thừa trình độ không?",
-      "audio": "",
+      "audio": "e358a97ef9285f7cee1419b7cab049bc25c4c7595e8bdce54c116a8b7d2d38ec",
       "tokens": [
         "Are",
         "you",
@@ -3919,7 +3919,7 @@
         "word:overqualified-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3929,7 +3929,7 @@
     "body": {
       "en": "New staff get fifteen days of paid time off.",
       "vi": "Nhân viên mới được mười lăm ngày nghỉ có lương.",
-      "audio": "",
+      "audio": "325387682137724e1bde1fce04a7d6872d04a05753af6864bfa27fa27d163e34",
       "tokens": [
         "New",
         "staff",
@@ -3976,7 +3976,7 @@
         "word:paid-time-off-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3986,7 +3986,7 @@
     "body": {
       "en": "How much paid time off do you have left?",
       "vi": "Bạn còn bao nhiêu ngày nghỉ có lương?",
-      "audio": "",
+      "audio": "60a92f81c792adf401b0ef50520c3bc9a06eb0562b8280b93529683bb75cf8b4",
       "tokens": [
         "How",
         "much",
@@ -4033,7 +4033,7 @@
         "word:paid-time-off-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4043,7 +4043,7 @@
     "body": {
       "en": "The final round is a panel interview with three managers.",
       "vi": "Vòng cuối là buổi phỏng vấn hội đồng với ba quản lý.",
-      "audio": "",
+      "audio": "f146a3cd1a72a0a0fe205bd47b4d9b22a5b52777b089f1d48173316af5c72bb8",
       "tokens": [
         "The",
         "final",
@@ -4092,7 +4092,7 @@
         "word:panel-interview-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4102,7 +4102,7 @@
     "body": {
       "en": "I was nervous before my first panel interview.",
       "vi": "Tôi đã lo lắng trước buổi phỏng vấn hội đồng đầu tiên của mình.",
-      "audio": "",
+      "audio": "5cf287766c67e6d38f9bc6a91a116f556c942822912e5c898bed456a5381a6b1",
       "tokens": [
         "I",
         "was",
@@ -4147,7 +4147,7 @@
         "word:panel-interview-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4157,7 +4157,7 @@
     "body": {
       "en": "We have performance reviews twice a year.",
       "vi": "Chúng tôi có buổi đánh giá hiệu suất hai lần mỗi năm.",
-      "audio": "",
+      "audio": "6d8bfea09111ea722a1b53fc626528a41a9f728f36e04b5acb537d477040e005",
       "tokens": [
         "We",
         "have",
@@ -4200,7 +4200,7 @@
         "word:performance-review-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4210,7 +4210,7 @@
     "body": {
       "en": "My manager gave me good feedback in my performance review.",
       "vi": "Quản lý đã cho tôi nhận xét tốt trong buổi đánh giá hiệu suất.",
-      "audio": "",
+      "audio": "a80623fbbe0d08279de9561c96a62c95eb8533ab85660a4dc3acd0ad90fea424",
       "tokens": [
         "My",
         "manager",
@@ -4259,7 +4259,7 @@
         "word:performance-review-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4269,7 +4269,7 @@
     "body": {
       "en": "Free lunch is one of the best perks here.",
       "vi": "Bữa trưa miễn phí là một trong những phúc lợi tốt nhất ở đây.",
-      "audio": "",
+      "audio": "4950deacb8d2ecf1c79f7d0bf0f663b2c18534a07f20dc94bc64e961ed09b4ec",
       "tokens": [
         "Free",
         "lunch",
@@ -4315,7 +4315,7 @@
         "word:perk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4325,7 +4325,7 @@
     "body": {
       "en": "What perks do your employees get?",
       "vi": "Nhân viên của bạn được hưởng những phúc lợi gì?",
-      "audio": "",
+      "audio": "c8e961fb4b45badf5b82c449d2cdb2be78bbf27660aa710ab602369da64ce938",
       "tokens": [
         "What",
         "perks",
@@ -4365,7 +4365,7 @@
         "word:perk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4375,7 +4375,7 @@
     "body": {
       "en": "New staff are on probation for two months.",
       "vi": "Nhân viên mới được thử việc trong hai tháng.",
-      "audio": "",
+      "audio": "8a063094261016f8b1f9ba59e6c6a282c75dcbcffe3b0c0e741531e206424a0f",
       "tokens": [
         "New",
         "staff",
@@ -4419,7 +4419,7 @@
         "word:probation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4429,7 +4429,7 @@
     "body": {
       "en": "He passed his probation and got a raise.",
       "vi": "Anh ấy đã qua thời gian thử việc và được tăng lương.",
-      "audio": "",
+      "audio": "62e8b339a7d25f371f8acf94e0373b50a84e6b4deea436a8a1ab88ab7b7b6ea5",
       "tokens": [
         "He",
         "passed",
@@ -4473,7 +4473,7 @@
         "word:probation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4483,7 +4483,7 @@
     "body": {
       "en": "A recruiter called me about a marketing job yesterday.",
       "vi": "Hôm qua một chuyên viên tuyển dụng đã gọi cho tôi về một công việc marketing.",
-      "audio": "",
+      "audio": "6657093256ae5e95c6fcbc78e3604266cd0ee202739b2d3128f4ebbab1cced05",
       "tokens": [
         "A",
         "recruiter",
@@ -4540,7 +4540,7 @@
         "word:recruiter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4550,7 +4550,7 @@
     "body": {
       "en": "Our recruiters review hundreds of resumes every week.",
       "vi": "Các chuyên viên tuyển dụng của chúng tôi xem xét hàng trăm hồ sơ mỗi tuần.",
-      "audio": "",
+      "audio": "473076ca10bee6cff28c1fca0030e40ad7c71508efa73086c0e25901c4911e5a",
       "tokens": [
         "Our",
         "recruiters",
@@ -4604,7 +4604,7 @@
         "word:recruiter-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4614,7 +4614,7 @@
     "body": {
       "en": "We found our new accountant through a recruitment agency.",
       "vi": "Chúng tôi tìm được kế toán mới thông qua một công ty tuyển dụng.",
-      "audio": "",
+      "audio": "19c11f3ff6a31eb8e7f869bd3baf19d172d77b11fe1e7643e05278aabe811d53",
       "tokens": [
         "We",
         "found",
@@ -4661,7 +4661,7 @@
         "word:recruitment-agency-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4671,7 +4671,7 @@
     "body": {
       "en": "Does the recruitment agency charge the candidate?",
       "vi": "Công ty tuyển dụng có thu phí ứng viên không?",
-      "audio": "",
+      "audio": "4ffe2f532c2d733b4e50caa2f7f7f8b59f1efac9202ec4aa143dcc8d3cdb5a47",
       "tokens": [
         "Does",
         "the",
@@ -4714,7 +4714,7 @@
         "word:recruitment-agency-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4724,7 +4724,7 @@
     "body": {
       "en": "She has worked in recruitment for six years.",
       "vi": "Cô ấy đã làm trong ngành tuyển dụng được sáu năm.",
-      "audio": "",
+      "audio": "8fa67c73103213af8880f633c1e414f7acc6541fa8a65f6fad3a1b1acb8fe4ac",
       "tokens": [
         "She",
         "has",
@@ -4768,7 +4768,7 @@
         "word:recruitment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4778,7 +4778,7 @@
     "body": {
       "en": "The recruitment process usually takes about a month.",
       "vi": "Quy trình tuyển dụng thường mất khoảng một tháng.",
-      "audio": "",
+      "audio": "0628e767699767122d969002f7dd2389da3c45d6d3b6bcf23f53efe0a16708da",
       "tokens": [
         "The",
         "recruitment",
@@ -4822,7 +4822,7 @@
         "word:recruitment-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4832,7 +4832,7 @@
     "body": {
       "en": "We do a reference check before every job offer.",
       "vi": "Chúng tôi kiểm tra người tham chiếu trước mỗi lời mời làm việc.",
-      "audio": "",
+      "audio": "0fd875a0973c6b6201824e0af3b73b1439d10c792c14d9170e9fce5957f4a821",
       "tokens": [
         "We",
         "do",
@@ -4879,7 +4879,7 @@
         "word:reference-check-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4889,7 +4889,7 @@
     "body": {
       "en": "The reference check took longer than we expected.",
       "vi": "Việc kiểm tra người tham chiếu mất nhiều thời gian hơn chúng tôi nghĩ.",
-      "audio": "",
+      "audio": "eee6f06d223a2bea8d9f9b7811bfcd6a31163cdb407cddfa15092175c5657810",
       "tokens": [
         "The",
         "reference",
@@ -4934,7 +4934,7 @@
         "word:reference-check-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4944,7 +4944,7 @@
     "body": {
       "en": "Many of our best hires came from employee referrals.",
       "vi": "Nhiều nhân viên giỏi nhất của chúng tôi đến từ sự giới thiệu của nhân viên.",
-      "audio": "",
+      "audio": "4b71b89c4255b4ebd1209263ab84d49038e7f5be22792ec033a63803001a2d07",
       "tokens": [
         "Many",
         "of",
@@ -4990,7 +4990,7 @@
         "word:referral-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5000,7 +5000,7 @@
     "body": {
       "en": "You get a bonus for each successful referral.",
       "vi": "Bạn được thưởng cho mỗi lần giới thiệu ứng viên thành công.",
-      "audio": "",
+      "audio": "ab8eb20695008076067264c8ca7a76bb71496a075c7ac1636c9602a36cd841dc",
       "tokens": [
         "You",
         "get",
@@ -5044,7 +5044,7 @@
         "word:referral-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5054,7 +5054,7 @@
     "body": {
       "en": "Are you willing to relocate to another city?",
       "vi": "Bạn có sẵn sàng chuyển đến thành phố khác không?",
-      "audio": "",
+      "audio": "67598c36b69063a170d6b720606c1a22bb5983ce0ad7f77c2c99079ae30a0c35",
       "tokens": [
         "Are",
         "you",
@@ -5099,7 +5099,7 @@
         "word:relocate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5109,7 +5109,7 @@
     "body": {
       "en": "The company relocated her to its new branch office.",
       "vi": "Công ty đã điều chuyển cô ấy sang văn phòng chi nhánh mới.",
-      "audio": "",
+      "audio": "d55ee5953bb80f6afa64b80c390d016eb8930e7974211461aaac11f2e701d716",
       "tokens": [
         "The",
         "company",
@@ -5155,7 +5155,7 @@
         "word:relocate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5165,7 +5165,7 @@
     "body": {
       "en": "The job offer includes help with relocation costs.",
       "vi": "Lời mời làm việc bao gồm hỗ trợ chi phí chuyển nơi ở.",
-      "audio": "",
+      "audio": "b2c133dbe8b3e9aab47e4b25d61e94ac39110a9805ad396492befefe22f34abf",
       "tokens": [
         "The",
         "job",
@@ -5209,7 +5209,7 @@
         "word:relocation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5219,7 +5219,7 @@
     "body": {
       "en": "Is relocation required for this role?",
       "vi": "Vị trí này có yêu cầu chuyển nơi làm việc không?",
-      "audio": "",
+      "audio": "ed5da035d0120b169db05308981eb8e59faaa4e6259f65519210ed31a41032ce",
       "tokens": [
         "Is",
         "relocation",
@@ -5259,7 +5259,7 @@
         "word:relocation-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5269,7 +5269,7 @@
     "body": {
       "en": "Please send your resume to our HR team by Friday.",
       "vi": "Vui lòng gửi sơ yếu lý lịch của bạn cho bộ phận nhân sự trước thứ Sáu.",
-      "audio": "",
+      "audio": "2e92183503651df5d69d0c8dd0bcbcbc57ea771dd9fcb87cd592ffd7ad0021d8",
       "tokens": [
         "Please",
         "send",
@@ -5317,7 +5317,7 @@
         "word:resume-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5327,7 +5327,7 @@
     "body": {
       "en": "I updated my resume before the job fair.",
       "vi": "Tôi đã cập nhật sơ yếu lý lịch trước hội chợ việc làm.",
-      "audio": "",
+      "audio": "bb6a4be09bc739fcc4a56b433c74b7058cf3c7f6524eb2d9a3ff450dc39c5489",
       "tokens": [
         "I",
         "updated",
@@ -5372,7 +5372,7 @@
         "word:resume-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5382,7 +5382,7 @@
     "body": {
       "en": "What is the salary range for this position?",
       "vi": "Khung lương cho vị trí này là bao nhiêu?",
-      "audio": "",
+      "audio": "5a2669ef3ea19218e3202ade966ae49b30ddcf3e40880ffc5bbaca750bf7f417",
       "tokens": [
         "What",
         "is",
@@ -5427,7 +5427,7 @@
         "word:salary-range-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5437,7 +5437,7 @@
     "body": {
       "en": "We include the salary range in every job posting.",
       "vi": "Chúng tôi ghi khung lương trong mọi tin tuyển dụng.",
-      "audio": "",
+      "audio": "232fe14253d45cc315c660cf22eb913d3ef17480f36eadf281c1cb2160636e36",
       "tokens": [
         "We",
         "include",
@@ -5484,7 +5484,7 @@
         "word:salary-range-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5494,7 +5494,7 @@
     "body": {
       "en": "The first step is a short phone screening.",
       "vi": "Bước đầu tiên là một vòng sơ tuyển ngắn qua điện thoại.",
-      "audio": "",
+      "audio": "4c5c9cb3d788d046bba97cafa05f969014fea993c69f0c1f2c6a534846b4a30d",
       "tokens": [
         "The",
         "first",
@@ -5538,7 +5538,7 @@
         "word:screening-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5548,7 +5548,7 @@
     "body": {
       "en": "Only ten applicants passed the screening.",
       "vi": "Chỉ có mười ứng viên vượt qua vòng sàng lọc.",
-      "audio": "",
+      "audio": "165ebfb8ea05173ac40f839541efc261f8fac1dcc86afe333680d709a12b04a4",
       "tokens": [
         "Only",
         "ten",
@@ -5588,7 +5588,7 @@
         "word:screening-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5598,7 +5598,7 @@
     "body": {
       "en": "Laid-off staff will receive three months of severance pay.",
       "vi": "Nhân viên bị cho nghỉ sẽ nhận ba tháng trợ cấp thôi việc.",
-      "audio": "",
+      "audio": "cc254c5218887cec98ff9226ab4b1a976e8d6596b1842671b12a53ba9d8f99df",
       "tokens": [
         "Laid-off",
         "staff",
@@ -5645,7 +5645,7 @@
         "word:severance-pay-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5655,7 +5655,7 @@
     "body": {
       "en": "How is severance pay calculated at this company?",
       "vi": "Ở công ty này, trợ cấp thôi việc được tính như thế nào?",
-      "audio": "",
+      "audio": "a78c8b856a4f27cb209578c4e698dd7b83cd3799818df98417ffd71fe48715f7",
       "tokens": [
         "How",
         "is",
@@ -5700,7 +5700,7 @@
         "word:severance-pay-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5710,7 +5710,7 @@
     "body": {
       "en": "He is on sick leave until next Monday.",
       "vi": "Anh ấy nghỉ ốm đến thứ Hai tuần sau.",
-      "audio": "",
+      "audio": "42d62cfc1ff71d373cdf5bd39f61939fecdc78bee5e090d42540c887d952d0f9",
       "tokens": [
         "He",
         "is",
@@ -5755,7 +5755,7 @@
         "word:sick-leave-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5765,7 +5765,7 @@
     "body": {
       "en": "I took two days of sick leave last month.",
       "vi": "Tháng trước tôi đã nghỉ ốm hai ngày.",
-      "audio": "",
+      "audio": "85ab4571de6e2beddff49ed38e15ad39bfec357910f2fbc7a45499801de9d4dd",
       "tokens": [
         "I",
         "took",
@@ -5823,7 +5823,7 @@
         "word:sick-leave-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5833,7 +5833,7 @@
     "body": {
       "en": "They offered me a signing bonus to start early.",
       "vi": "Họ đề nghị cho tôi tiền thưởng ký hợp đồng để bắt đầu sớm.",
-      "audio": "",
+      "audio": "ebc066300daf0dc24f69728912472936937eb4c4915ce8b04c139dd34eaf0303",
       "tokens": [
         "They",
         "offered",
@@ -5880,7 +5880,7 @@
         "word:signing-bonus-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5890,7 +5890,7 @@
     "body": {
       "en": "Is the signing bonus paid in the first month?",
       "vi": "Tiền thưởng ký hợp đồng có được trả vào tháng đầu tiên không?",
-      "audio": "",
+      "audio": "4e6d22614356e2d8b715c0536e30cb11fe52b4a880e85eaceb401dad2bc536a5",
       "tokens": [
         "Is",
         "the",
@@ -5937,7 +5937,7 @@
         "word:signing-bonus-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5947,7 +5947,7 @@
     "body": {
       "en": "Communication is one of the most important soft skills.",
       "vi": "Giao tiếp là một trong những kỹ năng mềm quan trọng nhất.",
-      "audio": "",
+      "audio": "26875e1f3ced6e5b76504a145e7de4733bbd857579972d22f9d97b77c0dc0b88",
       "tokens": [
         "Communication",
         "is",
@@ -5994,7 +5994,7 @@
         "word:soft-skills-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6004,7 +6004,7 @@
     "body": {
       "en": "We look for strong soft skills in every candidate.",
       "vi": "Chúng tôi tìm kiếm kỹ năng mềm tốt ở mọi ứng viên.",
-      "audio": "",
+      "audio": "a507b3149827147b5cac6b1ac0b84759d4225c0ec746f9426baf6203ebadc887",
       "tokens": [
         "We",
         "look",
@@ -6051,7 +6051,7 @@
         "word:soft-skills-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6061,7 +6061,7 @@
     "body": {
       "en": "Your start date is the first of March.",
       "vi": "Ngày bắt đầu làm việc của bạn là mùng một tháng Ba.",
-      "audio": "",
+      "audio": "391ee8a73c491af1cca773684288edb640817d94ab7cb08c4c90b7594139393e",
       "tokens": [
         "Your",
         "start",
@@ -6106,7 +6106,7 @@
         "word:start-date-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6116,7 +6116,7 @@
     "body": {
       "en": "Can we move my start date to next week?",
       "vi": "Chúng ta có thể dời ngày bắt đầu của tôi sang tuần sau không?",
-      "audio": "",
+      "audio": "f14016b60ddf7cefc3ccc2e056eb1162ab63f3b0df2ebc132c7f3510cde0d7d3",
       "tokens": [
         "Can",
         "we",
@@ -6163,7 +6163,7 @@
         "word:start-date-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6173,7 +6173,7 @@
     "body": {
       "en": "We keep good candidates in our talent pool.",
       "vi": "Chúng tôi giữ những ứng viên tốt trong nguồn nhân tài của mình.",
-      "audio": "",
+      "audio": "432be90be9c26511c46368a0bfc35157707bdc80fc439aa8b86cb81fd2498b1b",
       "tokens": [
         "We",
         "keep",
@@ -6218,7 +6218,7 @@
         "word:talent-pool-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6228,7 +6228,7 @@
     "body": {
       "en": "The local talent pool for engineers is small.",
       "vi": "Nguồn kỹ sư tại địa phương khá ít.",
-      "audio": "",
+      "audio": "323d526f067f640c65687c8cfa80380bd47958f4bb70cc264702ddfc866e085d",
       "tokens": [
         "The",
         "local",
@@ -6273,7 +6273,7 @@
         "word:talent-pool-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6283,7 +6283,7 @@
     "body": {
       "en": "We want a team player who shares ideas openly.",
       "vi": "Chúng tôi muốn một người có tinh thần đồng đội, chia sẻ ý tưởng cởi mở.",
-      "audio": "",
+      "audio": "7be857f68a9dccbba1801c2e4da68553ab75661ca8b35bbdf10c2739a4132b79",
       "tokens": [
         "We",
         "want",
@@ -6330,7 +6330,7 @@
         "word:team-player-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6340,7 +6340,7 @@
     "body": {
       "en": "Are you a team player?",
       "vi": "Bạn có phải là người có tinh thần đồng đội không?",
-      "audio": "",
+      "audio": "9b4030e5c44b28622680ede990a50714d7e40ab16146e294c5c0b84dfba3e9d1",
       "tokens": [
         "Are",
         "you",
@@ -6379,7 +6379,7 @@
         "word:team-player-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6389,7 +6389,7 @@
     "body": {
       "en": "She has a strong track record in sales.",
       "vi": "Cô ấy có thành tích tốt trong lĩnh vực bán hàng.",
-      "audio": "",
+      "audio": "ab454be6726f8261963bb2286b4dfe3db3cc107853701956c857b160073b4893",
       "tokens": [
         "She",
         "has",
@@ -6434,7 +6434,7 @@
         "word:track-record-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6444,7 +6444,7 @@
     "body": {
       "en": "We need someone with a proven track record.",
       "vi": "Chúng tôi cần người có thành tích đã được chứng minh.",
-      "audio": "",
+      "audio": "8269b2072feb655cf2e7eea0f7fcd38b60ea0170ae1becd71850386bd60a6b3d",
       "tokens": [
         "We",
         "need",
@@ -6489,7 +6489,7 @@
         "word:track-record-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6499,7 +6499,7 @@
     "body": {
       "en": "High turnover is expensive for any company.",
       "vi": "Tỷ lệ nghỉ việc cao rất tốn kém cho bất kỳ công ty nào.",
-      "audio": "",
+      "audio": "44671dbac88623ce69a877f9fb13bcaf05743d054b1751b2f199478a15133295",
       "tokens": [
         "High",
         "turnover",
@@ -6541,7 +6541,7 @@
         "word:turnover-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6551,7 +6551,7 @@
     "body": {
       "en": "Staff turnover dropped after we raised salaries.",
       "vi": "Tỷ lệ nghỉ việc giảm sau khi chúng tôi tăng lương.",
-      "audio": "",
+      "audio": "be500332760fbdbbaffbd01c5de09a4e1c864d9306745bc0425383da39fb28e7",
       "tokens": [
         "Staff",
         "turnover",
@@ -6593,7 +6593,7 @@
         "word:turnover-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6603,7 +6603,7 @@
     "body": {
       "en": "Foreign staff need a work permit to work here.",
       "vi": "Nhân viên nước ngoài cần giấy phép lao động để làm việc ở đây.",
-      "audio": "",
+      "audio": "57f09508883e7b06a8458acaae8bd220c3ff32af78888965678cbbe646793eac",
       "tokens": [
         "Foreign",
         "staff",
@@ -6650,7 +6650,7 @@
         "word:work-permit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6660,7 +6660,7 @@
     "body": {
       "en": "HR is still processing his work permit.",
       "vi": "Phòng nhân sự vẫn đang xử lý giấy phép lao động của anh ấy.",
-      "audio": "",
+      "audio": "a33991ca3d362f209ba52de202d4afeb0155c4a8d3f83f9fe19c7214b849eeee",
       "tokens": [
         "HR",
         "is",
@@ -6703,6 +6703,6 @@
         "word:work-permit-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]

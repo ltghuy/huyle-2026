@@ -7,7 +7,7 @@
     "body": {
       "en": "Our office administrator orders lunch for big meetings.",
       "vi": "Nhân viên hành chính văn phòng của chúng tôi đặt cơm trưa cho các cuộc họp lớn.",
-      "audio": "",
+      "audio": "42acca6642f0b9650d13ed6d2a8849c57580cc3b41559db81fa397481c2f07b7",
       "tokens": [
         "Our",
         "office",
@@ -52,7 +52,7 @@
         "word:administrator-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -62,7 +62,7 @@
     "body": {
       "en": "I worked as an administrator for three years.",
       "vi": "Tôi đã làm nhân viên hành chính trong ba năm.",
-      "audio": "",
+      "audio": "ad1765eeafc7f74833a378b26a5e294ccb39a1ada58e7ff0f43edcd2ba3283f1",
       "tokens": [
         "I",
         "worked",
@@ -107,7 +107,7 @@
         "word:administrator-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -117,7 +117,7 @@
     "body": {
       "en": "We archive all contracts at the end of each year.",
       "vi": "Chúng tôi lưu trữ tất cả hợp đồng vào cuối mỗi năm.",
-      "audio": "",
+      "audio": "9e009c03c2fe31707ac01fc3781ce38b648760012eb59de63027623215820437",
       "tokens": [
         "We",
         "archive",
@@ -178,7 +178,7 @@
         "word:archive-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -188,7 +188,7 @@
     "body": {
       "en": "Have you archived last year's invoices?",
       "vi": "Bạn đã lưu trữ các hóa đơn của năm ngoái chưa?",
-      "audio": "",
+      "audio": "084c1d962f8a789e55201e4f7f62412614b2dd19664ae109c0f24be7da912732",
       "tokens": [
         "Have",
         "you",
@@ -229,7 +229,7 @@
         "word:archive-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -239,7 +239,7 @@
     "body": {
       "en": "Each attendee will receive a name badge at the door.",
       "vi": "Mỗi người tham dự sẽ nhận một thẻ tên ở cửa.",
-      "audio": "",
+      "audio": "c3919347d75805080bdb4868079e0f0299b315856a1f89b8fac56062acec9c20",
       "tokens": [
         "Each",
         "attendee",
@@ -288,7 +288,7 @@
         "word:attendee-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -298,7 +298,7 @@
     "body": {
       "en": "How many attendees have confirmed so far?",
       "vi": "Đến giờ đã có bao nhiêu người tham dự xác nhận?",
-      "audio": "",
+      "audio": "1f3919ee357e54811838650a250fedda9a5d245adcf64fb54e228d79d6e5b0c1",
       "tokens": [
         "How",
         "many",
@@ -341,7 +341,7 @@
         "word:attendee-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -351,7 +351,7 @@
     "body": {
       "en": "You need written authorization to use the company car.",
       "vi": "Bạn cần giấy cho phép bằng văn bản để dùng xe công ty.",
-      "audio": "",
+      "audio": "7e1c1612def181f89f6aede1e4bdd73a314ec6f85ec5d730d9c3402c48e7b93d",
       "tokens": [
         "You",
         "need",
@@ -398,7 +398,7 @@
         "word:authorization-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -408,7 +408,7 @@
     "body": {
       "en": "Did the finance director give authorization for the payment?",
       "vi": "Giám đốc tài chính đã phê duyệt khoản thanh toán chưa?",
-      "audio": "",
+      "audio": "d7f20760a53b3e03896be216f22c9e48fb7d03b956eadb412ba7fb39c263510f",
       "tokens": [
         "Did",
         "the",
@@ -455,7 +455,7 @@
         "word:authorization-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -465,7 +465,7 @@
     "body": {
       "en": "Keep all signed forms in the blue binder.",
       "vi": "Hãy giữ tất cả các mẫu đơn đã ký trong bìa còng màu xanh.",
-      "audio": "",
+      "audio": "3296fcd194f288141001da0faeff7b976ffd6ce2fa601816cd8ad02a647f2f5a",
       "tokens": [
         "Keep",
         "all",
@@ -510,7 +510,7 @@
         "word:binder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -520,7 +520,7 @@
     "body": {
       "en": "There are twelve binders on the top shelf.",
       "vi": "Có mười hai bìa còng trên kệ trên cùng.",
-      "audio": "",
+      "audio": "b38f03c51efc9beb62337eedb9a4a57e5e7e561849c07de2a4d34d61b75cbac4",
       "tokens": [
         "There",
         "are",
@@ -565,7 +565,7 @@
         "word:binder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -575,7 +575,7 @@
     "body": {
       "en": "He is on a business trip until Thursday.",
       "vi": "Anh ấy đi công tác đến thứ Năm.",
-      "audio": "",
+      "audio": "d84213efd1b4d38969b9d862d46927a752e0156c70bf277643cf5798a5b7adeb",
       "tokens": [
         "He",
         "is",
@@ -620,7 +620,7 @@
         "word:business-trip-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -630,7 +630,7 @@
     "body": {
       "en": "I booked the hotel for her business trip next week.",
       "vi": "Tôi đã đặt khách sạn cho chuyến công tác tuần sau của cô ấy.",
-      "audio": "",
+      "audio": "48dc023841575938729182f7c5035fa994fa9a36e2dfe9e55007ca8afffbc11c",
       "tokens": [
         "I",
         "booked",
@@ -679,7 +679,7 @@
         "word:business-trip-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -689,7 +689,7 @@
     "body": {
       "en": "Please cc me on all emails to the supplier.",
       "vi": "Vui lòng cc tôi trong tất cả email gửi nhà cung cấp.",
-      "audio": "",
+      "audio": "39d8c0a93cebb715f8ca17de1899291ee8e5e25757f5d271f479bf3ab6125a69",
       "tokens": [
         "Please",
         "cc",
@@ -736,7 +736,7 @@
         "word:cc-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -746,7 +746,7 @@
     "body": {
       "en": "She forgot to cc the manager on her reply.",
       "vi": "Cô ấy quên cc quản lý trong email trả lời.",
-      "audio": "",
+      "audio": "949514cc081660fc517053478f8f8fd200e7ea038f8742d6facf03bce8bc1a35",
       "tokens": [
         "She",
         "forgot",
@@ -793,7 +793,7 @@
         "word:cc-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -803,7 +803,7 @@
     "body": {
       "en": "We have a conference call with the overseas team at nine.",
       "vi": "Chúng tôi có cuộc gọi hội nghị với nhóm ở nước ngoài lúc chín giờ.",
-      "audio": "",
+      "audio": "2510b6ad2146190a8331d7d4fb3f0ccf2ed942dd4768db2c2384b797ada58d65",
       "tokens": [
         "We",
         "have",
@@ -854,7 +854,7 @@
         "word:conference-call-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -864,7 +864,7 @@
     "body": {
       "en": "Who set up yesterday's conference call?",
       "vi": "Ai đã sắp xếp cuộc gọi hội nghị hôm qua?",
-      "audio": "",
+      "audio": "c163cd8af929b1b925d58b4e303574203d4d45759001c3c32da92ca07a284455",
       "tokens": [
         "Who",
         "set",
@@ -905,7 +905,7 @@
         "word:conference-call-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -915,7 +915,7 @@
     "body": {
       "en": "I booked the conference room for two o'clock.",
       "vi": "Tôi đã đặt phòng họp lúc hai giờ.",
-      "audio": "",
+      "audio": "c68b9aa60ebc3d2758990afec383985873ec30766950bd4895808d5fae8a74a1",
       "tokens": [
         "I",
         "booked",
@@ -960,7 +960,7 @@
         "word:conference-room-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -970,7 +970,7 @@
     "body": {
       "en": "Is the conference room free on Thursday afternoon?",
       "vi": "Phòng họp có trống vào chiều thứ Năm không?",
-      "audio": "",
+      "audio": "81601b97a531c5fd483ca6ca87158d5d9cfe932465392ac4ca0244a13d5a60f7",
       "tokens": [
         "Is",
         "the",
@@ -1015,7 +1015,7 @@
         "word:conference-room-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1025,7 +1025,7 @@
     "body": {
       "en": "She coordinates travel for the whole sales team.",
       "vi": "Cô ấy điều phối việc đi lại cho cả nhóm kinh doanh.",
-      "audio": "",
+      "audio": "0e361e73f93a61d025de4595b9805be141fb92c96a18c670ef092392348ca966",
       "tokens": [
         "She",
         "coordinates",
@@ -1070,7 +1070,7 @@
         "word:coordinate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1080,7 +1080,7 @@
     "body": {
       "en": "We need to coordinate with the security team about visitor passes.",
       "vi": "Chúng ta cần phối hợp với đội bảo vệ về thẻ khách.",
-      "audio": "",
+      "audio": "07fc8756655756794f7f8fd66d76f1cecd42ce1992a8a4454640546237501030",
       "tokens": [
         "We",
         "need",
@@ -1131,7 +1131,7 @@
         "word:coordinate-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1141,7 +1141,7 @@
     "body": {
       "en": "The office coordinator handles all room bookings.",
       "vi": "Điều phối viên văn phòng phụ trách mọi việc đặt phòng.",
-      "audio": "",
+      "audio": "c69987f9b0d57f4d7cbf4c7b92fd464af94d3bce308c6a2963e4b898c7b1202b",
       "tokens": [
         "The",
         "office",
@@ -1184,7 +1184,7 @@
         "word:coordinator-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1194,7 +1194,7 @@
     "body": {
       "en": "Who is the event coordinator for the year-end party?",
       "vi": "Ai là điều phối viên sự kiện cho tiệc cuối năm?",
-      "audio": "",
+      "audio": "83e3131bf0d64f694716f5ec3dffdec5429ba3cef2f8cded24f7f66ed54b38fd",
       "tokens": [
         "Who",
         "is",
@@ -1241,7 +1241,7 @@
         "word:coordinator-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1251,7 +1251,7 @@
     "body": {
       "en": "We sent the signed contract by courier.",
       "vi": "Chúng tôi đã gửi hợp đồng đã ký qua chuyển phát nhanh.",
-      "audio": "",
+      "audio": "7deb18f47fc335be8745a5aa8c3c39c47e31a96967f99e74bf65fed84ef9f1a1",
       "tokens": [
         "We",
         "sent",
@@ -1294,7 +1294,7 @@
         "word:courier-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1304,7 +1304,7 @@
     "body": {
       "en": "The courier is coming to pick up the documents at four.",
       "vi": "Nhân viên chuyển phát sẽ đến lấy tài liệu lúc bốn giờ.",
-      "audio": "",
+      "audio": "c963bea74d74c052848e9cbc36f8f258688e5f6fb9fff68eedea337593d94225",
       "tokens": [
         "The",
         "courier",
@@ -1355,7 +1355,7 @@
         "word:courier-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1365,7 +1365,7 @@
     "body": {
       "en": "The due date is printed at the top of the invoice.",
       "vi": "Ngày đến hạn được in ở đầu hóa đơn.",
-      "audio": "",
+      "audio": "b70907e5b0fd13940c42eb9f805d0e6e432f79e5cba91e1a282c9587c165fab0",
       "tokens": [
         "The",
         "due",
@@ -1416,7 +1416,7 @@
         "word:due-date-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1426,7 +1426,7 @@
     "body": {
       "en": "We missed the due date and paid a late fee.",
       "vi": "Chúng tôi đã trễ hạn và phải trả phí trễ hạn.",
-      "audio": "",
+      "audio": "0591e849ee6fb6586d03439bddfe6b2eef1225df9340020111b353cfc5aed876",
       "tokens": [
         "We",
         "missed",
@@ -1475,7 +1475,7 @@
         "word:due-date-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1485,7 +1485,7 @@
     "body": {
       "en": "Submit your expense report within five days of your trip.",
       "vi": "Hãy nộp báo cáo chi phí trong vòng năm ngày sau chuyến đi.",
-      "audio": "",
+      "audio": "c0003eb325097be458db8fb62cb0435b7bb3aba1d5851bc5aa51fb0392aafa68",
       "tokens": [
         "Submit",
         "your",
@@ -1534,7 +1534,7 @@
         "word:expense-report-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1544,7 +1544,7 @@
     "body": {
       "en": "Has the director approved my expense report yet?",
       "vi": "Giám đốc đã duyệt báo cáo chi phí của tôi chưa?",
-      "audio": "",
+      "audio": "7fd65592a402e42918435496b6f4211d939f19e69579e3a0e9c7153f8e1e71af",
       "tokens": [
         "Has",
         "the",
@@ -1589,7 +1589,7 @@
         "word:expense-report-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1599,7 +1599,7 @@
     "body": {
       "en": "The filing cabinet is locked every night.",
       "vi": "Tủ hồ sơ được khóa mỗi tối.",
-      "audio": "",
+      "audio": "ceee816df055edc125b9747a71a9c924f57edb9c1bb7f3c90ca56034166cdeaa",
       "tokens": [
         "The",
         "filing",
@@ -1651,7 +1651,7 @@
         "word:filing-cabinet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1661,7 +1661,7 @@
     "body": {
       "en": "I found the old invoices in the bottom drawer of the filing cabinet.",
       "vi": "Tôi tìm thấy các hóa đơn cũ ở ngăn dưới cùng của tủ hồ sơ.",
-      "audio": "",
+      "audio": "1f37d4e04a3061ed3b44fcd1953d562d3d5a77e3386f0081b7604b2cf088d523",
       "tokens": [
         "I",
         "found",
@@ -1716,7 +1716,7 @@
         "word:filing-cabinet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1726,7 +1726,7 @@
     "body": {
       "en": "I spend an hour on filing every Friday afternoon.",
       "vi": "Tôi dành một tiếng để sắp xếp hồ sơ vào mỗi chiều thứ Sáu.",
-      "audio": "",
+      "audio": "655849b0470ae2ff578d8d433021df16975e9c8535edeb422b108a7940d24d74",
       "tokens": [
         "I",
         "spend",
@@ -1784,7 +1784,7 @@
         "word:filing-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1794,7 +1794,7 @@
     "body": {
       "en": "Is the filing finished yet?",
       "vi": "Việc lưu trữ hồ sơ đã xong chưa?",
-      "audio": "",
+      "audio": "b676aa240d3d114893952bf1e21feabfe9745208a6f0c01f1825963481774065",
       "tokens": [
         "Is",
         "the",
@@ -1833,7 +1833,7 @@
         "word:filing-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1843,7 +1843,7 @@
     "body": {
       "en": "I will follow up with the supplier tomorrow morning.",
       "vi": "Sáng mai tôi sẽ liên hệ lại với nhà cung cấp.",
-      "audio": "",
+      "audio": "f980b2680f956cf16b0fea36ca0209c750c96e9808187e6c645159e6f05f2915",
       "tokens": [
         "I",
         "will",
@@ -1901,7 +1901,7 @@
         "word:follow-up-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1911,7 +1911,7 @@
     "body": {
       "en": "Did anyone follow up on the unpaid invoice?",
       "vi": "Đã có ai nhắc lại về hóa đơn chưa thanh toán chưa?",
-      "audio": "",
+      "audio": "c334e3e7a994b6599043fdc9730698a33ee4a0293da74ec33aeaa7900e4c3a38",
       "tokens": [
         "Did",
         "anyone",
@@ -1956,7 +1956,7 @@
         "word:follow-up-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -1966,7 +1966,7 @@
     "body": {
       "en": "Could you forward this email to the finance team?",
       "vi": "Bạn có thể chuyển tiếp email này cho nhóm tài chính không?",
-      "audio": "",
+      "audio": "adcf58fa4159a427f4fc79fb66ade35bc82600e91dd21a4d6ecf9d5a12553e5d",
       "tokens": [
         "Could",
         "you",
@@ -2013,7 +2013,7 @@
         "word:forward-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2023,7 +2023,7 @@
     "body": {
       "en": "I forwarded the invoice to you an hour ago.",
       "vi": "Tôi đã chuyển tiếp hóa đơn cho bạn cách đây một tiếng.",
-      "audio": "",
+      "audio": "3dcf80fc771efe8d179a3a51584d0a958c2cac53e5573111fd41b5ca49ae4937",
       "tokens": [
         "I",
         "forwarded",
@@ -2081,7 +2081,7 @@
         "word:forward-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2091,7 +2091,7 @@
     "body": {
       "en": "Please leave the package at the front desk.",
       "vi": "Vui lòng để gói hàng ở quầy lễ tân.",
-      "audio": "",
+      "audio": "9b85211e5dac0f753a2804cf908c41bcbca36a5268e4f803c31c148ce3397ada",
       "tokens": [
         "Please",
         "leave",
@@ -2136,7 +2136,7 @@
         "word:front-desk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2146,7 +2146,7 @@
     "body": {
       "en": "Visitors must sign in at the front desk.",
       "vi": "Khách đến phải đăng ký vào ở quầy lễ tân.",
-      "audio": "",
+      "audio": "79614f94004fc020656b06532837e7bf6d0f391678fb3c02366d0239fbabe3aa",
       "tokens": [
         "Visitors",
         "must",
@@ -2191,7 +2191,7 @@
         "word:front-desk-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2201,7 +2201,7 @@
     "body": {
       "en": "Please write a handover note before your leave.",
       "vi": "Vui lòng viết ghi chú bàn giao trước kỳ nghỉ phép của bạn.",
-      "audio": "",
+      "audio": "772617dc7baa7b9eece42355f4c91a9e1008b118d4c95c165bb41a6aecc79e72",
       "tokens": [
         "Please",
         "write",
@@ -2246,7 +2246,7 @@
         "word:handover-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2256,7 +2256,7 @@
     "body": {
       "en": "The handover took two days because there were many files.",
       "vi": "Việc bàn giao mất hai ngày vì có nhiều hồ sơ.",
-      "audio": "",
+      "audio": "9a383ae6b2458961dcdd79b424b1d7585b8d7e7b04e9327f899749f2c382bcef",
       "tokens": [
         "The",
         "handover",
@@ -2305,7 +2305,7 @@
         "word:handover-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2315,7 +2315,7 @@
     "body": {
       "en": "Please bring a hard copy of the contract to the meeting.",
       "vi": "Vui lòng mang một bản in hợp đồng đến cuộc họp.",
-      "audio": "",
+      "audio": "50a5ab49b97d8b3a79e59e26edcb29324f4cbf4b07d55ef4648ea9e528be8014",
       "tokens": [
         "Please",
         "bring",
@@ -2366,7 +2366,7 @@
         "word:hard-copy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2376,7 +2376,7 @@
     "body": {
       "en": "Do you need a hard copy, or is email OK?",
       "vi": "Bạn cần bản in hay gửi email là được?",
-      "audio": "",
+      "audio": "209277c5af09cb58b1041c9df2315dea424d629424d4eaffd2e6eda5f53181f6",
       "tokens": [
         "Do",
         "you",
@@ -2425,7 +2425,7 @@
         "word:hard-copy-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2435,7 +2435,7 @@
     "body": {
       "en": "My inbox is full of meeting requests.",
       "vi": "Hộp thư đến của tôi đầy yêu cầu họp.",
-      "audio": "",
+      "audio": "63a82f65251a97924bfde0893fea8bb83c3594c24306d56c6e229e9a575b24ee",
       "tokens": [
         "My",
         "inbox",
@@ -2478,7 +2478,7 @@
         "word:inbox-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2488,7 +2488,7 @@
     "body": {
       "en": "Did the invoice arrive in your inbox?",
       "vi": "Hóa đơn đã đến hộp thư của bạn chưa?",
-      "audio": "",
+      "audio": "04e51833a8769701a14f8c4e0127a8b111bb3ba918fe0f41bef2342946154d17",
       "tokens": [
         "Did",
         "the",
@@ -2531,7 +2531,7 @@
         "word:inbox-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2541,7 +2541,7 @@
     "body": {
       "en": "We do an inventory of office supplies every quarter.",
       "vi": "Chúng tôi kiểm kê đồ dùng văn phòng mỗi quý.",
-      "audio": "",
+      "audio": "4ce57dfe7e47971ba4eebf2aab0bebecaebe2525b1dbda41c8fc7da2925d883c",
       "tokens": [
         "We",
         "do",
@@ -2599,7 +2599,7 @@
         "word:inventory-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2609,7 +2609,7 @@
     "body": {
       "en": "The inventory shows we are low on printer paper.",
       "vi": "Bảng kiểm kê cho thấy chúng ta sắp hết giấy in.",
-      "audio": "",
+      "audio": "e476d2031ec482da31b69a6472a129593aabf85dba0a9d871ce771a979827ab7",
       "tokens": [
         "The",
         "inventory",
@@ -2656,7 +2656,7 @@
         "word:inventory-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2666,7 +2666,7 @@
     "body": {
       "en": "New staff get a key card on their first day.",
       "vi": "Nhân viên mới được nhận thẻ từ vào ngày làm việc đầu tiên.",
-      "audio": "",
+      "audio": "9484616db0136d68e87f20d76c6cdc72fbf2a43b2a7333509bbe38b47cd5a923",
       "tokens": [
         "New",
         "staff",
@@ -2715,7 +2715,7 @@
         "word:key-card-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2725,7 +2725,7 @@
     "body": {
       "en": "I left my key card at home, so reception let me in.",
       "vi": "Tôi để quên thẻ từ ở nhà nên lễ tân đã cho tôi vào.",
-      "audio": "",
+      "audio": "503c28260b62826ca630df4d1f1c352107ce47def779376c16c7dd63642e79d2",
       "tokens": [
         "I",
         "left",
@@ -2778,7 +2778,7 @@
         "word:key-card-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2788,7 +2788,7 @@
     "body": {
       "en": "Print the official letter on company letterhead.",
       "vi": "Hãy in thư chính thức trên giấy tiêu đề của công ty.",
-      "audio": "",
+      "audio": "9267f1877a77d80d0611746046960c4e89d7bf67f85082b41fea95ab6aad144d",
       "tokens": [
         "Print",
         "the",
@@ -2831,7 +2831,7 @@
         "word:letterhead-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2841,7 +2841,7 @@
     "body": {
       "en": "We ran out of letterhead, so I ordered more.",
       "vi": "Chúng tôi hết giấy tiêu đề nên tôi đã đặt thêm.",
-      "audio": "",
+      "audio": "c3afa0cfa173033b6b29b420c8fd50fe1f27191861a2ca6fb39b517e1e001f8e",
       "tokens": [
         "We",
         "ran",
@@ -2888,7 +2888,7 @@
         "word:letterhead-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2898,7 +2898,7 @@
     "body": {
       "en": "Your package is waiting in the mailroom.",
       "vi": "Gói hàng của bạn đang chờ ở phòng thư tín.",
-      "audio": "",
+      "audio": "3d93b2f4e61b1985c2245291ae16c325a0d3c27d8f696886fa2b52afbb8553de",
       "tokens": [
         "Your",
         "package",
@@ -2941,7 +2941,7 @@
         "word:mailroom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -2951,7 +2951,7 @@
     "body": {
       "en": "The mailroom closes at five every day.",
       "vi": "Phòng thư tín đóng cửa lúc năm giờ mỗi ngày.",
-      "audio": "",
+      "audio": "1b477978db503ff2f0addffe824db02ad4eddd9654786b4bd9ec29471e6f3dfe",
       "tokens": [
         "The",
         "mailroom",
@@ -3003,7 +3003,7 @@
         "word:mailroom-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3013,7 +3013,7 @@
     "body": {
       "en": "She takes the meeting minutes every Monday.",
       "vi": "Cô ấy ghi biên bản cuộc họp vào mỗi thứ Hai.",
-      "audio": "",
+      "audio": "4e439c37bc9b6414684df50112a7f8068a584c3139ebfb0f9031489a501a347c",
       "tokens": [
         "She",
         "takes",
@@ -3065,7 +3065,7 @@
         "word:meeting-minutes-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3075,7 +3075,7 @@
     "body": {
       "en": "Did you send the meeting minutes to everyone?",
       "vi": "Bạn đã gửi biên bản cuộc họp cho mọi người chưa?",
-      "audio": "",
+      "audio": "38d15063ef431a0e540eef56ceb00ccb304f215b4923fb7ff09e270d9d7b02a8",
       "tokens": [
         "Did",
         "you",
@@ -3120,7 +3120,7 @@
         "word:meeting-minutes-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3130,7 +3130,7 @@
     "body": {
       "en": "The manager sent a memo about the new holiday schedule.",
       "vi": "Quản lý đã gửi một thông báo nội bộ về lịch nghỉ lễ mới.",
-      "audio": "",
+      "audio": "8d0aa7dec60d301fa4a66ce41728c28a76c17d13d7cc600f7a1391a28712d892",
       "tokens": [
         "The",
         "manager",
@@ -3179,7 +3179,7 @@
         "word:memo-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3189,7 +3189,7 @@
     "body": {
       "en": "Please read the memo before Monday's meeting.",
       "vi": "Vui lòng đọc thông báo nội bộ trước cuộc họp thứ Hai.",
-      "audio": "",
+      "audio": "e58ea3b2194f5ff84c600632c4ae850189a10c7121c7bd3c65f8a324ada49343",
       "tokens": [
         "Please",
         "read",
@@ -3232,7 +3232,7 @@
         "word:memo-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3242,7 +3242,7 @@
     "body": {
       "en": "We need to notarize these copies before Friday.",
       "vi": "Chúng ta cần công chứng những bản sao này trước thứ Sáu.",
-      "audio": "",
+      "audio": "6c0739fcd09936f91f015a282296f8651c767d28ff172881473153a31b2b1907",
       "tokens": [
         "We",
         "need",
@@ -3287,7 +3287,7 @@
         "word:notarize-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3297,7 +3297,7 @@
     "body": {
       "en": "Were the documents notarized at the local office?",
       "vi": "Các tài liệu đã được công chứng ở văn phòng địa phương chưa?",
-      "audio": "",
+      "audio": "817e7b2419687f54dbada91248565d32ca04ea0750a2d555b55bce66fbda4a64",
       "tokens": [
         "Were",
         "the",
@@ -3342,7 +3342,7 @@
         "word:notarize-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3352,7 +3352,7 @@
     "body": {
       "en": "Please notify reception if you expect visitors.",
       "vi": "Vui lòng báo cho lễ tân nếu bạn có khách đến.",
-      "audio": "",
+      "audio": "d9eb5f9d1998a8cc4d340129bc8cdc92dfc50faadf54923e20dfffa2af9104ff",
       "tokens": [
         "Please",
         "notify",
@@ -3395,7 +3395,7 @@
         "word:notify-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3405,7 +3405,7 @@
     "body": {
       "en": "All staff were notified about the fire drill.",
       "vi": "Tất cả nhân viên đã được thông báo về buổi diễn tập phòng cháy.",
-      "audio": "",
+      "audio": "d45006ed7da560a45e30e82da4e084381c505226d7acca2f471bc8f86f05f4eb",
       "tokens": [
         "All",
         "staff",
@@ -3450,7 +3450,7 @@
         "word:notify-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3460,7 +3460,7 @@
     "body": {
       "en": "I ordered office supplies for the new staff.",
       "vi": "Tôi đã đặt đồ dùng văn phòng cho nhân viên mới.",
-      "audio": "",
+      "audio": "d746b2779685bab7baa6c775c6541397c93a0130ef6ae7eedadb758a33d545d1",
       "tokens": [
         "I",
         "ordered",
@@ -3505,7 +3505,7 @@
         "word:office-supplies-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3515,7 +3515,7 @@
     "body": {
       "en": "Office supplies are kept in the cabinet near the printer.",
       "vi": "Đồ dùng văn phòng được cất trong tủ gần máy in.",
-      "audio": "",
+      "audio": "3ec46a850eb60acc557bc64ad9415b365002103ce86255c85a1f60ad341963a6",
       "tokens": [
         "Office",
         "supplies",
@@ -3564,7 +3564,7 @@
         "word:office-supplies-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3574,7 +3574,7 @@
     "body": {
       "en": "This invoice is two weeks overdue.",
       "vi": "Hóa đơn này đã quá hạn hai tuần.",
-      "audio": "",
+      "audio": "32654046d91254f1a745f449c597f0e585e51f3892223a9c1b50551bca01a56d",
       "tokens": [
         "This",
         "invoice",
@@ -3615,7 +3615,7 @@
         "word:overdue-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3625,7 +3625,7 @@
     "body": {
       "en": "We sent reminders for all overdue payments.",
       "vi": "Chúng tôi đã gửi nhắc nhở cho tất cả các khoản thanh toán quá hạn.",
-      "audio": "",
+      "audio": "29a55a9a36b966a76a36b08a0866390cfea4dcf4e791ec691749e587139e821d",
       "tokens": [
         "We",
         "sent",
@@ -3668,7 +3668,7 @@
         "word:overdue-adj"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3678,7 +3678,7 @@
     "body": {
       "en": "Payroll is processed on the twenty-fifth of each month.",
       "vi": "Bảng lương được xử lý vào ngày 25 hằng tháng.",
-      "audio": "",
+      "audio": "21b373896784181c56330417a52fd17cd0a309b8e76de8ec9491080903576632",
       "tokens": [
         "Payroll",
         "is",
@@ -3725,7 +3725,7 @@
         "word:payroll-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3735,7 +3735,7 @@
     "body": {
       "en": "Please send your overtime hours to payroll by Friday.",
       "vi": "Vui lòng gửi số giờ làm thêm của bạn cho bộ phận lương trước thứ Sáu.",
-      "audio": "",
+      "audio": "fba1982a53f68a4af1262d62ba78eb393e70f5bae2c7557d566a1af02664b90d",
       "tokens": [
         "Please",
         "send",
@@ -3782,7 +3782,7 @@
         "word:payroll-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3792,7 +3792,7 @@
     "body": {
       "en": "The per diem covers meals and local transportation.",
       "vi": "Phụ cấp công tác theo ngày bao gồm tiền ăn và đi lại tại địa phương.",
-      "audio": "",
+      "audio": "937ae40ea89f3528acf4f4ee62f2e7f425bd990de2415b9e17d131a6fa97185d",
       "tokens": [
         "The",
         "per",
@@ -3837,7 +3837,7 @@
         "word:per-diem-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3847,7 +3847,7 @@
     "body": {
       "en": "How much is the per diem for a trip abroad?",
       "vi": "Phụ cấp theo ngày cho một chuyến đi nước ngoài là bao nhiêu?",
-      "audio": "",
+      "audio": "59be81702abcabd9df8ac4590ff7618f93a6307fcd13da04c4a9ba746ac1e0bf",
       "tokens": [
         "How",
         "much",
@@ -3896,7 +3896,7 @@
         "word:per-diem-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3906,7 +3906,7 @@
     "body": {
       "en": "We pay for small office purchases from petty cash.",
       "vi": "Chúng tôi chi các khoản mua nhỏ của văn phòng từ quỹ tiền mặt.",
-      "audio": "",
+      "audio": "8a9b7a1d4bf6a2ed9fbcb85410ee7d87248fdbec1336e6e12b45f1e14cc18cbe",
       "tokens": [
         "We",
         "pay",
@@ -3953,7 +3953,7 @@
         "word:petty-cash-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -3963,7 +3963,7 @@
     "body": {
       "en": "How much money is left in the petty cash box?",
       "vi": "Trong hộp quỹ tiền mặt còn bao nhiêu tiền?",
-      "audio": "",
+      "audio": "4d8ed021af8444a639b42c512bbe96761d3817b46b73c6ca423d025b955534fd",
       "tokens": [
         "How",
         "much",
@@ -4012,7 +4012,7 @@
         "word:petty-cash-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4022,7 +4022,7 @@
     "body": {
       "en": "The photocopier on the second floor is broken again.",
       "vi": "Máy photocopy ở tầng hai lại bị hỏng.",
-      "audio": "",
+      "audio": "77bf9069f8477e8932ab42a11c4d153e8b5a3bc4bb3f434af10955547a39a129",
       "tokens": [
         "The",
         "photocopier",
@@ -4069,7 +4069,7 @@
         "word:photocopier-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4079,7 +4079,7 @@
     "body": {
       "en": "I made twenty copies on the photocopier this morning.",
       "vi": "Sáng nay tôi đã phô tô hai mươi bản trên máy photocopy.",
-      "audio": "",
+      "audio": "1aa9142571494c1978d58e405018fc8d285edbe9a241e8aeacb855b98800fd2e",
       "tokens": [
         "I",
         "made",
@@ -4137,7 +4137,7 @@
         "word:photocopier-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4147,7 +4147,7 @@
     "body": {
       "en": "How much is the postage for this parcel?",
       "vi": "Bưu phí cho bưu kiện này là bao nhiêu?",
-      "audio": "",
+      "audio": "c6de04e4ab46786a4ac75a42ea0fe36d6a766fba39b777a6ee57afb26cd4d16c",
       "tokens": [
         "How",
         "much",
@@ -4192,7 +4192,7 @@
         "word:postage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4202,7 +4202,7 @@
     "body": {
       "en": "The company pays postage for all business letters.",
       "vi": "Công ty trả bưu phí cho tất cả thư công việc.",
-      "audio": "",
+      "audio": "365ce393a2f402407ddd0e59970dabc8b73418cdfc1652dfa2dd3e347d98816d",
       "tokens": [
         "The",
         "company",
@@ -4247,7 +4247,7 @@
         "word:postage-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4257,7 +4257,7 @@
     "body": {
       "en": "All purchases over five hundred dollars must go through procurement.",
       "vi": "Mọi khoản mua trên năm trăm đô la phải thông qua bộ phận mua sắm.",
-      "audio": "",
+      "audio": "9b18950ca3f703f0a9839d32bfc572e01134f924ef9fff3e2d18801bf4ab5ffe",
       "tokens": [
         "All",
         "purchases",
@@ -4306,7 +4306,7 @@
         "word:procurement-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4316,7 +4316,7 @@
     "body": {
       "en": "Procurement asked for two more quotes from vendors.",
       "vi": "Bộ phận mua sắm đã yêu cầu thêm hai báo giá từ nhà cung cấp.",
-      "audio": "",
+      "audio": "2f6e1a0d55b776cada292d083bc0c908d4588d05248d96e935de0e5946358a8f",
       "tokens": [
         "Procurement",
         "asked",
@@ -4361,7 +4361,7 @@
         "word:procurement-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4371,7 +4371,7 @@
     "body": {
       "en": "The projector in Room B isn't working.",
       "vi": "Máy chiếu ở phòng B không hoạt động.",
-      "audio": "",
+      "audio": "975d9cc648250324f517baa4713870206b74d7f69cdb848211279707539f689d",
       "tokens": [
         "The",
         "projector",
@@ -4414,7 +4414,7 @@
         "word:projector-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4424,7 +4424,7 @@
     "body": {
       "en": "Could you set up the projector before the presentation starts?",
       "vi": "Bạn có thể lắp máy chiếu trước khi buổi thuyết trình bắt đầu không?",
-      "audio": "",
+      "audio": "a61743b8d056d45eb4fbed9ecd72576f3d4850c807dfe472d77cd688fcbdd889",
       "tokens": [
         "Could",
         "you",
@@ -4485,7 +4485,7 @@
         "word:projector-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4495,7 +4495,7 @@
     "body": {
       "en": "Could you proofread this letter before I send it?",
       "vi": "Bạn có thể đọc soát lỗi bức thư này trước khi tôi gửi không?",
-      "audio": "",
+      "audio": "7d0687a20f74968c9b692bcf34335d975629b5547483ccaae55df5354e54d9a9",
       "tokens": [
         "Could",
         "you",
@@ -4542,7 +4542,7 @@
         "word:proofread-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4552,7 +4552,7 @@
     "body": {
       "en": "She proofread the report and found three mistakes.",
       "vi": "Cô ấy đã soát lỗi bản báo cáo và tìm ra ba lỗi.",
-      "audio": "",
+      "audio": "cce8c2c569d856a21cb210f4acc63141ed2c364cfb251b58b35acaad3e27446e",
       "tokens": [
         "She",
         "proofread",
@@ -4597,7 +4597,7 @@
         "word:proofread-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4607,7 +4607,7 @@
     "body": {
       "en": "The supplier needs a purchase order before shipping the chairs.",
       "vi": "Nhà cung cấp cần đơn đặt hàng trước khi giao ghế.",
-      "audio": "",
+      "audio": "7994144f93c93c6f55623d8eb5b241541d36dba35ea9d8687c1a402c120ea369",
       "tokens": [
         "The",
         "supplier",
@@ -4656,7 +4656,7 @@
         "word:purchase-order-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4666,7 +4666,7 @@
     "body": {
       "en": "I created the purchase order yesterday afternoon.",
       "vi": "Tôi đã tạo đơn đặt hàng vào chiều hôm qua.",
-      "audio": "",
+      "audio": "0ebba32baa263034f2f0dc7fb3ada6b6c2b22c2b65589a2ae133c24b30753988",
       "tokens": [
         "I",
         "created",
@@ -4718,7 +4718,7 @@
         "word:purchase-order-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4728,7 +4728,7 @@
     "body": {
       "en": "Check the recipient's name before you send the letter.",
       "vi": "Hãy kiểm tra tên người nhận trước khi bạn gửi thư.",
-      "audio": "",
+      "audio": "90689e6a78f228447885caa980b3efad037d018dce4bed231cd6322f1d8b92e2",
       "tokens": [
         "Check",
         "the",
@@ -4775,7 +4775,7 @@
         "word:recipient-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4785,7 +4785,7 @@
     "body": {
       "en": "The email had more than fifty recipients.",
       "vi": "Email đó có hơn năm mươi người nhận.",
-      "audio": "",
+      "audio": "827bd24a042cfda3e0d0b3f5c785aa7204fe170a067a28c6e2c10dafc110e7c4",
       "tokens": [
         "The",
         "email",
@@ -4828,7 +4828,7 @@
         "word:recipient-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4838,7 +4838,7 @@
     "body": {
       "en": "The company will reimburse your taxi fares.",
       "vi": "Công ty sẽ hoàn trả tiền taxi cho bạn.",
-      "audio": "",
+      "audio": "edbf5047fee056def535e638a7fb2080292d0521bd2aa4ad6aa3f7381fe58d08",
       "tokens": [
         "The",
         "company",
@@ -4881,7 +4881,7 @@
         "word:reimburse-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4891,7 +4891,7 @@
     "body": {
       "en": "Were you reimbursed for the hotel last month?",
       "vi": "Tháng trước bạn đã được hoàn tiền khách sạn chưa?",
-      "audio": "",
+      "audio": "ebb4240d046a546f5b53b1ac8fee81bd1f8967892a9d41ac9034ab1c94e41bd7",
       "tokens": [
         "Were",
         "you",
@@ -4936,7 +4936,7 @@
         "word:reimburse-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4946,7 +4946,7 @@
     "body": {
       "en": "Attach all receipts to your reimbursement request.",
       "vi": "Hãy đính kèm tất cả hóa đơn vào yêu cầu hoàn tiền của bạn.",
-      "audio": "",
+      "audio": "3dfdbedc08067fed274ee8a57510d116d5c9c04f18a1e19d1e4358d2c7817a87",
       "tokens": [
         "Attach",
         "all",
@@ -4989,7 +4989,7 @@
         "word:reimbursement-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -4999,7 +4999,7 @@
     "body": {
       "en": "My reimbursement still hasn't arrived after three weeks.",
       "vi": "Khoản hoàn tiền của tôi vẫn chưa về sau ba tuần.",
-      "audio": "",
+      "audio": "81d4fdc587a36bb263e6064949a74337b34caadc19138c8a94b224d1c98b9729",
       "tokens": [
         "My",
         "reimbursement",
@@ -5044,7 +5044,7 @@
         "word:reimbursement-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5054,7 +5054,7 @@
     "body": {
       "en": "Can we reschedule the meeting to next Tuesday?",
       "vi": "Chúng ta có thể dời cuộc họp sang thứ Ba tuần sau không?",
-      "audio": "",
+      "audio": "f7f031c40f4e7a37ff8efba398116fe65d74bfff6972b7190f12b9d8a60ca940",
       "tokens": [
         "Can",
         "we",
@@ -5099,7 +5099,7 @@
         "word:reschedule-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5109,7 +5109,7 @@
     "body": {
       "en": "The client rescheduled because her flight was delayed.",
       "vi": "Khách hàng đã dời lịch vì chuyến bay của cô ấy bị hoãn.",
-      "audio": "",
+      "audio": "bca88ba3e148632797c6fd2717aebd8c71b8dab8fb331ff55bab1b345ca97a4c",
       "tokens": [
         "The",
         "client",
@@ -5154,7 +5154,7 @@
         "word:reschedule-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5164,7 +5164,7 @@
     "body": {
       "en": "Put the contract on the scanner and press start.",
       "vi": "Đặt hợp đồng lên máy scan rồi bấm nút bắt đầu.",
-      "audio": "",
+      "audio": "874a9b03d993dd4deee4da5816e069e2728d2ac73586d7ec7b49d75f3be4111c",
       "tokens": [
         "Put",
         "the",
@@ -5211,7 +5211,7 @@
         "word:scanner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5221,7 +5221,7 @@
     "body": {
       "en": "Does the new scanner send files to your email?",
       "vi": "Máy scan mới có gửi tệp đến email của bạn không?",
-      "audio": "",
+      "audio": "eae2a78ed7126ad446ab9070e3d489508c32d09b0e8795fe0269ff0f61b8d239",
       "tokens": [
         "Does",
         "the",
@@ -5268,7 +5268,7 @@
         "word:scanner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5278,7 +5278,7 @@
     "body": {
       "en": "We shred documents with personal information.",
       "vi": "Chúng tôi hủy các tài liệu có thông tin cá nhân.",
-      "audio": "",
+      "audio": "84a1b35eebee9a759d0171d49c99aa3cdfe5008c850706681e54627f84736827",
       "tokens": [
         "We",
         "shred",
@@ -5319,7 +5319,7 @@
         "word:shred-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5329,7 +5329,7 @@
     "body": {
       "en": "Did you shred the old contracts?",
       "vi": "Bạn đã hủy các hợp đồng cũ chưa?",
-      "audio": "",
+      "audio": "5e720b042f7161f0970acb383c04fe1e42c77f48421aca994586f2101920f15b",
       "tokens": [
         "Did",
         "you",
@@ -5370,7 +5370,7 @@
         "word:shred-v"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5380,7 +5380,7 @@
     "body": {
       "en": "Put old bank statements in the shredder.",
       "vi": "Hãy cho các sao kê ngân hàng cũ vào máy hủy giấy.",
-      "audio": "",
+      "audio": "7ef04702b91423593addea48c41d1d27b04f4e0389ce0a81ede94dc748a2f2b2",
       "tokens": [
         "Put",
         "old",
@@ -5423,7 +5423,7 @@
         "word:shredder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5433,7 +5433,7 @@
     "body": {
       "en": "The shredder is jammed again.",
       "vi": "Máy hủy giấy lại bị kẹt.",
-      "audio": "",
+      "audio": "434ab18831542da9923820f35d1539f59044e2c211f47bec5e6a4043ce614ed0",
       "tokens": [
         "The",
         "shredder",
@@ -5472,7 +5472,7 @@
         "word:shredder-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5482,7 +5482,7 @@
     "body": {
       "en": "Can I borrow your stapler for a minute?",
       "vi": "Tôi mượn cái dập ghim của bạn một chút được không?",
-      "audio": "",
+      "audio": "93bd21f98d9f1d7a316735b62c4dd2f41b6e5e64b8198f3be7a15e189473e57d",
       "tokens": [
         "Can",
         "I",
@@ -5527,7 +5527,7 @@
         "word:stapler-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5537,7 +5537,7 @@
     "body": {
       "en": "The stapler ran out of staples during the meeting.",
       "vi": "Cái dập ghim đã hết ghim trong lúc họp.",
-      "audio": "",
+      "audio": "74258684305dc7f9cb819c62172e64337bacbca397490e9525df7ca36373fa2b",
       "tokens": [
         "The",
         "stapler",
@@ -5584,7 +5584,7 @@
         "word:stapler-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5594,7 +5594,7 @@
     "body": {
       "en": "We order stationery from the same supplier every month.",
       "vi": "Chúng tôi đặt văn phòng phẩm từ cùng một nhà cung cấp mỗi tháng.",
-      "audio": "",
+      "audio": "ec0afde3e963cfda2eb5780b92f3782e099c65db58f07bb71df5150980a1cee5",
       "tokens": [
         "We",
         "order",
@@ -5641,7 +5641,7 @@
         "word:stationery-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5651,7 +5651,7 @@
     "body": {
       "en": "Who is in charge of ordering stationery?",
       "vi": "Ai phụ trách việc đặt văn phòng phẩm?",
-      "audio": "",
+      "audio": "6c37cfc1a529c1567f2cd5d818434acaf0520678314edf90c9beb9a7b8a013f1",
       "tokens": [
         "Who",
         "is",
@@ -5694,7 +5694,7 @@
         "word:stationery-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5704,7 +5704,7 @@
     "body": {
       "en": "Use the company template for all official letters.",
       "vi": "Hãy dùng mẫu của công ty cho tất cả thư chính thức.",
-      "audio": "",
+      "audio": "42ca7c233f65c28b60bc91c44fe3336208c7e5ee04d14c06767d83bac0578c10",
       "tokens": [
         "Use",
         "the",
@@ -5749,7 +5749,7 @@
         "word:template-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5759,7 +5759,7 @@
     "body": {
       "en": "Where can I find the template for the monthly report?",
       "vi": "Tôi có thể tìm mẫu báo cáo hằng tháng ở đâu?",
-      "audio": "",
+      "audio": "9eb71fe515f2653689f6eacf58e3ff108ccd01102e6ca502c93f0dbd4c0e1f06",
       "tokens": [
         "Where",
         "can",
@@ -5808,7 +5808,7 @@
         "word:template-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5818,7 +5818,7 @@
     "body": {
       "en": "Remember to fill in your timesheet every Friday.",
       "vi": "Nhớ điền bảng chấm công vào mỗi thứ Sáu.",
-      "audio": "",
+      "audio": "0552106af765b03596bb3d1675e9c767b2282ee0a6a3a7868264181d8cdf13d7",
       "tokens": [
         "Remember",
         "to",
@@ -5863,7 +5863,7 @@
         "word:timesheet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5873,7 +5873,7 @@
     "body": {
       "en": "Your timesheet shows six hours of overtime last week.",
       "vi": "Bảng chấm công của bạn cho thấy sáu giờ làm thêm vào tuần trước.",
-      "audio": "",
+      "audio": "b85c782fdf19a4b62ad0180af0a3dae02148722284c2202c59e960912eb447b5",
       "tokens": [
         "Your",
         "timesheet",
@@ -5920,7 +5920,7 @@
         "word:timesheet-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5930,7 +5930,7 @@
     "body": {
       "en": "The printer is out of toner.",
       "vi": "Máy in hết mực rồi.",
-      "audio": "",
+      "audio": "74299e89b1a815adb1070eae63cff668311cbe62bd61b4f29869ed32b487a02b",
       "tokens": [
         "The",
         "printer",
@@ -5971,7 +5971,7 @@
         "word:toner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -5981,7 +5981,7 @@
     "body": {
       "en": "I ordered two toner cartridges for the photocopier.",
       "vi": "Tôi đã đặt hai hộp mực cho máy photocopy.",
-      "audio": "",
+      "audio": "5f36e6d61800e23097001be1fc1bf7ce5ce442e384bd89daa3145180c45421d3",
       "tokens": [
         "I",
         "ordered",
@@ -6026,7 +6026,7 @@
         "word:toner-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6036,7 +6036,7 @@
     "body": {
       "en": "We compared quotes from three vendors before choosing one.",
       "vi": "Chúng tôi đã so sánh báo giá của ba nhà cung cấp trước khi chọn một bên.",
-      "audio": "",
+      "audio": "9d667a8fc412e1ecfca841e7a3c6a0b82f0df738e6bbc3bfdf515e2cb1ef9d78",
       "tokens": [
         "We",
         "compared",
@@ -6083,7 +6083,7 @@
         "word:vendor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6093,7 +6093,7 @@
     "body": {
       "en": "Is this vendor on our approved list?",
       "vi": "Nhà cung cấp này có trong danh sách đã duyệt của chúng ta không?",
-      "audio": "",
+      "audio": "fe93838b5ce317698b4fc9221a400d8f0582644ee6aac303f9d3f9a6664fcce7",
       "tokens": [
         "Is",
         "this",
@@ -6136,7 +6136,7 @@
         "word:vendor-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6146,7 +6146,7 @@
     "body": {
       "en": "I left a voicemail for the supplier this morning.",
       "vi": "Sáng nay tôi đã để lại tin nhắn thoại cho nhà cung cấp.",
-      "audio": "",
+      "audio": "1f7d84c41cd34039c89bdbba6e91ba3b1ae6507a9b39f88999ac3c1e8cad8096",
       "tokens": [
         "I",
         "left",
@@ -6204,7 +6204,7 @@
         "word:voicemail-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6214,7 +6214,7 @@
     "body": {
       "en": "Please check your voicemail when you get back.",
       "vi": "Vui lòng kiểm tra hộp thư thoại khi bạn quay lại.",
-      "audio": "",
+      "audio": "9542e6dcde02b3901efd1966b374e23d519d2871453dbaabc499f457e769b002",
       "tokens": [
         "Please",
         "check",
@@ -6259,7 +6259,7 @@
         "word:voicemail-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6269,7 +6269,7 @@
     "body": {
       "en": "Please clean the whiteboard after your meeting.",
       "vi": "Vui lòng lau bảng trắng sau cuộc họp của bạn.",
-      "audio": "",
+      "audio": "8d910ab0cf400d6ba4367c34d15c97ef4457fa1c8292ddef7132663351c314c1",
       "tokens": [
         "Please",
         "clean",
@@ -6312,7 +6312,7 @@
         "word:whiteboard-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -6322,7 +6322,7 @@
     "body": {
       "en": "She wrote the action points on the whiteboard.",
       "vi": "Cô ấy đã viết các đầu việc lên bảng trắng.",
-      "audio": "",
+      "audio": "7881a1466c4682c03affb3bcee30742f90146b1895bafbeddaa03f701ccd1442",
       "tokens": [
         "She",
         "wrote",
@@ -6367,6 +6367,6 @@
         "word:whiteboard-n"
       ]
     },
-    "status": "draft"
+    "status": "approved"
   }
 ]
