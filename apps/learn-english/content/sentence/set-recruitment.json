@@ -1,0 +1,6708 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:accomplishment-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Tell me about your biggest accomplishment at work.",
+      "vi": "Hãy kể cho tôi về thành tựu lớn nhất của bạn trong công việc.",
+      "audio": "",
+      "tokens": [
+        "Tell",
+        "me",
+        "about",
+        "your",
+        "biggest",
+        "accomplishment",
+        "at",
+        "work"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Tell me about your bigger accomplishment at work.",
+          "explanationVi": "Cần so sánh nhất \"biggest\", không dùng so sánh hơn \"bigger\"."
+        },
+        {
+          "en": "Tell to me about your biggest accomplishment at work.",
+          "explanationVi": "Động từ \"tell\" không cần \"to\" trước tân ngữ chỉ người."
+        },
+        {
+          "en": "Tell me about you biggest accomplishment at work.",
+          "explanationVi": "Cần tính từ sở hữu \"your\", không dùng \"you\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:accomplishment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:accomplishment-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "List your key accomplishments under each job.",
+      "vi": "Hãy liệt kê các thành tích chính của bạn dưới mỗi công việc.",
+      "audio": "",
+      "tokens": [
+        "List",
+        "your",
+        "key",
+        "accomplishments",
+        "under",
+        "each",
+        "job"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "List your key accomplishment under each job.",
+          "explanationVi": "Có nhiều thành tích nên dùng số nhiều \"accomplishments\"."
+        },
+        {
+          "en": "List your key accomplishments under each jobs.",
+          "explanationVi": "Sau \"each\" danh từ ở số ít \"job\"."
+        },
+        {
+          "en": "Listing your key accomplishments under each job.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"List\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:accomplishment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:appraisal-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Your annual appraisal is next Thursday.",
+      "vi": "Buổi đánh giá năng lực hằng năm của bạn là vào thứ Năm tới.",
+      "audio": "",
+      "tokens": [
+        "Your",
+        "annual",
+        "appraisal",
+        "is",
+        "next",
+        "Thursday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your annual appraisal is on next Thursday.",
+          "explanationVi": "Không dùng \"on\" trước \"next Thursday\"."
+        },
+        {
+          "en": "Your annual appraisal next Thursday.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        },
+        {
+          "en": "Your annual appraisal are next Thursday.",
+          "explanationVi": "Chủ ngữ số ít đi với \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:appraisal-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:appraisal-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did your appraisal go well?",
+      "vi": "Buổi đánh giá của bạn có suôn sẻ không?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "your",
+        "appraisal",
+        "go",
+        "well"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did your appraisal went well?",
+          "explanationVi": "Sau \"Did\" dùng động từ nguyên mẫu \"go\"."
+        },
+        {
+          "en": "Did your appraisal go good?",
+          "explanationVi": "Bổ nghĩa cho động từ \"go\" cần trạng từ \"well\"."
+        },
+        {
+          "en": "Your appraisal did go well?",
+          "explanationVi": "Câu hỏi cần đảo \"Did\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:appraisal-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:background-check-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "All new employees must pass a background check.",
+      "vi": "Tất cả nhân viên mới phải vượt qua việc kiểm tra lý lịch.",
+      "audio": "",
+      "tokens": [
+        "All",
+        "new",
+        "employees",
+        "must",
+        "pass",
+        "a",
+        "background",
+        "check"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "All new employees must passes a background check.",
+          "explanationVi": "Sau \"must\" dùng động từ nguyên mẫu \"pass\"."
+        },
+        {
+          "en": "All new employee must pass a background check.",
+          "explanationVi": "Sau \"All\" danh từ đếm được ở số nhiều \"employees\"."
+        },
+        {
+          "en": "All new employees must to pass a background check.",
+          "explanationVi": "Sau \"must\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:background-check-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:background-check-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Has the background check come back yet?",
+      "vi": "Kết quả kiểm tra lý lịch đã có chưa?",
+      "audio": "",
+      "tokens": [
+        "Has",
+        "the",
+        "background",
+        "check",
+        "come",
+        "back",
+        "yet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Has the background check came back yet?",
+          "explanationVi": "Sau \"Has\" cần quá khứ phân từ \"come\", không dùng \"came\"."
+        },
+        {
+          "en": "Have the background check come back yet?",
+          "explanationVi": "Chủ ngữ số ít đi với \"Has\", không dùng \"Have\"."
+        },
+        {
+          "en": "The background check has come back yet?",
+          "explanationVi": "Câu hỏi cần đảo \"Has\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:background-check-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:benefits-package-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our benefits package includes health insurance and a gym.",
+      "vi": "Gói phúc lợi của chúng tôi gồm bảo hiểm y tế và phòng tập thể dục.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "benefits",
+        "package",
+        "includes",
+        "health",
+        "insurance",
+        "and",
+        "a",
+        "gym"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our benefits package include health insurance and a gym.",
+          "explanationVi": "Chủ ngữ số ít \"package\" nên động từ thêm -s: \"includes\"."
+        },
+        {
+          "en": "Our benefit package includes health insurances and a gym.",
+          "explanationVi": "\"Insurance\" là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "Our benefits package is includes health insurance and a gym.",
+          "explanationVi": "Thừa \"is\": thì hiện tại đơn không dùng \"to be\" với động từ thường."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:benefits-package-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:benefits-package-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you tell me more about the benefits package?",
+      "vi": "Bạn có thể cho tôi biết thêm về gói phúc lợi không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "you",
+        "tell",
+        "me",
+        "more",
+        "about",
+        "the",
+        "benefits",
+        "package"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you tell me more about benefits package?",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"the\"."
+        },
+        {
+          "en": "Can you to tell me more about the benefits package?",
+          "explanationVi": "Sau \"Can\" không dùng \"to\"."
+        },
+        {
+          "en": "Can you tell me more for the benefits package?",
+          "explanationVi": "Cụm đúng là \"tell ... about\", không dùng \"for\"."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        7
+      ],
+      "wordIds": [
+        "word:benefits-package-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:career-path-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We show every new hire a clear career path.",
+      "vi": "Chúng tôi cho mỗi nhân viên mới thấy một lộ trình sự nghiệp rõ ràng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "show",
+        "every",
+        "new",
+        "hire",
+        "a",
+        "clear",
+        "career",
+        "path"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We show every new hires a clear career path.",
+          "explanationVi": "Sau \"every\" danh từ ở số ít \"hire\"."
+        },
+        {
+          "en": "We show every new hire clear career path.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "We shows every new hire a clear career path.",
+          "explanationVi": "Chủ ngữ \"We\" nên động từ không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        7
+      ],
+      "wordIds": [
+        "word:career-path-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:career-path-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "What career path do you see for yourself?",
+      "vi": "Bạn thấy lộ trình sự nghiệp của mình như thế nào?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "career",
+        "path",
+        "do",
+        "you",
+        "see",
+        "for",
+        "yourself"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What career path you see for yourself?",
+          "explanationVi": "Câu hỏi cần trợ động từ \"do\"."
+        },
+        {
+          "en": "What career path do you see for you?",
+          "explanationVi": "Chủ ngữ và tân ngữ cùng là một người nên dùng \"yourself\"."
+        },
+        {
+          "en": "What career path does you see for yourself?",
+          "explanationVi": "Chủ ngữ \"you\" đi với \"do\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:career-path-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:counteroffer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My manager made me a counteroffer when I resigned.",
+      "vi": "Khi tôi xin nghỉ, quản lý đã đưa ra đề nghị giữ chân tôi.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "manager",
+        "made",
+        "me",
+        "a",
+        "counteroffer",
+        "when",
+        "I",
+        "resigned"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My manager make me a counteroffer when I resigned.",
+          "explanationVi": "Hành động trong quá khứ cần \"made\"."
+        },
+        {
+          "en": "My manager made me counteroffer when I resigned.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "My manager did me a counteroffer when I resigned.",
+          "explanationVi": "Cụm đúng là \"make a counteroffer\", không dùng \"do\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:counteroffer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:counteroffer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did you accept their counteroffer?",
+      "vi": "Bạn có nhận đề nghị ngược lại của họ không?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "you",
+        "accept",
+        "their",
+        "counteroffer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did you accepted their counteroffer?",
+          "explanationVi": "Sau \"Did\" dùng động từ nguyên mẫu \"accept\"."
+        },
+        {
+          "en": "Did you accept them counteroffer?",
+          "explanationVi": "Cần tính từ sở hữu \"their\", không dùng \"them\"."
+        },
+        {
+          "en": "You did accept their counteroffer?",
+          "explanationVi": "Câu hỏi cần đảo \"Did\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:counteroffer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cover-letter-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A short cover letter can help your application stand out.",
+      "vi": "Một lá thư xin việc ngắn có thể giúp hồ sơ của bạn nổi bật.",
+      "audio": "",
+      "tokens": [
+        "A",
+        "short",
+        "cover",
+        "letter",
+        "can",
+        "help",
+        "your",
+        "application",
+        "stand",
+        "out"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A short cover letter can helps your application stand out.",
+          "explanationVi": "Sau động từ khiếm khuyết \"can\" dùng động từ nguyên mẫu \"help\"."
+        },
+        {
+          "en": "Short cover letter can help your application stand out.",
+          "explanationVi": "Danh từ đếm được số ít \"cover letter\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "A short cover letter can help your application standing out.",
+          "explanationVi": "Sau \"help\" + tân ngữ dùng động từ nguyên mẫu \"stand out\", không dùng dạng -ing."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:cover-letter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cover-letter-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did you write a new cover letter for this position?",
+      "vi": "Bạn đã viết thư xin việc mới cho vị trí này chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "you",
+        "write",
+        "a",
+        "new",
+        "cover",
+        "letter",
+        "for",
+        "this",
+        "position"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did you wrote a new cover letter for this position?",
+          "explanationVi": "Sau trợ động từ \"Did\" dùng động từ nguyên mẫu \"write\"."
+        },
+        {
+          "en": "You did write a new cover letter for this position?",
+          "explanationVi": "Câu hỏi cần đảo trợ động từ \"Did\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Did you write new cover letter for this position?",
+          "explanationVi": "Danh từ đếm được số ít \"cover letter\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:cover-letter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:culture-fit-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The last interview checks for culture fit.",
+      "vi": "Buổi phỏng vấn cuối cùng đánh giá sự phù hợp với văn hóa công ty.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "last",
+        "interview",
+        "checks",
+        "for",
+        "culture",
+        "fit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The last interview check for culture fit.",
+          "explanationVi": "Chủ ngữ số ít \"interview\" nên động từ thêm -s: \"checks\"."
+        },
+        {
+          "en": "The last interview checks to culture fit.",
+          "explanationVi": "Cụm đúng là \"check for\", không dùng \"to\"."
+        },
+        {
+          "en": "Last the interview checks for culture fit.",
+          "explanationVi": "Sai trật tự từ: mạo từ \"The\" đứng trước \"last\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:culture-fit-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:culture-fit-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She was skilled, but she was not a good culture fit.",
+      "vi": "Cô ấy có năng lực, nhưng không thật phù hợp với văn hóa công ty.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "was",
+        "skilled",
+        "but",
+        "she",
+        "was",
+        "not",
+        "a",
+        "good",
+        "culture",
+        "fit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She was skilled, but she was not good culture fit.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "She was skilled, but she not was a good culture fit.",
+          "explanationVi": "Sai trật tự: \"not\" đứng sau \"was\"."
+        },
+        {
+          "en": "She skilled, but she was not a good culture fit.",
+          "explanationVi": "Thiếu \"was\" trước tính từ \"skilled\"."
+        }
+      ],
+      "gapCandidates": [
+        10,
+        9
+      ],
+      "wordIds": [
+        "word:culture-fit-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dress-code-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Is there a dress code for the interview?",
+      "vi": "Buổi phỏng vấn có quy định về trang phục không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "there",
+        "a",
+        "dress",
+        "code",
+        "for",
+        "the",
+        "interview"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There is a dress code for the interview?",
+          "explanationVi": "Câu hỏi cần đảo \"Is\" lên trước \"there\"."
+        },
+        {
+          "en": "Is there dress code for the interview?",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "Is it a dress code for the interview?",
+          "explanationVi": "Hỏi về sự tồn tại dùng \"Is there\", không dùng \"Is it\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:dress-code-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dress-code-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our office has a relaxed dress code on Fridays.",
+      "vi": "Văn phòng chúng tôi có quy định trang phục thoải mái vào thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "office",
+        "has",
+        "a",
+        "relaxed",
+        "dress",
+        "code",
+        "on",
+        "Fridays"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our office have a relaxed dress code on Fridays.",
+          "explanationVi": "Chủ ngữ số ít đi với \"has\"."
+        },
+        {
+          "en": "Our office has a relaxed dress code in Fridays.",
+          "explanationVi": "Với ngày trong tuần dùng \"on\"."
+        },
+        {
+          "en": "Our office has a relax dress code on Fridays.",
+          "explanationVi": "Cần tính từ \"relaxed\", không dùng động từ \"relax\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:dress-code-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:employment-contract-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Read your employment contract before you sign it.",
+      "vi": "Hãy đọc hợp đồng lao động trước khi ký.",
+      "audio": "",
+      "tokens": [
+        "Read",
+        "your",
+        "employment",
+        "contract",
+        "before",
+        "you",
+        "sign",
+        "it"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Read you employment contract before you sign it.",
+          "explanationVi": "Cần tính từ sở hữu \"your\", không dùng \"you\"."
+        },
+        {
+          "en": "Read your employment contract before you will sign it.",
+          "explanationVi": "Sau \"before\" chỉ thời gian dùng thì hiện tại, không dùng \"will\"."
+        },
+        {
+          "en": "Read your employ contract before you sign it.",
+          "explanationVi": "Sai dạng từ: cần danh từ \"employment\", không dùng động từ \"employ\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:employment-contract-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:employment-contract-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My employment contract is for two years.",
+      "vi": "Hợp đồng lao động của tôi có thời hạn hai năm.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "employment",
+        "contract",
+        "is",
+        "for",
+        "two",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My employment contract are for two years.",
+          "explanationVi": "Chủ ngữ số ít đi với \"is\"."
+        },
+        {
+          "en": "My employment contract is for two year.",
+          "explanationVi": "Sau \"two\" danh từ phải ở số nhiều \"years\"."
+        },
+        {
+          "en": "My employment contract is since two years.",
+          "explanationVi": "Chỉ khoảng thời gian dùng \"for\", không dùng \"since\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:employment-contract-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:entry-level-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "This is an entry-level job for new graduates.",
+      "vi": "Đây là công việc cấp đầu vào dành cho sinh viên mới tốt nghiệp.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "is",
+        "an",
+        "entry-level",
+        "job",
+        "for",
+        "new",
+        "graduates"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This is a entry-level job for new graduates.",
+          "explanationVi": "Trước âm nguyên âm \"entry\" dùng mạo từ \"an\"."
+        },
+        {
+          "en": "This is an entry-level job for new graduate.",
+          "explanationVi": "Nói chung về nhóm người nên dùng số nhiều \"graduates\"."
+        },
+        {
+          "en": "This an entry-level job for new graduates.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:entry-level-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:entry-level-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Do entry-level positions require any experience?",
+      "vi": "Các vị trí cấp đầu vào có yêu cầu kinh nghiệm không?",
+      "audio": "",
+      "tokens": [
+        "Do",
+        "entry-level",
+        "positions",
+        "require",
+        "any",
+        "experience"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does entry-level positions require any experience?",
+          "explanationVi": "Chủ ngữ số nhiều \"positions\" đi với \"Do\"."
+        },
+        {
+          "en": "Do entry-level positions requires any experience?",
+          "explanationVi": "Sau \"Do\" dùng động từ nguyên mẫu \"require\"."
+        },
+        {
+          "en": "Entry-level positions do require any experience?",
+          "explanationVi": "Câu hỏi cần đảo \"Do\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:entry-level-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:exit-interview-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "HR holds an exit interview with every leaving employee.",
+      "vi": "Phòng nhân sự tổ chức phỏng vấn nghỉ việc với mọi nhân viên sắp nghỉ.",
+      "audio": "",
+      "tokens": [
+        "HR",
+        "holds",
+        "an",
+        "exit",
+        "interview",
+        "with",
+        "every",
+        "leaving",
+        "employee"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "HR holds a exit interview with every leaving employee.",
+          "explanationVi": "Trước âm nguyên âm \"exit\" dùng \"an\"."
+        },
+        {
+          "en": "HR hold an exit interview with every leaving employee.",
+          "explanationVi": "Chủ ngữ số ít \"HR\" nên động từ thêm -s: \"holds\"."
+        },
+        {
+          "en": "HR holds an exit interview with every leaving employees.",
+          "explanationVi": "Sau \"every\" danh từ ở số ít."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:exit-interview-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:exit-interview-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "What did you say in your exit interview?",
+      "vi": "Bạn đã nói gì trong buổi phỏng vấn nghỉ việc?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "did",
+        "you",
+        "say",
+        "in",
+        "your",
+        "exit",
+        "interview"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What did you said in your exit interview?",
+          "explanationVi": "Sau \"did\" dùng động từ nguyên mẫu \"say\"."
+        },
+        {
+          "en": "What you said in your exit interview?",
+          "explanationVi": "Câu hỏi cần trợ động từ \"did\" và động từ nguyên mẫu."
+        },
+        {
+          "en": "What did you say on your exit interview?",
+          "explanationVi": "Trong một buổi phỏng vấn dùng \"in\", không dùng \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [
+        "word:exit-interview-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:headcount-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our team got approval to increase headcount by two.",
+      "vi": "Nhóm chúng tôi được duyệt tăng thêm hai nhân sự.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "team",
+        "got",
+        "approval",
+        "to",
+        "increase",
+        "headcount",
+        "by",
+        "two"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our team get approval to increase headcount by two last week.",
+          "explanationVi": "Hành động trong quá khứ cần \"got\"."
+        },
+        {
+          "en": "Our team got approval to increase headcount with two.",
+          "explanationVi": "Chỉ mức tăng dùng giới từ \"by\", không dùng \"with\"."
+        },
+        {
+          "en": "Our team got approve to increase headcount by two.",
+          "explanationVi": "Sau \"got\" cần danh từ \"approval\", không dùng động từ \"approve\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:headcount-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:headcount-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The company plans to reduce its headcount this year.",
+      "vi": "Công ty dự định cắt giảm số lượng nhân sự trong năm nay.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "company",
+        "plans",
+        "to",
+        "reduce",
+        "its",
+        "headcount",
+        "this",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company plans reduce its headcount this year.",
+          "explanationVi": "Sau \"plan\" cần \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "en": "The company plan to reduce its headcount this year.",
+          "explanationVi": "Chủ ngữ số ít nên động từ thêm -s: \"plans\"."
+        },
+        {
+          "en": "The company plans to reduce it's headcount this year.",
+          "explanationVi": "Tính từ sở hữu là \"its\"; \"it's\" nghĩa là \"it is\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:headcount-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:headhunter-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A headhunter contacted him about a director role.",
+      "vi": "Một người săn đầu người đã liên hệ với anh ấy về vị trí giám đốc.",
+      "audio": "",
+      "tokens": [
+        "A",
+        "headhunter",
+        "contacted",
+        "him",
+        "about",
+        "a",
+        "director",
+        "role"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A headhunter contacted to him about a director role.",
+          "explanationVi": "Động từ \"contact\" không cần giới từ \"to\"."
+        },
+        {
+          "en": "Headhunter contacted him about a director role.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"A\"."
+        },
+        {
+          "en": "A headhunter contacted he about a director role.",
+          "explanationVi": "Sau động từ cần đại từ tân ngữ \"him\", không dùng \"he\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:headhunter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:headhunter-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Companies often use headhunters for senior positions.",
+      "vi": "Các công ty thường dùng người săn đầu người cho các vị trí cấp cao.",
+      "audio": "",
+      "tokens": [
+        "Companies",
+        "often",
+        "use",
+        "headhunters",
+        "for",
+        "senior",
+        "positions"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Companies use often headhunters for senior positions.",
+          "explanationVi": "Trạng từ tần suất \"often\" đứng trước động từ thường."
+        },
+        {
+          "en": "Companies often uses headhunters for senior positions.",
+          "explanationVi": "Chủ ngữ số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "Companies often use headhunter for senior positions.",
+          "explanationVi": "Nói chung nên dùng số nhiều \"headhunters\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:headhunter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:health-insurance-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Full-time employees get health insurance from day one.",
+      "vi": "Nhân viên toàn thời gian được hưởng bảo hiểm y tế từ ngày đầu tiên.",
+      "audio": "",
+      "tokens": [
+        "Full-time",
+        "employees",
+        "get",
+        "health",
+        "insurance",
+        "from",
+        "day",
+        "one"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Full-time employees gets health insurance from day one.",
+          "explanationVi": "Chủ ngữ số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "Full-time employee get health insurance from day one.",
+          "explanationVi": "Nói chung nên dùng số nhiều \"employees\"."
+        },
+        {
+          "en": "Full-time employees get a health insurances from day one.",
+          "explanationVi": "\"Insurance\" không đếm được: không dùng \"a\" và không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:health-insurance-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:health-insurance-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Does the company pay for family health insurance?",
+      "vi": "Công ty có chi trả bảo hiểm y tế cho gia đình không?",
+      "audio": "",
+      "tokens": [
+        "Does",
+        "the",
+        "company",
+        "pay",
+        "for",
+        "family",
+        "health",
+        "insurance"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does the company pays for family health insurance?",
+          "explanationVi": "Sau \"Does\" dùng động từ nguyên mẫu \"pay\"."
+        },
+        {
+          "en": "Does the company pay family for health insurance?",
+          "explanationVi": "Sai trật tự từ: \"family\" bổ nghĩa cho \"health insurance\"."
+        },
+        {
+          "en": "Do the company pay for family health insurance?",
+          "explanationVi": "Chủ ngữ số ít đi với \"Does\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:health-insurance-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hiring-manager-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The hiring manager will join your second interview.",
+      "vi": "Người quản lý tuyển dụng sẽ tham gia buổi phỏng vấn thứ hai của bạn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "hiring",
+        "manager",
+        "will",
+        "join",
+        "your",
+        "second",
+        "interview"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hiring manager will joins your second interview.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"join\"."
+        },
+        {
+          "en": "Hiring manager will join your second interview.",
+          "explanationVi": "Danh từ đếm được số ít \"hiring manager\" cần mạo từ \"The\"."
+        },
+        {
+          "en": "The hiring manager will join your two interview.",
+          "explanationVi": "Chỉ thứ tự dùng số thứ tự \"second\", không dùng \"two\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:hiring-manager-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hiring-manager-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did the hiring manager like my portfolio?",
+      "vi": "Người quản lý tuyển dụng có thích hồ sơ năng lực của tôi không?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "the",
+        "hiring",
+        "manager",
+        "like",
+        "my",
+        "portfolio"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did the hiring manager liked my portfolio?",
+          "explanationVi": "Sau \"Did\" dùng động từ nguyên mẫu \"like\"."
+        },
+        {
+          "en": "The hiring manager did like my portfolio?",
+          "explanationVi": "Câu hỏi cần đảo \"Did\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Did the hiring manager like me portfolio?",
+          "explanationVi": "Cần tính từ sở hữu \"my\", không dùng \"me\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:hiring-manager-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:human-resources-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please contact human resources if you have questions.",
+      "vi": "Vui lòng liên hệ phòng nhân sự nếu bạn có câu hỏi.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "contact",
+        "human",
+        "resources",
+        "if",
+        "you",
+        "have",
+        "questions"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please contact to human resources if you have questions.",
+          "explanationVi": "Động từ \"contact\" không cần giới từ \"to\"."
+        },
+        {
+          "en": "Please contact human resources if you will have questions.",
+          "explanationVi": "Mệnh đề \"if\" điều kiện loại 1 dùng thì hiện tại, không dùng \"will\"."
+        },
+        {
+          "en": "Please contact human resource if you have questions.",
+          "explanationVi": "Tên bộ phận là \"human resources\" (số nhiều)."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:human-resources-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:human-resources-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He moved from sales to human resources last year.",
+      "vi": "Năm ngoái anh ấy chuyển từ phòng kinh doanh sang phòng nhân sự.",
+      "audio": "",
+      "tokens": [
+        "He",
+        "moved",
+        "from",
+        "sales",
+        "to",
+        "human",
+        "resources",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He move from sales to human resources last year.",
+          "explanationVi": "Hành động trong quá khứ cần \"moved\"."
+        },
+        {
+          "en": "He moved from sales at human resources last year.",
+          "explanationVi": "Cấu trúc đúng là \"from ... to ...\", không dùng \"at\"."
+        },
+        {
+          "en": "He has moved from sales to human resources last year.",
+          "explanationVi": "Có mốc thời gian quá khứ \"last year\" nên dùng quá khứ đơn, không dùng hiện tại hoàn thành."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:human-resources-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:intern-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We are hiring two marketing interns this summer.",
+      "vi": "Mùa hè này chúng tôi tuyển hai thực tập sinh marketing.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "are",
+        "hiring",
+        "two",
+        "marketing",
+        "interns",
+        "this",
+        "summer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We are hiring two marketing intern this summer.",
+          "explanationVi": "Sau \"two\" danh từ phải ở số nhiều \"interns\"."
+        },
+        {
+          "en": "We hiring two marketing interns this summer.",
+          "explanationVi": "Thì tiếp diễn cần \"are\" trước \"hiring\"."
+        },
+        {
+          "en": "We are hiring two marketing interns in this summer.",
+          "explanationVi": "Không dùng \"in\" trước \"this summer\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:intern-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:intern-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She started as an intern and is now a manager.",
+      "vi": "Cô ấy bắt đầu là thực tập sinh và giờ đã là quản lý.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "started",
+        "as",
+        "an",
+        "intern",
+        "and",
+        "is",
+        "now",
+        "a",
+        "manager"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She started as a intern and is now a manager.",
+          "explanationVi": "Trước âm nguyên âm \"intern\" dùng \"an\"."
+        },
+        {
+          "en": "She started as an intern and now a manager.",
+          "explanationVi": "Thiếu động từ \"is\" trước \"now a manager\"."
+        },
+        {
+          "en": "She starts as an intern and is now a manager.",
+          "explanationVi": "Hành động bắt đầu trong quá khứ cần \"started\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:intern-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:internship-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I did a three-month internship at an accounting firm.",
+      "vi": "Tôi đã thực tập ba tháng tại một công ty kế toán.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "did",
+        "a",
+        "three-month",
+        "internship",
+        "at",
+        "an",
+        "accounting",
+        "firm"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I did a three-months internship at an accounting firm.",
+          "explanationVi": "Tính từ ghép trước danh từ không thêm -s: \"three-month\"."
+        },
+        {
+          "en": "I made a three-month internship at an accounting firm.",
+          "explanationVi": "Cụm đúng là \"do an internship\", không dùng \"make\"."
+        },
+        {
+          "en": "I did a three-month internship at a accounting firm.",
+          "explanationVi": "Trước âm nguyên âm \"accounting\" dùng \"an\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:internship-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:internship-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is this internship paid?",
+      "vi": "Kỳ thực tập này có được trả lương không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "this",
+        "internship",
+        "paid"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This internship is paid?",
+          "explanationVi": "Câu hỏi cần đảo \"Is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is this internship pay?",
+          "explanationVi": "Cần tính từ \"paid\", không dùng \"pay\"."
+        },
+        {
+          "en": "Does this internship paid?",
+          "explanationVi": "Với tính từ \"paid\" dùng \"Is\", không dùng \"Does\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:internship-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-description-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please read the job description carefully before you apply.",
+      "vi": "Vui lòng đọc kỹ bản mô tả công việc trước khi bạn nộp đơn.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "read",
+        "the",
+        "job",
+        "description",
+        "carefully",
+        "before",
+        "you",
+        "apply"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please read the job description careful before you apply.",
+          "explanationVi": "Cần trạng từ \"carefully\" để bổ nghĩa cho động từ \"read\"."
+        },
+        {
+          "en": "Please read job description carefully before you apply.",
+          "explanationVi": "Danh từ đếm được số ít \"job description\" cần mạo từ \"the\"."
+        },
+        {
+          "en": "Please read the job description carefully before you will apply.",
+          "explanationVi": "Sau \"before\" chỉ thời gian dùng thì hiện tại, không dùng \"will\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:job-description-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-description-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The job description lists five main responsibilities.",
+      "vi": "Bản mô tả công việc liệt kê năm trách nhiệm chính.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "job",
+        "description",
+        "lists",
+        "five",
+        "main",
+        "responsibilities"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The job description list five main responsibilities.",
+          "explanationVi": "Chủ ngữ số ít \"The job description\" nên động từ phải thêm -s: \"lists\"."
+        },
+        {
+          "en": "The job description lists five main responsibility.",
+          "explanationVi": "Sau \"five\" danh từ phải ở dạng số nhiều \"responsibilities\"."
+        },
+        {
+          "en": "The job description is lists five main responsibilities.",
+          "explanationVi": "Thừa \"is\": động từ chính \"lists\" không đi với \"to be\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:job-description-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-fair-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our company will join the job fair next month.",
+      "vi": "Công ty chúng tôi sẽ tham gia hội chợ việc làm vào tháng sau.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "company",
+        "will",
+        "join",
+        "the",
+        "job",
+        "fair",
+        "next",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our company will joins the job fair next month.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"join\"."
+        },
+        {
+          "en": "Our company will join the job fair in next month.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"next month\"."
+        },
+        {
+          "en": "Our company join the job fair next month.",
+          "explanationVi": "Hành động tương lai cần \"will\"; chủ ngữ số ít cũng không đi với \"join\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:job-fair-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-fair-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I met three recruiters at the job fair.",
+      "vi": "Tôi đã gặp ba chuyên viên tuyển dụng tại hội chợ việc làm.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "met",
+        "three",
+        "recruiters",
+        "at",
+        "the",
+        "job",
+        "fair"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I meet three recruiters at the job fair yesterday.",
+          "explanationVi": "Hành động trong quá khứ cần \"met\"."
+        },
+        {
+          "en": "I met three recruiter at the job fair.",
+          "explanationVi": "Sau \"three\" danh từ phải ở số nhiều \"recruiters\"."
+        },
+        {
+          "en": "I met three recruiters on the job fair.",
+          "explanationVi": "Với sự kiện ở một địa điểm dùng \"at\", không dùng \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:job-fair-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-hunting-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Job hunting can take several months.",
+      "vi": "Việc tìm việc có thể mất vài tháng.",
+      "audio": "",
+      "tokens": [
+        "Job",
+        "hunting",
+        "can",
+        "take",
+        "several",
+        "months"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Job hunting can takes several months.",
+          "explanationVi": "Sau \"can\" dùng động từ nguyên mẫu \"take\"."
+        },
+        {
+          "en": "Job hunting can take several month.",
+          "explanationVi": "Sau \"several\" danh từ ở số nhiều \"months\"."
+        },
+        {
+          "en": "Job hunting can to take several months.",
+          "explanationVi": "Sau \"can\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:job-hunting-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-hunting-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I started job hunting after I graduated.",
+      "vi": "Tôi bắt đầu tìm việc sau khi tốt nghiệp.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "started",
+        "job",
+        "hunting",
+        "after",
+        "I",
+        "graduated"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I start job hunting after I graduated last year.",
+          "explanationVi": "Hành động trong quá khứ cần \"started\"."
+        },
+        {
+          "en": "I started job hunting after I graduate last year.",
+          "explanationVi": "Hành động tốt nghiệp đã xảy ra nên cần \"graduated\"."
+        },
+        {
+          "en": "I started job hunt after I graduated.",
+          "explanationVi": "Sau \"started\" dùng dạng danh từ \"job hunting\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:job-hunting-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-offer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I received a job offer from a bank last week.",
+      "vi": "Tuần trước tôi đã nhận được lời mời làm việc từ một ngân hàng.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "received",
+        "a",
+        "job",
+        "offer",
+        "from",
+        "a",
+        "bank",
+        "last",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I receive a job offer from a bank last week.",
+          "explanationVi": "Hành động trong quá khứ cần \"received\"."
+        },
+        {
+          "en": "I received job offer from a bank last week.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "I received a job offer from a bank in last week.",
+          "explanationVi": "Không dùng \"in\" trước \"last week\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        1
+      ],
+      "wordIds": [
+        "word:job-offer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-offer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Should I accept the job offer or wait?",
+      "vi": "Tôi nên nhận lời mời làm việc hay chờ thêm?",
+      "audio": "",
+      "tokens": [
+        "Should",
+        "I",
+        "accept",
+        "the",
+        "job",
+        "offer",
+        "or",
+        "wait"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Should I accepting the job offer or wait?",
+          "explanationVi": "Sau \"Should\" dùng động từ nguyên mẫu \"accept\"."
+        },
+        {
+          "en": "I should accept the job offer or wait?",
+          "explanationVi": "Câu hỏi cần đảo \"Should\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Should I to accept the job offer or wait?",
+          "explanationVi": "Sau \"Should\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:job-offer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-posting-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I saw your job posting on a careers website.",
+      "vi": "Tôi đã thấy tin tuyển dụng của bạn trên một trang web việc làm.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "saw",
+        "your",
+        "job",
+        "posting",
+        "on",
+        "a",
+        "careers",
+        "website"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I see your job posting on a careers website yesterday.",
+          "explanationVi": "Hành động đã xảy ra (\"yesterday\") cần thì quá khứ \"saw\"."
+        },
+        {
+          "en": "I saw your job posting in a careers website.",
+          "explanationVi": "Với trang web dùng giới từ \"on\", không dùng \"in\"."
+        },
+        {
+          "en": "I saw your job posting on careers website.",
+          "explanationVi": "Danh từ đếm được số ít \"careers website\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:job-posting-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-posting-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We will close the job posting at the end of May.",
+      "vi": "Chúng tôi sẽ đóng tin tuyển dụng vào cuối tháng Năm.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "will",
+        "close",
+        "the",
+        "job",
+        "posting",
+        "at",
+        "the",
+        "end",
+        "of",
+        "May"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          6,
+          3,
+          8,
+          9,
+          10,
+          0,
+          1,
+          2,
+          7,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We will closing the job posting at the end of May.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"close\"."
+        },
+        {
+          "en": "We will close the job posting in the end of May.",
+          "explanationVi": "Cụm cố định là \"at the end of\", không dùng \"in\"."
+        },
+        {
+          "en": "We will close job posting at the end of May.",
+          "explanationVi": "Danh từ đếm được số ít \"job posting\" cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:job-posting-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-seeker-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Many job seekers prepare for interviews with a friend.",
+      "vi": "Nhiều người tìm việc luyện tập phỏng vấn cùng một người bạn.",
+      "audio": "",
+      "tokens": [
+        "Many",
+        "job",
+        "seekers",
+        "prepare",
+        "for",
+        "interviews",
+        "with",
+        "a",
+        "friend"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many job seeker prepare for interviews with a friend.",
+          "explanationVi": "Sau \"Many\" danh từ phải ở số nhiều \"job seekers\"."
+        },
+        {
+          "en": "Many job seekers prepares for interviews with a friend.",
+          "explanationVi": "Chủ ngữ số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "Many job seekers prepare interviews with a friend.",
+          "explanationVi": "Cần giới từ \"for\": \"prepare for interviews\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:job-seeker-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-seeker-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is this website free for job seekers?",
+      "vi": "Trang web này có miễn phí cho người tìm việc không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "this",
+        "website",
+        "free",
+        "for",
+        "job",
+        "seekers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This website is free for job seekers?",
+          "explanationVi": "Câu hỏi cần đảo \"Is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is this website free to job seeker?",
+          "explanationVi": "Cần danh từ số nhiều \"job seekers\" khi nói chung về một nhóm người."
+        },
+        {
+          "en": "Does this website free for job seekers?",
+          "explanationVi": "Với tính từ \"free\" dùng động từ \"to be\", không dùng \"Does\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:job-seeker-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-title-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "What is your current job title?",
+      "vi": "Chức danh công việc hiện tại của bạn là gì?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "is",
+        "your",
+        "current",
+        "job",
+        "title"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What your current job title is?",
+          "explanationVi": "Câu hỏi trực tiếp cần đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "What is you current job title?",
+          "explanationVi": "Cần tính từ sở hữu \"your\", không dùng \"you\" trước danh từ."
+        },
+        {
+          "en": "What are your current job title?",
+          "explanationVi": "Chủ ngữ số ít \"job title\" đi với \"is\", không dùng \"are\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:job-title-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:job-title-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Her job title changed to senior designer last year.",
+      "vi": "Năm ngoái chức danh của cô ấy đã đổi thành nhà thiết kế cấp cao.",
+      "audio": "",
+      "tokens": [
+        "Her",
+        "job",
+        "title",
+        "changed",
+        "to",
+        "senior",
+        "designer",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Her job title change to senior designer last year.",
+          "explanationVi": "Hành động trong quá khứ (\"last year\") cần động từ \"changed\"."
+        },
+        {
+          "en": "She job title changed to senior designer last year.",
+          "explanationVi": "Cần tính từ sở hữu \"Her\", không dùng đại từ \"She\"."
+        },
+        {
+          "en": "Her job title changed to senior designer in last year.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"last year\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:job-title-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:lay-off-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The factory laid off fifty workers last month.",
+      "vi": "Tháng trước nhà máy đã cho năm mươi công nhân nghỉ việc.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "factory",
+        "laid",
+        "off",
+        "fifty",
+        "workers",
+        "last",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The factory layed off fifty workers last month.",
+          "explanationVi": "Quá khứ của \"lay\" là \"laid\", không phải \"layed\"."
+        },
+        {
+          "en": "The factory lay off fifty workers last month.",
+          "explanationVi": "Hành động trong quá khứ cần \"laid off\"."
+        },
+        {
+          "en": "The factory laid off fifty worker last month.",
+          "explanationVi": "Sau \"fifty\" danh từ phải ở số nhiều \"workers\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:lay-off-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:lay-off-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Will they lay off more people this year?",
+      "vi": "Năm nay họ có cho thêm người nghỉ việc không?",
+      "audio": "",
+      "tokens": [
+        "Will",
+        "they",
+        "lay",
+        "off",
+        "more",
+        "people",
+        "this",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Will they laid off more people this year?",
+          "explanationVi": "Sau \"Will\" dùng động từ nguyên mẫu \"lay\"."
+        },
+        {
+          "en": "They will lay off more people this year?",
+          "explanationVi": "Câu hỏi cần đảo \"Will\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Will they lay off more peoples this year?",
+          "explanationVi": "\"People\" đã là số nhiều, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:lay-off-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:layoff-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The company announced layoffs in its sales team.",
+      "vi": "Công ty đã thông báo cắt giảm nhân sự ở bộ phận kinh doanh.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "company",
+        "announced",
+        "layoffs",
+        "in",
+        "its",
+        "sales",
+        "team"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company announce layoffs in its sales team yesterday.",
+          "explanationVi": "Hành động trong quá khứ cần \"announced\"."
+        },
+        {
+          "en": "The company announced layoffs in it sales team.",
+          "explanationVi": "Cần tính từ sở hữu \"its\", không dùng \"it\"."
+        },
+        {
+          "en": "The company announced layoff in its sales team.",
+          "explanationVi": "Nói về nhiều trường hợp nên dùng số nhiều \"layoffs\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:layoff-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:layoff-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Were you affected by the layoffs?",
+      "vi": "Bạn có bị ảnh hưởng bởi đợt cắt giảm nhân sự không?",
+      "audio": "",
+      "tokens": [
+        "Were",
+        "you",
+        "affected",
+        "by",
+        "the",
+        "layoffs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Were you affect by the layoffs?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"affected\"."
+        },
+        {
+          "en": "Was you affected by the layoffs?",
+          "explanationVi": "Chủ ngữ \"you\" đi với \"Were\"."
+        },
+        {
+          "en": "You were affected by the layoffs?",
+          "explanationVi": "Câu hỏi cần đảo \"Were\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:layoff-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:maternity-leave-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She will return from maternity leave in June.",
+      "vi": "Cô ấy sẽ trở lại làm việc sau kỳ nghỉ thai sản vào tháng Sáu.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "will",
+        "return",
+        "from",
+        "maternity",
+        "leave",
+        "in",
+        "June"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She will returns from maternity leave in June.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"return\"."
+        },
+        {
+          "en": "She will return from maternity leave on June.",
+          "explanationVi": "Với tháng dùng giới từ \"in\"."
+        },
+        {
+          "en": "She will return to maternity leave in June.",
+          "explanationVi": "Trở lại sau kỳ nghỉ dùng \"return from\", không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:maternity-leave-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:maternity-leave-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How long is maternity leave at your company?",
+      "vi": "Ở công ty bạn được nghỉ thai sản bao lâu?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "long",
+        "is",
+        "maternity",
+        "leave",
+        "at",
+        "your",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How long maternity leave is at your company?",
+          "explanationVi": "Câu hỏi trực tiếp cần đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "How long is maternity leave at you company?",
+          "explanationVi": "Cần tính từ sở hữu \"your\", không dùng \"you\"."
+        },
+        {
+          "en": "How long are maternity leave at your company?",
+          "explanationVi": "Chủ ngữ số ít đi với \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:maternity-leave-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notice-period-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My notice period is thirty days.",
+      "vi": "Thời gian báo trước khi nghỉ việc của tôi là ba mươi ngày.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "notice",
+        "period",
+        "is",
+        "thirty",
+        "days"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My notice period are thirty days.",
+          "explanationVi": "Chủ ngữ số ít đi với \"is\"."
+        },
+        {
+          "en": "My notice period is thirty day.",
+          "explanationVi": "Sau \"thirty\" danh từ phải ở số nhiều \"days\"."
+        },
+        {
+          "en": "My notice period thirty days.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:notice-period-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notice-period-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you start after your notice period ends?",
+      "vi": "Bạn có thể bắt đầu sau khi hết thời gian báo trước không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "you",
+        "start",
+        "after",
+        "your",
+        "notice",
+        "period",
+        "ends"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you start after your notice period will end?",
+          "explanationVi": "Sau \"after\" chỉ thời gian dùng thì hiện tại, không dùng \"will\"."
+        },
+        {
+          "en": "Can you start after your notice period end?",
+          "explanationVi": "Chủ ngữ số ít nên động từ thêm -s: \"ends\"."
+        },
+        {
+          "en": "Can you starting after your notice period ends?",
+          "explanationVi": "Sau \"Can\" dùng động từ nguyên mẫu \"start\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:notice-period-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:offer-letter-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "HR will email you the offer letter tomorrow.",
+      "vi": "Phòng nhân sự sẽ gửi email thư mời nhận việc cho bạn vào ngày mai.",
+      "audio": "",
+      "tokens": [
+        "HR",
+        "will",
+        "email",
+        "you",
+        "the",
+        "offer",
+        "letter",
+        "tomorrow"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "HR will emails you the offer letter tomorrow.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"email\"."
+        },
+        {
+          "en": "HR will email you offer letter tomorrow.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"the\"."
+        },
+        {
+          "en": "HR emailed you the offer letter tomorrow.",
+          "explanationVi": "Với \"tomorrow\" cần thì tương lai \"will email\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:offer-letter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:offer-letter-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please sign the offer letter and send it back.",
+      "vi": "Vui lòng ký thư mời nhận việc và gửi lại.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "sign",
+        "the",
+        "offer",
+        "letter",
+        "and",
+        "send",
+        "it",
+        "back"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please sign the offer letter and send back it.",
+          "explanationVi": "Với cụm động từ \"send back\", đại từ \"it\" đứng giữa: \"send it back\"."
+        },
+        {
+          "en": "Please signs the offer letter and send it back.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"sign\"."
+        },
+        {
+          "en": "Please sign offer letter and send it back.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:offer-letter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:onboard-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "HR onboards new hires every Monday.",
+      "vi": "Phòng nhân sự tiếp nhận nhân viên mới vào mỗi thứ Hai.",
+      "audio": "",
+      "tokens": [
+        "HR",
+        "onboards",
+        "new",
+        "hires",
+        "every",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "HR onboard new hires every Monday.",
+          "explanationVi": "Chủ ngữ số ít \"HR\" nên động từ thêm -s: \"onboards\"."
+        },
+        {
+          "en": "HR onboards new hires on every Monday.",
+          "explanationVi": "Không dùng giới từ \"on\" trước \"every Monday\"."
+        },
+        {
+          "en": "HR onboards new hire every Monday.",
+          "explanationVi": "Nói chung nên dùng số nhiều \"hires\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:onboard-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:onboard-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We onboarded twelve people last quarter.",
+      "vi": "Quý trước chúng tôi đã tiếp nhận mười hai nhân viên mới.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "onboarded",
+        "twelve",
+        "people",
+        "last",
+        "quarter"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We onboard twelve people last quarter.",
+          "explanationVi": "Hành động trong quá khứ cần \"onboarded\"."
+        },
+        {
+          "en": "We onboarded twelve peoples last quarter.",
+          "explanationVi": "\"People\" đã là số nhiều, không thêm -s."
+        },
+        {
+          "en": "We have onboarded twelve people last quarter.",
+          "explanationVi": "Có mốc quá khứ \"last quarter\" nên dùng quá khứ đơn."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:onboard-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:onboarding-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Onboarding takes two weeks for new engineers.",
+      "vi": "Quá trình hội nhập kéo dài hai tuần đối với kỹ sư mới.",
+      "audio": "",
+      "tokens": [
+        "Onboarding",
+        "takes",
+        "two",
+        "weeks",
+        "for",
+        "new",
+        "engineers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Onboarding take two weeks for new engineers.",
+          "explanationVi": "Chủ ngữ số ít \"Onboarding\" nên động từ thêm -s: \"takes\"."
+        },
+        {
+          "en": "Onboarding takes two week for new engineers.",
+          "explanationVi": "Sau \"two\" danh từ phải ở số nhiều \"weeks\"."
+        },
+        {
+          "en": "Onboarding is takes two weeks for new engineers.",
+          "explanationVi": "Thừa \"is\": thì hiện tại đơn không dùng \"to be\" với động từ thường."
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [
+        "word:onboarding-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:onboarding-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A buddy helped me a lot during onboarding.",
+      "vi": "Một người đồng hành đã giúp tôi rất nhiều trong quá trình hội nhập.",
+      "audio": "",
+      "tokens": [
+        "A",
+        "buddy",
+        "helped",
+        "me",
+        "a",
+        "lot",
+        "during",
+        "onboarding"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A buddy help me a lot during onboarding.",
+          "explanationVi": "Hành động trong quá khứ cần \"helped\"."
+        },
+        {
+          "en": "A buddy helped me a lot while onboarding.",
+          "explanationVi": "Trước danh từ dùng giới từ \"during\", không dùng \"while\"."
+        },
+        {
+          "en": "Buddy helped me a lot during onboarding.",
+          "explanationVi": "Danh từ đếm được số ít \"buddy\" cần mạo từ \"A\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:onboarding-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:orientation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "New employees attend orientation on their first day.",
+      "vi": "Nhân viên mới tham gia buổi định hướng vào ngày đầu tiên.",
+      "audio": "",
+      "tokens": [
+        "New",
+        "employees",
+        "attend",
+        "orientation",
+        "on",
+        "their",
+        "first",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "New employees attend orientation in their first day.",
+          "explanationVi": "Với ngày dùng giới từ \"on\"."
+        },
+        {
+          "en": "New employees attend to orientation on their first day.",
+          "explanationVi": "Động từ \"attend\" không cần giới từ \"to\"."
+        },
+        {
+          "en": "New employees attends orientation on their first day.",
+          "explanationVi": "Chủ ngữ số nhiều nên động từ không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:orientation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:orientation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The orientation covered company rules and safety.",
+      "vi": "Buổi định hướng đã nói về quy định công ty và an toàn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "orientation",
+        "covered",
+        "company",
+        "rules",
+        "and",
+        "safety"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The orientation cover company rules and safety yesterday.",
+          "explanationVi": "Hành động trong quá khứ cần \"covered\"."
+        },
+        {
+          "en": "The orientation covered company rule and safety.",
+          "explanationVi": "Có nhiều quy định nên dùng \"rules\"."
+        },
+        {
+          "en": "The orientation was covered company rules and safety.",
+          "explanationVi": "Câu chủ động, không dùng \"was\" trước \"covered\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:orientation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overqualified-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "They said I was overqualified for the role.",
+      "vi": "Họ nói rằng tôi thừa trình độ cho vị trí đó.",
+      "audio": "",
+      "tokens": [
+        "They",
+        "said",
+        "I",
+        "was",
+        "overqualified",
+        "for",
+        "the",
+        "role"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They said I overqualified for the role.",
+          "explanationVi": "Thiếu động từ \"to be\" (\"was\") trước tính từ."
+        },
+        {
+          "en": "They said I was overqualified to the role.",
+          "explanationVi": "Cụm đúng là \"overqualified for\", không dùng \"to\"."
+        },
+        {
+          "en": "They say I was overqualified for the role yesterday.",
+          "explanationVi": "Hành động trong quá khứ cần \"said\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:overqualified-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overqualified-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Are you worried that he is overqualified?",
+      "vi": "Bạn có lo rằng anh ấy thừa trình độ không?",
+      "audio": "",
+      "tokens": [
+        "Are",
+        "you",
+        "worried",
+        "that",
+        "he",
+        "is",
+        "overqualified"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You are worried that he is overqualified?",
+          "explanationVi": "Câu hỏi cần đảo \"Are\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Are you worry that he is overqualified?",
+          "explanationVi": "Cần tính từ \"worried\" sau \"Are\", không dùng động từ \"worry\"."
+        },
+        {
+          "en": "Are you worried that he overqualified?",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"overqualified\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:overqualified-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:paid-time-off-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "New staff get fifteen days of paid time off.",
+      "vi": "Nhân viên mới được mười lăm ngày nghỉ có lương.",
+      "audio": "",
+      "tokens": [
+        "New",
+        "staff",
+        "get",
+        "fifteen",
+        "days",
+        "of",
+        "paid",
+        "time",
+        "off"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "New staff get fifteen day of paid time off.",
+          "explanationVi": "Sau \"fifteen\" danh từ phải ở số nhiều \"days\"."
+        },
+        {
+          "en": "New staff get fifteen days for paid time off.",
+          "explanationVi": "Cụm đúng là \"days of paid time off\", không dùng \"for\"."
+        },
+        {
+          "en": "New staff getting fifteen days of paid time off.",
+          "explanationVi": "Câu thiếu động từ chia: cần \"get\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [
+        "word:paid-time-off-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:paid-time-off-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How much paid time off do you have left?",
+      "vi": "Bạn còn bao nhiêu ngày nghỉ có lương?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "much",
+        "paid",
+        "time",
+        "off",
+        "do",
+        "you",
+        "have",
+        "left"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How many paid time off do you have left?",
+          "explanationVi": "\"Paid time off\" không đếm được nên dùng \"How much\"."
+        },
+        {
+          "en": "How much paid time off you have left?",
+          "explanationVi": "Câu hỏi cần trợ động từ \"do\"."
+        },
+        {
+          "en": "How much paid time off do you has left?",
+          "explanationVi": "Sau \"do\" dùng động từ nguyên mẫu \"have\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:paid-time-off-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:panel-interview-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The final round is a panel interview with three managers.",
+      "vi": "Vòng cuối là buổi phỏng vấn hội đồng với ba quản lý.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "final",
+        "round",
+        "is",
+        "a",
+        "panel",
+        "interview",
+        "with",
+        "three",
+        "managers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The final round is panel interview with three managers.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "The final round is a panel interview with three manager.",
+          "explanationVi": "Sau \"three\" danh từ phải ở số nhiều \"managers\"."
+        },
+        {
+          "en": "The final round a panel interview with three managers.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:panel-interview-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:panel-interview-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I was nervous before my first panel interview.",
+      "vi": "Tôi đã lo lắng trước buổi phỏng vấn hội đồng đầu tiên của mình.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "was",
+        "nervous",
+        "before",
+        "my",
+        "first",
+        "panel",
+        "interview"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I nervous before my first panel interview.",
+          "explanationVi": "Thiếu động từ \"to be\" (\"was\") trước tính từ \"nervous\"."
+        },
+        {
+          "en": "I were nervous before my first panel interview.",
+          "explanationVi": "Chủ ngữ \"I\" ở quá khứ đi với \"was\", không dùng \"were\"."
+        },
+        {
+          "en": "I was nervous before my one panel interview.",
+          "explanationVi": "Chỉ thứ tự dùng \"first\", không dùng \"one\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [
+        "word:panel-interview-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:performance-review-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We have performance reviews twice a year.",
+      "vi": "Chúng tôi có buổi đánh giá hiệu suất hai lần mỗi năm.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "have",
+        "performance",
+        "reviews",
+        "twice",
+        "a",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We have performance review twice a year.",
+          "explanationVi": "Có nhiều lần đánh giá nên dùng số nhiều \"reviews\"."
+        },
+        {
+          "en": "We have performance reviews twice in a year.",
+          "explanationVi": "Cụm tần suất là \"twice a year\", không thêm \"in\"."
+        },
+        {
+          "en": "We has performance reviews twice a year.",
+          "explanationVi": "Chủ ngữ \"We\" đi với \"have\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:performance-review-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:performance-review-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My manager gave me good feedback in my performance review.",
+      "vi": "Quản lý đã cho tôi nhận xét tốt trong buổi đánh giá hiệu suất.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "manager",
+        "gave",
+        "me",
+        "good",
+        "feedback",
+        "in",
+        "my",
+        "performance",
+        "review"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My manager gave me a good feedback in my performance review.",
+          "explanationVi": "\"Feedback\" không đếm được nên không dùng \"a\"."
+        },
+        {
+          "en": "My manager give me good feedback in my performance review.",
+          "explanationVi": "Hành động trong quá khứ cần \"gave\"."
+        },
+        {
+          "en": "My manager gave me good feedbacks in my performance review.",
+          "explanationVi": "\"Feedback\" không đếm được nên không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        8
+      ],
+      "wordIds": [
+        "word:performance-review-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:perk-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Free lunch is one of the best perks here.",
+      "vi": "Bữa trưa miễn phí là một trong những phúc lợi tốt nhất ở đây.",
+      "audio": "",
+      "tokens": [
+        "Free",
+        "lunch",
+        "is",
+        "one",
+        "of",
+        "the",
+        "best",
+        "perks",
+        "here"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Free lunch is one of the best perk here.",
+          "explanationVi": "Sau \"one of the\" danh từ phải ở số nhiều \"perks\"."
+        },
+        {
+          "en": "Free lunch is one of best perks here.",
+          "explanationVi": "So sánh nhất cần mạo từ \"the\"."
+        },
+        {
+          "en": "Free lunch are one of the best perks here.",
+          "explanationVi": "Chủ ngữ số ít \"Free lunch\" đi với \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:perk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:perk-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "What perks do your employees get?",
+      "vi": "Nhân viên của bạn được hưởng những phúc lợi gì?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "perks",
+        "do",
+        "your",
+        "employees",
+        "get"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What perks your employees get?",
+          "explanationVi": "Câu hỏi cần trợ động từ \"do\"."
+        },
+        {
+          "en": "What perks does your employees get?",
+          "explanationVi": "Chủ ngữ số nhiều \"employees\" đi với \"do\"."
+        },
+        {
+          "en": "What perks do your employees gets?",
+          "explanationVi": "Sau \"do\" dùng động từ nguyên mẫu \"get\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:perk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:probation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "New staff are on probation for two months.",
+      "vi": "Nhân viên mới được thử việc trong hai tháng.",
+      "audio": "",
+      "tokens": [
+        "New",
+        "staff",
+        "are",
+        "on",
+        "probation",
+        "for",
+        "two",
+        "months"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "New staff are in probation for two months.",
+          "explanationVi": "Cụm cố định là \"on probation\", không dùng \"in\"."
+        },
+        {
+          "en": "New staff on probation for two months.",
+          "explanationVi": "Thiếu động từ \"are\"."
+        },
+        {
+          "en": "New staff are on probation since two months.",
+          "explanationVi": "Chỉ khoảng thời gian dùng \"for\", không dùng \"since\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:probation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:probation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He passed his probation and got a raise.",
+      "vi": "Anh ấy đã qua thời gian thử việc và được tăng lương.",
+      "audio": "",
+      "tokens": [
+        "He",
+        "passed",
+        "his",
+        "probation",
+        "and",
+        "got",
+        "a",
+        "raise"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He pass his probation and got a raise.",
+          "explanationVi": "Hành động trong quá khứ cần \"passed\"."
+        },
+        {
+          "en": "He passed him probation and got a raise.",
+          "explanationVi": "Cần tính từ sở hữu \"his\", không dùng \"him\"."
+        },
+        {
+          "en": "He passed his probation and got raise.",
+          "explanationVi": "Danh từ đếm được số ít \"raise\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:probation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruiter-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A recruiter called me about a marketing job yesterday.",
+      "vi": "Hôm qua một chuyên viên tuyển dụng đã gọi cho tôi về một công việc marketing.",
+      "audio": "",
+      "tokens": [
+        "A",
+        "recruiter",
+        "called",
+        "me",
+        "about",
+        "a",
+        "marketing",
+        "job",
+        "yesterday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A recruiter call me about a marketing job yesterday.",
+          "explanationVi": "Hành động trong quá khứ (\"yesterday\") cần \"called\"."
+        },
+        {
+          "en": "Recruiter called me about a marketing job yesterday.",
+          "explanationVi": "Danh từ đếm được số ít \"recruiter\" cần mạo từ \"A\"."
+        },
+        {
+          "en": "A recruiter called to me about a marketing job yesterday.",
+          "explanationVi": "Động từ \"call\" (gọi điện) không cần giới từ \"to\" trước tân ngữ."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:recruiter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruiter-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our recruiters review hundreds of resumes every week.",
+      "vi": "Các chuyên viên tuyển dụng của chúng tôi xem xét hàng trăm hồ sơ mỗi tuần.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "recruiters",
+        "review",
+        "hundreds",
+        "of",
+        "resumes",
+        "every",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our recruiters reviews hundreds of resumes every week.",
+          "explanationVi": "Chủ ngữ số nhiều \"Our recruiters\" nên động từ không thêm -s."
+        },
+        {
+          "en": "Our recruiters review hundred of resumes every week.",
+          "explanationVi": "Cụm đúng là \"hundreds of\" (có -s) khi không có số đếm cụ thể."
+        },
+        {
+          "en": "Our recruiters are review hundreds of resumes every week.",
+          "explanationVi": "Thừa \"are\": thì hiện tại đơn không dùng \"to be\" với động từ thường."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:recruiter-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruitment-agency-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We found our new accountant through a recruitment agency.",
+      "vi": "Chúng tôi tìm được kế toán mới thông qua một công ty tuyển dụng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "found",
+        "our",
+        "new",
+        "accountant",
+        "through",
+        "a",
+        "recruitment",
+        "agency"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We find our new accountant through a recruitment agency last month.",
+          "explanationVi": "Hành động trong quá khứ cần \"found\"."
+        },
+        {
+          "en": "We found our new accountant through recruitment agency.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "We found our new accountant though a recruitment agency.",
+          "explanationVi": "Nhầm từ: \"through\" (thông qua) khác \"though\" (mặc dù)."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        7
+      ],
+      "wordIds": [
+        "word:recruitment-agency-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruitment-agency-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Does the recruitment agency charge the candidate?",
+      "vi": "Công ty tuyển dụng có thu phí ứng viên không?",
+      "audio": "",
+      "tokens": [
+        "Does",
+        "the",
+        "recruitment",
+        "agency",
+        "charge",
+        "the",
+        "candidate"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does the recruitment agency charges the candidate?",
+          "explanationVi": "Sau \"Does\" dùng động từ nguyên mẫu \"charge\"."
+        },
+        {
+          "en": "Do the recruitment agency charge the candidate?",
+          "explanationVi": "Chủ ngữ số ít đi với \"Does\"."
+        },
+        {
+          "en": "The recruitment agency does charge the candidate?",
+          "explanationVi": "Câu hỏi cần đảo \"Does\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:recruitment-agency-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruitment-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She has worked in recruitment for six years.",
+      "vi": "Cô ấy đã làm trong ngành tuyển dụng được sáu năm.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "has",
+        "worked",
+        "in",
+        "recruitment",
+        "for",
+        "six",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She has work in recruitment for six years.",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ \"worked\"."
+        },
+        {
+          "en": "She has worked in recruitment since six years.",
+          "explanationVi": "Với khoảng thời gian dùng \"for\", không dùng \"since\"."
+        },
+        {
+          "en": "She have worked in recruitment for six years.",
+          "explanationVi": "Chủ ngữ \"She\" đi với \"has\", không dùng \"have\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:recruitment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recruitment-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The recruitment process usually takes about a month.",
+      "vi": "Quy trình tuyển dụng thường mất khoảng một tháng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "recruitment",
+        "process",
+        "usually",
+        "takes",
+        "about",
+        "a",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The recruitment process usually take about a month.",
+          "explanationVi": "Chủ ngữ số ít \"process\" nên động từ thêm -s: \"takes\"."
+        },
+        {
+          "en": "The recruitment process takes usually about a month.",
+          "explanationVi": "Trạng từ tần suất \"usually\" đứng trước động từ thường."
+        },
+        {
+          "en": "The recruit process usually takes about a month.",
+          "explanationVi": "Sai dạng từ: cần danh từ \"recruitment\", không dùng động từ \"recruit\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:recruitment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reference-check-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We do a reference check before every job offer.",
+      "vi": "Chúng tôi kiểm tra người tham chiếu trước mỗi lời mời làm việc.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "do",
+        "a",
+        "reference",
+        "check",
+        "before",
+        "every",
+        "job",
+        "offer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We do reference check before every job offer.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "We does a reference check before every job offer.",
+          "explanationVi": "Chủ ngữ \"We\" đi với \"do\", không dùng \"does\"."
+        },
+        {
+          "en": "We do a reference check before every job offers.",
+          "explanationVi": "Sau \"every\" danh từ ở số ít \"job offer\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:reference-check-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reference-check-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The reference check took longer than we expected.",
+      "vi": "Việc kiểm tra người tham chiếu mất nhiều thời gian hơn chúng tôi nghĩ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "reference",
+        "check",
+        "took",
+        "longer",
+        "than",
+        "we",
+        "expected"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The reference check take longer than we expected.",
+          "explanationVi": "Hành động trong quá khứ cần \"took\"."
+        },
+        {
+          "en": "The reference check took long than we expected.",
+          "explanationVi": "So sánh hơn cần \"longer\", không dùng \"long\"."
+        },
+        {
+          "en": "The reference check took longer that we expected.",
+          "explanationVi": "So sánh hơn dùng \"than\", không dùng \"that\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:reference-check-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:referral-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Many of our best hires came from employee referrals.",
+      "vi": "Nhiều nhân viên giỏi nhất của chúng tôi đến từ sự giới thiệu của nhân viên.",
+      "audio": "",
+      "tokens": [
+        "Many",
+        "of",
+        "our",
+        "best",
+        "hires",
+        "came",
+        "from",
+        "employee",
+        "referrals"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many of our best hires come from employee referrals last year.",
+          "explanationVi": "Hành động trong quá khứ (\"last year\") cần \"came\"."
+        },
+        {
+          "en": "Many of our best hire came from employee referrals.",
+          "explanationVi": "Sau \"Many of\" danh từ phải ở số nhiều \"hires\"."
+        },
+        {
+          "en": "Many of our best hires came to employee referrals.",
+          "explanationVi": "Nói về nguồn gốc dùng \"come from\", không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        8
+      ],
+      "wordIds": [
+        "word:referral-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:referral-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "You get a bonus for each successful referral.",
+      "vi": "Bạn được thưởng cho mỗi lần giới thiệu ứng viên thành công.",
+      "audio": "",
+      "tokens": [
+        "You",
+        "get",
+        "a",
+        "bonus",
+        "for",
+        "each",
+        "successful",
+        "referral"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You get a bonus for each successful referrals.",
+          "explanationVi": "Sau \"each\" danh từ ở số ít \"referral\"."
+        },
+        {
+          "en": "You get bonus for each successful referral.",
+          "explanationVi": "Danh từ đếm được số ít \"bonus\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "You get a bonus for each success referral.",
+          "explanationVi": "Cần tính từ \"successful\", không dùng danh từ \"success\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:referral-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:relocate-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Are you willing to relocate to another city?",
+      "vi": "Bạn có sẵn sàng chuyển đến thành phố khác không?",
+      "audio": "",
+      "tokens": [
+        "Are",
+        "you",
+        "willing",
+        "to",
+        "relocate",
+        "to",
+        "another",
+        "city"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Are you willing relocate to another city?",
+          "explanationVi": "Sau \"willing\" cần \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "en": "You are willing to relocate to another city?",
+          "explanationVi": "Câu hỏi cần đảo \"Are\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Are you willing to relocate to other city?",
+          "explanationVi": "Trước danh từ số ít dùng \"another\", không dùng \"other\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:relocate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:relocate-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The company relocated her to its new branch office.",
+      "vi": "Công ty đã điều chuyển cô ấy sang văn phòng chi nhánh mới.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "company",
+        "relocated",
+        "her",
+        "to",
+        "its",
+        "new",
+        "branch",
+        "office"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company relocate her to its new branch office last year.",
+          "explanationVi": "Hành động trong quá khứ cần \"relocated\"."
+        },
+        {
+          "en": "The company relocated she to its new branch office.",
+          "explanationVi": "Sau động từ dùng đại từ tân ngữ \"her\"."
+        },
+        {
+          "en": "The company relocated her at its new branch office.",
+          "explanationVi": "Chuyển đến nơi nào dùng \"to\", không dùng \"at\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:relocate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:relocation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The job offer includes help with relocation costs.",
+      "vi": "Lời mời làm việc bao gồm hỗ trợ chi phí chuyển nơi ở.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "job",
+        "offer",
+        "includes",
+        "help",
+        "with",
+        "relocation",
+        "costs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The job offer include help with relocation costs.",
+          "explanationVi": "Chủ ngữ số ít nên động từ thêm -s: \"includes\"."
+        },
+        {
+          "en": "The job offer includes help for relocation costs.",
+          "explanationVi": "Cụm đúng là \"help with\", không dùng \"for\"."
+        },
+        {
+          "en": "The job offer includes help with relocate costs.",
+          "explanationVi": "Sai dạng từ: cần danh từ \"relocation\", không dùng động từ."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:relocation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:relocation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is relocation required for this role?",
+      "vi": "Vị trí này có yêu cầu chuyển nơi làm việc không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "relocation",
+        "required",
+        "for",
+        "this",
+        "role"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Relocation is required for this role?",
+          "explanationVi": "Câu hỏi cần đảo \"Is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is relocation require for this role?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"required\"."
+        },
+        {
+          "en": "Does relocation required for this role?",
+          "explanationVi": "Câu bị động dùng \"Is\", không dùng \"Does\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:relocation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:resume-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please send your resume to our HR team by Friday.",
+      "vi": "Vui lòng gửi sơ yếu lý lịch của bạn cho bộ phận nhân sự trước thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "send",
+        "your",
+        "resume",
+        "to",
+        "our",
+        "HR",
+        "team",
+        "by",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please send you resume to our HR team by Friday.",
+          "explanationVi": "Cần tính từ sở hữu \"your\", không dùng đại từ \"you\" trước danh từ."
+        },
+        {
+          "en": "Please send your resume to our HR team on Friday by.",
+          "explanationVi": "Sai trật tự từ: giới từ \"by\" phải đứng trước \"Friday\"."
+        },
+        {
+          "en": "Please sending your resume to our HR team by Friday.",
+          "explanationVi": "Câu mệnh lệnh sau \"Please\" dùng động từ nguyên mẫu \"send\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:resume-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:resume-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I updated my resume before the job fair.",
+      "vi": "Tôi đã cập nhật sơ yếu lý lịch trước hội chợ việc làm.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "updated",
+        "my",
+        "resume",
+        "before",
+        "the",
+        "job",
+        "fair"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I update my resume before the job fair last week.",
+          "explanationVi": "Hành động trong quá khứ cần thì quá khứ \"updated\"."
+        },
+        {
+          "en": "I updated resume before the job fair.",
+          "explanationVi": "Danh từ đếm được số ít \"resume\" cần từ hạn định như \"my\"."
+        },
+        {
+          "en": "I updated my resume before job fair.",
+          "explanationVi": "Danh từ đếm được số ít \"job fair\" cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:resume-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:salary-range-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "What is the salary range for this position?",
+      "vi": "Khung lương cho vị trí này là bao nhiêu?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "is",
+        "the",
+        "salary",
+        "range",
+        "for",
+        "this",
+        "position"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What the salary range is for this position?",
+          "explanationVi": "Câu hỏi trực tiếp cần đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "What is salary range for this position?",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"the\"."
+        },
+        {
+          "en": "What is the salary range of this position for?",
+          "explanationVi": "Sai trật tự từ: giới từ \"for\" phải đứng trước \"this position\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:salary-range-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:salary-range-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We include the salary range in every job posting.",
+      "vi": "Chúng tôi ghi khung lương trong mọi tin tuyển dụng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "include",
+        "the",
+        "salary",
+        "range",
+        "in",
+        "every",
+        "job",
+        "posting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We include the salary range in every job postings.",
+          "explanationVi": "Sau \"every\" danh từ ở số ít."
+        },
+        {
+          "en": "We includes the salary range in every job posting.",
+          "explanationVi": "Chủ ngữ \"We\" nên động từ không thêm -s."
+        },
+        {
+          "en": "We include the salary range on every job posting.",
+          "explanationVi": "Nội dung nằm \"in\" một tin tuyển dụng, không dùng \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:salary-range-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:screening-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The first step is a short phone screening.",
+      "vi": "Bước đầu tiên là một vòng sơ tuyển ngắn qua điện thoại.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "first",
+        "step",
+        "is",
+        "a",
+        "short",
+        "phone",
+        "screening"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The first step are a short phone screening.",
+          "explanationVi": "Chủ ngữ số ít \"The first step\" đi với \"is\"."
+        },
+        {
+          "en": "The first step is short phone screening.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "The one step is a short phone screening.",
+          "explanationVi": "Chỉ thứ tự dùng \"first\", không dùng \"one\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:screening-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:screening-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Only ten applicants passed the screening.",
+      "vi": "Chỉ có mười ứng viên vượt qua vòng sàng lọc.",
+      "audio": "",
+      "tokens": [
+        "Only",
+        "ten",
+        "applicants",
+        "passed",
+        "the",
+        "screening"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Only ten applicant passed the screening.",
+          "explanationVi": "Sau \"ten\" danh từ phải ở số nhiều \"applicants\"."
+        },
+        {
+          "en": "Only ten applicants pass the screening last week.",
+          "explanationVi": "Hành động trong quá khứ cần \"passed\"."
+        },
+        {
+          "en": "Only ten applicants passed screening the.",
+          "explanationVi": "Sai trật tự từ: mạo từ \"the\" đứng trước danh từ."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:screening-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:severance-pay-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Laid-off staff will receive three months of severance pay.",
+      "vi": "Nhân viên bị cho nghỉ sẽ nhận ba tháng trợ cấp thôi việc.",
+      "audio": "",
+      "tokens": [
+        "Laid-off",
+        "staff",
+        "will",
+        "receive",
+        "three",
+        "months",
+        "of",
+        "severance",
+        "pay"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Laid-off staff will receive three month of severance pay.",
+          "explanationVi": "Sau \"three\" danh từ phải ở số nhiều \"months\"."
+        },
+        {
+          "en": "Laid-off staff will receives three months of severance pay.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"receive\"."
+        },
+        {
+          "en": "Laid-off staff will receive three months of a severance pay.",
+          "explanationVi": "\"Severance pay\" không đếm được nên không dùng \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:severance-pay-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:severance-pay-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How is severance pay calculated at this company?",
+      "vi": "Ở công ty này, trợ cấp thôi việc được tính như thế nào?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "is",
+        "severance",
+        "pay",
+        "calculated",
+        "at",
+        "this",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How severance pay is calculated at this company?",
+          "explanationVi": "Câu hỏi trực tiếp cần đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "How is severance pay calculate at this company?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"calculated\"."
+        },
+        {
+          "en": "How are severance pay calculated at this company?",
+          "explanationVi": "\"Severance pay\" không đếm được nên đi với \"is\", không dùng \"are\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:severance-pay-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sick-leave-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "He is on sick leave until next Monday.",
+      "vi": "Anh ấy nghỉ ốm đến thứ Hai tuần sau.",
+      "audio": "",
+      "tokens": [
+        "He",
+        "is",
+        "on",
+        "sick",
+        "leave",
+        "until",
+        "next",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He on sick leave until next Monday.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        },
+        {
+          "en": "He is in sick leave until next Monday.",
+          "explanationVi": "Cụm cố định là \"on sick leave\", không dùng \"in\"."
+        },
+        {
+          "en": "He is on sick leave until next Mondays.",
+          "explanationVi": "Chỉ một ngày cụ thể nên dùng số ít \"Monday\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:sick-leave-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sick-leave-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I took two days of sick leave last month.",
+      "vi": "Tháng trước tôi đã nghỉ ốm hai ngày.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "took",
+        "two",
+        "days",
+        "of",
+        "sick",
+        "leave",
+        "last",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I take two days of sick leave last month.",
+          "explanationVi": "Hành động trong quá khứ cần \"took\"."
+        },
+        {
+          "en": "I took two day of sick leave last month.",
+          "explanationVi": "Sau \"two\" danh từ phải ở số nhiều \"days\"."
+        },
+        {
+          "en": "I took two days of sick leave in last month.",
+          "explanationVi": "Không dùng \"in\" trước \"last month\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:sick-leave-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:signing-bonus-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "They offered me a signing bonus to start early.",
+      "vi": "Họ đề nghị cho tôi tiền thưởng ký hợp đồng để bắt đầu sớm.",
+      "audio": "",
+      "tokens": [
+        "They",
+        "offered",
+        "me",
+        "a",
+        "signing",
+        "bonus",
+        "to",
+        "start",
+        "early"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They offered me a signing bonus for start early.",
+          "explanationVi": "Chỉ mục đích dùng \"to\" + động từ nguyên mẫu, không dùng \"for\"."
+        },
+        {
+          "en": "They offered me signing bonus to start early.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "They offer me a signing bonus to start early last week.",
+          "explanationVi": "Hành động trong quá khứ cần \"offered\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:signing-bonus-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:signing-bonus-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the signing bonus paid in the first month?",
+      "vi": "Tiền thưởng ký hợp đồng có được trả vào tháng đầu tiên không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "signing",
+        "bonus",
+        "paid",
+        "in",
+        "the",
+        "first",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the signing bonus pay in the first month?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"paid\"."
+        },
+        {
+          "en": "The signing bonus is paid in the first month?",
+          "explanationVi": "Câu hỏi cần đảo \"Is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is the signing bonus paid on the first month?",
+          "explanationVi": "Với tháng dùng giới từ \"in\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:signing-bonus-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:soft-skills-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Communication is one of the most important soft skills.",
+      "vi": "Giao tiếp là một trong những kỹ năng mềm quan trọng nhất.",
+      "audio": "",
+      "tokens": [
+        "Communication",
+        "is",
+        "one",
+        "of",
+        "the",
+        "most",
+        "important",
+        "soft",
+        "skills"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Communication is one of the most important soft skill.",
+          "explanationVi": "Sau \"one of the\" danh từ phải ở số nhiều \"skills\"."
+        },
+        {
+          "en": "Communication is one of most important soft skills.",
+          "explanationVi": "So sánh nhất cần mạo từ \"the\": \"the most important\"."
+        },
+        {
+          "en": "Communication are one of the most important soft skills.",
+          "explanationVi": "Chủ ngữ số ít \"Communication\" đi với \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        7
+      ],
+      "wordIds": [
+        "word:soft-skills-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:soft-skills-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We look for strong soft skills in every candidate.",
+      "vi": "Chúng tôi tìm kiếm kỹ năng mềm tốt ở mọi ứng viên.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "look",
+        "for",
+        "strong",
+        "soft",
+        "skills",
+        "in",
+        "every",
+        "candidate"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We look strong soft skills in every candidate.",
+          "explanationVi": "Cần giới từ \"for\": \"look for\" nghĩa là tìm kiếm."
+        },
+        {
+          "en": "We look for strong soft skills in every candidates.",
+          "explanationVi": "Sau \"every\" danh từ ở số ít \"candidate\"."
+        },
+        {
+          "en": "We are look for strong soft skills in every candidate.",
+          "explanationVi": "Thừa \"are\": thì hiện tại đơn không dùng \"to be\" với động từ thường."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:soft-skills-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:start-date-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Your start date is the first of March.",
+      "vi": "Ngày bắt đầu làm việc của bạn là mùng một tháng Ba.",
+      "audio": "",
+      "tokens": [
+        "Your",
+        "start",
+        "date",
+        "is",
+        "the",
+        "first",
+        "of",
+        "March"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your start date are the first of March.",
+          "explanationVi": "Chủ ngữ số ít đi với \"is\"."
+        },
+        {
+          "en": "Your start date is the one of March.",
+          "explanationVi": "Ngày tháng dùng số thứ tự \"first\", không dùng \"one\"."
+        },
+        {
+          "en": "You start date is the first of March.",
+          "explanationVi": "Cần tính từ sở hữu \"Your\", không dùng \"You\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:start-date-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:start-date-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can we move my start date to next week?",
+      "vi": "Chúng ta có thể dời ngày bắt đầu của tôi sang tuần sau không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "we",
+        "move",
+        "my",
+        "start",
+        "date",
+        "to",
+        "next",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can we moving my start date to next week?",
+          "explanationVi": "Sau \"Can\" dùng động từ nguyên mẫu \"move\"."
+        },
+        {
+          "en": "We can move my start date to next week?",
+          "explanationVi": "Câu hỏi cần đảo \"Can\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Can we move my start date on next week?",
+          "explanationVi": "Dời sang thời điểm khác dùng \"move ... to\", không dùng \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:start-date-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:talent-pool-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We keep good candidates in our talent pool.",
+      "vi": "Chúng tôi giữ những ứng viên tốt trong nguồn nhân tài của mình.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "keep",
+        "good",
+        "candidates",
+        "in",
+        "our",
+        "talent",
+        "pool"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We keep good candidate in our talent pool.",
+          "explanationVi": "Nói chung nên dùng số nhiều \"candidates\"."
+        },
+        {
+          "en": "We keep good candidates on our talent pool.",
+          "explanationVi": "Dùng \"in\" với \"talent pool\", không dùng \"on\"."
+        },
+        {
+          "en": "We keeps good candidates in our talent pool.",
+          "explanationVi": "Chủ ngữ \"We\" nên động từ không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:talent-pool-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:talent-pool-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The local talent pool for engineers is small.",
+      "vi": "Nguồn kỹ sư tại địa phương khá ít.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "local",
+        "talent",
+        "pool",
+        "for",
+        "engineers",
+        "is",
+        "small"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The local talent pool for engineers are small.",
+          "explanationVi": "Chủ ngữ chính số ít \"talent pool\" đi với \"is\"."
+        },
+        {
+          "en": "The local talent pool for engineer is small.",
+          "explanationVi": "Nói chung về nhóm người nên dùng số nhiều \"engineers\"."
+        },
+        {
+          "en": "The local talent pool for engineers small.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:talent-pool-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:team-player-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We want a team player who shares ideas openly.",
+      "vi": "Chúng tôi muốn một người có tinh thần đồng đội, chia sẻ ý tưởng cởi mở.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "want",
+        "a",
+        "team",
+        "player",
+        "who",
+        "shares",
+        "ideas",
+        "openly"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We want team player who shares ideas openly.",
+          "explanationVi": "Danh từ đếm được số ít \"team player\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "We want a team player who share ideas openly.",
+          "explanationVi": "\"who\" thay cho danh từ số ít nên động từ thêm -s: \"shares\"."
+        },
+        {
+          "en": "We want a team player which shares ideas openly.",
+          "explanationVi": "Với người dùng đại từ quan hệ \"who\", không dùng \"which\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:team-player-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:team-player-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Are you a team player?",
+      "vi": "Bạn có phải là người có tinh thần đồng đội không?",
+      "audio": "",
+      "tokens": [
+        "Are",
+        "you",
+        "a",
+        "team",
+        "player"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You are a team player?",
+          "explanationVi": "Câu hỏi cần đảo \"Are\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Are you team player?",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "Do you a team player?",
+          "explanationVi": "Với danh từ làm vị ngữ dùng \"Are\", không dùng \"Do\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:team-player-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:track-record-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She has a strong track record in sales.",
+      "vi": "Cô ấy có thành tích tốt trong lĩnh vực bán hàng.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "has",
+        "a",
+        "strong",
+        "track",
+        "record",
+        "in",
+        "sales"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She have a strong track record in sales.",
+          "explanationVi": "Chủ ngữ \"She\" đi với \"has\"."
+        },
+        {
+          "en": "She has strong track record in sales.",
+          "explanationVi": "Danh từ đếm được số ít \"track record\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "She has a strong track record on sales.",
+          "explanationVi": "Nói về lĩnh vực dùng giới từ \"in\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:track-record-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:track-record-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We need someone with a proven track record.",
+      "vi": "Chúng tôi cần người có thành tích đã được chứng minh.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "need",
+        "someone",
+        "with",
+        "a",
+        "proven",
+        "track",
+        "record"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We need someone with a prove track record.",
+          "explanationVi": "Cần tính từ dạng phân từ \"proven\", không dùng động từ \"prove\"."
+        },
+        {
+          "en": "We needs someone with a proven track record.",
+          "explanationVi": "Chủ ngữ \"We\" số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We need someone has a proven track record.",
+          "explanationVi": "Cần giới từ \"with\" (hoặc \"who has\") để nối với \"someone\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:track-record-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:turnover-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "High turnover is expensive for any company.",
+      "vi": "Tỷ lệ nghỉ việc cao rất tốn kém cho bất kỳ công ty nào.",
+      "audio": "",
+      "tokens": [
+        "High",
+        "turnover",
+        "is",
+        "expensive",
+        "for",
+        "any",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "High turnover are expensive for any company.",
+          "explanationVi": "Chủ ngữ không đếm được đi với \"is\"."
+        },
+        {
+          "en": "High turnover is expensive for any companies.",
+          "explanationVi": "Sau \"any\" trong nghĩa bất kỳ, dùng số ít \"company\"."
+        },
+        {
+          "en": "High turnover is expensive to any company.",
+          "explanationVi": "Cụm đúng là \"expensive for\", không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:turnover-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:turnover-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Staff turnover dropped after we raised salaries.",
+      "vi": "Tỷ lệ nghỉ việc giảm sau khi chúng tôi tăng lương.",
+      "audio": "",
+      "tokens": [
+        "Staff",
+        "turnover",
+        "dropped",
+        "after",
+        "we",
+        "raised",
+        "salaries"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Staff turnover drop after we raised salaries.",
+          "explanationVi": "Hành động trong quá khứ cần \"dropped\"."
+        },
+        {
+          "en": "Staff turnover dropped after we rised salaries.",
+          "explanationVi": "Quá khứ của \"raise\" là \"raised\"; \"rise\" là nội động từ."
+        },
+        {
+          "en": "Staff turnover was dropped after we raised salaries.",
+          "explanationVi": "\"Drop\" ở đây là nội động từ, không dùng bị động."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:turnover-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:work-permit-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Foreign staff need a work permit to work here.",
+      "vi": "Nhân viên nước ngoài cần giấy phép lao động để làm việc ở đây.",
+      "audio": "",
+      "tokens": [
+        "Foreign",
+        "staff",
+        "need",
+        "a",
+        "work",
+        "permit",
+        "to",
+        "work",
+        "here"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Foreign staff need work permit to work here.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ \"a\"."
+        },
+        {
+          "en": "Foreign staff need a work permit for work here.",
+          "explanationVi": "Chỉ mục đích dùng \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "en": "Foreign staff needs a work permit to work here.",
+          "explanationVi": "\"Staff\" ở đây chỉ nhiều người nên dùng \"need\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:work-permit-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:work-permit-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "HR is still processing his work permit.",
+      "vi": "Phòng nhân sự vẫn đang xử lý giấy phép lao động của anh ấy.",
+      "audio": "",
+      "tokens": [
+        "HR",
+        "is",
+        "still",
+        "processing",
+        "his",
+        "work",
+        "permit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "HR still processing his work permit.",
+          "explanationVi": "Thì tiếp diễn cần \"is\" trước \"processing\"."
+        },
+        {
+          "en": "HR is processing still his work permit.",
+          "explanationVi": "Sai trật tự: \"still\" đứng trước động từ chính \"processing\"."
+        },
+        {
+          "en": "HR is still processing he work permit.",
+          "explanationVi": "Cần tính từ sở hữu \"his\", không dùng \"he\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:work-permit-n"
+      ]
+    },
+    "status": "draft"
+  }
+]

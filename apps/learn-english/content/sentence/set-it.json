@@ -1,0 +1,6507 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:app-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We are building a mobile app for a bank.",
+      "vi": "Chúng tôi đang xây dựng một ứng dụng di động cho một ngân hàng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "are",
+        "building",
+        "a",
+        "mobile",
+        "app",
+        "for",
+        "a",
+        "bank"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We building a mobile app for a bank.",
+          "explanationVi": "Thì hiện tại tiếp diễn cần động từ \"to be\": \"We are building\"."
+        },
+        {
+          "en": "We are building mobile app for a bank.",
+          "explanationVi": "Danh từ đếm được số ít \"app\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "We are build a mobile app for a bank.",
+          "explanationVi": "Sau \"are\" ở thì tiếp diễn động từ phải thêm -ing: \"building\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:app-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:app-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The app crashed when I opened the settings page.",
+      "vi": "Ứng dụng bị sập khi tôi mở trang cài đặt.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "app",
+        "crashed",
+        "when",
+        "I",
+        "opened",
+        "the",
+        "settings",
+        "page"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          3,
+          4,
+          5,
+          0,
+          7,
+          8,
+          6,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The app crash when I opened the settings page.",
+          "explanationVi": "Câu kể chuyện quá khứ nên dùng \"crashed\"."
+        },
+        {
+          "en": "The app crashed when I open the settings page.",
+          "explanationVi": "Hai hành động cùng ở quá khứ nên dùng \"opened\"."
+        },
+        {
+          "en": "The app was crashed when I opened the settings page.",
+          "explanationVi": "\"Crash\" ở đây là nội động từ, không dùng bị động \"was crashed\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:app-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:authentication-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The app uses two-step authentication for every user.",
+      "vi": "Ứng dụng dùng xác thực hai bước cho mọi người dùng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "app",
+        "uses",
+        "two-step",
+        "authentication",
+        "for",
+        "every",
+        "user"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The app use two-step authentication for every user.",
+          "explanationVi": "Chủ ngữ \"The app\" số ít nên dùng \"uses\"."
+        },
+        {
+          "en": "The app uses two-step authentication for every users.",
+          "explanationVi": "Sau \"every\" danh từ phải ở dạng số ít \"user\"."
+        },
+        {
+          "en": "The app uses two-steps authentication for every user.",
+          "explanationVi": "Tính từ ghép \"two-step\" không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:authentication-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:authentication-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Authentication failed because the password was wrong.",
+      "vi": "Xác thực thất bại vì mật khẩu sai.",
+      "audio": "",
+      "tokens": [
+        "Authentication",
+        "failed",
+        "because",
+        "the",
+        "password",
+        "was",
+        "wrong"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Authentication failed because the password wrong.",
+          "explanationVi": "Thiếu động từ \"was\" trước tính từ \"wrong\"."
+        },
+        {
+          "en": "Authentication failed because of the password was wrong.",
+          "explanationVi": "Trước một mệnh đề dùng \"because\", không dùng \"because of\"."
+        },
+        {
+          "en": "Authentication fail because the password was wrong.",
+          "explanationVi": "Câu kể chuyện quá khứ nên dùng \"failed\"."
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [
+        "word:authentication-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:automate-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We want to automate the tests that we run every day.",
+      "vi": "Chúng tôi muốn tự động hóa các bài kiểm thử chạy hằng ngày.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "want",
+        "to",
+        "automate",
+        "the",
+        "tests",
+        "that",
+        "we",
+        "run",
+        "every",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We want automate the tests that we run every day.",
+          "explanationVi": "Sau \"want\" cần \"to\" trước động từ."
+        },
+        {
+          "en": "We want to automating the tests that we run every day.",
+          "explanationVi": "Sau \"to\" động từ giữ nguyên mẫu \"automate\"."
+        },
+        {
+          "en": "We want to automate the tests that we runs every day.",
+          "explanationVi": "Chủ ngữ \"we\" số nhiều nên không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:automate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:automate-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The deployment process was automated last year.",
+      "vi": "Quy trình triển khai đã được tự động hóa vào năm ngoái.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "deployment",
+        "process",
+        "was",
+        "automated",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The deployment process was automate last year.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"automated\"."
+        },
+        {
+          "en": "The deployment process is automated last year.",
+          "explanationVi": "Có \"last year\" nên dùng \"was\"."
+        },
+        {
+          "en": "The deployment process automated last year.",
+          "explanationVi": "Quy trình được tự động hóa (bị động) nên cần \"was automated\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:automate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:back-end-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The back end sends the data to the mobile app.",
+      "vi": "Phần phía máy chủ gửi dữ liệu đến ứng dụng di động.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "back",
+        "end",
+        "sends",
+        "the",
+        "data",
+        "to",
+        "the",
+        "mobile",
+        "app"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The back end send the data to the mobile app.",
+          "explanationVi": "Chủ ngữ \"The back end\" số ít nên dùng \"sends\"."
+        },
+        {
+          "en": "The back end sends the data for the mobile app to.",
+          "explanationVi": "Thừa giới từ ở cuối câu; chỉ cần \"to the mobile app\"."
+        },
+        {
+          "en": "The back end sends the datas to the mobile app.",
+          "explanationVi": "\"Data\" là danh từ không đếm được, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:back-end-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:back-end-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the back end ready for testing yet?",
+      "vi": "Phần phía máy chủ đã sẵn sàng để kiểm thử chưa?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "back",
+        "end",
+        "ready",
+        "for",
+        "testing",
+        "yet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The back end is ready for testing yet?",
+          "explanationVi": "Câu hỏi phải đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is back end ready for testing yet?",
+          "explanationVi": "\"Back end\" cần mạo từ \"the\"."
+        },
+        {
+          "en": "Is the back end ready to testing yet?",
+          "explanationVi": "Phải dùng \"ready for testing\" hoặc \"ready to test\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:back-end-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:backlog-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Add this idea to the backlog, and we will discuss it later.",
+      "vi": "Hãy thêm ý tưởng này vào backlog, chúng ta sẽ bàn sau.",
+      "audio": "",
+      "tokens": [
+        "Add",
+        "this",
+        "idea",
+        "to",
+        "the",
+        "backlog",
+        "and",
+        "we",
+        "will",
+        "discuss",
+        "it",
+        "later"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Add this idea in the backlog, and we will discuss it later.",
+          "explanationVi": "\"Add something to\" dùng giới từ \"to\"."
+        },
+        {
+          "en": "Add this idea to the backlog, and we will discuss about it later.",
+          "explanationVi": "\"Discuss\" là ngoại động từ, không dùng \"about\"."
+        },
+        {
+          "en": "Add this idea to backlog the, and we will discuss it later.",
+          "explanationVi": "Trật tự từ sai: mạo từ \"the\" đứng trước \"backlog\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:backlog-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:backlog-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our backlog has more than two hundred tickets.",
+      "vi": "Backlog của chúng tôi có hơn hai trăm phiếu công việc.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "backlog",
+        "has",
+        "more",
+        "than",
+        "two",
+        "hundred",
+        "tickets"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our backlog have more than two hundred tickets.",
+          "explanationVi": "Chủ ngữ \"Our backlog\" số ít nên dùng \"has\"."
+        },
+        {
+          "en": "Our backlog has more than two hundreds tickets.",
+          "explanationVi": "Sau số \"two\" thì \"hundred\" không thêm -s."
+        },
+        {
+          "en": "Our backlog has more than two hundred ticket.",
+          "explanationVi": "Sau số lớn danh từ phải ở dạng số nhiều \"tickets\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:backlog-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bandwidth-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Video calls use a lot of bandwidth.",
+      "vi": "Các cuộc gọi video dùng rất nhiều băng thông.",
+      "audio": "",
+      "tokens": [
+        "Video",
+        "calls",
+        "use",
+        "a",
+        "lot",
+        "of",
+        "bandwidth"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Video calls uses a lot of bandwidth.",
+          "explanationVi": "Chủ ngữ \"Video calls\" số nhiều nên không thêm -s."
+        },
+        {
+          "en": "Video calls use a lot of bandwidths.",
+          "explanationVi": "\"Bandwidth\" ở đây không đếm được, không thêm -s."
+        },
+        {
+          "en": "Video calls use a lot bandwidth.",
+          "explanationVi": "Thiếu \"of\": cụm đúng là \"a lot of\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:bandwidth-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bandwidth-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Sorry, I don't have the bandwidth for another task this week.",
+      "vi": "Xin lỗi, tuần này tôi không còn sức để nhận thêm việc.",
+      "audio": "",
+      "tokens": [
+        "Sorry",
+        "I",
+        "don't",
+        "have",
+        "the",
+        "bandwidth",
+        "for",
+        "another",
+        "task",
+        "this",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Sorry, I doesn't have the bandwidth for another task this week.",
+          "explanationVi": "Chủ ngữ \"I\" đi với \"don't\"."
+        },
+        {
+          "en": "Sorry, I don't have the bandwidth for another tasks this week.",
+          "explanationVi": "Sau \"another\" danh từ phải ở dạng số ít."
+        },
+        {
+          "en": "Sorry, I don't have the bandwidth for another task in this week.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"this week\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:bandwidth-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:blocker-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you have any blockers today?",
+      "vi": "Hôm nay bạn có vấn đề gì cản trở không?",
+      "audio": "",
+      "tokens": [
+        "Do",
+        "you",
+        "have",
+        "any",
+        "blockers",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does you have any blockers today?",
+          "explanationVi": "Chủ ngữ \"you\" đi với \"Do\", không dùng \"Does\"."
+        },
+        {
+          "en": "You have any blockers today?",
+          "explanationVi": "Câu hỏi ở hiện tại đơn cần trợ động từ \"Do\"."
+        },
+        {
+          "en": "Do you have any blockers in today?",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"today\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:blocker-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:blocker-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "This bug is a blocker, so we cannot release.",
+      "vi": "Lỗi này là lỗi chặn nên chúng tôi không thể phát hành.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "bug",
+        "is",
+        "a",
+        "blocker",
+        "so",
+        "we",
+        "cannot",
+        "release"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This bug is blocker, so we cannot release.",
+          "explanationVi": "Danh từ đếm được số ít \"blocker\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "This bug a blocker, so we cannot release.",
+          "explanationVi": "Thiếu động từ \"is\"."
+        },
+        {
+          "en": "This bug is a blocker, so we cannot to release.",
+          "explanationVi": "Sau \"cannot\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:blocker-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bug-fix-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "This release includes ten bug fixes and one new feature.",
+      "vi": "Bản phát hành này có mười bản sửa lỗi và một tính năng mới.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "release",
+        "includes",
+        "ten",
+        "bug",
+        "fixes",
+        "and",
+        "one",
+        "new",
+        "feature"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This release include ten bug fixes and one new feature.",
+          "explanationVi": "Chủ ngữ \"This release\" số ít nên động từ phải thêm -s: \"includes\"."
+        },
+        {
+          "en": "This release includes ten bug fix and one new feature.",
+          "explanationVi": "Sau \"ten\" danh từ phải ở dạng số nhiều \"bug fixes\"."
+        },
+        {
+          "en": "This release includes ten bugs fixes and one new feature.",
+          "explanationVi": "Trong danh từ ghép chỉ từ cuối ở dạng số nhiều: \"bug fixes\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:bug-fix-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bug-fix-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The bug fix was tested by two people.",
+      "vi": "Bản sửa lỗi đã được hai người kiểm tra.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "bug",
+        "fix",
+        "was",
+        "tested",
+        "by",
+        "two",
+        "people"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The bug fix was test by two people.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"tested\"."
+        },
+        {
+          "en": "The bug fix were tested by two people.",
+          "explanationVi": "Chủ ngữ \"The bug fix\" số ít nên dùng \"was\"."
+        },
+        {
+          "en": "The bug fix was tested from two people.",
+          "explanationVi": "Câu bị động dùng \"by\" để chỉ người thực hiện."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:bug-fix-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bug-report-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A good bug report explains how to repeat the problem.",
+      "vi": "Một báo cáo lỗi tốt giải thích cách tái hiện sự cố.",
+      "audio": "",
+      "tokens": [
+        "A",
+        "good",
+        "bug",
+        "report",
+        "explains",
+        "how",
+        "to",
+        "repeat",
+        "the",
+        "problem"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A good bug report explain how to repeat the problem.",
+          "explanationVi": "Chủ ngữ số ít nên động từ thêm -s: \"explains\"."
+        },
+        {
+          "en": "Good bug report explains how to repeat the problem.",
+          "explanationVi": "Danh từ đếm được số ít \"bug report\" cần mạo từ \"A\"."
+        },
+        {
+          "en": "A good bug report explains how repeat the problem.",
+          "explanationVi": "Sau \"how\" cần \"to\" trước động từ: \"how to repeat\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:bug-report-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bug-report-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did the client send a bug report this morning?",
+      "vi": "Sáng nay khách hàng có gửi báo cáo lỗi không?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "the",
+        "client",
+        "send",
+        "a",
+        "bug",
+        "report",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did the client sent a bug report this morning?",
+          "explanationVi": "Sau \"did\" động từ giữ nguyên mẫu \"send\"."
+        },
+        {
+          "en": "Did the client send a bug report in this morning?",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"this morning\"."
+        },
+        {
+          "en": "The client did send a bug report this morning?",
+          "explanationVi": "Câu hỏi phải đảo \"did\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:bug-report-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cache-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Clear the cache if the page still shows old data.",
+      "vi": "Hãy xóa bộ nhớ đệm nếu trang vẫn hiện dữ liệu cũ.",
+      "audio": "",
+      "tokens": [
+        "Clear",
+        "the",
+        "cache",
+        "if",
+        "the",
+        "page",
+        "still",
+        "shows",
+        "old",
+        "data"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          5,
+          6,
+          7,
+          8,
+          9,
+          0,
+          4,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Clear the cache if the page still show old data.",
+          "explanationVi": "Chủ ngữ \"the page\" số ít nên dùng \"shows\"."
+        },
+        {
+          "en": "Clear cache the if the page still shows old data.",
+          "explanationVi": "Trật tự từ sai: mạo từ \"the\" đứng trước \"cache\"."
+        },
+        {
+          "en": "Clear the cache if the page will still show old data.",
+          "explanationVi": "Mệnh đề \"if\" loại 1 dùng hiện tại đơn, không dùng \"will\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:cache-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cache-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The cache makes the website much faster.",
+      "vi": "Bộ nhớ đệm làm trang web nhanh hơn nhiều.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "cache",
+        "makes",
+        "the",
+        "website",
+        "much",
+        "faster"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The cache make the website much faster.",
+          "explanationVi": "Chủ ngữ \"The cache\" số ít nên dùng \"makes\"."
+        },
+        {
+          "en": "The cache makes the website much more faster.",
+          "explanationVi": "So sánh hơn của \"fast\" là \"faster\", không thêm \"more\"."
+        },
+        {
+          "en": "The cache makes the website to be much faster.",
+          "explanationVi": "Sau \"make something\" dùng tính từ trực tiếp, không cần \"to be\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:cache-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:code-review-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Every change needs a code review before we merge it.",
+      "vi": "Mọi thay đổi đều cần được rà soát mã trước khi chúng tôi gộp vào.",
+      "audio": "",
+      "tokens": [
+        "Every",
+        "change",
+        "needs",
+        "a",
+        "code",
+        "review",
+        "before",
+        "we",
+        "merge",
+        "it"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Every change need a code review before we merge it.",
+          "explanationVi": "Chủ ngữ \"Every change\" số ít nên dùng \"needs\"."
+        },
+        {
+          "en": "Every changes needs a code review before we merge it.",
+          "explanationVi": "Sau \"every\" danh từ phải ở dạng số ít \"change\"."
+        },
+        {
+          "en": "Every change needs a code review before we will merge it.",
+          "explanationVi": "Trong mệnh đề thời gian với \"before\" dùng hiện tại đơn, không dùng \"will\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:code-review-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:code-review-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Minh left five comments during the code review.",
+      "vi": "Minh đã để lại năm bình luận trong buổi rà soát mã.",
+      "audio": "",
+      "tokens": [
+        "Minh",
+        "left",
+        "five",
+        "comments",
+        "during",
+        "the",
+        "code",
+        "review"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Minh leaved five comments during the code review.",
+          "explanationVi": "Quá khứ của \"leave\" là \"left\", không phải \"leaved\"."
+        },
+        {
+          "en": "Minh left five comment during the code review.",
+          "explanationVi": "Sau \"five\" danh từ phải ở dạng số nhiều \"comments\"."
+        },
+        {
+          "en": "Minh left five comments while the code review.",
+          "explanationVi": "Trước cụm danh từ dùng \"during\", không dùng \"while\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:code-review-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:configuration-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I changed the configuration, and now the page loads faster.",
+      "vi": "Tôi đã thay đổi cấu hình, và bây giờ trang tải nhanh hơn.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "changed",
+        "the",
+        "configuration",
+        "and",
+        "now",
+        "the",
+        "page",
+        "loads",
+        "faster"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I changed the configuration, and now the page load faster.",
+          "explanationVi": "Chủ ngữ \"the page\" số ít nên dùng \"loads\"."
+        },
+        {
+          "en": "I changed the configuration, and now the page loads more faster.",
+          "explanationVi": "So sánh hơn của \"fast\" là \"faster\", không thêm \"more\"."
+        },
+        {
+          "en": "I change the configuration yesterday, and now the page loads faster.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"changed\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:configuration-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:configuration-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Where is the configuration file for the test server?",
+      "vi": "Tệp cấu hình của máy chủ kiểm thử nằm ở đâu?",
+      "audio": "",
+      "tokens": [
+        "Where",
+        "is",
+        "the",
+        "configuration",
+        "file",
+        "for",
+        "the",
+        "test",
+        "server"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Where the configuration file is for the test server?",
+          "explanationVi": "Câu hỏi với \"where\" phải đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Where are the configuration file for the test server?",
+          "explanationVi": "Chủ ngữ \"the configuration file\" số ít nên dùng \"is\"."
+        },
+        {
+          "en": "Where is the configurations file for the test server?",
+          "explanationVi": "Danh từ đứng trước bổ nghĩa cho \"file\" để ở dạng số ít: \"configuration file\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:configuration-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:configure-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You need to configure the database before you start the app.",
+      "vi": "Bạn cần cấu hình cơ sở dữ liệu trước khi khởi động ứng dụng.",
+      "audio": "",
+      "tokens": [
+        "You",
+        "need",
+        "to",
+        "configure",
+        "the",
+        "database",
+        "before",
+        "you",
+        "start",
+        "the",
+        "app"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You need configure the database before you start the app.",
+          "explanationVi": "Sau \"need\" cần \"to\" trước động từ: \"need to configure\"."
+        },
+        {
+          "en": "You need to configuring the database before you start the app.",
+          "explanationVi": "Sau \"to\" động từ giữ nguyên mẫu \"configure\"."
+        },
+        {
+          "en": "You need to configure the database before you will start the app.",
+          "explanationVi": "Mệnh đề thời gian với \"before\" dùng hiện tại đơn, không dùng \"will\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:configure-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:configure-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The email server was not configured correctly.",
+      "vi": "Máy chủ email đã không được cấu hình đúng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "email",
+        "server",
+        "was",
+        "not",
+        "configured",
+        "correctly"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The email server was not configure correctly.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"configured\"."
+        },
+        {
+          "en": "The email server were not configured correctly.",
+          "explanationVi": "Chủ ngữ số ít nên dùng \"was\"."
+        },
+        {
+          "en": "The email server was not configured correct.",
+          "explanationVi": "Bổ nghĩa cho động từ phải dùng trạng từ \"correctly\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:configure-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dashboard-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The dashboard shows how many users are online right now.",
+      "vi": "Trang tổng quan hiển thị bao nhiêu người dùng đang trực tuyến lúc này.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "dashboard",
+        "shows",
+        "how",
+        "many",
+        "users",
+        "are",
+        "online",
+        "right",
+        "now"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The dashboard show how many users are online right now.",
+          "explanationVi": "Chủ ngữ \"The dashboard\" số ít nên dùng \"shows\"."
+        },
+        {
+          "en": "The dashboard shows how many users online right now.",
+          "explanationVi": "Thiếu động từ \"are\" trước \"online\"."
+        },
+        {
+          "en": "The dashboard shows how many are users online right now.",
+          "explanationVi": "Trong câu hỏi gián tiếp không đảo ngữ: \"how many users are online\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:dashboard-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dashboard-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I added a new chart to the sales dashboard.",
+      "vi": "Tôi đã thêm một biểu đồ mới vào trang tổng quan doanh số.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "added",
+        "a",
+        "new",
+        "chart",
+        "to",
+        "the",
+        "sales",
+        "dashboard"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I add a new chart to the sales dashboard yesterday.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"added\"."
+        },
+        {
+          "en": "I added a new chart in to the sales dashboard.",
+          "explanationVi": "Thừa giới từ \"in\"; \"add something to\" là đủ."
+        },
+        {
+          "en": "I added new chart to the sales dashboard.",
+          "explanationVi": "Danh từ đếm được số ít \"chart\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        8
+      ],
+      "wordIds": [
+        "word:dashboard-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:debug-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I spent all morning debugging the payment page.",
+      "vi": "Tôi đã mất cả buổi sáng để gỡ lỗi trang thanh toán.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "spent",
+        "all",
+        "morning",
+        "debugging",
+        "the",
+        "payment",
+        "page"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I spent all morning debug the payment page.",
+          "explanationVi": "Sau \"spend + thời gian\" động từ phải ở dạng -ing: \"debugging\"."
+        },
+        {
+          "en": "I spent all morning to debug the payment page.",
+          "explanationVi": "Cấu trúc đúng là \"spend time doing\", không dùng \"to debug\"."
+        },
+        {
+          "en": "I spend all morning debugging the payment page yesterday.",
+          "explanationVi": "Có \"yesterday\" nên phải dùng quá khứ \"spent\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:debug-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:debug-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you help me debug this code?",
+      "vi": "Bạn có thể giúp tôi gỡ lỗi đoạn mã này không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "you",
+        "help",
+        "me",
+        "debug",
+        "this",
+        "code"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you help me debugs this code?",
+          "explanationVi": "Sau \"help me\" động từ ở dạng nguyên mẫu \"debug\"."
+        },
+        {
+          "en": "Can you help me debugging this code?",
+          "explanationVi": "Sau \"help someone\" dùng động từ nguyên mẫu, không dùng -ing."
+        },
+        {
+          "en": "You can help me debug this code?",
+          "explanationVi": "Câu hỏi với \"can\" phải đảo \"can\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:debug-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deliverable-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The main deliverables are the app and its user guide.",
+      "vi": "Các hạng mục bàn giao chính là ứng dụng và hướng dẫn sử dụng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "main",
+        "deliverables",
+        "are",
+        "the",
+        "app",
+        "and",
+        "its",
+        "user",
+        "guide"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The main deliverables is the app and its user guide.",
+          "explanationVi": "Chủ ngữ \"deliverables\" số nhiều nên dùng \"are\"."
+        },
+        {
+          "en": "The main deliverable are the app and its user guide.",
+          "explanationVi": "Có hai hạng mục nên chủ ngữ phải ở số nhiều \"deliverables\"."
+        },
+        {
+          "en": "The main deliverables are the app and it's user guide.",
+          "explanationVi": "Tính từ sở hữu là \"its\", không phải \"it's\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:deliverable-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deliverable-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did we send all the deliverables to the client?",
+      "vi": "Chúng ta đã gửi hết các hạng mục bàn giao cho khách hàng chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "we",
+        "send",
+        "all",
+        "the",
+        "deliverables",
+        "to",
+        "the",
+        "client"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did we sent all the deliverables to the client?",
+          "explanationVi": "Sau \"did\" động từ giữ nguyên mẫu \"send\"."
+        },
+        {
+          "en": "Did we send all the deliverables for the client to?",
+          "explanationVi": "Thừa giới từ ở cuối câu; chỉ cần \"to the client\"."
+        },
+        {
+          "en": "Did we send the all deliverables to the client?",
+          "explanationVi": "Trật tự từ sai: \"all\" đứng trước \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:deliverable-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dependency-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "This project has too many old dependencies.",
+      "vi": "Dự án này có quá nhiều thư viện phụ thuộc cũ.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "project",
+        "has",
+        "too",
+        "many",
+        "old",
+        "dependencies"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This project have too many old dependencies.",
+          "explanationVi": "Chủ ngữ \"This project\" số ít nên dùng \"has\"."
+        },
+        {
+          "en": "This project has too much old dependencies.",
+          "explanationVi": "Danh từ đếm được số nhiều đi với \"many\", không dùng \"much\"."
+        },
+        {
+          "en": "This project has too many dependencies old.",
+          "explanationVi": "Tính từ \"old\" phải đứng trước danh từ."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:dependency-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dependency-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We updated every dependency before the release.",
+      "vi": "Chúng tôi đã cập nhật mọi thư viện phụ thuộc trước bản phát hành.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "updated",
+        "every",
+        "dependency",
+        "before",
+        "the",
+        "release"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We updated every dependencies before the release.",
+          "explanationVi": "Sau \"every\" danh từ phải ở dạng số ít \"dependency\"."
+        },
+        {
+          "en": "We update every dependency before the release last month.",
+          "explanationVi": "Có \"last month\" nên dùng quá khứ \"updated\"."
+        },
+        {
+          "en": "We updated every dependency before release.",
+          "explanationVi": "Danh từ đếm được số ít \"release\" cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:dependency-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deploy-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We deploy the new version every Friday afternoon.",
+      "vi": "Chúng tôi triển khai phiên bản mới vào mỗi chiều thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "deploy",
+        "the",
+        "new",
+        "version",
+        "every",
+        "Friday",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We deploys the new version every Friday afternoon.",
+          "explanationVi": "Chủ ngữ \"We\" số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We deploy new version every Friday afternoon.",
+          "explanationVi": "Danh từ đếm được số ít \"version\" cần mạo từ \"the\"."
+        },
+        {
+          "en": "We deploy the new version in every Friday afternoon.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"every Friday afternoon\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:deploy-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deploy-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did you deploy the fix to the test server?",
+      "vi": "Bạn đã triển khai bản sửa lỗi lên máy chủ kiểm thử chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "you",
+        "deploy",
+        "the",
+        "fix",
+        "to",
+        "the",
+        "test",
+        "server"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did you deployed the fix to the test server?",
+          "explanationVi": "Sau \"did\" động từ giữ nguyên mẫu \"deploy\"."
+        },
+        {
+          "en": "You did deploy the fix to the test server?",
+          "explanationVi": "Câu hỏi với \"did\" phải đảo \"did\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Did you deploy the fix at the test server?",
+          "explanationVi": "Triển khai lên một máy chủ dùng giới từ \"to\", không dùng \"at\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:deploy-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deployment-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The deployment took two hours because of a database problem.",
+      "vi": "Đợt triển khai mất hai tiếng vì một sự cố cơ sở dữ liệu.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "deployment",
+        "took",
+        "two",
+        "hours",
+        "because",
+        "of",
+        "a",
+        "database",
+        "problem"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The deployment took two hours because a database problem.",
+          "explanationVi": "Trước cụm danh từ phải dùng \"because of\", không chỉ \"because\"."
+        },
+        {
+          "en": "The deployment takes two hours because of a database problem yesterday.",
+          "explanationVi": "Sự việc xảy ra hôm qua nên dùng quá khứ \"took\"."
+        },
+        {
+          "en": "The deployment took two hour because of a database problem.",
+          "explanationVi": "Sau \"two\" danh từ \"hour\" phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:deployment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:deployment-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the next deployment planned for Monday?",
+      "vi": "Đợt triển khai tiếp theo có được lên kế hoạch vào thứ Hai không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "next",
+        "deployment",
+        "planned",
+        "for",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the next deployment plan for Monday?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"planned\"."
+        },
+        {
+          "en": "The next deployment is planned for Monday?",
+          "explanationVi": "Câu hỏi phải đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is the next deployment planned on for Monday?",
+          "explanationVi": "Thừa giới từ \"on\"; chỉ cần \"for Monday\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:deployment-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:developer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our team has five developers and two testers.",
+      "vi": "Nhóm chúng tôi có năm lập trình viên và hai kiểm thử viên.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "team",
+        "has",
+        "five",
+        "developers",
+        "and",
+        "two",
+        "testers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our team has five developer and two testers.",
+          "explanationVi": "Sau số \"five\" danh từ \"developer\" phải ở dạng số nhiều."
+        },
+        {
+          "en": "Our team have five developers and two testers.",
+          "explanationVi": "Chủ ngữ \"Our team\" là số ít nên dùng \"has\", không dùng \"have\"."
+        },
+        {
+          "en": "Our team has five developers and two tester.",
+          "explanationVi": "Sau số \"two\" danh từ \"tester\" phải thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:developer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:developer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She worked as a web developer for three years.",
+      "vi": "Cô ấy đã làm lập trình viên web trong ba năm.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "worked",
+        "as",
+        "a",
+        "web",
+        "developer",
+        "for",
+        "three",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She worked as web developer for three years.",
+          "explanationVi": "Sau \"as\" danh từ đếm được số ít \"developer\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "She works as a web developer for three years last time.",
+          "explanationVi": "Hành động đã kết thúc trong quá khứ nên dùng thì quá khứ \"worked\"."
+        },
+        {
+          "en": "She worked as a web developer in three years.",
+          "explanationVi": "Nói khoảng thời gian kéo dài dùng \"for\", không dùng \"in\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:developer-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:documentation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please read the documentation before you use the new tool.",
+      "vi": "Vui lòng đọc tài liệu hướng dẫn trước khi dùng công cụ mới.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "read",
+        "the",
+        "documentation",
+        "before",
+        "you",
+        "use",
+        "the",
+        "new",
+        "tool"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please read the documentations before you use the new tool.",
+          "explanationVi": "\"Documentation\" là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "Please to read the documentation before you use the new tool.",
+          "explanationVi": "Câu mệnh lệnh sau \"Please\" dùng động từ nguyên mẫu không có \"to\"."
+        },
+        {
+          "en": "Please read the documentation before you will use the new tool.",
+          "explanationVi": "Mệnh đề thời gian với \"before\" dùng hiện tại đơn, không dùng \"will\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:documentation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:documentation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The documentation for this feature is out of date.",
+      "vi": "Tài liệu cho tính năng này đã lỗi thời.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "documentation",
+        "for",
+        "this",
+        "feature",
+        "is",
+        "out",
+        "of",
+        "date"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The documentation for this feature are out of date.",
+          "explanationVi": "\"Documentation\" không đếm được nên dùng \"is\"."
+        },
+        {
+          "en": "The documentation for this feature is out of the date.",
+          "explanationVi": "Cụm cố định là \"out of date\", không có \"the\"."
+        },
+        {
+          "en": "The documentation of for this feature is out of date.",
+          "explanationVi": "Thừa giới từ \"of\"; chỉ cần \"for this feature\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:documentation-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:downtime-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We planned one hour of downtime for the database upgrade.",
+      "vi": "Chúng tôi đã lên kế hoạch một giờ ngừng hoạt động để nâng cấp cơ sở dữ liệu.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "planned",
+        "one",
+        "hour",
+        "of",
+        "downtime",
+        "for",
+        "the",
+        "database",
+        "upgrade"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We planned one hour of downtimes for the database upgrade.",
+          "explanationVi": "\"Downtime\" là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "We plan one hour of downtime for the database upgrade last week.",
+          "explanationVi": "Có \"last week\" nên dùng quá khứ \"planned\"."
+        },
+        {
+          "en": "We planned one hour downtime of for the database upgrade.",
+          "explanationVi": "Trật tự từ sai: phải là \"one hour of downtime\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:downtime-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:downtime-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Customers will not notice any downtime during the move.",
+      "vi": "Khách hàng sẽ không nhận thấy bất kỳ thời gian ngừng hoạt động nào trong lúc chuyển đổi.",
+      "audio": "",
+      "tokens": [
+        "Customers",
+        "will",
+        "not",
+        "notice",
+        "any",
+        "downtime",
+        "during",
+        "the",
+        "move"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Customers will not notices any downtime during the move.",
+          "explanationVi": "Sau \"will not\" động từ giữ nguyên mẫu \"notice\"."
+        },
+        {
+          "en": "Customers not will notice any downtime during the move.",
+          "explanationVi": "Trật tự đúng là \"will not\", không phải \"not will\"."
+        },
+        {
+          "en": "Customers will not notice any downtime while the move.",
+          "explanationVi": "Trước cụm danh từ dùng \"during\", không dùng \"while\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:downtime-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:edge-case-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Don't forget to test the edge cases, like empty names.",
+      "vi": "Đừng quên kiểm thử các trường hợp biên, như tên để trống.",
+      "audio": "",
+      "tokens": [
+        "Don't",
+        "forget",
+        "to",
+        "test",
+        "the",
+        "edge",
+        "cases",
+        "like",
+        "empty",
+        "names"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Don't forget testing the edge cases, like empty names.",
+          "explanationVi": "\"Forget to do\" là nhớ làm việc sắp tới; ở đây phải dùng \"to test\"."
+        },
+        {
+          "en": "Don't forget to test the edge case, like empty names.",
+          "explanationVi": "Nói về nhiều trường hợp nên dùng số nhiều \"edge cases\"."
+        },
+        {
+          "en": "Doesn't forget to test the edge cases, like empty names.",
+          "explanationVi": "Câu mệnh lệnh phủ định dùng \"Don't\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:edge-case-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:edge-case-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "That bug only happens in a rare edge case.",
+      "vi": "Lỗi đó chỉ xảy ra trong một trường hợp biên hiếm gặp.",
+      "audio": "",
+      "tokens": [
+        "That",
+        "bug",
+        "only",
+        "happens",
+        "in",
+        "a",
+        "rare",
+        "edge",
+        "case"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "That bug only happen in a rare edge case.",
+          "explanationVi": "Chủ ngữ \"That bug\" số ít nên dùng \"happens\"."
+        },
+        {
+          "en": "That bug is only happens in a rare edge case.",
+          "explanationVi": "Không dùng \"is\" với động từ thường \"happens\"."
+        },
+        {
+          "en": "That bug only happens in rare edge case.",
+          "explanationVi": "Danh từ đếm được số ít \"edge case\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:edge-case-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:encrypt-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We encrypt all passwords before we save them.",
+      "vi": "Chúng tôi mã hóa mọi mật khẩu trước khi lưu chúng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "encrypt",
+        "all",
+        "passwords",
+        "before",
+        "we",
+        "save",
+        "them"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We encrypts all passwords before we save them.",
+          "explanationVi": "Chủ ngữ \"We\" số nhiều nên không thêm -s."
+        },
+        {
+          "en": "We encrypt all password before we save them.",
+          "explanationVi": "Sau \"all\" danh từ đếm được phải ở dạng số nhiều \"passwords\"."
+        },
+        {
+          "en": "We encrypt all passwords before we save it.",
+          "explanationVi": "Đại từ thay cho \"passwords\" số nhiều phải là \"them\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:encrypt-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:encrypt-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the customer data encrypted on the server?",
+      "vi": "Dữ liệu khách hàng có được mã hóa trên máy chủ không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "customer",
+        "data",
+        "encrypted",
+        "on",
+        "the",
+        "server"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the customer data encrypt on the server?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"encrypted\"."
+        },
+        {
+          "en": "The customer data is encrypted on the server?",
+          "explanationVi": "Câu hỏi phải đảo \"is\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Is the customer data encrypted at the server on?",
+          "explanationVi": "Thừa giới từ; chỉ cần \"on the server\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:encrypt-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:framework-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Which framework do you use for the front end?",
+      "vi": "Bạn dùng framework nào cho phần giao diện?",
+      "audio": "",
+      "tokens": [
+        "Which",
+        "framework",
+        "do",
+        "you",
+        "use",
+        "for",
+        "the",
+        "front",
+        "end"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Which framework you use for the front end?",
+          "explanationVi": "Câu hỏi ở thì hiện tại đơn cần trợ động từ \"do\"."
+        },
+        {
+          "en": "Which framework does you use for the front end?",
+          "explanationVi": "Chủ ngữ \"you\" đi với \"do\", không dùng \"does\"."
+        },
+        {
+          "en": "Which framework do you use to the front end?",
+          "explanationVi": "Dùng cho phần nào thì dùng \"for\", không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:framework-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:framework-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We moved the project to a newer framework last year.",
+      "vi": "Năm ngoái chúng tôi đã chuyển dự án sang một framework mới hơn.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "moved",
+        "the",
+        "project",
+        "to",
+        "a",
+        "newer",
+        "framework",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We move the project to a newer framework last year.",
+          "explanationVi": "Có \"last year\" nên phải dùng quá khứ \"moved\"."
+        },
+        {
+          "en": "We moved the project to a more newer framework last year.",
+          "explanationVi": "So sánh hơn của \"new\" là \"newer\", không thêm \"more\"."
+        },
+        {
+          "en": "We moved the project to newer framework last year.",
+          "explanationVi": "Danh từ đếm được số ít \"framework\" cần mạo từ \"a\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:framework-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:front-end-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Lan works on the front end, and I work on the back end.",
+      "vi": "Lan làm phần giao diện, còn tôi làm phần xử lý phía máy chủ.",
+      "audio": "",
+      "tokens": [
+        "Lan",
+        "works",
+        "on",
+        "the",
+        "front",
+        "end",
+        "and",
+        "I",
+        "work",
+        "on",
+        "the",
+        "back",
+        "end"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          7,
+          8,
+          2,
+          3,
+          11,
+          5,
+          6,
+          0,
+          1,
+          9,
+          10,
+          4,
+          12
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Lan work on the front end, and I work on the back end.",
+          "explanationVi": "Chủ ngữ \"Lan\" số ít nên dùng \"works\"."
+        },
+        {
+          "en": "Lan works in the front end, and I work on the back end.",
+          "explanationVi": "Làm một phần của sản phẩm dùng \"work on\"."
+        },
+        {
+          "en": "Lan works on front end, and I work on the back end.",
+          "explanationVi": "\"Front end\" cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:front-end-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:front-end-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The front end was slow, so we changed the framework.",
+      "vi": "Phần giao diện chạy chậm nên chúng tôi đã đổi framework.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "front",
+        "end",
+        "was",
+        "slow",
+        "so",
+        "we",
+        "changed",
+        "the",
+        "framework"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The front end was slow, so we change the framework.",
+          "explanationVi": "Câu kể chuyện quá khứ nên dùng \"changed\"."
+        },
+        {
+          "en": "The front end slow, so we changed the framework.",
+          "explanationVi": "Thiếu động từ \"was\" trước tính từ \"slow\"."
+        },
+        {
+          "en": "The front end was slowly, so we changed the framework.",
+          "explanationVi": "Sau \"was\" dùng tính từ \"slow\", không dùng trạng từ."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:front-end-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:help-desk-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "If your laptop breaks, call the help desk.",
+      "vi": "Nếu máy tính xách tay của bạn hỏng, hãy gọi bộ phận hỗ trợ kỹ thuật.",
+      "audio": "",
+      "tokens": [
+        "If",
+        "your",
+        "laptop",
+        "breaks",
+        "call",
+        "the",
+        "help",
+        "desk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "If your laptop break, call the help desk.",
+          "explanationVi": "Chủ ngữ \"your laptop\" số ít nên dùng \"breaks\"."
+        },
+        {
+          "en": "If your laptop will break, call the help desk.",
+          "explanationVi": "Mệnh đề \"if\" loại 1 dùng hiện tại đơn, không dùng \"will\"."
+        },
+        {
+          "en": "If your laptop breaks, call to the help desk.",
+          "explanationVi": "Động từ \"call\" (gọi điện) không cần giới từ \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:help-desk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:help-desk-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The help desk opened a ticket for my problem.",
+      "vi": "Bộ phận hỗ trợ kỹ thuật đã tạo một phiếu yêu cầu cho sự cố của tôi.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "help",
+        "desk",
+        "opened",
+        "a",
+        "ticket",
+        "for",
+        "my",
+        "problem"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The help desk open a ticket for my problem yesterday.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"opened\"."
+        },
+        {
+          "en": "The help desk opened ticket for my problem.",
+          "explanationVi": "Danh từ đếm được số ít \"ticket\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "The help desk opened a ticket for me problem.",
+          "explanationVi": "Trước danh từ phải dùng tính từ sở hữu \"my\", không dùng \"me\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:help-desk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hotfix-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We need a hotfix tonight because users cannot log in.",
+      "vi": "Chúng tôi cần một bản vá khẩn cấp tối nay vì người dùng không đăng nhập được.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "need",
+        "a",
+        "hotfix",
+        "tonight",
+        "because",
+        "users",
+        "cannot",
+        "log",
+        "in"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We need hotfix tonight because users cannot log in.",
+          "explanationVi": "Danh từ đếm được số ít \"hotfix\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "We need a hotfix tonight because users cannot logging in.",
+          "explanationVi": "Sau \"cannot\" động từ giữ nguyên mẫu \"log in\"."
+        },
+        {
+          "en": "We needs a hotfix tonight because users cannot log in.",
+          "explanationVi": "Chủ ngữ \"We\" số nhiều nên không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:hotfix-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hotfix-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The hotfix was released an hour after the outage.",
+      "vi": "Bản vá khẩn cấp được phát hành một giờ sau sự cố ngừng dịch vụ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "hotfix",
+        "was",
+        "released",
+        "an",
+        "hour",
+        "after",
+        "the",
+        "outage"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hotfix was release an hour after the outage.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"released\"."
+        },
+        {
+          "en": "The hotfix was released a hour after the outage.",
+          "explanationVi": "\"Hour\" bắt đầu bằng âm nguyên âm nên dùng \"an\"."
+        },
+        {
+          "en": "The hotfix released an hour after the outage.",
+          "explanationVi": "Bản vá được phát hành (bị động) nên cần \"was released\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:hotfix-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:integration-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The integration with the payment system is almost finished.",
+      "vi": "Việc tích hợp với hệ thống thanh toán gần như đã xong.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "integration",
+        "with",
+        "the",
+        "payment",
+        "system",
+        "is",
+        "almost",
+        "finished"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The integration with the payment system are almost finished.",
+          "explanationVi": "Chủ ngữ \"The integration\" số ít nên dùng \"is\"."
+        },
+        {
+          "en": "The integration to the payment system is almost finished.",
+          "explanationVi": "Tích hợp với hệ thống nào dùng \"integration with\"."
+        },
+        {
+          "en": "The integration with the payment system almost finished.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"finished\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:integration-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:integration-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We tested the integration for two days.",
+      "vi": "Chúng tôi đã kiểm thử phần tích hợp trong hai ngày.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "tested",
+        "the",
+        "integration",
+        "for",
+        "two",
+        "days"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We tested the integration since two days.",
+          "explanationVi": "Nói khoảng thời gian dùng \"for\", không dùng \"since\"."
+        },
+        {
+          "en": "We tested the integration for two day.",
+          "explanationVi": "Sau \"two\" danh từ \"day\" phải ở dạng số nhiều."
+        },
+        {
+          "en": "We were tested the integration for two days.",
+          "explanationVi": "Câu chủ động không dùng \"were\" trước \"tested\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:integration-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:interface-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Users like the new interface because it is simple.",
+      "vi": "Người dùng thích giao diện mới vì nó đơn giản.",
+      "audio": "",
+      "tokens": [
+        "Users",
+        "like",
+        "the",
+        "new",
+        "interface",
+        "because",
+        "it",
+        "is",
+        "simple"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Users likes the new interface because it is simple.",
+          "explanationVi": "Chủ ngữ \"Users\" số nhiều nên không thêm -s."
+        },
+        {
+          "en": "Users like the new interface because it simple.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"simple\"."
+        },
+        {
+          "en": "Users like the interface new because it is simple.",
+          "explanationVi": "Tính từ \"new\" phải đứng trước danh từ \"interface\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:interface-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:interface-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Who designed the user interface for this app?",
+      "vi": "Ai đã thiết kế giao diện người dùng cho ứng dụng này?",
+      "audio": "",
+      "tokens": [
+        "Who",
+        "designed",
+        "the",
+        "user",
+        "interface",
+        "for",
+        "this",
+        "app"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Who did design the user interface for this app?",
+          "explanationVi": "Khi \"Who\" là chủ ngữ thì không dùng trợ động từ \"did\"."
+        },
+        {
+          "en": "Who designs the user interface for this app last year?",
+          "explanationVi": "Có \"last year\" nên dùng quá khứ \"designed\"."
+        },
+        {
+          "en": "Who designed the user interface to this app?",
+          "explanationVi": "Thiết kế cho cái gì dùng \"for\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:interface-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:log-in-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Users log in with their email and password.",
+      "vi": "Người dùng đăng nhập bằng email và mật khẩu của họ.",
+      "audio": "",
+      "tokens": [
+        "Users",
+        "log",
+        "in",
+        "with",
+        "their",
+        "email",
+        "and",
+        "password"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Users logs in with their email and password.",
+          "explanationVi": "Chủ ngữ \"Users\" số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "Users log in by their email and password.",
+          "explanationVi": "Đăng nhập bằng thông tin gì dùng \"with\", không dùng \"by\"."
+        },
+        {
+          "en": "Users log with their email and password.",
+          "explanationVi": "Thiếu \"in\": động từ cụm là \"log in\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:log-in-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:log-in-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I couldn't log in to the test server this morning.",
+      "vi": "Sáng nay tôi không đăng nhập được vào máy chủ kiểm thử.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "couldn't",
+        "log",
+        "in",
+        "to",
+        "the",
+        "test",
+        "server",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I couldn't logged in to the test server this morning.",
+          "explanationVi": "Sau \"couldn't\" động từ giữ nguyên mẫu \"log in\"."
+        },
+        {
+          "en": "I couldn't log in the test server this morning.",
+          "explanationVi": "Đăng nhập vào hệ thống nào thì dùng \"log in to\"."
+        },
+        {
+          "en": "I couldn't log in to test server this morning.",
+          "explanationVi": "Danh từ đếm được số ít \"test server\" cần mạo từ \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:log-in-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:migrate-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We are migrating our data to a new server this month.",
+      "vi": "Tháng này chúng tôi đang chuyển dữ liệu sang một máy chủ mới.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "are",
+        "migrating",
+        "our",
+        "data",
+        "to",
+        "a",
+        "new",
+        "server",
+        "this",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We migrating our data to a new server this month.",
+          "explanationVi": "Thì hiện tại tiếp diễn cần \"are\" trước động từ -ing."
+        },
+        {
+          "en": "We are migrating our datas to a new server this month.",
+          "explanationVi": "\"Data\" là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "We are migrating our data at a new server this month.",
+          "explanationVi": "Chuyển sang đâu dùng giới từ \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:migrate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:migrate-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did the team migrate all the old users?",
+      "vi": "Nhóm đã chuyển đổi hết người dùng cũ chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "the",
+        "team",
+        "migrate",
+        "all",
+        "the",
+        "old",
+        "users"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did the team migrated all the old users?",
+          "explanationVi": "Sau \"did\" động từ giữ nguyên mẫu \"migrate\"."
+        },
+        {
+          "en": "Did the team migrate all the old user?",
+          "explanationVi": "Sau \"all the\" danh từ đếm được phải ở dạng số nhiều \"users\"."
+        },
+        {
+          "en": "Did the team migrate the all old users?",
+          "explanationVi": "Trật tự từ sai: \"all\" phải đứng trước \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:migrate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:milestone-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The first milestone is a working prototype by March.",
+      "vi": "Mốc đầu tiên là một bản mẫu chạy được trước tháng Ba.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "first",
+        "milestone",
+        "is",
+        "a",
+        "working",
+        "prototype",
+        "by",
+        "March"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The first milestone is working prototype by March.",
+          "explanationVi": "Danh từ đếm được số ít \"prototype\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "First milestone is a working prototype by March.",
+          "explanationVi": "Trước số thứ tự \"first\" cần mạo từ \"the\"."
+        },
+        {
+          "en": "The first milestone is a working prototype on March.",
+          "explanationVi": "Hạn chót \"trước/chậm nhất\" dùng \"by\"; trước tên tháng không dùng \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:milestone-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:milestone-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We reached an important milestone last week.",
+      "vi": "Tuần trước chúng tôi đã đạt được một mốc quan trọng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "reached",
+        "an",
+        "important",
+        "milestone",
+        "last",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We reached a important milestone last week.",
+          "explanationVi": "\"Important\" bắt đầu bằng âm nguyên âm nên dùng \"an\"."
+        },
+        {
+          "en": "We reached to an important milestone last week.",
+          "explanationVi": "\"Reach\" là ngoại động từ, không cần \"to\"."
+        },
+        {
+          "en": "We reach an important milestone last week.",
+          "explanationVi": "Có \"last week\" nên dùng quá khứ \"reached\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:milestone-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:outage-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The outage lasted three hours and affected all customers.",
+      "vi": "Sự cố ngừng dịch vụ kéo dài ba giờ và ảnh hưởng đến tất cả khách hàng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "outage",
+        "lasted",
+        "three",
+        "hours",
+        "and",
+        "affected",
+        "all",
+        "customers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The outage lasted three hours and affected to all customers.",
+          "explanationVi": "Động từ \"affect\" không đi với giới từ \"to\"."
+        },
+        {
+          "en": "The outage lasts three hours and affected all customers.",
+          "explanationVi": "Hai động từ nối bằng \"and\" phải cùng thì quá khứ: \"lasted\"."
+        },
+        {
+          "en": "The outage lasted three hour and affected all customers.",
+          "explanationVi": "Sau \"three\" danh từ \"hour\" phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:outage-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:outage-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "What caused the server outage last night?",
+      "vi": "Điều gì đã gây ra sự cố ngừng máy chủ tối qua?",
+      "audio": "",
+      "tokens": [
+        "What",
+        "caused",
+        "the",
+        "server",
+        "outage",
+        "last",
+        "night"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "What did cause the server outage last night?",
+          "explanationVi": "Khi \"What\" là chủ ngữ thì không dùng trợ động từ \"did\"."
+        },
+        {
+          "en": "What causes the server outage last night?",
+          "explanationVi": "Có \"last night\" nên dùng quá khứ \"caused\"."
+        },
+        {
+          "en": "What caused the server outage in last night?",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"last night\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:outage-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pipeline-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The pipeline runs all the tests after each commit.",
+      "vi": "Quy trình tự động chạy tất cả các bài kiểm thử sau mỗi lần commit.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "pipeline",
+        "runs",
+        "all",
+        "the",
+        "tests",
+        "after",
+        "each",
+        "commit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The pipeline run all the tests after each commit.",
+          "explanationVi": "Chủ ngữ \"The pipeline\" số ít nên dùng \"runs\"."
+        },
+        {
+          "en": "The pipeline runs all the tests after each commits.",
+          "explanationVi": "Sau \"each\" danh từ phải ở dạng số ít."
+        },
+        {
+          "en": "The pipeline runs all the test after each commit.",
+          "explanationVi": "Sau \"all the\" danh từ đếm được phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:pipeline-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pipeline-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Why did the pipeline fail this morning?",
+      "vi": "Tại sao quy trình tự động bị lỗi sáng nay?",
+      "audio": "",
+      "tokens": [
+        "Why",
+        "did",
+        "the",
+        "pipeline",
+        "fail",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Why the pipeline failed this morning?",
+          "explanationVi": "Câu hỏi với \"why\" ở quá khứ cần trợ động từ \"did\"."
+        },
+        {
+          "en": "Why did the pipeline failed this morning?",
+          "explanationVi": "Sau \"did\" động từ giữ nguyên mẫu \"fail\"."
+        },
+        {
+          "en": "Why did the pipeline fail in this morning?",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"this morning\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:pipeline-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:prototype-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The designer made a quick prototype of the new screen.",
+      "vi": "Nhà thiết kế đã làm một bản mẫu nhanh cho màn hình mới.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "designer",
+        "made",
+        "a",
+        "quick",
+        "prototype",
+        "of",
+        "the",
+        "new",
+        "screen"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The designer maked a quick prototype of the new screen.",
+          "explanationVi": "Quá khứ của \"make\" là \"made\"."
+        },
+        {
+          "en": "The designer made quick prototype of the new screen.",
+          "explanationVi": "Danh từ đếm được số ít \"prototype\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "The designer made a prototype quick of the new screen.",
+          "explanationVi": "Tính từ \"quick\" phải đứng trước danh từ \"prototype\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:prototype-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:prototype-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can we test the prototype with real users?",
+      "vi": "Chúng ta có thể thử bản mẫu với người dùng thật không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "we",
+        "test",
+        "the",
+        "prototype",
+        "with",
+        "real",
+        "users"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can we testing the prototype with real users?",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu \"test\"."
+        },
+        {
+          "en": "We can test the prototype with real users?",
+          "explanationVi": "Câu hỏi với \"can\" phải đảo \"can\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Can we test the prototype with users real?",
+          "explanationVi": "Tính từ \"real\" phải đứng trước danh từ \"users\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:prototype-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pull-request-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I opened a pull request for the login feature.",
+      "vi": "Tôi đã mở một pull request cho tính năng đăng nhập.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "opened",
+        "a",
+        "pull",
+        "request",
+        "for",
+        "the",
+        "login",
+        "feature"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I open a pull request for the login feature yesterday.",
+          "explanationVi": "Có \"yesterday\" nên phải dùng quá khứ \"opened\"."
+        },
+        {
+          "en": "I opened pull request for the login feature.",
+          "explanationVi": "Danh từ đếm được số ít \"pull request\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "I opened a pull request to the login feature for.",
+          "explanationVi": "Thừa và sai vị trí giới từ; phải là \"for the login feature\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:pull-request-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pull-request-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Has anyone reviewed my pull request yet?",
+      "vi": "Đã có ai xem pull request của tôi chưa?",
+      "audio": "",
+      "tokens": [
+        "Has",
+        "anyone",
+        "reviewed",
+        "my",
+        "pull",
+        "request",
+        "yet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Has anyone review my pull request yet?",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ \"reviewed\"."
+        },
+        {
+          "en": "Have anyone reviewed my pull request yet?",
+          "explanationVi": "\"Anyone\" là số ít nên dùng \"has\"."
+        },
+        {
+          "en": "Has anyone reviewed my pull request already yet?",
+          "explanationVi": "Không dùng \"already\" và \"yet\" cùng nhau trong câu hỏi."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:pull-request-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:refactor-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We should refactor this old code before we add new features.",
+      "vi": "Chúng ta nên tái cấu trúc đoạn mã cũ này trước khi thêm tính năng mới.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "should",
+        "refactor",
+        "this",
+        "old",
+        "code",
+        "before",
+        "we",
+        "add",
+        "new",
+        "features"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We should to refactor this old code before we add new features.",
+          "explanationVi": "Sau \"should\" không dùng \"to\"."
+        },
+        {
+          "en": "We should refactor this old code before we will add new features.",
+          "explanationVi": "Mệnh đề thời gian với \"before\" dùng hiện tại đơn, không dùng \"will\"."
+        },
+        {
+          "en": "We should refactor this code old before we add new features.",
+          "explanationVi": "Tính từ \"old\" phải đứng trước danh từ \"code\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:refactor-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:refactor-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Hung refactored the payment module last sprint.",
+      "vi": "Hùng đã tái cấu trúc mô-đun thanh toán trong sprint trước.",
+      "audio": "",
+      "tokens": [
+        "Hung",
+        "refactored",
+        "the",
+        "payment",
+        "module",
+        "last",
+        "sprint"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Hung refactor the payment module last sprint.",
+          "explanationVi": "Có \"last sprint\" nên dùng quá khứ \"refactored\"."
+        },
+        {
+          "en": "Hung has refactored the payment module last sprint.",
+          "explanationVi": "Có mốc thời gian quá khứ \"last sprint\" nên không dùng hiện tại hoàn thành."
+        },
+        {
+          "en": "Hung refactored the payment module in last sprint.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"last sprint\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:refactor-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:release-notes-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The release notes list all the changes in this version.",
+      "vi": "Ghi chú phát hành liệt kê mọi thay đổi trong phiên bản này.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "release",
+        "notes",
+        "list",
+        "all",
+        "the",
+        "changes",
+        "in",
+        "this",
+        "version"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The release notes lists all the changes in this version.",
+          "explanationVi": "\"Release notes\" là số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "The release notes list all the change in this version.",
+          "explanationVi": "Sau \"all the\" danh từ đếm được phải ở dạng số nhiều \"changes\"."
+        },
+        {
+          "en": "The release notes list all the changes on this version.",
+          "explanationVi": "Trong một phiên bản dùng giới từ \"in\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:release-notes-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:release-notes-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Who is writing the release notes for tomorrow?",
+      "vi": "Ai đang viết ghi chú phát hành cho ngày mai?",
+      "audio": "",
+      "tokens": [
+        "Who",
+        "is",
+        "writing",
+        "the",
+        "release",
+        "notes",
+        "for",
+        "tomorrow"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Who writing the release notes for tomorrow?",
+          "explanationVi": "Thì hiện tại tiếp diễn cần \"is\": \"Who is writing\"."
+        },
+        {
+          "en": "Who is write the release notes for tomorrow?",
+          "explanationVi": "Sau \"is\" ở thì tiếp diễn động từ phải thêm -ing."
+        },
+        {
+          "en": "Who are writing the release notes for tomorrow?",
+          "explanationVi": "\"Who\" làm chủ ngữ đi với động từ số ít \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:release-notes-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:repository-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "All our source code is stored in one repository.",
+      "vi": "Toàn bộ mã nguồn của chúng tôi được lưu trong một kho mã.",
+      "audio": "",
+      "tokens": [
+        "All",
+        "our",
+        "source",
+        "code",
+        "is",
+        "stored",
+        "in",
+        "one",
+        "repository"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "All our source code are stored in one repository.",
+          "explanationVi": "\"Source code\" là danh từ không đếm được nên dùng \"is\"."
+        },
+        {
+          "en": "All our source code is store in one repository.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"stored\"."
+        },
+        {
+          "en": "All our source code is stored on one repository.",
+          "explanationVi": "Lưu trong một kho mã dùng giới từ \"in\"."
+        }
+      ],
+      "gapCandidates": [
+        8
+      ],
+      "wordIds": [
+        "word:repository-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:repository-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I created a new repository for the mobile project.",
+      "vi": "Tôi đã tạo một kho mã mới cho dự án di động.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "created",
+        "a",
+        "new",
+        "repository",
+        "for",
+        "the",
+        "mobile",
+        "project"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I create a new repository for the mobile project yesterday.",
+          "explanationVi": "Có \"yesterday\" nên phải dùng quá khứ \"created\"."
+        },
+        {
+          "en": "I created new repository for the mobile project.",
+          "explanationVi": "Danh từ đếm được số ít \"repository\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "I created a repository new for the mobile project.",
+          "explanationVi": "Tính từ \"new\" phải đứng trước danh từ \"repository\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:repository-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:restart-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please restart your computer after the update.",
+      "vi": "Vui lòng khởi động lại máy tính sau khi cập nhật.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "restart",
+        "your",
+        "computer",
+        "after",
+        "the",
+        "update"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please restarting your computer after the update.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"restart\"."
+        },
+        {
+          "en": "Please restart you computer after the update.",
+          "explanationVi": "Trước danh từ phải dùng tính từ sở hữu \"your\"."
+        },
+        {
+          "en": "Please restart your computer after update the.",
+          "explanationVi": "Trật tự từ sai: mạo từ \"the\" phải đứng trước \"update\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:restart-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:restart-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Have you tried restarting the server?",
+      "vi": "Bạn đã thử khởi động lại máy chủ chưa?",
+      "audio": "",
+      "tokens": [
+        "Have",
+        "you",
+        "tried",
+        "restarting",
+        "the",
+        "server"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Have you tried restart the server?",
+          "explanationVi": "Sau \"try\" (thử làm gì) động từ ở dạng -ing: \"restarting\"."
+        },
+        {
+          "en": "Have you try restarting the server?",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ \"tried\"."
+        },
+        {
+          "en": "Has you tried restarting the server?",
+          "explanationVi": "Chủ ngữ \"you\" đi với \"have\", không dùng \"has\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:restart-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:retrospective-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "In the retrospective, we talk about what went well.",
+      "vi": "Trong buổi họp rút kinh nghiệm, chúng tôi nói về những gì đã làm tốt.",
+      "audio": "",
+      "tokens": [
+        "In",
+        "the",
+        "retrospective",
+        "we",
+        "talk",
+        "about",
+        "what",
+        "went",
+        "well"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "In the retrospective, we talk what went well.",
+          "explanationVi": "\"Talk\" cần giới từ \"about\" trước điều được nói đến."
+        },
+        {
+          "en": "In the retrospective, we talks about what went well.",
+          "explanationVi": "Chủ ngữ \"we\" số nhiều nên không thêm -s."
+        },
+        {
+          "en": "On the retrospective, we talk about what went well.",
+          "explanationVi": "Trong một buổi họp dùng giới từ \"In\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:retrospective-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:retrospective-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The team agreed on two changes after the retrospective.",
+      "vi": "Nhóm đã thống nhất hai thay đổi sau buổi họp rút kinh nghiệm.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "team",
+        "agreed",
+        "on",
+        "two",
+        "changes",
+        "after",
+        "the",
+        "retrospective"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The team agreed two changes after the retrospective on.",
+          "explanationVi": "Sai vị trí giới từ; phải là \"agreed on two changes\"."
+        },
+        {
+          "en": "The team agree on two changes after the retrospective yesterday.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"agreed\"."
+        },
+        {
+          "en": "The team agreed on two change after the retrospective.",
+          "explanationVi": "Sau \"two\" danh từ phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        8
+      ],
+      "wordIds": [
+        "word:retrospective-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:roll-back-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "If the release breaks anything, we will roll back.",
+      "vi": "Nếu bản phát hành làm hỏng gì, chúng tôi sẽ khôi phục về phiên bản trước.",
+      "audio": "",
+      "tokens": [
+        "If",
+        "the",
+        "release",
+        "breaks",
+        "anything",
+        "we",
+        "will",
+        "roll",
+        "back"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "If the release will break anything, we will roll back.",
+          "explanationVi": "Mệnh đề \"if\" loại 1 dùng hiện tại đơn, không dùng \"will\"."
+        },
+        {
+          "en": "If the release break anything, we will roll back.",
+          "explanationVi": "Chủ ngữ \"the release\" số ít nên dùng \"breaks\"."
+        },
+        {
+          "en": "If the release breaks anything, we will rolling back.",
+          "explanationVi": "Sau \"will\" động từ giữ nguyên mẫu \"roll back\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:roll-back-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:roll-back-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "They rolled back the update after users reported errors.",
+      "vi": "Họ đã khôi phục bản cập nhật sau khi người dùng báo lỗi.",
+      "audio": "",
+      "tokens": [
+        "They",
+        "rolled",
+        "back",
+        "the",
+        "update",
+        "after",
+        "users",
+        "reported",
+        "errors"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4,
+          2,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They roll back the update after users reported errors.",
+          "explanationVi": "Câu kể chuyện quá khứ nên dùng \"rolled back\"."
+        },
+        {
+          "en": "They rolled back the update after users reported error.",
+          "explanationVi": "Nói chung nhiều lỗi nên dùng số nhiều \"errors\"."
+        },
+        {
+          "en": "They rolled back the update after users reported about errors.",
+          "explanationVi": "\"Report\" là ngoại động từ, không cần \"about\" ở đây."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:roll-back-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:root-cause-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We still don't know the root cause of the crash.",
+      "vi": "Chúng tôi vẫn chưa biết nguyên nhân gốc rễ của sự cố sập.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "still",
+        "don't",
+        "know",
+        "the",
+        "root",
+        "cause",
+        "of",
+        "the",
+        "crash"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We still doesn't know the root cause of the crash.",
+          "explanationVi": "Chủ ngữ \"We\" đi với \"don't\", không dùng \"doesn't\"."
+        },
+        {
+          "en": "We still don't knowing the root cause of the crash.",
+          "explanationVi": "Sau \"don't\" động từ giữ nguyên mẫu \"know\"."
+        },
+        {
+          "en": "We don't know still the root cause of the crash.",
+          "explanationVi": "Trạng từ \"still\" phải đứng trước \"don't\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:root-cause-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:root-cause-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The root cause was a missing setting on the server.",
+      "vi": "Nguyên nhân gốc rễ là một thiết lập bị thiếu trên máy chủ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "root",
+        "cause",
+        "was",
+        "a",
+        "missing",
+        "setting",
+        "on",
+        "the",
+        "server"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The root cause were a missing setting on the server.",
+          "explanationVi": "Chủ ngữ \"The root cause\" số ít nên dùng \"was\"."
+        },
+        {
+          "en": "The root cause was missing setting on the server.",
+          "explanationVi": "Danh từ đếm được số ít \"setting\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "The root cause was a missing setting in the server on.",
+          "explanationVi": "Thừa giới từ ở cuối câu; chỉ cần \"on the server\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:root-cause-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scalable-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The new system is scalable, so it can handle more users.",
+      "vi": "Hệ thống mới có khả năng mở rộng nên có thể phục vụ nhiều người dùng hơn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "new",
+        "system",
+        "is",
+        "scalable",
+        "so",
+        "it",
+        "can",
+        "handle",
+        "more",
+        "users"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The new system scalable, so it can handle more users.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"scalable\"."
+        },
+        {
+          "en": "The new system is scalable, so it can handles more users.",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu \"handle\"."
+        },
+        {
+          "en": "The new system is scalable, so it can handle more user.",
+          "explanationVi": "Sau \"more\" danh từ đếm được phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:scalable-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scalable-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We need a more scalable solution for next year.",
+      "vi": "Chúng tôi cần một giải pháp có khả năng mở rộng tốt hơn cho năm sau.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "need",
+        "a",
+        "more",
+        "scalable",
+        "solution",
+        "for",
+        "next",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We need a scalabler solution for next year.",
+          "explanationVi": "Tính từ dài dùng \"more scalable\", không thêm -er."
+        },
+        {
+          "en": "We need more scalable solution for next year.",
+          "explanationVi": "Danh từ đếm được số ít \"solution\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "We need a more scalable solution in next year.",
+          "explanationVi": "Không dùng giới từ \"in\" trước \"next year\"; ở đây dùng \"for next year\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:scalable-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:screenshot-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please attach a screenshot of the error message.",
+      "vi": "Vui lòng đính kèm ảnh chụp màn hình thông báo lỗi.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "attach",
+        "a",
+        "screenshot",
+        "of",
+        "the",
+        "error",
+        "message"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please attach screenshot of the error message.",
+          "explanationVi": "Danh từ đếm được số ít \"screenshot\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "Please attaching a screenshot of the error message.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"attach\"."
+        },
+        {
+          "en": "Please attach a screenshot for the error message of.",
+          "explanationVi": "Thừa giới từ ở cuối câu; chỉ cần \"of the error message\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:screenshot-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:screenshot-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I took a screenshot when the page stopped working.",
+      "vi": "Tôi đã chụp màn hình khi trang ngừng hoạt động.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "took",
+        "a",
+        "screenshot",
+        "when",
+        "the",
+        "page",
+        "stopped",
+        "working"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I made a screenshot when the page stopped working.",
+          "explanationVi": "Người bản ngữ nói \"take a screenshot\", không nói \"make\"."
+        },
+        {
+          "en": "I took a screenshot when the page stopped work.",
+          "explanationVi": "Sau \"stop\" (ngừng làm gì) động từ ở dạng -ing: \"working\"."
+        },
+        {
+          "en": "I take a screenshot when the page stopped working.",
+          "explanationVi": "Hai hành động cùng ở quá khứ nên dùng \"took\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:screenshot-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:source-code-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Only developers can see the source code.",
+      "vi": "Chỉ lập trình viên mới xem được mã nguồn.",
+      "audio": "",
+      "tokens": [
+        "Only",
+        "developers",
+        "can",
+        "see",
+        "the",
+        "source",
+        "code"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Only developers can sees the source code.",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu \"see\"."
+        },
+        {
+          "en": "Only developer can see the source code.",
+          "explanationVi": "Nói chung về một nhóm người dùng danh từ số nhiều \"developers\"."
+        },
+        {
+          "en": "Only developers can see the source codes.",
+          "explanationVi": "\"Source code\" thường là danh từ không đếm được, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:source-code-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:source-code-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please don't share the source code outside the company.",
+      "vi": "Vui lòng không chia sẻ mã nguồn ra ngoài công ty.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "don't",
+        "share",
+        "the",
+        "source",
+        "code",
+        "outside",
+        "the",
+        "company"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please not share the source code outside the company.",
+          "explanationVi": "Câu mệnh lệnh phủ định phải dùng \"don't\" trước động từ."
+        },
+        {
+          "en": "Please don't sharing the source code outside the company.",
+          "explanationVi": "Sau \"don't\" động từ ở dạng nguyên mẫu \"share\"."
+        },
+        {
+          "en": "Please don't share source code the outside company.",
+          "explanationVi": "Trật tự từ sai: phải là \"the source code outside the company\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:source-code-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stakeholder-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We show a demo to the stakeholders every two weeks.",
+      "vi": "Hai tuần một lần chúng tôi trình diễn bản demo cho các bên liên quan.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "show",
+        "a",
+        "demo",
+        "to",
+        "the",
+        "stakeholders",
+        "every",
+        "two",
+        "weeks"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          7,
+          8,
+          9,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We show a demo for the stakeholders every two weeks.",
+          "explanationVi": "\"Show something to someone\" dùng giới từ \"to\"."
+        },
+        {
+          "en": "We shows a demo to the stakeholders every two weeks.",
+          "explanationVi": "Chủ ngữ \"We\" số nhiều nên không thêm -s."
+        },
+        {
+          "en": "We show a demo to the stakeholders every two week.",
+          "explanationVi": "Sau \"two\" danh từ \"week\" phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [
+        "word:stakeholder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stakeholder-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Which stakeholders need to approve this change?",
+      "vi": "Những bên liên quan nào cần phê duyệt thay đổi này?",
+      "audio": "",
+      "tokens": [
+        "Which",
+        "stakeholders",
+        "need",
+        "to",
+        "approve",
+        "this",
+        "change"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Which stakeholders needs to approve this change?",
+          "explanationVi": "Chủ ngữ \"stakeholders\" số nhiều nên dùng \"need\"."
+        },
+        {
+          "en": "Which stakeholders need approve this change?",
+          "explanationVi": "Sau \"need\" cần \"to\" trước động từ."
+        },
+        {
+          "en": "Which stakeholders need to approve this changes?",
+          "explanationVi": "Sau \"this\" danh từ phải ở dạng số ít."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:stakeholder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stand-up-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our stand-up starts at nine and takes fifteen minutes.",
+      "vi": "Buổi stand-up của chúng tôi bắt đầu lúc chín giờ và kéo dài mười lăm phút.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "stand-up",
+        "starts",
+        "at",
+        "nine",
+        "and",
+        "takes",
+        "fifteen",
+        "minutes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our stand-up start at nine and takes fifteen minutes.",
+          "explanationVi": "Chủ ngữ \"Our stand-up\" số ít nên dùng \"starts\"."
+        },
+        {
+          "en": "Our stand-up starts on nine and takes fifteen minutes.",
+          "explanationVi": "Trước giờ giấc dùng \"at\", không dùng \"on\"."
+        },
+        {
+          "en": "Our stand-up starts at nine and takes fifteen minute.",
+          "explanationVi": "Sau \"fifteen\" danh từ phải ở dạng số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:stand-up-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stand-up-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I mentioned the server problem in the stand-up today.",
+      "vi": "Hôm nay tôi đã nhắc đến sự cố máy chủ trong buổi stand-up.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "mentioned",
+        "the",
+        "server",
+        "problem",
+        "in",
+        "the",
+        "stand-up",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I mentioned about the server problem in the stand-up today.",
+          "explanationVi": "\"Mention\" là ngoại động từ, không dùng \"about\"."
+        },
+        {
+          "en": "I mention the server problem in the stand-up yesterday.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"mentioned\"."
+        },
+        {
+          "en": "I mentioned the problem server in the stand-up today.",
+          "explanationVi": "Trật tự từ sai: phải là \"the server problem\"."
+        }
+      ],
+      "gapCandidates": [
+        7
+      ],
+      "wordIds": [
+        "word:stand-up-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:test-case-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We wrote twenty test cases for the payment feature.",
+      "vi": "Chúng tôi đã viết hai mươi trường hợp kiểm thử cho tính năng thanh toán.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "wrote",
+        "twenty",
+        "test",
+        "cases",
+        "for",
+        "the",
+        "payment",
+        "feature"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We writed twenty test cases for the payment feature.",
+          "explanationVi": "Quá khứ của \"write\" là \"wrote\"."
+        },
+        {
+          "en": "We wrote twenty test case for the payment feature.",
+          "explanationVi": "Sau \"twenty\" danh từ phải ở dạng số nhiều \"test cases\"."
+        },
+        {
+          "en": "We wrote twenty tests cases for the payment feature.",
+          "explanationVi": "Trong danh từ ghép chỉ từ cuối ở dạng số nhiều: \"test cases\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:test-case-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:test-case-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "This test case fails when the user has no email.",
+      "vi": "Trường hợp kiểm thử này thất bại khi người dùng không có email.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "test",
+        "case",
+        "fails",
+        "when",
+        "the",
+        "user",
+        "has",
+        "no",
+        "email"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This test case fail when the user has no email.",
+          "explanationVi": "Chủ ngữ \"This test case\" số ít nên động từ thêm -s: \"fails\"."
+        },
+        {
+          "en": "This test case fails when the user have no email.",
+          "explanationVi": "Chủ ngữ \"the user\" số ít nên dùng \"has\"."
+        },
+        {
+          "en": "This test case is fails when the user has no email.",
+          "explanationVi": "Không dùng \"is\" với động từ thường \"fails\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:test-case-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tester-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The tester found three bugs in the new login page.",
+      "vi": "Kiểm thử viên đã tìm thấy ba lỗi trên trang đăng nhập mới.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "tester",
+        "found",
+        "three",
+        "bugs",
+        "in",
+        "the",
+        "new",
+        "login",
+        "page"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The tester find three bugs in the new login page.",
+          "explanationVi": "Hành động đã xảy ra nên dùng quá khứ \"found\", không dùng \"find\"."
+        },
+        {
+          "en": "The tester found three bug in the new login page.",
+          "explanationVi": "Sau \"three\" danh từ \"bug\" phải ở dạng số nhiều \"bugs\"."
+        },
+        {
+          "en": "The tester found three bugs on the new login page in.",
+          "explanationVi": "Thừa từ \"in\" ở cuối câu, câu trở nên sai ngữ pháp."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:tester-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tester-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can the testers check this feature before Friday?",
+      "vi": "Các kiểm thử viên có thể kiểm tra tính năng này trước thứ Sáu không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "the",
+        "testers",
+        "check",
+        "this",
+        "feature",
+        "before",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can the testers checks this feature before Friday?",
+          "explanationVi": "Sau động từ khuyết thiếu \"can\" động từ giữ nguyên mẫu \"check\"."
+        },
+        {
+          "en": "The testers can check this feature before Friday?",
+          "explanationVi": "Câu hỏi với \"can\" phải đảo \"can\" lên trước chủ ngữ."
+        },
+        {
+          "en": "Can the testers check this feature before on Friday?",
+          "explanationVi": "Không dùng hai giới từ \"before on\" cùng lúc; chỉ cần \"before Friday\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:tester-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:timeline-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The timeline for this project is very tight.",
+      "vi": "Tiến độ của dự án này rất gấp.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "timeline",
+        "for",
+        "this",
+        "project",
+        "is",
+        "very",
+        "tight"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The timeline for this project very tight.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"tight\"."
+        },
+        {
+          "en": "The timeline for this project are very tight.",
+          "explanationVi": "Chủ ngữ \"The timeline\" số ít nên dùng \"is\"."
+        },
+        {
+          "en": "The timeline for this projects is very tight.",
+          "explanationVi": "Sau \"this\" danh từ phải ở dạng số ít."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:timeline-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:timeline-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you share the timeline with the client by Monday?",
+      "vi": "Bạn có thể chia sẻ tiến độ với khách hàng trước thứ Hai không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "you",
+        "share",
+        "the",
+        "timeline",
+        "with",
+        "the",
+        "client",
+        "by",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you share the timeline to the client by Monday?",
+          "explanationVi": "\"Share something with someone\" dùng \"with\"."
+        },
+        {
+          "en": "Can you shares the timeline with the client by Monday?",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu \"share\"."
+        },
+        {
+          "en": "Can you share the timeline with the client in Monday?",
+          "explanationVi": "Trước tên thứ trong tuần không dùng \"in\"; hạn chót dùng \"by Monday\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:timeline-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:troubleshoot-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The IT team is troubleshooting the network problem now.",
+      "vi": "Nhóm IT đang xử lý sự cố mạng ngay bây giờ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "IT",
+        "team",
+        "is",
+        "troubleshooting",
+        "the",
+        "network",
+        "problem",
+        "now"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The IT team troubleshooting the network problem now.",
+          "explanationVi": "Thì hiện tại tiếp diễn cần \"is\" trước động từ -ing."
+        },
+        {
+          "en": "The IT team is troubleshoot the network problem now.",
+          "explanationVi": "Sau \"is\" ở thì tiếp diễn động từ phải thêm -ing."
+        },
+        {
+          "en": "The IT team is troubleshooting network the problem now.",
+          "explanationVi": "Trật tự từ sai: phải là \"the network problem\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:troubleshoot-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:troubleshoot-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How do you troubleshoot a slow website?",
+      "vi": "Bạn xử lý sự cố một trang web chạy chậm như thế nào?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "do",
+        "you",
+        "troubleshoot",
+        "a",
+        "slow",
+        "website"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How you troubleshoot a slow website?",
+          "explanationVi": "Câu hỏi ở hiện tại đơn cần trợ động từ \"do\"."
+        },
+        {
+          "en": "How do you troubleshooting a slow website?",
+          "explanationVi": "Sau \"do you\" động từ giữ nguyên mẫu \"troubleshoot\"."
+        },
+        {
+          "en": "How do you troubleshoot a website slow?",
+          "explanationVi": "Tính từ \"slow\" phải đứng trước danh từ \"website\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:troubleshoot-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:user-story-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Each user story describes one thing the user wants to do.",
+      "vi": "Mỗi user story mô tả một việc người dùng muốn làm.",
+      "audio": "",
+      "tokens": [
+        "Each",
+        "user",
+        "story",
+        "describes",
+        "one",
+        "thing",
+        "the",
+        "user",
+        "wants",
+        "to",
+        "do"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each user stories describes one thing the user wants to do.",
+          "explanationVi": "Sau \"each\" danh từ phải ở dạng số ít \"user story\"."
+        },
+        {
+          "en": "Each user story describe one thing the user wants to do.",
+          "explanationVi": "Chủ ngữ số ít nên dùng \"describes\"."
+        },
+        {
+          "en": "Each user story describes one thing the user wants do.",
+          "explanationVi": "Sau \"want\" cần \"to\" trước động từ."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        1
+      ],
+      "wordIds": [
+        "word:user-story-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:user-story-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The product owner wrote five new user stories yesterday.",
+      "vi": "Hôm qua product owner đã viết năm user story mới.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "product",
+        "owner",
+        "wrote",
+        "five",
+        "new",
+        "user",
+        "stories",
+        "yesterday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The product owner write five new user stories yesterday.",
+          "explanationVi": "Có \"yesterday\" nên dùng quá khứ \"wrote\"."
+        },
+        {
+          "en": "The product owner wrote five new user storys yesterday.",
+          "explanationVi": "Số nhiều của \"story\" là \"stories\"."
+        },
+        {
+          "en": "The product owner wrote five user new stories yesterday.",
+          "explanationVi": "Trật tự từ sai: phải là \"five new user stories\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        6
+      ],
+      "wordIds": [
+        "word:user-story-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:vulnerability-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The security team found a vulnerability in the login page.",
+      "vi": "Nhóm bảo mật đã tìm thấy một lỗ hổng trên trang đăng nhập.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "security",
+        "team",
+        "found",
+        "a",
+        "vulnerability",
+        "in",
+        "the",
+        "login",
+        "page"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The security team found vulnerability in the login page.",
+          "explanationVi": "Danh từ đếm được số ít \"vulnerability\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "The security team finded a vulnerability in the login page.",
+          "explanationVi": "Quá khứ của \"find\" là \"found\"."
+        },
+        {
+          "en": "The security team found a vulnerability of the login page in.",
+          "explanationVi": "Thừa giới từ ở cuối câu; chỉ cần \"in the login page\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:vulnerability-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:vulnerability-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We must fix this vulnerability before the release.",
+      "vi": "Chúng tôi phải sửa lỗ hổng này trước khi phát hành.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "must",
+        "fix",
+        "this",
+        "vulnerability",
+        "before",
+        "the",
+        "release"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We must to fix this vulnerability before the release.",
+          "explanationVi": "Sau \"must\" không dùng \"to\"."
+        },
+        {
+          "en": "We must fixing this vulnerability before the release.",
+          "explanationVi": "Sau \"must\" động từ giữ nguyên mẫu \"fix\"."
+        },
+        {
+          "en": "We must fix this vulnerabilities before the release.",
+          "explanationVi": "Sau \"this\" danh từ phải ở dạng số ít."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:vulnerability-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:workaround-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "There is no fix yet, but we have a workaround.",
+      "vi": "Chưa có bản sửa lỗi, nhưng chúng tôi có cách xử lý tạm thời.",
+      "audio": "",
+      "tokens": [
+        "There",
+        "is",
+        "no",
+        "fix",
+        "yet",
+        "but",
+        "we",
+        "have",
+        "a",
+        "workaround"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There are no fix yet, but we have a workaround.",
+          "explanationVi": "Danh từ số ít \"fix\" đi với \"There is\"."
+        },
+        {
+          "en": "There is no fix yet, but we have workaround.",
+          "explanationVi": "Danh từ đếm được số ít \"workaround\" cần mạo từ \"a\"."
+        },
+        {
+          "en": "There is no fix already, but we have a workaround.",
+          "explanationVi": "Câu phủ định dùng \"yet\", không dùng \"already\"."
+        }
+      ],
+      "gapCandidates": [
+        9
+      ],
+      "wordIds": [
+        "word:workaround-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:workaround-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you send the workaround to the client today?",
+      "vi": "Bạn có thể gửi cách xử lý tạm thời cho khách hàng hôm nay không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "you",
+        "send",
+        "the",
+        "workaround",
+        "to",
+        "the",
+        "client",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you sending the workaround to the client today?",
+          "explanationVi": "Sau \"can\" động từ giữ nguyên mẫu \"send\"."
+        },
+        {
+          "en": "Can you send the workaround for the client today?",
+          "explanationVi": "Gửi cho ai dùng \"send something to someone\"."
+        },
+        {
+          "en": "You can send the workaround to the client today?",
+          "explanationVi": "Câu hỏi với \"can\" phải đảo \"can\" lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [
+        "word:workaround-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:workflow-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our workflow has three steps: develop, test and deploy.",
+      "vi": "Quy trình làm việc của chúng tôi có ba bước: phát triển, kiểm thử và triển khai.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "workflow",
+        "has",
+        "three",
+        "steps",
+        "develop",
+        "test",
+        "and",
+        "deploy"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our workflow have three steps: develop, test and deploy.",
+          "explanationVi": "Chủ ngữ \"Our workflow\" số ít nên dùng \"has\"."
+        },
+        {
+          "en": "Our workflow has three step: develop, test and deploy.",
+          "explanationVi": "Sau \"three\" danh từ phải ở dạng số nhiều \"steps\"."
+        },
+        {
+          "en": "Our workflow is has three steps: develop, test and deploy.",
+          "explanationVi": "Không dùng \"is\" cùng với động từ thường \"has\"."
+        }
+      ],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:workflow-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:workflow-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The new tool made our workflow much simpler.",
+      "vi": "Công cụ mới đã làm quy trình làm việc của chúng tôi đơn giản hơn nhiều.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "new",
+        "tool",
+        "made",
+        "our",
+        "workflow",
+        "much",
+        "simpler"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The new tool made our workflow much more simpler.",
+          "explanationVi": "So sánh hơn \"simpler\" không thêm \"more\"."
+        },
+        {
+          "en": "The new tool made our workflow to be much simpler.",
+          "explanationVi": "Sau \"make something\" dùng tính từ trực tiếp, không cần \"to be\"."
+        },
+        {
+          "en": "The new tool makes our workflow much simpler last year.",
+          "explanationVi": "Có \"last year\" nên dùng quá khứ \"made\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [
+        "word:workflow-n"
+      ]
+    },
+    "status": "draft"
+  }
+]

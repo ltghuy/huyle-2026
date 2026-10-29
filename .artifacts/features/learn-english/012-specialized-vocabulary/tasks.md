@@ -8,7 +8,7 @@ created: 2026-10-29
 
 ## Summary
 
-Total: 15 | Completed: 14 | Remaining: 1
+Total: 15 | Completed: 15 | Remaining: 0
 
 ## Execution Plan
 
@@ -91,8 +91,8 @@ Run after each task or batch (in `apps/learn-english`):
 
 ### Content for the three sets
 
-- [ ] T015 [B:T013] Draft the three sets in-session (Công nghệ thông tin, Tuyển dụng, Hành chính văn phòng): pick reused course words, draft new specialized words and examples, import as `draft`, generate the review sheets
-  - **Done when:** each set has 90 to 120 words, `content:review approve set-<slug> --all --dry-run` reports every item valid, review sheets exist; publishing waits for owner approval and audio (owner gate)
+- [x] T015 [B:T013] Draft the three sets in-session (Công nghệ thông tin, Tuyển dụng, Hành chính văn phòng): pick reused course words, draft new specialized words and examples, import as `draft`, generate the review sheets
+  - **Done when:** each set has 90 to 120 words, `content:review approve set-<slug> --all --dry-run` reports every item valid, review sheets exist; publishing waits for owner approval and audio (owner gate) -- VERIFIED (drafts: it 105, recruitment 110, office 110 words; owner review, audio and publish pending)
 
 ## Requirements Coverage
 

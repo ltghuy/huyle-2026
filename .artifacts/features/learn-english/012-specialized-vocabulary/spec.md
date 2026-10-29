@@ -3,7 +3,7 @@ id: 012
 feature: specialized-vocabulary
 type: brownfield
 scope: large
-status: in-progress
+status: to-review
 branch: main
 created: 2026-10-29
 ---
@@ -116,6 +116,7 @@ administration).
 ## Open Questions
 
 - None blocking. Tentative choices are recorded in decisions.md.
+- Seven IT words are only in the course with their everyday meaning (sprint, branch, commit, ticket, log, environment, merge), so the IT set leaves them out for now. Getting them in needs either an IT meaning added to those approved course words (back through review) or a way for a set to carry its own meaning for a reused word.
 
 ## Notes
 

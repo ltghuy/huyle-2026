@@ -1,0 +1,6372 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:administrator-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our office administrator orders lunch for big meetings.",
+      "vi": "Nhân viên hành chính văn phòng của chúng tôi đặt cơm trưa cho các cuộc họp lớn.",
+      "audio": "",
+      "tokens": [
+        "Our",
+        "office",
+        "administrator",
+        "orders",
+        "lunch",
+        "for",
+        "big",
+        "meetings"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our office administrator order lunch for big meetings.",
+          "explanationVi": "Chủ ngữ số ít nên động từ cần -s: “orders”."
+        },
+        {
+          "en": "Our office administrator orders lunch for big meeting.",
+          "explanationVi": "Nói chung các cuộc họp cần số nhiều “meetings”."
+        },
+        {
+          "en": "Our administrator office orders lunch for big meetings.",
+          "explanationVi": "Sai trật tự: danh từ chính đứng sau, là “office administrator”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:administrator-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:administrator-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I worked as an administrator for three years.",
+      "vi": "Tôi đã làm nhân viên hành chính trong ba năm.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "worked",
+        "as",
+        "an",
+        "administrator",
+        "for",
+        "three",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I worked as a administrator for three years.",
+          "explanationVi": "Trước âm nguyên âm dùng “an”, không dùng “a”."
+        },
+        {
+          "en": "I worked like an administrator for three years.",
+          "explanationVi": "Chỉ vai trò, nghề nghiệp dùng “as”, không dùng “like”."
+        },
+        {
+          "en": "I worked as an administrator for three year.",
+          "explanationVi": "Sau “three” danh từ phải ở số nhiều “years”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        1
+      ],
+      "wordIds": [
+        "word:administrator-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:archive-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We archive all contracts at the end of each year.",
+      "vi": "Chúng tôi lưu trữ tất cả hợp đồng vào cuối mỗi năm.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "archive",
+        "all",
+        "contracts",
+        "at",
+        "the",
+        "end",
+        "of",
+        "each",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We archives all contracts at the end of each year.",
+          "explanationVi": "Chủ ngữ “We” số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We archive all contract at the end of each year.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “contracts”."
+        },
+        {
+          "en": "We archive all contracts in the end of each year.",
+          "explanationVi": "Chỉ thời điểm cuối năm dùng “at the end of”, không dùng “in”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:archive-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:archive-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Have you archived last year's invoices?",
+      "vi": "Bạn đã lưu trữ các hóa đơn của năm ngoái chưa?",
+      "audio": "",
+      "tokens": [
+        "Have",
+        "you",
+        "archived",
+        "last",
+        "year's",
+        "invoices"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Have you archive last year's invoices?",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ “archived”."
+        },
+        {
+          "en": "Has you archived last year's invoices?",
+          "explanationVi": "Chủ ngữ “you” dùng “Have”, không dùng “Has”."
+        },
+        {
+          "en": "Have you archived the last year's invoices?",
+          "explanationVi": "Không dùng “the” trước sở hữu cách “last year's”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:archive-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:attendee-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Each attendee will receive a name badge at the door.",
+      "vi": "Mỗi người tham dự sẽ nhận một thẻ tên ở cửa.",
+      "audio": "",
+      "tokens": [
+        "Each",
+        "attendee",
+        "will",
+        "receive",
+        "a",
+        "name",
+        "badge",
+        "at",
+        "the",
+        "door"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Each attendees will receive a name badge at the door.",
+          "explanationVi": "Sau “each” danh từ ở số ít “attendee”."
+        },
+        {
+          "en": "Each attendee will receives a name badge at the door.",
+          "explanationVi": "Sau “will” động từ ở dạng nguyên mẫu “receive”."
+        },
+        {
+          "en": "Each attendee will receive name badge at the door.",
+          "explanationVi": "Danh từ đếm được số ít “badge” cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:attendee-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:attendee-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How many attendees have confirmed so far?",
+      "vi": "Đến giờ đã có bao nhiêu người tham dự xác nhận?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "many",
+        "attendees",
+        "have",
+        "confirmed",
+        "so",
+        "far"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How much attendees have confirmed so far?",
+          "explanationVi": "Danh từ đếm được “attendees” đi với “How many”, không dùng “How much”."
+        },
+        {
+          "en": "How many attendee have confirmed so far?",
+          "explanationVi": "Sau “How many” danh từ phải ở số nhiều “attendees”."
+        },
+        {
+          "en": "How many attendees have confirm so far?",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ “confirmed”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:attendee-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:authorization-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You need written authorization to use the company car.",
+      "vi": "Bạn cần giấy cho phép bằng văn bản để dùng xe công ty.",
+      "audio": "",
+      "tokens": [
+        "You",
+        "need",
+        "written",
+        "authorization",
+        "to",
+        "use",
+        "the",
+        "company",
+        "car"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You need write authorization to use the company car.",
+          "explanationVi": "Cần quá khứ phân từ “written” làm tính từ, nghĩa là “bằng văn bản”."
+        },
+        {
+          "en": "You needs written authorization to use the company car.",
+          "explanationVi": "Chủ ngữ “You” nên động từ không thêm -s."
+        },
+        {
+          "en": "You need written authorization for use the company car.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ nguyên mẫu, không dùng “for use”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:authorization-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:authorization-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did the finance director give authorization for the payment?",
+      "vi": "Giám đốc tài chính đã phê duyệt khoản thanh toán chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "the",
+        "finance",
+        "director",
+        "give",
+        "authorization",
+        "for",
+        "the",
+        "payment"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did the finance director gave authorization for the payment?",
+          "explanationVi": "Sau “Did” động từ ở dạng nguyên mẫu “give”."
+        },
+        {
+          "en": "Did finance director give authorization for the payment?",
+          "explanationVi": "Danh từ đếm được số ít “finance director” cần mạo từ “the”."
+        },
+        {
+          "en": "Did the finance director give authorization for payment the?",
+          "explanationVi": "Mạo từ “the” phải đứng trước danh từ “payment”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:authorization-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:binder-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Keep all signed forms in the blue binder.",
+      "vi": "Hãy giữ tất cả các mẫu đơn đã ký trong bìa còng màu xanh.",
+      "audio": "",
+      "tokens": [
+        "Keep",
+        "all",
+        "signed",
+        "forms",
+        "in",
+        "the",
+        "blue",
+        "binder"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Keep all sign forms in the blue binder.",
+          "explanationVi": "Cần quá khứ phân từ “signed” làm tính từ, nghĩa là “đã ký”."
+        },
+        {
+          "en": "Keep all signed form in the blue binder.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “forms”."
+        },
+        {
+          "en": "Keep all signed forms in the binder blue.",
+          "explanationVi": "Tính từ “blue” phải đứng trước danh từ “binder”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [
+        "word:binder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:binder-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "There are twelve binders on the top shelf.",
+      "vi": "Có mười hai bìa còng trên kệ trên cùng.",
+      "audio": "",
+      "tokens": [
+        "There",
+        "are",
+        "twelve",
+        "binders",
+        "on",
+        "the",
+        "top",
+        "shelf"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There is twelve binders on the top shelf.",
+          "explanationVi": "Danh từ số nhiều “binders” đi với “There are”."
+        },
+        {
+          "en": "There are twelve binder on the top shelf.",
+          "explanationVi": "Sau “twelve” danh từ phải ở số nhiều “binders”."
+        },
+        {
+          "en": "There are twelve binders in the top shelf.",
+          "explanationVi": "Đồ đặt trên kệ dùng giới từ “on”, không dùng “in”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:binder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-trip-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "He is on a business trip until Thursday.",
+      "vi": "Anh ấy đi công tác đến thứ Năm.",
+      "audio": "",
+      "tokens": [
+        "He",
+        "is",
+        "on",
+        "a",
+        "business",
+        "trip",
+        "until",
+        "Thursday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He on a business trip until Thursday.",
+          "explanationVi": "Thiếu động từ “is” trước cụm “on a business trip”."
+        },
+        {
+          "en": "He is in a business trip until Thursday.",
+          "explanationVi": "Cụm cố định là “on a business trip”, không dùng “in”."
+        },
+        {
+          "en": "He is on business trip until Thursday.",
+          "explanationVi": "Danh từ đếm được số ít “business trip” cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:business-trip-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:business-trip-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I booked the hotel for her business trip next week.",
+      "vi": "Tôi đã đặt khách sạn cho chuyến công tác tuần sau của cô ấy.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "booked",
+        "the",
+        "hotel",
+        "for",
+        "her",
+        "business",
+        "trip",
+        "next",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I booked hotel for her business trip next week.",
+          "explanationVi": "Danh từ đếm được số ít “hotel” cần mạo từ “the”."
+        },
+        {
+          "en": "I booked the hotel for she business trip next week.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “her”, không dùng “she”."
+        },
+        {
+          "en": "I booked the hotel for her business trip in next week.",
+          "explanationVi": "Không dùng giới từ “in” trước “next week”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        1
+      ],
+      "wordIds": [
+        "word:business-trip-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cc-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please cc me on all emails to the supplier.",
+      "vi": "Vui lòng cc tôi trong tất cả email gửi nhà cung cấp.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "cc",
+        "me",
+        "on",
+        "all",
+        "emails",
+        "to",
+        "the",
+        "supplier"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please cc I on all emails to the supplier.",
+          "explanationVi": "Sau động từ “cc” dùng đại từ tân ngữ “me”, không dùng “I”."
+        },
+        {
+          "en": "Please to cc me on all emails to the supplier.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu, không có “to”."
+        },
+        {
+          "en": "Please cc me on all emails to supplier.",
+          "explanationVi": "Danh từ đếm được số ít “supplier” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:cc-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cc-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She forgot to cc the manager on her reply.",
+      "vi": "Cô ấy quên cc quản lý trong email trả lời.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "forgot",
+        "to",
+        "cc",
+        "the",
+        "manager",
+        "on",
+        "her",
+        "reply"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She forgot cc the manager on her reply.",
+          "explanationVi": "Sau “forget” chỉ việc quên làm dùng “to” + động từ nguyên mẫu."
+        },
+        {
+          "en": "She forget to cc the manager on her reply.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “forgot”; nếu hiện tại cũng cần “forgets”."
+        },
+        {
+          "en": "She forgot to cc manager on her reply.",
+          "explanationVi": "Danh từ đếm được số ít “manager” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:cc-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:conference-call-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We have a conference call with the overseas team at nine.",
+      "vi": "Chúng tôi có cuộc gọi hội nghị với nhóm ở nước ngoài lúc chín giờ.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "have",
+        "a",
+        "conference",
+        "call",
+        "with",
+        "the",
+        "overseas",
+        "team",
+        "at",
+        "nine"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We has a conference call with the overseas team at nine.",
+          "explanationVi": "Chủ ngữ “We” dùng “have”, không dùng “has”."
+        },
+        {
+          "en": "We have conference call with the overseas team at nine.",
+          "explanationVi": "Danh từ đếm được số ít “conference call” cần mạo từ “a”."
+        },
+        {
+          "en": "We have a conference call with the overseas team in nine.",
+          "explanationVi": "Với giờ đồng hồ dùng giới từ “at”, không dùng “in”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:conference-call-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:conference-call-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Who set up yesterday's conference call?",
+      "vi": "Ai đã sắp xếp cuộc gọi hội nghị hôm qua?",
+      "audio": "",
+      "tokens": [
+        "Who",
+        "set",
+        "up",
+        "yesterday's",
+        "conference",
+        "call"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Who setted up yesterday's conference call?",
+          "explanationVi": "“Set” là động từ bất quy tắc, quá khứ vẫn là “set”."
+        },
+        {
+          "en": "Who set up the yesterday's conference call?",
+          "explanationVi": "Không dùng “the” trước sở hữu cách “yesterday's”."
+        },
+        {
+          "en": "Who set up yesterday conference call?",
+          "explanationVi": "Cần sở hữu cách “yesterday's” để nói cuộc gọi của hôm qua."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        1
+      ],
+      "wordIds": [
+        "word:conference-call-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:conference-room-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I booked the conference room for two o'clock.",
+      "vi": "Tôi đã đặt phòng họp lúc hai giờ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "booked",
+        "the",
+        "conference",
+        "room",
+        "for",
+        "two",
+        "o'clock"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I booked conference room for two o'clock.",
+          "explanationVi": "Danh từ đếm được số ít “conference room” cần mạo từ “the”."
+        },
+        {
+          "en": "I booked the room conference for two o'clock.",
+          "explanationVi": "Sai trật tự: danh từ chính “room” đứng sau, là “conference room”."
+        },
+        {
+          "en": "I booked the conference room for two o'clocks.",
+          "explanationVi": "“O'clock” không bao giờ thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:conference-room-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:conference-room-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the conference room free on Thursday afternoon?",
+      "vi": "Phòng họp có trống vào chiều thứ Năm không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "conference",
+        "room",
+        "free",
+        "on",
+        "Thursday",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the conference room free in Thursday afternoon?",
+          "explanationVi": "Với buổi của một ngày cụ thể dùng “on”, không dùng “in”."
+        },
+        {
+          "en": "Is conference room free on Thursday afternoon?",
+          "explanationVi": "Danh từ đếm được số ít “conference room” cần mạo từ “the”."
+        },
+        {
+          "en": "Does the conference room free on Thursday afternoon?",
+          "explanationVi": "Với tính từ “free” dùng động từ “Is”, không dùng “Does”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:conference-room-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:coordinate-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She coordinates travel for the whole sales team.",
+      "vi": "Cô ấy điều phối việc đi lại cho cả nhóm kinh doanh.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "coordinates",
+        "travel",
+        "for",
+        "the",
+        "whole",
+        "sales",
+        "team"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She coordinate travel for the whole sales team.",
+          "explanationVi": "Chủ ngữ số ít “She” nên động từ cần -s: “coordinates”."
+        },
+        {
+          "en": "She coordinates travel for whole sales team.",
+          "explanationVi": "Trước “whole” cần mạo từ “the”."
+        },
+        {
+          "en": "She coordinates travel for the sales whole team.",
+          "explanationVi": "Sai trật tự: “whole” đứng trước cụm “sales team”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:coordinate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:coordinate-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We need to coordinate with the security team about visitor passes.",
+      "vi": "Chúng ta cần phối hợp với đội bảo vệ về thẻ khách.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "need",
+        "to",
+        "coordinate",
+        "with",
+        "the",
+        "security",
+        "team",
+        "about",
+        "visitor",
+        "passes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We need coordinate with the security team about visitor passes.",
+          "explanationVi": "Sau “need” dùng “to” + động từ nguyên mẫu."
+        },
+        {
+          "en": "We needs to coordinate with the security team about visitor passes.",
+          "explanationVi": "Chủ ngữ “We” số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We need to coordinate to the security team about visitor passes.",
+          "explanationVi": "Phối hợp với ai dùng “coordinate with”, không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:coordinate-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:coordinator-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The office coordinator handles all room bookings.",
+      "vi": "Điều phối viên văn phòng phụ trách mọi việc đặt phòng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "office",
+        "coordinator",
+        "handles",
+        "all",
+        "room",
+        "bookings"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The office coordinator handle all room bookings.",
+          "explanationVi": "Chủ ngữ số ít “The office coordinator” nên động từ cần -s: “handles”."
+        },
+        {
+          "en": "Office coordinator handles all room bookings.",
+          "explanationVi": "Danh từ đếm được số ít “coordinator” cần mạo từ “the”."
+        },
+        {
+          "en": "The office coordinator handles all room booking.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “bookings”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:coordinator-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:coordinator-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Who is the event coordinator for the year-end party?",
+      "vi": "Ai là điều phối viên sự kiện cho tiệc cuối năm?",
+      "audio": "",
+      "tokens": [
+        "Who",
+        "is",
+        "the",
+        "event",
+        "coordinator",
+        "for",
+        "the",
+        "year-end",
+        "party"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Who the event coordinator for the year-end party?",
+          "explanationVi": "Thiếu động từ “is” trong câu hỏi."
+        },
+        {
+          "en": "Who are the event coordinator for the year-end party?",
+          "explanationVi": "Chủ ngữ số ít “the event coordinator” dùng “is”, không dùng “are”."
+        },
+        {
+          "en": "Who is the coordinator event for the year-end party?",
+          "explanationVi": "Sai trật tự: danh từ chính đứng sau, là “event coordinator”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:coordinator-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:courier-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We sent the signed contract by courier.",
+      "vi": "Chúng tôi đã gửi hợp đồng đã ký qua chuyển phát nhanh.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "sent",
+        "the",
+        "signed",
+        "contract",
+        "by",
+        "courier"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We sended the signed contract by courier.",
+          "explanationVi": "“Send” là động từ bất quy tắc, quá khứ là “sent”."
+        },
+        {
+          "en": "We sent the sign contract by courier.",
+          "explanationVi": "Cần quá khứ phân từ “signed” làm tính từ, nghĩa là “đã ký”."
+        },
+        {
+          "en": "We sent the signed contract with courier.",
+          "explanationVi": "Cụm cố định là “by courier” (gửi bằng chuyển phát), không dùng “with”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:courier-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:courier-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The courier is coming to pick up the documents at four.",
+      "vi": "Nhân viên chuyển phát sẽ đến lấy tài liệu lúc bốn giờ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "courier",
+        "is",
+        "coming",
+        "to",
+        "pick",
+        "up",
+        "the",
+        "documents",
+        "at",
+        "four"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The courier coming to pick up the documents at four.",
+          "explanationVi": "Thiếu trợ động từ “is” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "The courier is coming to picks up the documents at four.",
+          "explanationVi": "Sau “to” động từ ở dạng nguyên mẫu “pick”."
+        },
+        {
+          "en": "The courier is coming to pick up the documents on four.",
+          "explanationVi": "Với giờ đồng hồ dùng giới từ “at”, không dùng “on”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:courier-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:due-date-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The due date is printed at the top of the invoice.",
+      "vi": "Ngày đến hạn được in ở đầu hóa đơn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "due",
+        "date",
+        "is",
+        "printed",
+        "at",
+        "the",
+        "top",
+        "of",
+        "the",
+        "invoice"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The due date printed at the top of the invoice.",
+          "explanationVi": "Câu bị động thiếu “is” trước “printed”."
+        },
+        {
+          "en": "The due date is print at the top of the invoice.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “printed”."
+        },
+        {
+          "en": "Due date is printed at the top of the invoice.",
+          "explanationVi": "Danh từ đếm được số ít “due date” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:due-date-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:due-date-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We missed the due date and paid a late fee.",
+      "vi": "Chúng tôi đã trễ hạn và phải trả phí trễ hạn.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "missed",
+        "the",
+        "due",
+        "date",
+        "and",
+        "paid",
+        "a",
+        "late",
+        "fee"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We missed the due date and pay a late fee.",
+          "explanationVi": "Hai hành động đã xảy ra nên “pay” phải ở quá khứ “paid”."
+        },
+        {
+          "en": "We missed due date and paid a late fee.",
+          "explanationVi": "Danh từ đếm được số ít “due date” cần mạo từ “the”."
+        },
+        {
+          "en": "We missed the date due and paid a late fee.",
+          "explanationVi": "Sai trật tự: cụm đúng là “due date”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:due-date-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:expense-report-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Submit your expense report within five days of your trip.",
+      "vi": "Hãy nộp báo cáo chi phí trong vòng năm ngày sau chuyến đi.",
+      "audio": "",
+      "tokens": [
+        "Submit",
+        "your",
+        "expense",
+        "report",
+        "within",
+        "five",
+        "days",
+        "of",
+        "your",
+        "trip"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Submit your expense report within five day of your trip.",
+          "explanationVi": "Sau “five” danh từ phải ở số nhiều “days”."
+        },
+        {
+          "en": "Submits your expense report within five days of your trip.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Submit”."
+        },
+        {
+          "en": "Submit you expense report within five days of your trip.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:expense-report-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:expense-report-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Has the director approved my expense report yet?",
+      "vi": "Giám đốc đã duyệt báo cáo chi phí của tôi chưa?",
+      "audio": "",
+      "tokens": [
+        "Has",
+        "the",
+        "director",
+        "approved",
+        "my",
+        "expense",
+        "report",
+        "yet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Has the director approve my expense report yet?",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ “approved”."
+        },
+        {
+          "en": "Have the director approved my expense report yet?",
+          "explanationVi": "Chủ ngữ số ít “the director” dùng “Has”, không dùng “Have”."
+        },
+        {
+          "en": "Has director approved my expense report yet?",
+          "explanationVi": "Danh từ đếm được số ít “director” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        3
+      ],
+      "wordIds": [
+        "word:expense-report-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:filing-cabinet-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The filing cabinet is locked every night.",
+      "vi": "Tủ hồ sơ được khóa mỗi tối.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "filing",
+        "cabinet",
+        "is",
+        "locked",
+        "every",
+        "night"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The filing cabinet locked every night.",
+          "explanationVi": "Câu bị động thiếu động từ “is”."
+        },
+        {
+          "en": "The filing cabinet is lock every night.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “locked”."
+        },
+        {
+          "en": "The filing cabinet is locked in every night.",
+          "explanationVi": "Không dùng giới từ “in” trước “every night”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:filing-cabinet-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:filing-cabinet-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I found the old invoices in the bottom drawer of the filing cabinet.",
+      "vi": "Tôi tìm thấy các hóa đơn cũ ở ngăn dưới cùng của tủ hồ sơ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "found",
+        "the",
+        "old",
+        "invoices",
+        "in",
+        "the",
+        "bottom",
+        "drawer",
+        "of",
+        "the",
+        "filing",
+        "cabinet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I finded the old invoices in the bottom drawer of the filing cabinet.",
+          "explanationVi": "“Find” là động từ bất quy tắc, quá khứ là “found”."
+        },
+        {
+          "en": "I found the old invoices in the bottom drawer of filing cabinet.",
+          "explanationVi": "Danh từ đếm được số ít “filing cabinet” cần mạo từ “the”."
+        },
+        {
+          "en": "I found the old invoices on the bottom drawer of the filing cabinet.",
+          "explanationVi": "Đồ nằm bên trong ngăn kéo nên dùng “in”, không dùng “on”."
+        }
+      ],
+      "gapCandidates": [
+        11,
+        12
+      ],
+      "wordIds": [
+        "word:filing-cabinet-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:filing-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I spend an hour on filing every Friday afternoon.",
+      "vi": "Tôi dành một tiếng để sắp xếp hồ sơ vào mỗi chiều thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "spend",
+        "an",
+        "hour",
+        "on",
+        "filing",
+        "every",
+        "Friday",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I spend a hour on filing every Friday afternoon.",
+          "explanationVi": "Chữ “h” trong “hour” câm nên dùng “an hour”."
+        },
+        {
+          "en": "I spends an hour on filing every Friday afternoon.",
+          "explanationVi": "Chủ ngữ “I” nên động từ không thêm -s."
+        },
+        {
+          "en": "I spend an hour on filing in every Friday afternoon.",
+          "explanationVi": "Không dùng giới từ “in” trước “every Friday afternoon”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        1
+      ],
+      "wordIds": [
+        "word:filing-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:filing-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the filing finished yet?",
+      "vi": "Việc lưu trữ hồ sơ đã xong chưa?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "the",
+        "filing",
+        "finished",
+        "yet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the filing finish yet?",
+          "explanationVi": "Sau “is” cần tính từ/quá khứ phân từ “finished”."
+        },
+        {
+          "en": "Does the filing finished yet?",
+          "explanationVi": "Với “finished” dùng động từ “Is”, không dùng “Does”."
+        },
+        {
+          "en": "The filing is finished yet?",
+          "explanationVi": "Câu hỏi với “yet” cần đảo “Is” lên trước chủ ngữ."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:filing-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:follow-up-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I will follow up with the supplier tomorrow morning.",
+      "vi": "Sáng mai tôi sẽ liên hệ lại với nhà cung cấp.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "will",
+        "follow",
+        "up",
+        "with",
+        "the",
+        "supplier",
+        "tomorrow",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I will follow up to the supplier tomorrow morning.",
+          "explanationVi": "Liên hệ lại với ai dùng “follow up with”, không dùng “to”."
+        },
+        {
+          "en": "I will follows up with the supplier tomorrow morning.",
+          "explanationVi": "Sau “will” động từ ở dạng nguyên mẫu “follow”."
+        },
+        {
+          "en": "I will follow up with the supplier in tomorrow morning.",
+          "explanationVi": "Không dùng giới từ “in” trước “tomorrow morning”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:follow-up-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:follow-up-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did anyone follow up on the unpaid invoice?",
+      "vi": "Đã có ai nhắc lại về hóa đơn chưa thanh toán chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "anyone",
+        "follow",
+        "up",
+        "on",
+        "the",
+        "unpaid",
+        "invoice"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did anyone followed up on the unpaid invoice?",
+          "explanationVi": "Sau “Did” động từ ở dạng nguyên mẫu “follow”."
+        },
+        {
+          "en": "Did anyone follow up on the unpay invoice?",
+          "explanationVi": "Cần tính từ “unpaid” (chưa thanh toán), không dùng “unpay”."
+        },
+        {
+          "en": "Did anyone follow up on unpaid invoice?",
+          "explanationVi": "Danh từ đếm được số ít “invoice” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:follow-up-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:forward-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Could you forward this email to the finance team?",
+      "vi": "Bạn có thể chuyển tiếp email này cho nhóm tài chính không?",
+      "audio": "",
+      "tokens": [
+        "Could",
+        "you",
+        "forward",
+        "this",
+        "email",
+        "to",
+        "the",
+        "finance",
+        "team"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Could you forwarding this email to the finance team?",
+          "explanationVi": "Sau “Could you” động từ ở dạng nguyên mẫu “forward”."
+        },
+        {
+          "en": "Could you forward this emails to the finance team?",
+          "explanationVi": "“This” đi với danh từ số ít “email”."
+        },
+        {
+          "en": "Could you forward this email for the finance team?",
+          "explanationVi": "Chuyển tiếp cho ai dùng “forward ... to”, không dùng “for”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:forward-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:forward-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I forwarded the invoice to you an hour ago.",
+      "vi": "Tôi đã chuyển tiếp hóa đơn cho bạn cách đây một tiếng.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "forwarded",
+        "the",
+        "invoice",
+        "to",
+        "you",
+        "an",
+        "hour",
+        "ago"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I forward the invoice to you an hour ago.",
+          "explanationVi": "Có “ago” nên động từ phải ở quá khứ “forwarded”."
+        },
+        {
+          "en": "I forwarded the invoice to you a hour ago.",
+          "explanationVi": "Chữ “h” trong “hour” câm nên dùng “an hour”."
+        },
+        {
+          "en": "I forwarded the invoice you an hour ago.",
+          "explanationVi": "Cấu trúc “forward something to someone” cần giới từ “to”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:forward-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:front-desk-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please leave the package at the front desk.",
+      "vi": "Vui lòng để gói hàng ở quầy lễ tân.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "leave",
+        "the",
+        "package",
+        "at",
+        "the",
+        "front",
+        "desk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please leaving the package at the front desk.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “leave”."
+        },
+        {
+          "en": "Please leave the package at front desk.",
+          "explanationVi": "Danh từ đếm được số ít “front desk” cần mạo từ “the”."
+        },
+        {
+          "en": "Please leave at the front desk the package.",
+          "explanationVi": "Tân ngữ “the package” phải đứng ngay sau động từ “leave”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        3
+      ],
+      "wordIds": [
+        "word:front-desk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:front-desk-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Visitors must sign in at the front desk.",
+      "vi": "Khách đến phải đăng ký vào ở quầy lễ tân.",
+      "audio": "",
+      "tokens": [
+        "Visitors",
+        "must",
+        "sign",
+        "in",
+        "at",
+        "the",
+        "front",
+        "desk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Visitors must signs in at the front desk.",
+          "explanationVi": "Sau “must” động từ ở dạng nguyên mẫu “sign”."
+        },
+        {
+          "en": "Visitors must to sign in at the front desk.",
+          "explanationVi": "Sau “must” không dùng “to”."
+        },
+        {
+          "en": "Visitor must sign in at the front desk.",
+          "explanationVi": "Nói chung về khách cần danh từ số nhiều “Visitors”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [
+        "word:front-desk-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:handover-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please write a handover note before your leave.",
+      "vi": "Vui lòng viết ghi chú bàn giao trước kỳ nghỉ phép của bạn.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "write",
+        "a",
+        "handover",
+        "note",
+        "before",
+        "your",
+        "leave"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please write handover note before your leave.",
+          "explanationVi": "Danh từ đếm được số ít “handover note” cần mạo từ “a”."
+        },
+        {
+          "en": "Please writes a handover note before your leave.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “write”."
+        },
+        {
+          "en": "Please write an handover note before your leave.",
+          "explanationVi": "Chữ “h” trong “handover” được phát âm nên dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:handover-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:handover-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The handover took two days because there were many files.",
+      "vi": "Việc bàn giao mất hai ngày vì có nhiều hồ sơ.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "handover",
+        "took",
+        "two",
+        "days",
+        "because",
+        "there",
+        "were",
+        "many",
+        "files"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The handover taked two days because there were many files.",
+          "explanationVi": "“Take” là động từ bất quy tắc, quá khứ là “took”."
+        },
+        {
+          "en": "The handover took two day because there were many files.",
+          "explanationVi": "Sau “two” danh từ phải ở số nhiều “days”."
+        },
+        {
+          "en": "The handover took two days because there was many files.",
+          "explanationVi": "Danh từ số nhiều “many files” đi với “there were”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:handover-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hard-copy-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please bring a hard copy of the contract to the meeting.",
+      "vi": "Vui lòng mang một bản in hợp đồng đến cuộc họp.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "bring",
+        "a",
+        "hard",
+        "copy",
+        "of",
+        "the",
+        "contract",
+        "to",
+        "the",
+        "meeting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please brings a hard copy of the contract to the meeting.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “bring”."
+        },
+        {
+          "en": "Please bring hard copy of the contract to the meeting.",
+          "explanationVi": "Danh từ đếm được số ít “hard copy” cần mạo từ “a”."
+        },
+        {
+          "en": "Please bring a copy hard of the contract to the meeting.",
+          "explanationVi": "Tính từ “hard” phải đứng trước “copy”: “hard copy”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:hard-copy-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hard-copy-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you need a hard copy, or is email OK?",
+      "vi": "Bạn cần bản in hay gửi email là được?",
+      "audio": "",
+      "tokens": [
+        "Do",
+        "you",
+        "need",
+        "a",
+        "hard",
+        "copy",
+        "or",
+        "is",
+        "email",
+        "OK"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Do you needs a hard copy, or is email OK?",
+          "explanationVi": "Sau “Do” động từ ở dạng nguyên mẫu “need”."
+        },
+        {
+          "en": "Does you need a hard copy, or is email OK?",
+          "explanationVi": "Chủ ngữ “you” dùng trợ động từ “Do”, không dùng “Does”."
+        },
+        {
+          "en": "Do you need hard copy, or is email OK?",
+          "explanationVi": "Danh từ đếm được số ít “hard copy” cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:hard-copy-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:inbox-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My inbox is full of meeting requests.",
+      "vi": "Hộp thư đến của tôi đầy yêu cầu họp.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "inbox",
+        "is",
+        "full",
+        "of",
+        "meeting",
+        "requests"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My inbox full of meeting requests.",
+          "explanationVi": "Thiếu động từ “is” trước tính từ “full”."
+        },
+        {
+          "en": "My inbox is full with meeting requests.",
+          "explanationVi": "Cụm cố định là “full of”, không dùng “with”."
+        },
+        {
+          "en": "My inbox is full of meeting request.",
+          "explanationVi": "Sau “full of” danh từ đếm được phải ở số nhiều “requests”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:inbox-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:inbox-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did the invoice arrive in your inbox?",
+      "vi": "Hóa đơn đã đến hộp thư của bạn chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "the",
+        "invoice",
+        "arrive",
+        "in",
+        "your",
+        "inbox"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did the invoice arrived in your inbox?",
+          "explanationVi": "Sau “Did” động từ ở dạng nguyên mẫu “arrive”."
+        },
+        {
+          "en": "Did the invoice arrive to your inbox?",
+          "explanationVi": "“Arrive” không đi với “to”; dùng “arrive in”."
+        },
+        {
+          "en": "Did invoice arrive in your inbox?",
+          "explanationVi": "Danh từ đếm được số ít “invoice” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:inbox-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:inventory-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We do an inventory of office supplies every quarter.",
+      "vi": "Chúng tôi kiểm kê đồ dùng văn phòng mỗi quý.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "do",
+        "an",
+        "inventory",
+        "of",
+        "office",
+        "supplies",
+        "every",
+        "quarter"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We do a inventory of office supplies every quarter.",
+          "explanationVi": "Trước âm nguyên âm dùng “an”, không dùng “a”."
+        },
+        {
+          "en": "We does an inventory of office supplies every quarter.",
+          "explanationVi": "Chủ ngữ “We” dùng “do”, không dùng “does”."
+        },
+        {
+          "en": "We do an inventory of office supplies in every quarter.",
+          "explanationVi": "Không dùng giới từ “in” trước “every quarter”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        8
+      ],
+      "wordIds": [
+        "word:inventory-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:inventory-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The inventory shows we are low on printer paper.",
+      "vi": "Bảng kiểm kê cho thấy chúng ta sắp hết giấy in.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "inventory",
+        "shows",
+        "we",
+        "are",
+        "low",
+        "on",
+        "printer",
+        "paper"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The inventory show we are low on printer paper.",
+          "explanationVi": "Chủ ngữ số ít “The inventory” nên động từ cần -s: “shows”."
+        },
+        {
+          "en": "The inventory shows we low on printer paper.",
+          "explanationVi": "Thiếu động từ “are” trước tính từ “low”."
+        },
+        {
+          "en": "The inventory shows we are low of printer paper.",
+          "explanationVi": "Cụm cố định là “low on”, không dùng “of”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:inventory-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:key-card-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "New staff get a key card on their first day.",
+      "vi": "Nhân viên mới được nhận thẻ từ vào ngày làm việc đầu tiên.",
+      "audio": "",
+      "tokens": [
+        "New",
+        "staff",
+        "get",
+        "a",
+        "key",
+        "card",
+        "on",
+        "their",
+        "first",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "New staff get a key card in their first day.",
+          "explanationVi": "Với một ngày cụ thể dùng giới từ “on”, không dùng “in”."
+        },
+        {
+          "en": "New staff get key card on their first day.",
+          "explanationVi": "Danh từ đếm được số ít “key card” cần mạo từ “a”."
+        },
+        {
+          "en": "New staff get a key card on they first day.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “their”, không dùng “they”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:key-card-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:key-card-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I left my key card at home, so reception let me in.",
+      "vi": "Tôi để quên thẻ từ ở nhà nên lễ tân đã cho tôi vào.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "left",
+        "my",
+        "key",
+        "card",
+        "at",
+        "home",
+        "so",
+        "reception",
+        "let",
+        "me",
+        "in"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I leaved my key card at home, so reception let me in.",
+          "explanationVi": "“Leave” là động từ bất quy tắc, quá khứ là “left”."
+        },
+        {
+          "en": "I left my key card in home, so reception let me in.",
+          "explanationVi": "Cụm cố định là “at home”, không dùng “in home”."
+        },
+        {
+          "en": "I left my key card at home, so reception let I in.",
+          "explanationVi": "Sau động từ “let” dùng đại từ tân ngữ “me”, không dùng “I”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:key-card-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:letterhead-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Print the official letter on company letterhead.",
+      "vi": "Hãy in thư chính thức trên giấy tiêu đề của công ty.",
+      "audio": "",
+      "tokens": [
+        "Print",
+        "the",
+        "official",
+        "letter",
+        "on",
+        "company",
+        "letterhead"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Print the official letter in company letterhead.",
+          "explanationVi": "In lên giấy dùng giới từ “on”, không dùng “in”."
+        },
+        {
+          "en": "Printing the official letter on company letterhead.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Print”."
+        },
+        {
+          "en": "Print official letter on company letterhead.",
+          "explanationVi": "Danh từ đếm được số ít “letter” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [
+        "word:letterhead-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:letterhead-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We ran out of letterhead, so I ordered more.",
+      "vi": "Chúng tôi hết giấy tiêu đề nên tôi đã đặt thêm.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "ran",
+        "out",
+        "of",
+        "letterhead",
+        "so",
+        "I",
+        "ordered",
+        "more"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We ran out letterhead, so I ordered more.",
+          "explanationVi": "Cụm cố định là “run out of”, thiếu “of”."
+        },
+        {
+          "en": "We run out of letterhead, so I ordered more.",
+          "explanationVi": "Câu kể chuyện đã xảy ra nên dùng quá khứ “ran” cho thống nhất với “ordered”."
+        },
+        {
+          "en": "We ran out of letterhead, so I ordering more.",
+          "explanationVi": "Mệnh đề sau “so” cần động từ chia thì “ordered”, không dùng V-ing."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        1
+      ],
+      "wordIds": [
+        "word:letterhead-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:mailroom-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Your package is waiting in the mailroom.",
+      "vi": "Gói hàng của bạn đang chờ ở phòng thư tín.",
+      "audio": "",
+      "tokens": [
+        "Your",
+        "package",
+        "is",
+        "waiting",
+        "in",
+        "the",
+        "mailroom"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your package waiting in the mailroom.",
+          "explanationVi": "Thiếu trợ động từ “is” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "Your package is wait in the mailroom.",
+          "explanationVi": "Thì hiện tại tiếp diễn cần V-ing “waiting”."
+        },
+        {
+          "en": "You package is waiting in the mailroom.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “Your”, không dùng “You”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:mailroom-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:mailroom-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The mailroom closes at five every day.",
+      "vi": "Phòng thư tín đóng cửa lúc năm giờ mỗi ngày.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "mailroom",
+        "closes",
+        "at",
+        "five",
+        "every",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The mailroom close at five every day.",
+          "explanationVi": "Chủ ngữ số ít “The mailroom” nên động từ cần -s: “closes”."
+        },
+        {
+          "en": "The mailroom closes on five every day.",
+          "explanationVi": "Với giờ đồng hồ dùng giới từ “at”, không dùng “on”."
+        },
+        {
+          "en": "Mailroom closes at five every day.",
+          "explanationVi": "Danh từ đếm được số ít “mailroom” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:mailroom-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:meeting-minutes-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She takes the meeting minutes every Monday.",
+      "vi": "Cô ấy ghi biên bản cuộc họp vào mỗi thứ Hai.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "takes",
+        "the",
+        "meeting",
+        "minutes",
+        "every",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She take the meeting minutes every Monday.",
+          "explanationVi": "Chủ ngữ số ít “She” nên động từ cần thêm -s: “takes”."
+        },
+        {
+          "en": "She takes the meeting minutes in every Monday.",
+          "explanationVi": "Không dùng giới từ “in” trước “every Monday”."
+        },
+        {
+          "en": "She takes the meeting minute every Monday.",
+          "explanationVi": "“Meeting minutes” (biên bản) luôn ở số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        1
+      ],
+      "wordIds": [
+        "word:meeting-minutes-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:meeting-minutes-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did you send the meeting minutes to everyone?",
+      "vi": "Bạn đã gửi biên bản cuộc họp cho mọi người chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "you",
+        "send",
+        "the",
+        "meeting",
+        "minutes",
+        "to",
+        "everyone"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did you sent the meeting minutes to everyone?",
+          "explanationVi": "Sau “Did” động từ ở dạng nguyên mẫu “send”."
+        },
+        {
+          "en": "Did you send the meeting minutes for everyone?",
+          "explanationVi": "Gửi cho ai dùng “send ... to”, không dùng “for”."
+        },
+        {
+          "en": "Did send you the meeting minutes to everyone?",
+          "explanationVi": "Sai trật tự câu hỏi: chủ ngữ “you” đứng ngay sau “Did”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:meeting-minutes-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:memo-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The manager sent a memo about the new holiday schedule.",
+      "vi": "Quản lý đã gửi một thông báo nội bộ về lịch nghỉ lễ mới.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "manager",
+        "sent",
+        "a",
+        "memo",
+        "about",
+        "the",
+        "new",
+        "holiday",
+        "schedule"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The manager send a memo about the new holiday schedule.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “sent”."
+        },
+        {
+          "en": "The manager sent memo about the new holiday schedule.",
+          "explanationVi": "Danh từ đếm được số ít “memo” cần mạo từ “a”."
+        },
+        {
+          "en": "The manager sent a memo about new the holiday schedule.",
+          "explanationVi": "Mạo từ “the” phải đứng trước tính từ “new”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:memo-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:memo-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please read the memo before Monday's meeting.",
+      "vi": "Vui lòng đọc thông báo nội bộ trước cuộc họp thứ Hai.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "read",
+        "the",
+        "memo",
+        "before",
+        "Monday's",
+        "meeting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please reading the memo before Monday's meeting.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “read”."
+        },
+        {
+          "en": "Please read memo before Monday's meeting.",
+          "explanationVi": "Danh từ đếm được số ít “memo” cần mạo từ “the”."
+        },
+        {
+          "en": "Please read the memo before the Monday's meeting.",
+          "explanationVi": "Không dùng “the” trước sở hữu cách “Monday's”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:memo-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notarize-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We need to notarize these copies before Friday.",
+      "vi": "Chúng ta cần công chứng những bản sao này trước thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "need",
+        "to",
+        "notarize",
+        "these",
+        "copies",
+        "before",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We need notarize these copies before Friday.",
+          "explanationVi": "Sau “need” dùng “to” + động từ nguyên mẫu."
+        },
+        {
+          "en": "We need to notarize this copies before Friday.",
+          "explanationVi": "Danh từ số nhiều “copies” đi với “these”, không dùng “this”."
+        },
+        {
+          "en": "We need to notarize these copies before on Friday.",
+          "explanationVi": "Không dùng thêm giới từ “on” sau “before”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:notarize-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notarize-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Were the documents notarized at the local office?",
+      "vi": "Các tài liệu đã được công chứng ở văn phòng địa phương chưa?",
+      "audio": "",
+      "tokens": [
+        "Were",
+        "the",
+        "documents",
+        "notarized",
+        "at",
+        "the",
+        "local",
+        "office"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Were the documents notarize at the local office?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “notarized”."
+        },
+        {
+          "en": "Was the documents notarized at the local office?",
+          "explanationVi": "Chủ ngữ số nhiều “the documents” dùng “Were”, không dùng “Was”."
+        },
+        {
+          "en": "Did the documents notarized at the local office?",
+          "explanationVi": "Câu hỏi bị động dùng “Were”, không dùng “Did”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:notarize-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notify-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please notify reception if you expect visitors.",
+      "vi": "Vui lòng báo cho lễ tân nếu bạn có khách đến.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "notify",
+        "reception",
+        "if",
+        "you",
+        "expect",
+        "visitors"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please notify to reception if you expect visitors.",
+          "explanationVi": "“Notify” đi thẳng với tân ngữ, không dùng “to”."
+        },
+        {
+          "en": "Please notify reception if you expects visitors.",
+          "explanationVi": "Chủ ngữ “you” nên động từ không thêm -s."
+        },
+        {
+          "en": "Please notifying reception if you expect visitors.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “notify”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:notify-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:notify-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "All staff were notified about the fire drill.",
+      "vi": "Tất cả nhân viên đã được thông báo về buổi diễn tập phòng cháy.",
+      "audio": "",
+      "tokens": [
+        "All",
+        "staff",
+        "were",
+        "notified",
+        "about",
+        "the",
+        "fire",
+        "drill"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "All staff were notify about the fire drill.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “notified”."
+        },
+        {
+          "en": "All staff were notified for the fire drill.",
+          "explanationVi": "Được thông báo về việc gì dùng “notified about/of”, không dùng “for”."
+        },
+        {
+          "en": "All staffs were notified about the fire drill.",
+          "explanationVi": "“Staff” là danh từ tập hợp, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:notify-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:office-supplies-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I ordered office supplies for the new staff.",
+      "vi": "Tôi đã đặt đồ dùng văn phòng cho nhân viên mới.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "ordered",
+        "office",
+        "supplies",
+        "for",
+        "the",
+        "new",
+        "staff"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I ordered office supplies to the new staff.",
+          "explanationVi": "Đặt hàng cho ai dùng giới từ “for”, không dùng “to”."
+        },
+        {
+          "en": "I ordered office supplies for the staff new.",
+          "explanationVi": "Tính từ “new” phải đứng trước danh từ “staff”."
+        },
+        {
+          "en": "I order office supplies for the new staff yesterday.",
+          "explanationVi": "Có “yesterday” nên động từ phải ở quá khứ “ordered”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:office-supplies-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:office-supplies-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Office supplies are kept in the cabinet near the printer.",
+      "vi": "Đồ dùng văn phòng được cất trong tủ gần máy in.",
+      "audio": "",
+      "tokens": [
+        "Office",
+        "supplies",
+        "are",
+        "kept",
+        "in",
+        "the",
+        "cabinet",
+        "near",
+        "the",
+        "printer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Office supplies is kept in the cabinet near the printer.",
+          "explanationVi": "Chủ ngữ số nhiều “Office supplies” dùng “are”, không dùng “is”."
+        },
+        {
+          "en": "Office supplies are keep in the cabinet near the printer.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “kept”."
+        },
+        {
+          "en": "Office supplies are kept in the cabinet near printer.",
+          "explanationVi": "Danh từ đếm được số ít “printer” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:office-supplies-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overdue-adj-1",
+    "kind": "sentence",
+    "body": {
+      "en": "This invoice is two weeks overdue.",
+      "vi": "Hóa đơn này đã quá hạn hai tuần.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "invoice",
+        "is",
+        "two",
+        "weeks",
+        "overdue"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This invoice two weeks overdue.",
+          "explanationVi": "Thiếu động từ “is” trước tính từ “overdue”."
+        },
+        {
+          "en": "This invoice is two week overdue.",
+          "explanationVi": "Sau “two” danh từ phải ở số nhiều “weeks”."
+        },
+        {
+          "en": "This invoices is two weeks overdue.",
+          "explanationVi": "“This” đi với danh từ số ít “invoice”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        1
+      ],
+      "wordIds": [
+        "word:overdue-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:overdue-adj-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We sent reminders for all overdue payments.",
+      "vi": "Chúng tôi đã gửi nhắc nhở cho tất cả các khoản thanh toán quá hạn.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "sent",
+        "reminders",
+        "for",
+        "all",
+        "overdue",
+        "payments"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We sended reminders for all overdue payments.",
+          "explanationVi": "“Send” là động từ bất quy tắc, quá khứ là “sent”."
+        },
+        {
+          "en": "We sent reminder for all overdue payments.",
+          "explanationVi": "Danh từ đếm được “reminder” cần số nhiều “reminders” hoặc mạo từ."
+        },
+        {
+          "en": "We sent reminders for all overdue payment.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “payments”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:overdue-adj"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:payroll-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Payroll is processed on the twenty-fifth of each month.",
+      "vi": "Bảng lương được xử lý vào ngày 25 hằng tháng.",
+      "audio": "",
+      "tokens": [
+        "Payroll",
+        "is",
+        "processed",
+        "on",
+        "the",
+        "twenty-fifth",
+        "of",
+        "each",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Payroll processed on the twenty-fifth of each month.",
+          "explanationVi": "Câu bị động thiếu “is” trước “processed”."
+        },
+        {
+          "en": "Payroll is processed in the twenty-fifth of each month.",
+          "explanationVi": "Với ngày cụ thể dùng giới từ “on”, không dùng “in”."
+        },
+        {
+          "en": "Payroll is process on the twenty-fifth of each month.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “processed”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        2
+      ],
+      "wordIds": [
+        "word:payroll-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:payroll-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please send your overtime hours to payroll by Friday.",
+      "vi": "Vui lòng gửi số giờ làm thêm của bạn cho bộ phận lương trước thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "send",
+        "your",
+        "overtime",
+        "hours",
+        "to",
+        "payroll",
+        "by",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please send your overtime hour to payroll by Friday.",
+          "explanationVi": "Nói về số giờ làm thêm cần số nhiều “hours”."
+        },
+        {
+          "en": "Please send you overtime hours to payroll by Friday.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        },
+        {
+          "en": "Please send your overtime hours to payroll until Friday.",
+          "explanationVi": "Hạn chót dùng “by”; “until” chỉ việc kéo dài đến lúc đó."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:payroll-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:per-diem-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The per diem covers meals and local transportation.",
+      "vi": "Phụ cấp công tác theo ngày bao gồm tiền ăn và đi lại tại địa phương.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "per",
+        "diem",
+        "covers",
+        "meals",
+        "and",
+        "local",
+        "transportation"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The per diem cover meals and local transportation.",
+          "explanationVi": "Chủ ngữ số ít “The per diem” nên động từ cần -s: “covers”."
+        },
+        {
+          "en": "The per diem covers meal and local transportation.",
+          "explanationVi": "Nói chung các bữa ăn cần số nhiều “meals”."
+        },
+        {
+          "en": "The per diem covers meals and transportation local.",
+          "explanationVi": "Tính từ “local” phải đứng trước danh từ “transportation”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:per-diem-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:per-diem-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How much is the per diem for a trip abroad?",
+      "vi": "Phụ cấp theo ngày cho một chuyến đi nước ngoài là bao nhiêu?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "much",
+        "is",
+        "the",
+        "per",
+        "diem",
+        "for",
+        "a",
+        "trip",
+        "abroad"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How many is the per diem for a trip abroad?",
+          "explanationVi": "Hỏi về số tiền dùng “How much”, không dùng “How many”."
+        },
+        {
+          "en": "How much the per diem is for a trip abroad?",
+          "explanationVi": "Câu hỏi cần đảo “is” lên trước chủ ngữ “the per diem”."
+        },
+        {
+          "en": "How much is the per diem for a trip to abroad?",
+          "explanationVi": "“Abroad” là trạng từ, không đi với giới từ “to”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:per-diem-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:petty-cash-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We pay for small office purchases from petty cash.",
+      "vi": "Chúng tôi chi các khoản mua nhỏ của văn phòng từ quỹ tiền mặt.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "pay",
+        "for",
+        "small",
+        "office",
+        "purchases",
+        "from",
+        "petty",
+        "cash"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We pays for small office purchases from petty cash.",
+          "explanationVi": "Chủ ngữ “We” số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We pay for small office purchase from petty cash.",
+          "explanationVi": "Nói chung các khoản mua cần số nhiều “purchases”."
+        },
+        {
+          "en": "We pay to small office purchases from petty cash.",
+          "explanationVi": "Trả tiền cho thứ gì dùng “pay for”, không dùng “pay to”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:petty-cash-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:petty-cash-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "How much money is left in the petty cash box?",
+      "vi": "Trong hộp quỹ tiền mặt còn bao nhiêu tiền?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "much",
+        "money",
+        "is",
+        "left",
+        "in",
+        "the",
+        "petty",
+        "cash",
+        "box"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How many money is left in the petty cash box?",
+          "explanationVi": "“Money” là danh từ không đếm được nên dùng “How much”."
+        },
+        {
+          "en": "How much money left in the petty cash box?",
+          "explanationVi": "Câu bị động thiếu “is” trước “left”."
+        },
+        {
+          "en": "How much money is left on the petty cash box?",
+          "explanationVi": "Tiền ở bên trong hộp nên dùng “in”, không dùng “on”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:petty-cash-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:photocopier-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The photocopier on the second floor is broken again.",
+      "vi": "Máy photocopy ở tầng hai lại bị hỏng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "photocopier",
+        "on",
+        "the",
+        "second",
+        "floor",
+        "is",
+        "broken",
+        "again"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The photocopier on the second floor broken again.",
+          "explanationVi": "Thiếu động từ “is” trước tính từ “broken”."
+        },
+        {
+          "en": "The photocopier in the second floor is broken again.",
+          "explanationVi": "Với tầng của tòa nhà dùng giới từ “on”, không dùng “in”."
+        },
+        {
+          "en": "Photocopier on the second floor is broken again.",
+          "explanationVi": "Danh từ đếm được số ít “photocopier” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:photocopier-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:photocopier-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I made twenty copies on the photocopier this morning.",
+      "vi": "Sáng nay tôi đã phô tô hai mươi bản trên máy photocopy.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "made",
+        "twenty",
+        "copies",
+        "on",
+        "the",
+        "photocopier",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I made twenty copy on the photocopier this morning.",
+          "explanationVi": "Sau “twenty” danh từ phải ở số nhiều “copies”."
+        },
+        {
+          "en": "I made twenty copies on photocopier this morning.",
+          "explanationVi": "Danh từ đếm được số ít “photocopier” cần mạo từ “the”."
+        },
+        {
+          "en": "I making twenty copies on the photocopier this morning.",
+          "explanationVi": "Câu thiếu động từ chia đúng; cần quá khứ “made”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:photocopier-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:postage-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "How much is the postage for this parcel?",
+      "vi": "Bưu phí cho bưu kiện này là bao nhiêu?",
+      "audio": "",
+      "tokens": [
+        "How",
+        "much",
+        "is",
+        "the",
+        "postage",
+        "for",
+        "this",
+        "parcel"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "How many is the postage for this parcel?",
+          "explanationVi": "“Postage” là danh từ không đếm được nên dùng “How much”."
+        },
+        {
+          "en": "How much the postage is for this parcel?",
+          "explanationVi": "Câu hỏi cần đảo “is” lên trước chủ ngữ “the postage”."
+        },
+        {
+          "en": "How much are the postage for this parcel?",
+          "explanationVi": "“Postage” không đếm được nên dùng “is”, không dùng “are”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:postage-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:postage-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The company pays postage for all business letters.",
+      "vi": "Công ty trả bưu phí cho tất cả thư công việc.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "company",
+        "pays",
+        "postage",
+        "for",
+        "all",
+        "business",
+        "letters"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company pay postage for all business letters.",
+          "explanationVi": "Chủ ngữ số ít “The company” nên động từ cần -s: “pays”."
+        },
+        {
+          "en": "The company pays postages for all business letters.",
+          "explanationVi": "“Postage” là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "The company pays postage for all business letter.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “letters”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [
+        "word:postage-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:procurement-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "All purchases over five hundred dollars must go through procurement.",
+      "vi": "Mọi khoản mua trên năm trăm đô la phải thông qua bộ phận mua sắm.",
+      "audio": "",
+      "tokens": [
+        "All",
+        "purchases",
+        "over",
+        "five",
+        "hundred",
+        "dollars",
+        "must",
+        "go",
+        "through",
+        "procurement"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "All purchases over five hundred dollar must go through procurement.",
+          "explanationVi": "Sau “five hundred” danh từ phải ở số nhiều “dollars”."
+        },
+        {
+          "en": "All purchases over five hundred dollars must goes through procurement.",
+          "explanationVi": "Sau “must” động từ ở dạng nguyên mẫu “go”."
+        },
+        {
+          "en": "All purchases over five hundred dollars must to go through procurement.",
+          "explanationVi": "Sau “must” không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        9,
+        1
+      ],
+      "wordIds": [
+        "word:procurement-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:procurement-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Procurement asked for two more quotes from vendors.",
+      "vi": "Bộ phận mua sắm đã yêu cầu thêm hai báo giá từ nhà cung cấp.",
+      "audio": "",
+      "tokens": [
+        "Procurement",
+        "asked",
+        "for",
+        "two",
+        "more",
+        "quotes",
+        "from",
+        "vendors"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Procurement asked two more quotes from vendors.",
+          "explanationVi": "Yêu cầu một thứ gì dùng “ask for”, thiếu “for”."
+        },
+        {
+          "en": "Procurement asked for two more quote from vendors.",
+          "explanationVi": "Sau “two more” danh từ phải ở số nhiều “quotes”."
+        },
+        {
+          "en": "Procurement ask for two more quotes from vendors.",
+          "explanationVi": "Chủ ngữ số ít nên cần “asks”; ở đây việc đã xảy ra nên dùng “asked”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        5
+      ],
+      "wordIds": [
+        "word:procurement-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:projector-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The projector in Room B isn't working.",
+      "vi": "Máy chiếu ở phòng B không hoạt động.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "projector",
+        "in",
+        "Room",
+        "B",
+        "isn't",
+        "working"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The projector in Room B not working.",
+          "explanationVi": "Thiếu trợ động từ “is” trong thì hiện tại tiếp diễn."
+        },
+        {
+          "en": "The projector in Room B aren't working.",
+          "explanationVi": "Chủ ngữ số ít “The projector” dùng “isn't”, không dùng “aren't”."
+        },
+        {
+          "en": "Projector in Room B isn't working.",
+          "explanationVi": "Danh từ đếm được số ít “projector” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:projector-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:projector-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Could you set up the projector before the presentation starts?",
+      "vi": "Bạn có thể lắp máy chiếu trước khi buổi thuyết trình bắt đầu không?",
+      "audio": "",
+      "tokens": [
+        "Could",
+        "you",
+        "set",
+        "up",
+        "the",
+        "projector",
+        "before",
+        "the",
+        "presentation",
+        "starts"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0,
+          1,
+          2,
+          4,
+          5,
+          3,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Could you set up the projector before the presentation will start?",
+          "explanationVi": "Sau “before” chỉ thời gian dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Could you set up the projector before the presentation start?",
+          "explanationVi": "Chủ ngữ số ít “the presentation” nên động từ cần -s: “starts”."
+        },
+        {
+          "en": "Could you sets up the projector before the presentation starts?",
+          "explanationVi": "Sau “Could you” động từ ở dạng nguyên mẫu “set”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:projector-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:proofread-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Could you proofread this letter before I send it?",
+      "vi": "Bạn có thể đọc soát lỗi bức thư này trước khi tôi gửi không?",
+      "audio": "",
+      "tokens": [
+        "Could",
+        "you",
+        "proofread",
+        "this",
+        "letter",
+        "before",
+        "I",
+        "send",
+        "it"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Could you proofread this letter before I will send it?",
+          "explanationVi": "Sau “before” chỉ thời gian dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Could you proofreading this letter before I send it?",
+          "explanationVi": "Sau “Could you” động từ ở dạng nguyên mẫu “proofread”."
+        },
+        {
+          "en": "Could you proofread this letter before I send?",
+          "explanationVi": "Động từ “send” cần tân ngữ “it” chỉ bức thư."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:proofread-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:proofread-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She proofread the report and found three mistakes.",
+      "vi": "Cô ấy đã soát lỗi bản báo cáo và tìm ra ba lỗi.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "proofread",
+        "the",
+        "report",
+        "and",
+        "found",
+        "three",
+        "mistakes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She proofreaded the report and found three mistakes.",
+          "explanationVi": "“Proofread” là động từ bất quy tắc, quá khứ vẫn là “proofread”."
+        },
+        {
+          "en": "She proofread the report and find three mistakes.",
+          "explanationVi": "Hai hành động đã xảy ra nên “find” phải ở quá khứ “found”."
+        },
+        {
+          "en": "She proofread the report and found three mistake.",
+          "explanationVi": "Sau “three” danh từ phải ở số nhiều “mistakes”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:proofread-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:purchase-order-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The supplier needs a purchase order before shipping the chairs.",
+      "vi": "Nhà cung cấp cần đơn đặt hàng trước khi giao ghế.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "supplier",
+        "needs",
+        "a",
+        "purchase",
+        "order",
+        "before",
+        "shipping",
+        "the",
+        "chairs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The supplier need a purchase order before shipping the chairs.",
+          "explanationVi": "Chủ ngữ số ít “The supplier” nên động từ cần -s: “needs”."
+        },
+        {
+          "en": "The supplier needs purchase order before shipping the chairs.",
+          "explanationVi": "Danh từ đếm được số ít “purchase order” cần mạo từ “a”."
+        },
+        {
+          "en": "The supplier needs a purchase order before ship the chairs.",
+          "explanationVi": "Sau giới từ “before” động từ ở dạng V-ing “shipping”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:purchase-order-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:purchase-order-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I created the purchase order yesterday afternoon.",
+      "vi": "Tôi đã tạo đơn đặt hàng vào chiều hôm qua.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "created",
+        "the",
+        "purchase",
+        "order",
+        "yesterday",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I create the purchase order yesterday afternoon.",
+          "explanationVi": "Có “yesterday” nên động từ phải ở quá khứ “created”."
+        },
+        {
+          "en": "I created purchase order yesterday afternoon.",
+          "explanationVi": "Danh từ đếm được số ít “purchase order” cần mạo từ “the”."
+        },
+        {
+          "en": "I created the purchase order in yesterday afternoon.",
+          "explanationVi": "Không dùng giới từ “in” trước “yesterday afternoon”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:purchase-order-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recipient-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Check the recipient's name before you send the letter.",
+      "vi": "Hãy kiểm tra tên người nhận trước khi bạn gửi thư.",
+      "audio": "",
+      "tokens": [
+        "Check",
+        "the",
+        "recipient's",
+        "name",
+        "before",
+        "you",
+        "send",
+        "the",
+        "letter"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Check the recipient's name before you sends the letter.",
+          "explanationVi": "Chủ ngữ “you” nên động từ không thêm -s."
+        },
+        {
+          "en": "Checking the recipient's name before you send the letter.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Check”."
+        },
+        {
+          "en": "Check the name's recipient before you send the letter.",
+          "explanationVi": "Sai trật tự sở hữu cách: người sở hữu đứng trước, “the recipient's name”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:recipient-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:recipient-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The email had more than fifty recipients.",
+      "vi": "Email đó có hơn năm mươi người nhận.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "email",
+        "had",
+        "more",
+        "than",
+        "fifty",
+        "recipients"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The email had more than fifty recipient.",
+          "explanationVi": "Sau “fifty” danh từ phải ở số nhiều “recipients”."
+        },
+        {
+          "en": "The email had more fifty recipients.",
+          "explanationVi": "So sánh số lượng cần “more than”, thiếu “than”."
+        },
+        {
+          "en": "The email haved more than fifty recipients.",
+          "explanationVi": "Quá khứ của “have” là “had”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [
+        "word:recipient-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reimburse-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The company will reimburse your taxi fares.",
+      "vi": "Công ty sẽ hoàn trả tiền taxi cho bạn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "company",
+        "will",
+        "reimburse",
+        "your",
+        "taxi",
+        "fares"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The company will reimburses your taxi fares.",
+          "explanationVi": "Sau “will” động từ ở dạng nguyên mẫu “reimburse”."
+        },
+        {
+          "en": "The company will reimburse you taxi fares.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        },
+        {
+          "en": "Company will reimburse your taxi fares.",
+          "explanationVi": "Danh từ đếm được số ít “company” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:reimburse-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reimburse-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Were you reimbursed for the hotel last month?",
+      "vi": "Tháng trước bạn đã được hoàn tiền khách sạn chưa?",
+      "audio": "",
+      "tokens": [
+        "Were",
+        "you",
+        "reimbursed",
+        "for",
+        "the",
+        "hotel",
+        "last",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Were you reimburse for the hotel last month?",
+          "explanationVi": "Câu bị động cần quá khứ phân từ “reimbursed”."
+        },
+        {
+          "en": "Was you reimbursed for the hotel last month?",
+          "explanationVi": "Chủ ngữ “you” đi với “Were”, không dùng “Was”."
+        },
+        {
+          "en": "Were you reimbursed about the hotel last month?",
+          "explanationVi": "Được hoàn tiền cho khoản gì dùng “reimbursed for”, không dùng “about”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:reimburse-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reimbursement-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Attach all receipts to your reimbursement request.",
+      "vi": "Hãy đính kèm tất cả hóa đơn vào yêu cầu hoàn tiền của bạn.",
+      "audio": "",
+      "tokens": [
+        "Attach",
+        "all",
+        "receipts",
+        "to",
+        "your",
+        "reimbursement",
+        "request"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Attach all receipt to your reimbursement request.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “receipts”."
+        },
+        {
+          "en": "Attaching all receipts to your reimbursement request.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Attach”."
+        },
+        {
+          "en": "Attach all receipts on your reimbursement request.",
+          "explanationVi": "Cấu trúc đúng là “attach something to something”, không dùng “on”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:reimbursement-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reimbursement-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My reimbursement still hasn't arrived after three weeks.",
+      "vi": "Khoản hoàn tiền của tôi vẫn chưa về sau ba tuần.",
+      "audio": "",
+      "tokens": [
+        "My",
+        "reimbursement",
+        "still",
+        "hasn't",
+        "arrived",
+        "after",
+        "three",
+        "weeks"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My reimbursement still haven't arrived after three weeks.",
+          "explanationVi": "Chủ ngữ số ít “My reimbursement” dùng “hasn't”, không dùng “haven't”."
+        },
+        {
+          "en": "My reimbursement still hasn't arrive after three weeks.",
+          "explanationVi": "Thì hiện tại hoàn thành cần quá khứ phân từ “arrived”."
+        },
+        {
+          "en": "My reimbursement still hasn't arrived since three weeks.",
+          "explanationVi": "“Since” đi với mốc thời gian; với khoảng thời gian dùng “after” hoặc “for”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:reimbursement-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reschedule-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Can we reschedule the meeting to next Tuesday?",
+      "vi": "Chúng ta có thể dời cuộc họp sang thứ Ba tuần sau không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "we",
+        "reschedule",
+        "the",
+        "meeting",
+        "to",
+        "next",
+        "Tuesday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can we rescheduling the meeting to next Tuesday?",
+          "explanationVi": "Sau “can” động từ ở dạng nguyên mẫu “reschedule”."
+        },
+        {
+          "en": "Can we reschedule meeting to next Tuesday?",
+          "explanationVi": "Danh từ đếm được số ít “meeting” cần mạo từ “the”."
+        },
+        {
+          "en": "Can we reschedule the meeting on next Tuesday?",
+          "explanationVi": "Dời sang thời điểm mới dùng “to”; không dùng “on” trước “next”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:reschedule-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:reschedule-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The client rescheduled because her flight was delayed.",
+      "vi": "Khách hàng đã dời lịch vì chuyến bay của cô ấy bị hoãn.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "client",
+        "rescheduled",
+        "because",
+        "her",
+        "flight",
+        "was",
+        "delayed"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The client reschedule because her flight was delayed.",
+          "explanationVi": "Việc đã xảy ra nên động từ phải ở quá khứ “rescheduled”."
+        },
+        {
+          "en": "The client rescheduled because her flight delayed.",
+          "explanationVi": "Câu bị động thiếu “was” trước “delayed”."
+        },
+        {
+          "en": "Client rescheduled because her flight was delayed.",
+          "explanationVi": "Danh từ đếm được số ít “client” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:reschedule-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scanner-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Put the contract on the scanner and press start.",
+      "vi": "Đặt hợp đồng lên máy scan rồi bấm nút bắt đầu.",
+      "audio": "",
+      "tokens": [
+        "Put",
+        "the",
+        "contract",
+        "on",
+        "the",
+        "scanner",
+        "and",
+        "press",
+        "start"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Puts the contract on the scanner and press start.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Put”, không thêm -s."
+        },
+        {
+          "en": "Put contract on the scanner and press start.",
+          "explanationVi": "Danh từ đếm được số ít “contract” cần mạo từ “the”."
+        },
+        {
+          "en": "Put the contract on the scanner and pressing start.",
+          "explanationVi": "Hai động từ nối bằng “and” trong câu mệnh lệnh phải cùng dạng nguyên mẫu “press”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:scanner-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scanner-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Does the new scanner send files to your email?",
+      "vi": "Máy scan mới có gửi tệp đến email của bạn không?",
+      "audio": "",
+      "tokens": [
+        "Does",
+        "the",
+        "new",
+        "scanner",
+        "send",
+        "files",
+        "to",
+        "your",
+        "email"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does the new scanner sends files to your email?",
+          "explanationVi": "Sau “Does” động từ ở dạng nguyên mẫu “send”."
+        },
+        {
+          "en": "Do the new scanner send files to your email?",
+          "explanationVi": "Chủ ngữ số ít “the new scanner” dùng trợ động từ “Does”."
+        },
+        {
+          "en": "Does the new scanner send file to your email?",
+          "explanationVi": "Danh từ đếm được “file” ở đây phải ở số nhiều “files”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:scanner-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shred-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We shred documents with personal information.",
+      "vi": "Chúng tôi hủy các tài liệu có thông tin cá nhân.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "shred",
+        "documents",
+        "with",
+        "personal",
+        "information"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We shreds documents with personal information.",
+          "explanationVi": "Chủ ngữ “We” số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We shred document with personal information.",
+          "explanationVi": "Nói chung về tài liệu cần số nhiều “documents”."
+        },
+        {
+          "en": "We shred documents with personal informations.",
+          "explanationVi": "“Information” là danh từ không đếm được, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:shred-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shred-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Did you shred the old contracts?",
+      "vi": "Bạn đã hủy các hợp đồng cũ chưa?",
+      "audio": "",
+      "tokens": [
+        "Did",
+        "you",
+        "shred",
+        "the",
+        "old",
+        "contracts"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Did you shredded the old contracts?",
+          "explanationVi": "Sau “Did” động từ ở dạng nguyên mẫu “shred”."
+        },
+        {
+          "en": "Did you shred old the contracts?",
+          "explanationVi": "Mạo từ “the” phải đứng trước tính từ “old”."
+        },
+        {
+          "en": "Did shred you the old contracts?",
+          "explanationVi": "Sai trật tự câu hỏi: chủ ngữ “you” đứng ngay sau “Did”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:shred-v"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shredder-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Put old bank statements in the shredder.",
+      "vi": "Hãy cho các sao kê ngân hàng cũ vào máy hủy giấy.",
+      "audio": "",
+      "tokens": [
+        "Put",
+        "old",
+        "bank",
+        "statements",
+        "in",
+        "the",
+        "shredder"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Putting old bank statements in the shredder.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Put”."
+        },
+        {
+          "en": "Put old bank statements in shredder.",
+          "explanationVi": "Danh từ đếm được số ít “shredder” cần mạo từ “the”."
+        },
+        {
+          "en": "Put bank old statements in the shredder.",
+          "explanationVi": "Tính từ “old” phải đứng trước cụm danh từ “bank statements”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [
+        "word:shredder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:shredder-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The shredder is jammed again.",
+      "vi": "Máy hủy giấy lại bị kẹt.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "shredder",
+        "is",
+        "jammed",
+        "again"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The shredder is jam again.",
+          "explanationVi": "Sau “is” cần quá khứ phân từ “jammed” để chỉ trạng thái bị kẹt."
+        },
+        {
+          "en": "Shredder is jammed again.",
+          "explanationVi": "Danh từ đếm được số ít “shredder” cần mạo từ “the”."
+        },
+        {
+          "en": "The shredder are jammed again.",
+          "explanationVi": "Chủ ngữ số ít “The shredder” dùng “is”, không dùng “are”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:shredder-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stapler-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Can I borrow your stapler for a minute?",
+      "vi": "Tôi mượn cái dập ghim của bạn một chút được không?",
+      "audio": "",
+      "tokens": [
+        "Can",
+        "I",
+        "borrow",
+        "your",
+        "stapler",
+        "for",
+        "a",
+        "minute"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can I borrowing your stapler for a minute?",
+          "explanationVi": "Sau “can” động từ ở dạng nguyên mẫu “borrow”."
+        },
+        {
+          "en": "Can I borrow you stapler for a minute?",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        },
+        {
+          "en": "Can I to borrow your stapler for a minute?",
+          "explanationVi": "Sau “can” không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [
+        "word:stapler-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stapler-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The stapler ran out of staples during the meeting.",
+      "vi": "Cái dập ghim đã hết ghim trong lúc họp.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "stapler",
+        "ran",
+        "out",
+        "of",
+        "staples",
+        "during",
+        "the",
+        "meeting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The stapler run out of staples during the meeting.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “ran”, không dùng “run”."
+        },
+        {
+          "en": "The stapler ran out staples during the meeting.",
+          "explanationVi": "Cụm cố định là “run out of”, thiếu “of”."
+        },
+        {
+          "en": "The stapler ran out of staple during the meeting.",
+          "explanationVi": "Sau “out of” ở đây danh từ phải ở số nhiều “staples”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:stapler-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stationery-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We order stationery from the same supplier every month.",
+      "vi": "Chúng tôi đặt văn phòng phẩm từ cùng một nhà cung cấp mỗi tháng.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "order",
+        "stationery",
+        "from",
+        "the",
+        "same",
+        "supplier",
+        "every",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We orders stationery from the same supplier every month.",
+          "explanationVi": "Chủ ngữ “We” số nhiều nên động từ không thêm -s."
+        },
+        {
+          "en": "We order stationeries from the same supplier every month.",
+          "explanationVi": "“Stationery” là danh từ không đếm được, không thêm -s."
+        },
+        {
+          "en": "We order stationery from same supplier every month.",
+          "explanationVi": "Trước “same” luôn cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:stationery-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:stationery-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Who is in charge of ordering stationery?",
+      "vi": "Ai phụ trách việc đặt văn phòng phẩm?",
+      "audio": "",
+      "tokens": [
+        "Who",
+        "is",
+        "in",
+        "charge",
+        "of",
+        "ordering",
+        "stationery"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Who in charge of ordering stationery?",
+          "explanationVi": "Thiếu động từ “is” trong cụm “be in charge of”."
+        },
+        {
+          "en": "Who is in charge for ordering stationery?",
+          "explanationVi": "Cụm cố định là “in charge of”, không dùng “for”."
+        },
+        {
+          "en": "Who is in charge of order stationery?",
+          "explanationVi": "Sau giới từ “of” động từ phải ở dạng V-ing “ordering”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:stationery-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:template-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Use the company template for all official letters.",
+      "vi": "Hãy dùng mẫu của công ty cho tất cả thư chính thức.",
+      "audio": "",
+      "tokens": [
+        "Use",
+        "the",
+        "company",
+        "template",
+        "for",
+        "all",
+        "official",
+        "letters"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Use the company template for all official letter.",
+          "explanationVi": "Sau “all” danh từ đếm được phải ở số nhiều “letters”."
+        },
+        {
+          "en": "Using the company template for all official letters.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Use”."
+        },
+        {
+          "en": "Use company template for all official letters.",
+          "explanationVi": "Danh từ đếm được số ít “template” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:template-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:template-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Where can I find the template for the monthly report?",
+      "vi": "Tôi có thể tìm mẫu báo cáo hằng tháng ở đâu?",
+      "audio": "",
+      "tokens": [
+        "Where",
+        "can",
+        "I",
+        "find",
+        "the",
+        "template",
+        "for",
+        "the",
+        "monthly",
+        "report"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Where I can find the template for the monthly report?",
+          "explanationVi": "Câu hỏi cần đảo “can” lên trước chủ ngữ “I”."
+        },
+        {
+          "en": "Where can I finding the template for the monthly report?",
+          "explanationVi": "Sau “can” động từ ở dạng nguyên mẫu “find”."
+        },
+        {
+          "en": "Where can I find template for the monthly report?",
+          "explanationVi": "Danh từ đếm được số ít “template” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:template-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:timesheet-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Remember to fill in your timesheet every Friday.",
+      "vi": "Nhớ điền bảng chấm công vào mỗi thứ Sáu.",
+      "audio": "",
+      "tokens": [
+        "Remember",
+        "to",
+        "fill",
+        "in",
+        "your",
+        "timesheet",
+        "every",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Remember fill in your timesheet every Friday.",
+          "explanationVi": "Sau “Remember” chỉ việc cần làm dùng “to” + động từ nguyên mẫu."
+        },
+        {
+          "en": "Remember to fill in you timesheet every Friday.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        },
+        {
+          "en": "Remember to fill in your timesheet on every Friday.",
+          "explanationVi": "Không dùng giới từ “on” trước “every Friday”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:timesheet-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:timesheet-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Your timesheet shows six hours of overtime last week.",
+      "vi": "Bảng chấm công của bạn cho thấy sáu giờ làm thêm vào tuần trước.",
+      "audio": "",
+      "tokens": [
+        "Your",
+        "timesheet",
+        "shows",
+        "six",
+        "hours",
+        "of",
+        "overtime",
+        "last",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your timesheet show six hours of overtime last week.",
+          "explanationVi": "Chủ ngữ số ít “Your timesheet” nên động từ cần -s: “shows”."
+        },
+        {
+          "en": "Your timesheet shows six hour of overtime last week.",
+          "explanationVi": "Sau “six” danh từ phải ở số nhiều “hours”."
+        },
+        {
+          "en": "Your timesheet shows six hours of overtime in last week.",
+          "explanationVi": "Không dùng giới từ “in” trước “last week”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:timesheet-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:toner-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The printer is out of toner.",
+      "vi": "Máy in hết mực rồi.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "printer",
+        "is",
+        "out",
+        "of",
+        "toner"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The printer out of toner.",
+          "explanationVi": "Thiếu động từ “is” trong cụm “be out of”."
+        },
+        {
+          "en": "The printer is out toner.",
+          "explanationVi": "Cụm cố định là “out of”, thiếu “of”."
+        },
+        {
+          "en": "Printer is out of toner.",
+          "explanationVi": "Danh từ đếm được số ít “printer” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        1
+      ],
+      "wordIds": [
+        "word:toner-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:toner-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I ordered two toner cartridges for the photocopier.",
+      "vi": "Tôi đã đặt hai hộp mực cho máy photocopy.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "ordered",
+        "two",
+        "toner",
+        "cartridges",
+        "for",
+        "the",
+        "photocopier"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I ordered two toner cartridge for the photocopier.",
+          "explanationVi": "Sau “two” danh từ phải ở số nhiều “cartridges”."
+        },
+        {
+          "en": "I ordered two toners cartridges for the photocopier.",
+          "explanationVi": "Danh từ đứng trước bổ nghĩa cho danh từ khác không thêm -s: “toner cartridges”."
+        },
+        {
+          "en": "I ordered two toner cartridges to the photocopier.",
+          "explanationVi": "Mua cho thiết bị nào dùng “for”, không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:toner-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:vendor-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We compared quotes from three vendors before choosing one.",
+      "vi": "Chúng tôi đã so sánh báo giá của ba nhà cung cấp trước khi chọn một bên.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "compared",
+        "quotes",
+        "from",
+        "three",
+        "vendors",
+        "before",
+        "choosing",
+        "one"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We compared quotes from three vendor before choosing one.",
+          "explanationVi": "Sau “three” danh từ phải ở số nhiều “vendors”."
+        },
+        {
+          "en": "We compared quotes from three vendors before choose one.",
+          "explanationVi": "Sau giới từ “before” động từ ở dạng V-ing “choosing”."
+        },
+        {
+          "en": "We compared quote from three vendors before choosing one.",
+          "explanationVi": "Danh từ đếm được “quote” ở đây phải ở số nhiều “quotes”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:vendor-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:vendor-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is this vendor on our approved list?",
+      "vi": "Nhà cung cấp này có trong danh sách đã duyệt của chúng ta không?",
+      "audio": "",
+      "tokens": [
+        "Is",
+        "this",
+        "vendor",
+        "on",
+        "our",
+        "approved",
+        "list"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is this vendor in our approved list?",
+          "explanationVi": "Có tên trong danh sách dùng “on a list”, không dùng “in”."
+        },
+        {
+          "en": "Is this vendors on our approved list?",
+          "explanationVi": "“This” đi với danh từ số ít “vendor”."
+        },
+        {
+          "en": "Is this vendor on our approve list?",
+          "explanationVi": "Cần quá khứ phân từ “approved” làm tính từ, nghĩa là “đã duyệt”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:vendor-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:voicemail-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I left a voicemail for the supplier this morning.",
+      "vi": "Sáng nay tôi đã để lại tin nhắn thoại cho nhà cung cấp.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "left",
+        "a",
+        "voicemail",
+        "for",
+        "the",
+        "supplier",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I leaved a voicemail for the supplier this morning.",
+          "explanationVi": "“Leave” là động từ bất quy tắc, quá khứ là “left”."
+        },
+        {
+          "en": "I left voicemail for the supplier this morning.",
+          "explanationVi": "Danh từ đếm được số ít “voicemail” cần mạo từ “a”."
+        },
+        {
+          "en": "I left a voicemail for supplier this morning.",
+          "explanationVi": "Danh từ đếm được số ít “supplier” cần mạo từ “the”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:voicemail-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:voicemail-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please check your voicemail when you get back.",
+      "vi": "Vui lòng kiểm tra hộp thư thoại khi bạn quay lại.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "check",
+        "your",
+        "voicemail",
+        "when",
+        "you",
+        "get",
+        "back"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please check your voicemail when you will get back.",
+          "explanationVi": "Sau “when” chỉ thời gian tương lai dùng hiện tại đơn, không dùng “will”."
+        },
+        {
+          "en": "Please check you voicemail when you get back.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        },
+        {
+          "en": "Please checking your voicemail when you get back.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “check”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:voicemail-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:whiteboard-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please clean the whiteboard after your meeting.",
+      "vi": "Vui lòng lau bảng trắng sau cuộc họp của bạn.",
+      "audio": "",
+      "tokens": [
+        "Please",
+        "clean",
+        "the",
+        "whiteboard",
+        "after",
+        "your",
+        "meeting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please clean whiteboard after your meeting.",
+          "explanationVi": "Danh từ đếm được số ít “whiteboard” cần mạo từ “the”."
+        },
+        {
+          "en": "Please cleaning the whiteboard after your meeting.",
+          "explanationVi": "Sau “Please” dùng động từ nguyên mẫu “clean”."
+        },
+        {
+          "en": "Please clean the whiteboard after you meeting.",
+          "explanationVi": "Trước danh từ cần tính từ sở hữu “your”, không dùng “you”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [
+        "word:whiteboard-n"
+      ]
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:whiteboard-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She wrote the action points on the whiteboard.",
+      "vi": "Cô ấy đã viết các đầu việc lên bảng trắng.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "wrote",
+        "the",
+        "action",
+        "points",
+        "on",
+        "the",
+        "whiteboard"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She writed the action points on the whiteboard.",
+          "explanationVi": "“Write” là động từ bất quy tắc, quá khứ là “wrote”."
+        },
+        {
+          "en": "She wrote the action points in the whiteboard.",
+          "explanationVi": "Viết lên bề mặt bảng dùng “on”, không dùng “in”."
+        },
+        {
+          "en": "She write the action points on the whiteboard.",
+          "explanationVi": "Chủ ngữ “She” cần “writes” hoặc quá khứ “wrote”; ở đây là việc đã làm nên dùng “wrote”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        1
+      ],
+      "wordIds": [
+        "word:whiteboard-n"
+      ]
+    },
+    "status": "draft"
+  }
+]

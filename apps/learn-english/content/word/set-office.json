@@ -1,0 +1,1479 @@
+[
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:administrator-n",
+    "kind": "word",
+    "body": {
+      "headword": "administrator",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ədˈmɪnəˌstreɪtɚ/",
+      "meaningsVi": [
+        "nhân viên hành chính",
+        "người quản lý hành chính"
+      ],
+      "examples": [
+        "sentence:administrator-n-1",
+        "sentence:administrator-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Office sense; in IT it also means a system administrator."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:archive-v",
+    "kind": "word",
+    "body": {
+      "headword": "archive",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈɑrˌkaɪv/",
+      "meaningsVi": [
+        "lưu trữ (hồ sơ, email)"
+      ],
+      "examples": [
+        "sentence:archive-v-1",
+        "sentence:archive-v-2"
+      ],
+      "synonyms": [
+        "word:store-v",
+        "word:file-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:attendee-n",
+    "kind": "word",
+    "body": {
+      "headword": "attendee",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/əˈtɛnˈdi/",
+      "meaningsVi": [
+        "người tham dự"
+      ],
+      "examples": [
+        "sentence:attendee-n-1",
+        "sentence:attendee-n-2"
+      ],
+      "synonyms": [
+        "word:participant-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:authorization-n",
+    "kind": "word",
+    "body": {
+      "headword": "authorization",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌɔθɚəˈzeɪʃən/",
+      "meaningsVi": [
+        "sự cho phép, sự ủy quyền",
+        "sự phê duyệt"
+      ],
+      "examples": [
+        "sentence:authorization-n-1",
+        "sentence:authorization-n-2"
+      ],
+      "synonyms": [
+        "word:approval-n",
+        "word:permission-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:binder-n",
+    "kind": "word",
+    "body": {
+      "headword": "binder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbaɪndɚ/",
+      "meaningsVi": [
+        "bìa còng, kẹp hồ sơ"
+      ],
+      "examples": [
+        "sentence:binder-n-1",
+        "sentence:binder-n-2"
+      ],
+      "synonyms": [
+        "word:folder-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American; British often \"ring binder\" or \"file\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:business-trip-n",
+    "kind": "word",
+    "body": {
+      "headword": "business trip",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbɪznəs trɪp/",
+      "meaningsVi": [
+        "chuyến công tác"
+      ],
+      "examples": [
+        "sentence:business-trip-n-1",
+        "sentence:business-trip-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:cc-v",
+    "kind": "word",
+    "body": {
+      "headword": "cc",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˌsiˈsi/",
+      "meaningsVi": [
+        "cc, gửi đồng thời (email) cho",
+        "gửi bản sao (email) cho"
+      ],
+      "examples": [
+        "sentence:cc-v-1",
+        "sentence:cc-v-2"
+      ],
+      "synonyms": [
+        "word:copy-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Past form spelled cc'd or cc'ed; examples avoid it."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:conference-call-n",
+    "kind": "word",
+    "body": {
+      "headword": "conference call",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkɑnfɚəns kɔl/",
+      "meaningsVi": [
+        "cuộc gọi hội nghị, cuộc họp qua điện thoại"
+      ],
+      "examples": [
+        "sentence:conference-call-n-1",
+        "sentence:conference-call-n-2"
+      ],
+      "synonyms": [
+        "word:call-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:conference-room-n",
+    "kind": "word",
+    "body": {
+      "headword": "conference room",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkɑnfɚəns rum/",
+      "meaningsVi": [
+        "phòng họp"
+      ],
+      "examples": [
+        "sentence:conference-room-n-1",
+        "sentence:conference-room-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:coordinate-v",
+    "kind": "word",
+    "body": {
+      "headword": "coordinate",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/koʊˈɔrdənət/",
+      "meaningsVi": [
+        "điều phối, phối hợp"
+      ],
+      "examples": [
+        "sentence:coordinate-v-1",
+        "sentence:coordinate-v-2"
+      ],
+      "synonyms": [
+        "word:organize-v",
+        "word:arrange-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:coordinator-n",
+    "kind": "word",
+    "body": {
+      "headword": "coordinator",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/koʊˈɔrdəˌneɪtɚ/",
+      "meaningsVi": [
+        "điều phối viên"
+      ],
+      "examples": [
+        "sentence:coordinator-n-1",
+        "sentence:coordinator-n-2"
+      ],
+      "synonyms": [
+        "word:organizer-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:courier-n",
+    "kind": "word",
+    "body": {
+      "headword": "courier",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkɝiɚ/",
+      "meaningsVi": [
+        "dịch vụ chuyển phát nhanh",
+        "nhân viên giao nhận, người đưa hàng"
+      ],
+      "examples": [
+        "sentence:courier-n-1",
+        "sentence:courier-n-2"
+      ],
+      "synonyms": [
+        "word:messenger-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American also /ˈkɝiɚ/; check which to show."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "time-dates",
+    "sort": 0,
+    "id": "word:due-date-n",
+    "kind": "word",
+    "body": {
+      "headword": "due date",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/du deɪt/",
+      "meaningsVi": [
+        "ngày đến hạn, hạn thanh toán"
+      ],
+      "examples": [
+        "sentence:due-date-n-1",
+        "sentence:due-date-n-2"
+      ],
+      "synonyms": [
+        "word:deadline-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:expense-report-n",
+    "kind": "word",
+    "body": {
+      "headword": "expense report",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɪkˈspɛns riˈpɔrt/",
+      "meaningsVi": [
+        "báo cáo chi phí"
+      ],
+      "examples": [
+        "sentence:expense-report-n-1",
+        "sentence:expense-report-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:filing-cabinet-n",
+    "kind": "word",
+    "body": {
+      "headword": "filing cabinet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfaɪlɪŋ ˈkæbənət/",
+      "meaningsVi": [
+        "tủ hồ sơ"
+      ],
+      "examples": [
+        "sentence:filing-cabinet-n-1",
+        "sentence:filing-cabinet-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American English also says \"file cabinet\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:filing-n",
+    "kind": "word",
+    "body": {
+      "headword": "filing",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfaɪlɪŋ/",
+      "meaningsVi": [
+        "việc sắp xếp, lưu trữ hồ sơ"
+      ],
+      "examples": [
+        "sentence:filing-n-1",
+        "sentence:filing-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:follow-up-v",
+    "kind": "word",
+    "body": {
+      "headword": "follow up",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈfɑloʊ ʌp/",
+      "meaningsVi": [
+        "liên hệ lại, nhắc lại (sau khi đã gửi hay hỏi)",
+        "theo dõi, xử lý tiếp"
+      ],
+      "examples": [
+        "sentence:follow-up-v-1",
+        "sentence:follow-up-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Phrasal verb; the noun/adjective is spelled \"follow-up\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:forward-v",
+    "kind": "word",
+    "body": {
+      "headword": "forward",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈfɔrwɚd/",
+      "meaningsVi": [
+        "chuyển tiếp (email, cuộc gọi)",
+        "gửi chuyển tiếp"
+      ],
+      "examples": [
+        "sentence:forward-v-1",
+        "sentence:forward-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:front-desk-n",
+    "kind": "word",
+    "body": {
+      "headword": "front desk",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/frʌnt dɛsk/",
+      "meaningsVi": [
+        "quầy lễ tân"
+      ],
+      "examples": [
+        "sentence:front-desk-n-1",
+        "sentence:front-desk-n-2"
+      ],
+      "synonyms": [
+        "word:reception-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:handover-n",
+    "kind": "word",
+    "body": {
+      "headword": "handover",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhændoʊvɚ/",
+      "meaningsVi": [
+        "sự bàn giao (công việc)"
+      ],
+      "examples": [
+        "sentence:handover-n-1",
+        "sentence:handover-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:hard-copy-n",
+    "kind": "word",
+    "body": {
+      "headword": "hard copy",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/hɑrd ˈkɑpi/",
+      "meaningsVi": [
+        "bản in, bản cứng"
+      ],
+      "examples": [
+        "sentence:hard-copy-n-1",
+        "sentence:hard-copy-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:inbox-n",
+    "kind": "word",
+    "body": {
+      "headword": "inbox",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɪnˌbɑks/",
+      "meaningsVi": [
+        "hộp thư đến"
+      ],
+      "examples": [
+        "sentence:inbox-n-1",
+        "sentence:inbox-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:inventory-n",
+    "kind": "word",
+    "body": {
+      "headword": "inventory",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌɪnvənˈtɔri/",
+      "meaningsVi": [
+        "sự kiểm kê, bảng kiểm kê",
+        "hàng tồn kho"
+      ],
+      "examples": [
+        "sentence:inventory-n-1",
+        "sentence:inventory-n-2"
+      ],
+      "synonyms": [
+        "word:stock-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:key-card-n",
+    "kind": "word",
+    "body": {
+      "headword": "key card",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ki kɑrd/",
+      "meaningsVi": [
+        "thẻ từ (ra vào)"
+      ],
+      "examples": [
+        "sentence:key-card-n-1",
+        "sentence:key-card-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also written \"keycard\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:letterhead-n",
+    "kind": "word",
+    "body": {
+      "headword": "letterhead",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈlɛtɚˌhɛd/",
+      "meaningsVi": [
+        "giấy tiêu đề (in sẵn tên, logo công ty)"
+      ],
+      "examples": [
+        "sentence:letterhead-n-1",
+        "sentence:letterhead-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:mailroom-n",
+    "kind": "word",
+    "body": {
+      "headword": "mailroom",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmeɪlˌrum/",
+      "meaningsVi": [
+        "phòng thư tín, phòng nhận thư và bưu kiện"
+      ],
+      "examples": [
+        "sentence:mailroom-n-1",
+        "sentence:mailroom-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American; British often \"post room\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:meeting-minutes-n",
+    "kind": "word",
+    "body": {
+      "headword": "meeting minutes",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmitɪŋ ˈmɪnəts/",
+      "meaningsVi": [
+        "biên bản cuộc họp"
+      ],
+      "examples": [
+        "sentence:meeting-minutes-n-1",
+        "sentence:meeting-minutes-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Always plural; often just \"the minutes\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:memo-n",
+    "kind": "word",
+    "body": {
+      "headword": "memo",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmɛˌmoʊ/",
+      "meaningsVi": [
+        "bản ghi nhớ, thông báo nội bộ"
+      ],
+      "examples": [
+        "sentence:memo-n-1",
+        "sentence:memo-n-2"
+      ],
+      "synonyms": [
+        "word:note-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "law-crime",
+    "sort": 0,
+    "id": "word:notarize-v",
+    "kind": "word",
+    "body": {
+      "headword": "notarize",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈnoʊtəˌraɪz/",
+      "meaningsVi": [
+        "công chứng"
+      ],
+      "examples": [
+        "sentence:notarize-v-1",
+        "sentence:notarize-v-2"
+      ],
+      "synonyms": [
+        "word:certify-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription",
+      "American spelling; British \"notarise\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:notify-v",
+    "kind": "word",
+    "body": {
+      "headword": "notify",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈnoʊtəˌfaɪ/",
+      "meaningsVi": [
+        "thông báo, báo cho biết"
+      ],
+      "examples": [
+        "sentence:notify-v-1",
+        "sentence:notify-v-2"
+      ],
+      "synonyms": [
+        "word:inform-v",
+        "word:tell-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:office-supplies-n",
+    "kind": "word",
+    "body": {
+      "headword": "office supplies",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɔfɪs səˈplaɪz/",
+      "meaningsVi": [
+        "đồ dùng văn phòng, văn phòng phẩm"
+      ],
+      "examples": [
+        "sentence:office-supplies-n-1",
+        "sentence:office-supplies-n-2"
+      ],
+      "synonyms": [
+        "word:stationery-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Plural compound; American English."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "time-dates",
+    "sort": 0,
+    "id": "word:overdue-adj",
+    "kind": "word",
+    "body": {
+      "headword": "overdue",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/ˈoʊvɚˈdu/",
+      "meaningsVi": [
+        "quá hạn, trễ hạn"
+      ],
+      "examples": [
+        "sentence:overdue-adj-1",
+        "sentence:overdue-adj-2"
+      ],
+      "synonyms": [
+        "word:late-adj"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:payroll-n",
+    "kind": "word",
+    "body": {
+      "headword": "payroll",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpeɪˌroʊl/",
+      "meaningsVi": [
+        "bảng lương, việc tính lương",
+        "bộ phận tính lương"
+      ],
+      "examples": [
+        "sentence:payroll-n-1",
+        "sentence:payroll-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:per-diem-n",
+    "kind": "word",
+    "body": {
+      "headword": "per diem",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pɝ dim/",
+      "meaningsVi": [
+        "phụ cấp công tác theo ngày"
+      ],
+      "examples": [
+        "sentence:per-diem-n-1",
+        "sentence:per-diem-n-2"
+      ],
+      "synonyms": [
+        "word:allowance-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Latin; also pronounced /pɚ ˈdaɪəm/. Common in American companies."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:petty-cash-n",
+    "kind": "word",
+    "body": {
+      "headword": "petty cash",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɛˌti kæʃ/",
+      "meaningsVi": [
+        "quỹ tiền mặt nhỏ (của văn phòng)",
+        "quỹ tạp phí"
+      ],
+      "examples": [
+        "sentence:petty-cash-n-1",
+        "sentence:petty-cash-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:photocopier-n",
+    "kind": "word",
+    "body": {
+      "headword": "photocopier",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfoʊtoʊˌkɑpiɚ/",
+      "meaningsVi": [
+        "máy photocopy, máy phô tô"
+      ],
+      "examples": [
+        "sentence:photocopier-n-1",
+        "sentence:photocopier-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Americans often just say \"copier\" or \"copy machine\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:postage-n",
+    "kind": "word",
+    "body": {
+      "headword": "postage",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpoʊstədʒ/",
+      "meaningsVi": [
+        "bưu phí, cước gửi thư"
+      ],
+      "examples": [
+        "sentence:postage-n-1",
+        "sentence:postage-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:procurement-n",
+    "kind": "word",
+    "body": {
+      "headword": "procurement",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/proʊˈkjʊrmənt/",
+      "meaningsVi": [
+        "(việc, bộ phận) mua sắm, thu mua"
+      ],
+      "examples": [
+        "sentence:procurement-n-1",
+        "sentence:procurement-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:projector-n",
+    "kind": "word",
+    "body": {
+      "headword": "projector",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/prəˈdʒɛktɚ/",
+      "meaningsVi": [
+        "máy chiếu"
+      ],
+      "examples": [
+        "sentence:projector-n-1",
+        "sentence:projector-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:proofread-v",
+    "kind": "word",
+    "body": {
+      "headword": "proofread",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈpruˌfrid/",
+      "meaningsVi": [
+        "đọc soát lỗi"
+      ],
+      "examples": [
+        "sentence:proofread-v-1",
+        "sentence:proofread-v-2"
+      ],
+      "synonyms": [
+        "word:check-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Past tense proofread is pronounced /ˈprufˌrɛd/."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:purchase-order-n",
+    "kind": "word",
+    "body": {
+      "headword": "purchase order",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɝtʃəs ˈɔrdɚ/",
+      "meaningsVi": [
+        "đơn đặt hàng (PO)"
+      ],
+      "examples": [
+        "sentence:purchase-order-n-1",
+        "sentence:purchase-order-n-2"
+      ],
+      "synonyms": [
+        "word:order-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Often shortened to \"PO\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:recipient-n",
+    "kind": "word",
+    "body": {
+      "headword": "recipient",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rəˈsɪpiənt/",
+      "meaningsVi": [
+        "người nhận"
+      ],
+      "examples": [
+        "sentence:recipient-n-1",
+        "sentence:recipient-n-2"
+      ],
+      "synonyms": [
+        "word:addressee-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:reimburse-v",
+    "kind": "word",
+    "body": {
+      "headword": "reimburse",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˌriɪmˈbɝs/",
+      "meaningsVi": [
+        "hoàn trả, bồi hoàn (chi phí)"
+      ],
+      "examples": [
+        "sentence:reimburse-v-1",
+        "sentence:reimburse-v-2"
+      ],
+      "synonyms": [
+        "word:repay-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:reimbursement-n",
+    "kind": "word",
+    "body": {
+      "headword": "reimbursement",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌriɪmˈbɝsmənt/",
+      "meaningsVi": [
+        "sự hoàn trả, khoản hoàn tiền (chi phí)"
+      ],
+      "examples": [
+        "sentence:reimbursement-n-1",
+        "sentence:reimbursement-n-2"
+      ],
+      "synonyms": [
+        "word:refund-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "time-dates",
+    "sort": 0,
+    "id": "word:reschedule-v",
+    "kind": "word",
+    "body": {
+      "headword": "reschedule",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/riˈskɛdʒul/",
+      "meaningsVi": [
+        "dời lịch, sắp xếp lại lịch"
+      ],
+      "examples": [
+        "sentence:reschedule-v-1",
+        "sentence:reschedule-v-2"
+      ],
+      "synonyms": [
+        "word:postpone-v",
+        "word:rearrange-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "British often /riːˈʃɛdjuːl/."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:scanner-n",
+    "kind": "word",
+    "body": {
+      "headword": "scanner",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈskænɚ/",
+      "meaningsVi": [
+        "máy quét, máy scan"
+      ],
+      "examples": [
+        "sentence:scanner-n-1",
+        "sentence:scanner-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "actions-movement",
+    "sort": 0,
+    "id": "word:shred-v",
+    "kind": "word",
+    "body": {
+      "headword": "shred",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ʃrɛd/",
+      "meaningsVi": [
+        "hủy (giấy tờ) bằng máy, xé vụn"
+      ],
+      "examples": [
+        "sentence:shred-v-1",
+        "sentence:shred-v-2"
+      ],
+      "synonyms": [
+        "word:destroy-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:shredder-n",
+    "kind": "word",
+    "body": {
+      "headword": "shredder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈʃrɛdɚ/",
+      "meaningsVi": [
+        "máy hủy giấy"
+      ],
+      "examples": [
+        "sentence:shredder-n-1",
+        "sentence:shredder-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:stapler-n",
+    "kind": "word",
+    "body": {
+      "headword": "stapler",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsteɪpəlɚ/",
+      "meaningsVi": [
+        "cái dập ghim, đồ bấm ghim"
+      ],
+      "examples": [
+        "sentence:stapler-n-1",
+        "sentence:stapler-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:stationery-n",
+    "kind": "word",
+    "body": {
+      "headword": "stationery",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsteɪʃəˌnɛri/",
+      "meaningsVi": [
+        "văn phòng phẩm"
+      ],
+      "examples": [
+        "sentence:stationery-n-1",
+        "sentence:stationery-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Uncountable. Do not confuse with \"stationary\" (adjective, not moving)."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:template-n",
+    "kind": "word",
+    "body": {
+      "headword": "template",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtɛmplət/",
+      "meaningsVi": [
+        "mẫu, biểu mẫu soạn sẵn"
+      ],
+      "examples": [
+        "sentence:template-n-1",
+        "sentence:template-n-2"
+      ],
+      "synonyms": [
+        "word:format-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:timesheet-n",
+    "kind": "word",
+    "body": {
+      "headword": "timesheet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtaɪmˌʃit/",
+      "meaningsVi": [
+        "bảng chấm công"
+      ],
+      "examples": [
+        "sentence:timesheet-n-1",
+        "sentence:timesheet-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:toner-n",
+    "kind": "word",
+    "body": {
+      "headword": "toner",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtoʊnɚ/",
+      "meaningsVi": [
+        "mực in (máy in laser, máy photocopy)"
+      ],
+      "examples": [
+        "sentence:toner-n-1",
+        "sentence:toner-n-2"
+      ],
+      "synonyms": [
+        "word:ink-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:vendor-n",
+    "kind": "word",
+    "body": {
+      "headword": "vendor",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈvɛndɚ/",
+      "meaningsVi": [
+        "nhà cung cấp, bên bán"
+      ],
+      "examples": [
+        "sentence:vendor-n-1",
+        "sentence:vendor-n-2"
+      ],
+      "synonyms": [
+        "word:supplier-n",
+        "word:seller-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "communication",
+    "sort": 0,
+    "id": "word:voicemail-n",
+    "kind": "word",
+    "body": {
+      "headword": "voicemail",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈvɔɪˌsmeɪl/",
+      "meaningsVi": [
+        "hộp thư thoại, tin nhắn thoại"
+      ],
+      "examples": [
+        "sentence:voicemail-n-1",
+        "sentence:voicemail-n-2"
+      ],
+      "synonyms": [
+        "word:message-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:whiteboard-n",
+    "kind": "word",
+    "body": {
+      "headword": "whiteboard",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈwaɪtˌbɔrd/",
+      "meaningsVi": [
+        "bảng trắng"
+      ],
+      "examples": [
+        "sentence:whiteboard-n-1",
+        "sentence:whiteboard-n-2"
+      ],
+      "synonyms": [
+        "word:board-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  }
+]

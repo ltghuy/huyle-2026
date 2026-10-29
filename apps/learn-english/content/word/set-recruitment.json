@@ -1,0 +1,1584 @@
+[
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:accomplishment-n",
+    "kind": "word",
+    "body": {
+      "headword": "accomplishment",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/əˈkɑmplɪʃmənt/",
+      "meaningsVi": [
+        "thành tựu",
+        "thành tích"
+      ],
+      "examples": [
+        "sentence:accomplishment-n-1",
+        "sentence:accomplishment-n-2"
+      ],
+      "synonyms": [
+        "word:achievement-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:appraisal-n",
+    "kind": "word",
+    "body": {
+      "headword": "appraisal",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/əˈpreɪzəl/",
+      "meaningsVi": [
+        "sự đánh giá (nhân viên)",
+        "buổi đánh giá năng lực"
+      ],
+      "examples": [
+        "sentence:appraisal-n-1",
+        "sentence:appraisal-n-2"
+      ],
+      "synonyms": [
+        "word:performance-review-n",
+        "word:evaluation-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "More common in British English; American offices usually say 'performance review'."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:background-check-n",
+    "kind": "word",
+    "body": {
+      "headword": "background check",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbækˌɡraʊnd tʃɛk/",
+      "meaningsVi": [
+        "việc kiểm tra lý lịch"
+      ],
+      "examples": [
+        "sentence:background-check-n-1",
+        "sentence:background-check-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:benefits-package-n",
+    "kind": "word",
+    "body": {
+      "headword": "benefits package",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbɛnəfɪts ˈpækədʒ/",
+      "meaningsVi": [
+        "gói phúc lợi",
+        "chế độ đãi ngộ"
+      ],
+      "examples": [
+        "sentence:benefits-package-n-1",
+        "sentence:benefits-package-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:career-path-n",
+    "kind": "word",
+    "body": {
+      "headword": "career path",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kɚˈɪr pæθ/",
+      "meaningsVi": [
+        "lộ trình sự nghiệp",
+        "con đường sự nghiệp"
+      ],
+      "examples": [
+        "sentence:career-path-n-1",
+        "sentence:career-path-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:counteroffer-n",
+    "kind": "word",
+    "body": {
+      "headword": "counteroffer",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkaʊntɚˌɔfɚ/",
+      "meaningsVi": [
+        "lời đề nghị ngược lại",
+        "đề nghị giữ chân (của công ty cũ)"
+      ],
+      "examples": [
+        "sentence:counteroffer-n-1",
+        "sentence:counteroffer-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also spelled counter-offer."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:cover-letter-n",
+    "kind": "word",
+    "body": {
+      "headword": "cover letter",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkʌvɚ ˈlɛtɚ/",
+      "meaningsVi": [
+        "thư xin việc",
+        "thư giới thiệu bản thân (kèm hồ sơ)"
+      ],
+      "examples": [
+        "sentence:cover-letter-n-1",
+        "sentence:cover-letter-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:culture-fit-n",
+    "kind": "word",
+    "body": {
+      "headword": "culture fit",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkʌltʃɚ fɪt/",
+      "meaningsVi": [
+        "sự phù hợp với văn hóa công ty"
+      ],
+      "examples": [
+        "sentence:culture-fit-n-1",
+        "sentence:culture-fit-n-2"
+      ],
+      "synonyms": [
+        "word:fit-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Some HR teams now prefer 'culture add'."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:dress-code-n",
+    "kind": "word",
+    "body": {
+      "headword": "dress code",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/drɛs koʊd/",
+      "meaningsVi": [
+        "quy định trang phục"
+      ],
+      "examples": [
+        "sentence:dress-code-n-1",
+        "sentence:dress-code-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:employment-contract-n",
+    "kind": "word",
+    "body": {
+      "headword": "employment contract",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɛmˈplɔɪmənt ˈkɑnˌtrækt/",
+      "meaningsVi": [
+        "hợp đồng lao động"
+      ],
+      "examples": [
+        "sentence:employment-contract-n-1",
+        "sentence:employment-contract-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:entry-level-adj",
+    "kind": "word",
+    "body": {
+      "headword": "entry-level",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/ˈɛntri ˈlɛvəl/",
+      "meaningsVi": [
+        "(vị trí) cấp đầu vào",
+        "dành cho người mới"
+      ],
+      "examples": [
+        "sentence:entry-level-adj-1",
+        "sentence:entry-level-adj-2"
+      ],
+      "synonyms": [
+        "word:junior-adj"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:exit-interview-n",
+    "kind": "word",
+    "body": {
+      "headword": "exit interview",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɛɡzɪt ˈɪntɚˌvju/",
+      "meaningsVi": [
+        "buổi phỏng vấn nghỉ việc"
+      ],
+      "examples": [
+        "sentence:exit-interview-n-1",
+        "sentence:exit-interview-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:headcount-n",
+    "kind": "word",
+    "body": {
+      "headword": "headcount",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhɛdˌkaʊnt/",
+      "meaningsVi": [
+        "số lượng nhân sự",
+        "định biên nhân sự"
+      ],
+      "examples": [
+        "sentence:headcount-n-1",
+        "sentence:headcount-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "In offices 'a headcount' can also mean one approved open position; only the number-of-staff meaning is shown."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:headhunter-n",
+    "kind": "word",
+    "body": {
+      "headword": "headhunter",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhɛdˌhʌntɚ/",
+      "meaningsVi": [
+        "người săn đầu người",
+        "chuyên viên săn nhân tài"
+      ],
+      "examples": [
+        "sentence:headhunter-n-1",
+        "sentence:headhunter-n-2"
+      ],
+      "synonyms": [
+        "word:recruiter-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:health-insurance-n",
+    "kind": "word",
+    "body": {
+      "headword": "health insurance",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/hɛlθ ˌɪnˈʃʊrəns/",
+      "meaningsVi": [
+        "bảo hiểm y tế",
+        "bảo hiểm sức khỏe"
+      ],
+      "examples": [
+        "sentence:health-insurance-n-1",
+        "sentence:health-insurance-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:hiring-manager-n",
+    "kind": "word",
+    "body": {
+      "headword": "hiring manager",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhaɪrɪŋ ˈmænədʒɚ/",
+      "meaningsVi": [
+        "quản lý tuyển dụng",
+        "người quản lý trực tiếp quyết định tuyển"
+      ],
+      "examples": [
+        "sentence:hiring-manager-n-1",
+        "sentence:hiring-manager-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "In some companies the hiring manager is the future boss, not an HR person."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:human-resources-n",
+    "kind": "word",
+    "body": {
+      "headword": "human resources",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhjumən ˈrisɔrsɪz/",
+      "meaningsVi": [
+        "phòng nhân sự",
+        "nhân sự (HR)"
+      ],
+      "examples": [
+        "sentence:human-resources-n-1",
+        "sentence:human-resources-n-2"
+      ],
+      "synonyms": [
+        "word:personnel-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Usually shortened to HR in speech."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:intern-n",
+    "kind": "word",
+    "body": {
+      "headword": "intern",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɪntɚn/",
+      "meaningsVi": [
+        "thực tập sinh"
+      ],
+      "examples": [
+        "sentence:intern-n-1",
+        "sentence:intern-n-2"
+      ],
+      "synonyms": [
+        "word:trainee-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:internship-n",
+    "kind": "word",
+    "body": {
+      "headword": "internship",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɪntɚnˌʃɪp/",
+      "meaningsVi": [
+        "kỳ thực tập",
+        "chương trình thực tập"
+      ],
+      "examples": [
+        "sentence:internship-n-1",
+        "sentence:internship-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-description-n",
+    "kind": "word",
+    "body": {
+      "headword": "job description",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb dɪˈskrɪpʃən/",
+      "meaningsVi": [
+        "bản mô tả công việc",
+        "JD"
+      ],
+      "examples": [
+        "sentence:job-description-n-1",
+        "sentence:job-description-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-fair-n",
+    "kind": "word",
+    "body": {
+      "headword": "job fair",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb fɛr/",
+      "meaningsVi": [
+        "hội chợ việc làm",
+        "ngày hội tuyển dụng"
+      ],
+      "examples": [
+        "sentence:job-fair-n-1",
+        "sentence:job-fair-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-hunting-n",
+    "kind": "word",
+    "body": {
+      "headword": "job hunting",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb ˈhʌntɪŋ/",
+      "meaningsVi": [
+        "việc tìm việc",
+        "việc săn việc"
+      ],
+      "examples": [
+        "sentence:job-hunting-n-1",
+        "sentence:job-hunting-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-offer-n",
+    "kind": "word",
+    "body": {
+      "headword": "job offer",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb ˈɔfɚ/",
+      "meaningsVi": [
+        "lời mời làm việc"
+      ],
+      "examples": [
+        "sentence:job-offer-n-1",
+        "sentence:job-offer-n-2"
+      ],
+      "synonyms": [
+        "word:offer-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-posting-n",
+    "kind": "word",
+    "body": {
+      "headword": "job posting",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb ˈpoʊstɪŋ/",
+      "meaningsVi": [
+        "tin tuyển dụng",
+        "thông báo tuyển dụng"
+      ],
+      "examples": [
+        "sentence:job-posting-n-1",
+        "sentence:job-posting-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-seeker-n",
+    "kind": "word",
+    "body": {
+      "headword": "job seeker",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb ˈsikɚ/",
+      "meaningsVi": [
+        "người tìm việc"
+      ],
+      "examples": [
+        "sentence:job-seeker-n-1",
+        "sentence:job-seeker-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:job-title-n",
+    "kind": "word",
+    "body": {
+      "headword": "job title",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɑb ˈtaɪtəl/",
+      "meaningsVi": [
+        "chức danh công việc"
+      ],
+      "examples": [
+        "sentence:job-title-n-1",
+        "sentence:job-title-n-2"
+      ],
+      "synonyms": [
+        "word:title-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:lay-off-v",
+    "kind": "word",
+    "body": {
+      "headword": "lay off",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/leɪ ɔf/",
+      "meaningsVi": [
+        "cho nghỉ việc, cắt giảm (nhân viên)"
+      ],
+      "examples": [
+        "sentence:lay-off-v-1",
+        "sentence:lay-off-v-2"
+      ],
+      "synonyms": [
+        "word:dismiss-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Phrasal verb; separable (lay someone off). Sensitive topic."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:layoff-n",
+    "kind": "word",
+    "body": {
+      "headword": "layoff",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈleɪˌɔf/",
+      "meaningsVi": [
+        "sự cắt giảm nhân sự",
+        "đợt sa thải"
+      ],
+      "examples": [
+        "sentence:layoff-n-1",
+        "sentence:layoff-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Sensitive topic (job loss) but standard HR vocabulary."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:maternity-leave-n",
+    "kind": "word",
+    "body": {
+      "headword": "maternity leave",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/məˈtɝnɪti liv/",
+      "meaningsVi": [
+        "nghỉ thai sản"
+      ],
+      "examples": [
+        "sentence:maternity-leave-n-1",
+        "sentence:maternity-leave-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Paternity leave is the father's version."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:notice-period-n",
+    "kind": "word",
+    "body": {
+      "headword": "notice period",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈnoʊtəs ˈpɪriəd/",
+      "meaningsVi": [
+        "thời gian báo trước (khi nghỉ việc)"
+      ],
+      "examples": [
+        "sentence:notice-period-n-1",
+        "sentence:notice-period-n-2"
+      ],
+      "synonyms": [
+        "word:notice-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Common in Vietnam and the UK; in the US people often just say 'two weeks' notice'."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:offer-letter-n",
+    "kind": "word",
+    "body": {
+      "headword": "offer letter",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɔfɚ ˈlɛtɚ/",
+      "meaningsVi": [
+        "thư mời nhận việc"
+      ],
+      "examples": [
+        "sentence:offer-letter-n-1",
+        "sentence:offer-letter-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:onboard-v",
+    "kind": "word",
+    "body": {
+      "headword": "onboard",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈɑnˌbɔrd/",
+      "meaningsVi": [
+        "hướng dẫn hội nhập (nhân viên mới)",
+        "tiếp nhận nhân viên mới"
+      ],
+      "examples": [
+        "sentence:onboard-v-1",
+        "sentence:onboard-v-2"
+      ],
+      "synonyms": [
+        "word:induct-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Workplace jargon; also spelled 'on-board'."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:onboarding-n",
+    "kind": "word",
+    "body": {
+      "headword": "onboarding",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɑnˌbɔrdɪŋ/",
+      "meaningsVi": [
+        "quá trình hội nhập nhân viên mới",
+        "giai đoạn tiếp nhận nhân viên mới"
+      ],
+      "examples": [
+        "sentence:onboarding-n-1",
+        "sentence:onboarding-n-2"
+      ],
+      "synonyms": [
+        "word:induction-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:orientation-n",
+    "kind": "word",
+    "body": {
+      "headword": "orientation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌɔriɛnˈteɪʃən/",
+      "meaningsVi": [
+        "buổi định hướng (cho nhân viên mới)",
+        "buổi giới thiệu"
+      ],
+      "examples": [
+        "sentence:orientation-n-1",
+        "sentence:orientation-n-2"
+      ],
+      "synonyms": [
+        "word:onboarding-n",
+        "word:induction-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:overqualified-adj",
+    "kind": "word",
+    "body": {
+      "headword": "overqualified",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/ˈoʊvɚˌkwɑləˌfaɪd/",
+      "meaningsVi": [
+        "thừa trình độ (so với yêu cầu công việc)"
+      ],
+      "examples": [
+        "sentence:overqualified-adj-1",
+        "sentence:overqualified-adj-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:paid-time-off-n",
+    "kind": "word",
+    "body": {
+      "headword": "paid time off",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/peɪd taɪm ɔf/",
+      "meaningsVi": [
+        "ngày nghỉ có lương",
+        "phép năm"
+      ],
+      "examples": [
+        "sentence:paid-time-off-n-1",
+        "sentence:paid-time-off-n-2"
+      ],
+      "synonyms": [
+        "word:vacation-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American usage; British English says 'annual leave' or 'holiday'. Often shortened to PTO."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:panel-interview-n",
+    "kind": "word",
+    "body": {
+      "headword": "panel interview",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpænəl ˈɪntɚˌvju/",
+      "meaningsVi": [
+        "phỏng vấn hội đồng",
+        "buổi phỏng vấn với nhiều người phỏng vấn"
+      ],
+      "examples": [
+        "sentence:panel-interview-n-1",
+        "sentence:panel-interview-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:performance-review-n",
+    "kind": "word",
+    "body": {
+      "headword": "performance review",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pɚˈfɔrməns ˌriˈvju/",
+      "meaningsVi": [
+        "buổi đánh giá hiệu suất",
+        "đánh giá kết quả công việc"
+      ],
+      "examples": [
+        "sentence:performance-review-n-1",
+        "sentence:performance-review-n-2"
+      ],
+      "synonyms": [
+        "word:evaluation-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:perk-n",
+    "kind": "word",
+    "body": {
+      "headword": "perk",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pɝk/",
+      "meaningsVi": [
+        "đặc quyền, quyền lợi thêm",
+        "phúc lợi ngoài lương"
+      ],
+      "examples": [
+        "sentence:perk-n-1",
+        "sentence:perk-n-2"
+      ],
+      "synonyms": [
+        "word:benefit-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:probation-n",
+    "kind": "word",
+    "body": {
+      "headword": "probation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/proʊˈbeɪʃən/",
+      "meaningsVi": [
+        "thời gian thử việc"
+      ],
+      "examples": [
+        "sentence:probation-n-1",
+        "sentence:probation-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also a legal word (criminal probation); here only the job meaning."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:recruiter-n",
+    "kind": "word",
+    "body": {
+      "headword": "recruiter",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rɪˈkrutɚ/",
+      "meaningsVi": [
+        "chuyên viên tuyển dụng",
+        "nhà tuyển dụng"
+      ],
+      "examples": [
+        "sentence:recruiter-n-1",
+        "sentence:recruiter-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:recruitment-agency-n",
+    "kind": "word",
+    "body": {
+      "headword": "recruitment agency",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rəˈkrutmənt ˈeɪdʒənsi/",
+      "meaningsVi": [
+        "công ty tuyển dụng",
+        "công ty cung ứng nhân sự"
+      ],
+      "examples": [
+        "sentence:recruitment-agency-n-1",
+        "sentence:recruitment-agency-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American English also says 'staffing agency'."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:recruitment-n",
+    "kind": "word",
+    "body": {
+      "headword": "recruitment",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rəˈkrutmənt/",
+      "meaningsVi": [
+        "sự tuyển dụng, công tác tuyển dụng"
+      ],
+      "examples": [
+        "sentence:recruitment-n-1",
+        "sentence:recruitment-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:reference-check-n",
+    "kind": "word",
+    "body": {
+      "headword": "reference check",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈrɛfɚəns tʃɛk/",
+      "meaningsVi": [
+        "việc kiểm tra người tham chiếu",
+        "xác minh thông tin qua người giới thiệu"
+      ],
+      "examples": [
+        "sentence:reference-check-n-1",
+        "sentence:reference-check-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:referral-n",
+    "kind": "word",
+    "body": {
+      "headword": "referral",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rɪˈfɝəl/",
+      "meaningsVi": [
+        "sự giới thiệu (ứng viên)",
+        "ứng viên được giới thiệu"
+      ],
+      "examples": [
+        "sentence:referral-n-1",
+        "sentence:referral-n-2"
+      ],
+      "synonyms": [
+        "word:recommendation-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:relocate-v",
+    "kind": "word",
+    "body": {
+      "headword": "relocate",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˌriˈloʊkeɪt/",
+      "meaningsVi": [
+        "chuyển nơi làm việc",
+        "chuyển đến nơi khác (sinh sống, làm việc)"
+      ],
+      "examples": [
+        "sentence:relocate-v-1",
+        "sentence:relocate-v-2"
+      ],
+      "synonyms": [
+        "word:move-v",
+        "word:transfer-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:relocation-n",
+    "kind": "word",
+    "body": {
+      "headword": "relocation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌriˈloʊˈkeɪʃən/",
+      "meaningsVi": [
+        "sự chuyển nơi làm việc",
+        "sự di dời"
+      ],
+      "examples": [
+        "sentence:relocation-n-1",
+        "sentence:relocation-n-2"
+      ],
+      "synonyms": [
+        "word:move-n",
+        "word:transfer-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:resume-n",
+    "kind": "word",
+    "body": {
+      "headword": "resume",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈrɛzəˌmeɪ/",
+      "meaningsVi": [
+        "sơ yếu lý lịch, hồ sơ xin việc",
+        "bản CV"
+      ],
+      "examples": [
+        "sentence:resume-n-1",
+        "sentence:resume-n-2"
+      ],
+      "synonyms": [
+        "word:cv-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "American English; British English usually says CV. Also spelled résumé."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:salary-range-n",
+    "kind": "word",
+    "body": {
+      "headword": "salary range",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsælɚi reɪndʒ/",
+      "meaningsVi": [
+        "khung lương",
+        "mức lương (từ ... đến ...)"
+      ],
+      "examples": [
+        "sentence:salary-range-n-1",
+        "sentence:salary-range-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:screening-n",
+    "kind": "word",
+    "body": {
+      "headword": "screening",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈskrinɪŋ/",
+      "meaningsVi": [
+        "sự sàng lọc (hồ sơ, ứng viên)",
+        "vòng sơ tuyển"
+      ],
+      "examples": [
+        "sentence:screening-n-1",
+        "sentence:screening-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:severance-pay-n",
+    "kind": "word",
+    "body": {
+      "headword": "severance pay",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsɛˌvɝəns peɪ/",
+      "meaningsVi": [
+        "trợ cấp thôi việc"
+      ],
+      "examples": [
+        "sentence:severance-pay-n-1",
+        "sentence:severance-pay-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:sick-leave-n",
+    "kind": "word",
+    "body": {
+      "headword": "sick leave",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/sɪk liv/",
+      "meaningsVi": [
+        "nghỉ ốm",
+        "chế độ nghỉ ốm"
+      ],
+      "examples": [
+        "sentence:sick-leave-n-1",
+        "sentence:sick-leave-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:signing-bonus-n",
+    "kind": "word",
+    "body": {
+      "headword": "signing bonus",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsaɪnɪŋ ˈboʊnəs/",
+      "meaningsVi": [
+        "tiền thưởng khi ký hợp đồng",
+        "thưởng gia nhập"
+      ],
+      "examples": [
+        "sentence:signing-bonus-n-1",
+        "sentence:signing-bonus-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:soft-skills-n",
+    "kind": "word",
+    "body": {
+      "headword": "soft skills",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/sɑft skɪlz/",
+      "meaningsVi": [
+        "kỹ năng mềm"
+      ],
+      "examples": [
+        "sentence:soft-skills-n-1",
+        "sentence:soft-skills-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Usually plural; singular 'soft skill' is possible. Opposite: hard skills."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:start-date-n",
+    "kind": "word",
+    "body": {
+      "headword": "start date",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/stɑrt deɪt/",
+      "meaningsVi": [
+        "ngày bắt đầu làm việc"
+      ],
+      "examples": [
+        "sentence:start-date-n-1",
+        "sentence:start-date-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:talent-pool-n",
+    "kind": "word",
+    "body": {
+      "headword": "talent pool",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtælənt pul/",
+      "meaningsVi": [
+        "nguồn nhân tài",
+        "nguồn ứng viên tiềm năng"
+      ],
+      "examples": [
+        "sentence:talent-pool-n-1",
+        "sentence:talent-pool-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:team-player-n",
+    "kind": "word",
+    "body": {
+      "headword": "team player",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/tim ˈpleɪɚ/",
+      "meaningsVi": [
+        "người có tinh thần đồng đội",
+        "người làm việc nhóm tốt"
+      ],
+      "examples": [
+        "sentence:team-player-n-1",
+        "sentence:team-player-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:track-record-n",
+    "kind": "word",
+    "body": {
+      "headword": "track record",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/træk rəˈkɔrd/",
+      "meaningsVi": [
+        "thành tích (đã được chứng minh)",
+        "quá trình làm việc"
+      ],
+      "examples": [
+        "sentence:track-record-n-1",
+        "sentence:track-record-n-2"
+      ],
+      "synonyms": [
+        "word:record-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:turnover-n",
+    "kind": "word",
+    "body": {
+      "headword": "turnover",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtɝˌnoʊvɚ/",
+      "meaningsVi": [
+        "tỷ lệ nghỉ việc",
+        "sự thay đổi nhân sự"
+      ],
+      "examples": [
+        "sentence:turnover-n-1",
+        "sentence:turnover-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "'Turnover' also means company revenue in British English; here only staff turnover."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:work-permit-n",
+    "kind": "word",
+    "body": {
+      "headword": "work permit",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/wɝk pɚˈmɪt/",
+      "meaningsVi": [
+        "giấy phép lao động"
+      ],
+      "examples": [
+        "sentence:work-permit-n-1",
+        "sentence:work-permit-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  }
+]

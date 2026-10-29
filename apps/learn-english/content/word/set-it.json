@@ -1,0 +1,1517 @@
+[
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:app-n",
+    "kind": "word",
+    "body": {
+      "headword": "app",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/æp/",
+      "meaningsVi": [
+        "ứng dụng (trên điện thoại, máy tính)"
+      ],
+      "examples": [
+        "sentence:app-n-1",
+        "sentence:app-n-2"
+      ],
+      "synonyms": [
+        "word:application-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Short for \"application\"; course word application-n may only carry the 'đơn xin' sense."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:authentication-n",
+    "kind": "word",
+    "body": {
+      "headword": "authentication",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɔˌθɛntəˈkeɪʃən/",
+      "meaningsVi": [
+        "sự xác thực (danh tính người dùng)"
+      ],
+      "examples": [
+        "sentence:authentication-n-1",
+        "sentence:authentication-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:automate-v",
+    "kind": "word",
+    "body": {
+      "headword": "automate",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈɔtəˌmeɪt/",
+      "meaningsVi": [
+        "tự động hóa"
+      ],
+      "examples": [
+        "sentence:automate-v-1",
+        "sentence:automate-v-2"
+      ],
+      "synonyms": [
+        "word:mechanize-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:back-end-n",
+    "kind": "word",
+    "body": {
+      "headword": "back end",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/bæk ɛnd/",
+      "meaningsVi": [
+        "phần xử lý phía máy chủ (back end)"
+      ],
+      "examples": [
+        "sentence:back-end-n-1",
+        "sentence:back-end-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Spelled \"back end\" (noun) or \"back-end\" (adjective); some teams write \"backend\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:backlog-n",
+    "kind": "word",
+    "body": {
+      "headword": "backlog",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbæˌklɑɡ/",
+      "meaningsVi": [
+        "danh sách công việc tồn đọng (backlog)",
+        "việc tồn đọng"
+      ],
+      "examples": [
+        "sentence:backlog-n-1",
+        "sentence:backlog-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:bandwidth-n",
+    "kind": "word",
+    "body": {
+      "headword": "bandwidth",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbændwɪdθ/",
+      "meaningsVi": [
+        "băng thông",
+        "(nghĩa bóng) thời gian, sức để làm thêm việc"
+      ],
+      "examples": [
+        "sentence:bandwidth-n-1",
+        "sentence:bandwidth-n-2"
+      ],
+      "synonyms": [
+        "word:capacity-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Second meaning ('I don't have the bandwidth') is informal office use."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:blocker-n",
+    "kind": "word",
+    "body": {
+      "headword": "blocker",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈblɑkɚ/",
+      "meaningsVi": [
+        "vấn đề cản trở (công việc), lỗi chặn"
+      ],
+      "examples": [
+        "sentence:blocker-n-1",
+        "sentence:blocker-n-2"
+      ],
+      "synonyms": [
+        "word:obstacle-n",
+        "word:problem-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:bug-fix-n",
+    "kind": "word",
+    "body": {
+      "headword": "bug fix",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/bʌɡ fɪks/",
+      "meaningsVi": [
+        "bản sửa lỗi (phần mềm)"
+      ],
+      "examples": [
+        "sentence:bug-fix-n-1",
+        "sentence:bug-fix-n-2"
+      ],
+      "synonyms": [
+        "word:fix-n",
+        "word:patch-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:bug-report-n",
+    "kind": "word",
+    "body": {
+      "headword": "bug report",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/bʌɡ riˈpɔrt/",
+      "meaningsVi": [
+        "báo cáo lỗi"
+      ],
+      "examples": [
+        "sentence:bug-report-n-1",
+        "sentence:bug-report-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:cache-n",
+    "kind": "word",
+    "body": {
+      "headword": "cache",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæʃ/",
+      "meaningsVi": [
+        "bộ nhớ đệm (cache)"
+      ],
+      "examples": [
+        "sentence:cache-n-1",
+        "sentence:cache-n-2"
+      ],
+      "synonyms": [
+        "word:memory-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Pronounced like \"cash\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:code-review-n",
+    "kind": "word",
+    "body": {
+      "headword": "code review",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/koʊd ˌriˈvju/",
+      "meaningsVi": [
+        "việc rà soát mã (code review)"
+      ],
+      "examples": [
+        "sentence:code-review-n-1",
+        "sentence:code-review-n-2"
+      ],
+      "synonyms": [
+        "word:review-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:configuration-n",
+    "kind": "word",
+    "body": {
+      "headword": "configuration",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kənˌfɪɡjɚˈeɪʃən/",
+      "meaningsVi": [
+        "cấu hình (hệ thống)",
+        "sự thiết lập"
+      ],
+      "examples": [
+        "sentence:configuration-n-1",
+        "sentence:configuration-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:configure-v",
+    "kind": "word",
+    "body": {
+      "headword": "configure",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/kənˈfɪɡjɚ/",
+      "meaningsVi": [
+        "cấu hình, thiết lập"
+      ],
+      "examples": [
+        "sentence:configure-v-1",
+        "sentence:configure-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:dashboard-n",
+    "kind": "word",
+    "body": {
+      "headword": "dashboard",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdæʃˌbɔrd/",
+      "meaningsVi": [
+        "bảng điều khiển, trang tổng quan (dashboard)"
+      ],
+      "examples": [
+        "sentence:dashboard-n-1",
+        "sentence:dashboard-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also the car dashboard; here the software screen."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:debug-v",
+    "kind": "word",
+    "body": {
+      "headword": "debug",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/diˈbʌɡ/",
+      "meaningsVi": [
+        "gỡ lỗi, tìm và sửa lỗi (chương trình)"
+      ],
+      "examples": [
+        "sentence:debug-v-1",
+        "sentence:debug-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:deliverable-n",
+    "kind": "word",
+    "body": {
+      "headword": "deliverable",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɪˈlɪvɚəbəl/",
+      "meaningsVi": [
+        "sản phẩm bàn giao, hạng mục cần bàn giao"
+      ],
+      "examples": [
+        "sentence:deliverable-n-1",
+        "sentence:deliverable-n-2"
+      ],
+      "synonyms": [
+        "word:output-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Usually plural."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:dependency-n",
+    "kind": "word",
+    "body": {
+      "headword": "dependency",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɪˈpɛndənsi/",
+      "meaningsVi": [
+        "thư viện phụ thuộc (dependency)",
+        "sự phụ thuộc"
+      ],
+      "examples": [
+        "sentence:dependency-n-1",
+        "sentence:dependency-n-2"
+      ],
+      "synonyms": [
+        "word:library-n",
+        "word:package-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:deploy-v",
+    "kind": "word",
+    "body": {
+      "headword": "deploy",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/dɪˈplɔɪ/",
+      "meaningsVi": [
+        "triển khai (phần mềm)",
+        "đưa lên môi trường chạy thật"
+      ],
+      "examples": [
+        "sentence:deploy-v-1",
+        "sentence:deploy-v-2"
+      ],
+      "synonyms": [
+        "word:release-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:deployment-n",
+    "kind": "word",
+    "body": {
+      "headword": "deployment",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɪˈplɔɪmənt/",
+      "meaningsVi": [
+        "sự triển khai, đợt triển khai (phần mềm)"
+      ],
+      "examples": [
+        "sentence:deployment-n-1",
+        "sentence:deployment-n-2"
+      ],
+      "synonyms": [
+        "word:release-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:developer-n",
+    "kind": "word",
+    "body": {
+      "headword": "developer",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɪˈvɛləpɚ/",
+      "meaningsVi": [
+        "lập trình viên",
+        "nhà phát triển (phần mềm)"
+      ],
+      "examples": [
+        "sentence:developer-n-1",
+        "sentence:developer-n-2"
+      ],
+      "synonyms": [
+        "word:programmer-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:documentation-n",
+    "kind": "word",
+    "body": {
+      "headword": "documentation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌdɑkjəmɛnˈteɪʃən/",
+      "meaningsVi": [
+        "tài liệu kỹ thuật, tài liệu hướng dẫn"
+      ],
+      "examples": [
+        "sentence:documentation-n-1",
+        "sentence:documentation-n-2"
+      ],
+      "synonyms": [
+        "word:manual-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:downtime-n",
+    "kind": "word",
+    "body": {
+      "headword": "downtime",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdaʊnˌtaɪm/",
+      "meaningsVi": [
+        "thời gian ngừng hoạt động (của hệ thống)"
+      ],
+      "examples": [
+        "sentence:downtime-n-1",
+        "sentence:downtime-n-2"
+      ],
+      "synonyms": [
+        "word:outage-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also means 'free time to relax' in everyday English."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:edge-case-n",
+    "kind": "word",
+    "body": {
+      "headword": "edge case",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɛdʒ keɪs/",
+      "meaningsVi": [
+        "trường hợp biên, trường hợp hiếm gặp"
+      ],
+      "examples": [
+        "sentence:edge-case-n-1",
+        "sentence:edge-case-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:encrypt-v",
+    "kind": "word",
+    "body": {
+      "headword": "encrypt",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ɛnˈkrɪpt/",
+      "meaningsVi": [
+        "mã hóa (dữ liệu)"
+      ],
+      "examples": [
+        "sentence:encrypt-v-1",
+        "sentence:encrypt-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:framework-n",
+    "kind": "word",
+    "body": {
+      "headword": "framework",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈfreɪmˌwɝk/",
+      "meaningsVi": [
+        "framework, khung phần mềm",
+        "khuôn khổ"
+      ],
+      "examples": [
+        "sentence:framework-n-1",
+        "sentence:framework-n-2"
+      ],
+      "synonyms": [
+        "word:platform-n",
+        "word:library-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:front-end-n",
+    "kind": "word",
+    "body": {
+      "headword": "front end",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/frʌnt ɛnd/",
+      "meaningsVi": [
+        "phần giao diện người dùng (front end)"
+      ],
+      "examples": [
+        "sentence:front-end-n-1",
+        "sentence:front-end-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Spelled \"front end\" (noun) or \"front-end\" (adjective); some teams write \"frontend\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:help-desk-n",
+    "kind": "word",
+    "body": {
+      "headword": "help desk",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/hɛlp dɛsk/",
+      "meaningsVi": [
+        "bộ phận hỗ trợ kỹ thuật (help desk)"
+      ],
+      "examples": [
+        "sentence:help-desk-n-1",
+        "sentence:help-desk-n-2"
+      ],
+      "synonyms": [
+        "word:support-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:hotfix-n",
+    "kind": "word",
+    "body": {
+      "headword": "hotfix",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈhɑtˌfɪks/",
+      "meaningsVi": [
+        "bản vá khẩn cấp (hotfix)"
+      ],
+      "examples": [
+        "sentence:hotfix-n-1",
+        "sentence:hotfix-n-2"
+      ],
+      "synonyms": [
+        "word:patch-n",
+        "word:bug-fix-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:integration-n",
+    "kind": "word",
+    "body": {
+      "headword": "integration",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌɪntəˈɡreɪʃən/",
+      "meaningsVi": [
+        "sự tích hợp"
+      ],
+      "examples": [
+        "sentence:integration-n-1",
+        "sentence:integration-n-2"
+      ],
+      "synonyms": [
+        "word:connection-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:interface-n",
+    "kind": "word",
+    "body": {
+      "headword": "interface",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈɪntɚˌfeɪs/",
+      "meaningsVi": [
+        "giao diện"
+      ],
+      "examples": [
+        "sentence:interface-n-1",
+        "sentence:interface-n-2"
+      ],
+      "synonyms": [
+        "word:screen-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:log-in-v",
+    "kind": "word",
+    "body": {
+      "headword": "log in",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/lɔɡ ɪn/",
+      "meaningsVi": [
+        "đăng nhập"
+      ],
+      "examples": [
+        "sentence:log-in-v-1",
+        "sentence:log-in-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Phrasal verb; the noun/adjective is written \"login\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:migrate-v",
+    "kind": "word",
+    "body": {
+      "headword": "migrate",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈmaɪˌɡreɪt/",
+      "meaningsVi": [
+        "chuyển đổi, di chuyển (dữ liệu, hệ thống)"
+      ],
+      "examples": [
+        "sentence:migrate-v-1",
+        "sentence:migrate-v-2"
+      ],
+      "synonyms": [
+        "word:move-v",
+        "word:transfer-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:milestone-n",
+    "kind": "word",
+    "body": {
+      "headword": "milestone",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmaɪlˌstoʊn/",
+      "meaningsVi": [
+        "mốc quan trọng (của dự án)"
+      ],
+      "examples": [
+        "sentence:milestone-n-1",
+        "sentence:milestone-n-2"
+      ],
+      "synonyms": [
+        "word:goal-n",
+        "word:checkpoint-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:outage-n",
+    "kind": "word",
+    "body": {
+      "headword": "outage",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈaʊtədʒ/",
+      "meaningsVi": [
+        "sự cố ngừng hoạt động, mất dịch vụ"
+      ],
+      "examples": [
+        "sentence:outage-n-1",
+        "sentence:outage-n-2"
+      ],
+      "synonyms": [
+        "word:failure-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:pipeline-n",
+    "kind": "word",
+    "body": {
+      "headword": "pipeline",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpaɪˌplaɪn/",
+      "meaningsVi": [
+        "quy trình tự động (build, kiểm thử, triển khai)",
+        "chuỗi công việc đang chờ"
+      ],
+      "examples": [
+        "sentence:pipeline-n-1",
+        "sentence:pipeline-n-2"
+      ],
+      "synonyms": [
+        "word:workflow-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:prototype-n",
+    "kind": "word",
+    "body": {
+      "headword": "prototype",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈproʊtəˌtaɪp/",
+      "meaningsVi": [
+        "bản mẫu (prototype)",
+        "nguyên mẫu"
+      ],
+      "examples": [
+        "sentence:prototype-n-1",
+        "sentence:prototype-n-2"
+      ],
+      "synonyms": [
+        "word:model-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:pull-request-n",
+    "kind": "word",
+    "body": {
+      "headword": "pull request",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pʊl rɪˈkwɛst/",
+      "meaningsVi": [
+        "yêu cầu gộp mã (pull request)"
+      ],
+      "examples": [
+        "sentence:pull-request-n-1",
+        "sentence:pull-request-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Often shortened to \"PR\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:refactor-v",
+    "kind": "word",
+    "body": {
+      "headword": "refactor",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/riˈfæktɚ/",
+      "meaningsVi": [
+        "tái cấu trúc (mã nguồn)"
+      ],
+      "examples": [
+        "sentence:refactor-v-1",
+        "sentence:refactor-v-2"
+      ],
+      "synonyms": [
+        "word:rewrite-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "IPA missing from CMUdict: check the drafted transcription"
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:release-notes-n",
+    "kind": "word",
+    "body": {
+      "headword": "release notes",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/riˈlis noʊts/",
+      "meaningsVi": [
+        "ghi chú phát hành (release notes)"
+      ],
+      "examples": [
+        "sentence:release-notes-n-1",
+        "sentence:release-notes-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Always plural in this meaning."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:repository-n",
+    "kind": "word",
+    "body": {
+      "headword": "repository",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/riˈpɑzəˌtɔri/",
+      "meaningsVi": [
+        "kho mã nguồn (repository)",
+        "kho lưu trữ"
+      ],
+      "examples": [
+        "sentence:repository-n-1",
+        "sentence:repository-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Often shortened to \"repo\" at work."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:restart-v",
+    "kind": "word",
+    "body": {
+      "headword": "restart",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/riˈstɑrt/",
+      "meaningsVi": [
+        "khởi động lại"
+      ],
+      "examples": [
+        "sentence:restart-v-1",
+        "sentence:restart-v-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:retrospective-n",
+    "kind": "word",
+    "body": {
+      "headword": "retrospective",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌrɛtrəˈspɛktɪv/",
+      "meaningsVi": [
+        "buổi họp rút kinh nghiệm (retrospective)"
+      ],
+      "examples": [
+        "sentence:retrospective-n-1",
+        "sentence:retrospective-n-2"
+      ],
+      "synonyms": [
+        "word:review-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Often shortened to \"retro\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:roll-back-v",
+    "kind": "word",
+    "body": {
+      "headword": "roll back",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/roʊl bæk/",
+      "meaningsVi": [
+        "khôi phục về phiên bản trước (roll back)"
+      ],
+      "examples": [
+        "sentence:roll-back-v-1",
+        "sentence:roll-back-v-2"
+      ],
+      "synonyms": [
+        "word:undo-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Phrasal verb; the noun is \"rollback\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:root-cause-n",
+    "kind": "word",
+    "body": {
+      "headword": "root cause",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rut kɑz/",
+      "meaningsVi": [
+        "nguyên nhân gốc rễ"
+      ],
+      "examples": [
+        "sentence:root-cause-n-1",
+        "sentence:root-cause-n-2"
+      ],
+      "synonyms": [
+        "word:cause-n",
+        "word:source-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:scalable-adj",
+    "kind": "word",
+    "body": {
+      "headword": "scalable",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/ˈskeɪləbəl/",
+      "meaningsVi": [
+        "có khả năng mở rộng (hệ thống)"
+      ],
+      "examples": [
+        "sentence:scalable-adj-1",
+        "sentence:scalable-adj-2"
+      ],
+      "synonyms": [
+        "word:flexible-adj"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:screenshot-n",
+    "kind": "word",
+    "body": {
+      "headword": "screenshot",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈskrinˌʃɑt/",
+      "meaningsVi": [
+        "ảnh chụp màn hình"
+      ],
+      "examples": [
+        "sentence:screenshot-n-1",
+        "sentence:screenshot-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:source-code-n",
+    "kind": "word",
+    "body": {
+      "headword": "source code",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/sɔrs koʊd/",
+      "meaningsVi": [
+        "mã nguồn"
+      ],
+      "examples": [
+        "sentence:source-code-n-1",
+        "sentence:source-code-n-2"
+      ],
+      "synonyms": [
+        "word:code-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:stakeholder-n",
+    "kind": "word",
+    "body": {
+      "headword": "stakeholder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsteɪkˌhoʊldɚ/",
+      "meaningsVi": [
+        "các bên liên quan (của dự án)"
+      ],
+      "examples": [
+        "sentence:stakeholder-n-1",
+        "sentence:stakeholder-n-2"
+      ],
+      "synonyms": [
+        "word:client-n",
+        "word:sponsor-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:stand-up-n",
+    "kind": "word",
+    "body": {
+      "headword": "stand-up",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈstænˌdʌp/",
+      "meaningsVi": [
+        "cuộc họp đứng ngắn hằng ngày (stand-up)"
+      ],
+      "examples": [
+        "sentence:stand-up-n-1",
+        "sentence:stand-up-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft",
+    "reviewNotes": [
+      "Also \"stand-up meeting\" or \"daily stand-up\"; also spelled \"standup\"."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:test-case-n",
+    "kind": "word",
+    "body": {
+      "headword": "test case",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/tɛst keɪs/",
+      "meaningsVi": [
+        "trường hợp kiểm thử (test case)"
+      ],
+      "examples": [
+        "sentence:test-case-n-1",
+        "sentence:test-case-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:tester-n",
+    "kind": "word",
+    "body": {
+      "headword": "tester",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtɛstɚ/",
+      "meaningsVi": [
+        "kiểm thử viên",
+        "người kiểm tra (phần mềm)"
+      ],
+      "examples": [
+        "sentence:tester-n-1",
+        "sentence:tester-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:timeline-n",
+    "kind": "word",
+    "body": {
+      "headword": "timeline",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtaɪmlaɪn/",
+      "meaningsVi": [
+        "tiến độ, lịch trình (dự án)"
+      ],
+      "examples": [
+        "sentence:timeline-n-1",
+        "sentence:timeline-n-2"
+      ],
+      "synonyms": [
+        "word:schedule-n",
+        "word:plan-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:troubleshoot-v",
+    "kind": "word",
+    "body": {
+      "headword": "troubleshoot",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈtrʌbəlˌʃut/",
+      "meaningsVi": [
+        "xử lý sự cố, khắc phục sự cố"
+      ],
+      "examples": [
+        "sentence:troubleshoot-v-1",
+        "sentence:troubleshoot-v-2"
+      ],
+      "synonyms": [
+        "word:debug-v",
+        "word:fix-v"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:user-story-n",
+    "kind": "word",
+    "body": {
+      "headword": "user story",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈjuzɚ ˈstɔri/",
+      "meaningsVi": [
+        "câu chuyện người dùng (user story, mô tả yêu cầu)"
+      ],
+      "examples": [
+        "sentence:user-story-n-1",
+        "sentence:user-story-n-2"
+      ],
+      "synonyms": [
+        "word:requirement-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:vulnerability-n",
+    "kind": "word",
+    "body": {
+      "headword": "vulnerability",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌvʌlnɚəˈbɪlɪti/",
+      "meaningsVi": [
+        "lỗ hổng bảo mật",
+        "điểm yếu"
+      ],
+      "examples": [
+        "sentence:vulnerability-n-1",
+        "sentence:vulnerability-n-2"
+      ],
+      "synonyms": [
+        "word:weakness-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:workaround-n",
+    "kind": "word",
+    "body": {
+      "headword": "workaround",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈwɝkɚˈaʊnd/",
+      "meaningsVi": [
+        "cách xử lý tạm thời, cách lách"
+      ],
+      "examples": [
+        "sentence:workaround-n-1",
+        "sentence:workaround-n-2"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:workflow-n",
+    "kind": "word",
+    "body": {
+      "headword": "workflow",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈwɝkˌfloʊ/",
+      "meaningsVi": [
+        "quy trình làm việc"
+      ],
+      "examples": [
+        "sentence:workflow-n-1",
+        "sentence:workflow-n-2"
+      ],
+      "synonyms": [
+        "word:process-n",
+        "word:procedure-n"
+      ],
+      "audio": "",
+      "source": "specialized"
+    },
+    "status": "draft"
+  }
+]
