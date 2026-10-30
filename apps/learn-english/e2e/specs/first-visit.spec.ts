@@ -10,11 +10,11 @@ test("first visit: placement, welcome and tour, then today's lesson awards point
   await welcome.getByRole("button", { name: "Xem hướng dẫn" }).click();
   const step = page.getByRole("dialog");
   await expect(step).toContainText("Bài học hôm nay");
-  await expect(step).toContainText("1/8");
+  await expect(step).toContainText("1/10");
   await page.keyboard.press("ArrowRight");
-  await expect(page.getByRole("dialog")).toContainText("Từ vựng");
+  await expect(page.getByRole("dialog")).toContainText("Chuỗi ngày và điểm");
   await page.keyboard.press("ArrowLeft");
-  await expect(page.getByRole("dialog")).toContainText("1/8");
+  await expect(page.getByRole("dialog")).toContainText("1/10");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toBeHidden();
 

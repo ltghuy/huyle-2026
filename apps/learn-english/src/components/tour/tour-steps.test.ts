@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { sideFor } from "./tour-steps";
+import { NAV_ITEMS } from "@/components/shell/nav";
+import { sideFor, TOUR_STEPS } from "./tour-steps";
 
 function targetAt(rect: { top: number; left: number; width: number; height: number }): HTMLElement {
   const element = document.createElement("div");
@@ -34,5 +35,14 @@ describe("sideFor", () => {
   it("puts the card below targets on phones", () => {
     setViewport(390, 844);
     expect(sideFor(targetAt({ top: 120, left: 16, width: 120, height: 40 }))).toBe("bottom");
+  });
+});
+
+describe("TOUR_STEPS (001 AC-039)", () => {
+  it("visits every menu item (Hôm nay through the lesson card) and the streak and points summary", () => {
+    const targets = TOUR_STEPS.map((step) => step.target);
+    for (const item of NAV_ITEMS) expect(targets).toContain(item.tour === "lesson" ? "lesson-card" : item.tour);
+    expect(targets).toContain("streak");
+    expect(new Set(targets).size).toBe(targets.length);
   });
 });

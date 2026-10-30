@@ -7,14 +7,20 @@ export interface TourStepDef {
 }
 
 export const TOUR_STEPS: TourStepDef[] = [
-  { target: "lesson-card", title: "Bài học hôm nay", description: "Mỗi ngày có một bài: ôn lại từ cũ, học từ mới, ngữ pháp, đặt câu và một bài viết ngắn. Học xong bạn được cộng điểm chuyên cần." },
-  { target: "vocabulary", title: "Từ vựng", description: "Tra từ theo trình độ và chủ đề, nghe phát âm và đánh dấu những từ bạn đã biết." },
+  { target: "lesson-card", title: "Bài học hôm nay", description: "Mỗi ngày có một bài: ôn lại từ cũ, học từ mới, ngữ pháp, đặt câu và một bài viết ngắn. Học xong bạn được 20 điểm và thêm một ngày vào chuỗi." },
+  {
+    target: "streak",
+    title: "Chuỗi ngày và điểm",
+    description: "Học mỗi ngày để giữ chuỗi: bảng xếp hạng xếp theo số ngày học liên tiếp. Học xong bài hôm nay, bạn có thể dùng điểm để học thêm một bài, bài đầu 10 điểm, mỗi bài sau trong ngày đắt hơn 30%.",
+  },
+  { target: "vocabulary", title: "Từ vựng", description: "Tra từ theo trình độ và chủ đề, nghe phát âm, đánh dấu từ đã biết, hoặc học theo bộ từ Chuyên ngành." },
   { target: "grammar", title: "Ngữ pháp", description: "Các điểm ngữ pháp và 12 thì, giải thích bằng tiếng Việt kèm ví dụ và bài luyện." },
+  { target: "irregular-verbs", title: "Động từ bất quy tắc", description: "Tra dạng quá khứ và quá khứ phân từ của động từ bất quy tắc, nghe phát âm và luyện riêng từng động từ." },
   { target: "review", title: "Ôn tập", description: "Ứng dụng nhắc bạn ôn lại đúng lúc bạn sắp quên, để nhớ từ lâu hơn." },
-  { target: "exercises", title: "Bài tập", description: "Tự luyện bất kỳ phần nào: trắc nghiệm, điền chữ, nghe, sắp xếp câu." },
+  { target: "exercises", title: "Bài tập", description: "Tự luyện bất kỳ phần nào: trắc nghiệm, điền chữ, nghe chép, sắp xếp câu, tìm lỗi sai." },
   { target: "hard-words", title: "Từ khó", description: "Những từ bạn hay sai hoặc nhớ lâu được gom lại đây để luyện riêng." },
-  { target: "profile", title: "Hồ sơ", description: "Xem điểm chuyên cần, chuỗi ngày học và lịch các ngày bạn đã học." },
-  { target: "settings", title: "Cài đặt", description: "Đổi trình độ, sao lưu tiến độ hoặc xem lại hướng dẫn này." },
+  { target: "profile", title: "Hồ sơ", description: "Xem điểm hiện có, tổng điểm đã nhận, chuỗi ngày học và lịch các ngày bạn đã học." },
+  { target: "settings", title: "Cài đặt", description: "Đổi trình độ, sao lưu và đồng bộ tiến độ, tham gia bảng xếp hạng hoặc xem lại hướng dẫn này." },
 ];
 
 function isVisible(element: Element): boolean {

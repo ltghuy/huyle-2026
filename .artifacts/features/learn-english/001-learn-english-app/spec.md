@@ -189,7 +189,7 @@ version of the app. Anonymous usage counts show how the app is used.
 **Acceptance Criteria:**
 
 - [x] AC-038: WHEN a learner reaches the home screen for the first time (after the placement test or skipping it) THEN system SHALL show a Vietnamese welcome dialog with a one-paragraph overview of the app and two choices: start the tour or skip (since feature 003 it waits for the learner's name and greets them by it)
-- [x] AC-039: WHEN the learner starts the tour THEN system SHALL highlight the main areas one at a time (daily lesson, vocabulary, grammar, review, exercise library, hard words, profile and points, settings), each with a short Vietnamese explanation and a step counter, and let them go back, go next or close at any step
+- [x] AC-039: WHEN the learner starts the tour THEN system SHALL highlight the main areas one at a time (daily lesson, streak and points, vocabulary, grammar, irregular verbs, review, exercise library, hard words, profile, settings; streak and irregular verbs added by quick task 027), each with a short Vietnamese explanation and a step counter, and let them go back, go next or close at any step
 - [x] AC-040: WHEN the learner finishes, skips or closes the tour THEN system SHALL not show the welcome dialog or tour again in that browser (or after importing a backup in which it was already seen)
 - [x] AC-041: WHEN the learner chooses "Xem lại hướng dẫn" (replay tour) in settings or help THEN system SHALL start the tour again from the first step
 
