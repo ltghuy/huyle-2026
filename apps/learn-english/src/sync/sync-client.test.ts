@@ -34,6 +34,7 @@ async function remotePayload(extra: Partial<LearnerState> = {}): Promise<string>
     cards: [makeCard("word:remote", NOW, { last_review: NOW - 20, reps: 2 })],
     attempts: [makeAttempt("remote-1", "word:remote", NOW - 20)],
     lessons: [],
+    extraLessons: [],
     attendance: [
       { date: "2026-10-20", points: 10, bonus: 0, at: NOW - 6000 },
       { date: "2026-10-21", points: 10, bonus: 0, at: NOW - 4000 },

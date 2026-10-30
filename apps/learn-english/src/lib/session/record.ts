@@ -1,7 +1,7 @@
 import { rate } from "@/learning/rating";
 import { newCard, review } from "@/learning/srs";
-import type { AttemptContext, CardItemId, DailyLesson, StoredCard } from "@/learning/types";
-import { newAttemptId, recordAnswer } from "@/storage/attempts";
+import type { AttemptContext, CardItemId, StoredCard } from "@/learning/types";
+import { newAttemptId, recordAnswer, type LessonAt } from "@/storage/attempts";
 import { getCard, putCards } from "@/storage/cards";
 import type { StepOutcome } from "@/components/exercise/exercise-runner";
 import { countAttempt } from "@/stats/stats-client";
@@ -12,8 +12,8 @@ interface RecordInput {
   outcome: StepOutcome;
   context: AttemptContext;
   now: number;
-  /** Lesson position to save in the same transaction (resume, AC-016). */
-  lessonPosition?: Pick<DailyLesson, "date" | "position">;
+  /** Lesson position to save in the same transaction (resume, AC-016; extra lessons, 013 AC-009). */
+  lessonPosition?: LessonAt;
 }
 
 /**

@@ -1,12 +1,14 @@
 import { z } from "zod";
-import { localDate, streaks, totalPoints } from "./attendance";
+import { localDate, streaks } from "./attendance";
 import { NAME_MAX_LENGTH } from "./name";
+import { pointsBalance } from "./points";
 import {
   EXERCISE_KINDS,
   LEVELS,
   type Attempt,
   type Attendance,
   type DailyLesson,
+  type ExtraLesson,
   type Profile,
   type StoredCard,
 } from "./types";
@@ -16,8 +18,10 @@ export const SNAPSHOT_APP = "learn-english";
  * 2 (feature 008): cards can be `forms:` (an irregular verb's forms). A
  * version 1 file has none, so it upgrades unchanged; an app that only knows
  * version 1 refuses version 2 as "newer-version" instead of dropping cards.
+ * 3 (feature 013): `extraLessons`, the lessons bought with points. A version 2
+ * file upgrades with none.
  */
-export const SNAPSHOT_VERSION = 2;
+export const SNAPSHOT_VERSION = 3;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LESSON_DAYS = 14;
@@ -30,6 +34,7 @@ export interface LearnerState {
   cards: StoredCard[];
   attendance: Attendance[];
   lessons: DailyLesson[];
+  extraLessons: ExtraLesson[];
   attempts: Attempt[];
 }
 
@@ -45,6 +50,7 @@ export interface SnapshotData {
   cards: StoredCard[];
   attendance: Attendance[];
   lessons: DailyLesson[];
+  extraLessons: ExtraLesson[];
   attempts: Attempt[];
 }
 
@@ -110,19 +116,33 @@ const attemptSchema = z.object({
 
 const localDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
+const planSchema = z.array(
+  z.object({
+    kind: z.enum(["review", "new-words", "grammar", "sentences", "writing"]),
+    exercises: z.array(z.object({ kind: z.enum(EXERCISE_KINDS), itemIds: z.array(z.string()), seed: z.number() })),
+  }),
+);
+
 const lessonSchema = z.object({
   date: localDateSchema,
   contentVersion: count,
-  plan: z.array(
-    z.object({
-      kind: z.enum(["review", "new-words", "grammar", "sentences", "writing"]),
-      exercises: z.array(z.object({ kind: z.enum(EXERCISE_KINDS), itemIds: z.array(z.string()), seed: z.number() })),
-    }),
-  ),
+  plan: planSchema,
   position: z.object({ part: count, index: count }),
   completedAt: time.optional(),
   updatedAt: time,
 }) satisfies z.ZodType<DailyLesson>;
+
+const extraLessonSchema = z.object({
+  id: z.string().min(1).max(64),
+  date: localDateSchema,
+  price: count,
+  purchasedAt: time,
+  contentVersion: count,
+  plan: planSchema,
+  position: z.object({ part: count, index: count }),
+  completedAt: time.optional(),
+  updatedAt: time,
+}) satisfies z.ZodType<ExtraLesson>;
 
 const attendanceSchema = z.object({
   date: localDateSchema,
@@ -164,6 +184,7 @@ export const snapshotSchema = z.object({
     cards: z.array(cardSchema),
     attendance: z.array(attendanceSchema),
     lessons: z.array(lessonSchema),
+    extraLessons: z.array(extraLessonSchema),
     attempts: z.array(attemptSchema),
   }),
 }) satisfies z.ZodType<Snapshot>;
@@ -206,10 +227,11 @@ function trimAttempts(attempts: readonly Attempt[], now: number): Attempt[] {
   return kept.sort((a, b) => a.at - b.at || (a.id < b.id ? -1 : 1));
 }
 
-export function summarize(data: Pick<SnapshotData, "cards" | "attendance">, today: string): Snapshot["summary"] {
+/** `points` is what the learner has now: earned minus spent, never shown below 0. */
+export function summarize(data: Pick<SnapshotData, "cards" | "attendance" | "extraLessons">, today: string): Snapshot["summary"] {
   return {
     wordsLearned: data.cards.filter((card) => card.itemId.startsWith("word:")).length,
-    points: totalPoints(data.attendance),
+    points: Math.max(0, pointsBalance(data.attendance, data.extraLessons)),
     streak: streaks(
       data.attendance.map((row) => row.date),
       today,
@@ -226,6 +248,8 @@ export function buildSnapshot(state: LearnerState, now: number, timeZone: string
     cards: state.cards.map((card) => ({ ...card, stability: round4(card.stability), difficulty: round4(card.difficulty) })),
     attendance: state.attendance,
     lessons: state.lessons.filter((lesson) => lesson.date >= firstLessonDate),
+    // Older extra lessons keep their price (it still counts as spent) but not their plan.
+    extraLessons: state.extraLessons.map((extra) => (extra.date >= firstLessonDate ? extra : { ...extra, plan: [] })),
     attempts: trimAttempts(state.attempts, now),
   };
   return { app: SNAPSHOT_APP, version: SNAPSHOT_VERSION, exportedAt: now, summary: summarize(data, today), data };
@@ -242,6 +266,11 @@ export type Migration = (raw: Record<string, unknown>) => Record<string, unknown
 export const MIGRATIONS: Record<number, Migration> = {
   // 1 → 2: only adds `forms:` cards, which a version 1 file can't contain.
   1: (snapshot) => snapshot,
+  // 2 → 3: no extra lessons were bought before version 3.
+  2: (snapshot) => {
+    const data = snapshot.data as Record<string, unknown> | undefined;
+    return data && typeof data === "object" ? { ...snapshot, data: { ...data, extraLessons: [] } } : snapshot;
+  },
 };
 
 /** Validates a backup file (text or parsed JSON), upgrading older versions. */

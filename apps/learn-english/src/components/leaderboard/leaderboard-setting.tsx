@@ -13,7 +13,7 @@ import { BoardNameField } from "./board-name-field";
 
 type Joined = Extract<LeaderboardState, { status: "joined" }>;
 
-/** Join or leave the weekly board, and change the name shown on it (feature 007, AC-009, AC-010). */
+/** Join or leave the board, and change the name shown on it (feature 007, AC-009, AC-010). */
 export function LeaderboardSetting() {
   const profile = useProfile();
   const ready = profile.status === "ready" ? profile.data : null;
@@ -43,9 +43,9 @@ export function LeaderboardSetting() {
     <div className="grid gap-4">
       <div className="flex items-start justify-between gap-4">
         <div className="grid gap-1">
-          <Label htmlFor="board-toggle">Hiện tôi trên bảng xếp hạng tuần</Label>
+          <Label htmlFor="board-toggle">Hiện tôi trên bảng xếp hạng</Label>
           <p className="text-sm text-muted-foreground">
-            Sau mỗi bài học hằng ngày, bạn xem mình đứng thứ mấy trong tuần. Tên bạn chọn và điểm chuyên cần tuần này sẽ hiện cho những người học khác. Tắt để xoá bạn khỏi bảng.
+            Sau mỗi bài học hằng ngày, bạn xem mình đứng thứ mấy theo số ngày học liên tiếp. Tên bạn chọn và chuỗi ngày học của bạn sẽ hiện cho những người học khác. Tắt để xoá bạn khỏi bảng.
           </p>
         </div>
         <Switch id="board-toggle" className="mt-1" checked={entry !== null} disabled={!ready || busy} onCheckedChange={handleChange} />

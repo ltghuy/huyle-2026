@@ -11,7 +11,7 @@ import { resetStorage } from "@/storage/test-utils";
 import { render } from "@/test-utils/render";
 import { BoardAfterLesson } from "./board-after-lesson";
 import { LeaderboardSetting } from "./leaderboard-setting";
-import { WeeklyBoard } from "./weekly-board";
+import { StreakBoard } from "./streak-board";
 
 // Feature 007 in the browser: consent once, the board after a lesson, Settings.
 
@@ -23,7 +23,7 @@ const JOINED: Extract<LeaderboardState, { status: "joined" }> = {
   token: "a".repeat(43),
   name: "Minh Anh",
 };
-const row = (position: number, name: string, points: number, me = false): BoardRow => ({ position, name, points, me });
+const row = (position: number, name: string, streak: number, me = false): BoardRow => ({ position, name, streak, earned: streak * 20, me });
 const fetchMock = vi.fn<(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>>();
 
 async function profileWith(extra: Partial<Profile>) {
@@ -38,8 +38,8 @@ beforeEach(async () => {
   await resetStorage();
   fetchMock.mockReset();
   vi.stubGlobal("fetch", fetchMock);
-  // Today's lesson was just awarded: 10 points this week, 0 before it.
-  await addAttendance({ date: localDate(Date.now()), points: 10, bonus: 0, at: Date.now() });
+  // Today's lesson was just awarded: a 1-day streak with 20 points, nothing before it.
+  await addAttendance({ date: localDate(Date.now()), points: 20, bonus: 0, at: Date.now() });
 });
 
 afterEach(() => {
@@ -51,7 +51,7 @@ describe("after the daily lesson", () => {
   it("asks once, with the name prefilled, and declining sends nothing (AC-007, AC-008)", async () => {
     await profileWith({});
     render(<BoardAfterLesson />);
-    expect(await screen.findByRole("dialog", { name: "Tham gia bảng xếp hạng tuần?" })).toBeInTheDocument();
+    expect(await screen.findByRole("dialog", { name: "Tham gia bảng xếp hạng?" })).toBeInTheDocument();
     expect(screen.getByLabelText("Tên hiện trên bảng")).toHaveValue("Minh Anh");
 
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Không, cảm ơn" })));
@@ -68,18 +68,19 @@ describe("after the daily lesson", () => {
     expect((await getProfile())?.leaderboard).toBeUndefined();
   });
 
-  it("joins under the chosen nickname, sends this week's points and shows the board (AC-001)", async () => {
+  it("joins under the chosen nickname, sends the streak and shows the board (AC-001, 013 AC-010)", async () => {
     await profileWith({});
     fetchMock.mockResolvedValue(Response.json({ rank: 1, previousRank: 2, total: 2, rows: [row(1, "Gấu", 10, true), row(2, "Lan", 5)] }));
     render(<BoardAfterLesson />);
     fireEvent.change(await screen.findByLabelText("Tên hiện trên bảng"), { target: { value: "  Gấu " } });
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Tham gia" })));
 
-    expect(await screen.findByRole("dialog", { name: "Bảng xếp hạng tuần này" })).toBeInTheDocument();
+    expect(await screen.findByRole("dialog", { name: "Bảng xếp hạng chuỗi ngày học" })).toBeInTheDocument();
     expect(screen.getByText("Bạn lên hạng 1, vượt qua 1 bạn!")).toBeInTheDocument();
     const [request] = sent();
     expect(request.method).toBe("POST");
-    expect(request.body).toMatchObject({ name: "Gấu", points: 10, previousPoints: 0, week: expect.stringMatching(/^\d{4}-W\d{2}$/) });
+    const today = localDate(Date.now());
+    expect(request.body).toMatchObject({ name: "Gấu", today, lastDate: today, streak: 1, earned: 20, previousStreak: 0, previousEarned: 0 });
     expect(fetchMock.mock.calls[0][0]).toBe(LEADERBOARD_URL);
     expect((await getProfile())?.leaderboard).toMatchObject({ status: "joined", name: "Gấu" });
   });
@@ -88,8 +89,8 @@ describe("after the daily lesson", () => {
     await profileWith({ leaderboard: JOINED });
     fetchMock.mockResolvedValue(Response.json({ rank: 3, previousRank: 3, total: 9, rows: [row(2, "Lan", 30), row(3, "Minh Anh", 10, true), row(4, "Tú", 5)] }));
     render(<BoardAfterLesson />);
-    expect(await screen.findByText("Bạn đang hạng 3 trong 9 bạn. Học tiếp để lên hạng nhé!")).toBeInTheDocument();
-    expect(screen.queryByRole("dialog", { name: "Tham gia bảng xếp hạng tuần?" })).not.toBeInTheDocument();
+    expect(await screen.findByText("Bạn đang hạng 3 trong 9 bạn. Học đều mỗi ngày để lên hạng nhé!")).toBeInTheDocument();
+    expect(screen.queryByRole("dialog", { name: "Tham gia bảng xếp hạng?" })).not.toBeInTheDocument();
     expect(screen.getByText("Minh Anh").closest("li")).toHaveAttribute("aria-current", "true");
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
@@ -115,7 +116,7 @@ describe("Settings (AC-009, AC-010)", () => {
     await profileWith({ leaderboard: JOINED });
     fetchMock.mockResolvedValue(new Response(null, { status: 204 }));
     render(<LeaderboardSetting />);
-    const toggle = await screen.findByRole("switch", { name: "Hiện tôi trên bảng xếp hạng tuần" });
+    const toggle = await screen.findByRole("switch", { name: "Hiện tôi trên bảng xếp hạng" });
     await waitFor(() => expect(toggle).toBeChecked());
     await act(async () => fireEvent.click(toggle));
 
@@ -127,13 +128,13 @@ describe("Settings (AC-009, AC-010)", () => {
     await profileWith({ leaderboard: JOINED });
     fetchMock.mockResolvedValue(Response.json({ error: { message: "x" } }, { status: 503 }));
     render(<LeaderboardSetting />);
-    const toggle = await screen.findByRole("switch", { name: "Hiện tôi trên bảng xếp hạng tuần" });
+    const toggle = await screen.findByRole("switch", { name: "Hiện tôi trên bảng xếp hạng" });
     await waitFor(() => expect(toggle).toBeChecked());
     await act(async () => fireEvent.click(toggle));
     expect((await getProfile())?.leaderboard).toEqual(JOINED);
   });
 
-  it("renames on the board with this week's points", async () => {
+  it("renames on the board with the current streak", async () => {
     await profileWith({ leaderboard: JOINED });
     fetchMock.mockResolvedValue(Response.json({ rank: 1, previousRank: 1, total: 1, rows: [] }));
     render(<LeaderboardSetting />);
@@ -142,35 +143,36 @@ describe("Settings (AC-009, AC-010)", () => {
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Lưu tên" })));
 
     await waitFor(async () => expect((await getProfile())?.leaderboard).toMatchObject({ name: "Gấu" }));
-    expect(sent()[0].body).toMatchObject({ name: "Gấu", points: 10, previousPoints: 10 });
+    expect(sent()[0].body).toMatchObject({ name: "Gấu", streak: 1, earned: 20, previousStreak: 1, previousEarned: 20 });
   });
 });
 
-describe("WeeklyBoard (AC-002, AC-004)", () => {
-  // 7th with 20 points before, 5th with 45 now: the 6th and 7th were overtaken.
+describe("StreakBoard (007 AC-002, AC-004; 013 AC-010, AC-012)", () => {
+  // 7th on a 3-day streak before, 5th on 9 days now: the 6th and 7th were overtaken.
   const result = {
     rank: 5,
     previousRank: 7,
     total: 9,
-    previousPoints: 20,
-    rows: [row(4, "Lan", 50), row(5, "Minh Anh", 45, true), row(6, "Tú", 40), row(7, "Bảo", 30), row(8, "Vy", 10)],
+    previous: { streak: 3, earned: 60 },
+    rows: [row(4, "Lan", 10), row(5, "Minh Anh", 9, true), row(6, "Tú", 6), row(7, "Bảo", 4), row(8, "Vy", 2)],
   };
   const meRow = () => screen.getByText("Minh Anh").closest("li")!;
 
   it("starts the learner two places lower and slides them up", async () => {
     vi.stubGlobal("matchMedia", () => ({ matches: false }));
-    render(<WeeklyBoard result={result} />);
+    render(<StreakBoard result={result} />);
     expect(meRow().style.transform).toBe("translateY(8rem)");
     expect(meRow()).toHaveTextContent("7");
     expect(screen.getByText("Tú").closest("li")!.style.transform).toBe("translateY(-4rem)");
     await waitFor(() => expect(meRow().style.transform).toBe(""));
     expect(meRow()).toHaveTextContent("5");
     expect(screen.getByText("Bạn lên hạng 5, vượt qua 2 bạn!")).toBeInTheDocument();
+    expect(screen.getByText("Tú").closest("li")).toHaveTextContent("6 ngày");
   });
 
   it("shows the final board at once with reduced motion", () => {
     vi.stubGlobal("matchMedia", () => ({ matches: true }));
-    render(<WeeklyBoard result={result} />);
+    render(<StreakBoard result={result} />);
     expect(meRow().style.transform).toBe("");
     expect(meRow()).toHaveTextContent("5");
   });

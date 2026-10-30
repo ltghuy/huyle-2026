@@ -52,8 +52,8 @@ version of the app. Anonymous usage counts show how the app is used.
 |---------|--------|
 | Accounts, sign-in | Dropped to keep hosting free (owner, 2026-10-26); sync codes and backup files cover moving devices |
 | AI in the running app (grading written answers, generating exercises) | Dropped to reduce complexity and running cost (owner, 2026-10-26); content is AI-drafted once during development and reviewed |
-| Leaderboards, rankings, social features | Points + streak only (decision) |
-| Points unlocking content | Points are a motivation signal, not a gate |
+| Leaderboards, rankings, social features | Points + streak only (decision). Feature 007 added one opt-in board, ranked by streak since 013 |
+| Points unlocking content | Points are a motivation signal, not a gate. Reversed for extra lessons only by feature 013 |
 | Speaking practice / pronunciation scoring | Needs speech recognition; later phase |
 | Native mobile apps | Responsive web first |
 | Languages other than English; UI languages other than Vietnamese | Single audience |
@@ -118,7 +118,7 @@ version of the app. Anonymous usage counts show how the app is used.
 **Acceptance Criteria:**
 
 - [x] AC-014: WHEN a learner opens the home screen THEN system SHALL show today's lesson made of, in order: review of due vocabulary and grammar, new vocabulary, a grammar point (when scheduled), sentence construction, and a written assignment, with multiple-choice questions mixed into the parts, sized to take about 15 minutes at most (quick task 011)
-- [x] AC-015: WHEN a learner completes every part of today's lesson THEN system SHALL award attendance points once for that day and increase the streak by one
+- [x] AC-015: WHEN a learner completes every part of today's lesson THEN system SHALL award attendance points once for that day and increase the streak by one (20 points a day since feature 013)
 - [x] AC-016: WHEN a learner leaves a lesson partway THEN system SHALL save their place and resume from the same part when they return the same day
 - [x] AC-017: WHEN a learner views their profile THEN system SHALL show total points, current streak, longest streak and a calendar of days attended
 - [x] AC-018: WHEN a day passes without a completed lesson THEN system SHALL reset the current streak to zero on the next visit and keep the longest streak
@@ -291,5 +291,5 @@ version of the app. Anonymous usage counts show how the app is used.
 - AC-046 (bot check for AI feedback) was retired with the AI feedback; its ID is not reused.
 - Proposals accepted by the owner (2026-10-26):
   - Daily lesson: 10 new words; at most 50 reviews (backlog beyond that rolls to later days). Revised 2026-10-28 (quick task 011): the lesson also fits a 15-minute budget of estimated seconds per exercise kind; due reviews fill the time left after the fixed parts, and new words drop to 5 when they don't all fit.
-  - Attendance: 10 points per completed day; +20 bonus when the streak reaches 7, 30 and 100 days.
+  - Attendance: 10 points per completed day; +20 bonus when the streak reaches 7, 30 and 100 days. Feature 013 raised the daily points to 20 and lets learners spend points on extra lessons; the bonuses are unchanged.
   - Address: english.huyle.work.

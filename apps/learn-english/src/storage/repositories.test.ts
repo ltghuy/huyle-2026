@@ -3,6 +3,7 @@ import type { DailyLesson } from "@/learning/types";
 import { addAttempt, getAllAttempts, getAttemptsForItem, getAttemptsSince, newAttemptId, recordAnswer } from "./attempts";
 import { getAllCards, getCard, getDueCards, putCards } from "./cards";
 import { getContentCache, putContentCache } from "./content";
+import { getExtraLesson, putExtraLesson } from "./extra-lessons";
 import { getAllLessons, getLesson, putLesson } from "./lessons";
 import { createDefaultProfile, getProfile, saveProfile, updateProfile } from "./meta";
 import { makeAttempt, makeCard, resetStorage } from "./test-utils";
@@ -51,6 +52,14 @@ describe("storage repositories", () => {
     expect(await getAttemptsForItem("word:cat")).toHaveLength(1);
     expect((await getCard("word:cat"))?.reps).toBe(1);
     expect(await getLesson(lesson.date)).toMatchObject({ position: { part: 0, index: 1 }, updatedAt: 50 });
+  });
+
+  it("moves an extra lesson's position with the answer, leaving the daily lesson alone (013)", async () => {
+    await putLesson(lesson);
+    await putExtraLesson({ id: "x", date: lesson.date, price: 10, purchasedAt: 1, contentVersion: 1, plan: [], position: { part: 0, index: 0 }, updatedAt: 1 });
+    await recordAnswer({ attempt: makeAttempt("a2", "word:cat", 60), lesson: { extraId: "x", position: { part: 1, index: 2 }, updatedAt: 60 } });
+    expect(await getExtraLesson("x")).toMatchObject({ position: { part: 1, index: 2 }, updatedAt: 60 });
+    expect((await getLesson(lesson.date))?.position).toEqual(lesson.position);
   });
 
   it("stores lessons by date", async () => {

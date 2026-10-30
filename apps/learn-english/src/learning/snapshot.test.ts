@@ -78,15 +78,36 @@ const state: LearnerState = {
     { date: "2026-10-26", points: 10, bonus: 20, at: NOW },
   ],
   lessons: [lesson("2026-10-12"), lesson("2026-10-13"), lesson("2026-10-26")],
+  extraLessons: [],
   attempts: [attempt("a1", "word:cat", NOW - DAY)],
 };
 
 describe("buildSnapshot", () => {
   it("drops the device id and computes the summary", () => {
     const snapshot = buildSnapshot(state, NOW, TZ);
-    expect(snapshot).toMatchObject({ app: "learn-english", version: 2, exportedAt: NOW });
+    expect(snapshot).toMatchObject({ app: "learn-english", version: 3, exportedAt: NOW });
     expect(snapshot.data.meta).not.toHaveProperty("deviceId");
     expect(snapshot.summary).toEqual({ wordsLearned: 2, points: 50, streak: 3 });
+  });
+
+  it("counts spent points in the summary and keeps old extra lessons' price without their plan (013)", () => {
+    const plan = [{ kind: "new-words" as const, exercises: [{ kind: "study" as const, itemIds: ["word:cat"], seed: 1 }] }];
+    const extra = (id: string, date: string, price: number) => ({ id, date, price, purchasedAt: NOW, contentVersion: 1, plan, position: { part: 0, index: 0 }, updatedAt: NOW });
+    const snapshot = buildSnapshot({ ...state, extraLessons: [extra("old", "2026-10-01", 10), extra("new", "2026-10-26", 13)] }, NOW, TZ);
+    expect(snapshot.summary.points).toBe(27);
+    expect(snapshot.data.extraLessons.map((e) => [e.id, e.price, e.plan.length])).toEqual([
+      ["old", 10, 0],
+      ["new", 13, 1],
+    ]);
+    expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });
+  });
+
+  it("reads a version 2 file (before extra lessons) with none (013 AC-017)", () => {
+    const v3 = buildSnapshot(state, NOW, TZ);
+    const v2data: Partial<typeof v3.data> = { ...v3.data };
+    delete v2data.extraLessons;
+    const parsed = parseSnapshot({ ...v3, version: 2, data: v2data });
+    expect(parsed.ok && parsed.snapshot.data.extraLessons).toEqual([]);
   });
 
   it("never exports the sync code or sync bookkeeping", () => {
@@ -166,7 +187,7 @@ describe("parseSnapshot", () => {
   });
 
   it("rejects a newer version", () => {
-    expect(parseSnapshot({ ...snapshot, version: 3 })).toEqual({ ok: false, reason: "newer-version" });
+    expect(parseSnapshot({ ...snapshot, version: 4 })).toEqual({ ok: false, reason: "newer-version" });
   });
 
   it("upgrades an older version through the migration chain", () => {
@@ -179,6 +200,7 @@ describe("parseSnapshot", () => {
         return { ...raw, data: { ...data, meta: oldMeta } };
       },
       1: MIGRATIONS[1],
+      2: MIGRATIONS[2],
     };
     expect(parseSnapshot(v0, migrations)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(v0)).toEqual({ ok: false, reason: "invalid" });

@@ -13,11 +13,26 @@ describe("getDb", () => {
     await getDb();
     const request = indexedDB.open("learn-english");
     const db = await new Promise<IDBDatabase>((resolve) => (request.onsuccess = () => resolve(request.result)));
-    expect([...db.objectStoreNames].toSorted()).toEqual(["attempts", "attendance", "cards", "content", "lessons", "meta"]);
+    expect([...db.objectStoreNames].toSorted()).toEqual(["attempts", "attendance", "cards", "content", "extraLessons", "lessons", "meta"]);
     const tx = db.transaction(["cards", "attempts"]);
     expect([...tx.objectStore("cards").indexNames]).toEqual(["due"]);
     expect([...tx.objectStore("attempts").indexNames].toSorted()).toEqual(["at", "itemId_at"]);
     db.close();
+  });
+
+  it("upgrades a version 1 database by adding the extra lessons store and keeping the data (013)", async () => {
+    const v1 = indexedDB.open("learn-english", 1);
+    v1.onupgradeneeded = () => {
+      const keyPaths = { cards: "itemId", attempts: "id", lessons: "date", attendance: "date", meta: "key", content: "key" };
+      for (const [name, keyPath] of Object.entries(keyPaths)) v1.result.createObjectStore(name, { keyPath });
+      v1.transaction!.objectStore("attendance").put({ date: "2026-10-29", points: 10, bonus: 0, at: 1 });
+    };
+    await new Promise<void>((resolve) => (v1.onsuccess = () => (v1.result.close(), resolve())));
+
+    const db = await getDb();
+    expect(await db.getAll("attendance")).toEqual([{ date: "2026-10-29", points: 10, bonus: 0, at: 1 }]);
+    await db.put("extraLessons", { id: "2026-10-30#1#abc", date: "2026-10-30", price: 10, purchasedAt: 2, contentVersion: 1, plan: [], position: { part: 0, index: 0 }, updatedAt: 2 });
+    expect(await db.getAllFromIndex("extraLessons", "date", { lower: "2026-10-30", upper: "2026-10-30" })).toHaveLength(1);
   });
 });
 

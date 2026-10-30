@@ -3,6 +3,7 @@ import { buildLessonPlan } from "@/learning/lesson-plan";
 import type { DailyLesson, LessonPartKind, Profile } from "@/learning/types";
 import { addAttendance, getAllAttendance, type AddAttendanceResult } from "@/storage/attendance";
 import { getAllCards } from "@/storage/cards";
+import { getAllExtraLessons } from "@/storage/extra-lessons";
 import { getAllLessons, getLesson, putLesson } from "@/storage/lessons";
 import { countLessonCompleted } from "@/stats/stats-client";
 import type { RunnerStep } from "@/components/exercise/exercise-runner";
@@ -19,20 +20,25 @@ export const PART_LABELS: Record<LessonPartKind, string> = {
 
 const DAY_MS = 86_400_000;
 
-interface TodayInput {
+export interface TodayInput {
   profile: Pick<Profile, "level" | "timeZone" | "vocabSet">;
   index: ContentIndex;
   contentVersion: number;
   now: number;
 }
 
-async function planToday({ profile, index, contentVersion, now }: TodayInput, date: string): Promise<DailyLesson> {
-  const [cards, lessons] = await Promise.all([getAllCards(), getAllLessons()]);
-  const since = localDate(now - 14 * DAY_MS, profile.timeZone);
-  const recentWritingIds = lessons
+/** Writing tasks of the daily and extra lessons from the last 14 days, so a new plan avoids them. */
+export function recentWritingIds(lessons: readonly Pick<DailyLesson, "date" | "plan">[], now: number, timeZone: string): string[] {
+  const since = localDate(now - 14 * DAY_MS, timeZone);
+  return lessons
     .filter((lesson) => lesson.date >= since)
     .flatMap((lesson) => lesson.plan.flatMap((part) => (part.kind === "writing" ? part.exercises.flatMap((e) => e.itemIds) : [])));
-  const lesson = buildLessonPlan({ date, now, profile, cards, content: index.lesson, contentVersion, recentWritingIds });
+}
+
+async function planToday({ profile, index, contentVersion, now }: TodayInput, date: string): Promise<DailyLesson> {
+  const [cards, lessons, extras] = await Promise.all([getAllCards(), getAllLessons(), getAllExtraLessons()]);
+  const writingIds = recentWritingIds([...lessons, ...extras], now, profile.timeZone);
+  const lesson = buildLessonPlan({ date, now, profile, cards, content: index.lesson, contentVersion, recentWritingIds: writingIds });
   await putLesson(lesson);
   return lesson;
 }
@@ -71,13 +77,16 @@ export interface FlatLesson {
 
 const comparePosition = (a: DailyLesson["position"], b: DailyLesson["position"]) => a.part - b.part || a.index - b.index;
 
+/** What the runner needs from a daily or extra lesson (feature 013); `id` keys an extra lesson's steps. */
+export type PlayableLesson = Pick<DailyLesson, "date" | "plan" | "position"> & { id?: string };
+
 /** Runner steps for the whole lesson, skipping exercises whose content is gone. */
-export function flattenLesson(lesson: DailyLesson, index: ContentIndex): FlatLesson {
+export function flattenLesson(lesson: PlayableLesson, index: ContentIndex): FlatLesson {
   const steps: RunnerStep[] = [];
   const positions: DailyLesson["position"][] = [];
   lesson.plan.forEach((part, partIndex) => {
     part.exercises.forEach((descriptor, exerciseIndex) => {
-      const step = prepareStep(descriptor, index, `${lesson.date}-${partIndex}-${exerciseIndex}`);
+      const step = prepareStep(descriptor, index, `${lesson.id ?? lesson.date}-${partIndex}-${exerciseIndex}`);
       if (!step) return;
       steps.push(step);
       positions.push({ part: partIndex, index: exerciseIndex });
@@ -88,7 +97,7 @@ export function flattenLesson(lesson: DailyLesson, index: ContentIndex): FlatLes
 }
 
 /** Plan position after the last step (the lesson is finished). */
-export function endPosition(lesson: DailyLesson): DailyLesson["position"] {
+export function endPosition(lesson: Pick<DailyLesson, "plan">): DailyLesson["position"] {
   return { part: lesson.plan.length, index: 0 };
 }
 

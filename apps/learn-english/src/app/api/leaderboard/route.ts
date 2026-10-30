@@ -1,5 +1,5 @@
 import type { z } from "zod";
-import { checkBoardName } from "@/learning/leaderboard";
+import { checkBoardName, daysBetween } from "@/learning/leaderboard";
 import { getDb } from "@/server/db";
 import {
   LEADERBOARD_MESSAGES as MESSAGES,
@@ -10,8 +10,8 @@ import {
 import { removeEntry, submitEntry } from "@/server/leaderboard/leaderboard.service";
 import { hashToken, isWriteThrottled } from "@/server/leaderboard/secret";
 
-// The weekly leaderboard (feature 007). The token is the entry's secret and
-// travels only in the body; every response is `no-store`.
+// The leaderboard (feature 007, ranked by streak since 013). The token is the
+// entry's secret and travels only in the body; every response is `no-store`.
 
 const NO_STORE = { "Cache-Control": "no-store" };
 /** Bodies are a few hundred bytes; anything far larger is refused unread. */
@@ -51,12 +51,14 @@ export async function POST(request: Request) {
   // The same name rules as the browser (AC-013), whatever it sent.
   const name = checkBoardName(body.data.name);
   if (!name.ok) return error(name.message, 422);
+  // Every time zone's date is within a day of UTC's (013 AC-016).
+  if (Math.abs(daysBetween(new Date().toISOString().slice(0, 10), body.data.today)) > 1) return error(MESSAGES.invalidBody, 422);
   if (await isWriteThrottled(request)) return error(MESSAGES.throttled, 429);
 
   const { token, ...entry } = body.data;
   try {
     const result = await submitEntry(getDb(), { ...entry, name: name.name, tokenHash: await hashToken(token) }, Date.now());
-    if (!result.ok) return error(MESSAGES.forbidden, 403);
+    if (!result.ok) return result.reason === "implausible" ? error(MESSAGES.implausible, 422) : error(MESSAGES.forbidden, 403);
     const response: SubmitResponse = { rank: result.rank, previousRank: result.previousRank, total: result.total, rows: result.rows };
     return json(response, 200);
   } catch (cause) {

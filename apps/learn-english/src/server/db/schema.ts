@@ -61,20 +61,23 @@ export const statsDevices = sqliteTable(
   (table) => [primaryKey({ columns: [table.day, table.deviceHash] })],
 );
 
-// Weekly leaderboard (feature 007), opt-in and separate from the anonymous
-// stats. One row per learner: `id` is random and made in the browser, only the
-// SHA-256 of its secret is stored, and a new week overwrites `week` and
-// `points`. Rows untouched for 90 days are deleted.
+// Leaderboard (feature 007; ranked by streak since feature 013), opt-in and
+// separate from the anonymous stats. One row per learner: `id` is random and
+// made in the browser, only the SHA-256 of its secret is stored. `streak` and
+// `earned` (points ever earned) are as of `last_date`, the learner's last daily
+// lesson; rows whose `last_date` is before yesterday are left off the board.
+// Rows untouched for 90 days are deleted.
 export const leaderboardEntries = sqliteTable(
   "leaderboard_entries",
   {
     id: text("id").primaryKey(),
     tokenHash: text("token_hash").notNull(),
     name: text("name").notNull(),
-    week: text("week").notNull(),
-    points: integer("points").notNull(),
+    streak: integer("streak").notNull().default(0),
+    earned: integer("earned").notNull().default(0),
+    lastDate: text("last_date").notNull().default(""),
     reachedAt: integer("reached_at").notNull(),
     updatedAt: integer("updated_at").notNull(),
   },
-  (table) => [index("leaderboard_entries_week_points").on(table.week, table.points)],
+  (table) => [index("leaderboard_entries_last_date_streak").on(table.lastDate, table.streak)],
 );

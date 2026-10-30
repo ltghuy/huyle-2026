@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { mergeSnapshots } from "./merge";
 import { toSnapshotMeta, type LearnerState, type SnapshotData } from "./snapshot";
-import type { Attempt, DailyLesson, Profile, StoredCard } from "./types";
+import type { Attempt, DailyLesson, ExtraLesson, Profile, StoredCard } from "./types";
 
 function card(extra: Partial<StoredCard> = {}): StoredCard {
   return {
@@ -55,14 +55,32 @@ const profile: Profile = {
 };
 
 function local(extra: Partial<LearnerState> = {}): LearnerState {
-  return { profile, cards: [], attendance: [], lessons: [], attempts: [], ...extra };
+  return { profile, cards: [], attendance: [], lessons: [], extraLessons: [], attempts: [], ...extra };
 }
 
 function remote(extra: Partial<SnapshotData> = {}): SnapshotData {
-  return { meta: toSnapshotMeta(profile), cards: [], attendance: [], lessons: [], attempts: [], ...extra };
+  return { meta: toSnapshotMeta(profile), cards: [], attendance: [], lessons: [], extraLessons: [], attempts: [], ...extra };
+}
+
+function extra(id: string, more: Partial<ExtraLesson> = {}): ExtraLesson {
+  return { id, date: "2026-10-30", price: 10, purchasedAt: 1, contentVersion: 1, plan: [], position: { part: 0, index: 0 }, updatedAt: 1, ...more };
 }
 
 describe("mergeSnapshots", () => {
+  it("keeps every device's extra lesson purchases (013 AC-018)", () => {
+    const merged = mergeSnapshots(local({ extraLessons: [extra("2026-10-30#1#aaaa")] }), remote({ extraLessons: [extra("2026-10-30#1#bbbb")] }));
+    expect(merged.extraLessons.map((e) => e.id)).toEqual(["2026-10-30#1#aaaa", "2026-10-30#1#bbbb"]);
+  });
+
+  it("takes the further progress of the same extra lesson, and never a trimmed plan over a full one", () => {
+    const plan = [{ kind: "review" as const, exercises: [] }];
+    const merged = mergeSnapshots(
+      local({ extraLessons: [extra("x", { plan, position: { part: 0, index: 2 } })] }),
+      remote({ extraLessons: [extra("x", { plan: [], completedAt: 5 })] }),
+    );
+    expect(merged.extraLessons).toEqual([extra("x", { plan, completedAt: 5 })]);
+  });
+
   it("unions attempts by id without duplicates", () => {
     const merged = mergeSnapshots(
       local({ attempts: [attempt("a", 1), attempt("b", 3)] }),

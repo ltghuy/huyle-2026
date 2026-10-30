@@ -7,9 +7,9 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useProfile } from "@/hooks/use-profile";
 import { checkBoardName } from "@/learning/leaderboard";
 import type { LeaderboardState, Profile } from "@/learning/types";
-import { BoardError, declineBoard, joinBoard, submitWeek, type BoardResult } from "@/lib/leaderboard-client";
+import { BoardError, declineBoard, joinBoard, submitStreak, type BoardResult } from "@/lib/leaderboard-client";
 import { BoardNameField } from "./board-name-field";
-import { WeeklyBoard } from "./weekly-board";
+import { StreakBoard } from "./streak-board";
 
 type Joined = Extract<LeaderboardState, { status: "joined" }>;
 type Stage = { kind: "idle" } | { kind: "board"; result: BoardResult } | { kind: "failed"; message: string };
@@ -18,8 +18,8 @@ const FAILED = "Chưa tải được bảng xếp hạng. Điểm của bạn v�
 
 /**
  * After an awarded daily lesson (feature 007): asks once whether to join the
- * weekly board (AC-007, AC-008), and for learners on it sends this week's
- * points and shows where they stand (AC-001, AC-006). Never blocks the lesson.
+ * board (AC-007, AC-008), and for learners on it sends the streak and shows
+ * where they stand (AC-001, AC-006; 013 AC-010). Never blocks the lesson.
  */
 export function BoardAfterLesson() {
   const profile = useProfile();
@@ -32,7 +32,7 @@ export function BoardAfterLesson() {
 
   async function showBoard(entry: Joined, owner: Pick<Profile, "timeZone">) {
     try {
-      setStage({ kind: "board", result: await submitWeek(entry, owner, Date.now()) });
+      setStage({ kind: "board", result: await submitStreak(entry, owner, Date.now()) });
     } catch (error) {
       setStage({ kind: "failed", message: error instanceof BoardError ? `${error.message} ${FAILED}` : FAILED });
     }
@@ -57,10 +57,10 @@ export function BoardAfterLesson() {
       <Dialog open={stage.kind === "board"} onOpenChange={(open) => !open && setStage({ kind: "idle" })}>
         <DialogContent showCloseButton={false} className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Bảng xếp hạng tuần này</DialogTitle>
-            <DialogDescription className="sr-only">Vị trí của bạn so với những người học khác trong tuần.</DialogDescription>
+            <DialogTitle>Bảng xếp hạng chuỗi ngày học</DialogTitle>
+            <DialogDescription className="sr-only">Vị trí của bạn so với những người học khác, theo số ngày học liên tiếp.</DialogDescription>
           </DialogHeader>
-          {stage.kind === "board" ? <WeeklyBoard result={stage.result} /> : null}
+          {stage.kind === "board" ? <StreakBoard result={stage.result} /> : null}
           <DialogFooter>
             <Button size="lg" className="h-11 w-full" onClick={() => setStage({ kind: "idle" })}>
               Tiếp tục
@@ -122,9 +122,9 @@ function BoardConsent({ initialName, onJoined }: BoardConsentProps) {
       <DialogContent showCloseButton={false} className="sm:max-w-md">
         <form className="grid gap-4" onSubmit={handleJoin} noValidate>
           <DialogHeader>
-            <DialogTitle>Tham gia bảng xếp hạng tuần?</DialogTitle>
+            <DialogTitle>Tham gia bảng xếp hạng?</DialogTitle>
             <DialogDescription>
-              Tên bạn chọn và điểm chuyên cần tuần này sẽ hiện cho những người học khác. Bạn có thể rời bảng bất cứ lúc nào trong Cài đặt.
+              Bảng xếp theo số ngày học liên tiếp. Tên bạn chọn và chuỗi ngày học của bạn sẽ hiện cho những người học khác. Bạn có thể rời bảng bất cứ lúc nào trong Cài đặt.
             </DialogDescription>
           </DialogHeader>
           <BoardNameField id="board-name" value={name} error={error} onChange={handleNameChange} />

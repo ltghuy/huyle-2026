@@ -96,6 +96,7 @@ describe("BackupPanel", () => {
         cards: [makeCard("word:apple", now), makeCard("word:cat", now)],
         attempts: [makeAttempt("other-1", "word:apple", now)],
         lessons: [],
+        extraLessons: [],
         attendance: [{ date: "2026-10-25", points: 10, bonus: 0, at: now }],
       },
       now,

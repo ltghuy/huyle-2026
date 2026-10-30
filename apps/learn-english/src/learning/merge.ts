@@ -1,5 +1,5 @@
 import type { LearnerState, SnapshotData, SnapshotMeta } from "./snapshot";
-import type { Attempt, Attendance, DailyLesson, Profile, StoredCard } from "./types";
+import type { Attempt, Attendance, DailyLesson, ExtraLesson, Profile, StoredCard } from "./types";
 
 function byKey<T>(rows: readonly T[], key: (row: T) => string): Map<string, T> {
   return new Map(rows.map((row) => [key(row), row]));
@@ -30,7 +30,7 @@ function pickAttendance(local: Attendance, remote: Attendance): Attendance {
 }
 
 /** Completed wins (the earlier completion if both); else the further position, then later `updatedAt`. */
-function pickLesson(local: DailyLesson, remote: DailyLesson): DailyLesson {
+function pickLesson<T extends Pick<DailyLesson, "position" | "completedAt" | "updatedAt">>(local: T, remote: T): T {
   if (local.completedAt !== undefined || remote.completedAt !== undefined) {
     if (remote.completedAt === undefined) return local;
     if (local.completedAt === undefined) return remote;
@@ -41,6 +41,13 @@ function pickLesson(local: DailyLesson, remote: DailyLesson): DailyLesson {
     remote.position.index - local.position.index ||
     remote.updatedAt - local.updatedAt;
   return order > 0 ? remote : local;
+}
+
+/** Progress as for daily lessons; a plan trimmed from an old snapshot never replaces the full one. */
+function pickExtraLesson(local: ExtraLesson, remote: ExtraLesson): ExtraLesson {
+  const picked = pickLesson(local, remote);
+  const other = picked === local ? remote : local;
+  return picked.plan.length === 0 && other.plan.length > 0 ? { ...picked, plan: other.plan } : picked;
 }
 
 /**
@@ -80,6 +87,10 @@ export function mergeSnapshots(local: LearnerState, remote: SnapshotData): Learn
     ),
     lessons: unionBy(local.lessons, remote.lessons, (lesson) => lesson.date, pickLesson).sort((a, b) =>
       compareText(a.date, b.date),
+    ),
+    // Every purchase from every device is kept (feature 013): ids never collide across devices.
+    extraLessons: unionBy<ExtraLesson>(local.extraLessons, remote.extraLessons, (extra) => extra.id, pickExtraLesson).sort((a, b) =>
+      compareText(a.id, b.id),
     ),
     attempts: unionBy<Attempt>(local.attempts, remote.attempts, (attempt) => attempt.id, (mine) => mine).sort(
       (a, b) => a.at - b.at || compareText(a.id, b.id),

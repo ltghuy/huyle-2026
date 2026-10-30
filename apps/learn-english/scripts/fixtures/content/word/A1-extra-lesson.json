@@ -1,0 +1,140 @@
+[
+  {
+    "id": "word:red-adj",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "red",
+      "variants": [],
+      "pos": "adjective",
+      "ipa": "/rɛd/",
+      "meaningsVi": [
+        "màu đỏ"
+      ],
+      "examples": [
+        "sentence:fx-red-adj"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:milk-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "milk",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/mɪlk/",
+      "meaningsVi": [
+        "sữa"
+      ],
+      "examples": [
+        "sentence:fx-milk-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:tree-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "tree",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/triː/",
+      "meaningsVi": [
+        "cái cây"
+      ],
+      "examples": [
+        "sentence:fx-tree-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:sun-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "sun",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/sʌn/",
+      "meaningsVi": [
+        "mặt trời"
+      ],
+      "examples": [
+        "sentence:fx-sun-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:chair-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "chair",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/tʃɛr/",
+      "meaningsVi": [
+        "cái ghế"
+      ],
+      "examples": [
+        "sentence:fx-chair-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:bread-n",
+    "kind": "word",
+    "level": "A1",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "bread",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/brɛd/",
+      "meaningsVi": [
+        "bánh mì"
+      ],
+      "examples": [
+        "sentence:fx-bread-n"
+      ],
+      "synonyms": [],
+      "audio": "",
+      "source": "cefrj-1.5"
+    }
+  }
+]

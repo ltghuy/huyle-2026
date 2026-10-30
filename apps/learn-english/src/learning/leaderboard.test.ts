@@ -1,35 +1,39 @@
 import { describe, expect, it } from "vitest";
-import { BOARD_NAME_ERRORS, checkBoardName, MAX_WEEK_POINTS, slideOffsets, weekKey, weekPoints, weekStart, type BoardRow } from "./leaderboard";
+import {
+  BOARD_EPOCH,
+  BOARD_NAME_ERRORS,
+  BONUS_ALLOWANCE,
+  boardLimits,
+  boardNumbers,
+  checkBoardName,
+  daysBetween,
+  previousDay,
+  slideOffsets,
+  type BoardRow,
+} from "./leaderboard";
 import type { Attendance } from "./types";
 
 const day = (date: string, points = 10, bonus = 0): Attendance => ({ date, points, bonus, at: 0 });
 
-describe("weeks (AC-005)", () => {
-  it("starts on Monday", () => {
-    expect(weekStart("2026-10-28")).toBe("2026-10-26"); // Wednesday
-    expect(weekStart("2026-10-26")).toBe("2026-10-26"); // Monday
-    expect(weekStart("2026-11-01")).toBe("2026-10-26"); // Sunday
+describe("boardNumbers (013 AC-010)", () => {
+  it("sends the current streak and points ever earned, and the same before today's lesson", () => {
+    const rows = [day("2026-10-27", 10), day("2026-10-28", 20), day("2026-10-29", 20), day("2026-10-30", 20, 20)];
+    expect(boardNumbers(rows, "2026-10-30")).toEqual({ lastDate: "2026-10-30", streak: 4, earned: 90, previousStreak: 3, previousEarned: 50 });
   });
 
-  it("names ISO weeks, including across a year change", () => {
-    expect(weekKey("2026-10-28")).toBe("2026-W44");
-    expect(weekKey("2026-01-01")).toBe("2026-W01"); // Thursday
-    expect(weekKey("2027-01-01")).toBe("2026-W53"); // Friday of the last 2026 week
-    expect(weekKey("2027-01-04")).toBe("2027-W01");
-    expect(weekKey("2024-12-30")).toBe("2025-W01");
+  it("keeps the streak from yesterday before today's lesson, and drops it after a missed day", () => {
+    expect(boardNumbers([day("2026-10-29")], "2026-10-30")).toMatchObject({ lastDate: "2026-10-29", streak: 1, previousStreak: 1 });
+    expect(boardNumbers([day("2026-10-27")], "2026-10-30")).toMatchObject({ lastDate: "2026-10-27", streak: 0, earned: 10 });
+    expect(boardNumbers([], "2026-10-30")).toEqual({ lastDate: "", streak: 0, earned: 0, previousStreak: 0, previousEarned: 0 });
   });
+});
 
-  it("counts this week's points, with and without today", () => {
-    const rows = [day("2026-10-25"), day("2026-10-26"), day("2026-10-27", 10, 20), day("2026-10-28")];
-    expect(weekPoints(rows, "2026-10-28")).toEqual({ points: 50, previousPoints: 40 });
-    // Monday: last week's points don't count, so the week starts at 0.
-    expect(weekPoints(rows, "2026-10-26")).toEqual({ points: 10, previousPoints: 0 });
-  });
-
-  it("caps a week at the most the app can award", () => {
-    const dates = ["2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01"];
-    const rows = dates.map((date) => day(date, 10, 100));
-    expect(weekPoints(rows, "2026-11-01").points).toBeLessThanOrEqual(MAX_WEEK_POINTS);
+describe("boardLimits (013 AC-016)", () => {
+  it("allows one streak day per day since the app opened", () => {
+    expect(boardLimits(BOARD_EPOCH)).toEqual({ streak: 1, earned: 20 + BONUS_ALLOWANCE });
+    expect(boardLimits("2026-10-30").streak).toBe(5);
+    expect(daysBetween("2026-10-29", "2026-11-02")).toBe(4);
+    expect(previousDay("2026-11-01")).toBe("2026-10-31");
   });
 });
 
@@ -57,22 +61,22 @@ describe("checkBoardName (AC-012)", () => {
   });
 });
 
-describe("slideOffsets (AC-002, AC-003)", () => {
-  const row = (position: number, points: number, me = false): BoardRow => ({ position, name: `L${position}`, points, me });
+describe("slideOffsets (007 AC-002, 013 AC-012)", () => {
+  const row = (position: number, streak: number, earned: number, me = false): BoardRow => ({ position, name: `L${position}`, streak, earned, me });
 
   it("starts the learner below the rows they overtook, and those rows one place up", () => {
-    // Now 5th with 40 points; had 20 before, so the 6th (30) and 7th (25) were above.
-    const rows = [row(4, 50), row(5, 40, true), row(6, 30), row(7, 25), row(8, 10)];
-    expect(slideOffsets(rows, 20)).toEqual([0, 2, -1, -1, 0]);
+    // Now 5th on a 6-day streak; was on 5 days with 100 points, so the 6th (5 days, 120) and 7th (5 days, 110) were above.
+    const rows = [row(4, 9, 200), row(5, 6, 120, true), row(6, 5, 120), row(7, 5, 110), row(8, 5, 90)];
+    expect(slideOffsets(rows, { streak: 5, earned: 100 })).toEqual([0, 2, -1, -1, 0]);
   });
 
   it("doesn't move anything when nobody was overtaken", () => {
-    const rows = [row(1, 50), row(2, 40, true), row(3, 10)];
-    expect(slideOffsets(rows, 30)).toEqual([0, 0, 0]);
+    const rows = [row(1, 9, 50), row(2, 6, 40, true), row(3, 2, 10)];
+    expect(slideOffsets(rows, { streak: 5, earned: 30 })).toEqual([0, 0, 0]);
   });
 
   it("treats a tie as not overtaken", () => {
-    const rows = [row(1, 40, true), row(2, 20)];
-    expect(slideOffsets(rows, 20)).toEqual([0, 0]);
+    const rows = [row(1, 6, 40, true), row(2, 5, 20)];
+    expect(slideOffsets(rows, { streak: 5, earned: 20 })).toEqual([0, 0]);
   });
 });

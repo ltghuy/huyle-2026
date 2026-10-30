@@ -1,0 +1,198 @@
+[
+  {
+    "id": "sentence:fx-red-adj",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I like the red car.",
+      "vi": "Tôi thích chiếc xe màu đỏ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "like",
+        "the",
+        "red",
+        "car"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:red-adj"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-milk-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "She drinks milk.",
+      "vi": "Cô ấy uống sữa.",
+      "audio": "",
+      "tokens": [
+        "She",
+        "drinks",
+        "milk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:milk-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-tree-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "The tree is tall.",
+      "vi": "Cái cây cao.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "tree",
+        "is",
+        "tall"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:tree-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-sun-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "The sun is hot.",
+      "vi": "Mặt trời nóng.",
+      "audio": "",
+      "tokens": [
+        "The",
+        "sun",
+        "is",
+        "hot"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:sun-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-chair-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "This chair is new.",
+      "vi": "Cái ghế này mới.",
+      "audio": "",
+      "tokens": [
+        "This",
+        "chair",
+        "is",
+        "new"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        1
+      ],
+      "wordIds": [
+        "word:chair-n"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fx-bread-n",
+    "kind": "sentence",
+    "level": "A1",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "We eat bread.",
+      "vi": "Chúng tôi ăn bánh mì.",
+      "audio": "",
+      "tokens": [
+        "We",
+        "eat",
+        "bread"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [
+        "word:bread-n"
+      ]
+    }
+  }
+]

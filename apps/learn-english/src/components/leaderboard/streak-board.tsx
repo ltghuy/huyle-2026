@@ -18,18 +18,18 @@ function prefersReducedMotion(): boolean {
 function headline({ rank, previousRank, total }: BoardResult): string {
   const moved = previousRank - rank;
   if (moved > 0) return `Bạn lên hạng ${rank}, vượt qua ${moved} bạn!`;
-  if (total === 1) return "Bạn là người đầu tiên trên bảng tuần này. Giữ vững nhé!";
-  return `Bạn đang hạng ${rank} trong ${total} bạn. Học tiếp để lên hạng nhé!`;
+  if (total === 1) return "Bạn đang dẫn đầu bảng xếp hạng. Giữ vững chuỗi nhé!";
+  return `Bạn đang hạng ${rank} trong ${total} bạn. Học đều mỗi ngày để lên hạng nhé!`;
 }
 
 /**
- * This week's board around the learner (AC-001–AC-004). When they moved up,
+ * The board around the learner, ranked by streak (007 AC-001–AC-004, 013 AC-010, AC-012). When they moved up,
  * their row starts below the learners they just overtook and slides to its
  * new place while those rows move down one; with reduced motion it shows the
  * final board at once.
  */
-export function WeeklyBoard({ result }: { result: BoardResult }) {
-  const offsets = slideOffsets(result.rows, result.previousPoints);
+export function StreakBoard({ result }: { result: BoardResult }) {
+  const offsets = slideOffsets(result.rows, result.previous);
   const moves = offsets.some((offset) => offset !== 0);
   const [settled, setSettled] = useState(() => !moves || prefersReducedMotion());
 
@@ -45,7 +45,7 @@ export function WeeklyBoard({ result }: { result: BoardResult }) {
         <Trophy className="size-5 shrink-0 text-streak" aria-hidden />
         {headline(result)}
       </p>
-      <ol className="grid gap-2" aria-label="Bảng xếp hạng tuần này">
+      <ol className="grid gap-2" aria-label="Bảng xếp hạng chuỗi ngày học">
         {result.rows.map((row, i) => (
           <li
             key={`${row.position}-${row.name}`}
@@ -61,11 +61,11 @@ export function WeeklyBoard({ result }: { result: BoardResult }) {
               {row.name}
               {row.me ? <span className="ml-1 text-sm font-normal text-muted-foreground">(bạn)</span> : null}
             </span>
-            <span className="tabular-nums">{row.points} điểm</span>
+            <span className="tabular-nums">{row.streak} ngày</span>
           </li>
         ))}
       </ol>
-      <p className="text-sm text-muted-foreground">Xếp theo điểm chuyên cần từ thứ Hai tuần này. Mỗi thứ Hai, mọi người bắt đầu lại từ 0.</p>
+      <p className="text-sm text-muted-foreground">Xếp theo số ngày học liên tiếp. Bằng nhau thì ai có nhiều điểm hơn đứng trên. Bỏ một ngày là chuỗi về 0.</p>
     </div>
   );
 }

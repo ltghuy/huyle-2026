@@ -52,6 +52,7 @@ describe("SyncPanel", () => {
         cards: [makeCard("word:a", 0), makeCard("word:b", 0)],
         attempts: [],
         lessons: [],
+        extraLessons: [],
         attendance: [{ date: "2026-10-20", points: 10, bonus: 0, at: 1 }],
       },
       Date.now(),

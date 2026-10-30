@@ -37,6 +37,7 @@ describe("replaceAll / resetAll", () => {
       cards: [makeCard("word:new", 2)],
       attempts: [makeAttempt("a-new", "word:new", 2)],
       lessons: [],
+      extraLessons: [],
       attendance: [{ date: "2026-10-20", points: 10, bonus: 0, at: 2 }],
     });
 

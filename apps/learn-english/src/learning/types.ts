@@ -98,6 +98,25 @@ export interface DailyLesson {
   updatedAt: number;
 }
 
+/**
+ * An extra lesson bought with points after the daily one (feature 013). The
+ * row is also the spend record: its `price` counts against the balance even
+ * after its plan is trimmed from old snapshots. `id` is `${date}#${n}#${random}`:
+ * the purchase number that day on this device, and a random part so two
+ * devices' purchases never collide when they merge.
+ */
+export interface ExtraLesson {
+  id: string;
+  date: string;
+  price: number;
+  purchasedAt: number;
+  contentVersion: number;
+  plan: LessonPart[];
+  position: { part: number; index: number };
+  completedAt?: number;
+  updatedAt: number;
+}
+
 export interface Attendance {
   date: string;
   points: number;

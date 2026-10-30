@@ -1,14 +1,14 @@
 import { localDate } from "@/learning/attendance";
-import { weekKey, weekPoints } from "@/learning/leaderboard";
+import { boardNumbers, type BoardNumbers } from "@/learning/leaderboard";
 import type { LeaderboardState, Profile } from "@/learning/types";
 import type { ApiError } from "@/lib/http";
 import { LEADERBOARD_MESSAGES, type SubmitBody, type SubmitResponse } from "@/server/leaderboard/leaderboard.schema";
 import { getAllAttendance } from "@/storage/attendance";
 import { updateProfile } from "@/storage/meta";
 
-// Browser side of the weekly leaderboard (feature 007). The entry's id and
-// secret are made here and kept on the profile; the server only ever sees the
-// shown name and this week's points.
+// Browser side of the leaderboard (feature 007, ranked by streak since 013).
+// The entry's id and secret are made here and kept on the profile; the server
+// only ever sees the shown name, the current streak and points ever earned.
 
 export const LEADERBOARD_URL = "/api/leaderboard";
 
@@ -18,8 +18,8 @@ type Joined = Extract<LeaderboardState, { status: "joined" }>;
 export class BoardError extends Error {}
 
 export interface BoardResult extends SubmitResponse {
-  /** The learner's points before this lesson, for the slide (`slideOffsets`). */
-  previousPoints: number;
+  /** The learner's numbers before this lesson, for the slide (`slideOffsets`). */
+  previous: { streak: number; earned: number };
 }
 
 /** 32 random bytes as base64url without padding (the server's TOKEN_PATTERN). */
@@ -54,29 +54,29 @@ export async function declineBoard(now: number): Promise<void> {
   await updateProfile({ leaderboard: { status: "declined" } }, now);
 }
 
-/** This week's points for the board, from attendance in the learner's time zone. */
-async function thisWeek(profile: Pick<Profile, "timeZone">, now: number) {
+/** The learner's board numbers today, from attendance in their time zone. */
+async function numbersToday(profile: Pick<Profile, "timeZone">, now: number): Promise<BoardNumbers & { today: string }> {
   const today = localDate(now, profile.timeZone);
-  return { week: weekKey(today), ...weekPoints(await getAllAttendance(), today) };
+  return { today, ...boardNumbers(await getAllAttendance(), today) };
 }
 
-/** Sends this week's points and returns the learner's place before and after this lesson. */
-export async function submitWeek(entry: Joined, profile: Pick<Profile, "timeZone">, now: number): Promise<BoardResult> {
-  const week = await thisWeek(profile, now);
-  const body: SubmitBody = { id: entry.id, token: entry.token, name: entry.name, ...week };
+/** Sends the streak after a daily lesson and returns the learner's place before and after it (013 AC-010). */
+export async function submitStreak(entry: Joined, profile: Pick<Profile, "timeZone">, now: number): Promise<BoardResult> {
+  const numbers = await numbersToday(profile, now);
+  const body: SubmitBody = { id: entry.id, token: entry.token, name: entry.name, ...numbers };
   const result = (await (await send("POST", body)).json()) as SubmitResponse;
-  return { ...result, previousPoints: week.previousPoints };
+  return { ...result, previous: { streak: numbers.previousStreak, earned: numbers.previousEarned } };
 }
 
 /**
- * Changes the shown name. With points this week the entry is updated now;
+ * Changes the shown name. While the streak is alive the entry is updated now;
  * otherwise the new name goes up with the next lesson, so a rename alone
- * never puts a learner with 0 points on the board.
+ * never puts a learner with a broken streak back on the board.
  */
 export async function renameOnBoard(entry: Joined, name: string, profile: Pick<Profile, "timeZone">, now: number): Promise<void> {
-  const week = await thisWeek(profile, now);
-  if (week.points > 0) {
-    const body: SubmitBody = { id: entry.id, token: entry.token, name, ...week, previousPoints: week.points };
+  const numbers = await numbersToday(profile, now);
+  if (numbers.streak > 0) {
+    const body: SubmitBody = { id: entry.id, token: entry.token, name, ...numbers, previousStreak: numbers.streak, previousEarned: numbers.earned };
     await send("POST", body);
   }
   await updateProfile({ leaderboard: { ...entry, name } }, now);

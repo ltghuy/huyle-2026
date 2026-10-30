@@ -34,21 +34,29 @@ export interface AnswerRecord {
   attempt: Attempt;
   /** The card after scheduling; omitted for answers that don't move a card. */
   card?: StoredCard;
-  /** Moves this date's lesson to `position` (ignored when the lesson is missing). */
-  lesson?: { date: string; position: { part: number; index: number }; updatedAt: number };
+  /** Moves this date's lesson, or this extra lesson (feature 013), to `position` (ignored when the lesson is missing). */
+  lesson?: LessonPosition;
 }
+
+/** The daily lesson of `date`, or the extra lesson `extraId`, at `position`. */
+export type LessonAt = ({ date: string } | { extraId: string }) & { position: { part: number; index: number } };
+
+export type LessonPosition = LessonAt & { updatedAt: number };
 
 /** Saves one answer (attempt, card, lesson position) in a single transaction. */
 export async function recordAnswer({ attempt, card, lesson }: AnswerRecord): Promise<void> {
   const stores: StoreName[] = ["attempts"];
   if (card) stores.push("cards");
-  if (lesson) stores.push("lessons");
+  if (lesson) stores.push("date" in lesson ? "lessons" : "extraLessons");
   await (await getDb()).transaction(stores, async (tx) => {
     await tx.put("attempts", attempt);
     if (card) await tx.put("cards", card);
-    if (lesson) {
+    if (lesson && "date" in lesson) {
       const stored = await tx.get("lessons", lesson.date);
       if (stored) await tx.put("lessons", { ...stored, position: lesson.position, updatedAt: lesson.updatedAt });
+    } else if (lesson) {
+      const stored = await tx.get("extraLessons", lesson.extraId);
+      if (stored) await tx.put("extraLessons", { ...stored, position: lesson.position, updatedAt: lesson.updatedAt });
     }
   });
   notifyChanged(stores);

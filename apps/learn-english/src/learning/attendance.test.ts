@@ -17,15 +17,15 @@ describe("localDate", () => {
 });
 
 describe("pointsFor", () => {
-  it("gives 10 points a day", () => {
-    expect(pointsFor(1)).toEqual({ points: 10, bonus: 0 });
-    expect(pointsFor(8)).toEqual({ points: 10, bonus: 0 });
+  it("gives 20 points a day", () => {
+    expect(pointsFor(1)).toEqual({ points: 20, bonus: 0 });
+    expect(pointsFor(8)).toEqual({ points: 20, bonus: 0 });
   });
 
   it("adds bonuses at exactly 7, 30 and 100 days", () => {
-    expect(pointsFor(7)).toEqual({ points: 10, bonus: 20 });
-    expect(pointsFor(30)).toEqual({ points: 10, bonus: 30 });
-    expect(pointsFor(100)).toEqual({ points: 10, bonus: 100 });
+    expect(pointsFor(7)).toEqual({ points: 20, bonus: 20 });
+    expect(pointsFor(30)).toEqual({ points: 20, bonus: 30 });
+    expect(pointsFor(100)).toEqual({ points: 20, bonus: 100 });
     expect(pointsFor(14).bonus).toBe(0);
     expect(pointsFor(101).bonus).toBe(0);
   });

@@ -1,8 +1,8 @@
 import { openDB, type IDBPDatabase, type IDBPTransaction } from "idb";
-import type { Attempt, Attendance, DailyLesson, StoredCard } from "@/learning/types";
+import type { Attempt, Attendance, DailyLesson, ExtraLesson, StoredCard } from "@/learning/types";
 
 export const DB_NAME = "learn-english";
-export const DB_VERSION = 1;
+export const DB_VERSION = 2;
 
 /** One row of the `meta` store: a small key-value record (the profile lives under "profile"). */
 export interface MetaRecord<T = unknown> {
@@ -24,6 +24,7 @@ export interface StoreValues {
   cards: StoredCard;
   attempts: Attempt;
   lessons: DailyLesson;
+  extraLessons: ExtraLesson;
   attendance: Attendance;
   meta: MetaRecord;
   content: ContentCacheEntry;
@@ -34,13 +35,16 @@ export type Key = number | string | Key[];
 
 // Every store keeps its key inside the value, so one key path describes it for
 // both IndexedDB and the in-memory fallback.
-const STORES: { [S in StoreName]: { keyPath: string; indexes: Record<string, string | string[]> } } = {
-  cards: { keyPath: "itemId", indexes: { due: "due" } },
-  attempts: { keyPath: "id", indexes: { itemId_at: ["itemId", "at"], at: "at" } },
-  lessons: { keyPath: "date", indexes: {} },
-  attendance: { keyPath: "date", indexes: {} },
-  meta: { keyPath: "key", indexes: {} },
-  content: { keyPath: "key", indexes: {} },
+// `since` is the database version that added the store.
+const STORES: { [S in StoreName]: { keyPath: string; indexes: Record<string, string | string[]>; since: number } } = {
+  cards: { keyPath: "itemId", indexes: { due: "due" }, since: 1 },
+  attempts: { keyPath: "id", indexes: { itemId_at: ["itemId", "at"], at: "at" }, since: 1 },
+  lessons: { keyPath: "date", indexes: {}, since: 1 },
+  // Extra lessons bought with points (feature 013).
+  extraLessons: { keyPath: "id", indexes: { date: "date" }, since: 2 },
+  attendance: { keyPath: "date", indexes: {}, since: 1 },
+  meta: { keyPath: "key", indexes: {}, since: 1 },
+  content: { keyPath: "key", indexes: {}, since: 1 },
 };
 
 export interface KeyRange {
@@ -85,12 +89,12 @@ function toIdbRange({ lower, upper }: KeyRange): IDBKeyRange | undefined {
 
 async function openIndexedDb(): Promise<Backend> {
   const db: IDBPDatabase = await openDB(DB_NAME, DB_VERSION, {
+    // Creates the stores added after `oldVersion`; existing stores and data are left alone.
     upgrade(database, oldVersion) {
-      if (oldVersion < 1) {
-        for (const [name, { keyPath, indexes }] of Object.entries(STORES)) {
-          const store = database.createObjectStore(name, { keyPath });
-          for (const [index, path] of Object.entries(indexes)) store.createIndex(index, path);
-        }
+      for (const [name, { keyPath, indexes, since }] of Object.entries(STORES)) {
+        if (since <= oldVersion) continue;
+        const store = database.createObjectStore(name, { keyPath });
+        for (const [index, path] of Object.entries(indexes)) store.createIndex(index, path);
       }
     },
   });

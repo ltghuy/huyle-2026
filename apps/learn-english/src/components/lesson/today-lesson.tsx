@@ -13,6 +13,7 @@ import { useProfile } from "@/hooks/use-profile";
 import { useStorageQuery } from "@/hooks/use-storage-query";
 import { cn } from "@/lib/utils";
 import { flattenLesson, getOrCreateTodayLesson, PART_LABELS } from "@/lib/session/today";
+import { ExtraLessonCard } from "./extra-lesson-card";
 import { FollowedSetCard } from "./followed-set-card";
 import { StreakSummary } from "./streak-summary";
 
@@ -71,7 +72,7 @@ export function TodayLesson() {
               {done ? "Bạn đã học xong hôm nay" : startAt > 0 ? "Học tiếp bài hôm nay" : "Bài hôm nay đã sẵn sàng"}
             </h2>
             <p className="text-sm text-muted-foreground">
-              {done ? "Hẹn gặp lại bạn ngày mai." : `${steps.length} bước · khoảng ${estimateMinutes(lesson.plan.flatMap((part) => part.exercises))} phút`}
+              {done ? "Bạn có thể ôn tập, làm bài tập hoặc dùng điểm để học thêm." : `${steps.length} bước · khoảng ${estimateMinutes(lesson.plan.flatMap((part) => part.exercises))} phút`}
             </p>
           </div>
           {done ? <PartyPopper className="size-7 text-success" aria-hidden /> : null}
@@ -103,6 +104,7 @@ export function TodayLesson() {
           </Link>
         )}
       </section>
+      {done ? <ExtraLessonCard profile={ready} index={index} contentVersion={version} /> : null}
       <FollowedSetCard vocabSet={ready.vocabSet} index={index} />
     </div>
   );

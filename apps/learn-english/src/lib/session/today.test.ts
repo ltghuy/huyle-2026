@@ -47,7 +47,7 @@ describe("today's lesson", () => {
     const lesson = await getOrCreateTodayLesson({ profile, index, contentVersion: 1, now });
     const [a, b] = await Promise.all([completeLesson(lesson, now), completeLesson(lesson, now)]);
     expect([a.result, b.result].sort()).toEqual(["already-awarded", "awarded"]);
-    expect([a.points, b.points].sort()).toEqual([0, 10]);
+    expect([a.points, b.points].sort()).toEqual([0, 20]);
     expect(await getAllAttendance()).toHaveLength(1);
     expect((await getLesson(lesson.date))?.completedAt).toBe(now);
   });

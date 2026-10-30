@@ -1,7 +1,7 @@
 import { DEFAULT_TIME_ZONE, type Attendance } from "./types";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-export const DAILY_POINTS = 10;
+export const DAILY_POINTS = 20;
 const STREAK_BONUS: Record<number, number> = { 7: 20, 30: 30, 100: 100 };
 
 const formatters = new Map<string, Intl.DateTimeFormat>();

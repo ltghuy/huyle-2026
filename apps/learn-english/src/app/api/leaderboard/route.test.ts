@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { BOARD_NAME_ERRORS } from "@/learning/leaderboard";
 import type { ApiError } from "@/lib/http";
 import { LEADERBOARD_MESSAGES } from "@/server/leaderboard/leaderboard.schema";
@@ -15,7 +15,8 @@ const { POST, DELETE } = await import("./route");
 
 const ID = "00000000-0000-4000-8000-000000000001";
 const TOKEN = "a".repeat(43);
-const BODY = { id: ID, token: TOKEN, name: "Minh Anh", week: "2026-W44", points: 40, previousPoints: 30 };
+const NOW = Date.parse("2026-11-20T10:00:00Z");
+const BODY = { id: ID, token: TOKEN, name: "Minh Anh", today: "2026-11-20", lastDate: "2026-11-20", streak: 6, earned: 120, previousStreak: 5, previousEarned: 100 };
 
 function request(method: string, body: unknown) {
   return new Request("https://english.huyle.work/api/leaderboard", {
@@ -30,10 +31,15 @@ async function message(response: Response) {
 }
 
 beforeEach(() => {
+  vi.useFakeTimers({ toFake: ["Date"], now: NOW });
   service.submitEntry.mockReset().mockResolvedValue({ ok: true, rank: 1, previousRank: 2, total: 2, rows: [] });
   service.removeEntry.mockReset().mockResolvedValue({ ok: true });
   limit.mockReset().mockResolvedValue({ success: true });
   env.LEADERBOARD_LIMITER = { limit };
+});
+
+afterEach(() => {
+  vi.useRealTimers();
 });
 
 describe("POST /api/leaderboard", () => {
@@ -43,16 +49,19 @@ describe("POST /api/leaderboard", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(await response.json()).toEqual({ rank: 1, previousRank: 2, total: 2, rows: [] });
     const [, input] = service.submitEntry.mock.calls[0];
-    expect(input).toMatchObject({ id: ID, name: "Minh Anh", week: "2026-W44", points: 40, previousPoints: 30 });
+    expect(input).toMatchObject({ id: ID, name: "Minh Anh", today: "2026-11-20", lastDate: "2026-11-20", streak: 6, earned: 120, previousStreak: 5, previousEarned: 100 });
     expect(input.tokenHash).toMatch(/^[0-9a-f]{64}$/);
     expect(JSON.stringify(input)).not.toContain(TOKEN);
   });
 
   it.each([
     ["broken JSON", "{", 400],
-    ["points over a week's maximum (AC-015)", { ...BODY, points: 301 }, 422],
-    ["more points before than after", { ...BODY, previousPoints: 50 }, 422],
-    ["a malformed week", { ...BODY, week: "2026-44" }, 422],
+    ["a streak longer than the days since the app opened (013 AC-016)", { ...BODY, streak: 27 }, 422],
+    ["more points than those days can award", { ...BODY, earned: 26 * 20 + 151 }, 422],
+    ["a longer streak before than after", { ...BODY, previousStreak: 7 }, 422],
+    ["a last lesson after today", { ...BODY, lastDate: "2026-11-21" }, 422],
+    ["a today far from the server's date", { ...BODY, today: "2026-11-23", lastDate: "2026-11-23" }, 422],
+    ["a malformed date", { ...BODY, today: "2026-11-2" }, 422],
     ["a short secret", { ...BODY, token: "short" }, 422],
   ])("refuses %s", async (_label, body, status) => {
     expect((await POST(request("POST", body))).status).toBe(status);
@@ -70,6 +79,13 @@ describe("POST /api/leaderboard", () => {
     const response = await POST(request("POST", BODY));
     expect(response.status).toBe(403);
     expect(await message(response)).toBe(LEADERBOARD_MESSAGES.forbidden);
+  });
+
+  it("answers 422 when the numbers can't have been earned since the last report (013 AC-016)", async () => {
+    service.submitEntry.mockResolvedValue({ ok: false, reason: "implausible" });
+    const response = await POST(request("POST", BODY));
+    expect(response.status).toBe(422);
+    expect(await message(response)).toBe(LEADERBOARD_MESSAGES.implausible);
   });
 
   it("slows down a network that writes too often (AC-016)", async () => {

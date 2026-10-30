@@ -10,6 +10,8 @@ created: 2026-10-28
 
 # Feature: Weekly leaderboard after the daily lesson
 
+> **Changed by feature 013 (2026-10-30):** the board is no longer weekly or ranked by points. One board ranks learners by current streak, then points ever earned, then who reached the streak first, and only learners whose last daily lesson was today or yesterday are on it. AC-001, AC-002, AC-005 and AC-015 below describe the weekly board and are replaced by 013 AC-010 to AC-016; the rest still holds.
+
 ## Overview
 
 Learners earn attendance points for each finished daily lesson, but they only

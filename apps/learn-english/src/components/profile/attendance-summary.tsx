@@ -1,27 +1,30 @@
 "use client";
 
-import { Check, Flame, Medal, Star } from "lucide-react";
+import { Check, Coins, Flame, Medal, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StorageError } from "@/components/settings/storage-error";
 import { useStorageQuery } from "@/hooks/use-storage-query";
 import { localDate, streaks, totalPoints } from "@/learning/attendance";
 import { cn } from "@/lib/utils";
+import { pointsBalance } from "@/learning/points";
 import { getAllAttendance } from "@/storage/attendance";
+import { getAllExtraLessons } from "@/storage/extra-lessons";
 import { ensureProfile } from "@/hooks/use-profile";
 import { calendarWeeks, dayMonth, type CalendarDay } from "./progress-math";
 
-const STORES = ["meta", "attendance"] as const;
+const STORES = ["meta", "attendance", "extraLessons"] as const;
 const WEEKDAYS = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 
 async function loadAttendance() {
-  const [profile, attendance] = await Promise.all([ensureProfile(), getAllAttendance()]);
+  const [profile, attendance, extras] = await Promise.all([ensureProfile(), getAllAttendance(), getAllExtraLessons()]);
   const today = localDate(Date.now(), profile.timeZone);
   const dates = attendance.map((row) => row.date);
-  return { today, points: totalPoints(attendance), ...streaks(dates, today), attended: new Set(dates) };
+  const balance = Math.max(0, pointsBalance(attendance, extras));
+  return { today, balance, earned: totalPoints(attendance), ...streaks(dates, today), attended: new Set(dates) };
 }
 
-/** Total points, current and longest streak, and the attendance calendar (AC-017, AC-018). */
+/** Points now and ever earned (013 AC-002), current and longest streak, and the attendance calendar (AC-017, AC-018). */
 export function AttendanceSummary() {
   const query = useStorageQuery(["attendance-summary"], loadAttendance, STORES);
 
@@ -29,8 +32,8 @@ export function AttendanceSummary() {
   if (query.status === "loading") {
     return (
       <div className="grid gap-4 px-4 md:px-8" aria-busy="true" aria-label="Đang tải">
-        <div className="grid grid-cols-3 gap-3">
-          {[0, 1, 2].map((i) => (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[0, 1, 2, 3].map((i) => (
             <Skeleton key={i} className="h-24 rounded-xl" />
           ))}
         </div>
@@ -39,11 +42,12 @@ export function AttendanceSummary() {
     );
   }
 
-  const { points, current, longest, attended, today } = query.data;
+  const { balance, earned, current, longest, attended, today } = query.data;
   return (
     <div className="grid gap-4 px-4 md:px-8">
-      <dl className="grid grid-cols-3 gap-3">
-        <Stat icon={Star} label="Tổng điểm" value={points} />
+      <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <Stat icon={Coins} label="Điểm hiện có" value={balance} />
+        <Stat icon={Star} label="Tổng điểm đã nhận" value={earned} />
         <Stat icon={Flame} label="Chuỗi hiện tại" value={current} unit="ngày" />
         <Stat icon={Medal} label="Chuỗi dài nhất" value={longest} unit="ngày" />
       </dl>

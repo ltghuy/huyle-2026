@@ -5,6 +5,7 @@ import { render } from "@/test-utils/render";
 import { localDate } from "@/learning/attendance";
 import { addAttempt } from "@/storage/attempts";
 import { addAttendance } from "@/storage/attendance";
+import { putExtraLesson } from "@/storage/extra-lessons";
 import { putCards } from "@/storage/cards";
 import { createDefaultProfile, saveProfile } from "@/storage/meta";
 import { makeAttempt, makeCard, resetStorage } from "@/storage/test-utils";
@@ -58,14 +59,15 @@ describe("AttendanceSummary", () => {
     await saveProfile({ ...createDefaultProfile(0), timeZone: TZ });
   });
 
-  it("shows points, the current and longest streak and attended days from storage", async () => {
+  it("shows points now and ever earned, the current and longest streak and attended days from storage", async () => {
     // Current run: today and the two days before. Older run: five days in a row.
     for (const n of [0, 1, 2, 10, 11, 12, 13, 14]) await addAttendance({ date: daysAgo(n), points: 10, bonus: 0, at: 0 });
     await addAttendance({ date: daysAgo(30), points: 10, bonus: 20, at: 0 });
+    await putExtraLesson({ id: "x", date: daysAgo(1), price: 13, purchasedAt: 0, contentVersion: 1, plan: [], position: { part: 0, index: 0 }, updatedAt: 0 });
 
     render(<AttendanceSummary />);
-    const points = await screen.findByText("Tổng điểm");
-    expect(points.closest("div")).toHaveTextContent("110");
+    expect((await screen.findByText("Tổng điểm đã nhận")).closest("div")).toHaveTextContent("110");
+    expect(screen.getByText("Điểm hiện có").closest("div")).toHaveTextContent("97");
     expect(screen.getByText("Chuỗi hiện tại").closest("div")).toHaveTextContent("3ngày");
     expect(screen.getByText("Chuỗi dài nhất").closest("div")).toHaveTextContent("5ngày");
 

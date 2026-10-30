@@ -48,8 +48,8 @@ export async function applySnapshot(snapshot: Snapshot): Promise<void> {
   const local = await getProfile();
   const profile: Profile = { ...snapshot.data.meta, deviceId: local?.deviceId ?? crypto.randomUUID() };
   if (local?.sync) profile.sync = local.sync;
-  const { cards, attempts, lessons, attendance } = snapshot.data;
-  await replaceAll({ profile, cards, attempts, lessons, attendance });
+  const { cards, attempts, lessons, extraLessons, attendance } = snapshot.data;
+  await replaceAll({ profile, cards, attempts, lessons, extraLessons, attendance });
 }
 
 /**
