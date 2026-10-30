@@ -118,7 +118,7 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
         ? exerciseStep(key, seed, buildGrammarGap({ grammar: item }, seed), { related: { cardIds: [item.id as CardItemId], link: grammarLink(item) } })
         : null;
     case "word-order":
-      return item.kind === "sentence" ? exerciseStep(key, seed, buildWordOrder({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
+      return item.kind === "sentence" ? exerciseStep(key, seed, buildWordOrder({ sentence: item, distractorPool: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) }) : null;
     case "sentence-gap":
       return item.kind === "sentence"
         ? exerciseStep(key, seed, buildSentenceGap({ sentence: item, distractorWords: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) })
@@ -134,7 +134,7 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
     case "dictation":
       // A clip that can't play swaps to putting the words in order, which needs no audio.
       return item.kind === "sentence"
-        ? exerciseStep(key, seed, buildDictation({ sentence: item }), { related: sentenceRelated(index, item), fallback: buildWordOrder({ sentence: item }, seed) })
+        ? exerciseStep(key, seed, buildDictation({ sentence: item }), { related: sentenceRelated(index, item), fallback: buildWordOrder({ sentence: item, distractorPool: distractorWords(index, item) }, seed) })
         : null;
     case "forms-typing":
     case "forms-gap":

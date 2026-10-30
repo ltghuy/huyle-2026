@@ -97,7 +97,7 @@ export function WordOrderView({ instance, answer, onAnswer, result }: ExerciseVi
     <div className="grid gap-6">
       <Instruction>Sắp xếp các từ thành câu đúng</Instruction>
       <p className="text-xl">{instance.vi}</p>
-      <TileBuilder tiles={instance.tiles} answer={answer} onAnswer={onAnswer} locked={result !== null} minToCheck={instance.tiles.length} />
+      <TileBuilder tiles={instance.tiles} answer={answer} onAnswer={onAnswer} locked={result !== null} minToCheck={instance.body.tokens.length} />
       {result ? <CorrectSentence en={instance.body.tokens.join(" ")} vi={instance.vi} audio={instance.audio} /> : null}
     </div>
   );

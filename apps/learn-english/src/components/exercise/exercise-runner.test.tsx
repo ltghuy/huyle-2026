@@ -177,7 +177,7 @@ describe("sentence exercises", () => {
     const { buildWordOrder } = await import("@/learning/exercises/word-order");
     const { sentence } = await import("@/learning/exercises/fixtures");
     const item = sentence("s", { tokens: ["I", "like", "tea"], vi: "Tôi thích trà." });
-    const instance = buildWordOrder({ sentence: item }, 3);
+    const instance = buildWordOrder({ sentence: item, distractorPool: ["coffee", "milk"] }, 3);
     const { onOutcome } = setup([{ key: "w", type: "exercise", instance, seed: 3 }]);
     for (const token of ["I", "like", "tea"]) fireEvent.click(screen.getByRole("button", { name: token }));
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
@@ -396,7 +396,7 @@ describe("dictation (feature 010)", () => {
     const { buildWordOrder } = await import("@/learning/exercises/word-order");
     const { sentence } = await import("@/learning/exercises/fixtures");
     const item = sentence("s", { tokens: ["She", "works", "at", "a", "hospital."], vi: "Cô ấy làm việc ở bệnh viện.", audio: "c".repeat(64) });
-    return { key: "d", type: "exercise" as const, instance: buildDictation({ sentence: item })!, seed: 1, fallback: buildWordOrder({ sentence: item }, 1) };
+    return { key: "d", type: "exercise" as const, instance: buildDictation({ sentence: item })!, seed: 1, fallback: buildWordOrder({ sentence: item, distractorPool: [] }, 1) };
   }
 
   function typeSentence(text: string) {

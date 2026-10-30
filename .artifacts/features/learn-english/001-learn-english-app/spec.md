@@ -176,7 +176,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [x] AC-033: WHEN a learner gets a sentence construction task THEN system SHALL pick one at random from these kinds, built from reviewed example sentences that use today's words or grammar point: put shuffled words in the right order, fill in the missing word, choose the one correct sentence among 4, or translate a Vietnamese sentence by arranging given word tiles
+- [x] AC-033: WHEN a learner gets a sentence construction task THEN system SHALL pick one at random from these kinds, built from reviewed example sentences that use today's words or grammar point: put shuffled words in the right order (with up to 2 extra tiles that don't belong, taken first from the sentence's reviewed wrong variants; quick task 026), fill in the missing word, choose the one correct sentence among 4, or translate a Vietnamese sentence by arranging given word tiles
 - [x] AC-034: WHEN a learner submits a sentence THEN system SHALL check it instantly against the accepted answer(s), and SHALL show the correct sentence, its Vietnamese translation, a play button and, when wrong, a short Vietnamese explanation from the related grammar point
 - [x] AC-035: WHEN a wrong answer relates to a word or grammar point in the app THEN system SHALL link to it and bring that item forward in the review schedule
 - [x] AC-036: WHEN a learner gets a free-writing assignment THEN system SHALL show a Vietnamese prompt, take their text, then show one or more model answers and let the learner mark their own answer as right or wrong; that mark counts like any other answer
