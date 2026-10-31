@@ -101470,6 +101470,484 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:g-ask-tell-to-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The teacher told us to turn off our phones.",
+      "vi": "Cô giáo bảo chúng tôi tắt điện thoại.",
+      "audio": "f512bf899ac52d3fabcef796c45387ea8ab064a6150667193577e99f5da7c1cf",
+      "tokens": [
+        "The",
+        "teacher",
+        "told",
+        "us",
+        "to",
+        "turn",
+        "off",
+        "our",
+        "phones"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The teacher told us turn off our phones.",
+          "explanationVi": "Sau \"told + tân ngữ\" cần \"to + V\"."
+        },
+        {
+          "en": "The teacher said us to turn off our phones.",
+          "explanationVi": "\"said\" không đi với tân ngữ chỉ người; dùng \"told us\"."
+        },
+        {
+          "en": "The teacher told we to turn off our phones.",
+          "explanationVi": "Sau động từ dùng tân ngữ \"us\", không dùng \"we\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "ask-tell-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-ask-tell-to-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My mother asked me not to come home late.",
+      "vi": "Mẹ dặn tôi đừng về nhà muộn.",
+      "audio": "bea4bc80b4fee594f93b0ca08b53d1e84768a2a2c33c3e3f6ae039c1fbd357ae",
+      "tokens": [
+        "My",
+        "mother",
+        "asked",
+        "me",
+        "not",
+        "to",
+        "come",
+        "home",
+        "late"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My mother asked me don't come home late.",
+          "explanationVi": "Phủ định dùng \"not to + V\", không dùng \"don't\"."
+        },
+        {
+          "en": "My mother asked me not come home late.",
+          "explanationVi": "Thiếu \"to\": \"not to come\"."
+        },
+        {
+          "en": "My mother asked to me not to come home late.",
+          "explanationVi": "\"ask\" đi thẳng với tân ngữ, không có \"to\": \"asked me\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "ask-tell-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-ask-tell-to-3",
+    "kind": "sentence",
+    "body": {
+      "en": "The doctor advised him to drink more water.",
+      "vi": "Bác sĩ khuyên anh ấy uống nhiều nước hơn.",
+      "audio": "0cb9fa35860704338c3c5560cc744fd1d0a1492ba7df92c26f0c8b5d1bac4549",
+      "tokens": [
+        "The",
+        "doctor",
+        "advised",
+        "him",
+        "to",
+        "drink",
+        "more",
+        "water"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The doctor advised him drinking more water.",
+          "explanationVi": "Sau \"advised + tân ngữ\" dùng \"to + V\"."
+        },
+        {
+          "en": "The doctor advised to him to drink more water.",
+          "explanationVi": "\"advise\" đi thẳng với tân ngữ, không có \"to\": \"advised him\"."
+        },
+        {
+          "en": "The doctor advised him to drinks more water.",
+          "explanationVi": "Sau \"to\" dùng động từ nguyên mẫu \"drink\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "ask-tell-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-ask-tell-to-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you remind me to call my grandmother tonight?",
+      "vi": "Tối nay bạn nhắc tôi gọi cho bà được không?",
+      "audio": "439d106c9f6ad47acd610ac3febf4edb95a5bee76aa53eb887a55e5aa2c6338c",
+      "tokens": [
+        "Can",
+        "you",
+        "remind",
+        "me",
+        "to",
+        "call",
+        "my",
+        "grandmother",
+        "tonight"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you remind me calling my grandmother tonight?",
+          "explanationVi": "Sau \"remind + tân ngữ\" dùng \"to + V\"."
+        },
+        {
+          "en": "Can you remind me to calling my grandmother tonight?",
+          "explanationVi": "Sau \"to\" dùng động từ nguyên mẫu \"call\"."
+        },
+        {
+          "en": "Can you remind to me to call my grandmother tonight?",
+          "explanationVi": "\"remind\" đi thẳng với tân ngữ: \"remind me\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "ask-tell-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-contrast-linkers-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Although it was raining, we went for a walk.",
+      "vi": "Mặc dù trời đang mưa, chúng tôi vẫn đi dạo.",
+      "audio": "92de90cda7a6ad835a1f80ec5c1cca6b794e26f27d001f7c76d6ce03ede6be2b",
+      "tokens": [
+        "Although",
+        "it",
+        "was",
+        "raining",
+        "we",
+        "went",
+        "for",
+        "a",
+        "walk"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Although it was raining, but we went for a walk.",
+          "explanationVi": "Không dùng \"although\" và \"but\" trong cùng một câu."
+        },
+        {
+          "en": "Despite it was raining, we went for a walk.",
+          "explanationVi": "Trước mệnh đề \"it was raining\" dùng \"although\", không dùng \"despite\"."
+        },
+        {
+          "en": "Although it was rain, we went for a walk.",
+          "explanationVi": "Thì quá khứ tiếp diễn là \"was raining\"."
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "contrast-linkers"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-contrast-linkers-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Despite the heavy traffic, she arrived on time.",
+      "vi": "Dù đường kẹt xe, cô ấy vẫn đến đúng giờ.",
+      "audio": "bd588d1f377c070fa03237d0a90bdf5b0ce6ddaf84cd65ebb404082bc0807cd5",
+      "tokens": [
+        "Despite",
+        "the",
+        "heavy",
+        "traffic",
+        "she",
+        "arrived",
+        "on",
+        "time"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Despite of the heavy traffic, she arrived on time.",
+          "explanationVi": "\"despite\" không đi với \"of\"."
+        },
+        {
+          "en": "Although the heavy traffic, she arrived on time.",
+          "explanationVi": "Trước cụm danh từ \"the heavy traffic\" dùng \"despite\", không dùng \"although\"."
+        },
+        {
+          "en": "Despite the heavy traffic, she arrive on time.",
+          "explanationVi": "Việc ở quá khứ nên dùng \"arrived\"."
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "contrast-linkers"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-contrast-linkers-3",
+    "kind": "sentence",
+    "body": {
+      "en": "The hotel was old. However, the rooms were clean and comfortable.",
+      "vi": "Khách sạn đã cũ. Tuy nhiên, các phòng lại sạch sẽ và thoải mái.",
+      "audio": "29228b239a1292d22429193d6be9f1fd22b21873562de05022c69152944c245b",
+      "tokens": [
+        "The",
+        "hotel",
+        "was",
+        "old",
+        "However",
+        "the",
+        "rooms",
+        "were",
+        "clean",
+        "and",
+        "comfortable"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hotel was old. Although, the rooms were clean and comfortable.",
+          "explanationVi": "\"Although\" không đứng một mình với dấu phẩy ở đầu câu; dùng \"However\"."
+        },
+        {
+          "en": "The hotel was old. Despite, the rooms were clean and comfortable.",
+          "explanationVi": "\"Despite\" phải có danh từ theo sau; nối hai câu dùng \"However\"."
+        },
+        {
+          "en": "The hotel was old. However, the rooms was clean and comfortable.",
+          "explanationVi": "Chủ ngữ số nhiều \"the rooms\" đi với \"were\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "contrast-linkers"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-contrast-linkers-4",
+    "kind": "sentence",
+    "body": {
+      "en": "In spite of feeling tired, he finished all his homework.",
+      "vi": "Mặc dù thấy mệt, cậu ấy vẫn làm xong hết bài tập về nhà.",
+      "audio": "4e7688e311847c1cbab61da3798171dcf4884216b540c0942406e3c3fcf6efb3",
+      "tokens": [
+        "In",
+        "spite",
+        "of",
+        "feeling",
+        "tired",
+        "he",
+        "finished",
+        "all",
+        "his",
+        "homework"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          9,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "In spite of feel tired, he finished all his homework.",
+          "explanationVi": "Sau \"in spite of\" dùng V-ing: \"feeling\"."
+        },
+        {
+          "en": "In spite he felt tired, he finished all his homework.",
+          "explanationVi": "\"in spite\" cần \"of\" và theo sau là danh từ hoặc V-ing, không phải mệnh đề."
+        },
+        {
+          "en": "In spite of feeling tired, but he finished all his homework.",
+          "explanationVi": "Không dùng \"but\" sau \"in spite of...\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "contrast-linkers"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:g-gerunds-infinitives-1",
     "kind": "sentence",
     "body": {
@@ -101678,6 +102156,475 @@
       ],
       "wordIds": [],
       "grammarSlug": "gerunds-infinitives"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-indirect-questions-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Could you tell me where the nearest bus stop is?",
+      "vi": "Bạn có thể cho tôi biết trạm xe buýt gần nhất ở đâu không?",
+      "audio": "391ec04505f14b44f9bc58e7458e01e11f37d1f0b94a67356d28e5d2e1b521a6",
+      "tokens": [
+        "Could",
+        "you",
+        "tell",
+        "me",
+        "where",
+        "the",
+        "nearest",
+        "bus",
+        "stop",
+        "is"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Could you tell me where is the nearest bus stop?",
+          "explanationVi": "Trong câu hỏi gián tiếp, \"is\" đứng sau chủ ngữ: \"where the nearest bus stop is\"."
+        },
+        {
+          "en": "Could you tell me where the nearest bus stop?",
+          "explanationVi": "Thiếu động từ \"is\" ở cuối câu."
+        },
+        {
+          "en": "Could you tell me where does the nearest bus stop is?",
+          "explanationVi": "Câu hỏi gián tiếp không dùng \"does\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        9
+      ],
+      "wordIds": [],
+      "grammarSlug": "indirect-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-indirect-questions-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you know what time the movie starts?",
+      "vi": "Bạn có biết mấy giờ phim bắt đầu không?",
+      "audio": "b31b9a26e82b88ac081523eca7394038b8ff26a6b6847e16810ca676293996c2",
+      "tokens": [
+        "Do",
+        "you",
+        "know",
+        "what",
+        "time",
+        "the",
+        "movie",
+        "starts"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Do you know what time does the movie start?",
+          "explanationVi": "Câu hỏi gián tiếp bỏ \"does\" và giữ trật tự S + V: \"the movie starts\"."
+        },
+        {
+          "en": "Do you know what time the movie start?",
+          "explanationVi": "Chủ ngữ số ít \"the movie\" nên động từ là \"starts\"."
+        },
+        {
+          "en": "Do you know what time starts the movie?",
+          "explanationVi": "Chủ ngữ \"the movie\" phải đứng trước động từ \"starts\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "indirect-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-indirect-questions-3",
+    "kind": "sentence",
+    "body": {
+      "en": "I wonder if she remembers my name.",
+      "vi": "Tôi tự hỏi không biết cô ấy có nhớ tên tôi không.",
+      "audio": "1211793b03859bca7a48a097c306f1aa0721cf9af229ef86083f972858633bfa",
+      "tokens": [
+        "I",
+        "wonder",
+        "if",
+        "she",
+        "remembers",
+        "my",
+        "name"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I wonder does she remember my name.",
+          "explanationVi": "Câu hỏi Yes/No gián tiếp dùng \"if\" và trật tự S + V."
+        },
+        {
+          "en": "I wonder if does she remember my name.",
+          "explanationVi": "Sau \"if\" không dùng \"does\": \"if she remembers\"."
+        },
+        {
+          "en": "I wonder if she remember my name.",
+          "explanationVi": "Chủ ngữ \"she\" nên động từ là \"remembers\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "indirect-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-indirect-questions-4",
+    "kind": "sentence",
+    "body": {
+      "en": "I'm not sure why he left the party so early.",
+      "vi": "Tôi không chắc vì sao anh ấy rời bữa tiệc sớm như vậy.",
+      "audio": "22c56450be404aab5313c75861f57b56df948856ebd2a4daaa886dbc21898c6a",
+      "tokens": [
+        "I'm",
+        "not",
+        "sure",
+        "why",
+        "he",
+        "left",
+        "the",
+        "party",
+        "so",
+        "early"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I'm not sure why did he leave the party so early.",
+          "explanationVi": "Câu hỏi gián tiếp không dùng \"did\": \"why he left\"."
+        },
+        {
+          "en": "I'm not sure why he leave the party so early.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"left\"."
+        },
+        {
+          "en": "I'm not sure why left he the party so early.",
+          "explanationVi": "Chủ ngữ \"he\" phải đứng trước động từ \"left\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "indirect-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-may-might-be-able-to-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Take an umbrella because it might rain this afternoon.",
+      "vi": "Mang theo ô nhé vì chiều nay trời có thể mưa.",
+      "audio": "737488ea97c95fd1860f76886c49323f74e96e9b7b2d8be6959bd22ee10f8ac3",
+      "tokens": [
+        "Take",
+        "an",
+        "umbrella",
+        "because",
+        "it",
+        "might",
+        "rain",
+        "this",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Take an umbrella because it might rains this afternoon.",
+          "explanationVi": "Sau \"might\" dùng động từ nguyên mẫu \"rain\"."
+        },
+        {
+          "en": "Take an umbrella because it might to rain this afternoon.",
+          "explanationVi": "Sau \"might\" không dùng \"to\"."
+        },
+        {
+          "en": "Take an umbrella because it mights rain this afternoon.",
+          "explanationVi": "\"might\" không bao giờ thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "may-might-be-able-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-may-might-be-able-to-2",
+    "kind": "sentence",
+    "body": {
+      "en": "May I use your phone for a minute?",
+      "vi": "Tôi dùng điện thoại của bạn một phút được không?",
+      "audio": "68bad6527431f20595a74e57e4a91f931e983159bf119e855b31814e45b7e34b",
+      "tokens": [
+        "May",
+        "I",
+        "use",
+        "your",
+        "phone",
+        "for",
+        "a",
+        "minute"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "May I to use your phone for a minute?",
+          "explanationVi": "Sau \"may\" không dùng \"to\"."
+        },
+        {
+          "en": "May I using your phone for a minute?",
+          "explanationVi": "Sau \"may\" dùng động từ nguyên mẫu \"use\"."
+        },
+        {
+          "en": "I may use your phone for a minute?",
+          "explanationVi": "Câu hỏi xin phép phải đảo \"May\" lên đầu: \"May I...?\""
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "may-might-be-able-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-may-might-be-able-to-3",
+    "kind": "sentence",
+    "body": {
+      "en": "After many tries, he was able to fix the old car.",
+      "vi": "Sau nhiều lần thử, cuối cùng anh ấy đã sửa được chiếc xe cũ.",
+      "audio": "79fdf1c35110e756dec7a9fa9a8dc33972c078c56daf17128168b09ca8972d10",
+      "tokens": [
+        "After",
+        "many",
+        "tries",
+        "he",
+        "was",
+        "able",
+        "to",
+        "fix",
+        "the",
+        "old",
+        "car"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "After many tries, he could fix the old car.",
+          "explanationVi": "Việc làm được trong một lần cụ thể ở quá khứ dùng \"was able to\", không dùng \"could\"."
+        },
+        {
+          "en": "After many tries, he was able fix the old car.",
+          "explanationVi": "Cần \"to\": \"was able to fix\"."
+        },
+        {
+          "en": "After many tries, he were able to fix the old car.",
+          "explanationVi": "Chủ ngữ \"he\" đi với \"was\", không dùng \"were\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "may-might-be-able-to"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-may-might-be-able-to-4",
+    "kind": "sentence",
+    "body": {
+      "en": "My grandfather could swim very well when he was young.",
+      "vi": "Hồi còn trẻ, ông tôi bơi rất giỏi.",
+      "audio": "7c49528ad6d4d5c9f8b231d4338f87cb505ff341ff05efac24f36e1c5bf51537",
+      "tokens": [
+        "My",
+        "grandfather",
+        "could",
+        "swim",
+        "very",
+        "well",
+        "when",
+        "he",
+        "was",
+        "young"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          6,
+          7,
+          8,
+          9,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My grandfather can swim very well when he was young.",
+          "explanationVi": "Nói về quá khứ (when he was young) dùng \"could\", không dùng \"can\"."
+        },
+        {
+          "en": "My grandfather could swam very well when he was young.",
+          "explanationVi": "Sau \"could\" dùng động từ nguyên mẫu \"swim\"."
+        },
+        {
+          "en": "My grandfather could to swim very well when he was young.",
+          "explanationVi": "Sau \"could\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "may-might-be-able-to"
     },
     "status": "approved"
   },
@@ -102163,6 +103110,245 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:g-possessive-reflexive-pronouns-1",
+    "kind": "sentence",
+    "body": {
+      "en": "That blue umbrella isn't mine, but the black one is.",
+      "vi": "Chiếc ô màu xanh kia không phải của tôi, chiếc màu đen mới là của tôi.",
+      "audio": "4b7408ca04ee7fd014d1ddf174ed76e3751afc8ccc69dbab03446dba029071b9",
+      "tokens": [
+        "That",
+        "blue",
+        "umbrella",
+        "isn't",
+        "mine",
+        "but",
+        "the",
+        "black",
+        "one",
+        "is"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "That blue umbrella isn't my, but the black one is.",
+          "explanationVi": "Không có danh từ theo sau thì dùng \"mine\", không dùng \"my\"."
+        },
+        {
+          "en": "That blue umbrella isn't me, but the black one is.",
+          "explanationVi": "Nói \"của tôi\" dùng đại từ sở hữu \"mine\", không dùng \"me\"."
+        },
+        {
+          "en": "That blue umbrella isn't mine umbrella, but the black one is.",
+          "explanationVi": "\"mine\" đã thay cho danh từ nên không thêm \"umbrella\" phía sau."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "possessive-reflexive-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-possessive-reflexive-pronouns-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She taught herself to play the guitar last summer.",
+      "vi": "Mùa hè năm ngoái cô ấy tự học chơi đàn guitar.",
+      "audio": "7767cf8f8dea3c55501b799217140cad885de51a9c20dfa2cd00309b329641fb",
+      "tokens": [
+        "She",
+        "taught",
+        "herself",
+        "to",
+        "play",
+        "the",
+        "guitar",
+        "last",
+        "summer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She taught himself to play the guitar last summer.",
+          "explanationVi": "Chủ ngữ \"she\" thì đại từ phản thân là \"herself\"."
+        },
+        {
+          "en": "She taught herselves to play the guitar last summer.",
+          "explanationVi": "Không có từ \"herselves\"; số ít dùng \"herself\"."
+        },
+        {
+          "en": "She teached herself to play the guitar last summer.",
+          "explanationVi": "Quá khứ của \"teach\" là \"taught\", không phải \"teached\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "possessive-reflexive-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-possessive-reflexive-pronouns-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Our neighbors are friendly, but their garden is bigger than ours.",
+      "vi": "Hàng xóm của chúng tôi rất thân thiện, nhưng vườn nhà họ rộng hơn vườn nhà chúng tôi.",
+      "audio": "e1a38766aa24b02824fc20a7b2b795acebc625e202b587b4974f3760b2622911",
+      "tokens": [
+        "Our",
+        "neighbors",
+        "are",
+        "friendly",
+        "but",
+        "their",
+        "garden",
+        "is",
+        "bigger",
+        "than",
+        "ours"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our neighbors are friendly, but their garden is bigger than our.",
+          "explanationVi": "Không có danh từ theo sau thì dùng \"ours\", không dùng \"our\"."
+        },
+        {
+          "en": "Our neighbors are friendly, but their garden is bigger than us.",
+          "explanationVi": "So sánh vườn với vườn nên dùng \"ours\" (vườn của chúng tôi), không dùng \"us\"."
+        },
+        {
+          "en": "Our neighbors are friendly, but their garden is more big than ours.",
+          "explanationVi": "\"big\" là tính từ ngắn nên so sánh hơn là \"bigger\"."
+        }
+      ],
+      "gapCandidates": [
+        10
+      ],
+      "wordIds": [],
+      "grammarSlug": "possessive-reflexive-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-possessive-reflexive-pronouns-4",
+    "kind": "sentence",
+    "body": {
+      "en": "My brother and I help each other with our homework.",
+      "vi": "Anh trai tôi và tôi giúp nhau làm bài tập về nhà.",
+      "audio": "885fc8773aeea60b709b01c5a84262731e26001a0d8148191457b58da7e85265",
+      "tokens": [
+        "My",
+        "brother",
+        "and",
+        "I",
+        "help",
+        "each",
+        "other",
+        "with",
+        "our",
+        "homework"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My brother and I help each others with our homework.",
+          "explanationVi": "\"each other\" không thêm \"s\"."
+        },
+        {
+          "en": "My brother and me help each other with our homework.",
+          "explanationVi": "Ở vị trí chủ ngữ dùng \"I\", không dùng \"me\"."
+        },
+        {
+          "en": "My brother and I help ourselves with our homework.",
+          "explanationVi": "Giúp lẫn nhau dùng \"each other\"; \"ourselves\" là tự giúp chính mình."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "possessive-reflexive-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:g-present-perfect-continuous-1",
     "kind": "sentence",
     "body": {
@@ -102381,6 +103567,250 @@
       ],
       "wordIds": [],
       "grammarSlug": "present-perfect-continuous"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-purpose-clauses-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I went to the bank to open a new account.",
+      "vi": "Tôi đến ngân hàng để mở một tài khoản mới.",
+      "audio": "4d0811cf3380296ea2936a087dd708e95561e8a24b616f8d17e0b1c17a8915bc",
+      "tokens": [
+        "I",
+        "went",
+        "to",
+        "the",
+        "bank",
+        "to",
+        "open",
+        "a",
+        "new",
+        "account"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I went to the bank for open a new account.",
+          "explanationVi": "Chỉ mục đích trước động từ dùng \"to\", không dùng \"for\"."
+        },
+        {
+          "en": "I went to the bank to opening a new account.",
+          "explanationVi": "Sau \"to\" chỉ mục đích dùng động từ nguyên mẫu \"open\"."
+        },
+        {
+          "en": "I went to bank to open a new account.",
+          "explanationVi": "Nói đến ngân hàng cụ thể cần mạo từ: \"the bank\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "purpose-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-purpose-clauses-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She speaks slowly so that everyone can understand her.",
+      "vi": "Cô ấy nói chậm để mọi người đều hiểu được.",
+      "audio": "f36b9c1be84a6fe81d3cd0aa2ed4d9789a24b08a29325636d33373277c9cb66f",
+      "tokens": [
+        "She",
+        "speaks",
+        "slowly",
+        "so",
+        "that",
+        "everyone",
+        "can",
+        "understand",
+        "her"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She speaks slowly so that everyone can understands her.",
+          "explanationVi": "Sau \"can\" dùng động từ nguyên mẫu \"understand\"."
+        },
+        {
+          "en": "She speaks slowly for that everyone can understand her.",
+          "explanationVi": "Mệnh đề chỉ mục đích dùng \"so that\", không dùng \"for that\"."
+        },
+        {
+          "en": "She speaks slow so that everyone can understand her.",
+          "explanationVi": "Bổ nghĩa cho động từ \"speaks\" phải dùng trạng từ \"slowly\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "purpose-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-purpose-clauses-3",
+    "kind": "sentence",
+    "body": {
+      "en": "We left early in order not to miss the train.",
+      "vi": "Chúng tôi đi sớm để không bị lỡ chuyến tàu.",
+      "audio": "05956fc0ce7d8e999cc922af8772caa6012d84db6b1c0a87d56b21d670d6fb71",
+      "tokens": [
+        "We",
+        "left",
+        "early",
+        "in",
+        "order",
+        "not",
+        "to",
+        "miss",
+        "the",
+        "train"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We left early for not to miss the train.",
+          "explanationVi": "Mục đích phủ định dùng \"in order not to\", không dùng \"for\"."
+        },
+        {
+          "en": "We left early not in order to miss the train.",
+          "explanationVi": "\"not\" đứng giữa: \"in order not to\"."
+        },
+        {
+          "en": "We left early in order not to missing the train.",
+          "explanationVi": "Sau \"to\" dùng động từ nguyên mẫu \"miss\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "purpose-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-purpose-clauses-4",
+    "kind": "sentence",
+    "body": {
+      "en": "He saved money so that he could buy a new laptop.",
+      "vi": "Anh ấy tiết kiệm tiền để có thể mua một chiếc máy tính xách tay mới.",
+      "audio": "e797bbb6760e2652167ce3b3ecb1624f4d5d2e8fc6cbf04015104c3974c55fb7",
+      "tokens": [
+        "He",
+        "saved",
+        "money",
+        "so",
+        "that",
+        "he",
+        "could",
+        "buy",
+        "a",
+        "new",
+        "laptop"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He saved money so that he could bought a new laptop.",
+          "explanationVi": "Sau \"could\" dùng động từ nguyên mẫu \"buy\"."
+        },
+        {
+          "en": "He saved money for buy a new laptop.",
+          "explanationVi": "Trước động từ chỉ mục đích dùng \"to\", không dùng \"for\": \"to buy\"."
+        },
+        {
+          "en": "He saved money so that could buy a new laptop.",
+          "explanationVi": "Sau \"so that\" cần chủ ngữ: \"so that he could\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "purpose-clauses"
     },
     "status": "approved"
   },
@@ -103097,6 +104527,436 @@
       ],
       "wordIds": [],
       "grammarSlug": "second-conditional"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-so-such-that-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The coffee was so hot that I couldn't drink it.",
+      "vi": "Cà phê nóng đến mức tôi không uống được.",
+      "audio": "0d144073ab035c6823f401d25af9a4062f38c97de37bd69010ee3e23047ce2cd",
+      "tokens": [
+        "The",
+        "coffee",
+        "was",
+        "so",
+        "hot",
+        "that",
+        "I",
+        "couldn't",
+        "drink",
+        "it"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The coffee was such hot that I couldn't drink it.",
+          "explanationVi": "Trước tính từ đứng một mình dùng \"so\", không dùng \"such\"."
+        },
+        {
+          "en": "The coffee was so hot than I couldn't drink it.",
+          "explanationVi": "Cấu trúc là \"so... that\", không dùng \"than\"."
+        },
+        {
+          "en": "The coffee was too hot that I couldn't drink it.",
+          "explanationVi": "\"too\" không đi với \"that\"; dùng \"so hot that\" hoặc \"too hot to drink\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-such-that"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-so-such-that-2",
+    "kind": "sentence",
+    "body": {
+      "en": "It was such a long movie that I fell asleep.",
+      "vi": "Bộ phim dài đến nỗi tôi ngủ quên mất.",
+      "audio": "29c9683935260e96fd4404a7a80415f8f683dd6e8c6a23c28bc28b6d7e38a7b9",
+      "tokens": [
+        "It",
+        "was",
+        "such",
+        "a",
+        "long",
+        "movie",
+        "that",
+        "I",
+        "fell",
+        "asleep"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "It was so a long movie that I fell asleep.",
+          "explanationVi": "Trước \"a + tính từ + danh từ\" dùng \"such\"."
+        },
+        {
+          "en": "It was such long movie that I fell asleep.",
+          "explanationVi": "Danh từ đếm được số ít \"movie\" cần \"a\": \"such a long movie\"."
+        },
+        {
+          "en": "It was a such long movie that I fell asleep.",
+          "explanationVi": "\"a\" đứng sau \"such\": \"such a long movie\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-such-that"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-so-such-that-3",
+    "kind": "sentence",
+    "body": {
+      "en": "She spoke so quickly that nobody understood her.",
+      "vi": "Cô ấy nói nhanh đến mức không ai hiểu.",
+      "audio": "813a28c783ebb5c357b4c4fb572857e7c15a4d617909b87fde558f2f7bd97249",
+      "tokens": [
+        "She",
+        "spoke",
+        "so",
+        "quickly",
+        "that",
+        "nobody",
+        "understood",
+        "her"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She spoke so quick that nobody understood her.",
+          "explanationVi": "Bổ nghĩa cho động từ \"spoke\" phải dùng trạng từ \"quickly\"."
+        },
+        {
+          "en": "She spoke such quickly that nobody understood her.",
+          "explanationVi": "Trước trạng từ dùng \"so\", không dùng \"such\"."
+        },
+        {
+          "en": "She spoke so quickly that nobody understand her.",
+          "explanationVi": "Việc ở quá khứ nên dùng \"understood\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-such-that"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-so-such-that-4",
+    "kind": "sentence",
+    "body": {
+      "en": "They are such kind people that everyone likes them.",
+      "vi": "Họ là những người tốt bụng đến mức ai cũng quý mến.",
+      "audio": "a28e2d6b36f6e9fb9c966cffa348c49bdb2e482745bb557e5493dc01a0fa4ee2",
+      "tokens": [
+        "They",
+        "are",
+        "such",
+        "kind",
+        "people",
+        "that",
+        "everyone",
+        "likes",
+        "them"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They are so kind people that everyone likes them.",
+          "explanationVi": "Trước cụm \"tính từ + danh từ\" dùng \"such\"."
+        },
+        {
+          "en": "They are such a kind people that everyone likes them.",
+          "explanationVi": "\"people\" là danh từ số nhiều nên không dùng \"a\"."
+        },
+        {
+          "en": "They are such kind people that everyone like them.",
+          "explanationVi": "Chủ ngữ \"everyone\" đi với động từ số ít \"likes\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-such-that"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-tag-questions-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You're coming to the meeting tomorrow, aren't you?",
+      "vi": "Mai bạn sẽ đến buổi họp, đúng không?",
+      "audio": "53885ae9e358fa1c705e4fd8ffa2fefe7144958e0e38c90ae574317c2444a853",
+      "tokens": [
+        "You're",
+        "coming",
+        "to",
+        "the",
+        "meeting",
+        "tomorrow",
+        "aren't",
+        "you"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You're coming to the meeting tomorrow, isn't it?",
+          "explanationVi": "Đuôi phải khớp với câu: \"You're\" nên đuôi là \"aren't you\"."
+        },
+        {
+          "en": "You're coming to the meeting tomorrow, don't you?",
+          "explanationVi": "Câu dùng \"are\" nên đuôi dùng \"aren't\", không dùng \"don't\"."
+        },
+        {
+          "en": "You're coming to the meeting tomorrow, aren't they?",
+          "explanationVi": "Đại từ ở đuôi phải khớp chủ ngữ \"you\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "tag-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-tag-questions-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She doesn't eat meat, does she?",
+      "vi": "Cô ấy không ăn thịt, phải không?",
+      "audio": "6a8d1da744f61491b438b7a16f36304494e5ced009c18fad000806b61b882796",
+      "tokens": [
+        "She",
+        "doesn't",
+        "eat",
+        "meat",
+        "does",
+        "she"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She doesn't eat meat, doesn't she?",
+          "explanationVi": "Câu phủ định thì đuôi khẳng định: \"does she\"."
+        },
+        {
+          "en": "She doesn't eat meat, is she?",
+          "explanationVi": "Câu dùng \"does\" nên đuôi dùng \"does\", không dùng \"is\"."
+        },
+        {
+          "en": "She doesn't eat meat, does her?",
+          "explanationVi": "Đuôi dùng đại từ chủ ngữ \"she\", không dùng \"her\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "tag-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-tag-questions-3",
+    "kind": "sentence",
+    "body": {
+      "en": "They finished the project last week, didn't they?",
+      "vi": "Họ đã hoàn thành dự án tuần trước, phải không?",
+      "audio": "37c34f9a605394b91076bbba372723a3320f65dc470c753fafc3020353d51be8",
+      "tokens": [
+        "They",
+        "finished",
+        "the",
+        "project",
+        "last",
+        "week",
+        "didn't",
+        "they"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They finished the project last week, don't they?",
+          "explanationVi": "Câu ở quá khứ đơn nên đuôi dùng \"didn't\"."
+        },
+        {
+          "en": "They finished the project last week, didn't them?",
+          "explanationVi": "Đuôi dùng đại từ chủ ngữ \"they\", không dùng \"them\"."
+        },
+        {
+          "en": "They finished the project last week, haven't they?",
+          "explanationVi": "Câu không dùng \"have\" mà ở quá khứ đơn nên đuôi là \"didn't they\"."
+        }
+      ],
+      "gapCandidates": [
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "tag-questions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:g-tag-questions-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Your sister can speak Japanese, can't she?",
+      "vi": "Chị gái bạn nói được tiếng Nhật, đúng không?",
+      "audio": "b2fee4a59c456a47b8fcd37b8ba3174aec2f238d9c940148eb1dfb8e59c79c12",
+      "tokens": [
+        "Your",
+        "sister",
+        "can",
+        "speak",
+        "Japanese",
+        "can't",
+        "she"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your sister can speak Japanese, doesn't she?",
+          "explanationVi": "Câu có trợ động từ \"can\" nên đuôi dùng \"can't\"."
+        },
+        {
+          "en": "Your sister can speak Japanese, can't your sister?",
+          "explanationVi": "Đuôi dùng đại từ \"she\", không lặp lại danh từ."
+        },
+        {
+          "en": "Your sister can speak Japanese, can she?",
+          "explanationVi": "Câu khẳng định thì đuôi phủ định: \"can't she\"."
+        }
+      ],
+      "gapCandidates": [
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "tag-questions"
     },
     "status": "approved"
   },

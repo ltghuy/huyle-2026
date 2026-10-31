@@ -115,7 +115,7 @@
   },
   {
     "level": "A1",
-    "sort": 7,
+    "sort": 8,
     "id": "grammar:can-ability",
     "kind": "grammar",
     "body": {
@@ -236,7 +236,131 @@
   },
   {
     "level": "A1",
-    "sort": 8,
+    "sort": 13,
+    "id": "grammar:conjunctions",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Conjunctions: and, but, or, so, because",
+      "titleVi": "Liên từ: and, but, or, so, because",
+      "ruleVi": "Liên từ dùng để nối hai từ hoặc hai mệnh đề. \"and\" (và) nối hai ý giống nhau, \"but\" (nhưng) nối hai ý trái ngược, \"or\" (hoặc) đưa ra lựa chọn. \"because\" (vì) nêu lý do, còn \"so\" (nên) nêu kết quả. Khác với tiếng Việt, không dùng \"because\" và \"so\" trong cùng một câu.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Clause 1 + and/but/or/so + clause 2; Clause 1 + because + clause 2"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't + V + A or B; Clause 1, but + S + don't/doesn't + V"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + V + A or B?"
+        }
+      ],
+      "usageVi": [
+        "\"and\" nối hai ý cùng chiều: \"I like tea and coffee.\"",
+        "\"but\" nối hai ý trái ngược: \"It's small but nice.\"",
+        "\"or\" dùng khi chọn một trong hai, và trong câu phủ định: \"Tea or coffee?\"",
+        "\"because\" đứng trước lý do: \"I'm tired because I worked late.\"",
+        "\"so\" đứng trước kết quả: \"It was cold, so I stayed home.\""
+      ],
+      "signalWords": [
+        "and",
+        "but",
+        "or",
+        "so",
+        "because"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Because it rained, so we stayed home.",
+          "right": "Because it rained, we stayed home.",
+          "explanationVi": "Không dùng \"because\" và \"so\" cùng một câu; chỉ giữ một từ."
+        },
+        {
+          "wrong": "I don't like milk and cheese.",
+          "right": "I don't like milk or cheese.",
+          "explanationVi": "Trong câu phủ định, dùng \"or\" để nối hai danh từ."
+        },
+        {
+          "wrong": "She is poor, and she is happy.",
+          "right": "She is poor, but she is happy.",
+          "explanationVi": "Hai ý trái ngược nhau nên dùng \"but\"."
+        },
+        {
+          "wrong": "I stayed home so I was sick.",
+          "right": "I stayed home because I was sick.",
+          "explanationVi": "\"I was sick\" là lý do nên dùng \"because\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-conjunctions-1",
+        "sentence:g-conjunctions-2",
+        "sentence:g-conjunctions-3",
+        "sentence:g-conjunctions-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I like cats, ___ my brother likes dogs.",
+          "options": [
+            "so",
+            "but",
+            "because",
+            "or"
+          ],
+          "answer": "but",
+          "explanationVi": "Hai sở thích khác nhau nên dùng \"but\"."
+        },
+        {
+          "prompt": "It was late, ___ we took a taxi.",
+          "options": [
+            "so",
+            "because",
+            "or",
+            "but"
+          ],
+          "answer": "so",
+          "explanationVi": "\"we took a taxi\" là kết quả nên dùng \"so\"."
+        },
+        {
+          "prompt": "He is happy ___ he passed the test.",
+          "options": [
+            "so",
+            "or",
+            "because",
+            "and"
+          ],
+          "answer": "because",
+          "explanationVi": "\"he passed the test\" là lý do nên dùng \"because\"."
+        },
+        {
+          "prompt": "We can walk ___ take the bus.",
+          "options": [
+            "but",
+            "or",
+            "so",
+            "because"
+          ],
+          "answer": "or",
+          "explanationVi": "Đưa ra hai lựa chọn nên dùng \"or\"."
+        },
+        {
+          "prompt": "Điền một liên từ: I bought bread ___ milk at the store.",
+          "answer": "and",
+          "explanationVi": "Hai thứ cùng được mua nên nối bằng \"and\"."
+        },
+        {
+          "prompt": "Điền một liên từ: She didn't eat ___ she wasn't hungry.",
+          "answer": "because",
+          "explanationVi": "\"she wasn't hungry\" là lý do nên dùng \"because\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 9,
     "id": "grammar:imperatives",
     "kind": "grammar",
     "body": {
@@ -581,7 +705,7 @@
   },
   {
     "level": "A1",
-    "sort": 9,
+    "sort": 10,
     "id": "grammar:prepositions-time-place",
     "kind": "grammar",
     "body": {
@@ -943,7 +1067,7 @@
   },
   {
     "level": "A1",
-    "sort": 10,
+    "sort": 11,
     "id": "grammar:question-words",
     "kind": "grammar",
     "body": {
@@ -1067,6 +1191,132 @@
   {
     "level": "A1",
     "sort": 6,
+    "id": "grammar:subject-object-pronouns",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Subject and object pronouns",
+      "titleVi": "Đại từ nhân xưng chủ ngữ và tân ngữ",
+      "ruleVi": "Đại từ chủ ngữ (I, you, he, she, it, we, they) đứng trước động từ và là người làm hành động. Đại từ tân ngữ (me, you, him, her, it, us, them) đứng sau động từ hoặc sau giới từ và là người nhận hành động. Tiếng Việt dùng cùng một từ cho cả hai vị trí (\"tôi\", \"anh ấy\"), nên bạn cần nhớ đổi I thành me, he thành him, she thành her, we thành us, they thành them.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Subject pronoun (I/you/he/she/it/we/they) + V + object pronoun (me/you/him/her/it/us/them)"
+        },
+        {
+          "form": "negative",
+          "en": "Subject pronoun + don't/doesn't + V + object pronoun"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + subject pronoun + V + object pronoun?"
+        }
+      ],
+      "usageVi": [
+        "Đại từ chủ ngữ đứng trước động từ: \"She works here.\"",
+        "Đại từ tân ngữ đứng sau động từ: \"I like him.\"",
+        "Sau giới từ (with, for, to, about…) dùng đại từ tân ngữ: \"Come with us.\"",
+        "Dùng \"it\" cho đồ vật và con vật, \"they/them\" cho nhiều người hoặc nhiều vật: \"I bought them yesterday.\""
+      ],
+      "signalWords": [
+        "me",
+        "him",
+        "her",
+        "us",
+        "them",
+        "with",
+        "for",
+        "to"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Can you help I?",
+          "right": "Can you help me?",
+          "explanationVi": "Sau động từ \"help\" dùng đại từ tân ngữ \"me\", không dùng \"I\"."
+        },
+        {
+          "wrong": "Him is my brother.",
+          "right": "He is my brother.",
+          "explanationVi": "Đứng đầu câu làm chủ ngữ phải dùng \"He\"."
+        },
+        {
+          "wrong": "This gift is for she.",
+          "right": "This gift is for her.",
+          "explanationVi": "Sau giới từ \"for\" dùng đại từ tân ngữ \"her\"."
+        },
+        {
+          "wrong": "My parents love I very much.",
+          "right": "My parents love me very much.",
+          "explanationVi": "Người nhận hành động \"love\" dùng \"me\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-subject-object-pronouns-1",
+        "sentence:g-subject-object-pronouns-2",
+        "sentence:g-subject-object-pronouns-3",
+        "sentence:g-subject-object-pronouns-4"
+      ],
+      "practice": [
+        {
+          "prompt": "My sister is busy. Can you call ___ later?",
+          "options": [
+            "she",
+            "her",
+            "hers",
+            "his"
+          ],
+          "answer": "her",
+          "explanationVi": "Sau động từ \"call\" dùng đại từ tân ngữ \"her\"."
+        },
+        {
+          "prompt": "___ are my new classmates.",
+          "options": [
+            "Them",
+            "Their",
+            "They",
+            "Theirs"
+          ],
+          "answer": "They",
+          "explanationVi": "Chủ ngữ đứng trước động từ \"are\" là \"They\"."
+        },
+        {
+          "prompt": "Mr. Brown is our teacher. We like ___ a lot.",
+          "options": [
+            "he",
+            "him",
+            "his",
+            "her"
+          ],
+          "answer": "him",
+          "explanationVi": "Sau động từ \"like\" dùng \"him\" cho một người đàn ông."
+        },
+        {
+          "prompt": "Wait for ___! We are coming.",
+          "options": [
+            "we",
+            "our",
+            "us",
+            "ours"
+          ],
+          "answer": "us",
+          "explanationVi": "Sau giới từ \"for\" dùng đại từ tân ngữ \"us\"."
+        },
+        {
+          "prompt": "Điền đại từ đúng: I can't find my keys. Did you see ___?",
+          "answer": "them",
+          "explanationVi": "\"keys\" là số nhiều nên dùng đại từ tân ngữ \"them\"."
+        },
+        {
+          "prompt": "Điền đại từ đúng: Anna and I are friends. ___ go to school together.",
+          "answer": "We",
+          "explanationVi": "\"Anna and I\" làm chủ ngữ nên dùng \"We\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 7,
     "id": "grammar:there-is-there-are",
     "kind": "grammar",
     "body": {
@@ -1183,7 +1433,7 @@
   },
   {
     "level": "A1",
-    "sort": 11,
+    "sort": 12,
     "id": "grammar:this-that-these-those",
     "kind": "grammar",
     "body": {

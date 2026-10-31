@@ -13,6 +13,13 @@ const SOURCES = [
     link: { href: "https://github.com/openlanguageprofiles/olp-en-cefrj", label: "Open Language Profiles" },
   },
   {
+    name: "CEFR-J Grammar Profile Version 20180315",
+    use: "Danh sách điểm ngữ pháp theo trình độ, dùng để chọn các chủ đề ngữ pháp.",
+    credit:
+      "The CEFR-J Grammar Profile Version 20180315. Bản quyền thuộc Tono Laboratory, Tokyo University of Foreign Studies; được dùng miễn phí với điều kiện ghi nguồn.",
+    link: { href: "https://github.com/openlanguageprofiles/olp-en-cefrj", label: "Open Language Profiles" },
+  },
+  {
     name: "Octanove Vocabulary Profile C1/C2 1.0",
     use: "Danh sách từ vựng trình độ C1.",
     credit:

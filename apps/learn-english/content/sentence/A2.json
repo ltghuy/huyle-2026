@@ -28584,6 +28584,220 @@
   {
     "level": "A2",
     "sort": 0,
+    "id": "sentence:g-as-as-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My brother is as tall as my father.",
+      "vi": "Anh tôi cao bằng bố tôi.",
+      "audio": "c592eb2257cea73276b4e6c4d14df7f4b7a7dfc2b399c5ba206730433aea4187",
+      "tokens": [
+        "My",
+        "brother",
+        "is",
+        "as",
+        "tall",
+        "as",
+        "my",
+        "father"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My brother is as taller as my father.",
+          "explanationVi": "Giữa \"as ... as\" dùng tính từ dạng gốc \"tall\"."
+        },
+        {
+          "en": "My brother is as tall than my father.",
+          "explanationVi": "Cấu trúc là \"as tall as\", không dùng \"than\"."
+        },
+        {
+          "en": "My brother as tall as my father.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-as"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-as-as-2",
+    "kind": "sentence",
+    "body": {
+      "en": "This test wasn't as hard as the last one.",
+      "vi": "Bài kiểm tra này không khó bằng bài trước.",
+      "audio": "3d2df93b3d9cbf79043844e5600f66fe4ed9fdf1cbc91eaaccf7e6f9da740489",
+      "tokens": [
+        "This",
+        "test",
+        "wasn't",
+        "as",
+        "hard",
+        "as",
+        "the",
+        "last",
+        "one"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This test wasn't as harder as the last one.",
+          "explanationVi": "Giữa \"as ... as\" dùng dạng gốc \"hard\"."
+        },
+        {
+          "en": "This test wasn't as hard than the last one.",
+          "explanationVi": "Phủ định vẫn dùng \"as ... as\", không dùng \"than\"."
+        },
+        {
+          "en": "This test didn't as hard as the last one.",
+          "explanationVi": "Câu có tính từ dùng \"wasn't\", không dùng \"didn't\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-as"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-as-as-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Is your city as hot as Saigon?",
+      "vi": "Thành phố của bạn có nóng bằng Sài Gòn không?",
+      "audio": "8de1b1a0f62c30fb4761fbef4addd4dee33ca3bce9c8679fbd64ffe3962bdb38",
+      "tokens": [
+        "Is",
+        "your",
+        "city",
+        "as",
+        "hot",
+        "as",
+        "Saigon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is your city as hotter as Saigon?",
+          "explanationVi": "Giữa \"as ... as\" dùng dạng gốc \"hot\"."
+        },
+        {
+          "en": "Does your city as hot as Saigon?",
+          "explanationVi": "Câu hỏi với tính từ dùng \"Is\", không dùng \"Does\"."
+        },
+        {
+          "en": "Is your city as hot like Saigon?",
+          "explanationVi": "Cấu trúc là \"as hot as\", không dùng \"like\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-as"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-as-as-4",
+    "kind": "sentence",
+    "body": {
+      "en": "She speaks English as well as her teacher.",
+      "vi": "Cô ấy nói tiếng Anh giỏi bằng giáo viên của mình.",
+      "audio": "012b2e1406e940343137ce0f10d541467d733339a410603ba3ae69bc2b5209d1",
+      "tokens": [
+        "She",
+        "speaks",
+        "English",
+        "as",
+        "well",
+        "as",
+        "her",
+        "teacher"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She speaks English as good as her teacher.",
+          "explanationVi": "Bổ nghĩa cho động từ \"speaks\" phải dùng trạng từ \"well\"."
+        },
+        {
+          "en": "She speaks English as better as her teacher.",
+          "explanationVi": "Giữa \"as ... as\" dùng dạng gốc \"well\"."
+        },
+        {
+          "en": "She speak English as well as her teacher.",
+          "explanationVi": "Chủ ngữ \"She\" đi với \"speaks\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-as"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
     "id": "sentence:g-be-going-to-1",
     "kind": "sentence",
     "body": {
@@ -29676,6 +29890,611 @@
   {
     "level": "A2",
     "sort": 0,
+    "id": "sentence:g-indefinite-pronouns-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Someone left a bag on the bus.",
+      "vi": "Ai đó để quên một cái túi trên xe buýt.",
+      "audio": "d3d0649c2379982cd9887d02470e680b375428ddb9b5284b07468f7ab95f29e0",
+      "tokens": [
+        "Someone",
+        "left",
+        "a",
+        "bag",
+        "on",
+        "the",
+        "bus"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Anyone left a bag on the bus.",
+          "explanationVi": "Câu khẳng định dùng \"Someone\", không dùng \"Anyone\"."
+        },
+        {
+          "en": "Someone leave a bag on the bus.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"left\"."
+        },
+        {
+          "en": "Someone left bag on the bus.",
+          "explanationVi": "Thiếu mạo từ \"a\" trước danh từ đếm được số ít \"bag\"."
+        }
+      ],
+      "gapCandidates": [
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "indefinite-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-indefinite-pronouns-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I didn't buy anything at the market.",
+      "vi": "Tôi không mua gì ở chợ cả.",
+      "audio": "0c7f864fec29b2eb4f93c7a96c02cf6400de7949218e4adce494d14649382e1c",
+      "tokens": [
+        "I",
+        "didn't",
+        "buy",
+        "anything",
+        "at",
+        "the",
+        "market"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I didn't buy nothing at the market.",
+          "explanationVi": "Không dùng hai từ phủ định; dùng \"anything\"."
+        },
+        {
+          "en": "I didn't buy something at the market.",
+          "explanationVi": "Câu phủ định dùng \"anything\"."
+        },
+        {
+          "en": "I didn't bought anything at the market.",
+          "explanationVi": "Sau \"didn't\" dùng động từ nguyên mẫu \"buy\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "indefinite-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-indefinite-pronouns-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Everyone in my class has a laptop.",
+      "vi": "Mọi người trong lớp tôi đều có máy tính xách tay.",
+      "audio": "5b7303459c7bae842869fd59f2166c7c32339998b87b8736529423606bebca30",
+      "tokens": [
+        "Everyone",
+        "in",
+        "my",
+        "class",
+        "has",
+        "a",
+        "laptop"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Everyone in my class have a laptop.",
+          "explanationVi": "\"Everyone\" đi với động từ số ít \"has\"."
+        },
+        {
+          "en": "Every in my class has a laptop.",
+          "explanationVi": "Cần dùng đại từ \"Everyone\", không dùng \"Every\" một mình."
+        },
+        {
+          "en": "Everyone in my class has laptop.",
+          "explanationVi": "Thiếu mạo từ \"a\" trước \"laptop\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "indefinite-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-indefinite-pronouns-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Is there anywhere to park near here?",
+      "vi": "Gần đây có chỗ nào đậu xe không?",
+      "audio": "936609b8f1d84cfde80af03f542a25a347bbdce8639183099b0b715a563c3013",
+      "tokens": [
+        "Is",
+        "there",
+        "anywhere",
+        "to",
+        "park",
+        "near",
+        "here"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is there anything to park near here?",
+          "explanationVi": "Hỏi về nơi chốn dùng \"anywhere\"; \"anything\" chỉ đồ vật."
+        },
+        {
+          "en": "Is there anywhere for park near here?",
+          "explanationVi": "Sau \"anywhere\" dùng \"to\" + động từ nguyên mẫu."
+        },
+        {
+          "en": "Are there anywhere to park near here?",
+          "explanationVi": "\"anywhere\" là số ít nên dùng \"Is there\"."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "indefinite-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-linking-verbs-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You look happy today.",
+      "vi": "Hôm nay trông bạn vui quá.",
+      "audio": "fc51415082af6ce0f87d0f9c76e9ac644695181c7c1c3f7cb29c38a1224065ca",
+      "tokens": [
+        "You",
+        "look",
+        "happy",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You look happily today.",
+          "explanationVi": "Sau \"look\" dùng tính từ \"happy\"."
+        },
+        {
+          "en": "You are look happy today.",
+          "explanationVi": "Không dùng \"are\" cùng với \"look\"."
+        },
+        {
+          "en": "You looks happy today.",
+          "explanationVi": "Chủ ngữ \"You\" đi với \"look\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "linking-verbs"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-linking-verbs-2",
+    "kind": "sentence",
+    "body": {
+      "en": "This soup smells really good.",
+      "vi": "Món súp này thơm thật.",
+      "audio": "a702e586a21cca267baace06b016d587f41c20befe78e59f3ec04577d585694b",
+      "tokens": [
+        "This",
+        "soup",
+        "smells",
+        "really",
+        "good"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This soup smells really well.",
+          "explanationVi": "Sau \"smell\" dùng tính từ \"good\"."
+        },
+        {
+          "en": "This soup smell really good.",
+          "explanationVi": "Chủ ngữ số ít \"This soup\" đi với \"smells\"."
+        },
+        {
+          "en": "This soup is smells really good.",
+          "explanationVi": "Không dùng \"is\" cùng với \"smells\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "linking-verbs"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-linking-verbs-3",
+    "kind": "sentence",
+    "body": {
+      "en": "It's getting cold outside.",
+      "vi": "Bên ngoài trời đang trở lạnh.",
+      "audio": "aec2080b49ceb87d05acbcdbe364531754aada52eba6ff00a1625bca828a497e",
+      "tokens": [
+        "It's",
+        "getting",
+        "cold",
+        "outside"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "It's getting coldly outside.",
+          "explanationVi": "Sau \"get\" dùng tính từ \"cold\"."
+        },
+        {
+          "en": "It getting cold outside.",
+          "explanationVi": "Thì tiếp diễn cần \"is\": \"It's getting\"."
+        },
+        {
+          "en": "It's get cold outside.",
+          "explanationVi": "Sau \"It's\" dùng dạng \"getting\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "linking-verbs"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-linking-verbs-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Your new teacher seems very kind.",
+      "vi": "Cô giáo mới của bạn có vẻ rất tốt bụng.",
+      "audio": "6235ae36ec44316850a1aef558d50e1ddde55793678a2721708076ff2123cf1b",
+      "tokens": [
+        "Your",
+        "new",
+        "teacher",
+        "seems",
+        "very",
+        "kind"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Your new teacher seems very kindly.",
+          "explanationVi": "Sau \"seem\" dùng tính từ \"kind\"."
+        },
+        {
+          "en": "Your new teacher seem very kind.",
+          "explanationVi": "Chủ ngữ số ít đi với \"seems\"."
+        },
+        {
+          "en": "Your new teacher is seems very kind.",
+          "explanationVi": "Không dùng \"is\" cùng với \"seems\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "linking-verbs"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-make-let-have-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My teacher made us rewrite the essay.",
+      "vi": "Giáo viên bắt chúng tôi viết lại bài luận.",
+      "audio": "4094f8d9ad277116a42f804d50184779374a9f6ce9581aabf2016ba3d39edcc0",
+      "tokens": [
+        "My",
+        "teacher",
+        "made",
+        "us",
+        "rewrite",
+        "the",
+        "essay"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My teacher made us to rewrite the essay.",
+          "explanationVi": "Sau \"make + tân ngữ\" không dùng \"to\"."
+        },
+        {
+          "en": "My teacher made us rewriting the essay.",
+          "explanationVi": "Sau \"made us\" dùng động từ nguyên mẫu \"rewrite\"."
+        },
+        {
+          "en": "My teacher made we rewrite the essay.",
+          "explanationVi": "Sau \"made\" dùng đại từ tân ngữ \"us\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "make-let-have"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-make-let-have-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Please let me pay for dinner.",
+      "vi": "Bạn để tôi trả tiền bữa tối nhé.",
+      "audio": "c13b3e96964d290c333361771be7e3170bbf42a03d53562f821b091ea5e58b07",
+      "tokens": [
+        "Please",
+        "let",
+        "me",
+        "pay",
+        "for",
+        "dinner"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please let me to pay for dinner.",
+          "explanationVi": "Sau \"let + tân ngữ\" không dùng \"to\"."
+        },
+        {
+          "en": "Please let I pay for dinner.",
+          "explanationVi": "Sau \"let\" dùng \"me\", không dùng \"I\"."
+        },
+        {
+          "en": "Please let me paying for dinner.",
+          "explanationVi": "Sau \"let me\" dùng động từ nguyên mẫu \"pay\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "make-let-have"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-make-let-have-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Sad songs always make me cry.",
+      "vi": "Những bài hát buồn luôn làm tôi khóc.",
+      "audio": "1cfae57b750a16f8984dbcf71ba8c7ce0bfe3434aea715b921bb1ca5d5a7e8a2",
+      "tokens": [
+        "Sad",
+        "songs",
+        "always",
+        "make",
+        "me",
+        "cry"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Sad songs always make me to cry.",
+          "explanationVi": "Sau \"make + tân ngữ\" không dùng \"to\"."
+        },
+        {
+          "en": "Sad songs always makes me cry.",
+          "explanationVi": "Chủ ngữ số nhiều \"Sad songs\" đi với \"make\"."
+        },
+        {
+          "en": "Sad songs always make me crying.",
+          "explanationVi": "Sau \"make me\" dùng động từ nguyên mẫu \"cry\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "make-let-have"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-make-let-have-4",
+    "kind": "sentence",
+    "body": {
+      "en": "I'll have the waiter bring more water.",
+      "vi": "Tôi sẽ nhờ người phục vụ mang thêm nước.",
+      "audio": "059b45b2520b2c5cddefa2065294ed732f5339f348716d3f5efd96f6f6f6bd63",
+      "tokens": [
+        "I'll",
+        "have",
+        "the",
+        "waiter",
+        "bring",
+        "more",
+        "water"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I'll have the waiter to bring more water.",
+          "explanationVi": "Sau \"have + người\" dùng động từ nguyên mẫu không \"to\"."
+        },
+        {
+          "en": "I'll have the waiter brings more water.",
+          "explanationVi": "Sau \"have the waiter\" dùng \"bring\", không thêm -s."
+        },
+        {
+          "en": "I'll having the waiter bring more water.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"have\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "make-let-have"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
     "id": "sentence:g-must-have-to-1",
     "kind": "sentence",
     "body": {
@@ -30351,6 +31170,212 @@
   {
     "level": "A2",
     "sort": 0,
+    "id": "sentence:g-polite-requests-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Could you close the door, please?",
+      "vi": "Bạn đóng cửa giúp tôi được không?",
+      "audio": "1e4136a4ff315034fcd8f8f4188ce5c62fe8a2f43d6f9b4ddcbeb2146bf363d4",
+      "tokens": [
+        "Could",
+        "you",
+        "close",
+        "the",
+        "door",
+        "please"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Could you to close the door, please?",
+          "explanationVi": "Sau \"Could you\" không dùng \"to\"."
+        },
+        {
+          "en": "Could you closing the door, please?",
+          "explanationVi": "Sau \"Could you\" dùng động từ nguyên mẫu \"close\"."
+        },
+        {
+          "en": "Could you close door, please?",
+          "explanationVi": "Thiếu mạo từ \"the\" trước \"door\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "polite-requests"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-polite-requests-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Shall I carry that box for you?",
+      "vi": "Để tôi xách cái hộp đó giúp bạn nhé?",
+      "audio": "5831a57501eeac5ad7a499c7bdf1d449ad0e4123a78df77ba17f2162e128bf75",
+      "tokens": [
+        "Shall",
+        "I",
+        "carry",
+        "that",
+        "box",
+        "for",
+        "you"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Shall I to carry that box for you?",
+          "explanationVi": "Sau \"Shall I\" dùng động từ nguyên mẫu, không có \"to\"."
+        },
+        {
+          "en": "Shall I carrying that box for you?",
+          "explanationVi": "Sau \"Shall I\" dùng \"carry\"."
+        },
+        {
+          "en": "Shall I carry that box for your?",
+          "explanationVi": "Sau giới từ \"for\" dùng \"you\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "polite-requests"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-polite-requests-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Why don't we eat out tonight?",
+      "vi": "Tối nay mình đi ăn ngoài đi?",
+      "audio": "ace5940572642967aaafee6cef088138c746db530ecee72cef26475a9b031cd0",
+      "tokens": [
+        "Why",
+        "don't",
+        "we",
+        "eat",
+        "out",
+        "tonight"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Why don't we eating out tonight?",
+          "explanationVi": "Sau \"Why don't we\" dùng động từ nguyên mẫu \"eat\"."
+        },
+        {
+          "en": "Why we don't eat out tonight?",
+          "explanationVi": "Câu hỏi phải đặt \"don't\" trước chủ ngữ: \"Why don't we\"."
+        },
+        {
+          "en": "Why don't we to eat out tonight?",
+          "explanationVi": "Không dùng \"to\" sau \"Why don't we\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "polite-requests"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-polite-requests-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Would you like to join us for lunch?",
+      "vi": "Bạn có muốn ăn trưa cùng chúng tôi không?",
+      "audio": "255968679ac1561577ed312852b82e1ee87625191b1323633fb7089aa8620925",
+      "tokens": [
+        "Would",
+        "you",
+        "like",
+        "to",
+        "join",
+        "us",
+        "for",
+        "lunch"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Would you like join us for lunch?",
+          "explanationVi": "Sau \"Would you like\" cần \"to\" trước động từ."
+        },
+        {
+          "en": "Do you like to join us for lunch?",
+          "explanationVi": "Lời mời dùng \"Would you like\"."
+        },
+        {
+          "en": "Would you like to joining us for lunch?",
+          "explanationVi": "Sau \"to\" dùng động từ nguyên mẫu \"join\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "polite-requests"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
     "id": "sentence:g-present-perfect-1",
     "kind": "sentence",
     "body": {
@@ -30762,6 +31787,445 @@
       ],
       "wordIds": [],
       "grammarSlug": "should-advice"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-time-clauses-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I always read before I go to sleep.",
+      "vi": "Tôi luôn đọc sách trước khi đi ngủ.",
+      "audio": "313e1da21c78b531d61e10fa568ba394390aa4ab36105ae7e8a9bbf39063cc51",
+      "tokens": [
+        "I",
+        "always",
+        "read",
+        "before",
+        "I",
+        "go",
+        "to",
+        "sleep"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          0,
+          5,
+          6,
+          7,
+          4,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I always read before I will go to sleep.",
+          "explanationVi": "Mệnh đề thời gian dùng hiện tại đơn \"go\", không dùng \"will\"."
+        },
+        {
+          "en": "I always read before go to sleep.",
+          "explanationVi": "Sau \"before\" cần chủ ngữ \"I\"."
+        },
+        {
+          "en": "I always reads before I go to sleep.",
+          "explanationVi": "Chủ ngữ \"I\" đi với \"read\", không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "time-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-time-clauses-2",
+    "kind": "sentence",
+    "body": {
+      "en": "When the movie ended, we went home.",
+      "vi": "Khi bộ phim kết thúc, chúng tôi về nhà.",
+      "audio": "746d4c79faa0d85c873f6eb49951541d93842c53c0c8eb59fcd37a962346e2b1",
+      "tokens": [
+        "When",
+        "the",
+        "movie",
+        "ended",
+        "we",
+        "went",
+        "home"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          5,
+          6,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "When the movie ended, we go home.",
+          "explanationVi": "Câu kể chuyện đã qua nên dùng \"went\"."
+        },
+        {
+          "en": "When the movie end, we went home.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"ended\"."
+        },
+        {
+          "en": "When ended the movie, we went home.",
+          "explanationVi": "Sau \"When\" là chủ ngữ rồi mới đến động từ: \"the movie ended\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "time-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-time-clauses-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Please wait here until I come back.",
+      "vi": "Bạn vui lòng đợi ở đây cho đến khi tôi quay lại.",
+      "audio": "de4ef6465e47a7ee4a6b7fa1129c0b1c9be9f9296d9d74eafdad34b4f1764a5c",
+      "tokens": [
+        "Please",
+        "wait",
+        "here",
+        "until",
+        "I",
+        "come",
+        "back"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please wait here until I will come back.",
+          "explanationVi": "Sau \"until\" dùng hiện tại đơn khi nói về tương lai."
+        },
+        {
+          "en": "Please wait here until I comes back.",
+          "explanationVi": "Chủ ngữ \"I\" đi với \"come\", không thêm -s."
+        },
+        {
+          "en": "Please wait here when until I come back.",
+          "explanationVi": "Chỉ dùng một từ nối \"until\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "time-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-time-clauses-4",
+    "kind": "sentence",
+    "body": {
+      "en": "I'll text you as soon as I arrive.",
+      "vi": "Tôi sẽ nhắn tin cho bạn ngay khi tôi đến.",
+      "audio": "c8a8ae597db8550f0d8cea4a852dd05132e3a372adb02aeee624f2ee2d7e971c",
+      "tokens": [
+        "I'll",
+        "text",
+        "you",
+        "as",
+        "soon",
+        "as",
+        "I",
+        "arrive"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I'll text you as soon as I will arrive.",
+          "explanationVi": "Sau \"as soon as\" dùng hiện tại đơn \"arrive\"."
+        },
+        {
+          "en": "I'll text you as soon I arrive.",
+          "explanationVi": "Cụm đúng là \"as soon as\", thiếu \"as\"."
+        },
+        {
+          "en": "I'll texts you as soon as I arrive.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"text\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [],
+      "grammarSlug": "time-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-two-objects-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My aunt sent me a postcard.",
+      "vi": "Dì tôi đã gửi cho tôi một tấm bưu thiếp.",
+      "audio": "e707ae39d1c435b1015866b11aae42cd72a0479154ed670ad1dc2d063afa3a73",
+      "tokens": [
+        "My",
+        "aunt",
+        "sent",
+        "me",
+        "a",
+        "postcard"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My aunt sent to me a postcard.",
+          "explanationVi": "Người nhận đứng ngay sau động từ thì không dùng \"to\"."
+        },
+        {
+          "en": "My aunt sent me postcard.",
+          "explanationVi": "Thiếu mạo từ \"a\" trước \"postcard\"."
+        },
+        {
+          "en": "My aunt send me a postcard.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"sent\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "two-objects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-two-objects-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Can you show the photos to Tom?",
+      "vi": "Bạn cho Tom xem mấy tấm ảnh được không?",
+      "audio": "b176c62ad653081f2d66df2612cf3a37fcd4c4ce327ee22723375e7362f41dec",
+      "tokens": [
+        "Can",
+        "you",
+        "show",
+        "the",
+        "photos",
+        "to",
+        "Tom"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can you show the photos Tom?",
+          "explanationVi": "Vật đứng trước người nhận thì cần \"to\": \"to Tom\"."
+        },
+        {
+          "en": "Can you show to Tom the photos?",
+          "explanationVi": "Đặt \"Tom\" ngay sau \"show\" không có \"to\", hoặc dùng \"the photos to Tom\"."
+        },
+        {
+          "en": "Can you shows the photos to Tom?",
+          "explanationVi": "Sau \"Can you\" dùng động từ nguyên mẫu \"show\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "two-objects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-two-objects-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Dad made breakfast for us.",
+      "vi": "Bố đã làm bữa sáng cho chúng tôi.",
+      "audio": "79967b00edd46f1ca9f0f0b14b75e90fbf35fa06b5d639d9032ef3670b709bc3",
+      "tokens": [
+        "Dad",
+        "made",
+        "breakfast",
+        "for",
+        "us"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Dad made breakfast to us.",
+          "explanationVi": "\"make\" đi với giới từ \"for\"."
+        },
+        {
+          "en": "Dad made breakfast for we.",
+          "explanationVi": "Sau giới từ \"for\" dùng \"us\"."
+        },
+        {
+          "en": "Dad make breakfast for us.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"made\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "two-objects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 0,
+    "id": "sentence:g-two-objects-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Please give it to your teacher.",
+      "vi": "Bạn hãy đưa nó cho giáo viên của bạn.",
+      "audio": "828b3edcb128215ece70a151e64f254ca82ed4732d8c4884f3341ec4bab35f76",
+      "tokens": [
+        "Please",
+        "give",
+        "it",
+        "to",
+        "your",
+        "teacher"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please give your teacher it.",
+          "explanationVi": "Khi vật là đại từ \"it\", đặt \"it\" trước: \"give it to your teacher\"."
+        },
+        {
+          "en": "Please give it your teacher.",
+          "explanationVi": "Sau \"give it\" cần \"to\" trước người nhận."
+        },
+        {
+          "en": "Please gives it to your teacher.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"give\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "two-objects"
     },
     "status": "approved"
   },

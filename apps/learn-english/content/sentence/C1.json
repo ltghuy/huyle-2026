@@ -46856,6 +46856,254 @@
   {
     "level": "C1",
     "sort": 0,
+    "id": "sentence:g-inverted-conditionals-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Should you have any questions, please call our customer service team.",
+      "vi": "Nếu bạn có bất kỳ câu hỏi nào, vui lòng gọi cho đội chăm sóc khách hàng của chúng tôi.",
+      "audio": "765d87de236c968d3e9111ffd7037e5a483339a1e7d0151bf88aa02b79ca61a1",
+      "tokens": [
+        "Should",
+        "you",
+        "have",
+        "any",
+        "questions",
+        "please",
+        "call",
+        "our",
+        "customer",
+        "service",
+        "team"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Should you has any questions, please call our customer service team.",
+          "explanationVi": "Sau \"Should + chủ ngữ\" dùng nguyên mẫu \"have\", không dùng \"has\"."
+        },
+        {
+          "en": "Should you will have any questions, please call our customer service team.",
+          "explanationVi": "Sau \"Should + chủ ngữ\" không thêm \"will\"."
+        },
+        {
+          "en": "If should you have any questions, please call our customer service team.",
+          "explanationVi": "Khi đảo ngữ với \"Should\" thì bỏ \"if\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "inverted-conditionals"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-inverted-conditionals-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Were I in your position, I would talk to the manager directly.",
+      "vi": "Nếu tôi ở vị trí của bạn, tôi sẽ nói chuyện thẳng với quản lý.",
+      "audio": "d92415145070a0a8a4e5544b9c86e9a96fe905bf581895af20e7572c74cf9e7d",
+      "tokens": [
+        "Were",
+        "I",
+        "in",
+        "your",
+        "position",
+        "I",
+        "would",
+        "talk",
+        "to",
+        "the",
+        "manager",
+        "directly"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Was I in your position, I would talk to the manager directly.",
+          "explanationVi": "Đảo ngữ điều kiện loại 2 dùng \"Were\" cho mọi chủ ngữ, không dùng \"Was\"."
+        },
+        {
+          "en": "Were I in your position, I will talk to the manager directly.",
+          "explanationVi": "Mệnh đề chính của điều kiện loại 2 dùng \"would\", không dùng \"will\"."
+        },
+        {
+          "en": "I were in your position, I would talk to the manager directly.",
+          "explanationVi": "Phải đảo \"Were\" lên trước chủ ngữ hoặc dùng \"If I were\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "inverted-conditionals"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-inverted-conditionals-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Had the driver noticed the ice, the accident would never have happened.",
+      "vi": "Nếu tài xế nhận ra lớp băng thì tai nạn đã không bao giờ xảy ra.",
+      "audio": "434ab80c316b4e8a2e0d99fb7ee132815f29a90bd13fd367f37f9eb390f80568",
+      "tokens": [
+        "Had",
+        "the",
+        "driver",
+        "noticed",
+        "the",
+        "ice",
+        "the",
+        "accident",
+        "would",
+        "never",
+        "have",
+        "happened"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Had the driver notice the ice, the accident would never have happened.",
+          "explanationVi": "Sau \"Had + chủ ngữ\" dùng quá khứ phân từ \"noticed\"."
+        },
+        {
+          "en": "Had the driver noticed the ice, the accident would never happen.",
+          "explanationVi": "Mệnh đề chính của điều kiện loại 3 dùng \"would have + V3\": \"would never have happened\"."
+        },
+        {
+          "en": "The driver had noticed the ice, the accident would never have happened.",
+          "explanationVi": "Phải đảo \"Had\" lên trước chủ ngữ để làm mệnh đề điều kiện."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "inverted-conditionals"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-inverted-conditionals-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Had it not been for your help, I would have missed the deadline.",
+      "vi": "Nếu không có sự giúp đỡ của bạn, tôi đã trễ hạn chót rồi.",
+      "audio": "88b9ebec2a738fe622c28a299b74a77b78ecd037c02d6729f232e3be6b78c461",
+      "tokens": [
+        "Had",
+        "it",
+        "not",
+        "been",
+        "for",
+        "your",
+        "help",
+        "I",
+        "would",
+        "have",
+        "missed",
+        "the",
+        "deadline"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Hadn't it been for your help, I would have missed the deadline.",
+          "explanationVi": "Đảo ngữ phủ định viết \"Had it not been\", không dùng \"Hadn't it\"."
+        },
+        {
+          "en": "Had it not been for your help, I will have missed the deadline.",
+          "explanationVi": "Mệnh đề chính dùng \"would have + V3\", không dùng \"will have\"."
+        },
+        {
+          "en": "Had not it been for your help, I would have missed the deadline.",
+          "explanationVi": "\"not\" đứng sau chủ ngữ: \"Had it not been\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "inverted-conditionals"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
     "id": "sentence:g-mixed-conditionals-1",
     "kind": "sentence",
     "body": {
@@ -47336,6 +47584,490 @@
       ],
       "wordIds": [],
       "grammarSlug": "participle-clauses"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-perfect-passive-infinitives-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The thieves appear to have entered through an open window at the back.",
+      "vi": "Có vẻ như bọn trộm đã vào qua một cửa sổ để mở ở phía sau.",
+      "audio": "6495ecc32daaa811e400a888257613ca570f272768bafbaf241325e1c68196a5",
+      "tokens": [
+        "The",
+        "thieves",
+        "appear",
+        "to",
+        "have",
+        "entered",
+        "through",
+        "an",
+        "open",
+        "window",
+        "at",
+        "the",
+        "back"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The thieves appear to have enter through an open window at the back.",
+          "explanationVi": "Sau \"to have\" dùng quá khứ phân từ \"entered\"."
+        },
+        {
+          "en": "The thieves appear having entered through an open window at the back.",
+          "explanationVi": "Sau \"appear\" dùng \"to have + V3\", không dùng \"having\"."
+        },
+        {
+          "en": "The thieves appear to entered through an open window at the back.",
+          "explanationVi": "Sau \"to\" phải dùng \"have + V3\" hoặc nguyên mẫu, không dùng \"entered\" ngay sau \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "perfect-passive-infinitives"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-perfect-passive-infinitives-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She admitted having made a serious mistake in the final report.",
+      "vi": "Cô ấy thừa nhận đã mắc một lỗi nghiêm trọng trong bản báo cáo cuối cùng.",
+      "audio": "4e8e7619295150e10c7483c8310da0a9a58dbe84a81249f1b67b7d651391bb77",
+      "tokens": [
+        "She",
+        "admitted",
+        "having",
+        "made",
+        "a",
+        "serious",
+        "mistake",
+        "in",
+        "the",
+        "final",
+        "report"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She admitted to have made a serious mistake in the final report.",
+          "explanationVi": "Sau \"admit\" dùng V-ing: \"having made\", không dùng \"to have made\"."
+        },
+        {
+          "en": "She admitted having make a serious mistake in the final report.",
+          "explanationVi": "Sau \"having\" dùng quá khứ phân từ \"made\"."
+        },
+        {
+          "en": "She admitted have made a serious mistake in the final report.",
+          "explanationVi": "Sau \"admit\" cần dạng V-ing \"having\", không dùng \"have\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "perfect-passive-infinitives"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-perfect-passive-infinitives-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Nobody enjoys being criticized in front of their colleagues.",
+      "vi": "Không ai thích bị phê bình trước mặt đồng nghiệp.",
+      "audio": "01ff4927e7e2487c6046a76e9ed4d4e6f4f90f0f955c428c7cb41d4f5595939a",
+      "tokens": [
+        "Nobody",
+        "enjoys",
+        "being",
+        "criticized",
+        "in",
+        "front",
+        "of",
+        "their",
+        "colleagues"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Nobody enjoys criticizing in front of their colleagues.",
+          "explanationVi": "Người ta là người bị phê bình nên dùng dạng bị động \"being criticized\"."
+        },
+        {
+          "en": "Nobody enjoys to be criticized in front of their colleagues.",
+          "explanationVi": "Sau \"enjoy\" dùng V-ing: \"being criticized\", không dùng \"to be\"."
+        },
+        {
+          "en": "Nobody enjoys being criticize in front of their colleagues.",
+          "explanationVi": "Sau \"being\" dùng quá khứ phân từ \"criticized\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "perfect-passive-infinitives"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-perfect-passive-infinitives-4",
+    "kind": "sentence",
+    "body": {
+      "en": "The painting is believed to have been stolen during the war.",
+      "vi": "Người ta tin rằng bức tranh đã bị đánh cắp trong thời chiến.",
+      "audio": "9cd73d036d0be64869d60c93dc073cb3502e04fd16b10dd571e5bd7f62e0efab",
+      "tokens": [
+        "The",
+        "painting",
+        "is",
+        "believed",
+        "to",
+        "have",
+        "been",
+        "stolen",
+        "during",
+        "the",
+        "war"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The painting is believed to have stolen during the war.",
+          "explanationVi": "Bức tranh bị đánh cắp nên cần dạng bị động \"to have been stolen\"."
+        },
+        {
+          "en": "The painting is believed to be stolen during the war.",
+          "explanationVi": "Việc đánh cắp xảy ra trong quá khứ nên dùng \"to have been stolen\"."
+        },
+        {
+          "en": "The painting is believed to have been stole during the war.",
+          "explanationVi": "Sau \"been\" dùng quá khứ phân từ \"stolen\", không dùng \"stole\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [],
+      "grammarSlug": "perfect-passive-infinitives"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-subjunctive-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The manager suggested that each team member write a short weekly report.",
+      "vi": "Quản lý đề nghị mỗi thành viên trong nhóm viết một bản báo cáo ngắn hằng tuần.",
+      "audio": "12de2c09850bf67f6da895ba4c3f852b0b7dd0ea79d41abaef262d091b52ce56",
+      "tokens": [
+        "The",
+        "manager",
+        "suggested",
+        "that",
+        "each",
+        "team",
+        "member",
+        "write",
+        "a",
+        "short",
+        "weekly",
+        "report"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The manager suggested that each team member writes a short weekly report.",
+          "explanationVi": "Sau \"suggested that\" động từ giữ nguyên mẫu \"write\", không thêm -s."
+        },
+        {
+          "en": "The manager suggested that each team member wrote a short weekly report.",
+          "explanationVi": "Không lùi thì sau \"suggested that\"; dùng nguyên mẫu \"write\"."
+        },
+        {
+          "en": "The manager suggested each team member to write a short weekly report.",
+          "explanationVi": "\"suggest\" không đi với \"tân ngữ + to V\"; dùng \"suggest that + S + V\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "subjunctive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-subjunctive-2",
+    "kind": "sentence",
+    "body": {
+      "en": "It is essential that the medicine be kept in a cool, dry place.",
+      "vi": "Điều quan trọng là thuốc phải được bảo quản ở nơi khô ráo, thoáng mát.",
+      "audio": "eb6bf6d7164567565f8774ab25773c203b6fd36bdec21bc1fbc7561ce0a4e1a6",
+      "tokens": [
+        "It",
+        "is",
+        "essential",
+        "that",
+        "the",
+        "medicine",
+        "be",
+        "kept",
+        "in",
+        "a",
+        "cool",
+        "dry",
+        "place"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "It is essential that the medicine is kept in a cool, dry place.",
+          "explanationVi": "Sau \"It is essential that\" dùng \"be\", không dùng \"is\"."
+        },
+        {
+          "en": "It is essential that the medicine be keep in a cool, dry place.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"kept\" sau \"be\"."
+        },
+        {
+          "en": "It is essential that the medicine to be kept in a cool, dry place.",
+          "explanationVi": "Trong mệnh đề \"that\" không dùng \"to\" trước động từ."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "subjunctive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-subjunctive-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Her lawyer insisted that she not sign anything until Monday.",
+      "vi": "Luật sư của cô ấy nhất quyết yêu cầu cô ấy không ký bất cứ thứ gì trước thứ Hai.",
+      "audio": "d0ad1cb1f6979e887db8cb99ca7e16ce6b1385e63eed0f85a95b317cd72065b2",
+      "tokens": [
+        "Her",
+        "lawyer",
+        "insisted",
+        "that",
+        "she",
+        "not",
+        "sign",
+        "anything",
+        "until",
+        "Monday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Her lawyer insisted that she doesn't sign anything until Monday.",
+          "explanationVi": "Phủ định của thể giả định là \"not + V\", không dùng \"doesn't\"."
+        },
+        {
+          "en": "Her lawyer insisted that she not signs anything until Monday.",
+          "explanationVi": "Sau \"not\" động từ giữ nguyên mẫu \"sign\", không thêm -s."
+        },
+        {
+          "en": "Her lawyer insisted her not to sign anything until Monday.",
+          "explanationVi": "\"insist\" không đi với \"tân ngữ + to V\"; dùng \"insist that + S + not + V\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "subjunctive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 0,
+    "id": "sentence:g-subjunctive-4",
+    "kind": "sentence",
+    "body": {
+      "en": "The committee recommended that the old bridge be closed for repairs.",
+      "vi": "Ủy ban kiến nghị đóng cửa cây cầu cũ để sửa chữa.",
+      "audio": "ae98c9cc6f22b47be52d35603bd4f8dd9715038f0afe9c05e02fe007c9240546",
+      "tokens": [
+        "The",
+        "committee",
+        "recommended",
+        "that",
+        "the",
+        "old",
+        "bridge",
+        "be",
+        "closed",
+        "for",
+        "repairs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The committee recommended that the old bridge was closed for repairs.",
+          "explanationVi": "Không lùi thì sau \"recommended that\"; dùng \"be closed\"."
+        },
+        {
+          "en": "The committee recommended that the old bridge is closed for repairs.",
+          "explanationVi": "Thể giả định dùng \"be\" cho mọi chủ ngữ, không dùng \"is\"."
+        },
+        {
+          "en": "The committee recommended that the old bridge be close for repairs.",
+          "explanationVi": "Câu bị động cần quá khứ phân từ \"closed\" sau \"be\"."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "subjunctive"
     },
     "status": "approved"
   },

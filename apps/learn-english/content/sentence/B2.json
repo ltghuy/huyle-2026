@@ -111290,6 +111290,471 @@
   {
     "level": "B2",
     "sort": 0,
+    "id": "sentence:g-advanced-passive-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A new hospital has been built near the river.",
+      "vi": "Một bệnh viện mới đã được xây gần con sông.",
+      "audio": "13742d4145c625f17e0e08d1523b8b98229738a5f3872170e4d29a4ed7942279",
+      "tokens": [
+        "A",
+        "new",
+        "hospital",
+        "has",
+        "been",
+        "built",
+        "near",
+        "the",
+        "river"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          7,
+          8,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A new hospital has built near the river.",
+          "explanationVi": "Thiếu \"been\": bị động hiện tại hoàn thành là \"has been + V3\"."
+        },
+        {
+          "en": "A new hospital have been built near the river.",
+          "explanationVi": "Chủ ngữ số ít nên dùng \"has\"."
+        },
+        {
+          "en": "A new hospital has been build near the river.",
+          "explanationVi": "Sau \"been\" phải dùng V3 \"built\"."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "advanced-passive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-advanced-passive-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Our kitchen is being painted this week.",
+      "vi": "Tuần này nhà bếp của chúng tôi đang được sơn.",
+      "audio": "93387230398a36972133097d8017f3849fa8829fe0ada5775c7b48a51d27351c",
+      "tokens": [
+        "Our",
+        "kitchen",
+        "is",
+        "being",
+        "painted",
+        "this",
+        "week"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our kitchen is painting this week.",
+          "explanationVi": "Bếp không tự sơn, phải dùng bị động \"is being painted\"."
+        },
+        {
+          "en": "Our kitchen is be painted this week.",
+          "explanationVi": "Bị động tiếp diễn dùng \"being\", không dùng \"be\"."
+        },
+        {
+          "en": "Our kitchen are being painted this week.",
+          "explanationVi": "Chủ ngữ số ít nên dùng \"is\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "advanced-passive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-advanced-passive-3",
+    "kind": "sentence",
+    "body": {
+      "en": "The winners will be announced on Friday.",
+      "vi": "Người thắng cuộc sẽ được công bố vào thứ Sáu.",
+      "audio": "7cde373d113d263f17bf05d79749b617e74a541b0bb14d22e8398895b0ae99d3",
+      "tokens": [
+        "The",
+        "winners",
+        "will",
+        "be",
+        "announced",
+        "on",
+        "Friday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The winners will announced on Friday.",
+          "explanationVi": "Thiếu \"be\": bị động tương lai là \"will be + V3\"."
+        },
+        {
+          "en": "The winners will be announce on Friday.",
+          "explanationVi": "Sau \"be\" phải dùng V3 \"announced\"."
+        },
+        {
+          "en": "The winners will be announced in Friday.",
+          "explanationVi": "Trước ngày trong tuần dùng giới từ \"on\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "advanced-passive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-advanced-passive-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Library books must be returned within two weeks.",
+      "vi": "Sách thư viện phải được trả trong vòng hai tuần.",
+      "audio": "0894b57cafb6e0ba23fce46ecf30bbe3715cf7ac6c273958c6d7b19b6321dc8f",
+      "tokens": [
+        "Library",
+        "books",
+        "must",
+        "be",
+        "returned",
+        "within",
+        "two",
+        "weeks"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Library books must return within two weeks.",
+          "explanationVi": "Sách không tự trả, phải dùng bị động \"must be returned\"."
+        },
+        {
+          "en": "Library books must be return within two weeks.",
+          "explanationVi": "Sau \"be\" phải dùng V3 \"returned\"."
+        },
+        {
+          "en": "Library books must to be returned within two weeks.",
+          "explanationVi": "Sau \"must\" không dùng \"to\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "advanced-passive"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-as-if-as-though-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You look as if you haven't slept for days.",
+      "vi": "Trông bạn như thể đã mấy ngày không ngủ.",
+      "audio": "331e65a4cdbb846849aed64421697e83802728026a1f991028018a8eb197e770",
+      "tokens": [
+        "You",
+        "look",
+        "as",
+        "if",
+        "you",
+        "haven't",
+        "slept",
+        "for",
+        "days"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You look as if you haven't sleep for days.",
+          "explanationVi": "Sau \"haven't\" phải dùng V3 \"slept\"."
+        },
+        {
+          "en": "You look as if you don't slept for days.",
+          "explanationVi": "\"don't\" không đi với V3; ở đây cần \"haven't slept\"."
+        },
+        {
+          "en": "You look as you haven't slept for days.",
+          "explanationVi": "Thiếu \"if\": phải là \"as if\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-if-as-though"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-as-if-as-though-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He spends money as if he were a millionaire.",
+      "vi": "Anh ấy tiêu tiền như thể mình là triệu phú.",
+      "audio": "02d9a764a6cdac98fe7fcb261589fe7e3d0cf791413e159cbb9c6128aa589cda",
+      "tokens": [
+        "He",
+        "spends",
+        "money",
+        "as",
+        "if",
+        "he",
+        "were",
+        "a",
+        "millionaire"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He spends money as if he is a millionaire.",
+          "explanationVi": "Điều không có thật ở hiện tại thì lùi thì: \"were\"."
+        },
+        {
+          "en": "He spends money as if he were millionaire.",
+          "explanationVi": "Thiếu mạo từ \"a\" trước \"millionaire\"."
+        },
+        {
+          "en": "He spend money as if he were a millionaire.",
+          "explanationVi": "Chủ ngữ \"He\" nên động từ phải là \"spends\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-if-as-though"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-as-if-as-though-3",
+    "kind": "sentence",
+    "body": {
+      "en": "She smiled as though nothing had happened.",
+      "vi": "Cô ấy mỉm cười như thể chưa có chuyện gì xảy ra.",
+      "audio": "2cf56ad324ae86e96fabe71fc1a614406eb041570d30d2a2c80d225c585f4bea",
+      "tokens": [
+        "She",
+        "smiled",
+        "as",
+        "though",
+        "nothing",
+        "had",
+        "happened"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She smiled as though nothing has happened.",
+          "explanationVi": "Việc trước một thời điểm trong quá khứ dùng \"had happened\"."
+        },
+        {
+          "en": "She smiled as though nothing had happen.",
+          "explanationVi": "Sau \"had\" phải dùng V3 \"happened\"."
+        },
+        {
+          "en": "She smiled as though anything had happened.",
+          "explanationVi": "Câu khẳng định mang nghĩa \"không có gì\" phải dùng \"nothing\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-if-as-though"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-as-if-as-though-4",
+    "kind": "sentence",
+    "body": {
+      "en": "The soup tastes as if someone added too much salt.",
+      "vi": "Món súp có vị như thể ai đó đã cho quá nhiều muối.",
+      "audio": "4f28c253aabbe852cb81a47fb0b6db63fd2240301852cfde1e5c96e9e76259c2",
+      "tokens": [
+        "The",
+        "soup",
+        "tastes",
+        "as",
+        "if",
+        "someone",
+        "added",
+        "too",
+        "much",
+        "salt"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The soup tastes as if someone added too many salt.",
+          "explanationVi": "\"salt\" không đếm được nên dùng \"too much\"."
+        },
+        {
+          "en": "The soup taste as if someone added too much salt.",
+          "explanationVi": "Chủ ngữ số ít \"The soup\" nên dùng \"tastes\"."
+        },
+        {
+          "en": "The soup tastes as if someone add too much salt.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"added\"."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "as-if-as-though"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
     "id": "sentence:g-causative-1",
     "kind": "sentence",
     "body": {
@@ -111520,6 +111985,238 @@
       ],
       "wordIds": [],
       "grammarSlug": "causative"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-emphatic-do-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I did send you the email this morning.",
+      "vi": "Tôi thật sự đã gửi email cho bạn sáng nay mà.",
+      "audio": "2b4cabf66a3b274ffd688f414c0f45488c8f1459ccdf837f4291df4e8d54b20f",
+      "tokens": [
+        "I",
+        "did",
+        "send",
+        "you",
+        "the",
+        "email",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I did sent you the email this morning.",
+          "explanationVi": "Sau \"did\" dùng động từ nguyên mẫu \"send\"."
+        },
+        {
+          "en": "I do send you the email this morning.",
+          "explanationVi": "Việc sáng nay đã qua nên dùng \"did\"."
+        },
+        {
+          "en": "I did send you email this morning.",
+          "explanationVi": "Thiếu mạo từ \"the\" trước \"email\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "emphatic-do"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-emphatic-do-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She doesn't eat meat, but she does eat fish.",
+      "vi": "Cô ấy không ăn thịt, nhưng cô ấy có ăn cá.",
+      "audio": "d2ce3e25bf0a0a9fdb6cf45d171823d2b12fb2ff223786dd94e801f344bf1bc1",
+      "tokens": [
+        "She",
+        "doesn't",
+        "eat",
+        "meat",
+        "but",
+        "she",
+        "does",
+        "eat",
+        "fish"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She doesn't eat meat, but she does eats fish.",
+          "explanationVi": "Sau \"does\" dùng động từ nguyên mẫu \"eat\"."
+        },
+        {
+          "en": "She doesn't eat meat, but she do eat fish.",
+          "explanationVi": "Chủ ngữ \"she\" ở hiện tại dùng \"does\"."
+        },
+        {
+          "en": "She doesn't eats meat, but she does eat fish.",
+          "explanationVi": "Sau \"doesn't\" dùng động từ nguyên mẫu \"eat\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "emphatic-do"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-emphatic-do-3",
+    "kind": "sentence",
+    "body": {
+      "en": "We do appreciate all your help with the move.",
+      "vi": "Chúng tôi thật sự rất cảm kích mọi sự giúp đỡ của bạn khi chuyển nhà.",
+      "audio": "59a8c302b5518aa4510437dbbf96a60516c2ed8a29aaea6fd96c467cbd921010",
+      "tokens": [
+        "We",
+        "do",
+        "appreciate",
+        "all",
+        "your",
+        "help",
+        "with",
+        "the",
+        "move"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We do appreciated all your help with the move.",
+          "explanationVi": "Sau \"do\" dùng động từ nguyên mẫu \"appreciate\"."
+        },
+        {
+          "en": "We does appreciate all your help with the move.",
+          "explanationVi": "Chủ ngữ \"We\" dùng \"do\"."
+        },
+        {
+          "en": "We do appreciate all your helps with the move.",
+          "explanationVi": "\"help\" ở đây không đếm được, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "emphatic-do"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-emphatic-do-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Do take an umbrella because it might rain later.",
+      "vi": "Bạn nhớ mang theo ô nhé, vì lát nữa có thể mưa.",
+      "audio": "059c84bb8c609cd048d1037d095f625b141a8f8779a019b56fc644486b86119d",
+      "tokens": [
+        "Do",
+        "take",
+        "an",
+        "umbrella",
+        "because",
+        "it",
+        "might",
+        "rain",
+        "later"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Do taking an umbrella because it might rain later.",
+          "explanationVi": "Sau \"Do\" dùng động từ nguyên mẫu \"take\"."
+        },
+        {
+          "en": "Does take an umbrella because it might rain later.",
+          "explanationVi": "Câu mệnh lệnh dùng \"Do\", không dùng \"Does\"."
+        },
+        {
+          "en": "Do take an umbrella because it might rains later.",
+          "explanationVi": "Sau \"might\" dùng động từ nguyên mẫu \"rain\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "emphatic-do"
     },
     "status": "approved"
   },
@@ -112027,6 +112724,230 @@
   {
     "level": "B2",
     "sort": 0,
+    "id": "sentence:g-modal-perfects-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I should have left home earlier this morning.",
+      "vi": "Đáng lẽ sáng nay tôi nên ra khỏi nhà sớm hơn.",
+      "audio": "1043ce43af76d7d0dd64b6ce150f44c1ab358529514e003e3fed700fb8501ce1",
+      "tokens": [
+        "I",
+        "should",
+        "have",
+        "left",
+        "home",
+        "earlier",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I should left home earlier this morning.",
+          "explanationVi": "Nói về quá khứ phải dùng \"should have + V3\"."
+        },
+        {
+          "en": "I should have leave home earlier this morning.",
+          "explanationVi": "Sau \"have\" phải dùng V3 \"left\"."
+        },
+        {
+          "en": "I should had left home earlier this morning.",
+          "explanationVi": "Sau \"should\" dùng \"have\" nguyên mẫu, không dùng \"had\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "modal-perfects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-modal-perfects-2",
+    "kind": "sentence",
+    "body": {
+      "en": "You shouldn't have shouted at your little brother.",
+      "vi": "Đáng lẽ bạn không nên quát em trai mình.",
+      "audio": "e88a9cc7f1f482f079ef3e991b9114cb7def2c87cb1b8216f60d60853b649faf",
+      "tokens": [
+        "You",
+        "shouldn't",
+        "have",
+        "shouted",
+        "at",
+        "your",
+        "little",
+        "brother"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You shouldn't shouted at your little brother.",
+          "explanationVi": "Thiếu \"have\": phải là \"shouldn't have + V3\"."
+        },
+        {
+          "en": "You shouldn't have shout at your little brother.",
+          "explanationVi": "Sau \"have\" phải dùng V3 \"shouted\"."
+        },
+        {
+          "en": "You haven't should shouted at your little brother.",
+          "explanationVi": "Sai trật tự: \"shouldn't have + V3\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "modal-perfects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-modal-perfects-3",
+    "kind": "sentence",
+    "body": {
+      "en": "She could have become a great doctor.",
+      "vi": "Cô ấy đã có thể trở thành một bác sĩ giỏi.",
+      "audio": "92879376f516e15a73d3a03f97605e6146ef269f73c874037e6f998a3cd49c64",
+      "tokens": [
+        "She",
+        "could",
+        "have",
+        "become",
+        "a",
+        "great",
+        "doctor"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She could became a great doctor.",
+          "explanationVi": "Nói về khả năng trong quá khứ phải dùng \"could have + V3\"."
+        },
+        {
+          "en": "She could have became a great doctor.",
+          "explanationVi": "V3 của \"become\" là \"become\", không phải \"became\"."
+        },
+        {
+          "en": "She could has become a great doctor.",
+          "explanationVi": "Sau \"could\" luôn dùng \"have\", không dùng \"has\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "modal-perfects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-modal-perfects-4",
+    "kind": "sentence",
+    "body": {
+      "en": "We needn't have bought so much bread yesterday.",
+      "vi": "Hôm qua lẽ ra chúng ta không cần mua nhiều bánh mì như vậy.",
+      "audio": "ada113319490235f4fbd560cd3e371a433e4b517f72a282fcc5a8c634159f47b",
+      "tokens": [
+        "We",
+        "needn't",
+        "have",
+        "bought",
+        "so",
+        "much",
+        "bread",
+        "yesterday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We needn't have buy so much bread yesterday.",
+          "explanationVi": "Sau \"needn't have\" phải dùng V3 \"bought\"."
+        },
+        {
+          "en": "We needn't to have bought so much bread yesterday.",
+          "explanationVi": "\"needn't\" không đi với \"to\"."
+        },
+        {
+          "en": "We needn't have bought so many bread yesterday.",
+          "explanationVi": "\"bread\" là danh từ không đếm được nên dùng \"much\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "modal-perfects"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
     "id": "sentence:g-modals-of-deduction-1",
     "kind": "sentence",
     "body": {
@@ -112501,6 +113422,679 @@
   {
     "level": "B2",
     "sort": 0,
+    "id": "sentence:g-relative-clauses-advanced-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I have a friend whose father is a famous chef.",
+      "vi": "Tôi có một người bạn có bố là đầu bếp nổi tiếng.",
+      "audio": "008a6b946676c7cdad0af04e7a5e30e0bb7b691d3ba2d29f3f77be4c7a8a1adb",
+      "tokens": [
+        "I",
+        "have",
+        "a",
+        "friend",
+        "whose",
+        "father",
+        "is",
+        "a",
+        "famous",
+        "chef"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I have a friend who father is a famous chef.",
+          "explanationVi": "Chỉ sở hữu phải dùng \"whose\"."
+        },
+        {
+          "en": "I have a friend whose his father is a famous chef.",
+          "explanationVi": "Sau \"whose\" không thêm \"his\"."
+        },
+        {
+          "en": "I have a friend whose father is famous chef.",
+          "explanationVi": "Thiếu mạo từ \"a\" trước \"famous chef\"."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "relative-clauses-advanced"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-relative-clauses-advanced-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The teacher to whom I wrote never replied.",
+      "vi": "Thầy giáo mà tôi đã viết thư cho chưa bao giờ trả lời.",
+      "audio": "3274e822dca420a1701a7af696b9b5fcc4df2439c4b3581f19e53e3bee89c480",
+      "tokens": [
+        "The",
+        "teacher",
+        "to",
+        "whom",
+        "I",
+        "wrote",
+        "never",
+        "replied"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The teacher to who I wrote never replied.",
+          "explanationVi": "Sau giới từ, đại từ chỉ người phải là \"whom\"."
+        },
+        {
+          "en": "The teacher to that I wrote never replied.",
+          "explanationVi": "Sau giới từ không dùng \"that\"."
+        },
+        {
+          "en": "The teacher to whom I wrote never reply.",
+          "explanationVi": "Việc trong quá khứ nên dùng \"replied\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "relative-clauses-advanced"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-relative-clauses-advanced-3",
+    "kind": "sentence",
+    "body": {
+      "en": "This is the town in which my grandparents met.",
+      "vi": "Đây là thị trấn nơi ông bà tôi gặp nhau.",
+      "audio": "549dedc654b6d81abaa3b9251d801edaefa001da7e67e9b1b8078eed8b4b84ab",
+      "tokens": [
+        "This",
+        "is",
+        "the",
+        "town",
+        "in",
+        "which",
+        "my",
+        "grandparents",
+        "met"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This is the town in that my grandparents met.",
+          "explanationVi": "Sau giới từ dùng \"which\", không dùng \"that\"."
+        },
+        {
+          "en": "This is the town in which my grandparents meet.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ \"met\"."
+        },
+        {
+          "en": "This is the town which in my grandparents met.",
+          "explanationVi": "Giới từ đứng trước \"which\": \"in which\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "relative-clauses-advanced"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-relative-clauses-advanced-4",
+    "kind": "sentence",
+    "body": {
+      "en": "My laptop, which is five years old, still works well.",
+      "vi": "Máy tính xách tay của tôi, đã năm năm tuổi, vẫn chạy tốt.",
+      "audio": "9b26310c75032322b7e98ed5fed31d9ae682e5cb3b2c86a1ab694f1e03492c82",
+      "tokens": [
+        "My",
+        "laptop",
+        "which",
+        "is",
+        "five",
+        "years",
+        "old",
+        "still",
+        "works",
+        "well"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My laptop, that is five years old, still works well.",
+          "explanationVi": "Mệnh đề có dấu phẩy không dùng \"that\"."
+        },
+        {
+          "en": "My laptop, which is five years old, still work well.",
+          "explanationVi": "Chủ ngữ \"My laptop\" số ít nên dùng \"works\"."
+        },
+        {
+          "en": "My laptop, which is five year old, still works well.",
+          "explanationVi": "\"five years old\": \"year\" phải ở số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [],
+      "grammarSlug": "relative-clauses-advanced"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-so-neither-do-i-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My brother hates spicy food, and so does my father.",
+      "vi": "Anh tôi ghét đồ ăn cay, và bố tôi cũng vậy.",
+      "audio": "b3f84058feb9df1894d3de21f1ddec93f6ecaa6e7c74c419d4c1b402702490ad",
+      "tokens": [
+        "My",
+        "brother",
+        "hates",
+        "spicy",
+        "food",
+        "and",
+        "so",
+        "does",
+        "my",
+        "father"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My brother hates spicy food, and so my father does.",
+          "explanationVi": "Phải đảo trợ động từ: \"so does my father\"."
+        },
+        {
+          "en": "My brother hates spicy food, and so is my father.",
+          "explanationVi": "Câu trước dùng động từ thường nên trợ động từ là \"does\"."
+        },
+        {
+          "en": "My brother hates spicy food, and neither does my father.",
+          "explanationVi": "Câu trước khẳng định nên dùng \"so\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-neither-do-i"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-so-neither-do-i-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I haven't finished the report, and neither has Mai.",
+      "vi": "Tôi chưa làm xong báo cáo, và Mai cũng chưa.",
+      "audio": "bae9dc91b93b5368c2fc61c762d23daecbc60ed03390d34cb0ac0aa142ea5c82",
+      "tokens": [
+        "I",
+        "haven't",
+        "finished",
+        "the",
+        "report",
+        "and",
+        "neither",
+        "has",
+        "Mai"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I haven't finished the report, and so has Mai.",
+          "explanationVi": "Câu trước phủ định nên dùng \"neither\"."
+        },
+        {
+          "en": "I haven't finished the report, and neither hasn't Mai.",
+          "explanationVi": "\"neither\" đã mang nghĩa phủ định, không thêm \"not\"."
+        },
+        {
+          "en": "I haven't finished the report, and neither does Mai.",
+          "explanationVi": "Câu trước dùng \"have\" nên trợ động từ là \"has\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-neither-do-i"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-so-neither-do-i-3",
+    "kind": "sentence",
+    "body": {
+      "en": "She can play the guitar, and so can her sister.",
+      "vi": "Cô ấy biết chơi ghi-ta, và chị gái cô ấy cũng biết.",
+      "audio": "736f23e17802fd686390837c64bb71ecd48cdb184bf8159106acfe30c7127a5b",
+      "tokens": [
+        "She",
+        "can",
+        "play",
+        "the",
+        "guitar",
+        "and",
+        "so",
+        "can",
+        "her",
+        "sister"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She can play the guitar, and so does her sister.",
+          "explanationVi": "Câu trước dùng \"can\" nên trợ động từ là \"can\"."
+        },
+        {
+          "en": "She can play the guitar, and so her sister can.",
+          "explanationVi": "Phải đảo trợ động từ: \"so can her sister\"."
+        },
+        {
+          "en": "She can plays the guitar, and so can her sister.",
+          "explanationVi": "Sau \"can\" dùng động từ nguyên mẫu \"play\"."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-neither-do-i"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-so-neither-do-i-4",
+    "kind": "sentence",
+    "body": {
+      "en": "Our team didn't win, and nor did theirs.",
+      "vi": "Đội chúng tôi không thắng, và đội họ cũng không.",
+      "audio": "a1a79c59514935aa5c8e6525bdcef0f7d1f25d164ce103ec767eeb48fabef03f",
+      "tokens": [
+        "Our",
+        "team",
+        "didn't",
+        "win",
+        "and",
+        "nor",
+        "did",
+        "theirs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our team didn't win, and nor didn't theirs.",
+          "explanationVi": "\"nor\" đã mang nghĩa phủ định, không thêm \"not\"."
+        },
+        {
+          "en": "Our team didn't win, and nor does theirs.",
+          "explanationVi": "Câu trước ở quá khứ nên dùng \"did\"."
+        },
+        {
+          "en": "Our team didn't win, and so did theirs.",
+          "explanationVi": "Câu trước phủ định nên dùng \"nor\" hoặc \"neither\"."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "so-neither-do-i"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-the-more-the-more-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The more you read, the more words you learn.",
+      "vi": "Bạn càng đọc nhiều thì càng học được nhiều từ.",
+      "audio": "fd791505659379a2fb0ff2d73650588b1b05c168a5b851d1d775e46aa22ad605",
+      "tokens": [
+        "The",
+        "more",
+        "you",
+        "read",
+        "the",
+        "more",
+        "words",
+        "you",
+        "learn"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "More you read, more words you learn.",
+          "explanationVi": "Mỗi vế phải bắt đầu bằng \"the\"."
+        },
+        {
+          "en": "The more you read, the more word you learn.",
+          "explanationVi": "\"words\" phải ở số nhiều."
+        },
+        {
+          "en": "The more you read, the most words you learn.",
+          "explanationVi": "Cấu trúc này dùng so sánh hơn \"more\", không dùng \"most\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "the-more-the-more"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-the-more-the-more-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The older my grandmother gets, the less she sleeps.",
+      "vi": "Bà tôi càng lớn tuổi thì càng ngủ ít.",
+      "audio": "4f756ae637fd3adc026dd7671903e4ffe262520b04f5d800dbc49d29d011c2bf",
+      "tokens": [
+        "The",
+        "older",
+        "my",
+        "grandmother",
+        "gets",
+        "the",
+        "less",
+        "she",
+        "sleeps"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The more old my grandmother gets, the less she sleeps.",
+          "explanationVi": "So sánh hơn của \"old\" là \"older\"."
+        },
+        {
+          "en": "The older gets my grandmother, the less she sleeps.",
+          "explanationVi": "Chủ ngữ đứng trước động từ: \"my grandmother gets\"."
+        },
+        {
+          "en": "The older my grandmother gets, the less she sleep.",
+          "explanationVi": "Chủ ngữ \"she\" nên dùng \"sleeps\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [],
+      "grammarSlug": "the-more-the-more"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-the-more-the-more-3",
+    "kind": "sentence",
+    "body": {
+      "en": "The earlier we leave, the sooner we will arrive.",
+      "vi": "Chúng ta đi càng sớm thì sẽ đến càng sớm.",
+      "audio": "d69b8c010145897381ea6f07c58e568079d73dfbfe772e83bfb85805a75f5960",
+      "tokens": [
+        "The",
+        "earlier",
+        "we",
+        "leave",
+        "the",
+        "sooner",
+        "we",
+        "will",
+        "arrive"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The more early we leave, the sooner we will arrive.",
+          "explanationVi": "So sánh hơn của \"early\" là \"earlier\"."
+        },
+        {
+          "en": "The earlier we leave, the soon we will arrive.",
+          "explanationVi": "Vế sau cũng cần so sánh hơn \"sooner\"."
+        },
+        {
+          "en": "Earlier we leave, the sooner we will arrive.",
+          "explanationVi": "Vế đầu thiếu \"the\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "the-more-the-more"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-the-more-the-more-4",
+    "kind": "sentence",
+    "body": {
+      "en": "The harder she trained, the faster she ran.",
+      "vi": "Cô ấy càng tập luyện chăm chỉ thì chạy càng nhanh.",
+      "audio": "f42cfd4e62e93fbe2837e43a3308aa23c3feff64093fcb7f1564b0148cc6f585",
+      "tokens": [
+        "The",
+        "harder",
+        "she",
+        "trained",
+        "the",
+        "faster",
+        "she",
+        "ran"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The more hard she trained, the faster she ran.",
+          "explanationVi": "So sánh hơn của \"hard\" là \"harder\"."
+        },
+        {
+          "en": "The harder she trained, the more fast she ran.",
+          "explanationVi": "So sánh hơn của \"fast\" là \"faster\"."
+        },
+        {
+          "en": "The harder she trained, the faster she run.",
+          "explanationVi": "Việc trong quá khứ nên dùng \"ran\"."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [],
+      "grammarSlug": "the-more-the-more"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
     "id": "sentence:g-third-conditional-1",
     "kind": "sentence",
     "body": {
@@ -112771,6 +114365,245 @@
       ],
       "wordIds": [],
       "grammarSlug": "third-conditional"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-whoever-whatever-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Whoever wins the race will get a free bike.",
+      "vi": "Ai thắng cuộc đua sẽ được tặng một chiếc xe đạp.",
+      "audio": "3cedb085fb978b14f0db65fd0955fa6111c1fbfdbcfc0028172cf15be31ad192",
+      "tokens": [
+        "Whoever",
+        "wins",
+        "the",
+        "race",
+        "will",
+        "get",
+        "a",
+        "free",
+        "bike"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Whoever will win the race will get a free bike.",
+          "explanationVi": "Sau \"whoever\" dùng hiện tại \"wins\", không dùng \"will\"."
+        },
+        {
+          "en": "Whoever win the race will get a free bike.",
+          "explanationVi": "\"Whoever\" đi với động từ số ít \"wins\"."
+        },
+        {
+          "en": "Who ever wins the race will get a free bike.",
+          "explanationVi": "\"Whoever\" viết liền thành một từ."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "whoever-whatever"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-whoever-whatever-2",
+    "kind": "sentence",
+    "body": {
+      "en": "You can park wherever you find a free space.",
+      "vi": "Bạn có thể đỗ xe ở bất cứ chỗ nào còn trống.",
+      "audio": "acd552743055c3208b866e53946eb8844562ddf9aeab153426d3504927c112ea",
+      "tokens": [
+        "You",
+        "can",
+        "park",
+        "wherever",
+        "you",
+        "find",
+        "a",
+        "free",
+        "space"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You can park whatever you find a free space.",
+          "explanationVi": "Chỉ nơi chốn phải dùng \"wherever\"."
+        },
+        {
+          "en": "You can parking wherever you find a free space.",
+          "explanationVi": "Sau \"can\" dùng động từ nguyên mẫu \"park\"."
+        },
+        {
+          "en": "You can park wherever you find free space a.",
+          "explanationVi": "Sai trật tự: \"a free space\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "whoever-whatever"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-whoever-whatever-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Whatever you decide, your parents will support you.",
+      "vi": "Dù bạn quyết định thế nào, bố mẹ bạn cũng sẽ ủng hộ bạn.",
+      "audio": "3d6acaa0a5c2b870d8195bc3df3819144e149741620d9027c4cf404e9cffd076",
+      "tokens": [
+        "Whatever",
+        "you",
+        "decide",
+        "your",
+        "parents",
+        "will",
+        "support",
+        "you"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          1,
+          0,
+          7,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Whatever you will decide, your parents will support you.",
+          "explanationVi": "Sau \"whatever\" dùng hiện tại \"decide\" cho tương lai."
+        },
+        {
+          "en": "Whatever you decide, your parents will supports you.",
+          "explanationVi": "Sau \"will\" dùng động từ nguyên mẫu \"support\"."
+        },
+        {
+          "en": "Whoever you decide, your parents will support you.",
+          "explanationVi": "Nói về điều bạn quyết định phải dùng \"Whatever\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "whoever-whatever"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 0,
+    "id": "sentence:g-whoever-whatever-4",
+    "kind": "sentence",
+    "body": {
+      "en": "However tired she is, she always cooks dinner.",
+      "vi": "Dù mệt đến đâu, cô ấy vẫn luôn nấu bữa tối.",
+      "audio": "a855fe4ca473dc03ba6fa4d202f1f38d99fdc3ba324c4d65a0a346badc96f3ed",
+      "tokens": [
+        "However",
+        "tired",
+        "she",
+        "is",
+        "she",
+        "always",
+        "cooks",
+        "dinner"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          5,
+          6,
+          7,
+          0,
+          1,
+          4,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "However she is tired, she always cooks dinner.",
+          "explanationVi": "\"However\" đi ngay với tính từ: \"However tired\"."
+        },
+        {
+          "en": "However tired she is, she always cook dinner.",
+          "explanationVi": "Chủ ngữ \"she\" nên dùng \"cooks\"."
+        },
+        {
+          "en": "However tired is she, she always cooks dinner.",
+          "explanationVi": "Sau \"However tired\" là chủ ngữ rồi đến động từ: \"she is\"."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        1
+      ],
+      "wordIds": [],
+      "grammarSlug": "whoever-whatever"
     },
     "status": "approved"
   },

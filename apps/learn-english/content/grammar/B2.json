@@ -1,7 +1,253 @@
 [
   {
     "level": "B2",
-    "sort": 38,
+    "sort": 58,
+    "id": "grammar:advanced-passive",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Passive in other tenses and with modals",
+      "titleVi": "Câu bị động ở các thì khác và với động từ khuyết thiếu",
+      "ruleVi": "Câu bị động không chỉ có ở hiện tại đơn và quá khứ đơn. Ở mọi thì, bạn giữ dạng của \"be\" theo thì đó rồi thêm V3: \"has been built\" (hiện tại hoàn thành), \"is being repaired\" (hiện tại tiếp diễn), \"will be sent\" (tương lai). Sau động từ khuyết thiếu (can, must, should, may…) dùng \"be + V3\". Người Việt hay quên \"been\" hoặc \"being\" trong các thì này.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + have/has been + V3 (present perfect); S + am/is/are being + V3 (present continuous); S + will be + V3 (future); S + can/must/should + be + V3 (modals)"
+        },
+        {
+          "form": "negative",
+          "en": "S + haven't/hasn't been + V3; S + isn't/aren't being + V3; S + won't be + V3; S + can't/mustn't/shouldn't + be + V3"
+        },
+        {
+          "form": "question",
+          "en": "Has/Have + S + been + V3?; Is/Are + S + being + V3?; Will + S + be + V3?; Can/Should + S + be + V3?"
+        }
+      ],
+      "usageVi": [
+        "Hiện tại hoàn thành bị động, cho việc vừa xong hoặc kết quả đến nay: \"The road has been repaired.\"",
+        "Hiện tại tiếp diễn bị động, cho việc đang được làm: \"My car is being washed.\"",
+        "Tương lai bị động: \"The results will be announced tomorrow.\"",
+        "Động từ khuyết thiếu + be + V3, cho quy định, khả năng, lời khuyên: \"Phones must be turned off.\"",
+        "Muốn nói ai làm thì thêm \"by\" + người làm, nhưng thường bỏ đi khi không quan trọng: \"The bridge was designed by a young engineer.\""
+      ],
+      "signalWords": [
+        "has been",
+        "is being",
+        "will be",
+        "must be",
+        "can be",
+        "should be",
+        "by"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The room has cleaned already.",
+          "right": "The room has been cleaned already.",
+          "explanationVi": "Bị động hiện tại hoàn thành cần \"has been + V3\"."
+        },
+        {
+          "wrong": "The house is building now.",
+          "right": "The house is being built now.",
+          "explanationVi": "Bị động hiện tại tiếp diễn cần \"is being + V3\"."
+        },
+        {
+          "wrong": "This form must be fill in by hand.",
+          "right": "This form must be filled in by hand.",
+          "explanationVi": "Sau \"must be\" phải dùng V3 \"filled\"."
+        },
+        {
+          "wrong": "The package will send tomorrow.",
+          "right": "The package will be sent tomorrow.",
+          "explanationVi": "Bị động tương lai cần \"will be + V3\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-advanced-passive-1",
+        "sentence:g-advanced-passive-2",
+        "sentence:g-advanced-passive-3",
+        "sentence:g-advanced-passive-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The old bridge ___ since last year.",
+          "options": [
+            "has been closed",
+            "has closed",
+            "is closing",
+            "was close"
+          ],
+          "answer": "has been closed",
+          "explanationVi": "Kết quả kéo dài đến nay, bị động hiện tại hoàn thành: \"has been closed\"."
+        },
+        {
+          "prompt": "Sorry, you can't use this room. It ___ right now.",
+          "options": [
+            "is cleaning",
+            "is being cleaned",
+            "has cleaned",
+            "be cleaned"
+          ],
+          "answer": "is being cleaned",
+          "explanationVi": "Việc đang được làm lúc nói: \"is being + V3\"."
+        },
+        {
+          "prompt": "Your order ___ within three days.",
+          "options": [
+            "will deliver",
+            "will be delivered",
+            "is deliver",
+            "will delivered"
+          ],
+          "answer": "will be delivered",
+          "explanationVi": "Bị động tương lai: \"will be + V3\"."
+        },
+        {
+          "prompt": "Seat belts ___ at all times.",
+          "options": [
+            "must wear",
+            "must be worn",
+            "must be wear",
+            "must wearing"
+          ],
+          "answer": "must be worn",
+          "explanationVi": "Sau động từ khuyết thiếu, bị động là \"be + V3\": \"must be worn\"."
+        },
+        {
+          "prompt": "Điền một từ: The meeting has ___ cancelled because of the storm.",
+          "answer": "been",
+          "explanationVi": "Bị động hiện tại hoàn thành: \"has been + V3\"."
+        },
+        {
+          "prompt": "Điền một từ: This medicine should be ___ after meals. (take)",
+          "answer": "taken",
+          "explanationVi": "Sau \"should be\" dùng V3 của \"take\" là \"taken\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 56,
+    "id": "grammar:as-if-as-though",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "As if and as though",
+      "titleVi": "As if và as though",
+      "ruleVi": "\"As if\" và \"as though\" nghĩa là \"như thể là\", dùng để so sánh một người hay một việc với một hình ảnh hoặc tình huống khác. Khi điều đó có thể đúng, ta dùng thì bình thường: \"It looks as if it's going to rain.\" Khi điều đó không có thật, ta lùi thì: quá khứ đơn cho hiện tại (as if he were the boss) và quá khứ hoàn thành cho quá khứ (as if she had seen a ghost). Hai cụm này có nghĩa như nhau, \"as though\" hơi trang trọng hơn.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + look/seem/sound/act + as if/as though + S + V (real); S + V + as if + S + V2/were (unreal present); S + V + as if + S + had + V3/ed (unreal past)"
+        },
+        {
+          "form": "negative",
+          "en": "S + V + as if + S + didn't + V / hadn't + V3/ed"
+        },
+        {
+          "form": "question",
+          "en": "Why + do/does + S + V + as if + S + V2/were?"
+        }
+      ],
+      "usageVi": [
+        "Đoán từ những gì bạn thấy hoặc nghe, điều đó có thể đúng: \"You look as if you need some sleep.\"",
+        "So sánh với điều không có thật ở hiện tại, dùng quá khứ đơn: \"He talks as if he knew everything.\"",
+        "Với \"be\", văn viết thường dùng \"were\" cho mọi ngôi: \"She acts as if she were the boss.\"",
+        "So sánh với điều không có thật ở quá khứ, dùng quá khứ hoàn thành: \"You look as if you had seen a ghost.\""
+      ],
+      "signalWords": [
+        "as if",
+        "as though",
+        "look",
+        "seem",
+        "sound",
+        "act",
+        "feel"
+      ],
+      "mistakes": [
+        {
+          "wrong": "He talks as if he knows everything, but he doesn't.",
+          "right": "He talks as if he knew everything, but he doesn't.",
+          "explanationVi": "Điều không có thật ở hiện tại thì lùi thì: dùng \"knew\"."
+        },
+        {
+          "wrong": "She looked as if she has seen a ghost.",
+          "right": "She looked as if she had seen a ghost.",
+          "explanationVi": "Việc tưởng tượng xảy ra trước đó trong quá khứ dùng \"had + V3\"."
+        },
+        {
+          "wrong": "It looks like as if it will rain.",
+          "right": "It looks as if it will rain.",
+          "explanationVi": "Không dùng \"like\" và \"as if\" cùng lúc."
+        }
+      ],
+      "examples": [
+        "sentence:g-as-if-as-though-1",
+        "sentence:g-as-if-as-though-2",
+        "sentence:g-as-if-as-though-3",
+        "sentence:g-as-if-as-though-4"
+      ],
+      "practice": [
+        {
+          "prompt": "He acts as if he ___ the manager, but he's only an intern.",
+          "options": [
+            "is",
+            "were",
+            "has been",
+            "be"
+          ],
+          "answer": "were",
+          "explanationVi": "Điều không có thật ở hiện tại dùng \"were\" sau \"as if\"."
+        },
+        {
+          "prompt": "You look pale. You look as if you ___ a ghost.",
+          "options": [
+            "see",
+            "have saw",
+            "had seen",
+            "were see"
+          ],
+          "answer": "had seen",
+          "explanationVi": "So sánh với một việc không có thật trong quá khứ dùng \"had + V3\"."
+        },
+        {
+          "prompt": "Look at those dark clouds. It looks ___ it's going to rain.",
+          "options": [
+            "as if",
+            "like as",
+            "such as",
+            "as so"
+          ],
+          "answer": "as if",
+          "explanationVi": "\"look as if\" dùng để đoán từ những gì bạn thấy."
+        },
+        {
+          "prompt": "She talks about Paris as though she ___ there, but she never has.",
+          "options": [
+            "has lived",
+            "had lived",
+            "lives",
+            "is living"
+          ],
+          "answer": "had lived",
+          "explanationVi": "Điều không có thật trong quá khứ dùng quá khứ hoàn thành \"had lived\"."
+        },
+        {
+          "prompt": "Điền một từ: He treats me as ___ I were a child.",
+          "answer": "if",
+          "explanationVi": "\"as if\" nghĩa là \"như thể\"."
+        },
+        {
+          "prompt": "Điền một từ: My legs feel as though they ___ made of stone. (be)",
+          "answer": "were",
+          "explanationVi": "Điều không có thật dùng \"were\" sau \"as though\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 57,
     "id": "grammar:causative",
     "kind": "grammar",
     "body": {
@@ -124,7 +370,118 @@
   },
   {
     "level": "B2",
-    "sort": 32,
+    "sort": 63,
+    "id": "grammar:emphatic-do",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Emphatic do",
+      "titleVi": "Trợ động từ do để nhấn mạnh",
+      "ruleVi": "Trong câu khẳng định, bạn có thể thêm \"do/does/did\" trước động từ nguyên mẫu để nhấn mạnh, khi muốn khẳng định mạnh, phản bác ý người khác hoặc đối lập với điều vừa nói. Khi nói, trợ động từ này được nhấn giọng. Sau \"do/does/did\" luôn là động từ nguyên mẫu. Trong câu mệnh lệnh, \"Do + V\" làm lời mời hoặc lời đề nghị lịch sự và nhiệt tình hơn.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + do/does/did + V (stressed); Do + V (imperative)"
+        }
+      ],
+      "usageVi": [
+        "Phản bác điều người khác nghĩ: \"I did lock the door! I'm sure.\"",
+        "Nhấn mạnh cảm xúc hoặc ý kiến: \"I do like your new haircut.\"",
+        "Đối lập với ý trước: \"I don't play tennis, but I do play badminton.\"",
+        "Lời mời lịch sự, nhiệt tình: \"Do come in and sit down.\""
+      ],
+      "signalWords": [
+        "do",
+        "does",
+        "did",
+        "really",
+        "but",
+        "actually"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She does likes chocolate.",
+          "right": "She does like chocolate.",
+          "explanationVi": "Sau \"does\" dùng động từ nguyên mẫu \"like\"."
+        },
+        {
+          "wrong": "I did called you yesterday!",
+          "right": "I did call you yesterday!",
+          "explanationVi": "Sau \"did\" dùng động từ nguyên mẫu \"call\"."
+        },
+        {
+          "wrong": "He do work hard.",
+          "right": "He does work hard.",
+          "explanationVi": "Chủ ngữ \"He\" ở hiện tại dùng \"does\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-emphatic-do-1",
+        "sentence:g-emphatic-do-2",
+        "sentence:g-emphatic-do-3",
+        "sentence:g-emphatic-do-4"
+      ],
+      "practice": [
+        {
+          "prompt": "\"You never listen to me!\" \"That's not true. I ___ listen to you.\"",
+          "options": [
+            "do",
+            "does",
+            "am",
+            "did to"
+          ],
+          "answer": "do",
+          "explanationVi": "Chủ ngữ \"I\" ở hiện tại dùng \"do\" để nhấn mạnh."
+        },
+        {
+          "prompt": "He says he didn't take my pen, but he ___ take it. I saw him.",
+          "options": [
+            "does",
+            "did",
+            "was",
+            "has"
+          ],
+          "answer": "did",
+          "explanationVi": "Phản bác về một việc trong quá khứ dùng \"did + V\"."
+        },
+        {
+          "prompt": "My son doesn't like vegetables, but he ___ like fruit.",
+          "options": [
+            "do",
+            "is",
+            "does",
+            "did"
+          ],
+          "answer": "does",
+          "explanationVi": "Chủ ngữ \"he\" ở hiện tại dùng \"does\" để đối lập."
+        },
+        {
+          "prompt": "I did ___ my homework, but I left it at home.",
+          "options": [
+            "finished",
+            "finish",
+            "finishing",
+            "finishes"
+          ],
+          "answer": "finish",
+          "explanationVi": "Sau \"did\" dùng động từ nguyên mẫu \"finish\"."
+        },
+        {
+          "prompt": "Điền một từ: ___ sit down and make yourself at home.",
+          "answer": "Do",
+          "explanationVi": "\"Do + V\" trong câu mệnh lệnh làm lời mời nhiệt tình hơn."
+        },
+        {
+          "prompt": "Điền một từ: I know you think she's shy, but she ___ talk a lot with her friends.",
+          "answer": "does",
+          "explanationVi": "Chủ ngữ \"she\" ở hiện tại dùng \"does\" để nhấn mạnh."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 49,
     "id": "grammar:future-continuous",
     "kind": "grammar",
     "body": {
@@ -247,7 +604,7 @@
   },
   {
     "level": "B2",
-    "sort": 33,
+    "sort": 50,
     "id": "grammar:future-perfect",
     "kind": "grammar",
     "body": {
@@ -370,7 +727,131 @@
   },
   {
     "level": "B2",
-    "sort": 36,
+    "sort": 53,
+    "id": "grammar:modal-perfects",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Modal perfects: should have, could have, needn't have",
+      "titleVi": "Động từ khuyết thiếu + have V3: should have, could have",
+      "ruleVi": "\"Should have / could have / needn't have + V3\" dùng để nói về những việc trong quá khứ mà bạn nhìn lại và đánh giá. \"Should have\" là tiếc nuối hoặc trách vì một việc đáng lẽ nên làm mà không làm; \"shouldn't have\" là đáng lẽ không nên làm. \"Could have\" nói về một khả năng đã có nhưng không xảy ra. \"Needn't have + V3\" nghĩa là đã làm một việc không cần thiết, còn \"didn't need to + V\" thường là việc không cần nên không làm.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + should/could + have + V3/ed; S + needn't + have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + shouldn't (should not) + have + V3/ed; S + didn't need to + V"
+        },
+        {
+          "form": "question",
+          "en": "Should + S + have + V3/ed?; Could + S + have + V3/ed?"
+        }
+      ],
+      "usageVi": [
+        "Tiếc vì đã không làm một việc: \"I should have studied harder.\"",
+        "Trách hoặc hối hận vì đã làm một việc: \"You shouldn't have said that.\"",
+        "Một khả năng đã có nhưng không xảy ra: \"We could have won the game.\"",
+        "Đã làm một việc hóa ra không cần thiết: \"You needn't have cooked so much food.\"",
+        "Không cần làm nên đã không làm: \"I didn't need to take a taxi.\""
+      ],
+      "signalWords": [
+        "should have",
+        "shouldn't have",
+        "could have",
+        "needn't have",
+        "didn't need to"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I should studied more for the test.",
+          "right": "I should have studied more for the test.",
+          "explanationVi": "Nói về quá khứ phải dùng \"should have + V3\", không dùng \"should + V2\"."
+        },
+        {
+          "wrong": "You should have tell me earlier.",
+          "right": "You should have told me earlier.",
+          "explanationVi": "Sau \"have\" phải dùng quá khứ phân từ \"told\"."
+        },
+        {
+          "wrong": "We could have win the game.",
+          "right": "We could have won the game.",
+          "explanationVi": "\"could have\" đi với V3: \"won\", không phải \"win\"."
+        },
+        {
+          "wrong": "You needn't have to bring a gift.",
+          "right": "You needn't have brought a gift.",
+          "explanationVi": "\"needn't have\" đi thẳng với V3, không thêm \"to\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-modal-perfects-1",
+        "sentence:g-modal-perfects-2",
+        "sentence:g-modal-perfects-3",
+        "sentence:g-modal-perfects-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I failed the exam. I ___ harder.",
+          "options": [
+            "should study",
+            "should have studied",
+            "must have studied",
+            "should studied"
+          ],
+          "answer": "should have studied",
+          "explanationVi": "Tiếc nuối một việc không làm trong quá khứ: \"should have + V3\"."
+        },
+        {
+          "prompt": "You ___ that joke. She was really upset.",
+          "options": [
+            "shouldn't have told",
+            "mustn't tell",
+            "couldn't have told",
+            "needn't tell"
+          ],
+          "answer": "shouldn't have told",
+          "explanationVi": "Trách một việc đã làm trong quá khứ: \"shouldn't have + V3\"."
+        },
+        {
+          "prompt": "It was a close game. We ___ won.",
+          "options": [
+            "should",
+            "could have",
+            "must",
+            "can have"
+          ],
+          "answer": "could have",
+          "explanationVi": "Khả năng đã có nhưng không xảy ra: \"could have + V3\"."
+        },
+        {
+          "prompt": "You ___ washed the dishes. I was going to use the dishwasher.",
+          "options": [
+            "needn't have",
+            "mustn't have",
+            "couldn't",
+            "didn't need"
+          ],
+          "answer": "needn't have",
+          "explanationVi": "Đã làm một việc hóa ra không cần thiết: \"needn't have + V3\"."
+        },
+        {
+          "prompt": "Điền một từ: The bus was late. We should have ___ a taxi. (take)",
+          "answer": "taken",
+          "explanationVi": "Sau \"should have\" dùng V3 của \"take\" là \"taken\"."
+        },
+        {
+          "prompt": "Điền một từ: The test was easy, so I didn't ___ to study all night.",
+          "answer": "need",
+          "explanationVi": "\"didn't need to + V\" nghĩa là không cần làm nên đã không làm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 54,
     "id": "grammar:modals-of-deduction",
     "kind": "grammar",
     "body": {
@@ -493,7 +974,7 @@
   },
   {
     "level": "B2",
-    "sort": 34,
+    "sort": 51,
     "id": "grammar:past-perfect-continuous",
     "kind": "grammar",
     "body": {
@@ -619,7 +1100,368 @@
   },
   {
     "level": "B2",
-    "sort": 35,
+    "sort": 59,
+    "id": "grammar:relative-clauses-advanced",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Relative clauses: whose, whom, preposition + which",
+      "titleVi": "Mệnh đề quan hệ: whose, whom, giới từ + which",
+      "ruleVi": "Ngoài who, which, that, where, mệnh đề quan hệ còn dùng \"whose\" (của người/vật đó) và \"whom\" (người làm tân ngữ, trang trọng). Giới từ có thể đứng trước \"which\" hoặc \"whom\" trong văn trang trọng (the house in which I grew up), hoặc đứng cuối mệnh đề trong văn nói (the house which I grew up in). Mệnh đề không xác định chỉ thêm thông tin phụ về một người hay vật đã rõ, được ngăn bằng dấu phẩy và không bao giờ dùng \"that\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "N + whose + N + V...; N (person, object) + whom + S + V...; N + preposition + which/whom + S + V...; N, who/which + V..., (non-defining)"
+        },
+        {
+          "form": "negative",
+          "en": "N + whose + N + don't/doesn't/didn't + V...; N, who/which + doesn't/didn't + V...,"
+        },
+        {
+          "form": "question",
+          "en": "Is that the N + whose + N + V...?; Who is the person to whom + S + V...?"
+        }
+      ],
+      "usageVi": [
+        "\"whose\" chỉ sự sở hữu, đứng ngay trước danh từ: \"That's the girl whose bike was stolen.\"",
+        "\"whom\" thay cho người làm tân ngữ, thường gặp trong văn viết: \"the man whom I met\".",
+        "Giới từ + which/whom trong văn trang trọng: \"the company for which she works\".",
+        "Mệnh đề không xác định có dấu phẩy, thêm thông tin phụ: \"My father, who is a doctor, works at night.\"",
+        "Không dùng \"that\" trong mệnh đề có dấu phẩy và sau giới từ: \"the room in which...\", không phải \"in that\"."
+      ],
+      "signalWords": [
+        "whose",
+        "whom",
+        "in which",
+        "to whom",
+        "for which",
+        ", who",
+        ", which"
+      ],
+      "mistakes": [
+        {
+          "wrong": "That's the man who his car was stolen.",
+          "right": "That's the man whose car was stolen.",
+          "explanationVi": "Chỉ sở hữu dùng \"whose\", không dùng \"who his\"."
+        },
+        {
+          "wrong": "My mother, that is a nurse, works at night.",
+          "right": "My mother, who is a nurse, works at night.",
+          "explanationVi": "Mệnh đề có dấu phẩy không dùng \"that\"."
+        },
+        {
+          "wrong": "This is the house in that I grew up.",
+          "right": "This is the house in which I grew up.",
+          "explanationVi": "Sau giới từ dùng \"which\", không dùng \"that\"."
+        },
+        {
+          "wrong": "The woman to who I spoke was very kind.",
+          "right": "The woman to whom I spoke was very kind.",
+          "explanationVi": "Sau giới từ, đại từ chỉ người phải là \"whom\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-relative-clauses-advanced-1",
+        "sentence:g-relative-clauses-advanced-2",
+        "sentence:g-relative-clauses-advanced-3",
+        "sentence:g-relative-clauses-advanced-4"
+      ],
+      "practice": [
+        {
+          "prompt": "That's the woman ___ son won the singing contest.",
+          "options": [
+            "who",
+            "whose",
+            "whom",
+            "which"
+          ],
+          "answer": "whose",
+          "explanationVi": "Chỉ sở hữu (con trai của người phụ nữ) dùng \"whose\"."
+        },
+        {
+          "prompt": "The man ___ you met yesterday is my uncle.",
+          "options": [
+            "whom",
+            "whose",
+            "which",
+            "where"
+          ],
+          "answer": "whom",
+          "explanationVi": "Người làm tân ngữ của \"met\" dùng \"whom\" (hoặc who/that)."
+        },
+        {
+          "prompt": "This is the company for ___ my sister works.",
+          "options": [
+            "that",
+            "who",
+            "which",
+            "whose"
+          ],
+          "answer": "which",
+          "explanationVi": "Sau giới từ, chỉ vật dùng \"which\"."
+        },
+        {
+          "prompt": "Hanoi, ___ is the capital of Vietnam, has many lakes.",
+          "options": [
+            "that",
+            "which",
+            "where",
+            "whose"
+          ],
+          "answer": "which",
+          "explanationVi": "Mệnh đề có dấu phẩy chỉ vật dùng \"which\", không dùng \"that\"."
+        },
+        {
+          "prompt": "Điền một từ: The students ___ grades were the highest got a prize.",
+          "answer": "whose",
+          "explanationVi": "\"whose\" + danh từ chỉ sở hữu: điểm của các học sinh."
+        },
+        {
+          "prompt": "Điền một từ: The person to ___ you should send the form is Ms. Lan.",
+          "answer": "whom",
+          "explanationVi": "Sau giới từ \"to\", đại từ chỉ người là \"whom\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 61,
+    "id": "grammar:so-neither-do-i",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "So do I and Neither do I",
+      "titleVi": "So do I và Neither do I",
+      "ruleVi": "Khi muốn nói \"tôi cũng vậy\" để đồng ý với một câu vừa nghe, tiếng Anh dùng \"So + trợ động từ + chủ ngữ\" cho câu khẳng định và \"Neither/Nor + trợ động từ + chủ ngữ\" cho câu phủ định. Trợ động từ phải hợp với câu trước: \"am/is/are\" cho \"be\", \"do/does/did\" cho động từ thường, \"have/has\", \"can\", \"will\"… Chú ý đảo trợ động từ lên trước chủ ngữ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "So + am/is/are/do/does/did/have/can/will + S (agreeing with a positive sentence)"
+        },
+        {
+          "form": "negative",
+          "en": "Neither/Nor + am/is/are/do/does/did/have/can/will + S (agreeing with a negative sentence)"
+        }
+      ],
+      "usageVi": [
+        "Đồng ý với câu khẳng định: \"I love coffee.\" – \"So do I.\"",
+        "Đồng ý với câu phủ định: \"I can't swim.\" – \"Neither can I.\"",
+        "Trợ động từ theo thì của câu trước: \"She went home early.\" – \"So did I.\"",
+        "Có thể dùng trong một câu: \"Tom is tired, and so is his sister.\"",
+        "Trong văn nói thân mật, \"Me too\" và \"Me neither\" có cùng nghĩa."
+      ],
+      "signalWords": [
+        "So do I",
+        "Neither do I",
+        "Nor can I",
+        "So am I",
+        "Me too",
+        "Me neither"
+      ],
+      "mistakes": [
+        {
+          "wrong": "\"I like tea.\" \"So I do.\"",
+          "right": "\"I like tea.\" \"So do I.\"",
+          "explanationVi": "Phải đảo trợ động từ lên trước chủ ngữ: \"So do I\"."
+        },
+        {
+          "wrong": "\"I don't eat meat.\" \"So do I.\"",
+          "right": "\"I don't eat meat.\" \"Neither do I.\"",
+          "explanationVi": "Đồng ý với câu phủ định dùng \"Neither\"."
+        },
+        {
+          "wrong": "\"I was tired.\" \"So did I.\"",
+          "right": "\"I was tired.\" \"So was I.\"",
+          "explanationVi": "Câu trước dùng \"was\" nên trợ động từ là \"was\"."
+        },
+        {
+          "wrong": "\"I can't drive.\" \"Neither can't I.\"",
+          "right": "\"I can't drive.\" \"Neither can I.\"",
+          "explanationVi": "\"Neither\" đã mang nghĩa phủ định nên không thêm \"not\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-so-neither-do-i-1",
+        "sentence:g-so-neither-do-i-2",
+        "sentence:g-so-neither-do-i-3",
+        "sentence:g-so-neither-do-i-4"
+      ],
+      "practice": [
+        {
+          "prompt": "\"I'm really hungry.\" \"So ___ I.\"",
+          "options": [
+            "do",
+            "am",
+            "have",
+            "did"
+          ],
+          "answer": "am",
+          "explanationVi": "Câu trước dùng \"am\" nên trả lời \"So am I\"."
+        },
+        {
+          "prompt": "\"I didn't watch the game last night.\" \"___ did I.\"",
+          "options": [
+            "So",
+            "Neither",
+            "Either",
+            "Also"
+          ],
+          "answer": "Neither",
+          "explanationVi": "Đồng ý với câu phủ định dùng \"Neither\"."
+        },
+        {
+          "prompt": "\"I've been to Da Lat twice.\" \"So ___ I.\"",
+          "options": [
+            "did",
+            "do",
+            "have",
+            "am"
+          ],
+          "answer": "have",
+          "explanationVi": "Câu trước dùng \"have\" nên trả lời \"So have I\"."
+        },
+        {
+          "prompt": "\"Lan can't come to the party.\" \"Neither ___ Nam.\"",
+          "options": [
+            "can't",
+            "can",
+            "does",
+            "is"
+          ],
+          "answer": "can",
+          "explanationVi": "Sau \"Neither\" dùng trợ động từ khẳng định \"can\"."
+        },
+        {
+          "prompt": "Điền một từ: \"I work from home on Fridays.\" \"So ___ I.\"",
+          "answer": "do",
+          "explanationVi": "Câu trước dùng động từ thường ở hiện tại nên trả lời \"So do I\"."
+        },
+        {
+          "prompt": "Điền một từ: \"I won't be at the meeting.\" \"Neither ___ I.\"",
+          "answer": "will",
+          "explanationVi": "Câu trước dùng \"won't\" nên trả lời \"Neither will I\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 60,
+    "id": "grammar:the-more-the-more",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "The more ..., the more ...",
+      "titleVi": "So sánh kép: the more ..., the more ...",
+      "ruleVi": "So sánh kép \"the + so sánh hơn ..., the + so sánh hơn ...\" diễn tả hai việc thay đổi cùng nhau: việc thứ nhất càng tăng thì việc thứ hai càng tăng (hoặc giảm), giống \"càng... càng...\" trong tiếng Việt. Mỗi vế bắt đầu bằng \"the\" và một dạng so sánh hơn (more, less, -er), sau đó mới đến chủ ngữ và động từ. Giữa hai vế có dấu phẩy.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "The + comparative (+ S + V), the + comparative + S + V; The more + N + S + V, the more + N + S + V"
+        },
+        {
+          "form": "negative",
+          "en": "The less + S + V, the less/more + S + V"
+        }
+      ],
+      "usageVi": [
+        "Hai việc cùng tăng: \"The more you practice, the better you get.\"",
+        "Một việc tăng, việc kia giảm: \"The older I get, the less I sleep.\"",
+        "Với danh từ: \"The more money he earns, the more he spends.\"",
+        "Câu ngắn cố định trong văn nói: \"The sooner, the better.\""
+      ],
+      "signalWords": [
+        "the more",
+        "the less",
+        "the better",
+        "the sooner",
+        "the -er"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More you study, more you learn.",
+          "right": "The more you study, the more you learn.",
+          "explanationVi": "Mỗi vế phải bắt đầu bằng \"the\"."
+        },
+        {
+          "wrong": "The more you practice, the more good you become.",
+          "right": "The more you practice, the better you become.",
+          "explanationVi": "So sánh hơn của \"good\" là \"better\"."
+        },
+        {
+          "wrong": "The hotter is the weather, the more water I drink.",
+          "right": "The hotter the weather is, the more water I drink.",
+          "explanationVi": "Sau \"the + so sánh hơn\" là chủ ngữ rồi mới đến động từ."
+        }
+      ],
+      "examples": [
+        "sentence:g-the-more-the-more-1",
+        "sentence:g-the-more-the-more-2",
+        "sentence:g-the-more-the-more-3",
+        "sentence:g-the-more-the-more-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The more you exercise, ___ you feel.",
+          "options": [
+            "the better",
+            "better",
+            "the best",
+            "the more good"
+          ],
+          "answer": "the better",
+          "explanationVi": "Vế sau cũng dùng \"the + so sánh hơn\": \"the better\"."
+        },
+        {
+          "prompt": "___ I wait, the angrier I get.",
+          "options": [
+            "Longer",
+            "The longer",
+            "The longest",
+            "More long"
+          ],
+          "answer": "The longer",
+          "explanationVi": "Vế đầu bắt đầu bằng \"the + so sánh hơn\": \"The longer\"."
+        },
+        {
+          "prompt": "The more money he makes, ___ he spends.",
+          "options": [
+            "more",
+            "the most",
+            "the more",
+            "the much"
+          ],
+          "answer": "the more",
+          "explanationVi": "Hai việc cùng tăng: \"the more..., the more...\"."
+        },
+        {
+          "prompt": "The less you sleep, ___ you can concentrate.",
+          "options": [
+            "the less",
+            "less",
+            "the least",
+            "the fewer"
+          ],
+          "answer": "the less",
+          "explanationVi": "\"concentrate\" là động từ, dùng \"the less\" (càng ít)."
+        },
+        {
+          "prompt": "Điền một từ: The ___ the room is, the more you pay. (big)",
+          "answer": "bigger",
+          "explanationVi": "So sánh hơn của \"big\" là \"bigger\"."
+        },
+        {
+          "prompt": "Điền một từ: \"When should I send it?\" \"The sooner, the ___.\"",
+          "answer": "better",
+          "explanationVi": "Câu cố định \"The sooner, the better\" nghĩa là càng sớm càng tốt."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 52,
     "id": "grammar:third-conditional",
     "kind": "grammar",
     "body": {
@@ -742,7 +1584,123 @@
   },
   {
     "level": "B2",
-    "sort": 37,
+    "sort": 62,
+    "id": "grammar:whoever-whatever",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Whoever, whatever, wherever",
+      "titleVi": "Whoever, whatever, wherever",
+      "ruleVi": "Whoever, whatever, wherever, whenever, however và whichever nghĩa là \"bất cứ ai / bất cứ cái gì / bất cứ đâu / bất cứ khi nào / dù thế nào\". Chúng mở đầu một mệnh đề và có hai cách dùng: chỉ \"bất kỳ người, vật, nơi nào\" (You can sit wherever you like) hoặc nghĩa \"dù... đi nữa\" (Whatever happens, I'll help you). Mệnh đề này dùng thì hiện tại kể cả khi nói về tương lai.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V + whoever/whatever/wherever/whenever + S + V; Whatever/However/Wherever + S + V, S + V"
+        },
+        {
+          "form": "negative",
+          "en": "Whatever + S + V, S + don't/won't + V; S + won't + V + whoever + V"
+        }
+      ],
+      "usageVi": [
+        "\"whoever\" là bất cứ ai: \"Whoever finishes first wins a prize.\"",
+        "\"whatever\" là bất cứ cái gì hoặc dù điều gì: \"Whatever you decide, I'll support you.\"",
+        "\"wherever\" và \"whenever\" chỉ nơi chốn và thời gian: \"Call me whenever you need help.\"",
+        "\"however + tính từ/trạng từ\" nghĩa là dù... đến đâu: \"However hard I try, I can't wake up early.\"",
+        "Không dùng \"will\" sau các từ này khi nói về tương lai: \"Whatever happens\", không phải \"Whatever will happen\"."
+      ],
+      "signalWords": [
+        "whoever",
+        "whatever",
+        "wherever",
+        "whenever",
+        "however",
+        "whichever"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Whatever will happen, I will stay with you.",
+          "right": "Whatever happens, I will stay with you.",
+          "explanationVi": "Sau \"whatever\" dùng thì hiện tại khi nói về tương lai."
+        },
+        {
+          "wrong": "However I try hard, I can't remember his name.",
+          "right": "However hard I try, I can't remember his name.",
+          "explanationVi": "\"however\" đi ngay với tính từ/trạng từ: \"However hard\"."
+        },
+        {
+          "wrong": "You can invite who ever you want.",
+          "right": "You can invite whoever you want.",
+          "explanationVi": "\"whoever\" viết liền thành một từ."
+        }
+      ],
+      "examples": [
+        "sentence:g-whoever-whatever-1",
+        "sentence:g-whoever-whatever-2",
+        "sentence:g-whoever-whatever-3",
+        "sentence:g-whoever-whatever-4"
+      ],
+      "practice": [
+        {
+          "prompt": "You can sit ___ you like. There are many empty seats.",
+          "options": [
+            "whoever",
+            "wherever",
+            "however",
+            "whatever"
+          ],
+          "answer": "wherever",
+          "explanationVi": "Chỉ nơi chốn \"bất cứ chỗ nào\" dùng \"wherever\"."
+        },
+        {
+          "prompt": "___ calls, tell them I'm busy.",
+          "options": [
+            "Whatever",
+            "Whoever",
+            "Wherever",
+            "Whichever"
+          ],
+          "answer": "Whoever",
+          "explanationVi": "Chỉ người \"bất cứ ai\" dùng \"Whoever\"."
+        },
+        {
+          "prompt": "___ happens tomorrow, don't worry.",
+          "options": [
+            "Whatever",
+            "However",
+            "Whoever",
+            "Whenever"
+          ],
+          "answer": "Whatever",
+          "explanationVi": "\"Whatever happens\" nghĩa là dù điều gì xảy ra."
+        },
+        {
+          "prompt": "___ hard the test is, I'll do my best.",
+          "options": [
+            "Whatever",
+            "However",
+            "Whichever",
+            "Wherever"
+          ],
+          "answer": "However",
+          "explanationVi": "\"However + tính từ\" nghĩa là dù... đến đâu."
+        },
+        {
+          "prompt": "Điền một từ: Feel free to visit us ___ you are in town.",
+          "answer": "whenever",
+          "explanationVi": "Chỉ thời gian \"bất cứ khi nào\" dùng \"whenever\"."
+        },
+        {
+          "prompt": "Điền một từ: There are two cakes. Take ___ one you want.",
+          "answer": "whichever",
+          "explanationVi": "Chọn trong một nhóm có sẵn dùng \"whichever\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B2",
+    "sort": 55,
     "id": "grammar:wish-if-only",
     "kind": "grammar",
     "body": {

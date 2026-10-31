@@ -7,6 +7,7 @@ the publisher's terms).
 | File | Use | Terms |
 |------|-----|-------|
 | `cefrj-vocabulary-profile-1.5.csv` | Words A1–B2 | Free for research and commercial use with citation. © Tono Laboratory, TUFS. Cite: "The CEFR-J Wordlist Version 1.5. Compiled by Yukio Tono, Tokyo University of Foreign Studies." |
+| `cefrj-grammar-profile-20180315.csv` (fetched 2026-10-31) | Choosing grammar topics (feature 014) | Free for research and commercial use with citation. © Tono Laboratory, TUFS. Cite: "The CEFR-J Grammar Profile Version 20180315." |
 | `octanove-vocabulary-profile-c1c2-1.0.csv` | Words C1 (C2 rows ignored) | CC BY-SA 4.0, Octanove Labs. Word data derived from it is shared under the same licence. |
 | CMU Pronouncing Dictionary (`cmudict.dict`, downloaded by `build-ipa.ts`, not committed) | American pronunciation, converted to IPA | BSD-style licence, © Carnegie Mellon University |
 

@@ -21106,6 +21106,210 @@
   {
     "level": "A1",
     "sort": 0,
+    "id": "sentence:g-conjunctions-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I was hungry, so I made a sandwich.",
+      "vi": "Tôi đói nên tôi làm một cái bánh mì kẹp.",
+      "audio": "b443c80338e0955eca0efcb1badc0665bf29de9733b61759f0243d120979b0ee",
+      "tokens": [
+        "I",
+        "was",
+        "hungry",
+        "so",
+        "I",
+        "made",
+        "a",
+        "sandwich"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I was hungry, because I made a sandwich.",
+          "explanationVi": "\"I made a sandwich\" là kết quả, không phải lý do, nên dùng \"so\"."
+        },
+        {
+          "en": "Because I was hungry, so I made a sandwich.",
+          "explanationVi": "Không dùng \"because\" và \"so\" trong cùng một câu."
+        },
+        {
+          "en": "I was hungry, so I make a sandwich.",
+          "explanationVi": "Câu kể chuyện đã qua nên dùng quá khứ \"made\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "conjunctions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-conjunctions-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She can't come because she is sick.",
+      "vi": "Cô ấy không đến được vì cô ấy bị ốm.",
+      "audio": "73b4181154803feed06efe1866f704d31154bacf880498efa2756323c42b1d0d",
+      "tokens": [
+        "She",
+        "can't",
+        "come",
+        "because",
+        "she",
+        "is",
+        "sick"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She can't come so she is sick.",
+          "explanationVi": "\"she is sick\" là lý do nên dùng \"because\"."
+        },
+        {
+          "en": "She can't come because she sick.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ \"sick\"."
+        },
+        {
+          "en": "She can't comes because she is sick.",
+          "explanationVi": "Sau \"can't\" dùng động từ nguyên mẫu \"come\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "conjunctions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-conjunctions-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you want rice or noodles?",
+      "vi": "Bạn muốn ăn cơm hay mì?",
+      "audio": "6fc022a1910a83a38d5a8d46ccd712d2f0a3d48f7c9de1a66c576b8b1f90d499",
+      "tokens": [
+        "Do",
+        "you",
+        "want",
+        "rice",
+        "or",
+        "noodles"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Do you want rice but noodles?",
+          "explanationVi": "Chọn một trong hai thứ phải dùng \"or\", không dùng \"but\"."
+        },
+        {
+          "en": "Do you wants rice or noodles?",
+          "explanationVi": "Sau \"Do you\" dùng động từ nguyên mẫu \"want\"."
+        },
+        {
+          "en": "You want rice or noodles?",
+          "explanationVi": "Câu hỏi thì hiện tại đơn cần trợ động từ \"Do\" ở đầu câu."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "conjunctions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-conjunctions-4",
+    "kind": "sentence",
+    "body": {
+      "en": "The room is small but very clean.",
+      "vi": "Căn phòng nhỏ nhưng rất sạch.",
+      "audio": "0f7b03b8de4e5093812c5441bada1a23f7093629f8b76cfd178491ec8405637d",
+      "tokens": [
+        "The",
+        "room",
+        "is",
+        "small",
+        "but",
+        "very",
+        "clean"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The room is small so very clean.",
+          "explanationVi": "Hai ý trái ngược nhau nên dùng \"but\"."
+        },
+        {
+          "en": "The room small but very clean.",
+          "explanationVi": "Thiếu động từ \"is\" trước tính từ."
+        },
+        {
+          "en": "The room is small but very cleans.",
+          "explanationVi": "\"clean\" là tính từ, không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        4
+      ],
+      "wordIds": [],
+      "grammarSlug": "conjunctions"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
     "id": "sentence:g-imperatives-1",
     "kind": "sentence",
     "body": {
@@ -22514,6 +22718,209 @@
       ],
       "wordIds": [],
       "grammarSlug": "question-words"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-subject-object-pronouns-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I call her every Sunday.",
+      "vi": "Tôi gọi cho cô ấy vào mỗi Chủ nhật.",
+      "audio": "bfd97d51204569888d50c2a506a0d57a3ea9ce7403c5e0c604fd1a796134bbd8",
+      "tokens": [
+        "I",
+        "call",
+        "her",
+        "every",
+        "Sunday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          0,
+          1,
+          2
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I call she every Sunday.",
+          "explanationVi": "Sau động từ \"call\" phải dùng đại từ tân ngữ \"her\"."
+        },
+        {
+          "en": "Me call her every Sunday.",
+          "explanationVi": "Chủ ngữ phải là \"I\", không dùng \"me\"."
+        },
+        {
+          "en": "I calls her every Sunday.",
+          "explanationVi": "Chủ ngữ \"I\" đi với \"call\", không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        2
+      ],
+      "wordIds": [],
+      "grammarSlug": "subject-object-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-subject-object-pronouns-2",
+    "kind": "sentence",
+    "body": {
+      "en": "They often visit us on weekends.",
+      "vi": "Họ thường đến thăm chúng tôi vào cuối tuần.",
+      "audio": "bc13ca8e711a5400b4d07b2d747b26cb14cf4d0e633c12c11b3590c6f4ceceee",
+      "tokens": [
+        "They",
+        "often",
+        "visit",
+        "us",
+        "on",
+        "weekends"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They often visit we on weekends.",
+          "explanationVi": "Sau động từ \"visit\" dùng \"us\", không dùng \"we\"."
+        },
+        {
+          "en": "Them often visit us on weekends.",
+          "explanationVi": "Chủ ngữ phải là \"They\", không dùng \"Them\"."
+        },
+        {
+          "en": "They often visits us on weekends.",
+          "explanationVi": "Chủ ngữ \"They\" đi với \"visit\", không thêm -s."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "subject-object-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-subject-object-pronouns-3",
+    "kind": "sentence",
+    "body": {
+      "en": "Please sit with me.",
+      "vi": "Bạn ngồi cùng tôi nhé.",
+      "audio": "d68e3a058a4111694279733a82a568bf6761ecbe0230beea42a38f899a5326db",
+      "tokens": [
+        "Please",
+        "sit",
+        "with",
+        "me"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please sit with I.",
+          "explanationVi": "Sau giới từ \"with\" dùng \"me\"."
+        },
+        {
+          "en": "Please sit with my.",
+          "explanationVi": "\"my\" phải đi với danh từ; sau \"with\" dùng \"me\"."
+        },
+        {
+          "en": "Please sits with me.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu \"sit\"."
+        }
+      ],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [],
+      "grammarSlug": "subject-object-pronouns"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A1",
+    "sort": 0,
+    "id": "sentence:g-subject-object-pronouns-4",
+    "kind": "sentence",
+    "body": {
+      "en": "He doesn't know them.",
+      "vi": "Anh ấy không biết họ.",
+      "audio": "9567f72a290c5a6bcca993432fe9e823dd4c24b82445da0f1cd7a68df63d351d",
+      "tokens": [
+        "He",
+        "doesn't",
+        "know",
+        "them"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He doesn't know they.",
+          "explanationVi": "Sau động từ \"know\" dùng \"them\", không dùng \"they\"."
+        },
+        {
+          "en": "Him doesn't know them.",
+          "explanationVi": "Chủ ngữ phải là \"He\", không dùng \"Him\"."
+        },
+        {
+          "en": "He don't know them.",
+          "explanationVi": "Chủ ngữ \"He\" đi với \"doesn't\"."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        0
+      ],
+      "wordIds": [],
+      "grammarSlug": "subject-object-pronouns"
     },
     "status": "approved"
   },

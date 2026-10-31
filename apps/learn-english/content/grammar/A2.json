@@ -1,7 +1,7 @@
 [
   {
     "level": "A2",
-    "sort": 18,
+    "sort": 22,
     "id": "grammar:adverbs-of-frequency",
     "kind": "grammar",
     "body": {
@@ -127,7 +127,129 @@
   },
   {
     "level": "A2",
-    "sort": 15,
+    "sort": 21,
+    "id": "grammar:as-as",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "As ... as",
+      "titleVi": "So sánh bằng: as ... as",
+      "ruleVi": "Cấu trúc \"as + tính từ/trạng từ + as\" dùng để so sánh hai người hoặc hai vật giống nhau ở một điểm, nghĩa là \"... bằng ...\". Ở dạng phủ định, \"not as ... as\" nghĩa là \"không ... bằng\". Tính từ ở giữa giữ nguyên dạng gốc, không thêm -er hay more.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + be + as + adj + as + N; S + V + as + adv + as + N"
+        },
+        {
+          "form": "negative",
+          "en": "S + be + not + as + adj + as + N"
+        },
+        {
+          "form": "question",
+          "en": "Is/Are + S + as + adj + as + N?"
+        }
+      ],
+      "usageVi": [
+        "Hai thứ giống nhau: \"My bag is as heavy as yours.\"",
+        "Phủ định nghĩa là \"kém hơn\": \"This phone isn't as expensive as that one.\"",
+        "Dùng với trạng từ: \"She runs as fast as her brother.\"",
+        "Tính từ giữ dạng gốc: \"as tall as\", không nói \"as taller as\"."
+      ],
+      "signalWords": [
+        "as ... as",
+        "not as ... as",
+        "just as",
+        "the same as"
+      ],
+      "mistakes": [
+        {
+          "wrong": "He is as taller as his father.",
+          "right": "He is as tall as his father.",
+          "explanationVi": "Giữa \"as ... as\" dùng tính từ dạng gốc \"tall\"."
+        },
+        {
+          "wrong": "My room is as big than yours.",
+          "right": "My room is as big as yours.",
+          "explanationVi": "Cấu trúc là \"as ... as\", không dùng \"than\"."
+        },
+        {
+          "wrong": "My bike is as fast as your.",
+          "right": "My bike is as fast as yours.",
+          "explanationVi": "Sau \"as\" cần đại từ sở hữu \"yours\" (= your bike), không dùng \"your\" một mình."
+        },
+        {
+          "wrong": "This book is not so interesting than that one.",
+          "right": "This book is not as interesting as that one.",
+          "explanationVi": "Phủ định dùng \"not as ... as\", không dùng \"than\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-as-as-1",
+        "sentence:g-as-as-2",
+        "sentence:g-as-as-3",
+        "sentence:g-as-as-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Your phone is as ___ as mine.",
+          "options": [
+            "older",
+            "oldest",
+            "old",
+            "more old"
+          ],
+          "answer": "old",
+          "explanationVi": "Giữa \"as ... as\" dùng tính từ dạng gốc."
+        },
+        {
+          "prompt": "Tea isn't as expensive ___ coffee here.",
+          "options": [
+            "than",
+            "as",
+            "like",
+            "so"
+          ],
+          "answer": "as",
+          "explanationVi": "Cấu trúc phủ định là \"not as ... as\"."
+        },
+        {
+          "prompt": "He can't swim as ___ as his sister.",
+          "options": [
+            "faster",
+            "fastly",
+            "fast",
+            "fastest"
+          ],
+          "answer": "fast",
+          "explanationVi": "Sau \"swim\" cần trạng từ; \"fast\" vừa là tính từ vừa là trạng từ."
+        },
+        {
+          "prompt": "Is the new park as big ___ the old one?",
+          "options": [
+            "than",
+            "as",
+            "then",
+            "so"
+          ],
+          "answer": "as",
+          "explanationVi": "Câu hỏi vẫn dùng \"as ... as\"."
+        },
+        {
+          "prompt": "Điền tính từ đúng dạng: Today is as ___ (cold) as yesterday.",
+          "answer": "cold",
+          "explanationVi": "Giữa \"as ... as\" giữ nguyên dạng gốc \"cold\"."
+        },
+        {
+          "prompt": "Điền một từ: My English isn't ___ good as yours.",
+          "answer": "as",
+          "explanationVi": "Phủ định dùng \"not as good as\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 18,
     "id": "grammar:be-going-to",
     "kind": "grammar",
     "body": {
@@ -249,7 +371,7 @@
   },
   {
     "level": "A2",
-    "sort": 17,
+    "sort": 20,
     "id": "grammar:comparatives-superlatives",
     "kind": "grammar",
     "body": {
@@ -377,7 +499,7 @@
   },
   {
     "level": "A2",
-    "sort": 19,
+    "sort": 23,
     "id": "grammar:countable-uncountable",
     "kind": "grammar",
     "body": {
@@ -503,7 +625,7 @@
   },
   {
     "level": "A2",
-    "sort": 22,
+    "sort": 31,
     "id": "grammar:first-conditional",
     "kind": "grammar",
     "body": {
@@ -623,7 +745,7 @@
   },
   {
     "level": "A2",
-    "sort": 14,
+    "sort": 17,
     "id": "grammar:future-simple",
     "kind": "grammar",
     "body": {
@@ -747,7 +869,383 @@
   },
   {
     "level": "A2",
-    "sort": 20,
+    "sort": 24,
+    "id": "grammar:indefinite-pronouns",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Indefinite pronouns: someone, anything, nobody",
+      "titleVi": "Đại từ bất định: someone, anything, nobody",
+      "ruleVi": "Đại từ bất định chỉ người, vật hoặc nơi chốn không xác định: someone/somebody (ai đó), something (cái gì đó), somewhere (đâu đó); anyone, anything, anywhere; no one/nobody, nothing, nowhere; everyone, everything, everywhere. Dạng \"some-\" thường dùng trong câu khẳng định, \"any-\" trong câu phủ định và câu hỏi. Các đại từ này đi với động từ số ít, và \"nobody/nothing\" đã mang nghĩa phủ định nên không dùng thêm \"not\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Someone/Something/Everyone + V(s/es); S + V + something/somewhere"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't + V + anything/anyone; Nobody/Nothing + V(s/es)"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + V + anything/anyone? / Is there anyone ...?"
+        }
+      ],
+      "usageVi": [
+        "\"some-\" trong câu khẳng định: \"Someone is at the door.\"",
+        "\"any-\" trong câu phủ định và câu hỏi: \"Did you buy anything?\"",
+        "\"no-\" đã có nghĩa phủ định: \"I saw nobody.\" (= I didn't see anybody.)",
+        "\"every-\" chỉ tất cả, đi với động từ số ít: \"Everyone likes her.\"",
+        "Lời mời hoặc đề nghị vẫn dùng \"some-\": \"Would you like something to drink?\""
+      ],
+      "signalWords": [
+        "someone",
+        "anything",
+        "nobody",
+        "nothing",
+        "everyone",
+        "somewhere",
+        "anywhere"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I don't know nothing about it.",
+          "right": "I don't know anything about it.",
+          "explanationVi": "Không dùng hai từ phủ định; sau \"don't\" dùng \"anything\"."
+        },
+        {
+          "wrong": "Everyone are here.",
+          "right": "Everyone is here.",
+          "explanationVi": "\"Everyone\" đi với động từ số ít \"is\"."
+        },
+        {
+          "wrong": "Did you see someone at the gate?",
+          "right": "Did you see anyone at the gate?",
+          "explanationVi": "Trong câu hỏi thông thường dùng \"anyone\"."
+        },
+        {
+          "wrong": "Nobody don't like rain.",
+          "right": "Nobody likes rain.",
+          "explanationVi": "\"Nobody\" đã có nghĩa phủ định và đi với động từ số ít."
+        }
+      ],
+      "examples": [
+        "sentence:g-indefinite-pronouns-1",
+        "sentence:g-indefinite-pronouns-2",
+        "sentence:g-indefinite-pronouns-3",
+        "sentence:g-indefinite-pronouns-4"
+      ],
+      "practice": [
+        {
+          "prompt": "There's ___ at the door. Can you open it?",
+          "options": [
+            "anyone",
+            "someone",
+            "no one",
+            "anything"
+          ],
+          "answer": "someone",
+          "explanationVi": "Câu khẳng định dùng \"someone\"."
+        },
+        {
+          "prompt": "I'm not hungry. I don't want ___.",
+          "options": [
+            "nothing",
+            "something",
+            "anything",
+            "everything"
+          ],
+          "answer": "anything",
+          "explanationVi": "Câu phủ định dùng \"anything\"."
+        },
+        {
+          "prompt": "___ knows the answer. It's too difficult.",
+          "options": [
+            "Anybody",
+            "Nobody",
+            "Somebody",
+            "Everybody"
+          ],
+          "answer": "Nobody",
+          "explanationVi": "\"Nobody\" mang nghĩa phủ định và đi với động từ số ít."
+        },
+        {
+          "prompt": "I looked for my glasses ___, but I couldn't find them.",
+          "options": [
+            "anywhere",
+            "nowhere",
+            "everywhere",
+            "somewhere"
+          ],
+          "answer": "everywhere",
+          "explanationVi": "\"everywhere\" nghĩa là \"khắp mọi nơi\"."
+        },
+        {
+          "prompt": "Điền một từ: Would you like ___ to drink?",
+          "answer": "something",
+          "explanationVi": "Lời mời dùng \"something\" dù là câu hỏi."
+        },
+        {
+          "prompt": "Điền một từ: Did ___ call me while I was out?",
+          "answer": "anyone",
+          "explanationVi": "Câu hỏi thông thường dùng \"anyone\" (hoặc \"anybody\")."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 25,
+    "id": "grammar:linking-verbs",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Linking verbs + adjective",
+      "titleVi": "Động từ nối + tính từ",
+      "ruleVi": "Động từ nối (linking verbs) như look, feel, seem, sound, smell, taste, become, get không chỉ hành động mà nối chủ ngữ với tính từ miêu tả nó. Sau các động từ này dùng tính từ, không dùng trạng từ: \"You look tired\", không nói \"You look tiredly\". Tiếng Việt không cần động từ ở đây (\"Bạn trông mệt\"), nên bạn hãy nhớ dùng đúng động từ nối.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + look/feel/seem/sound/smell/taste/get/become + adj"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't + look/feel/seem... + adj"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does + S + look/feel/seem... + adj?"
+        }
+      ],
+      "usageVi": [
+        "look: trông có vẻ (nhìn thấy): \"You look happy today.\"",
+        "feel: cảm thấy (cơ thể, cảm xúc): \"I feel cold.\"",
+        "sound, smell, taste: nghe, ngửi, nếm thấy: \"This soup tastes great.\"",
+        "seem: có vẻ (theo suy đoán): \"He seems nice.\"",
+        "get/become: trở nên (thay đổi): \"It's getting dark.\""
+      ],
+      "signalWords": [
+        "look",
+        "feel",
+        "seem",
+        "sound",
+        "smell",
+        "taste",
+        "get",
+        "become"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You look very tiredly.",
+          "right": "You look very tired.",
+          "explanationVi": "Sau động từ nối \"look\" dùng tính từ \"tired\"."
+        },
+        {
+          "wrong": "This cake tastes well.",
+          "right": "This cake tastes good.",
+          "explanationVi": "Sau \"taste\" dùng tính từ \"good\", không dùng trạng từ \"well\"."
+        },
+        {
+          "wrong": "I am feel sick today.",
+          "right": "I feel sick today.",
+          "explanationVi": "Không dùng \"am\" cùng với \"feel\"."
+        },
+        {
+          "wrong": "Your idea sounds greatly.",
+          "right": "Your idea sounds great.",
+          "explanationVi": "Sau \"sound\" dùng tính từ \"great\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-linking-verbs-1",
+        "sentence:g-linking-verbs-2",
+        "sentence:g-linking-verbs-3",
+        "sentence:g-linking-verbs-4"
+      ],
+      "practice": [
+        {
+          "prompt": "You look ___. Did you sleep well?",
+          "options": [
+            "tiredly",
+            "tired",
+            "tire",
+            "tiring"
+          ],
+          "answer": "tired",
+          "explanationVi": "Sau \"look\" dùng tính từ."
+        },
+        {
+          "prompt": "This music sounds ___.",
+          "options": [
+            "beautifully",
+            "beauty",
+            "beautiful",
+            "beautify"
+          ],
+          "answer": "beautiful",
+          "explanationVi": "Sau \"sound\" dùng tính từ \"beautiful\"."
+        },
+        {
+          "prompt": "I ___ sick. I want to go home.",
+          "options": [
+            "am feel",
+            "feel",
+            "feels",
+            "feeling"
+          ],
+          "answer": "feel",
+          "explanationVi": "\"feel\" dùng cho cảm giác của cơ thể."
+        },
+        {
+          "prompt": "The milk smells ___. Don't drink it.",
+          "options": [
+            "badly",
+            "bad",
+            "worse",
+            "badness"
+          ],
+          "answer": "bad",
+          "explanationVi": "Sau \"smell\" dùng tính từ \"bad\"."
+        },
+        {
+          "prompt": "Điền tính từ đúng dạng: This pizza tastes ___ (delicious).",
+          "answer": "delicious",
+          "explanationVi": "Sau \"taste\" dùng tính từ \"delicious\"."
+        },
+        {
+          "prompt": "Điền một từ: It's ___ dark. Let's go home.",
+          "answer": "getting",
+          "explanationVi": "\"It's getting dark\" nghĩa là trời đang tối dần."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 30,
+    "id": "grammar:make-let-have",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Make, let and have + object + verb",
+      "titleVi": "Make, let, have + tân ngữ + động từ",
+      "ruleVi": "\"make + người + V\" nghĩa là bắt ai làm gì, \"let + người + V\" nghĩa là cho phép ai làm gì, còn \"have + người + V\" nghĩa là nhờ hoặc giao cho ai làm gì. Sau người (tân ngữ) dùng động từ nguyên mẫu không có \"to\". Đây là lỗi người Việt hay mắc vì muốn thêm \"to\" như sau \"want\" hoặc \"ask\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + make/let/have + object + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + don't/doesn't/didn't + make/let/have + object + V"
+        },
+        {
+          "form": "question",
+          "en": "Do/Does/Did + S + make/let/have + object + V?"
+        }
+      ],
+      "usageVi": [
+        "make: bắt buộc: \"My mom makes me clean my room.\"",
+        "make còn có nghĩa là \"làm cho\": \"That movie made me cry.\"",
+        "let: cho phép: \"Let me help you.\"",
+        "have: nhờ, giao việc: \"I'll have my assistant call you.\""
+      ],
+      "signalWords": [
+        "make",
+        "let",
+        "have",
+        "let me",
+        "let's"
+      ],
+      "mistakes": [
+        {
+          "wrong": "My boss made me to work late.",
+          "right": "My boss made me work late.",
+          "explanationVi": "Sau \"make + tân ngữ\" dùng động từ nguyên mẫu không có \"to\"."
+        },
+        {
+          "wrong": "My parents don't let me going out at night.",
+          "right": "My parents don't let me go out at night.",
+          "explanationVi": "Sau \"let + tân ngữ\" dùng động từ nguyên mẫu \"go\"."
+        },
+        {
+          "wrong": "Let I help you.",
+          "right": "Let me help you.",
+          "explanationVi": "Sau \"let\" dùng đại từ tân ngữ \"me\"."
+        },
+        {
+          "wrong": "She allowed me use her phone.",
+          "right": "She let me use her phone.",
+          "explanationVi": "\"allow\" cần \"to\" (allowed me to use); \"let\" thì không."
+        }
+      ],
+      "examples": [
+        "sentence:g-make-let-have-1",
+        "sentence:g-make-let-have-2",
+        "sentence:g-make-let-have-3",
+        "sentence:g-make-let-have-4"
+      ],
+      "practice": [
+        {
+          "prompt": "My parents let me ___ up late on Saturdays.",
+          "options": [
+            "to stay",
+            "stay",
+            "staying",
+            "stayed"
+          ],
+          "answer": "stay",
+          "explanationVi": "Sau \"let + tân ngữ\" dùng động từ nguyên mẫu."
+        },
+        {
+          "prompt": "The coach made the players ___ ten more laps.",
+          "options": [
+            "to run",
+            "running",
+            "run",
+            "ran"
+          ],
+          "answer": "run",
+          "explanationVi": "Sau \"make + tân ngữ\" dùng động từ nguyên mẫu không \"to\"."
+        },
+        {
+          "prompt": "___ me know when you're ready.",
+          "options": [
+            "Make",
+            "Let",
+            "Have",
+            "Allow"
+          ],
+          "answer": "Let",
+          "explanationVi": "\"Let me know\" nghĩa là \"cho tôi biết\"."
+        },
+        {
+          "prompt": "This joke always ___ me laugh.",
+          "options": [
+            "lets",
+            "makes",
+            "has",
+            "gets"
+          ],
+          "answer": "makes",
+          "explanationVi": "\"make\" nghĩa là \"làm cho\"; chủ ngữ số ít nên dùng \"makes\"."
+        },
+        {
+          "prompt": "Chia động từ trong ngoặc: Don't make me ___ (wait) again!",
+          "answer": "wait",
+          "explanationVi": "Sau \"make me\" dùng động từ nguyên mẫu \"wait\"."
+        },
+        {
+          "prompt": "Điền một từ: My boss didn't ___ me leave early.",
+          "answer": "let",
+          "explanationVi": "\"let\" nghĩa là \"cho phép\" ai làm gì."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 26,
     "id": "grammar:must-have-to",
     "kind": "grammar",
     "body": {
@@ -865,7 +1363,7 @@
   },
   {
     "level": "A2",
-    "sort": 13,
+    "sort": 15,
     "id": "grammar:past-continuous",
     "kind": "grammar",
     "body": {
@@ -982,7 +1480,7 @@
   },
   {
     "level": "A2",
-    "sort": 12,
+    "sort": 14,
     "id": "grammar:past-simple",
     "kind": "grammar",
     "body": {
@@ -1106,7 +1604,133 @@
   },
   {
     "level": "A2",
-    "sort": 16,
+    "sort": 28,
+    "id": "grammar:polite-requests",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Polite requests and offers",
+      "titleVi": "Lời đề nghị và lời mời lịch sự",
+      "ruleVi": "Để nhờ ai làm gì một cách lịch sự, dùng \"Could you + V?\" hoặc \"Would you + V?\", lịch sự hơn \"Can you\". Để đề nghị giúp hoặc rủ ai làm gì, dùng \"Shall I/we + V?\", \"Why don't we + V?\" hoặc \"Would you like + N / to V?\". Sau các cụm này luôn dùng động từ nguyên mẫu, và \"Would you like\" thì cần \"to\" trước động từ.",
+      "pattern": [
+        {
+          "form": "question",
+          "en": "Could/Would you + V (+ please)?; Shall I/we + V?; Why don't we + V?; Would you like + N / to + V?"
+        },
+        {
+          "form": "affirmative",
+          "en": "Sure. / Of course. / Yes, please. / I'd love to."
+        },
+        {
+          "form": "negative",
+          "en": "Sorry, I can't. / No, thank you."
+        }
+      ],
+      "usageVi": [
+        "Nhờ ai đó lịch sự: \"Could you open the window, please?\"",
+        "\"Would you mind + V-ing\" cũng là lời nhờ rất lịch sự: \"Would you mind waiting?\"",
+        "Đề nghị giúp: \"Shall I carry your bag?\"",
+        "Rủ ai cùng làm: \"Why don't we go for a walk?\" / \"Shall we start?\"",
+        "Mời ai: \"Would you like some tea?\" / \"Would you like to come?\""
+      ],
+      "signalWords": [
+        "Could you",
+        "Would you",
+        "Shall I",
+        "Shall we",
+        "Why don't we",
+        "Would you like",
+        "please"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Could you to help me?",
+          "right": "Could you help me?",
+          "explanationVi": "Sau \"Could you\" dùng động từ nguyên mẫu, không có \"to\"."
+        },
+        {
+          "wrong": "Would you like come with us?",
+          "right": "Would you like to come with us?",
+          "explanationVi": "Sau \"Would you like\" dùng \"to\" + động từ."
+        },
+        {
+          "wrong": "Why don't we going to the park?",
+          "right": "Why don't we go to the park?",
+          "explanationVi": "Sau \"Why don't we\" dùng động từ nguyên mẫu \"go\"."
+        },
+        {
+          "wrong": "Do you like a cup of tea?",
+          "right": "Would you like a cup of tea?",
+          "explanationVi": "Khi mời, dùng \"Would you like\"; \"Do you like\" hỏi về sở thích."
+        }
+      ],
+      "examples": [
+        "sentence:g-polite-requests-1",
+        "sentence:g-polite-requests-2",
+        "sentence:g-polite-requests-3",
+        "sentence:g-polite-requests-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ you pass me the salt, please?",
+          "options": [
+            "Shall",
+            "Could",
+            "Why",
+            "Do"
+          ],
+          "answer": "Could",
+          "explanationVi": "\"Could you ...?\" là cách nhờ lịch sự."
+        },
+        {
+          "prompt": "It's hot in here. ___ I open the window?",
+          "options": [
+            "Shall",
+            "Would",
+            "Why",
+            "Do"
+          ],
+          "answer": "Shall",
+          "explanationVi": "\"Shall I ...?\" dùng để đề nghị giúp."
+        },
+        {
+          "prompt": "Would you like ___ a movie tonight?",
+          "options": [
+            "watch",
+            "watching",
+            "to watch",
+            "watched"
+          ],
+          "answer": "to watch",
+          "explanationVi": "Sau \"Would you like\" dùng \"to\" + động từ."
+        },
+        {
+          "prompt": "Why don't we ___ a taxi?",
+          "options": [
+            "to take",
+            "taking",
+            "take",
+            "took"
+          ],
+          "answer": "take",
+          "explanationVi": "Sau \"Why don't we\" dùng động từ nguyên mẫu."
+        },
+        {
+          "prompt": "Điền một từ: ___ you like some more cake?",
+          "answer": "Would",
+          "explanationVi": "Mời ai đó dùng \"Would you like ...?\"."
+        },
+        {
+          "prompt": "Điền động từ đúng dạng: Would you mind ___ (wait) for a minute?",
+          "answer": "waiting",
+          "explanationVi": "Sau \"Would you mind\" dùng V-ing."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 19,
     "id": "grammar:present-perfect",
     "kind": "grammar",
     "body": {
@@ -1232,7 +1856,7 @@
   },
   {
     "level": "A2",
-    "sort": 21,
+    "sort": 27,
     "id": "grammar:should-advice",
     "kind": "grammar",
     "body": {
@@ -1346,6 +1970,257 @@
           "prompt": "Viết dạng đúng của \"see\": He should ___ a doctor.",
           "answer": "see",
           "explanationVi": "Sau \"should\" động từ giữ nguyên mẫu, không thêm -s dù chủ ngữ là \"he\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 16,
+    "id": "grammar:time-clauses",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Time clauses: when, before, after, until",
+      "titleVi": "Mệnh đề thời gian: when, before, after, until",
+      "ruleVi": "Mệnh đề thời gian bắt đầu bằng when (khi), before (trước khi), after (sau khi), until (cho đến khi) hoặc as soon as (ngay khi), cho biết hành động chính xảy ra lúc nào. Mệnh đề này có thể đứng đầu câu (có dấu phẩy) hoặc đứng sau mệnh đề chính. Khi nói về tương lai, mệnh đề thời gian dùng thì hiện tại đơn, không dùng \"will\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "When/Before/After/Until + S + V, S + V; S + V + when/before/after/until + S + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + won't/didn't + V + until + S + V"
+        },
+        {
+          "form": "question",
+          "en": "What + do/did + S + do + when/after + S + V?"
+        }
+      ],
+      "usageVi": [
+        "\"when\" cho hai việc xảy ra cùng lúc hoặc nối tiếp: \"When I got home, it was dark.\"",
+        "\"before\" và \"after\" cho biết thứ tự: \"Wash your hands before you eat.\"",
+        "\"until\" nghĩa là kéo dài đến một lúc nào đó: \"Wait here until I come back.\"",
+        "Nói về tương lai thì mệnh đề thời gian dùng hiện tại đơn: \"I'll call you when I arrive.\""
+      ],
+      "signalWords": [
+        "when",
+        "before",
+        "after",
+        "until",
+        "as soon as",
+        "while"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I'll call you when I will arrive.",
+          "right": "I'll call you when I arrive.",
+          "explanationVi": "Mệnh đề thời gian nói về tương lai dùng hiện tại đơn \"arrive\", không dùng \"will\"."
+        },
+        {
+          "wrong": "After I finished work, I go home.",
+          "right": "After I finished work, I went home.",
+          "explanationVi": "Hai việc đều ở quá khứ nên dùng \"went\"."
+        },
+        {
+          "wrong": "Wait here until I will come back.",
+          "right": "Wait here until I come back.",
+          "explanationVi": "Sau \"until\" dùng hiện tại đơn khi nói về tương lai."
+        },
+        {
+          "wrong": "Before go to bed, I brush my teeth.",
+          "right": "Before I go to bed, I brush my teeth.",
+          "explanationVi": "Sau \"before\" cần có chủ ngữ \"I\" và động từ."
+        }
+      ],
+      "examples": [
+        "sentence:g-time-clauses-1",
+        "sentence:g-time-clauses-2",
+        "sentence:g-time-clauses-3",
+        "sentence:g-time-clauses-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I'll help you ___ I finish my homework.",
+          "options": [
+            "after",
+            "until",
+            "while",
+            "so"
+          ],
+          "answer": "after",
+          "explanationVi": "\"after\" cho biết giúp xong việc làm bài tập rồi mới giúp."
+        },
+        {
+          "prompt": "Call me when you ___ at the station.",
+          "options": [
+            "will arrive",
+            "arrive",
+            "arrived",
+            "arriving"
+          ],
+          "answer": "arrive",
+          "explanationVi": "Mệnh đề thời gian nói về tương lai dùng hiện tại đơn."
+        },
+        {
+          "prompt": "We stayed at the beach ___ it got dark.",
+          "options": [
+            "before",
+            "until",
+            "after",
+            "as soon as"
+          ],
+          "answer": "until",
+          "explanationVi": "\"until\" nghĩa là kéo dài đến lúc trời tối."
+        },
+        {
+          "prompt": "Turn off the lights ___ you leave the room.",
+          "options": [
+            "until",
+            "before",
+            "while",
+            "after"
+          ],
+          "answer": "before",
+          "explanationVi": "Tắt đèn trước khi rời phòng nên dùng \"before\"."
+        },
+        {
+          "prompt": "Điền một từ: ___ I was a child, I lived in Hue.",
+          "answer": "When",
+          "explanationVi": "\"When\" nghĩa là \"khi\", chỉ một giai đoạn trong quá khứ."
+        },
+        {
+          "prompt": "Chia động từ trong ngoặc: I'll buy a car when I ___ (have) enough money.",
+          "answer": "have",
+          "explanationVi": "Mệnh đề thời gian nói về tương lai dùng hiện tại đơn \"have\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "A2",
+    "sort": 29,
+    "id": "grammar:two-objects",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Verbs with two objects",
+      "titleVi": "Động từ có hai tân ngữ",
+      "ruleVi": "Một số động từ như give, send, show, tell, buy, make, lend, bring có thể có hai tân ngữ: người nhận và vật được trao. Có hai cách nói: \"give + người + vật\" (give her a book) hoặc \"give + vật + to/for + người\" (give a book to her). Dùng \"to\" với give, send, show, tell, lend, bring, và \"for\" với buy, make, get, cook.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + give/send/show/buy... + person + thing; S + give/send/show + thing + to + person; S + buy/make/get + thing + for + person"
+        },
+        {
+          "form": "negative",
+          "en": "S + didn't + give/send... + person + thing"
+        },
+        {
+          "form": "question",
+          "en": "Did + S + give/send... + person + thing?"
+        }
+      ],
+      "usageVi": [
+        "Người nhận đứng trước vật, không cần giới từ: \"She sent me a photo.\"",
+        "Vật đứng trước thì thêm \"to\" hoặc \"for\" trước người nhận: \"She sent a photo to me.\"",
+        "\"for\" đi với buy, make, cook, get: \"He made a cake for us.\"",
+        "Khi vật là đại từ (it, them) thì đặt vật trước: \"Give it to me.\""
+      ],
+      "signalWords": [
+        "give",
+        "send",
+        "show",
+        "tell",
+        "lend",
+        "buy",
+        "make",
+        "to",
+        "for"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She gave to me a gift.",
+          "right": "She gave me a gift.",
+          "explanationVi": "Người nhận đứng ngay sau động từ thì không dùng \"to\"."
+        },
+        {
+          "wrong": "Give me it, please.",
+          "right": "Give it to me, please.",
+          "explanationVi": "Khi vật là đại từ \"it\", nói \"give it to me\"."
+        },
+        {
+          "wrong": "He bought a bike to his son.",
+          "right": "He bought a bike for his son.",
+          "explanationVi": "\"buy\" đi với giới từ \"for\"."
+        },
+        {
+          "wrong": "Can you lend me your pen for me?",
+          "right": "Can you lend me your pen?",
+          "explanationVi": "Người nhận \"me\" đã đứng sau động từ, không lặp lại \"for me\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-two-objects-1",
+        "sentence:g-two-objects-2",
+        "sentence:g-two-objects-3",
+        "sentence:g-two-objects-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Can you lend ___ some money?",
+          "options": [
+            "to me",
+            "me",
+            "for me",
+            "I"
+          ],
+          "answer": "me",
+          "explanationVi": "Người nhận \"me\" đứng ngay sau động từ \"lend\"."
+        },
+        {
+          "prompt": "She bought a new phone ___ her mother.",
+          "options": [
+            "to",
+            "for",
+            "at",
+            "with"
+          ],
+          "answer": "for",
+          "explanationVi": "\"buy\" đi với giới từ \"for\"."
+        },
+        {
+          "prompt": "I gave the keys ___ the hotel manager.",
+          "options": [
+            "for",
+            "to",
+            "at",
+            "with"
+          ],
+          "answer": "to",
+          "explanationVi": "\"give\" đi với giới từ \"to\" khi vật đứng trước."
+        },
+        {
+          "prompt": "This is my pen. Please give ___.",
+          "options": [
+            "me it",
+            "it to me",
+            "to me it",
+            "it me"
+          ],
+          "answer": "it to me",
+          "explanationVi": "Khi vật là đại từ \"it\", nói \"give it to me\"."
+        },
+        {
+          "prompt": "Điền một giới từ: He told the story ___ his kids.",
+          "answer": "to",
+          "explanationVi": "\"tell\" đi với giới từ \"to\" khi vật đứng trước người nhận."
+        },
+        {
+          "prompt": "Điền một giới từ: Mom cooked dinner ___ the whole family.",
+          "answer": "for",
+          "explanationVi": "\"cook\" đi với giới từ \"for\"."
         }
       ]
     },

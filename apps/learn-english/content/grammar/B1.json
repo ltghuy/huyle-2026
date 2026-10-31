@@ -1,7 +1,243 @@
 [
   {
     "level": "B1",
-    "sort": 26,
+    "sort": 43,
+    "id": "grammar:ask-tell-to",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Ask and tell + object + to V",
+      "titleVi": "Ask, tell + tân ngữ + to V",
+      "ruleVi": "Khi thuật lại lời nhờ, yêu cầu hay mệnh lệnh của người khác, dùng \"asked/told + tân ngữ + to + V\": \"Please help me.\" → She asked me to help her. \"Asked\" dùng cho lời nhờ, \"told\" cho lời bảo, ra lệnh. Phủ định thì đặt \"not\" trước \"to\": told us not to swim. Mẫu này không cần lùi thì động từ như khi thuật lại câu kể.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + asked/told/advised/reminded + O + to + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + asked/told/advised/reminded + O + not to + V"
+        },
+        {
+          "form": "question",
+          "en": "Did + S + ask/tell + O + to + V?; What did + S + ask/tell + O + to do?"
+        }
+      ],
+      "usageVi": [
+        "Thuật lại lời nhờ: asked + tân ngữ + to V: \"She asked me to help her.\"",
+        "Thuật lại lời bảo, ra lệnh: told + tân ngữ + to V: \"He told the kids to be quiet.\"",
+        "Phủ định đặt not trước to: \"They told us not to swim here.\"",
+        "advise, remind, warn, want cũng đi theo mẫu này: \"I want you to listen.\"",
+        "Câu \"Please sit down.\" thuật lại thành \"She asked me to sit down.\", không cần lùi thì."
+      ],
+      "signalWords": [
+        "asked",
+        "told",
+        "advised",
+        "reminded",
+        "warned",
+        "not to"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She told me don't worry.",
+          "right": "She told me not to worry.",
+          "explanationVi": "Phủ định dùng \"not to + V\", không dùng \"don't\"."
+        },
+        {
+          "wrong": "He said me to wait outside.",
+          "right": "He told me to wait outside.",
+          "explanationVi": "\"said\" không đi thẳng với tân ngữ chỉ người; dùng \"told + tân ngữ\"."
+        },
+        {
+          "wrong": "I asked him help me.",
+          "right": "I asked him to help me.",
+          "explanationVi": "Sau \"asked + tân ngữ\" cần \"to + V\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-ask-tell-to-1",
+        "sentence:g-ask-tell-to-2",
+        "sentence:g-ask-tell-to-3",
+        "sentence:g-ask-tell-to-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The guide told us ___ close to the group.",
+          "options": [
+            "stay",
+            "to stay",
+            "staying",
+            "stayed"
+          ],
+          "answer": "to stay",
+          "explanationVi": "Sau \"told + tân ngữ\" dùng \"to + V\"."
+        },
+        {
+          "prompt": "She asked me ___ the door.",
+          "options": [
+            "not to open",
+            "don't open",
+            "not open",
+            "to not opening"
+          ],
+          "answer": "not to open",
+          "explanationVi": "Phủ định đặt \"not\" trước \"to\"."
+        },
+        {
+          "prompt": "My boss ___ me to finish the report by Friday.",
+          "options": [
+            "said",
+            "told",
+            "talked",
+            "spoke"
+          ],
+          "answer": "told",
+          "explanationVi": "\"told\" đi thẳng với tân ngữ chỉ người."
+        },
+        {
+          "prompt": "\"Please be quiet,\" the librarian said. → The librarian asked us ___ quiet.",
+          "options": [
+            "to be",
+            "be",
+            "being",
+            "were"
+          ],
+          "answer": "to be",
+          "explanationVi": "Lời nhờ \"Please...\" thuật lại bằng \"asked + tân ngữ + to + V\"."
+        },
+        {
+          "prompt": "Điền một từ: The doctor told me ___ to eat too much sugar.",
+          "answer": "not",
+          "explanationVi": "Phủ định: \"told me not to + V\"."
+        },
+        {
+          "prompt": "Điền một từ: Mom reminded me ___ buy some bread.",
+          "answer": "to",
+          "explanationVi": "\"remind + tân ngữ + to + V\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 48,
+    "id": "grammar:contrast-linkers",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Contrast: although, despite, however",
+      "titleVi": "Chỉ sự tương phản: although, despite, however",
+      "ruleVi": "Để nói hai ý trái ngược nhau, \"although\" và \"even though\" đứng trước một mệnh đề (S + V), còn \"despite\" và \"in spite of\" đứng trước danh từ hoặc V-ing. \"However\" đứng đầu câu thứ hai, có dấu phẩy theo sau. Khác với \"tuy... nhưng...\" trong tiếng Việt, tiếng Anh không dùng \"although\" và \"but\" trong cùng một câu.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Although/Even though + S + V, S + V; Despite/In spite of + N/V-ing, S + V; S + V. However, S + V."
+        },
+        {
+          "form": "negative",
+          "en": "Although + S + don't/didn't + V, S + V; Despite/In spite of + not + V-ing, S + V"
+        }
+      ],
+      "usageVi": [
+        "although / even though + mệnh đề: \"Although she was tired, she kept working.\" (even though nhấn mạnh hơn)",
+        "despite / in spite of + danh từ hoặc V-ing: \"Despite the rain, the game continued.\"",
+        "however đứng đầu câu thứ hai, theo sau là dấu phẩy: \"It was cheap. However, it broke quickly.\"",
+        "Không dùng although và but trong cùng một câu: \"Although he is rich, he isn't happy.\"",
+        "Muốn dùng despite trước mệnh đề thì thêm the fact that: \"Despite the fact that it rained, we had fun.\""
+      ],
+      "signalWords": [
+        "although",
+        "even though",
+        "though",
+        "despite",
+        "in spite of",
+        "however"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Although I studied hard, but I failed the test.",
+          "right": "Although I studied hard, I failed the test.",
+          "explanationVi": "Không dùng \"although\" và \"but\" cùng một câu, dù tiếng Việt nói \"tuy... nhưng...\"."
+        },
+        {
+          "wrong": "Despite of the cold, we swam in the sea.",
+          "right": "Despite the cold, we swam in the sea.",
+          "explanationVi": "\"despite\" không đi với \"of\"; chỉ \"in spite of\" mới có \"of\"."
+        },
+        {
+          "wrong": "Despite it was late, they kept talking.",
+          "right": "Although it was late, they kept talking.",
+          "explanationVi": "Trước mệnh đề (S + V) dùng \"although\", không dùng \"despite\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-contrast-linkers-1",
+        "sentence:g-contrast-linkers-2",
+        "sentence:g-contrast-linkers-3",
+        "sentence:g-contrast-linkers-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ it was cold, she didn't wear a coat.",
+          "options": [
+            "Although",
+            "Despite",
+            "However",
+            "In spite of"
+          ],
+          "answer": "Although",
+          "explanationVi": "Phía sau là mệnh đề \"it was cold\" nên dùng \"Although\"."
+        },
+        {
+          "prompt": "___ the rain, the concert went on.",
+          "options": [
+            "Despite",
+            "Although",
+            "Even though",
+            "However"
+          ],
+          "answer": "Despite",
+          "explanationVi": "Phía sau là danh từ \"the rain\" nên dùng \"Despite\"."
+        },
+        {
+          "prompt": "The phone is cheap. ___, it works very well.",
+          "options": [
+            "However",
+            "Although",
+            "Despite",
+            "Even though"
+          ],
+          "answer": "However",
+          "explanationVi": "Nối hai câu riêng, có dấu phẩy theo sau, dùng \"However\"."
+        },
+        {
+          "prompt": "In spite of ___ hard, he didn't pass the exam.",
+          "options": [
+            "studying",
+            "he studied",
+            "study",
+            "to study"
+          ],
+          "answer": "studying",
+          "explanationVi": "Sau \"in spite of\" dùng V-ing."
+        },
+        {
+          "prompt": "Điền một từ: Even ___ he was sick, he went to work.",
+          "answer": "though",
+          "explanationVi": "\"even though + mệnh đề\" nghĩa là mặc dù."
+        },
+        {
+          "prompt": "Điền một từ: In spite ___ the noise, the baby slept well.",
+          "answer": "of",
+          "explanationVi": "\"in spite of + danh từ\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 36,
     "id": "grammar:gerunds-infinitives",
     "kind": "grammar",
     "body": {
@@ -132,7 +368,247 @@
   },
   {
     "level": "B1",
-    "sort": 28,
+    "sort": 44,
+    "id": "grammar:indirect-questions",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Indirect questions",
+      "titleVi": "Câu hỏi gián tiếp",
+      "ruleVi": "Câu hỏi gián tiếp là câu hỏi được đặt sau một phần mở đầu như \"Could you tell me...\", \"Do you know...\" hay \"I wonder...\". Cách hỏi này lịch sự hơn, hay dùng khi hỏi người lạ. Điểm quan trọng: sau phần mở đầu, câu trở lại trật tự câu khẳng định (S + V), không đảo trợ động từ và bỏ do/does/did. Câu hỏi Yes/No thì thêm \"if\" hoặc \"whether\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "I wonder / I'd like to know + wh-word/if + S + V"
+        },
+        {
+          "form": "negative",
+          "en": "I don't know / I'm not sure + wh-word/if + S + V"
+        },
+        {
+          "form": "question",
+          "en": "Could you tell me / Do you know + wh-word/if + S + V?"
+        }
+      ],
+      "usageVi": [
+        "Câu hỏi gián tiếp lịch sự hơn câu hỏi trực tiếp: \"Could you tell me where the station is?\"",
+        "Sau phần mở đầu giữ trật tự S + V, không đảo trợ động từ: \"Do you know where she lives?\"",
+        "Bỏ do/does/did và chia động từ theo chủ ngữ: \"What does he want?\" → \"I don't know what he wants.\"",
+        "Câu hỏi Yes/No dùng if hoặc whether: \"Can you tell me if the shop is open?\"",
+        "Dấu câu cuối theo phần mở đầu: \"Do you know...?\" dùng dấu hỏi, \"I wonder...\" dùng dấu chấm."
+      ],
+      "signalWords": [
+        "Could you tell me",
+        "Do you know",
+        "I wonder",
+        "I'm not sure",
+        "if",
+        "whether"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Can you tell me where is the bank?",
+          "right": "Can you tell me where the bank is?",
+          "explanationVi": "Trong câu hỏi gián tiếp, động từ đứng sau chủ ngữ: \"where the bank is\"."
+        },
+        {
+          "wrong": "Do you know what does this word mean?",
+          "right": "Do you know what this word means?",
+          "explanationVi": "Bỏ \"does\" và chia động từ theo chủ ngữ: \"this word means\"."
+        },
+        {
+          "wrong": "I don't know he is at home or not.",
+          "right": "I don't know if he is at home or not.",
+          "explanationVi": "Câu hỏi Yes/No gián tiếp cần \"if\" hoặc \"whether\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-indirect-questions-1",
+        "sentence:g-indirect-questions-2",
+        "sentence:g-indirect-questions-3",
+        "sentence:g-indirect-questions-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Do you know where ___?",
+          "options": [
+            "does she live",
+            "she lives",
+            "lives she",
+            "she live"
+          ],
+          "answer": "she lives",
+          "explanationVi": "Câu hỏi gián tiếp giữ trật tự S + V và bỏ \"does\"."
+        },
+        {
+          "prompt": "Could you tell me what time ___?",
+          "options": [
+            "the bank opens",
+            "does the bank open",
+            "opens the bank",
+            "the bank open"
+          ],
+          "answer": "the bank opens",
+          "explanationVi": "Sau phần mở đầu dùng trật tự câu khẳng định: \"the bank opens\"."
+        },
+        {
+          "prompt": "I wonder ___ he will call me back.",
+          "options": [
+            "if",
+            "that",
+            "what",
+            "does"
+          ],
+          "answer": "if",
+          "explanationVi": "Câu hỏi Yes/No gián tiếp dùng \"if\"."
+        },
+        {
+          "prompt": "Can you tell me how much ___?",
+          "options": [
+            "this costs",
+            "does this cost",
+            "costs this",
+            "this cost"
+          ],
+          "answer": "this costs",
+          "explanationVi": "Bỏ \"does\" và chia động từ theo chủ ngữ: \"this costs\"."
+        },
+        {
+          "prompt": "Điền một từ: I don't know ___ the train leaves. Maybe at six.",
+          "answer": "when",
+          "explanationVi": "Hỏi về thời gian dùng \"when\"."
+        },
+        {
+          "prompt": "Điền một từ: Excuse me, do you know where the post office ___?",
+          "answer": "is",
+          "explanationVi": "Trong câu hỏi gián tiếp, \"is\" đứng sau chủ ngữ, ở cuối câu."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 38,
+    "id": "grammar:may-might-be-able-to",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "May, might, could and be able to",
+      "titleVi": "May, might, could và be able to",
+      "ruleVi": "\"May\" và \"might\" + V nói điều có thể xảy ra ở hiện tại hoặc tương lai, \"might\" ít chắc chắn hơn một chút. \"May I...?\" và \"Could I...?\" dùng để xin phép lịch sự. Về khả năng, \"could\" nói điều ai đó biết làm nói chung trong quá khứ, còn \"was/were able to\" nói việc đã làm được trong một lần cụ thể. \"Can\" không có dạng tương lai, nên tương lai dùng \"will be able to\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + may/might/could + V (có thể xảy ra); S + could/was able to/will be able to + V (khả năng)"
+        },
+        {
+          "form": "negative",
+          "en": "S + may not/might not + V; S + couldn't/wasn't able to/won't be able to + V"
+        },
+        {
+          "form": "question",
+          "en": "May/Could + I + V? (xin phép); Will + S + be able to + V?"
+        }
+      ],
+      "usageVi": [
+        "may/might + V nói điều có thể xảy ra: \"She may be at home now.\" / \"It might snow tomorrow.\"",
+        "May I...? / Could I...? để xin phép lịch sự; \"May I...?\" trang trọng hơn: \"May I come in?\"",
+        "could + V nói khả năng chung trong quá khứ: \"I could read when I was four.\"",
+        "was/were able to nói việc đã làm được trong một tình huống cụ thể: \"The fire was big, but everyone was able to escape.\"",
+        "will be able to nói khả năng ở tương lai, vì \"can\" không đi sau \"will\": \"You will be able to drive next year.\""
+      ],
+      "signalWords": [
+        "maybe",
+        "perhaps",
+        "possibly",
+        "May I...?",
+        "was able to",
+        "will be able to"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I will can help you tomorrow.",
+          "right": "I will be able to help you tomorrow.",
+          "explanationVi": "\"can\" không đi sau \"will\"; tương lai dùng \"will be able to\"."
+        },
+        {
+          "wrong": "It may rains later.",
+          "right": "It may rain later.",
+          "explanationVi": "Sau may/might dùng động từ nguyên mẫu, không thêm -s."
+        },
+        {
+          "wrong": "The exam was hard, but I could pass it.",
+          "right": "The exam was hard, but I was able to pass it.",
+          "explanationVi": "Việc làm được trong một lần cụ thể ở quá khứ dùng \"was able to\", không dùng \"could\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-may-might-be-able-to-1",
+        "sentence:g-may-might-be-able-to-2",
+        "sentence:g-may-might-be-able-to-3",
+        "sentence:g-may-might-be-able-to-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Don't wait for me. I ___ be late tonight.",
+          "options": [
+            "might",
+            "will can",
+            "might to",
+            "am able"
+          ],
+          "answer": "might",
+          "explanationVi": "\"might + V\" nói điều có thể xảy ra."
+        },
+        {
+          "prompt": "___ I open the window? It's very hot in here.",
+          "options": [
+            "May",
+            "Do",
+            "Will",
+            "Might to"
+          ],
+          "answer": "May",
+          "explanationVi": "\"May I...?\" dùng để xin phép lịch sự."
+        },
+        {
+          "prompt": "The test was difficult, but I ___ pass it.",
+          "options": [
+            "could",
+            "was able to",
+            "can",
+            "will be able"
+          ],
+          "answer": "was able to",
+          "explanationVi": "Việc làm được trong một lần cụ thể ở quá khứ dùng \"was able to\"."
+        },
+        {
+          "prompt": "When she was five, she ___ read and write.",
+          "options": [
+            "could",
+            "can",
+            "will be able to",
+            "may"
+          ],
+          "answer": "could",
+          "explanationVi": "Khả năng chung trong quá khứ dùng \"could\"."
+        },
+        {
+          "prompt": "Điền một từ: Next year you will be ___ to drive a car.",
+          "answer": "able",
+          "explanationVi": "Khả năng ở tương lai dùng \"will be able to\"."
+        },
+        {
+          "prompt": "Điền một từ: I was very tired, so I ___ able to finish my work.",
+          "answer": "wasn't",
+          "explanationVi": "Không làm được việc trong quá khứ: \"wasn't able to\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 40,
     "id": "grammar:passive-voice",
     "kind": "grammar",
     "body": {
@@ -251,7 +727,7 @@
   },
   {
     "level": "B1",
-    "sort": 24,
+    "sort": 33,
     "id": "grammar:past-perfect",
     "kind": "grammar",
     "body": {
@@ -376,7 +852,134 @@
   },
   {
     "level": "B1",
-    "sort": 23,
+    "sort": 35,
+    "id": "grammar:possessive-reflexive-pronouns",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Possessive and reflexive pronouns",
+      "titleVi": "Đại từ sở hữu và đại từ phản thân",
+      "ruleVi": "Đại từ sở hữu (mine, yours, his, hers, ours, theirs) thay cho \"tính từ sở hữu + danh từ\", nên phía sau không có danh từ: This bag is mine. Đại từ phản thân (myself, yourself, himself, herself, itself, ourselves, yourselves, themselves) dùng khi người làm và người nhận hành động là một, hoặc để nhấn mạnh \"tự mình\". Còn \"each other\" nghĩa là \"nhau\", khi hai người làm điều gì đó cho người kia.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "This/That + N + is + mine/yours/his/hers/ours/theirs; S + V + myself/yourself/himself/herself/ourselves/themselves; S (số nhiều) + V + each other"
+        },
+        {
+          "form": "negative",
+          "en": "S + be + not + mine/yours/his/hers/ours/theirs; S + don't/doesn't/didn't + V + myself/yourself/..."
+        },
+        {
+          "form": "question",
+          "en": "Is this/that + mine/yours/his/hers...?; Did + S + V + it + yourself/himself/herself...?"
+        }
+      ],
+      "usageVi": [
+        "Dùng đại từ sở hữu để khỏi lặp lại danh từ: \"Your phone is new, but mine is old.\"",
+        "Dùng đại từ phản thân khi chủ ngữ và tân ngữ là cùng một người: \"He cut himself.\"",
+        "Dùng đại từ phản thân để nhấn mạnh \"tự mình làm\": \"I painted the room myself.\"",
+        "by + đại từ phản thân nghĩa là một mình, không có ai cùng: \"She lives by herself.\"",
+        "each other nói về hai người làm điều gì đó cho nhau: \"They help each other.\""
+      ],
+      "signalWords": [
+        "mine",
+        "yours",
+        "hers",
+        "ours",
+        "theirs",
+        "myself",
+        "by yourself",
+        "each other"
+      ],
+      "mistakes": [
+        {
+          "wrong": "This book is my.",
+          "right": "This book is mine.",
+          "explanationVi": "Khi không có danh từ theo sau, dùng \"mine\" chứ không dùng \"my\"."
+        },
+        {
+          "wrong": "Is this pen your's?",
+          "right": "Is this pen yours?",
+          "explanationVi": "Đại từ sở hữu yours, hers, ours, theirs không có dấu nháy."
+        },
+        {
+          "wrong": "They enjoyed theirselves at the party.",
+          "right": "They enjoyed themselves at the party.",
+          "explanationVi": "Đại từ phản thân của \"they\" là \"themselves\", không có \"theirselves\"."
+        },
+        {
+          "wrong": "Lan and Minh often call themselves.",
+          "right": "Lan and Minh often call each other.",
+          "explanationVi": "Gọi điện cho nhau dùng \"each other\"; \"themselves\" là tự gọi cho chính mình."
+        }
+      ],
+      "examples": [
+        "sentence:g-possessive-reflexive-pronouns-1",
+        "sentence:g-possessive-reflexive-pronouns-2",
+        "sentence:g-possessive-reflexive-pronouns-3",
+        "sentence:g-possessive-reflexive-pronouns-4"
+      ],
+      "practice": [
+        {
+          "prompt": "Excuse me, is this seat ___?",
+          "options": [
+            "your",
+            "yours",
+            "yourself",
+            "you"
+          ],
+          "answer": "yours",
+          "explanationVi": "Không có danh từ theo sau nên dùng đại từ sở hữu \"yours\"."
+        },
+        {
+          "prompt": "Be careful with that knife. Don't cut ___.",
+          "options": [
+            "you",
+            "your",
+            "yourself",
+            "yours"
+          ],
+          "answer": "yourself",
+          "explanationVi": "Người cắt và người bị cắt là một nên dùng \"yourself\"."
+        },
+        {
+          "prompt": "The two friends hugged and said goodbye to ___.",
+          "options": [
+            "themselves",
+            "each other",
+            "theirs",
+            "ourselves"
+          ],
+          "answer": "each other",
+          "explanationVi": "Hai người chào tạm biệt nhau nên dùng \"each other\"."
+        },
+        {
+          "prompt": "We have our tickets. Do they have ___?",
+          "options": [
+            "their",
+            "theirs",
+            "them",
+            "themselves"
+          ],
+          "answer": "theirs",
+          "explanationVi": "\"theirs\" thay cho \"their tickets\"."
+        },
+        {
+          "prompt": "Điền một từ: I live ___ myself in a small apartment.",
+          "answer": "by",
+          "explanationVi": "\"by myself\" nghĩa là một mình."
+        },
+        {
+          "prompt": "Điền một từ: She made this dress ___. Nobody helped her.",
+          "answer": "herself",
+          "explanationVi": "\"herself\" nhấn mạnh cô ấy tự mình làm."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 32,
     "id": "grammar:present-perfect-continuous",
     "kind": "grammar",
     "body": {
@@ -502,7 +1105,126 @@
   },
   {
     "level": "B1",
-    "sort": 29,
+    "sort": 37,
+    "id": "grammar:purpose-clauses",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Purpose: to, in order to, so that",
+      "titleVi": "Chỉ mục đích: to, in order to, so that",
+      "ruleVi": "Để nói mục đích (\"để làm gì\"), cách phổ biến nhất là dùng \"to + V\": I went out to buy bread. \"In order to + V\" có cùng nghĩa nhưng trang trọng hơn, và phủ định là \"in order not to + V\". Khi mục đích có chủ ngữ riêng, dùng \"so that + S + can/could/will/would + V\". Người Việt hay dịch \"để\" thành \"for\", nhưng trước động từ phải dùng \"to\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V + (in order) to + V; S + V + so that + S + can/could/will/would + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + V + in order not to + V; S + V + so that + S + won't/wouldn't/can't/couldn't + V"
+        },
+        {
+          "form": "question",
+          "en": "Why + do/does/did + S + V? → (In order) to + V / So that + S + can/could + V"
+        }
+      ],
+      "usageVi": [
+        "to + V là cách thông dụng nhất để nói mục đích: \"I called her to say thank you.\"",
+        "in order to + V trang trọng hơn; phủ định dùng in order not to + V: \"Speak quietly in order not to wake the baby.\"",
+        "so that + mệnh đề, thường có can/could/will/would, khi mục đích có chủ ngữ riêng: \"I'll repeat it so that you can write it down.\"",
+        "Câu ở quá khứ thì sau so that dùng could/would: \"She left early so that she could catch the bus.\"",
+        "for + danh từ (không phải động từ) cũng chỉ mục đích: \"We went out for dinner.\""
+      ],
+      "signalWords": [
+        "to",
+        "in order to",
+        "in order not to",
+        "so that",
+        "so as to"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I study English for get a better job.",
+          "right": "I study English to get a better job.",
+          "explanationVi": "Trước động từ nói mục đích dùng \"to\", không dùng \"for\"."
+        },
+        {
+          "wrong": "She went home early for not being late.",
+          "right": "She went home early in order not to be late.",
+          "explanationVi": "Mục đích phủ định dùng \"in order not to + V\"."
+        },
+        {
+          "wrong": "I turned on the light so that I see better.",
+          "right": "I turned on the light so that I could see better.",
+          "explanationVi": "Sau \"so that\" thường dùng can/could; câu quá khứ dùng \"could\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-purpose-clauses-1",
+        "sentence:g-purpose-clauses-2",
+        "sentence:g-purpose-clauses-3",
+        "sentence:g-purpose-clauses-4"
+      ],
+      "practice": [
+        {
+          "prompt": "I went to the store ___ some milk.",
+          "options": [
+            "for buy",
+            "to buy",
+            "buying",
+            "for buying"
+          ],
+          "answer": "to buy",
+          "explanationVi": "Chỉ mục đích trước động từ dùng \"to + V\"."
+        },
+        {
+          "prompt": "Speak louder ___ everyone in the room can hear you.",
+          "options": [
+            "so that",
+            "in order to",
+            "for",
+            "to"
+          ],
+          "answer": "so that",
+          "explanationVi": "Phía sau là mệnh đề có chủ ngữ riêng (everyone) nên dùng \"so that\"."
+        },
+        {
+          "prompt": "She wrote the date down in order ___ forget it.",
+          "options": [
+            "no to",
+            "not to",
+            "don't",
+            "for not"
+          ],
+          "answer": "not to",
+          "explanationVi": "Mục đích phủ định dùng \"in order not to + V\"."
+        },
+        {
+          "prompt": "We took a taxi so that we ___ arrive on time.",
+          "options": [
+            "could",
+            "to",
+            "for",
+            "will to"
+          ],
+          "answer": "could",
+          "explanationVi": "Câu ở quá khứ nên sau \"so that\" dùng \"could + V\"."
+        },
+        {
+          "prompt": "Điền một từ: He moved to the city ___ find a job.",
+          "answer": "to",
+          "explanationVi": "Chỉ mục đích dùng \"to + V\"."
+        },
+        {
+          "prompt": "Điền một từ: I'm saving money in ___ to travel next year.",
+          "answer": "order",
+          "explanationVi": "\"in order to + V\" nghĩa là để làm gì."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 41,
     "id": "grammar:relative-clauses",
     "kind": "grammar",
     "body": {
@@ -622,7 +1344,7 @@
   },
   {
     "level": "B1",
-    "sort": 30,
+    "sort": 42,
     "id": "grammar:reported-speech",
     "kind": "grammar",
     "body": {
@@ -742,7 +1464,7 @@
   },
   {
     "level": "B1",
-    "sort": 27,
+    "sort": 39,
     "id": "grammar:second-conditional",
     "kind": "grammar",
     "body": {
@@ -864,7 +1586,243 @@
   },
   {
     "level": "B1",
-    "sort": 31,
+    "sort": 47,
+    "id": "grammar:so-such-that",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "So and such ... that",
+      "titleVi": "So và such ... that",
+      "ruleVi": "\"So... that\" và \"such... that\" nghĩa là \"quá... đến nỗi...\", dùng để nói một điều mạnh đến mức gây ra kết quả nào đó. \"So\" đứng trước tính từ hoặc trạng từ đứng một mình: so tired, so quickly. \"Such\" đứng trước cụm danh từ: such a long day, such kind people. Trong văn nói có thể bỏ \"that\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + be + so + adj + (that) + S + V; S + V + so + adv + (that) + S + V; S + be + such + (a/an) + adj + N + (that) + S + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + be + so + adj + (that) + S + can't/couldn't/didn't + V; S + be + such + (a/an) + adj + N + (that) + S + didn't + V"
+        }
+      ],
+      "usageVi": [
+        "so + tính từ/trạng từ + (that) + mệnh đề: \"I was so tired that I went to bed at eight.\"",
+        "such + a/an + tính từ + danh từ số ít + (that) + mệnh đề: \"It was such a nice day that we went to the beach.\"",
+        "Danh từ số nhiều hoặc không đếm được thì dùng such không có a/an: \"They were such good friends.\"",
+        "so many/so much + danh từ: \"There were so many people that we couldn't find a seat.\"",
+        "Trong văn nói thường bỏ that: \"I was so hungry I ate everything.\""
+      ],
+      "signalWords": [
+        "so ... that",
+        "such ... that",
+        "such a",
+        "so many",
+        "so much"
+      ],
+      "mistakes": [
+        {
+          "wrong": "It was so a good party that nobody wanted to leave.",
+          "right": "It was such a good party that nobody wanted to leave.",
+          "explanationVi": "Trước \"a + tính từ + danh từ\" dùng \"such\", không dùng \"so\"."
+        },
+        {
+          "wrong": "The test was such difficult that I failed.",
+          "right": "The test was so difficult that I failed.",
+          "explanationVi": "Trước tính từ đứng một mình dùng \"so\"."
+        },
+        {
+          "wrong": "It was such interesting book that I read it twice.",
+          "right": "It was such an interesting book that I read it twice.",
+          "explanationVi": "Danh từ đếm được số ít cần \"a/an\" sau \"such\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-so-such-that-1",
+        "sentence:g-so-such-that-2",
+        "sentence:g-so-such-that-3",
+        "sentence:g-so-such-that-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The box was ___ heavy that I couldn't lift it.",
+          "options": [
+            "so",
+            "such",
+            "such a",
+            "too much"
+          ],
+          "answer": "so",
+          "explanationVi": "Trước tính từ đứng một mình dùng \"so\"."
+        },
+        {
+          "prompt": "It was ___ beautiful day that we went for a walk.",
+          "options": [
+            "such a",
+            "so",
+            "such",
+            "so a"
+          ],
+          "answer": "such a",
+          "explanationVi": "Trước \"tính từ + danh từ số ít\" dùng \"such a\"."
+        },
+        {
+          "prompt": "There were ___ many people that we had to wait outside.",
+          "options": [
+            "so",
+            "such",
+            "such a",
+            "very"
+          ],
+          "answer": "so",
+          "explanationVi": "\"so many + danh từ số nhiều\"."
+        },
+        {
+          "prompt": "We had ___ bad weather that the flight was canceled.",
+          "options": [
+            "such",
+            "so",
+            "such a",
+            "so a"
+          ],
+          "answer": "such",
+          "explanationVi": "\"weather\" không đếm được nên dùng \"such\" không có \"a\"."
+        },
+        {
+          "prompt": "Điền một từ: The music was so loud ___ I couldn't sleep.",
+          "answer": "that",
+          "explanationVi": "Cấu trúc \"so... that\"."
+        },
+        {
+          "prompt": "Điền một từ: It was ___ an easy test that everyone passed.",
+          "answer": "such",
+          "explanationVi": "Trước \"an + tính từ + danh từ\" dùng \"such\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 45,
+    "id": "grammar:tag-questions",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Tag questions",
+      "titleVi": "Câu hỏi đuôi",
+      "ruleVi": "Câu hỏi đuôi là phần hỏi ngắn ở cuối câu, giống \"phải không?\", \"đúng không?\" trong tiếng Việt, dùng để xác nhận điều mình nghĩ là đúng. Câu khẳng định đi với đuôi phủ định, câu phủ định đi với đuôi khẳng định. Đuôi dùng lại trợ động từ của câu (be, have, can, will...); nếu câu không có trợ động từ thì dùng do/does/did. Đuôi luôn dùng đại từ chứ không lặp lại danh từ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V (khẳng định), + trợ động từ + n't + đại từ? (You're tired, aren't you?)"
+        },
+        {
+          "form": "negative",
+          "en": "S + trợ động từ + not + V, + trợ động từ + đại từ? (She doesn't eat meat, does she?)"
+        },
+        {
+          "form": "question",
+          "en": "Trường hợp đặc biệt: I am..., aren't I?; Let's..., shall we?"
+        }
+      ],
+      "usageVi": [
+        "Dùng để xác nhận điều mình nghĩ là đúng: \"It's cold today, isn't it?\"",
+        "Câu khẳng định đi với đuôi phủ định, câu phủ định đi với đuôi khẳng định: \"You like coffee, don't you?\" / \"He isn't here, is he?\"",
+        "Câu không có trợ động từ thì đuôi dùng do/does/did: \"She works here, doesn't she?\"",
+        "Đuôi dùng đại từ, không lặp lại danh từ: \"Your father is a doctor, isn't he?\"",
+        "Trường hợp đặc biệt: \"I'm right, aren't I?\" và \"Let's go, shall we?\""
+      ],
+      "signalWords": [
+        "isn't it",
+        "aren't you",
+        "don't you",
+        "doesn't she",
+        "didn't they",
+        "can't he",
+        "shall we"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You like pho, isn't it?",
+          "right": "You like pho, don't you?",
+          "explanationVi": "Người Việt hay dùng \"isn't it\" cho mọi câu; đuôi phải khớp trợ động từ và chủ ngữ: \"don't you\"."
+        },
+        {
+          "wrong": "He went home early, wasn't he?",
+          "right": "He went home early, didn't he?",
+          "explanationVi": "Câu quá khứ đơn không có trợ động từ nên đuôi dùng \"didn't\"."
+        },
+        {
+          "wrong": "I'm late, am not I?",
+          "right": "I'm late, aren't I?",
+          "explanationVi": "Đuôi của \"I am\" là \"aren't I\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-tag-questions-1",
+        "sentence:g-tag-questions-2",
+        "sentence:g-tag-questions-3",
+        "sentence:g-tag-questions-4"
+      ],
+      "practice": [
+        {
+          "prompt": "It's a beautiful day, ___?",
+          "options": [
+            "isn't it",
+            "is it",
+            "doesn't it",
+            "wasn't it"
+          ],
+          "answer": "isn't it",
+          "explanationVi": "Câu khẳng định với \"is\" nên đuôi là \"isn't it\"."
+        },
+        {
+          "prompt": "You don't like spicy food, ___?",
+          "options": [
+            "don't you",
+            "do you",
+            "are you",
+            "aren't you"
+          ],
+          "answer": "do you",
+          "explanationVi": "Câu phủ định thì đuôi khẳng định: \"do you\"."
+        },
+        {
+          "prompt": "Tom has been to Hanoi, ___?",
+          "options": [
+            "hasn't he",
+            "doesn't he",
+            "isn't he",
+            "has he"
+          ],
+          "answer": "hasn't he",
+          "explanationVi": "Câu dùng \"has\" nên đuôi là \"hasn't he\"."
+        },
+        {
+          "prompt": "Let's take a break, ___?",
+          "options": [
+            "shall we",
+            "don't we",
+            "will you",
+            "aren't we"
+          ],
+          "answer": "shall we",
+          "explanationVi": "Câu bắt đầu bằng \"Let's\" có đuôi \"shall we\"."
+        },
+        {
+          "prompt": "Điền một từ: She works at the hospital, ___ she?",
+          "answer": "doesn't",
+          "explanationVi": "Câu hiện tại đơn khẳng định, chủ ngữ \"she\" nên đuôi là \"doesn't she\"."
+        },
+        {
+          "prompt": "Điền một từ: They weren't at home last night, ___ they?",
+          "answer": "were",
+          "explanationVi": "Câu phủ định với \"weren't\" nên đuôi khẳng định \"were they\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 46,
     "id": "grammar:too-enough",
     "kind": "grammar",
     "body": {
@@ -988,7 +1946,7 @@
   },
   {
     "level": "B1",
-    "sort": 25,
+    "sort": 34,
     "id": "grammar:used-to",
     "kind": "grammar",
     "body": {

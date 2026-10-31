@@ -1,7 +1,7 @@
 [
   {
     "level": "C1",
-    "sort": 42,
+    "sort": 70,
     "id": "grammar:cleft-sentences",
     "kind": "grammar",
     "body": {
@@ -124,7 +124,7 @@
   },
   {
     "level": "C1",
-    "sort": 39,
+    "sort": 64,
     "id": "grammar:future-perfect-continuous",
     "kind": "grammar",
     "body": {
@@ -246,7 +246,7 @@
   },
   {
     "level": "C1",
-    "sort": 41,
+    "sort": 68,
     "id": "grammar:inversion",
     "kind": "grammar",
     "body": {
@@ -365,7 +365,127 @@
   },
   {
     "level": "C1",
-    "sort": 40,
+    "sort": 67,
+    "id": "grammar:inverted-conditionals",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Inverted conditionals: Were I, Had I, Should you",
+      "titleVi": "Câu điều kiện đảo ngữ: Were I, Had I, Should you",
+      "ruleVi": "Câu điều kiện đảo ngữ là cách bỏ \"if\" rồi đưa trợ động từ should, were hoặc had lên trước chủ ngữ. \"Should + S + V\" thay cho điều kiện loại 1, \"Were + S + to V / Were + S + ...\" thay cho loại 2, và \"Had + S + V3\" thay cho loại 3. Mệnh đề chính giữ nguyên như câu điều kiện thường. Cách nói này trang trọng, hay gặp trong thư công việc, thông báo và văn viết. Khi phủ định, \"not\" đứng sau chủ ngữ (Had I not...), không viết dạng rút gọn \"Hadn't I\".",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "Should + S + V, S + will/can + V; Were + S + (to V / N / adj), S + would + V; Had + S + V3/ed, S + would have + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "Had + S + not + V3/ed, S + would have + V3/ed; Were + S + not + ..., S + would + V"
+        }
+      ],
+      "usageVi": [
+        "Should thay cho \"if\" ở điều kiện có thể xảy ra, hay dùng trong thông báo, thư từ: \"Should you need help, call us.\"",
+        "Were thay cho \"if\" ở điều kiện không có thật ở hiện tại: \"Were I you, I would accept the offer.\"",
+        "Were + S + to V cho giả định ít có khả năng xảy ra trong tương lai: \"Were it to rain, the event would move indoors.\"",
+        "Had thay cho \"if\" ở điều kiện trái với quá khứ: \"Had we left earlier, we would have caught the train.\"",
+        "Phủ định đặt \"not\" sau chủ ngữ: \"Had she not called, I would have forgotten.\""
+      ],
+      "signalWords": [
+        "Should you",
+        "Were I",
+        "Were it to",
+        "Had I known",
+        "Had it not been for"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Had I know about the delay, I would have taken a taxi.",
+          "right": "Had I known about the delay, I would have taken a taxi.",
+          "explanationVi": "Sau \"Had + chủ ngữ\" dùng quá khứ phân từ \"known\"."
+        },
+        {
+          "wrong": "If had I seen the sign, I would have stopped.",
+          "right": "Had I seen the sign, I would have stopped.",
+          "explanationVi": "Khi đảo ngữ thì bỏ \"if\"; không dùng cả \"if\" lẫn đảo ngữ."
+        },
+        {
+          "wrong": "Hadn't she warned us, we would have gotten lost.",
+          "right": "Had she not warned us, we would have gotten lost.",
+          "explanationVi": "Đảo ngữ phủ định viết \"Had + S + not\", không dùng dạng rút gọn \"Hadn't\"."
+        },
+        {
+          "wrong": "Should you will need more information, please contact us.",
+          "right": "Should you need more information, please contact us.",
+          "explanationVi": "Sau \"Should + chủ ngữ\" dùng động từ nguyên mẫu, không thêm \"will\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-inverted-conditionals-1",
+        "sentence:g-inverted-conditionals-2",
+        "sentence:g-inverted-conditionals-3",
+        "sentence:g-inverted-conditionals-4"
+      ],
+      "practice": [
+        {
+          "prompt": "___ you need a receipt, please ask at the front desk.",
+          "options": [
+            "Should",
+            "Had",
+            "Were",
+            "Would"
+          ],
+          "answer": "Should",
+          "explanationVi": "\"Should + S + V\" thay cho \"If you need\", điều kiện có thể xảy ra."
+        },
+        {
+          "prompt": "___ I known about the party, I would have come.",
+          "options": [
+            "Should",
+            "Were",
+            "Had",
+            "Did"
+          ],
+          "answer": "Had",
+          "explanationVi": "\"Had + S + V3\" thay cho \"If I had known\", điều kiện trái với quá khứ."
+        },
+        {
+          "prompt": "Were she ___ the truth, she would be very upset.",
+          "options": [
+            "know",
+            "knows",
+            "to know",
+            "known"
+          ],
+          "answer": "to know",
+          "explanationVi": "\"Were + S + to V\" dùng cho giả định ít có khả năng xảy ra."
+        },
+        {
+          "prompt": "Had we not taken the map, we ___ lost.",
+          "options": [
+            "would get",
+            "will have got",
+            "would have gotten",
+            "had gotten"
+          ],
+          "answer": "would have gotten",
+          "explanationVi": "Mệnh đề chính của điều kiện loại 3 dùng \"would have + V3\"."
+        },
+        {
+          "prompt": "Điền một từ: ___ I rich, I would travel around the world.",
+          "answer": "Were",
+          "explanationVi": "\"Were I rich\" thay cho \"If I were rich\", điều kiện không có thật ở hiện tại."
+        },
+        {
+          "prompt": "Điền một từ: Had she ___ told me, I would never have known.",
+          "answer": "not",
+          "explanationVi": "Phủ định của đảo ngữ loại 3 là \"Had + S + not + V3\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 66,
     "id": "grammar:mixed-conditionals",
     "kind": "grammar",
     "body": {
@@ -483,7 +603,7 @@
   },
   {
     "level": "C1",
-    "sort": 43,
+    "sort": 71,
     "id": "grammar:participle-clauses",
     "kind": "grammar",
     "body": {
@@ -594,6 +714,252 @@
           "prompt": "Viết dạng đúng của \"take\": Having ___ a shower, he felt much better.",
           "answer": "taken",
           "explanationVi": "Sau \"Having\" dùng quá khứ phân từ \"taken\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 65,
+    "id": "grammar:perfect-passive-infinitives",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "Perfect and passive infinitives and gerunds",
+      "titleVi": "Động từ nguyên mẫu và danh động từ dạng hoàn thành, bị động",
+      "ruleVi": "Động từ nguyên mẫu (to V) và danh động từ (V-ing) có thêm dạng hoàn thành và dạng bị động. Dạng hoàn thành \"to have + V3\" và \"having + V3\" cho biết hành động xảy ra trước hành động chính. Dạng bị động \"to be + V3\" và \"being + V3\" cho biết chủ ngữ nhận hành động chứ không tự làm. Hai ý có thể kết hợp: \"to have been + V3\", \"having been + V3\". Người Việt hay dùng dạng thường (to see, seeing) ở mọi trường hợp nên mất đi ý \"đã xảy ra trước\" hoặc ý bị động.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + V + to have + V3/ed; S + V + having + V3/ed; S + V + to be + V3/ed; S + V + being + V3/ed; S + V + to have been + V3/ed"
+        },
+        {
+          "form": "negative",
+          "en": "S + V + not to have + V3/ed; S + V + not having + V3/ed; S + V + not being + V3/ed"
+        }
+      ],
+      "usageVi": [
+        "to have + V3 sau seem, appear, be said, be thought khi hành động đã xảy ra trước: \"He seems to have left.\"",
+        "having + V3 sau deny, admit, regret, remember khi nói về việc đã làm: \"She denied having taken the money.\"",
+        "to be + V3 sau want, expect, need, hope khi chủ ngữ là người nhận hành động: \"I want to be told the truth.\"",
+        "being + V3 sau enjoy, hate, avoid, remember và sau giới từ: \"He hates being interrupted.\"",
+        "to have been + V3 khi vừa \"đã xảy ra trước\" vừa bị động: \"The house is said to have been built in 1900.\""
+      ],
+      "signalWords": [
+        "seem to have",
+        "appear to have",
+        "is said to have",
+        "deny having",
+        "regret having",
+        "hate being",
+        "expect to be",
+        "after having"
+      ],
+      "mistakes": [
+        {
+          "wrong": "She seems to lose her keys again yesterday.",
+          "right": "She seems to have lost her keys again yesterday.",
+          "explanationVi": "Việc làm mất chìa khóa xảy ra trước nên dùng \"to have + V3\": \"to have lost\"."
+        },
+        {
+          "wrong": "He hates interrupting when he is speaking.",
+          "right": "He hates being interrupted when he is speaking.",
+          "explanationVi": "Anh ấy là người bị ngắt lời nên dùng dạng bị động \"being interrupted\"."
+        },
+        {
+          "wrong": "The suspect denied to have stolen the car.",
+          "right": "The suspect denied having stolen the car.",
+          "explanationVi": "Sau \"deny\" dùng V-ing; việc đã xảy ra trước dùng \"having + V3\"."
+        },
+        {
+          "wrong": "I expect to inform about any changes.",
+          "right": "I expect to be informed about any changes.",
+          "explanationVi": "Người nói là người được báo nên dùng dạng bị động \"to be informed\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-perfect-passive-infinitives-1",
+        "sentence:g-perfect-passive-infinitives-2",
+        "sentence:g-perfect-passive-infinitives-3",
+        "sentence:g-perfect-passive-infinitives-4"
+      ],
+      "practice": [
+        {
+          "prompt": "He seems ___ a lot of weight since last summer.",
+          "options": [
+            "to lose",
+            "to have lost",
+            "having lost",
+            "to be lost"
+          ],
+          "answer": "to have lost",
+          "explanationVi": "Việc giảm cân xảy ra trước thời điểm nói nên dùng \"to have + V3\"."
+        },
+        {
+          "prompt": "I don't remember ___ about the meeting. Nobody told me.",
+          "options": [
+            "informing",
+            "to inform",
+            "being informed",
+            "to have informed"
+          ],
+          "answer": "being informed",
+          "explanationVi": "Người nói là người được báo, nên dùng dạng bị động \"being informed\"."
+        },
+        {
+          "prompt": "All applications need ___ by Friday.",
+          "options": [
+            "to receive",
+            "to be received",
+            "receiving",
+            "having received"
+          ],
+          "answer": "to be received",
+          "explanationVi": "Đơn được nhận, không tự nhận, nên dùng \"to be + V3\"."
+        },
+        {
+          "prompt": "She regrets ___ the job offer last year.",
+          "options": [
+            "to refuse",
+            "to be refused",
+            "having refused",
+            "being refused"
+          ],
+          "answer": "having refused",
+          "explanationVi": "Sau \"regret\" dùng V-ing; việc từ chối đã xảy ra trước nên dùng \"having + V3\"."
+        },
+        {
+          "prompt": "Điền một từ: The bridge is said to have ___ built by the French.",
+          "answer": "been",
+          "explanationVi": "Cây cầu được xây trong quá khứ nên dùng \"to have been + V3\"."
+        },
+        {
+          "prompt": "Điền dạng đúng của động từ \"follow\": He felt nervous about being ___ home late at night.",
+          "answer": "followed",
+          "explanationVi": "Sau \"being\" dùng quá khứ phân từ để tạo dạng bị động: \"being followed\"."
+        }
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "C1",
+    "sort": 69,
+    "id": "grammar:subjunctive",
+    "kind": "grammar",
+    "body": {
+      "titleEn": "The subjunctive after suggest, insist, recommend",
+      "titleVi": "Thể giả định sau suggest, insist, recommend",
+      "ruleVi": "Thể giả định (subjunctive) dùng sau các động từ và tính từ chỉ đề nghị, yêu cầu hay sự cần thiết như suggest, recommend, insist, demand, propose, it is essential/important that. Trong mệnh đề \"that\" phía sau, động từ luôn ở dạng nguyên mẫu không \"to\" với mọi chủ ngữ: không thêm -s cho he/she/it, không chia quá khứ, và dùng \"be\" thay cho am/is/are. Dạng phủ định là \"not + V\", không dùng don't/doesn't. Người Việt hay quen tay thêm -s (he goes) hoặc lùi thì theo động từ chính, nên câu nghe sai với người bản xứ.",
+      "pattern": [
+        {
+          "form": "affirmative",
+          "en": "S + suggest/recommend/insist/demand + (that) + S + V (bare infinitive); It is essential/important/vital + that + S + V"
+        },
+        {
+          "form": "negative",
+          "en": "S + suggest/recommend/insist + (that) + S + not + V"
+        }
+      ],
+      "usageVi": [
+        "Sau động từ chỉ đề nghị hay yêu cầu, động từ phía sau giữ nguyên mẫu: \"She suggested that he take a break.\"",
+        "Sau \"It is essential/important/vital that\" để nói điều bắt buộc: \"It is vital that everyone be on time.\"",
+        "Dùng \"be\" cho mọi chủ ngữ, kể cả ở câu bị động: \"They demanded that the report be rewritten.\"",
+        "Phủ định đặt \"not\" ngay trước động từ: \"He insisted that we not wait for him.\"",
+        "Cách nói thân mật hơn dùng should: \"I suggest that he should apply.\""
+      ],
+      "signalWords": [
+        "suggest that",
+        "recommend that",
+        "insist that",
+        "demand that",
+        "propose that",
+        "it is essential that",
+        "it is important that",
+        "it is vital that"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The doctor recommended that she takes more rest.",
+          "right": "The doctor recommended that she take more rest.",
+          "explanationVi": "Sau \"recommend that\" động từ giữ nguyên mẫu \"take\", không thêm -s."
+        },
+        {
+          "wrong": "It is essential that every visitor is registered.",
+          "right": "It is essential that every visitor be registered.",
+          "explanationVi": "Sau \"It is essential that\" dùng \"be\" cho mọi chủ ngữ, không dùng \"is\"."
+        },
+        {
+          "wrong": "She insisted that he doesn't drive at night.",
+          "right": "She insisted that he not drive at night.",
+          "explanationVi": "Phủ định của thể giả định là \"not + V\", không dùng \"doesn't\"."
+        },
+        {
+          "wrong": "They suggested that we went home early.",
+          "right": "They suggested that we go home early.",
+          "explanationVi": "Không lùi thì sau \"suggested that\"; động từ vẫn ở nguyên mẫu \"go\"."
+        }
+      ],
+      "examples": [
+        "sentence:g-subjunctive-1",
+        "sentence:g-subjunctive-2",
+        "sentence:g-subjunctive-3",
+        "sentence:g-subjunctive-4"
+      ],
+      "practice": [
+        {
+          "prompt": "The teacher suggested that he ___ his essay again.",
+          "options": [
+            "checks",
+            "check",
+            "checked",
+            "to check"
+          ],
+          "answer": "check",
+          "explanationVi": "Sau \"suggested that\" động từ giữ nguyên mẫu, không thêm -s và không lùi thì."
+        },
+        {
+          "prompt": "It is important that every passenger ___ a valid ticket.",
+          "options": [
+            "has",
+            "have",
+            "had",
+            "having"
+          ],
+          "answer": "have",
+          "explanationVi": "Sau \"It is important that\" dùng nguyên mẫu \"have\" cho mọi chủ ngữ."
+        },
+        {
+          "prompt": "They demanded that the decision ___ changed immediately.",
+          "options": [
+            "is",
+            "was",
+            "be",
+            "been"
+          ],
+          "answer": "be",
+          "explanationVi": "Câu bị động ở thể giả định dùng \"be + V3\" cho mọi chủ ngữ."
+        },
+        {
+          "prompt": "My doctor recommended that I ___ eat so much sugar.",
+          "options": [
+            "don't",
+            "not",
+            "didn't",
+            "no"
+          ],
+          "answer": "not",
+          "explanationVi": "Phủ định của thể giả định là \"not + V\", không dùng trợ động từ."
+        },
+        {
+          "prompt": "Điền dạng đúng của động từ \"attend\": The boss insisted that she ___ the meeting.",
+          "answer": "attend",
+          "explanationVi": "Sau \"insisted that\" dùng nguyên mẫu \"attend\", không thêm -s và không chia quá khứ."
+        },
+        {
+          "prompt": "Điền một từ: It is vital that the door ___ locked at night.",
+          "answer": "be",
+          "explanationVi": "Sau \"It is vital that\" dùng \"be\" cho mọi chủ ngữ."
         }
       ]
     },
