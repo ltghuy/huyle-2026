@@ -1,0 +1,590 @@
+[
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:baggage-claim-n",
+    "kind": "word",
+    "body": {
+      "headword": "baggage claim",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbæɡədʒ kleɪm/",
+      "meaningsVi": [
+        "khu nhận hành lý"
+      ],
+      "examples": [
+        "sentence:baggage-claim-n-1",
+        "sentence:baggage-claim-n-2"
+      ],
+      "synonyms": [],
+      "audio": "315525973f054f53dc1d7b309983d2e282ec72cba167f7b80e3ca85b58f22e1d",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:bike-lane-n",
+    "kind": "word",
+    "body": {
+      "headword": "bike lane",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/baɪk leɪn/",
+      "meaningsVi": [
+        "làn đường dành cho xe đạp"
+      ],
+      "examples": [
+        "sentence:bike-lane-n-1",
+        "sentence:bike-lane-n-2"
+      ],
+      "synonyms": [],
+      "audio": "63505bc93d7b9322af21b488ae30b3c3dcf7f71dd8cdc07044871c334aeb1658",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:boarding-pass-n",
+    "kind": "word",
+    "body": {
+      "headword": "boarding pass",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbɔrdɪŋ pæs/",
+      "meaningsVi": [
+        "thẻ lên máy bay"
+      ],
+      "examples": [
+        "sentence:boarding-pass-n-1",
+        "sentence:boarding-pass-n-2"
+      ],
+      "synonyms": [],
+      "audio": "84f54fd57a0a06410230285542993ba8d085a0a261160e6f71ae7a51f4f0ef45",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:commuter-n",
+    "kind": "word",
+    "body": {
+      "headword": "commuter",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kəˈmjutɚ/",
+      "meaningsVi": [
+        "người đi làm hằng ngày",
+        "người đi lại thường xuyên giữa nhà và nơi làm việc"
+      ],
+      "examples": [
+        "sentence:commuter-n-1",
+        "sentence:commuter-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2b3af37bb8f752e0a5215686c1e9a285d11fba0849ea68256c86c5c6198bb213",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:connecting-flight-n",
+    "kind": "word",
+    "body": {
+      "headword": "connecting flight",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kəˈnɛktɪŋ flaɪt/",
+      "meaningsVi": [
+        "chuyến bay nối chuyến"
+      ],
+      "examples": [
+        "sentence:connecting-flight-n-1",
+        "sentence:connecting-flight-n-2"
+      ],
+      "synonyms": [],
+      "audio": "17ebd889861fdb86690ebb794be7428ee077b2badcb5bcc81121982175fd93af",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:driving-test-n",
+    "kind": "word",
+    "body": {
+      "headword": "driving test",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdraɪvɪŋ tɛst/",
+      "meaningsVi": [
+        "kỳ thi sát hạch lái xe",
+        "bài thi lấy bằng lái"
+      ],
+      "examples": [
+        "sentence:driving-test-n-1",
+        "sentence:driving-test-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b8eecbdb1349e2fec6ecfe0e10bed0e1819a23495bd765daad8767bb6c6b0b98",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:flat-tire-n",
+    "kind": "word",
+    "body": {
+      "headword": "flat tire",
+      "variants": [
+        "flat tyre"
+      ],
+      "pos": "noun",
+      "ipa": "/flæt ˈtaɪɚ/",
+      "meaningsVi": [
+        "lốp xe bị xẹp",
+        "thủng lốp"
+      ],
+      "examples": [
+        "sentence:flat-tire-n-1",
+        "sentence:flat-tire-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0c3e0c753e72549aa95a4786dd127b77865902b0bff5cbd6985cf72b2cf16600",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:gas-station-n",
+    "kind": "word",
+    "body": {
+      "headword": "gas station",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɡæs ˈsteɪʃən/",
+      "meaningsVi": [
+        "trạm xăng",
+        "cây xăng"
+      ],
+      "examples": [
+        "sentence:gas-station-n-1",
+        "sentence:gas-station-n-2"
+      ],
+      "synonyms": [
+        "word:petrol-station-n"
+      ],
+      "audio": "5d105f8edc5ccb3c873ac5c4c03fa1a9cfcdbc49afe6bc56cab5deaaa701db4c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:jet-lag-n",
+    "kind": "word",
+    "body": {
+      "headword": "jet lag",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dʒɛt læɡ/",
+      "meaningsVi": [
+        "mệt mỏi do lệch múi giờ"
+      ],
+      "examples": [
+        "sentence:jet-lag-n-1",
+        "sentence:jet-lag-n-2"
+      ],
+      "synonyms": [],
+      "audio": "07cd35e48463331ae29f9ac14fac2f565209bb75de7a68dbe45fd49719c56c3d",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:license-plate-n",
+    "kind": "word",
+    "body": {
+      "headword": "license plate",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈlaɪsəns pleɪt/",
+      "meaningsVi": [
+        "biển số xe"
+      ],
+      "examples": [
+        "sentence:license-plate-n-1",
+        "sentence:license-plate-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b21fbda3908b501598c6b87f40e2a0969ac403291ded6fb5bb0ea872bf8851ba",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:motorbike-taxi-n",
+    "kind": "word",
+    "body": {
+      "headword": "motorbike taxi",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈmoʊtɚˌbaɪk ˈtæksi/",
+      "meaningsVi": [
+        "xe ôm"
+      ],
+      "examples": [
+        "sentence:motorbike-taxi-n-1",
+        "sentence:motorbike-taxi-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0eb19441809a031f7450d8bb5ade89e5a8acd0f2f8ed4b1db35b7497b9774c95",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:one-way-street-n",
+    "kind": "word",
+    "body": {
+      "headword": "one-way street",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/wʌn weɪ strit/",
+      "meaningsVi": [
+        "đường một chiều"
+      ],
+      "examples": [
+        "sentence:one-way-street-n-1",
+        "sentence:one-way-street-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b9fc809bcf36a37c60515603c344d8495d160b88e5a95b4a70cbf128efb13b78",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:one-way-ticket-n",
+    "kind": "word",
+    "body": {
+      "headword": "one-way ticket",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/wʌn weɪ ˈtɪkət/",
+      "meaningsVi": [
+        "vé một chiều"
+      ],
+      "examples": [
+        "sentence:one-way-ticket-n-1",
+        "sentence:one-way-ticket-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b16836530676e9c3de7bb121954a74c49882fc00ff8dc96ba76f14395ffc65a8",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:parking-lot-n",
+    "kind": "word",
+    "body": {
+      "headword": "parking lot",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɑrkɪŋ lɑt/",
+      "meaningsVi": [
+        "bãi đỗ xe"
+      ],
+      "examples": [
+        "sentence:parking-lot-n-1",
+        "sentence:parking-lot-n-2"
+      ],
+      "synonyms": [
+        "word:car-park-n"
+      ],
+      "audio": "0f22df2f1f22fe554c6677c97984ecb98c72f50731fd1edea19595832c1fd1fc",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:pothole-n",
+    "kind": "word",
+    "body": {
+      "headword": "pothole",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɑtˌhoʊl/",
+      "meaningsVi": [
+        "ổ gà (trên đường)"
+      ],
+      "examples": [
+        "sentence:pothole-n-1",
+        "sentence:pothole-n-2"
+      ],
+      "synonyms": [],
+      "audio": "7559cd8a2ce358e5e5917bd3227fd485c5945a9e0061301405b3eea11ca7f55e",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:ride-hailing-app-n",
+    "kind": "word",
+    "body": {
+      "headword": "ride-hailing app",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/raɪd ˈheɪlɪŋ æp/",
+      "meaningsVi": [
+        "ứng dụng gọi xe"
+      ],
+      "examples": [
+        "sentence:ride-hailing-app-n-1",
+        "sentence:ride-hailing-app-n-2"
+      ],
+      "synonyms": [],
+      "audio": "aeb8eabc81bdeec464345e81f1f18a42906e97cd2dda8478d16c8871b3a8d0c7",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:round-trip-n",
+    "kind": "word",
+    "body": {
+      "headword": "round trip",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/raʊnd trɪp/",
+      "meaningsVi": [
+        "chuyến đi khứ hồi"
+      ],
+      "examples": [
+        "sentence:round-trip-n-1",
+        "sentence:round-trip-n-2"
+      ],
+      "synonyms": [],
+      "audio": "617d385678d91fbdcc56399af58c51b9c6afc6e6fbd9051987874894c9a2743e",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:seat-belt-n",
+    "kind": "word",
+    "body": {
+      "headword": "seat belt",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/sit bɛlt/",
+      "meaningsVi": [
+        "dây an toàn"
+      ],
+      "examples": [
+        "sentence:seat-belt-n-1",
+        "sentence:seat-belt-n-2"
+      ],
+      "synonyms": [],
+      "audio": "e34d639b9edf93cfb931a03bbf4dd64fe800b706fe3e35b0a27d9782abdb258d",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:sleeper-bus-n",
+    "kind": "word",
+    "body": {
+      "headword": "sleeper bus",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈslipɚ bʌs/",
+      "meaningsVi": [
+        "xe giường nằm"
+      ],
+      "examples": [
+        "sentence:sleeper-bus-n-1",
+        "sentence:sleeper-bus-n-2"
+      ],
+      "synonyms": [],
+      "audio": "f85defae7d20ba208841227cf545a5996c35aef617234a0d169ba3faf265ac83",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:speed-limit-n",
+    "kind": "word",
+    "body": {
+      "headword": "speed limit",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/spid ˈlɪmət/",
+      "meaningsVi": [
+        "giới hạn tốc độ",
+        "tốc độ tối đa cho phép"
+      ],
+      "examples": [
+        "sentence:speed-limit-n-1",
+        "sentence:speed-limit-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b4c3b6faec1b1c2b13eb1428f8da352b90401fc01c76f18fde76556302e5701b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:traffic-police-n",
+    "kind": "word",
+    "body": {
+      "headword": "traffic police",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtræfɪk pəˈlis/",
+      "meaningsVi": [
+        "cảnh sát giao thông"
+      ],
+      "examples": [
+        "sentence:traffic-police-n-1",
+        "sentence:traffic-police-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0d8b4551cb4c1decaa51cd543d9a40f6ea2062c60cb91568e1ddc1cd99777e3c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:traffic-sign-n",
+    "kind": "word",
+    "body": {
+      "headword": "traffic sign",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtræfɪk saɪn/",
+      "meaningsVi": [
+        "biển báo giao thông"
+      ],
+      "examples": [
+        "sentence:traffic-sign-n-1",
+        "sentence:traffic-sign-n-2"
+      ],
+      "synonyms": [],
+      "audio": "79159242d179a4dc18cf4d3fec8cbb3ed0854e0f6062974c4ab8345c13d64b21",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:u-turn-n",
+    "kind": "word",
+    "body": {
+      "headword": "U-turn",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈjuˌtɝn/",
+      "meaningsVi": [
+        "quay đầu xe",
+        "vòng quay đầu"
+      ],
+      "examples": [
+        "sentence:u-turn-n-1",
+        "sentence:u-turn-n-2"
+      ],
+      "synonyms": [],
+      "audio": "173a72dfa4cacfe126fc7a9fafa3c7580d4c2f25f1c700c77d2c542c471b4a8b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "travel-transport",
+    "sort": 0,
+    "id": "word:zebra-crossing-n",
+    "kind": "word",
+    "body": {
+      "headword": "zebra crossing",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈzibrə ˈkrɔsɪŋ/",
+      "meaningsVi": [
+        "vạch kẻ đường cho người đi bộ"
+      ],
+      "examples": [
+        "sentence:zebra-crossing-n-1",
+        "sentence:zebra-crossing-n-2"
+      ],
+      "synonyms": [],
+      "audio": "5d8bf6197aeb97360a072b4a9da3f1b677ead895be1f56bc9c0fdad64e4bdf22",
+      "source": "specialized"
+    },
+    "status": "approved"
+  }
+]

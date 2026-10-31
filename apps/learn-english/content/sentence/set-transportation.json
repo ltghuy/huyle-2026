@@ -1,0 +1,2786 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:baggage-claim-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "After landing, we waited for our bags at baggage claim.",
+      "vi": "Sau khi hạ cánh, chúng tôi đợi hành lý ở khu nhận hành lý.",
+      "audio": "4b988d7b3bef2e70d04d870861775cd6987eb7fac56e875943f1334ceee29cc4",
+      "tokens": [
+        "After",
+        "landing",
+        "we",
+        "waited",
+        "for",
+        "our",
+        "bags",
+        "at",
+        "baggage",
+        "claim"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "After landing, we waited our bags at baggage claim.",
+          "explanationVi": "Cụm đúng là “wait for”."
+        },
+        {
+          "en": "After land, we waited for our bags at baggage claim.",
+          "explanationVi": "Sau “after” dùng V-ing “landing”."
+        },
+        {
+          "en": "After landing, we waitted for our bags at baggage claim.",
+          "explanationVi": "Quá khứ của “wait” là “waited”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:baggage-claim-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:baggage-claim-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The baggage claim is on the ground floor.",
+      "vi": "Khu nhận hành lý ở tầng trệt.",
+      "audio": "7e05a88fb8508e302f754ac66c0d6a1ef4b715fabb2fddc307176c6d04c8eae3",
+      "tokens": [
+        "The",
+        "baggage",
+        "claim",
+        "is",
+        "on",
+        "the",
+        "ground",
+        "floor"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The baggage claim are on the ground floor.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The baggage claim is in the ground floor.",
+          "explanationVi": "Với tầng nhà dùng giới từ “on”."
+        },
+        {
+          "en": "The baggage claim is on ground floor.",
+          "explanationVi": "Cần mạo từ “the” trước “ground floor”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        7
+      ],
+      "wordIds": [
+        "word:baggage-claim-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bike-lane-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The city has built new bike lanes along the river.",
+      "vi": "Thành phố đã làm những làn đường mới cho xe đạp dọc bờ sông.",
+      "audio": "96c62557d50c4f68d8f88ab8ee9f40bb0c99ca34e5ce87b30beb0144470b0eae",
+      "tokens": [
+        "The",
+        "city",
+        "has",
+        "built",
+        "new",
+        "bike",
+        "lanes",
+        "along",
+        "the",
+        "river"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The city has build new bike lanes along the river.",
+          "explanationVi": "Thì hiện tại hoàn thành dùng quá khứ phân từ “built”."
+        },
+        {
+          "en": "The city have built new bike lanes along the river.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “has”."
+        },
+        {
+          "en": "The city has built new bike lane along the river.",
+          "explanationVi": "Không có mạo từ nên dùng số nhiều “lanes”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        9
+      ],
+      "wordIds": [
+        "word:bike-lane-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bike-lane-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Cars are not allowed to park in the bike lane.",
+      "vi": "Ô tô không được đỗ trên làn đường dành cho xe đạp.",
+      "audio": "b3f7be777ae11b3ec5e76b541144f770dadbce62940031ce7f54947399563e25",
+      "tokens": [
+        "Cars",
+        "are",
+        "not",
+        "allowed",
+        "to",
+        "park",
+        "in",
+        "the",
+        "bike",
+        "lane"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Cars are not allow to park in the bike lane.",
+          "explanationVi": "Câu bị động dùng “allowed”."
+        },
+        {
+          "en": "Cars are not allowed park in the bike lane.",
+          "explanationVi": "Sau “allowed” cần “to” + động từ."
+        },
+        {
+          "en": "Cars is not allowed to park in the bike lane.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “are”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:bike-lane-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:boarding-pass-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please show your boarding pass at the gate.",
+      "vi": "Vui lòng xuất trình thẻ lên máy bay ở cửa ra máy bay.",
+      "audio": "d74f906735777b2be74cfc5fd7301d33d501a8351b726dda8aa9f16203ed06ee",
+      "tokens": [
+        "Please",
+        "show",
+        "your",
+        "boarding",
+        "pass",
+        "at",
+        "the",
+        "gate"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please showing your boarding pass at the gate.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “show”."
+        },
+        {
+          "en": "Please show you boarding pass at the gate.",
+          "explanationVi": "Cần tính từ sở hữu “your”."
+        },
+        {
+          "en": "Please show your boarding pass at gate.",
+          "explanationVi": "Cần mạo từ “the” trước “gate”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:boarding-pass-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:boarding-pass-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I printed my boarding pass at home last night.",
+      "vi": "Tối qua tôi đã in thẻ lên máy bay ở nhà.",
+      "audio": "d72033f0674457f157a114efc565da3ff1a566a708242ba59014383fa6610e3c",
+      "tokens": [
+        "I",
+        "printed",
+        "my",
+        "boarding",
+        "pass",
+        "at",
+        "home",
+        "last",
+        "night"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I print my boarding pass at home last night.",
+          "explanationVi": "“Last night” là quá khứ nên dùng “printed”."
+        },
+        {
+          "en": "I printed my boarding pass at the home last night.",
+          "explanationVi": "“At home” không dùng mạo từ."
+        },
+        {
+          "en": "I printed my boarding pass at home the last night.",
+          "explanationVi": "Nói “last night”, không có “the”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:boarding-pass-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:commuter-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The morning train is full of commuters.",
+      "vi": "Chuyến tàu buổi sáng chật kín người đi làm.",
+      "audio": "6ae8052e814b13b7359a5d9e8ebd6c10324b0ad511d99372dff6594310f224c8",
+      "tokens": [
+        "The",
+        "morning",
+        "train",
+        "is",
+        "full",
+        "of",
+        "commuters"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The morning train is full with commuters.",
+          "explanationVi": "Cụm đúng là “full of”."
+        },
+        {
+          "en": "The morning train are full of commuters.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The morning train is full of commuter.",
+          "explanationVi": "Sau “full of” danh từ đếm được ở số nhiều: “commuters”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:commuter-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:commuter-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Most commuters in the city travel by motorbike.",
+      "vi": "Phần lớn người đi làm trong thành phố đi bằng xe máy.",
+      "audio": "69e2a9357b27b74a3f2c8ae4b2089613c35d00271c0ed1de003d14fdb33da5cf",
+      "tokens": [
+        "Most",
+        "commuters",
+        "in",
+        "the",
+        "city",
+        "travel",
+        "by",
+        "motorbike"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Most commuters in the city travels by motorbike.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “travel”."
+        },
+        {
+          "en": "Most commuters in the city travel by a motorbike.",
+          "explanationVi": "Sau “by” chỉ phương tiện không dùng mạo từ."
+        },
+        {
+          "en": "Most of commuters in the city travel by motorbike.",
+          "explanationVi": "Dùng “most commuters” hoặc “most of the commuters”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        7
+      ],
+      "wordIds": [
+        "word:commuter-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:connecting-flight-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our connecting flight to Da Nang leaves in two hours.",
+      "vi": "Chuyến bay nối chuyến của chúng tôi đi Đà Nẵng sẽ khởi hành sau hai tiếng.",
+      "audio": "b7d852e6244fa7f075bcb1d17b3bc9e71dfe19ae12d4feb80178b4f926be5b72",
+      "tokens": [
+        "Our",
+        "connecting",
+        "flight",
+        "to",
+        "Da",
+        "Nang",
+        "leaves",
+        "in",
+        "two",
+        "hours"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our connecting flight to Da Nang leave in two hours.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “leaves”."
+        },
+        {
+          "en": "Our connecting flight to Da Nang leaves in two hour.",
+          "explanationVi": "Sau “two” dùng số nhiều “hours”."
+        },
+        {
+          "en": "We connecting flight to Da Nang leaves in two hours.",
+          "explanationVi": "Cần tính từ sở hữu “our”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        9
+      ],
+      "wordIds": [
+        "word:connecting-flight-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:connecting-flight-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The first flight was late, so I missed my connecting flight.",
+      "vi": "Chuyến bay đầu bị trễ nên tôi lỡ chuyến bay nối chuyến.",
+      "audio": "73d87b171fa36d645426de9a766ee4fdb776c39fd1e78ac032f432c11588e92a",
+      "tokens": [
+        "The",
+        "first",
+        "flight",
+        "was",
+        "late",
+        "so",
+        "I",
+        "missed",
+        "my",
+        "connecting",
+        "flight"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The first flight was late, so I miss my connecting flight.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “missed”."
+        },
+        {
+          "en": "The first flight were late, so I missed my connecting flight.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “was”."
+        },
+        {
+          "en": "The first flight was late, because I missed my connecting flight.",
+          "explanationVi": "Dùng “so” để chỉ kết quả."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:connecting-flight-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:driving-test-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My brother passed his driving test on the first try.",
+      "vi": "Anh trai tôi thi đỗ bằng lái ngay lần đầu.",
+      "audio": "9a5cfce03090e76672227df91113a00b9a70454eb57d44f0c158de98bb837c0a",
+      "tokens": [
+        "My",
+        "brother",
+        "passed",
+        "his",
+        "driving",
+        "test",
+        "on",
+        "the",
+        "first",
+        "try"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My brother passed her driving test on the first try.",
+          "explanationVi": "“Brother” là nam nên dùng “his”."
+        },
+        {
+          "en": "My brother pass his driving test on the first try.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “passed”."
+        },
+        {
+          "en": "My brothers passed his driving test on the first try.",
+          "explanationVi": "Một người nên dùng “brother” số ít, khớp với “his”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:driving-test-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:driving-test-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "You need a lot of practice before the driving test.",
+      "vi": "Bạn cần luyện tập nhiều trước kỳ thi lái xe.",
+      "audio": "a5daa833ff05b0bc12623b44beb128eccd449bea5971a81e5664736e821cb582",
+      "tokens": [
+        "You",
+        "need",
+        "a",
+        "lot",
+        "of",
+        "practice",
+        "before",
+        "the",
+        "driving",
+        "test"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You need a lot of practices before the driving test.",
+          "explanationVi": "“Practice” ở đây không đếm được, không thêm “s”."
+        },
+        {
+          "en": "You needs a lot of practice before the driving test.",
+          "explanationVi": "Chủ ngữ “you” dùng “need”."
+        },
+        {
+          "en": "You need a lot practice before the driving test.",
+          "explanationVi": "Cụm đúng là “a lot of”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        6
+      ],
+      "wordIds": [
+        "word:driving-test-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:flat-tire-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We were late because our car had a flat tire.",
+      "vi": "Chúng tôi đến muộn vì xe bị xẹp lốp.",
+      "audio": "e5639c8cf6fdc371d737db895bf8e835775712eead222d73155ef5f9d60f225a",
+      "tokens": [
+        "We",
+        "were",
+        "late",
+        "because",
+        "our",
+        "car",
+        "had",
+        "a",
+        "flat",
+        "tire"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We was late because our car had a flat tire.",
+          "explanationVi": "Chủ ngữ “we” dùng “were”."
+        },
+        {
+          "en": "We were late because our car has a flat tire.",
+          "explanationVi": "Cả câu ở quá khứ nên dùng “had”."
+        },
+        {
+          "en": "We were late because of our car had a flat tire.",
+          "explanationVi": "Trước một mệnh đề dùng “because”, không dùng “because of”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:flat-tire-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:flat-tire-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you know how to change a flat tire?",
+      "vi": "Bạn có biết cách thay lốp xe bị xẹp không?",
+      "audio": "f724098139dbe939976f990e74838c68d73b2b116e72d0aef2e18fce40b1cdd6",
+      "tokens": [
+        "Do",
+        "you",
+        "know",
+        "how",
+        "to",
+        "change",
+        "a",
+        "flat",
+        "tire"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Do you know how change a flat tire?",
+          "explanationVi": "Cấu trúc đúng là “how to” + động từ."
+        },
+        {
+          "en": "Does you know how to change a flat tire?",
+          "explanationVi": "Chủ ngữ “you” đi với “do”."
+        },
+        {
+          "en": "Do you know how to changing a flat tire?",
+          "explanationVi": "Sau “to” dùng động từ nguyên mẫu “change”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        2
+      ],
+      "wordIds": [
+        "word:flat-tire-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:gas-station-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Let's stop at the next gas station and fill up.",
+      "vi": "Mình ghé trạm xăng tiếp theo để đổ đầy bình nhé.",
+      "audio": "b78bcf2126dda4943184b7ad769c603427e2551d60cdd7c7cc3ce5f37edb01ae",
+      "tokens": [
+        "Let's",
+        "stop",
+        "at",
+        "the",
+        "next",
+        "gas",
+        "station",
+        "and",
+        "fill",
+        "up"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Let's stopping at the next gas station and fill up.",
+          "explanationVi": "Sau “let's” dùng động từ nguyên mẫu “stop”."
+        },
+        {
+          "en": "Let's stop at next the gas station and fill up.",
+          "explanationVi": "Mạo từ “the” đứng trước “next”."
+        },
+        {
+          "en": "Let's stop at the next gas station and fills up.",
+          "explanationVi": "Sau “let's” các động từ đều ở nguyên mẫu: “fill”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:gas-station-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:gas-station-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "There is no gas station on this road for fifty kilometers.",
+      "vi": "Trên con đường này không có trạm xăng nào trong năm mươi ki-lô-mét.",
+      "audio": "356e8be3cc5c5503e555324e58fda4ffd911a532831158f519dfa954db7125c1",
+      "tokens": [
+        "There",
+        "is",
+        "no",
+        "gas",
+        "station",
+        "on",
+        "this",
+        "road",
+        "for",
+        "fifty",
+        "kilometers"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There are no gas station on this road for fifty kilometers.",
+          "explanationVi": "“No gas station” số ít nên dùng “There is”."
+        },
+        {
+          "en": "There is no gas station on this road for fifty kilometer.",
+          "explanationVi": "Sau “fifty” danh từ ở số nhiều: “kilometers”."
+        },
+        {
+          "en": "There is not gas station on this road for fifty kilometers.",
+          "explanationVi": "Trước danh từ dùng “no”, không dùng “not”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        9
+      ],
+      "wordIds": [
+        "word:gas-station-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:jet-lag-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "After the long flight, I had terrible jet lag for days.",
+      "vi": "Sau chuyến bay dài, tôi bị mệt do lệch múi giờ suốt mấy ngày.",
+      "audio": "4edff38f0daaada4f80efffc913ad780018a4da502458346ca5d88f22dc94322",
+      "tokens": [
+        "After",
+        "the",
+        "long",
+        "flight",
+        "I",
+        "had",
+        "terrible",
+        "jet",
+        "lag",
+        "for",
+        "days"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "After the long flight, I had terrible jet lags for days.",
+          "explanationVi": "“Jet lag” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "After the long flight, I have terrible jet lag for days.",
+          "explanationVi": "Chuyện đã qua nên dùng “had”."
+        },
+        {
+          "en": "After the long flight, I had terribly jet lag for days.",
+          "explanationVi": "Trước danh từ dùng tính từ “terrible”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        10
+      ],
+      "wordIds": [
+        "word:jet-lag-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:jet-lag-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Drinking water helps you deal with jet lag.",
+      "vi": "Uống nước giúp bạn đối phó với tình trạng lệch múi giờ.",
+      "audio": "a528434793c325f0afaeddf19d409a321d5a2d6506b153ebfcbbff5ae3d9efb9",
+      "tokens": [
+        "Drinking",
+        "water",
+        "helps",
+        "you",
+        "deal",
+        "with",
+        "jet",
+        "lag"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Drinking water help you deal with jet lag.",
+          "explanationVi": "Chủ ngữ V-ing được coi là số ít nên dùng “helps”."
+        },
+        {
+          "en": "Drink water helps you deal with jet lag.",
+          "explanationVi": "Chủ ngữ là một hành động nên dùng “Drinking”."
+        },
+        {
+          "en": "Drinking water helps you deal jet lag.",
+          "explanationVi": "Cụm đúng là “deal with”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:jet-lag-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:license-plate-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The police wrote down the license plate of the car.",
+      "vi": "Cảnh sát ghi lại biển số của chiếc xe.",
+      "audio": "9fa68c953b6e902956b04c42103184d7a7a957c58f11aa870e4eb54b907aa3ce",
+      "tokens": [
+        "The",
+        "police",
+        "wrote",
+        "down",
+        "the",
+        "license",
+        "plate",
+        "of",
+        "the",
+        "car"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The police writed down the license plate of the car.",
+          "explanationVi": "Quá khứ của “write” là “wrote”."
+        },
+        {
+          "en": "The police wrote down license plate of the car.",
+          "explanationVi": "Cần mạo từ “the” trước “license plate”."
+        },
+        {
+          "en": "The police wrote up the license plate of the car.",
+          "explanationVi": "Cụm động từ đúng là “write down” (ghi lại)."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:license-plate-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:license-plate-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Every motorbike in Vietnam must have a license plate.",
+      "vi": "Mọi xe máy ở Việt Nam đều phải có biển số.",
+      "audio": "ad92dc45236b346657a06a4725ee8f152e3529a11b3625031b0344053d72df38",
+      "tokens": [
+        "Every",
+        "motorbike",
+        "in",
+        "Vietnam",
+        "must",
+        "have",
+        "a",
+        "license",
+        "plate"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Every motorbike in Vietnam must has a license plate.",
+          "explanationVi": "Sau “must” dùng động từ nguyên mẫu “have”."
+        },
+        {
+          "en": "Every motorbikes in Vietnam must have a license plate.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "Every motorbike in Vietnam must have an license plate.",
+          "explanationVi": "“License” bắt đầu bằng phụ âm nên dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        0
+      ],
+      "wordIds": [
+        "word:license-plate-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:motorbike-taxi-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "I took a motorbike taxi to the station this morning.",
+      "vi": "Sáng nay tôi đi xe ôm ra nhà ga.",
+      "audio": "8edb20aaa4813e99a00f381adddc627d9f40e70b67fa890eafbfca179d205443",
+      "tokens": [
+        "I",
+        "took",
+        "a",
+        "motorbike",
+        "taxi",
+        "to",
+        "the",
+        "station",
+        "this",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I taked a motorbike taxi to the station this morning.",
+          "explanationVi": "Quá khứ của “take” là “took”."
+        },
+        {
+          "en": "I took motorbike taxi to the station this morning.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        },
+        {
+          "en": "I took a motorbike taxi to station this morning.",
+          "explanationVi": "Cần mạo từ “the” trước “station”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:motorbike-taxi-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:motorbike-taxi-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Motorbike taxis are cheap and fast in Hanoi.",
+      "vi": "Ở Hà Nội, xe ôm rẻ và nhanh.",
+      "audio": "12dd6dad5ddc9081732f80b8adba6d27aa5bcb872191b8efd80a357973180a17",
+      "tokens": [
+        "Motorbike",
+        "taxis",
+        "are",
+        "cheap",
+        "and",
+        "fast",
+        "in",
+        "Hanoi"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Motorbike taxis is cheap and fast in Hanoi.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Motorbike taxis are cheaply and fast in Hanoi.",
+          "explanationVi": "Sau “are” dùng tính từ “cheap”."
+        },
+        {
+          "en": "Motorbike taxi are cheap and fast in Hanoi.",
+          "explanationVi": "Động từ “are” đi với danh từ số nhiều “taxis”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:motorbike-taxi-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:one-way-street-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You can't turn left here because it's a one-way street.",
+      "vi": "Bạn không được rẽ trái ở đây vì đây là đường một chiều.",
+      "audio": "277d008e990d9b3fc1fd94f7f9cae82501366382e9705016705b2756d4fc0c06",
+      "tokens": [
+        "You",
+        "can't",
+        "turn",
+        "left",
+        "here",
+        "because",
+        "it's",
+        "a",
+        "one-way",
+        "street"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You can't turning left here because it's a one-way street.",
+          "explanationVi": "Sau “can't” dùng động từ nguyên mẫu “turn”."
+        },
+        {
+          "en": "You can't turn left here because it's an one-way street.",
+          "explanationVi": "“One” bắt đầu bằng âm /w/ nên dùng “a”."
+        },
+        {
+          "en": "You can't turn left here because is a one-way street.",
+          "explanationVi": "Mệnh đề cần chủ ngữ: “it's”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:one-way-street-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:one-way-street-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The hotel is on a narrow one-way street near the market.",
+      "vi": "Khách sạn nằm trên một con đường một chiều hẹp gần chợ.",
+      "audio": "3c1d700f7cb3bc8052e028f38c130e01c9d123d30f714549a559c2b14d09a38d",
+      "tokens": [
+        "The",
+        "hotel",
+        "is",
+        "on",
+        "a",
+        "narrow",
+        "one-way",
+        "street",
+        "near",
+        "the",
+        "market"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hotel are on a narrow one-way street near the market.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The hotel is on a one-way narrow street near the market.",
+          "explanationVi": "Tính từ “narrow” đứng trước cả cụm “one-way street”."
+        },
+        {
+          "en": "The hotel is on narrow one-way street near the market.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        10
+      ],
+      "wordIds": [
+        "word:one-way-street-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:one-way-ticket-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A one-way ticket to Hue costs about forty dollars.",
+      "vi": "Vé một chiều đi Huế giá khoảng bốn mươi đô la.",
+      "audio": "03b915cc005536cf26cf09e62d2918c0249bc478f6ba60347695d930efd18736",
+      "tokens": [
+        "A",
+        "one-way",
+        "ticket",
+        "to",
+        "Hue",
+        "costs",
+        "about",
+        "forty",
+        "dollars"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "An one-way ticket to Hue costs about forty dollars.",
+          "explanationVi": "“One” bắt đầu bằng âm /w/ nên dùng “a”."
+        },
+        {
+          "en": "A one-way ticket to Hue costs about forty dollar.",
+          "explanationVi": "Sau “forty” dùng số nhiều “dollars”."
+        },
+        {
+          "en": "A one-way ticket to Hue is cost about forty dollars.",
+          "explanationVi": "“Cost” là động từ chính, không cần “is”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:one-way-ticket-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:one-way-ticket-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He only bought a one-way ticket because his plans might change.",
+      "vi": "Anh ấy chỉ mua vé một chiều vì kế hoạch có thể thay đổi.",
+      "audio": "534b57e349fe8372ccce3952fbae6e620c615b0c5e213efc54aa0a5edf2a4a68",
+      "tokens": [
+        "He",
+        "only",
+        "bought",
+        "a",
+        "one-way",
+        "ticket",
+        "because",
+        "his",
+        "plans",
+        "might",
+        "change"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He only buyed a one-way ticket because his plans might change.",
+          "explanationVi": "Quá khứ của “buy” là “bought”."
+        },
+        {
+          "en": "He only bought a one-way ticket because his plans might changes.",
+          "explanationVi": "Sau “might” dùng động từ nguyên mẫu “change”."
+        },
+        {
+          "en": "He only bought a one-way ticket because his plans might to change.",
+          "explanationVi": "Sau “might” không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:one-way-ticket-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:parking-lot-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The parking lot behind the mall is full today.",
+      "vi": "Hôm nay bãi đỗ xe phía sau trung tâm thương mại đã kín chỗ.",
+      "audio": "c4416c4798c0533dc8116c50bd831d1f92764c8e12c2e51b6a537bb63dc38f40",
+      "tokens": [
+        "The",
+        "parking",
+        "lot",
+        "behind",
+        "the",
+        "mall",
+        "is",
+        "full",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The parking lot behind the mall are full today.",
+          "explanationVi": "Chủ ngữ “the parking lot” số ít nên dùng “is”."
+        },
+        {
+          "en": "The parking lot behind of the mall is full today.",
+          "explanationVi": "Không dùng “of” sau “behind”."
+        },
+        {
+          "en": "The parking lot behind the mall is fully today.",
+          "explanationVi": "Sau “is” dùng tính từ “full”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        7
+      ],
+      "wordIds": [
+        "word:parking-lot-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:parking-lot-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We left our car in the parking lot and walked.",
+      "vi": "Chúng tôi để xe ở bãi đỗ rồi đi bộ.",
+      "audio": "54d51312498fb6323bde889c3f35b0bdfbe6d8b4c7ae65c746147b8e75342ac2",
+      "tokens": [
+        "We",
+        "left",
+        "our",
+        "car",
+        "in",
+        "the",
+        "parking",
+        "lot",
+        "and",
+        "walked"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We leaved our car in the parking lot and walked.",
+          "explanationVi": "Quá khứ của “leave” là “left”."
+        },
+        {
+          "en": "We left us car in the parking lot and walked.",
+          "explanationVi": "Cần tính từ sở hữu “our”."
+        },
+        {
+          "en": "We left our car in the parking lot and walk.",
+          "explanationVi": "Hai hành động cùng ở quá khứ nên dùng “walked”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        9
+      ],
+      "wordIds": [
+        "word:parking-lot-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pothole-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The road to the village is full of potholes.",
+      "vi": "Con đường vào làng đầy ổ gà.",
+      "audio": "aeaace2e8a60c06b4381e3aa0d0ec9826cd51c1b2d3bd10339164e38503b375a",
+      "tokens": [
+        "The",
+        "road",
+        "to",
+        "the",
+        "village",
+        "is",
+        "full",
+        "of",
+        "potholes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The road to the village are full of potholes.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The road to the village is full of pothole.",
+          "explanationVi": "Sau “full of” dùng số nhiều “potholes”."
+        },
+        {
+          "en": "The road to the village is full with potholes.",
+          "explanationVi": "Cụm đúng là “full of”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:pothole-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pothole-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Drive slowly, or you'll hit a pothole.",
+      "vi": "Lái chậm thôi, kẻo bạn sẽ sập ổ gà.",
+      "audio": "a03b6f918b62d8db3c85c0ffaf4942e2de8976ff044db9f63c7c71fe24fe3776",
+      "tokens": [
+        "Drive",
+        "slowly",
+        "or",
+        "you'll",
+        "hit",
+        "a",
+        "pothole"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Drive slowly, or you'll hitting a pothole.",
+          "explanationVi": "Sau “will” dùng động từ nguyên mẫu “hit”."
+        },
+        {
+          "en": "Drives slowly, or you'll hit a pothole.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “drive”."
+        },
+        {
+          "en": "Drive slowly, or you'll hit an pothole.",
+          "explanationVi": "Trước phụ âm dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:pothole-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:ride-hailing-app-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She booked a ride home with a ride-hailing app.",
+      "vi": "Cô ấy đặt xe về nhà bằng một ứng dụng gọi xe.",
+      "audio": "22aa59b2d2b509908fc06e10f7bdde15b0fbd852b7d1d303cf486ded72626c41",
+      "tokens": [
+        "She",
+        "booked",
+        "a",
+        "ride",
+        "home",
+        "with",
+        "a",
+        "ride-hailing",
+        "app"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She book a ride home with a ride-hailing app.",
+          "explanationVi": "Việc đã xảy ra nên dùng quá khứ “booked”."
+        },
+        {
+          "en": "She booked a ride to home with a ride-hailing app.",
+          "explanationVi": "Không dùng “to” trước “home”."
+        },
+        {
+          "en": "She booked a ride home with an ride-hailing app.",
+          "explanationVi": "Trước phụ âm /r/ dùng “a”, không dùng “an”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:ride-hailing-app-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:ride-hailing-app-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Many people use ride-hailing apps instead of buses.",
+      "vi": "Nhiều người dùng ứng dụng gọi xe thay vì đi xe buýt.",
+      "audio": "4ea418e50410fa7a3cd693b1afb2289f5b41bd1844ddcabaa63cc57547201d3f",
+      "tokens": [
+        "Many",
+        "people",
+        "use",
+        "ride-hailing",
+        "apps",
+        "instead",
+        "of",
+        "buses"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many people uses ride-hailing apps instead of buses.",
+          "explanationVi": "Chủ ngữ “people” số nhiều nên dùng “use”."
+        },
+        {
+          "en": "Many people use ride-hailing apps instead buses.",
+          "explanationVi": "Cụm đúng là “instead of”."
+        },
+        {
+          "en": "Much people use ride-hailing apps instead of buses.",
+          "explanationVi": "“People” đếm được nên dùng “many”, không dùng “much”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        7
+      ],
+      "wordIds": [
+        "word:ride-hailing-app-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:round-trip-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The round trip from Hanoi to Ha Long takes eight hours.",
+      "vi": "Chuyến đi khứ hồi từ Hà Nội đến Hạ Long mất tám tiếng.",
+      "audio": "6c45e799cd526cf398e3c1b0c5b7b39638f179c2d71d3c7250d0af613b999bc7",
+      "tokens": [
+        "The",
+        "round",
+        "trip",
+        "from",
+        "Hanoi",
+        "to",
+        "Ha",
+        "Long",
+        "takes",
+        "eight",
+        "hours"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The round trip from Hanoi to Ha Long take eight hours.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “takes”."
+        },
+        {
+          "en": "The round trip from Hanoi to Ha Long takes eight hour.",
+          "explanationVi": "Sau “eight” dùng số nhiều “hours”."
+        },
+        {
+          "en": "The round trip from Hanoi to Ha Long spends eight hours.",
+          "explanationVi": "Nói về thời gian cần mất dùng “takes”."
+        }
+      ],
+      "gapCandidates": [
+        8,
+        9
+      ],
+      "wordIds": [
+        "word:round-trip-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:round-trip-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Booking a round trip is often cheaper than two one-way tickets.",
+      "vi": "Đặt vé khứ hồi thường rẻ hơn mua hai vé một chiều.",
+      "audio": "ccc25ccd578a673135ac63bf687cae2b1b21ddadef39bfcb528275326148b673",
+      "tokens": [
+        "Booking",
+        "a",
+        "round",
+        "trip",
+        "is",
+        "often",
+        "cheaper",
+        "than",
+        "two",
+        "one-way",
+        "tickets"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Booking a round trip is often more cheaper than two one-way tickets.",
+          "explanationVi": "“Cheaper” đã là so sánh hơn, không thêm “more”."
+        },
+        {
+          "en": "Booking a round trip are often cheaper than two one-way tickets.",
+          "explanationVi": "Chủ ngữ V-ing được coi là số ít nên dùng “is”."
+        },
+        {
+          "en": "Booking a round trip is often cheaper that two one-way tickets.",
+          "explanationVi": "So sánh hơn dùng “than”."
+        }
+      ],
+      "gapCandidates": [
+        6,
+        5
+      ],
+      "wordIds": [
+        "word:round-trip-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:seat-belt-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please fasten your seat belt before the car starts.",
+      "vi": "Vui lòng thắt dây an toàn trước khi xe chạy.",
+      "audio": "25c8826694c264c2ee4cf033055160383a7e1b7a81dd831201f65cad89872ba6",
+      "tokens": [
+        "Please",
+        "fasten",
+        "your",
+        "seat",
+        "belt",
+        "before",
+        "the",
+        "car",
+        "starts"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please fasten you seat belt before the car starts.",
+          "explanationVi": "Cần tính từ sở hữu “your”, không phải “you”."
+        },
+        {
+          "en": "Please fasten your seat belt before the car start.",
+          "explanationVi": "Chủ ngữ “the car” số ít nên dùng “starts”."
+        },
+        {
+          "en": "Please fastening your seat belt before the car starts.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “fasten”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:seat-belt-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:seat-belt-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Wearing a seat belt can save your life in an accident.",
+      "vi": "Thắt dây an toàn có thể cứu mạng bạn khi gặp tai nạn.",
+      "audio": "21b3e02b14ae24ec97eb01f5204b930bd7db0c55667e48362f8d88213bad7f1e",
+      "tokens": [
+        "Wearing",
+        "a",
+        "seat",
+        "belt",
+        "can",
+        "save",
+        "your",
+        "life",
+        "in",
+        "an",
+        "accident"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Wear a seat belt can save your life in an accident.",
+          "explanationVi": "Chủ ngữ là một hành động nên dùng V-ing “Wearing”."
+        },
+        {
+          "en": "Wearing a seat belt can saves your life in an accident.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu “save”."
+        },
+        {
+          "en": "Wearing a seat belt can save your life in a accident.",
+          "explanationVi": "Trước âm nguyên âm dùng “an”: “an accident”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        10
+      ],
+      "wordIds": [
+        "word:seat-belt-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sleeper-bus-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We took a sleeper bus from Hanoi to Sapa.",
+      "vi": "Chúng tôi đi xe giường nằm từ Hà Nội lên Sa Pa.",
+      "audio": "901af7670beeb564dac9f90dc5c323d549d377dec34a01b56cd09e84a0b293f4",
+      "tokens": [
+        "We",
+        "took",
+        "a",
+        "sleeper",
+        "bus",
+        "from",
+        "Hanoi",
+        "to",
+        "Sapa"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We taked a sleeper bus from Hanoi to Sapa.",
+          "explanationVi": "Quá khứ của “take” là “took”."
+        },
+        {
+          "en": "We took sleeper bus from Hanoi to Sapa.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        },
+        {
+          "en": "We took a sleeper bus since Hanoi to Sapa.",
+          "explanationVi": "Chỉ điểm đi và điểm đến dùng “from … to”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:sleeper-bus-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sleeper-bus-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "On a sleeper bus, every passenger has a small bed.",
+      "vi": "Trên xe giường nằm, mỗi hành khách có một chiếc giường nhỏ.",
+      "audio": "42db386f7c91556d1386bd5f09c4ad00c29d24b647a4699999141ba0af182295",
+      "tokens": [
+        "On",
+        "a",
+        "sleeper",
+        "bus",
+        "every",
+        "passenger",
+        "has",
+        "a",
+        "small",
+        "bed"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "On a sleeper bus, every passenger have a small bed.",
+          "explanationVi": "Sau “every passenger” (số ít) dùng “has”."
+        },
+        {
+          "en": "On a sleeper bus, every passengers has a small bed.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "On a sleeper bus, every passenger has a bed small.",
+          "explanationVi": "Tính từ đứng trước danh từ: “a small bed”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        9
+      ],
+      "wordIds": [
+        "word:sleeper-bus-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:speed-limit-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The speed limit in the city is fifty kilometers an hour.",
+      "vi": "Tốc độ tối đa trong thành phố là năm mươi ki-lô-mét một giờ.",
+      "audio": "97ff9567f27d1497ff543cd78c4477d4a0c0d05878ea8e7521acf7826b0b5a4b",
+      "tokens": [
+        "The",
+        "speed",
+        "limit",
+        "in",
+        "the",
+        "city",
+        "is",
+        "fifty",
+        "kilometers",
+        "an",
+        "hour"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The speed limit in the city are fifty kilometers an hour.",
+          "explanationVi": "Chủ ngữ “the speed limit” số ít nên dùng “is”."
+        },
+        {
+          "en": "The speed limit in the city is fifty kilometer an hour.",
+          "explanationVi": "Sau “fifty” danh từ ở số nhiều: “kilometers”."
+        },
+        {
+          "en": "The speed limit in the city is fifty kilometers a hour.",
+          "explanationVi": "“Hour” bắt đầu bằng âm nguyên âm nên dùng “an”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        7
+      ],
+      "wordIds": [
+        "word:speed-limit-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:speed-limit-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He got a fine for driving over the speed limit.",
+      "vi": "Anh ấy bị phạt vì lái xe quá tốc độ cho phép.",
+      "audio": "fb8297a11f5f1d62e541963635ec8ecc31b622b7f83ab3a67d979198fc5b9e14",
+      "tokens": [
+        "He",
+        "got",
+        "a",
+        "fine",
+        "for",
+        "driving",
+        "over",
+        "the",
+        "speed",
+        "limit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He got a fine for drive over the speed limit.",
+          "explanationVi": "Sau giới từ “for” dùng V-ing “driving”."
+        },
+        {
+          "en": "He get a fine for driving over the speed limit.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “got”."
+        },
+        {
+          "en": "He got a fine for driving above of the speed limit.",
+          "explanationVi": "Không dùng “of” sau “above”; nói “over the speed limit”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:speed-limit-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:traffic-police-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The traffic police stopped him for not wearing a helmet.",
+      "vi": "Cảnh sát giao thông dừng anh ấy vì không đội mũ bảo hiểm.",
+      "audio": "736c5f68e3f9b68f262f100a412cd8d04dd935b95adf8f291c0e4c062b522e6d",
+      "tokens": [
+        "The",
+        "traffic",
+        "police",
+        "stopped",
+        "him",
+        "for",
+        "not",
+        "wearing",
+        "a",
+        "helmet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The traffic police stopped him for not wear a helmet.",
+          "explanationVi": "Sau giới từ “for” dùng V-ing: “not wearing”."
+        },
+        {
+          "en": "The traffic police stopped he for not wearing a helmet.",
+          "explanationVi": "Sau động từ dùng tân ngữ “him”."
+        },
+        {
+          "en": "The traffic police stopped him for wearing not a helmet.",
+          "explanationVi": "“Not” đứng trước V-ing: “not wearing”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        9
+      ],
+      "wordIds": [
+        "word:traffic-police-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:traffic-police-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The traffic police are checking drivers on this road.",
+      "vi": "Cảnh sát giao thông đang kiểm tra tài xế trên đoạn đường này.",
+      "audio": "527d8d5c975a20dba1e385c6e6c123ca9f33d10bc975d5d675eb5e1a955c3e2d",
+      "tokens": [
+        "The",
+        "traffic",
+        "police",
+        "are",
+        "checking",
+        "drivers",
+        "on",
+        "this",
+        "road"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The traffic police is checking drivers on this road.",
+          "explanationVi": "“Police” luôn đi với động từ số nhiều: “are”."
+        },
+        {
+          "en": "The traffic police are check drivers on this road.",
+          "explanationVi": "Thì tiếp diễn dùng “are” + V-ing: “checking”."
+        },
+        {
+          "en": "The traffic polices are checking drivers on this road.",
+          "explanationVi": "“Police” không thêm “s”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:traffic-police-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:traffic-sign-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Drivers must follow every traffic sign on the road.",
+      "vi": "Người lái xe phải tuân theo mọi biển báo giao thông trên đường.",
+      "audio": "d2cdb5c0402a2d9c84029b2ac3677149912ed11d2cf4929136be27d7ce030db1",
+      "tokens": [
+        "Drivers",
+        "must",
+        "follow",
+        "every",
+        "traffic",
+        "sign",
+        "on",
+        "the",
+        "road"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Drivers must follows every traffic sign on the road.",
+          "explanationVi": "Sau “must” dùng động từ nguyên mẫu “follow”."
+        },
+        {
+          "en": "Drivers must follow every traffic signs on the road.",
+          "explanationVi": "Sau “every” danh từ ở số ít: “sign”."
+        },
+        {
+          "en": "Drivers must to follow every traffic sign on the road.",
+          "explanationVi": "Sau “must” không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:traffic-sign-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:traffic-sign-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "I didn't see the traffic sign because of the trees.",
+      "vi": "Tôi không thấy biển báo giao thông vì bị cây che.",
+      "audio": "d97527c672cf4b74f7c860e9ce2d2c4c5a8f44363ab2a005eb4fe08baab25a5d",
+      "tokens": [
+        "I",
+        "didn't",
+        "see",
+        "the",
+        "traffic",
+        "sign",
+        "because",
+        "of",
+        "the",
+        "trees"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "I didn't saw the traffic sign because of the trees.",
+          "explanationVi": "Sau “didn't” dùng động từ nguyên mẫu “see”."
+        },
+        {
+          "en": "I didn't see the traffic sign because the trees.",
+          "explanationVi": "Trước danh từ dùng “because of”."
+        },
+        {
+          "en": "I not see the traffic sign because of the trees.",
+          "explanationVi": "Câu phủ định ở quá khứ cần “didn't”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        9
+      ],
+      "wordIds": [
+        "word:traffic-sign-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:u-turn-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "You can't make a U-turn at this intersection.",
+      "vi": "Bạn không được quay đầu xe ở ngã tư này.",
+      "audio": "da8332e2c1b70497991defd91940c23d486f87153c6a7e605131cce90da4ecc5",
+      "tokens": [
+        "You",
+        "can't",
+        "make",
+        "a",
+        "U-turn",
+        "at",
+        "this",
+        "intersection"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "You can't to make a U-turn at this intersection.",
+          "explanationVi": "Sau “can't” không dùng “to”."
+        },
+        {
+          "en": "You can't make a U-turn at these intersection.",
+          "explanationVi": "“Intersection” số ít nên dùng “this”."
+        },
+        {
+          "en": "You can't making a U-turn at this intersection.",
+          "explanationVi": "Sau “can't” dùng động từ nguyên mẫu “make”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:u-turn-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:u-turn-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The driver missed the exit and made a U-turn.",
+      "vi": "Tài xế đi quá lối ra nên phải quay đầu xe.",
+      "audio": "9e2d8f5b6855666594498635bfb597333bff9dfbb94b6a41eaa2b9730af25f2f",
+      "tokens": [
+        "The",
+        "driver",
+        "missed",
+        "the",
+        "exit",
+        "and",
+        "made",
+        "a",
+        "U-turn"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The driver missed the exit and make a U-turn.",
+          "explanationVi": "Hai hành động ở quá khứ nên dùng “made”."
+        },
+        {
+          "en": "The driver missed the exit and maked a U-turn.",
+          "explanationVi": "Quá khứ của “make” là “made”."
+        },
+        {
+          "en": "The driver miss the exit and made a U-turn.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “missed”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:u-turn-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:zebra-crossing-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Always cross the street at the zebra crossing.",
+      "vi": "Hãy luôn sang đường ở vạch kẻ cho người đi bộ.",
+      "audio": "0311dc20ec8268830589d3ce98ced921811eb9d70841911bc371bee9c170bfc3",
+      "tokens": [
+        "Always",
+        "cross",
+        "the",
+        "street",
+        "at",
+        "the",
+        "zebra",
+        "crossing"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Always crossing the street at the zebra crossing.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “cross”."
+        },
+        {
+          "en": "Always cross the street at zebra crossing.",
+          "explanationVi": "Cần mạo từ “the” trước “zebra crossing”."
+        },
+        {
+          "en": "Always you cross the street at the zebra crossing.",
+          "explanationVi": "Câu mệnh lệnh không có chủ ngữ “you”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:zebra-crossing-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:zebra-crossing-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Cars have to stop when people are on the zebra crossing.",
+      "vi": "Ô tô phải dừng lại khi có người đang đi trên vạch kẻ đường.",
+      "audio": "16725b20b40ed590ff55705c3e566f4da002082857074a5a634c9e6b2c085dfc",
+      "tokens": [
+        "Cars",
+        "have",
+        "to",
+        "stop",
+        "when",
+        "people",
+        "are",
+        "on",
+        "the",
+        "zebra",
+        "crossing"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Cars has to stop when people are on the zebra crossing.",
+          "explanationVi": "Chủ ngữ “cars” số nhiều nên dùng “have to”."
+        },
+        {
+          "en": "Cars have to stop when people is on the zebra crossing.",
+          "explanationVi": "“People” là số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Cars have stop when people are on the zebra crossing.",
+          "explanationVi": "Cấu trúc đúng là “have to” + động từ nguyên mẫu."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        5
+      ],
+      "wordIds": [
+        "word:zebra-crossing-n"
+      ]
+    },
+    "status": "approved"
+  }
+]
