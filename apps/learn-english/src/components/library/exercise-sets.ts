@@ -4,7 +4,7 @@ import { createRng, shuffle } from "@/learning/exercises/random";
 import type { ExerciseKind, Level } from "@/learning/types";
 import type { RunnerStep } from "@/components/exercise/exercise-runner";
 import type { ContentIndex } from "@/lib/session/content-index";
-import { prepareStep } from "@/lib/session/prepare";
+import { canPrepareSentenceStep, prepareStep } from "@/lib/session/prepare";
 import { parseLevel } from "@/lib/search-params";
 import { compareTopics, grammarSlug, grammarTopicMeta, topicOf, topicTitle } from "@/lib/topics";
 
@@ -92,11 +92,23 @@ function groupBy<T extends { topic?: string }>(items: readonly T[]): Map<string,
 }
 
 function eligibleSentences(index: ContentIndex, sentenceIds: readonly string[], type: SetType): string[] {
-  return sentenceIds.filter((id) => prepareStep({ kind: type, itemIds: [id], seed: 0 }, index, "probe") !== null);
+  return sentenceIds.filter((id) => canPrepareSentenceStep(type as ExerciseKind, id, index));
 }
 
-/** Every set at `level`, grouped into cards (one per topic or grammar point). */
+const cardCache = new WeakMap<ContentIndex, Map<Level, SetCard[]>>();
+
+/** Every set at `level`, grouped into cards (one per topic or grammar point), built once per loaded index. */
 export function listSetCards(index: ContentIndex, level: Level): SetCard[] {
+  const byLevel = cardCache.get(index) ?? new Map<Level, SetCard[]>();
+  cardCache.set(index, byLevel);
+  const cached = byLevel.get(level);
+  if (cached) return cached;
+  const cards = buildSetCards(index, level);
+  byLevel.set(level, cards);
+  return cards;
+}
+
+function buildSetCards(index: ContentIndex, level: Level): SetCard[] {
   const cards: SetCard[] = [];
   const words = index.wordsByLevel[level] ?? [];
   for (const [topic, group] of groupBy(words)) {

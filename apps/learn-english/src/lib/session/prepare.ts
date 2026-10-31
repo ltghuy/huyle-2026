@@ -1,6 +1,6 @@
 import type { ContentItemOf } from "@/content/schema";
 import { buildChooseSentence } from "@/learning/exercises/choose-sentence";
-import { buildDictation } from "@/learning/exercises/dictation";
+import { buildDictation, canDictate } from "@/learning/exercises/dictation";
 import { buildFindError } from "@/learning/exercises/find-error";
 import { buildFormsGap, buildFormsListening, buildFormsTyping } from "@/learning/exercises/forms";
 import { buildGrammarGap } from "@/learning/exercises/grammar-gap";
@@ -9,7 +9,7 @@ import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
 import { buildRecall } from "@/learning/exercises/recall";
 import { buildSentenceGap } from "@/learning/exercises/sentence-gap";
-import { buildTileTranslate } from "@/learning/exercises/tile-translate";
+import { buildTileTranslate, hasTileDistractors } from "@/learning/exercises/tile-translate";
 import { buildWordOrder } from "@/learning/exercises/word-order";
 import type { CardItemId, ExerciseDescriptor } from "@/learning/types";
 import type { RelatedItems, RunnerStep } from "@/components/exercise/exercise-runner";
@@ -72,11 +72,60 @@ function sentenceRelated(index: ContentIndex, sentence: Sentence): RelatedItems 
  * Headwords at the sentence's level (or of the sets of a specialized word it
  * practises), minus the words the sentence itself practises.
  */
-function distractorWords(index: ContentIndex, sentence: Sentence): string[] {
+function distractorWords(index: ContentIndex, sentence: Sentence): readonly string[] {
+  const { headwords, dropped } = distractorSource(index, sentence);
+  return dropped.size === 0 ? headwords : headwords.filter((headword) => !dropped.has(headword));
+}
+
+/** `distractorWords` one at a time, without copying the pool. */
+function* eachDistractorWord(index: ContentIndex, sentence: Sentence): Generator<string> {
+  const { headwords, dropped } = distractorSource(index, sentence);
+  for (const headword of headwords) if (!dropped.has(headword)) yield headword;
+}
+
+/**
+ * The pool's headwords and the ones to leave out. A level pool holds
+ * thousands of words and the exercise library probes every sentence of a
+ * level, so its headwords are collected once per pool. Dropping a headword
+ * only the sentence's own words carry keeps the order of the full
+ * computation; a headword shared with another word needs the full one.
+ */
+function distractorSource(index: ContentIndex, sentence: Sentence): { headwords: readonly string[]; dropped: ReadonlySet<string> } {
   const own = new Set(sentence.body.wordIds);
   const setWords = setWordsFor(index, sentence.body.wordIds);
   const pool = setWords.length > 0 ? setWords : (index.wordsByLevel[sentence.level] ?? []);
-  return [...new Set(pool.filter((word) => !own.has(word.id)).map((word) => word.body.headword))];
+  const { headwords, idsByHeadword } = poolHeadwords(pool);
+  const dropped = new Set<string>();
+  for (const id of own) {
+    const word = index.byId.get(id);
+    if (word?.kind !== "word") continue;
+    const ids = idsByHeadword.get(word.body.headword);
+    if (!ids?.includes(id)) continue;
+    if (!ids.every((entry) => own.has(entry))) {
+      return { headwords: [...new Set(pool.filter((entry) => !own.has(entry.id)).map((entry) => entry.body.headword))], dropped: new Set() };
+    }
+    dropped.add(word.body.headword);
+  }
+  return { headwords, dropped };
+}
+
+interface PoolHeadwords {
+  /** Unique headwords, in pool order. */
+  headwords: readonly string[];
+  idsByHeadword: ReadonlyMap<string, readonly string[]>;
+}
+
+const headwordCache = new WeakMap<readonly Word[], PoolHeadwords>();
+
+/** The headwords of `pool`, cached while the pool (an index's word list) lives. */
+function poolHeadwords(pool: readonly Word[]): PoolHeadwords {
+  const cached = headwordCache.get(pool);
+  if (cached) return cached;
+  const idsByHeadword = new Map<string, string[]>();
+  for (const word of pool) idsByHeadword.set(word.body.headword, [...(idsByHeadword.get(word.body.headword) ?? []), word.id]);
+  const entry = { headwords: [...idsByHeadword.keys()], idsByHeadword };
+  headwordCache.set(pool, entry);
+  return entry;
 }
 
 /** A forms item with its verb, or null when either is gone. */
@@ -155,4 +204,26 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
 
 export function prepareSteps(descriptors: readonly ExerciseDescriptor[], index: ContentIndex, keyPrefix: string): RunnerStep[] {
   return descriptors.flatMap((descriptor, i) => prepareStep(descriptor, index, `${keyPrefix}-${i}`) ?? []);
+}
+
+/**
+ * Whether `prepareStep` would return a step for a sentence exercise, without
+ * building it. Building shuffles the whole distractor pool, too slow to run
+ * for every sentence of a level (the exercise library, quick task 031).
+ */
+export function canPrepareSentenceStep(kind: ExerciseDescriptor["kind"], sentenceId: string, index: ContentIndex): boolean {
+  const item = index.byId.get(sentenceId);
+  if (item?.kind !== "sentence") return false;
+  switch (kind) {
+    case "word-order":
+      return true;
+    case "sentence-gap":
+      return item.body.gapCandidates.length > 0;
+    case "tile-translate":
+      return hasTileDistractors(item, eachDistractorWord(index, item));
+    case "dictation":
+      return canDictate(item);
+    default:
+      return prepareStep({ kind, itemIds: [sentenceId], seed: 0 }, index, "probe") !== null;
+  }
 }

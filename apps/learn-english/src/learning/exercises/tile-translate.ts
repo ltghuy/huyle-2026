@@ -25,6 +25,19 @@ export interface TileTranslateInput {
   distractorPool: readonly string[];
 }
 
+/** True when `pool` has enough words that are not tokens of the sentence: exactly when `buildTileTranslate` doesn't return null. */
+export function hasTileDistractors(sentence: SentenceItem, pool: Iterable<string>): boolean {
+  const tokens = new Set(sentence.body.tokens.map(normalize));
+  const found = new Set<string>();
+  for (const candidate of pool) {
+    const form = normalize(candidate);
+    if (form === "" || tokens.has(form)) continue;
+    found.add(form);
+    if (found.size === DISTRACTOR_TILES) return true;
+  }
+  return false;
+}
+
 export function buildTileTranslate(input: TileTranslateInput, seed: number): TileTranslateInstance | null {
   const { sentence, distractorPool } = input;
   const { body } = sentence;
