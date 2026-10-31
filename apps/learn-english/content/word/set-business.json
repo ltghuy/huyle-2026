@@ -99,6 +99,34 @@
   },
   {
     "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:bank-transfer-n",
+    "kind": "word",
+    "body": {
+      "headword": "bank transfer",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈbæŋk ˌtrænsfɚ/",
+      "meaningsVi": [
+        "chuyển khoản ngân hàng"
+      ],
+      "examples": [
+        "sentence:bank-transfer-n-1",
+        "sentence:bank-transfer-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b2bb91aed8c4ef32d74b8bfaf62c1c730e1185e2657f552ab4cf7656a621afb8",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /bæŋk trænˈsfɝ/",
+      "CMUdict stress/vowel is wrong for the noun; drafted IPA used."
+    ]
+  },
+  {
+    "level": "B1",
     "topic": "business-economy",
     "sort": 0,
     "id": "word:break-even-v",
@@ -193,6 +221,55 @@
       ],
       "synonyms": [],
       "audio": "a0ba2128fb369730283e4d42725b65a0175c0f23e35051ebcdf769e4b236beb8",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:cash-register-n",
+    "kind": "word",
+    "body": {
+      "headword": "cash register",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæʃ ˈrɛdʒɪstɚ/",
+      "meaningsVi": [
+        "máy tính tiền",
+        "két thu tiền"
+      ],
+      "examples": [
+        "sentence:cash-register-n-1",
+        "sentence:cash-register-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2efe5f57f414d425e08a47e5d6eb1ae82c38cc307a28a81036a3b2c7491772d3",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "work-jobs",
+    "sort": 0,
+    "id": "word:cashier-n",
+    "kind": "word",
+    "body": {
+      "headword": "cashier",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæˈʃɪr/",
+      "meaningsVi": [
+        "nhân viên thu ngân"
+      ],
+      "examples": [
+        "sentence:cashier-n-1",
+        "sentence:cashier-n-2"
+      ],
+      "synonyms": [],
+      "audio": "3a0c7875bc01668e66d2da1126a05456a93bf30b8acb2c07f95a6412701feff2",
       "source": "specialized"
     },
     "status": "approved"
@@ -329,6 +406,31 @@
   },
   {
     "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:delivery-fee-n",
+    "kind": "word",
+    "body": {
+      "headword": "delivery fee",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/dɪˈlɪvɚi fi/",
+      "meaningsVi": [
+        "phí giao hàng",
+        "phí ship"
+      ],
+      "examples": [
+        "sentence:delivery-fee-n-1",
+        "sentence:delivery-fee-n-2"
+      ],
+      "synonyms": [],
+      "audio": "e4ebbcf66c80c50a7eb7b6b022af410ad6822c5ec30e176afa02aa78a8fe0c83",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
     "topic": "business-economy",
     "sort": 0,
     "id": "word:diversify-v",
@@ -371,6 +473,30 @@
       ],
       "synonyms": [],
       "audio": "2fe2370cc999a68f67e909e40ad319b28e13422f19fca47cd61eda76a4fc680f",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "technology",
+    "sort": 0,
+    "id": "word:e-wallet-n",
+    "kind": "word",
+    "body": {
+      "headword": "e-wallet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/i ˈwɔlət/",
+      "meaningsVi": [
+        "ví điện tử"
+      ],
+      "examples": [
+        "sentence:e-wallet-n-1",
+        "sentence:e-wallet-n-2"
+      ],
+      "synonyms": [],
+      "audio": "fc005998fabfcfc56915a9cb7ee04237b443bab1dc4e4591aa17f45bfcf95fef",
       "source": "specialized"
     },
     "status": "approved"
@@ -431,6 +557,30 @@
   },
   {
     "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:foot-traffic-n",
+    "kind": "word",
+    "body": {
+      "headword": "foot traffic",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/fʊt ˈtræfɪk/",
+      "meaningsVi": [
+        "lượng người qua lại"
+      ],
+      "examples": [
+        "sentence:foot-traffic-n-1",
+        "sentence:foot-traffic-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2366caf7374dae912f6db8a047fd723837a4573899ebedfb86cd20f3fed6fca2",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
     "topic": "work-jobs",
     "sort": 0,
     "id": "word:founder-n",
@@ -474,6 +624,31 @@
       ],
       "synonyms": [],
       "audio": "547bf4d7689645a5b716d10a58a4588173e354453d64078471f44886bc80546c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:grand-opening-n",
+    "kind": "word",
+    "body": {
+      "headword": "grand opening",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ɡrænd ˈoʊpənɪŋ/",
+      "meaningsVi": [
+        "lễ khai trương",
+        "ngày khai trương"
+      ],
+      "examples": [
+        "sentence:grand-opening-n-1",
+        "sentence:grand-opening-n-2"
+      ],
+      "synonyms": [],
+      "audio": "796677c2c214b7ea7b0faa8bba4ca95904987333a85a16b9ffe8c70f3821b4f5",
       "source": "specialized"
     },
     "status": "approved"
@@ -587,6 +762,31 @@
   },
   {
     "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:loyalty-card-n",
+    "kind": "word",
+    "body": {
+      "headword": "loyalty card",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈlɔɪəlti kɑrd/",
+      "meaningsVi": [
+        "thẻ khách hàng thân thiết",
+        "thẻ tích điểm"
+      ],
+      "examples": [
+        "sentence:loyalty-card-n-1",
+        "sentence:loyalty-card-n-2"
+      ],
+      "synonyms": [],
+      "audio": "079fc9634bb29fb52347b0b1a8ede0c8cbd5639c54f870ed0575776be91e33ce",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
     "topic": "business-economy",
     "sort": 0,
     "id": "word:market-research-n",
@@ -661,6 +861,30 @@
       "IPA flagged: CMUdict gave /ˈnɛˌtwɝkɪŋ/",
       "Business sense (building contacts); in IT it also means computer networks."
     ]
+  },
+  {
+    "level": "B1",
+    "topic": "time-dates",
+    "sort": 0,
+    "id": "word:opening-hours-n",
+    "kind": "word",
+    "body": {
+      "headword": "opening hours",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈoʊpənɪŋ ˈaʊɚz/",
+      "meaningsVi": [
+        "giờ mở cửa"
+      ],
+      "examples": [
+        "sentence:opening-hours-n-1",
+        "sentence:opening-hours-n-2"
+      ],
+      "synonyms": [],
+      "audio": "6557b0e033b5a9029426132ba99207713002c80fe4b6ba85b76178f1c2ccc7c7",
+      "source": "specialized"
+    },
+    "status": "approved"
   },
   {
     "level": "B1",
@@ -845,6 +1069,30 @@
   },
   {
     "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:regular-customer-n",
+    "kind": "word",
+    "body": {
+      "headword": "regular customer",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈrɛɡjəlɚ ˈkʌstəmɚ/",
+      "meaningsVi": [
+        "khách quen"
+      ],
+      "examples": [
+        "sentence:regular-customer-n-1",
+        "sentence:regular-customer-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b10550d8e317b80255d2ab8ff762f9efb22e10cf7b173d3961c0274de2d2238b",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
     "topic": "business-economy",
     "sort": 0,
     "id": "word:return-on-investment-n",
@@ -950,6 +1198,30 @@
   },
   {
     "level": "B1",
+    "topic": "shopping-money",
+    "sort": 0,
+    "id": "word:service-charge-n",
+    "kind": "word",
+    "body": {
+      "headword": "service charge",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈsɝvəs tʃɑrdʒ/",
+      "meaningsVi": [
+        "phí phục vụ"
+      ],
+      "examples": [
+        "sentence:service-charge-n-1",
+        "sentence:service-charge-n-2"
+      ],
+      "synonyms": [],
+      "audio": "878978500c5f0df3785020263899c782de3595ed8526882d969332000c202e4c",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
     "topic": "business-economy",
     "sort": 0,
     "id": "word:shareholder-n",
@@ -993,6 +1265,31 @@
       ],
       "synonyms": [],
       "audio": "f064967d4376a31856c646308ac66240992f84879889632914e41b4adb173cd9",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:small-business-n",
+    "kind": "word",
+    "body": {
+      "headword": "small business",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/smɔl ˈbɪznəs/",
+      "meaningsVi": [
+        "doanh nghiệp nhỏ",
+        "cơ sở kinh doanh nhỏ"
+      ],
+      "examples": [
+        "sentence:small-business-n-1",
+        "sentence:small-business-n-2"
+      ],
+      "synonyms": [],
+      "audio": "cc85f84e6b7bad45a064fcea0f2850b7df1a6cf0793cf974e4e6de5d918931b8",
       "source": "specialized"
     },
     "status": "approved"

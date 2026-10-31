@@ -466,6 +466,118 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:bank-transfer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Can I pay by bank transfer?",
+      "vi": "Tôi trả bằng chuyển khoản được không?",
+      "audio": "f8351714cf2deaa2205df72f61533d6b07e4c6caac6f637c6fb3adbbdae7de66",
+      "tokens": [
+        "Can",
+        "I",
+        "pay",
+        "by",
+        "bank",
+        "transfer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Can I paying by bank transfer?",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu “pay”."
+        },
+        {
+          "en": "Can I to pay by bank transfer?",
+          "explanationVi": "Sau “can” không dùng “to”."
+        },
+        {
+          "en": "Can I pay with bank transfer by?",
+          "explanationVi": "Cụm đúng là “pay by bank transfer”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        0
+      ],
+      "wordIds": [
+        "word:bank-transfer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:bank-transfer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The supplier asked us to send the money by bank transfer.",
+      "vi": "Nhà cung cấp yêu cầu chúng tôi gửi tiền bằng chuyển khoản.",
+      "audio": "486233c1f1b90d69de9a68c6d99d4ca55ee8a7832db85d49f9bcb72bd11dc2d1",
+      "tokens": [
+        "The",
+        "supplier",
+        "asked",
+        "us",
+        "to",
+        "send",
+        "the",
+        "money",
+        "by",
+        "bank",
+        "transfer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The supplier asked us send the money by bank transfer.",
+          "explanationVi": "Sau “ask somebody” cần “to” + động từ."
+        },
+        {
+          "en": "The supplier asked we to send the money by bank transfer.",
+          "explanationVi": "Sau động từ dùng tân ngữ “us”."
+        },
+        {
+          "en": "The supplier asked us to sending the money by bank transfer.",
+          "explanationVi": "Sau “to” dùng động từ nguyên mẫu “send”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:bank-transfer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:break-even-v-1",
     "kind": "sentence",
     "body": {
@@ -937,6 +1049,226 @@
       ],
       "wordIds": [
         "word:cash-flow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-register-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "There isn't much money in the cash register today.",
+      "vi": "Hôm nay trong két không có nhiều tiền.",
+      "audio": "cb72088f785b8304cbec4a9293f3bdc21753139c5d270cc0504f9d0584d39482",
+      "tokens": [
+        "There",
+        "isn't",
+        "much",
+        "money",
+        "in",
+        "the",
+        "cash",
+        "register",
+        "today"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "There isn't many money in the cash register today.",
+          "explanationVi": "“Money” không đếm được nên dùng “much”."
+        },
+        {
+          "en": "There aren't much money in the cash register today.",
+          "explanationVi": "“Money” không đếm được nên dùng “isn't”."
+        },
+        {
+          "en": "There isn't much moneys in the cash register today.",
+          "explanationVi": "“Money” không thêm “s”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:cash-register-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-register-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The owner counts the cash register every night.",
+      "vi": "Tối nào chủ quán cũng kiểm tiền trong máy tính tiền.",
+      "audio": "98429db3185e686027e2996b6b1d2d1c8f73e2ac6961bc452a510daa5200e032",
+      "tokens": [
+        "The",
+        "owner",
+        "counts",
+        "the",
+        "cash",
+        "register",
+        "every",
+        "night"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The owner count the cash register every night.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “counts”."
+        },
+        {
+          "en": "The owner counts the cash register every nights.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "The owner is count the cash register every night.",
+          "explanationVi": "Thói quen dùng thì hiện tại đơn: “counts”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:cash-register-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cashier-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Please pay the cashier at the front counter.",
+      "vi": "Vui lòng thanh toán với nhân viên thu ngân ở quầy phía trước.",
+      "audio": "c92963f4a323627248eca6817ce484c325baee7978530a47bafa6bd2956e676a",
+      "tokens": [
+        "Please",
+        "pay",
+        "the",
+        "cashier",
+        "at",
+        "the",
+        "front",
+        "counter"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Please pay to the cashier at the front counter.",
+          "explanationVi": "“Pay” + người nhận tiền không cần “to”."
+        },
+        {
+          "en": "Please paying the cashier at the front counter.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “pay”."
+        },
+        {
+          "en": "Please pay the cashier at front counter.",
+          "explanationVi": "Cần mạo từ “the” trước “front counter”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:cashier-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cashier-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The cashier gave me the wrong change.",
+      "vi": "Nhân viên thu ngân thối nhầm tiền cho tôi.",
+      "audio": "71f381ff74da682b8f83f1ebf43196f3802eaf98673d859e84d5473d46868443",
+      "tokens": [
+        "The",
+        "cashier",
+        "gave",
+        "me",
+        "the",
+        "wrong",
+        "change"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The cashier give me the wrong change.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “gave”."
+        },
+        {
+          "en": "The cashier gave me the wrong changes.",
+          "explanationVi": "“Change” (tiền thối) không đếm được, không thêm “s”."
+        },
+        {
+          "en": "The cashier gave to me the wrong change.",
+          "explanationVi": "Người nhận đứng ngay sau “gave”, không cần “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:cashier-n"
       ]
     },
     "status": "approved"
@@ -1510,6 +1842,120 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:delivery-fee-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Orders over two hundred thousand dong have no delivery fee.",
+      "vi": "Đơn hàng trên hai trăm nghìn đồng được miễn phí giao hàng.",
+      "audio": "475e94efddd00aafef85b43f1203e87cabe9c55788911ac3447939b683fea1f8",
+      "tokens": [
+        "Orders",
+        "over",
+        "two",
+        "hundred",
+        "thousand",
+        "dong",
+        "have",
+        "no",
+        "delivery",
+        "fee"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Orders over two hundred thousand dong has no delivery fee.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “have”."
+        },
+        {
+          "en": "Orders over two hundreds thousand dong have no delivery fee.",
+          "explanationVi": "Sau số đếm, “hundred” không thêm “s”."
+        },
+        {
+          "en": "Orders over two hundred thousand dong have not delivery fee.",
+          "explanationVi": "Trước danh từ dùng “no”, không dùng “not”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [
+        "word:delivery-fee-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:delivery-fee-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The delivery fee is higher when it rains.",
+      "vi": "Khi trời mưa, phí giao hàng cao hơn.",
+      "audio": "dd2fe490cd3954c1220e3dc9281687c9ceb6d880cad166b336ef7e1a61aa6b2b",
+      "tokens": [
+        "The",
+        "delivery",
+        "fee",
+        "is",
+        "higher",
+        "when",
+        "it",
+        "rains"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The delivery fee is more high when it rains.",
+          "explanationVi": "So sánh hơn của “high” là “higher”."
+        },
+        {
+          "en": "The delivery fee is higher when it rain.",
+          "explanationVi": "Chủ ngữ “it” nên dùng “rains”."
+        },
+        {
+          "en": "The delivery fee are higher when it rains.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:delivery-fee-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:diversify-v-1",
     "kind": "sentence",
     "body": {
@@ -1731,6 +2177,116 @@
       ],
       "wordIds": [
         "word:dividend-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:e-wallet-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Most young customers pay with an e-wallet now.",
+      "vi": "Giờ hầu hết khách trẻ thanh toán bằng ví điện tử.",
+      "audio": "8bf411ce69ec089d796d0379a38fb6e78b0c91d333dc5fae631bc21d54a45e27",
+      "tokens": [
+        "Most",
+        "young",
+        "customers",
+        "pay",
+        "with",
+        "an",
+        "e-wallet",
+        "now"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Most young customers pays with an e-wallet now.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “pay”."
+        },
+        {
+          "en": "Most young customers pay with a e-wallet now.",
+          "explanationVi": "“E-wallet” bắt đầu bằng âm nguyên âm nên dùng “an”."
+        },
+        {
+          "en": "Most of young customers pay with an e-wallet now.",
+          "explanationVi": "Dùng “most young customers” hoặc “most of the young customers”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        3
+      ],
+      "wordIds": [
+        "word:e-wallet-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:e-wallet-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We accept cash, cards and all popular e-wallets.",
+      "vi": "Chúng tôi nhận tiền mặt, thẻ và mọi ví điện tử phổ biến.",
+      "audio": "5f297699acce6fd9f9d51b3cfc6f28fe5caab11d8ccb19b7ba77b78b434ac51c",
+      "tokens": [
+        "We",
+        "accept",
+        "cash",
+        "cards",
+        "and",
+        "all",
+        "popular",
+        "e-wallets"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We accepts cash, cards and all popular e-wallets.",
+          "explanationVi": "Chủ ngữ “we” không thêm “s”."
+        },
+        {
+          "en": "We accept cashes, cards and all popular e-wallets.",
+          "explanationVi": "“Cash” không đếm được, không thêm “es”."
+        },
+        {
+          "en": "We accept cash, cards and all popular e-wallet.",
+          "explanationVi": "Sau “all” dùng danh từ số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:e-wallet-n"
       ]
     },
     "status": "approved"
@@ -1970,6 +2526,128 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:foot-traffic-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "A shop near the school gets a lot of foot traffic.",
+      "vi": "Cửa hàng gần trường có rất nhiều người qua lại.",
+      "audio": "efa4a7d147b01891293238a9d471e82b74ccc7bb37e70b6d521acb45fe4915e9",
+      "tokens": [
+        "A",
+        "shop",
+        "near",
+        "the",
+        "school",
+        "gets",
+        "a",
+        "lot",
+        "of",
+        "foot",
+        "traffic"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A shop near the school get a lot of foot traffic.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “gets”."
+        },
+        {
+          "en": "A shop near the school gets a lot of foot traffics.",
+          "explanationVi": "“Traffic” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "A shop near the school gets many foot traffic.",
+          "explanationVi": "“Traffic” không đếm được nên dùng “a lot of”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:foot-traffic-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:foot-traffic-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The rent is high because the street has heavy foot traffic.",
+      "vi": "Tiền thuê cao vì con phố có đông người qua lại.",
+      "audio": "b83b3e9d5b73f26c50a75e0fec2ada4b75c3c59258a77ec6cf6ebfe089650b68",
+      "tokens": [
+        "The",
+        "rent",
+        "is",
+        "high",
+        "because",
+        "the",
+        "street",
+        "has",
+        "heavy",
+        "foot",
+        "traffic"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The rent is high because of the street has heavy foot traffic.",
+          "explanationVi": "Trước một mệnh đề dùng “because”, không dùng “because of”."
+        },
+        {
+          "en": "The rent are high because the street has heavy foot traffic.",
+          "explanationVi": "“Rent” số ít nên dùng “is”."
+        },
+        {
+          "en": "The rent is high because the street has heavily foot traffic.",
+          "explanationVi": "Trước danh từ dùng tính từ “heavy”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        8
+      ],
+      "wordIds": [
+        "word:foot-traffic-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:founder-n-1",
     "kind": "sentence",
     "body": {
@@ -2193,6 +2871,124 @@
       ],
       "wordIds": [
         "word:franchise-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:grand-opening-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Everything is half price at our grand opening on Saturday.",
+      "vi": "Mọi món đều giảm nửa giá trong ngày khai trương vào thứ Bảy.",
+      "audio": "487fbf7229eab482c637dc90cc4d957829cb1425e6b953cbfbf026bd4272ddd8",
+      "tokens": [
+        "Everything",
+        "is",
+        "half",
+        "price",
+        "at",
+        "our",
+        "grand",
+        "opening",
+        "on",
+        "Saturday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Everything are half price at our grand opening on Saturday.",
+          "explanationVi": "“Everything” đi với động từ số ít “is”."
+        },
+        {
+          "en": "Everything is half price at our grand opening in Saturday.",
+          "explanationVi": "Trước ngày trong tuần dùng “on”."
+        },
+        {
+          "en": "Everything is the half price at our grand opening on Saturday.",
+          "explanationVi": "Cụm “half price” không cần mạo từ."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        9
+      ],
+      "wordIds": [
+        "word:grand-opening-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:grand-opening-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "They gave free cakes to guests at the grand opening.",
+      "vi": "Họ tặng bánh miễn phí cho khách trong buổi khai trương.",
+      "audio": "20d6dbdc1c9e950410806a954c121f59bd6fa16fa00d14e69170af4ef4febd6c",
+      "tokens": [
+        "They",
+        "gave",
+        "free",
+        "cakes",
+        "to",
+        "guests",
+        "at",
+        "the",
+        "grand",
+        "opening"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They gived free cakes to guests at the grand opening.",
+          "explanationVi": "Quá khứ của “give” là “gave”."
+        },
+        {
+          "en": "They gave freely cakes to guests at the grand opening.",
+          "explanationVi": "Trước danh từ dùng tính từ “free”."
+        },
+        {
+          "en": "They gave free cakes for guests at the grand opening.",
+          "explanationVi": "“Give” + vật + “to” + người nhận."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:grand-opening-n"
       ]
     },
     "status": "approved"
@@ -2668,6 +3464,122 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:loyalty-card-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Buy nine coffees with this loyalty card and get one free.",
+      "vi": "Mua chín ly cà phê với thẻ tích điểm này và nhận một ly miễn phí.",
+      "audio": "fb9d7d850515554773e52d40bad1a33278be92d0eb537b29700be50116847e3d",
+      "tokens": [
+        "Buy",
+        "nine",
+        "coffees",
+        "with",
+        "this",
+        "loyalty",
+        "card",
+        "and",
+        "get",
+        "one",
+        "free"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Buy nine coffee with this loyalty card and get one free.",
+          "explanationVi": "Chín ly là số nhiều nên dùng “coffees”."
+        },
+        {
+          "en": "Buy nine coffees with these loyalty card and get one free.",
+          "explanationVi": "“Card” số ít nên dùng “this”."
+        },
+        {
+          "en": "Buy nine coffees with this loyalty card and gets one free.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “get”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        10
+      ],
+      "wordIds": [
+        "word:loyalty-card-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:loyalty-card-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Do you have a loyalty card with us?",
+      "vi": "Bạn có thẻ khách hàng thân thiết của quán không?",
+      "audio": "4c980f977f51065e944033853113734e4187a90bad1ecf2e7e920540021c6186",
+      "tokens": [
+        "Do",
+        "you",
+        "have",
+        "a",
+        "loyalty",
+        "card",
+        "with",
+        "us"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Does you have a loyalty card with us?",
+          "explanationVi": "Chủ ngữ “you” đi với “do”."
+        },
+        {
+          "en": "Do you has a loyalty card with us?",
+          "explanationVi": "Sau “do” dùng động từ nguyên mẫu “have”."
+        },
+        {
+          "en": "Do you have loyalty card with us?",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:loyalty-card-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:market-research-n-1",
     "kind": "sentence",
     "body": {
@@ -3003,6 +3915,120 @@
       ],
       "wordIds": [
         "word:networking-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:opening-hours-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our opening hours are from seven to ten every day.",
+      "vi": "Quán mở cửa từ bảy giờ đến mười giờ mỗi ngày.",
+      "audio": "00fba4574217d5931d07a407a23cea58d048a5c7f78cfb00587abc481a823c13",
+      "tokens": [
+        "Our",
+        "opening",
+        "hours",
+        "are",
+        "from",
+        "seven",
+        "to",
+        "ten",
+        "every",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our opening hours is from seven to ten every day.",
+          "explanationVi": "“Opening hours” số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Our opening hours are since seven to ten every day.",
+          "explanationVi": "Khoảng thời gian dùng “from … to”."
+        },
+        {
+          "en": "Our opening hours are from seven to ten every days.",
+          "explanationVi": "Sau “every” dùng danh từ số ít “day”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        8
+      ],
+      "wordIds": [
+        "word:opening-hours-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:opening-hours-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The opening hours are written on the door.",
+      "vi": "Giờ mở cửa được ghi trên cửa ra vào.",
+      "audio": "1cc1d5d55579d52567647648a5135d7037d5a887d463ab808dd912e87ede57b2",
+      "tokens": [
+        "The",
+        "opening",
+        "hours",
+        "are",
+        "written",
+        "on",
+        "the",
+        "door"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The opening hours are wrote on the door.",
+          "explanationVi": "Câu bị động dùng quá khứ phân từ “written”."
+        },
+        {
+          "en": "The opening hours is written on the door.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “are”."
+        },
+        {
+          "en": "The opening hours are written in the door.",
+          "explanationVi": "Chữ ghi trên bề mặt dùng giới từ “on”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:opening-hours-n"
       ]
     },
     "status": "approved"
@@ -3804,6 +4830,120 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:regular-customer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "That old man is a regular customer here.",
+      "vi": "Ông cụ đó là khách quen ở đây.",
+      "audio": "e5e2c4b12eda35718c01c83736e834df210156192fef292a379ff4f110c80c5c",
+      "tokens": [
+        "That",
+        "old",
+        "man",
+        "is",
+        "a",
+        "regular",
+        "customer",
+        "here"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "That old man are a regular customer here.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "That old man is regular customer here.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        },
+        {
+          "en": "That man old is a regular customer here.",
+          "explanationVi": "Tính từ đứng trước danh từ: “old man”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:regular-customer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:regular-customer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We give regular customers a free drink on their birthday.",
+      "vi": "Chúng tôi tặng khách quen một ly nước miễn phí vào ngày sinh nhật.",
+      "audio": "8b776cb6aa06fc08847589f46a89f63bd3487b79ff21fc90744943e528cc4535",
+      "tokens": [
+        "We",
+        "give",
+        "regular",
+        "customers",
+        "a",
+        "free",
+        "drink",
+        "on",
+        "their",
+        "birthday"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We give regular customers a free drink in their birthday.",
+          "explanationVi": "Trước một ngày cụ thể dùng “on”."
+        },
+        {
+          "en": "We gives regular customers a free drink on their birthday.",
+          "explanationVi": "Chủ ngữ “we” không thêm “s”."
+        },
+        {
+          "en": "We give regular customers a free drink on there birthday.",
+          "explanationVi": "Tính từ sở hữu là “their”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        9
+      ],
+      "wordIds": [
+        "word:regular-customer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:return-on-investment-n-1",
     "kind": "sentence",
     "body": {
@@ -4272,6 +5412,116 @@
   {
     "level": "B1",
     "sort": 0,
+    "id": "sentence:service-charge-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The bill includes a ten percent service charge.",
+      "vi": "Hóa đơn đã bao gồm mười phần trăm phí phục vụ.",
+      "audio": "3f2b898124028c5fcd24d7780d800444b78c735118e6306c79252a147ae226dd",
+      "tokens": [
+        "The",
+        "bill",
+        "includes",
+        "a",
+        "ten",
+        "percent",
+        "service",
+        "charge"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The bill include a ten percent service charge.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “includes”."
+        },
+        {
+          "en": "The bill includes a ten percents service charge.",
+          "explanationVi": "“Percent” không thêm “s”."
+        },
+        {
+          "en": "The bill includes an ten percent service charge.",
+          "explanationVi": "Trước phụ âm dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:service-charge-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:service-charge-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Is the service charge added to the bill?",
+      "vi": "Phí phục vụ có được cộng vào hóa đơn không?",
+      "audio": "17acae405c692021fd61466c9cce23937d2c1363ef1fa74717f38349c4770249",
+      "tokens": [
+        "Is",
+        "the",
+        "service",
+        "charge",
+        "added",
+        "to",
+        "the",
+        "bill"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Is the service charge add to the bill?",
+          "explanationVi": "Câu bị động dùng quá khứ phân từ “added”."
+        },
+        {
+          "en": "Are the service charge added to the bill?",
+          "explanationVi": "Chủ ngữ số ít nên dùng “Is”."
+        },
+        {
+          "en": "Does the service charge added to the bill?",
+          "explanationVi": "Câu hỏi bị động dùng “Is”, không dùng “Does”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        7
+      ],
+      "wordIds": [
+        "word:service-charge-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
     "id": "sentence:shareholder-n-1",
     "kind": "sentence",
     "body": {
@@ -4493,6 +5743,118 @@
       ],
       "wordIds": [
         "word:shipment-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:small-business-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Running a small business takes a lot of time.",
+      "vi": "Điều hành một cơ sở kinh doanh nhỏ tốn rất nhiều thời gian.",
+      "audio": "295d6cac65c764290ba77049bb4f69a29a6637968a8713d3207ed2c74848a095",
+      "tokens": [
+        "Running",
+        "a",
+        "small",
+        "business",
+        "takes",
+        "a",
+        "lot",
+        "of",
+        "time"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Run a small business takes a lot of time.",
+          "explanationVi": "Chủ ngữ là một hành động nên dùng V-ing “Running”."
+        },
+        {
+          "en": "Running a small business take a lot of time.",
+          "explanationVi": "Chủ ngữ V-ing được coi là số ít nên dùng “takes”."
+        },
+        {
+          "en": "Running a small business takes a lot of times.",
+          "explanationVi": "“Time” (thời gian) không đếm được, không thêm “s”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        8
+      ],
+      "wordIds": [
+        "word:small-business-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:small-business-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The city helps small businesses with cheap loans.",
+      "vi": "Thành phố hỗ trợ các doanh nghiệp nhỏ bằng khoản vay lãi thấp.",
+      "audio": "30c4eaa27bddda2380abc3ca464b82c7520418e3b7e12e036992c084026b0ab3",
+      "tokens": [
+        "The",
+        "city",
+        "helps",
+        "small",
+        "businesses",
+        "with",
+        "cheap",
+        "loans"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The city help small businesses with cheap loans.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “helps”."
+        },
+        {
+          "en": "The city helps small businesses by cheap loans.",
+          "explanationVi": "Hỗ trợ bằng thứ gì dùng “with”."
+        },
+        {
+          "en": "The city helps small businesses with cheaply loans.",
+          "explanationVi": "Trước danh từ dùng tính từ “cheap”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:small-business-n"
       ]
     },
     "status": "approved"

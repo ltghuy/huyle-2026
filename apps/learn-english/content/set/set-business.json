@@ -116,7 +116,19 @@
         "word:shipment-n",
         "word:lead-time-n",
         "word:tariff-n",
-        "word:commission-n"
+        "word:commission-n",
+        "word:cashier-n",
+        "word:cash-register-n",
+        "word:opening-hours-n",
+        "word:small-business-n",
+        "word:foot-traffic-n",
+        "word:regular-customer-n",
+        "word:loyalty-card-n",
+        "word:service-charge-n",
+        "word:delivery-fee-n",
+        "word:bank-transfer-n",
+        "word:e-wallet-n",
+        "word:grand-opening-n"
       ],
       "words": [],
       "sentences": []
