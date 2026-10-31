@@ -1,0 +1,3148 @@
+[
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-crop-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Coffee is the main cash crop in the Central Highlands.",
+      "vi": "Cà phê là cây trồng hàng hóa chính ở Tây Nguyên.",
+      "audio": "ae088a3a0cf73c444c262b2bebdc7e085f76dd853457a6cb38b484977f460975",
+      "tokens": [
+        "Coffee",
+        "is",
+        "the",
+        "main",
+        "cash",
+        "crop",
+        "in",
+        "the",
+        "Central",
+        "Highlands"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Coffee are the main cash crop in the Central Highlands.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "Coffee is main cash crop in the Central Highlands.",
+          "explanationVi": "Cần mạo từ “the” trước “main cash crop”."
+        },
+        {
+          "en": "Coffee is the mainly cash crop in the Central Highlands.",
+          "explanationVi": "Trước danh từ dùng tính từ “main”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [
+        "word:cash-crop-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:cash-crop-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Many farmers switched from rice to cash crops like pepper.",
+      "vi": "Nhiều nông dân chuyển từ trồng lúa sang cây trồng hàng hóa như hồ tiêu.",
+      "audio": "30381035ca4052e23bf37aee552b3ae3b6438b6dc98bc8acf7decae5a5612272",
+      "tokens": [
+        "Many",
+        "farmers",
+        "switched",
+        "from",
+        "rice",
+        "to",
+        "cash",
+        "crops",
+        "like",
+        "pepper"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Many farmers switched from rice for cash crops like pepper.",
+          "explanationVi": "Cụm đúng là “from … to”."
+        },
+        {
+          "en": "Many farmer switched from rice to cash crops like pepper.",
+          "explanationVi": "Sau “many” dùng danh từ số nhiều."
+        },
+        {
+          "en": "Much farmers switched from rice to cash crops like pepper.",
+          "explanationVi": "Danh từ đếm được dùng “many”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        9
+      ],
+      "wordIds": [
+        "word:cash-crop-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:chick-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The chicks follow their mother everywhere.",
+      "vi": "Đàn gà con đi theo mẹ khắp nơi.",
+      "audio": "b8dfc8ae8394d3ad9826b554fd290696928025b96968b74f0e1cafb051e362ca",
+      "tokens": [
+        "The",
+        "chicks",
+        "follow",
+        "their",
+        "mother",
+        "everywhere"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The chicks follows their mother everywhere.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “follow”."
+        },
+        {
+          "en": "The chicks follow there mother everywhere.",
+          "explanationVi": "Tính từ sở hữu là “their”."
+        },
+        {
+          "en": "The chicks follow their mother to everywhere.",
+          "explanationVi": "“Everywhere” không cần giới từ “to”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:chick-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:chick-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We bought fifty chicks at the market this spring.",
+      "vi": "Mùa xuân này chúng tôi mua năm mươi con gà con ở chợ.",
+      "audio": "dca2669ac4d7420bfdef545833befd47753b094e3ada417076e316cf2728af5c",
+      "tokens": [
+        "We",
+        "bought",
+        "fifty",
+        "chicks",
+        "at",
+        "the",
+        "market",
+        "this",
+        "spring"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We buyed fifty chicks at the market this spring.",
+          "explanationVi": "Quá khứ của “buy” là “bought”."
+        },
+        {
+          "en": "We bought fifty chick at the market this spring.",
+          "explanationVi": "Sau “fifty” dùng số nhiều “chicks”."
+        },
+        {
+          "en": "We bought fifty chicks at the market in this spring.",
+          "explanationVi": "Trước “this spring” không dùng giới từ."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        8
+      ],
+      "wordIds": [
+        "word:chick-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:chicken-coop-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Close the chicken coop at night to keep the hens safe.",
+      "vi": "Đóng chuồng gà vào ban đêm để giữ an toàn cho gà mái.",
+      "audio": "cf09c1df22365b82c26008054ee7198b6167a01ee8ceb9bf08a50dd5e0c4a6a7",
+      "tokens": [
+        "Close",
+        "the",
+        "chicken",
+        "coop",
+        "at",
+        "night",
+        "to",
+        "keep",
+        "the",
+        "hens",
+        "safe"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Closing the chicken coop at night to keep the hens safe.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Close”."
+        },
+        {
+          "en": "Close the chicken coop in night to keep the hens safe.",
+          "explanationVi": "Cụm đúng là “at night”."
+        },
+        {
+          "en": "Close the chicken coop at night to keep the hens safely.",
+          "explanationVi": "Sau “keep + tân ngữ” dùng tính từ “safe”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        10
+      ],
+      "wordIds": [
+        "word:chicken-coop-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:chicken-coop-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He built a chicken coop from old wood.",
+      "vi": "Anh ấy làm chuồng gà từ gỗ cũ.",
+      "audio": "be0f0a00b21f3d655a18046fcf0ff0fb723f9000ba38264dbcdd1716629075bc",
+      "tokens": [
+        "He",
+        "built",
+        "a",
+        "chicken",
+        "coop",
+        "from",
+        "old",
+        "wood"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He builded a chicken coop from old wood.",
+          "explanationVi": "Quá khứ của “build” là “built”."
+        },
+        {
+          "en": "He built a chicken coop from old woods.",
+          "explanationVi": "“Wood” (gỗ) không đếm được, không thêm “s”."
+        },
+        {
+          "en": "He built chicken coop from old wood.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:chicken-coop-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:compost-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "We make compost from kitchen waste and dry leaves.",
+      "vi": "Chúng tôi ủ phân từ rác nhà bếp và lá khô.",
+      "audio": "faf803282b898e939abaeace37f92d4215db4a1105c96a3600da3d68bfe18e02",
+      "tokens": [
+        "We",
+        "make",
+        "compost",
+        "from",
+        "kitchen",
+        "waste",
+        "and",
+        "dry",
+        "leaves"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We make composts from kitchen waste and dry leaves.",
+          "explanationVi": "“Compost” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "We make compost from kitchen waste and dry leafs.",
+          "explanationVi": "Số nhiều của “leaf” là “leaves”."
+        },
+        {
+          "en": "We makes compost from kitchen waste and dry leaves.",
+          "explanationVi": "Chủ ngữ “we” không thêm “s”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        8
+      ],
+      "wordIds": [
+        "word:compost-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:compost-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Compost makes the soil rich and healthy.",
+      "vi": "Phân ủ làm cho đất màu mỡ và khỏe.",
+      "audio": "77caedb37fef7bb2108ec7ad892254763bfe09aebbc10b1d080bafc6aac5e7e2",
+      "tokens": [
+        "Compost",
+        "makes",
+        "the",
+        "soil",
+        "rich",
+        "and",
+        "healthy"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Compost make the soil rich and healthy.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “makes”."
+        },
+        {
+          "en": "Compost makes the soil richly and healthy.",
+          "explanationVi": "Sau “make + tân ngữ” dùng tính từ “rich”."
+        },
+        {
+          "en": "Compost makes the soil to be rich and healthy.",
+          "explanationVi": "Sau “make + tân ngữ” không dùng “to be”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:compost-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:crop-rotation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Crop rotation keeps the soil healthy for many years.",
+      "vi": "Luân canh cây trồng giữ cho đất khỏe trong nhiều năm.",
+      "audio": "51e96238a12675684c61fbc0f3a85877d97e923521e7aadb28e178da2986200a",
+      "tokens": [
+        "Crop",
+        "rotation",
+        "keeps",
+        "the",
+        "soil",
+        "healthy",
+        "for",
+        "many",
+        "years"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Crop rotation keep the soil healthy for many years.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “keeps”."
+        },
+        {
+          "en": "Crop rotation keeps the soil healthily for many years.",
+          "explanationVi": "Sau “keep + tân ngữ” dùng tính từ “healthy”."
+        },
+        {
+          "en": "Crop rotation keeps the soil healthy for many year.",
+          "explanationVi": "Sau “many” dùng danh từ số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        8
+      ],
+      "wordIds": [
+        "word:crop-rotation-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:crop-rotation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "With crop rotation, farmers grow rice and then beans.",
+      "vi": "Với luân canh, nông dân trồng lúa rồi đến đậu.",
+      "audio": "9734a5de33e7fd3749b235a368227a77e62e134cbfeae64ce8bb2fa2e34c1e95",
+      "tokens": [
+        "With",
+        "crop",
+        "rotation",
+        "farmers",
+        "grow",
+        "rice",
+        "and",
+        "then",
+        "beans"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "With crop rotation, farmers grows rice and then beans.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “grow”."
+        },
+        {
+          "en": "With crop rotation, farmers grow rice and than beans.",
+          "explanationVi": "“Rồi đến” là “then”, không phải “than”."
+        },
+        {
+          "en": "With crop rotation, farmers grow rice and then bean.",
+          "explanationVi": "Không có mạo từ nên dùng số nhiều “beans”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        8
+      ],
+      "wordIds": [
+        "word:crop-rotation-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:crop-yield-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Better seeds can double the crop yield.",
+      "vi": "Giống tốt hơn có thể giúp năng suất tăng gấp đôi.",
+      "audio": "d2f02c7cbedcb742e8e0823ef9928d6ca374c7c37b8b398c6f1a04c69da264df",
+      "tokens": [
+        "Better",
+        "seeds",
+        "can",
+        "double",
+        "the",
+        "crop",
+        "yield"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Gooder seeds can double the crop yield.",
+          "explanationVi": "So sánh hơn của “good” là “better”."
+        },
+        {
+          "en": "Better seeds can doubles the crop yield.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu “double”."
+        },
+        {
+          "en": "More better seeds can double the crop yield.",
+          "explanationVi": "“Better” đã là so sánh hơn, không thêm “more”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [
+        "word:crop-yield-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:crop-yield-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The drought reduced the crop yield by half this year.",
+      "vi": "Năm nay hạn hán làm năng suất giảm một nửa.",
+      "audio": "415725fe88fb73470fcc9dcdd86dea5b20de942e5d2e28f8c8f6a8faba12d44f",
+      "tokens": [
+        "The",
+        "drought",
+        "reduced",
+        "the",
+        "crop",
+        "yield",
+        "by",
+        "half",
+        "this",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The drought reduce the crop yield by half this year.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “reduced”."
+        },
+        {
+          "en": "The drought reduced the crop yield by the half this year.",
+          "explanationVi": "Cụm đúng là “by half”, không có mạo từ."
+        },
+        {
+          "en": "The drought reduced the crop yield with half this year.",
+          "explanationVi": "Cụm đúng là “by half”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:crop-yield-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dairy-farm-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "This dairy farm has more than two hundred cows.",
+      "vi": "Trang trại bò sữa này có hơn hai trăm con bò.",
+      "audio": "ef379a0d26725b2fc19e1a57c81994090234c0fe5a675b5c21e197f04e81b85c",
+      "tokens": [
+        "This",
+        "dairy",
+        "farm",
+        "has",
+        "more",
+        "than",
+        "two",
+        "hundred",
+        "cows"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "This dairy farm have more than two hundred cows.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “has”."
+        },
+        {
+          "en": "This dairy farm has more than two hundreds cows.",
+          "explanationVi": "Sau số đếm, “hundred” không thêm “s”."
+        },
+        {
+          "en": "This dairy farm has more that two hundred cows.",
+          "explanationVi": "Cụm đúng là “more than”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        8
+      ],
+      "wordIds": [
+        "word:dairy-farm-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:dairy-farm-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Fresh milk from the dairy farm goes to the city every day.",
+      "vi": "Sữa tươi từ trang trại bò sữa được chở vào thành phố mỗi ngày.",
+      "audio": "8e87adc566a778161f908e1f2e3e63c7c9fc352ebd4fb112c5c275e20aaa5300",
+      "tokens": [
+        "Fresh",
+        "milk",
+        "from",
+        "the",
+        "dairy",
+        "farm",
+        "goes",
+        "to",
+        "the",
+        "city",
+        "every",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Fresh milk from the dairy farm go to the city every day.",
+          "explanationVi": "“Milk” không đếm được nên dùng “goes”."
+        },
+        {
+          "en": "Fresh milks from the dairy farm goes to the city every day.",
+          "explanationVi": "“Milk” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "Fresh milk from the dairy farm goes to city every day.",
+          "explanationVi": "Cần mạo từ “the” trước “city”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        9
+      ],
+      "wordIds": [
+        "word:dairy-farm-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fertilizer-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Too much fertilizer can damage the soil.",
+      "vi": "Bón quá nhiều phân có thể làm hại đất.",
+      "audio": "20deec8e38fe49d0a0b0eead4523a41264309d9ca61136bedf84f202bf666f2c",
+      "tokens": [
+        "Too",
+        "much",
+        "fertilizer",
+        "can",
+        "damage",
+        "the",
+        "soil"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Too many fertilizer can damage the soil.",
+          "explanationVi": "“Fertilizer” không đếm được nên dùng “much”."
+        },
+        {
+          "en": "Too much fertilizer can damages the soil.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu “damage”."
+        },
+        {
+          "en": "Too much fertilizer can to damage the soil.",
+          "explanationVi": "Sau “can” không dùng “to”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:fertilizer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fertilizer-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He puts fertilizer on the vegetables once a month.",
+      "vi": "Mỗi tháng anh ấy bón phân cho rau một lần.",
+      "audio": "3199fe96c6857ece634af62490e16fabf89f4437931a17eb00b120f9b9bdb57a",
+      "tokens": [
+        "He",
+        "puts",
+        "fertilizer",
+        "on",
+        "the",
+        "vegetables",
+        "once",
+        "a",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He puts fertilizer on the vegetables once a months.",
+          "explanationVi": "Sau “a” dùng danh từ số ít “month”."
+        },
+        {
+          "en": "He puts fertilizer on the vegetables once in month.",
+          "explanationVi": "Cụm đúng là “once a month”."
+        },
+        {
+          "en": "He is put fertilizer on the vegetables once a month.",
+          "explanationVi": "Thói quen dùng thì hiện tại đơn: “puts”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        8
+      ],
+      "wordIds": [
+        "word:fertilizer-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fish-farm-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The Mekong Delta has many fish farms along the river.",
+      "vi": "Đồng bằng sông Cửu Long có nhiều trại nuôi cá dọc bờ sông.",
+      "audio": "d62283c997298ab21a19697b8897e54ec8f837938a0309e852653691f7a2dab7",
+      "tokens": [
+        "The",
+        "Mekong",
+        "Delta",
+        "has",
+        "many",
+        "fish",
+        "farms",
+        "along",
+        "the",
+        "river"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The Mekong Delta have many fish farms along the river.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “has”."
+        },
+        {
+          "en": "The Mekong Delta has much fish farms along the river.",
+          "explanationVi": "Danh từ đếm được dùng “many”."
+        },
+        {
+          "en": "The Mekong Delta has many fish farm along the river.",
+          "explanationVi": "Sau “many” dùng danh từ số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        9
+      ],
+      "wordIds": [
+        "word:fish-farm-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:fish-farm-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "He left his office job to start a fish farm.",
+      "vi": "Anh ấy bỏ công việc văn phòng để mở một trại nuôi cá.",
+      "audio": "bdeacd402e6b3ff7cefe695f9fd7f6a90e047df1dd9d9704adf02ec34699f3ea",
+      "tokens": [
+        "He",
+        "left",
+        "his",
+        "office",
+        "job",
+        "to",
+        "start",
+        "a",
+        "fish",
+        "farm"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "He leaved his office job to start a fish farm.",
+          "explanationVi": "Quá khứ của “leave” là “left”."
+        },
+        {
+          "en": "He left his office job for start a fish farm.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ."
+        },
+        {
+          "en": "He left his office job to starting a fish farm.",
+          "explanationVi": "Sau “to” dùng động từ nguyên mẫu “start”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        6
+      ],
+      "wordIds": [
+        "word:fish-farm-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:graze-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The cows graze on the hill every afternoon.",
+      "vi": "Chiều nào đàn bò cũng ăn cỏ trên đồi.",
+      "audio": "4a8f83e4ecd2a4d75ec88953ef3b396ec42a8d5c1c2d606f74dccfbe5cb6d7ed",
+      "tokens": [
+        "The",
+        "cows",
+        "graze",
+        "on",
+        "the",
+        "hill",
+        "every",
+        "afternoon"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The cows grazes on the hill every afternoon.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “graze”."
+        },
+        {
+          "en": "The cows graze on the hill every afternoons.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "The cows graze in the hill every afternoon.",
+          "explanationVi": "Trên đồi dùng “on the hill”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        7
+      ],
+      "wordIds": [
+        "word:graze-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:graze-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The goats were grazing near the road.",
+      "vi": "Đàn dê đang gặm cỏ gần đường.",
+      "audio": "c1b12764cba060f2d3ab20ff20020e3704f49601d9dfa0f58ab5ceda202b4458",
+      "tokens": [
+        "The",
+        "goats",
+        "were",
+        "grazing",
+        "near",
+        "the",
+        "road"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The goats was grazing near the road.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “were”."
+        },
+        {
+          "en": "The goats were grazeing near the road.",
+          "explanationVi": "V-ing của “graze” bỏ “e”: “grazing”."
+        },
+        {
+          "en": "The goats were graze near the road.",
+          "explanationVi": "Thì tiếp diễn dùng V-ing “grazing”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:graze-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hen-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our hens lay about ten eggs a day.",
+      "vi": "Đàn gà mái nhà tôi đẻ khoảng mười quả trứng mỗi ngày.",
+      "audio": "e6c017d806a8d80a1f4fd57ce8839ddc9e121b967da518cbc94bbccb10226dc3",
+      "tokens": [
+        "Our",
+        "hens",
+        "lay",
+        "about",
+        "ten",
+        "eggs",
+        "a",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our hens lays about ten eggs a day.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “lay”."
+        },
+        {
+          "en": "Our hens lie about ten eggs a day.",
+          "explanationVi": "“Đẻ trứng” là “lay eggs”, không phải “lie”."
+        },
+        {
+          "en": "Our hens lay about ten egg a day.",
+          "explanationVi": "Sau “ten” dùng số nhiều “eggs”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:hen-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hen-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The hen is sitting on her eggs.",
+      "vi": "Con gà mái đang ấp trứng.",
+      "audio": "d40f49da636ad95771bb261649433ae70645b84cd091d431e7525604215e588f",
+      "tokens": [
+        "The",
+        "hen",
+        "is",
+        "sitting",
+        "on",
+        "her",
+        "eggs"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The hen is sit on her eggs.",
+          "explanationVi": "Thì tiếp diễn dùng V-ing “sitting”."
+        },
+        {
+          "en": "The hen is siting on her eggs.",
+          "explanationVi": "V-ing của “sit” gấp đôi “t”: “sitting”."
+        },
+        {
+          "en": "The hen are sitting on her eggs.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:hen-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hoe-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "She used a hoe to remove the weeds.",
+      "vi": "Cô ấy dùng cuốc để làm sạch cỏ dại.",
+      "audio": "4459a96d210703978b802ade0ab3f33d40af2900e556e4a71409c22737f2f05b",
+      "tokens": [
+        "She",
+        "used",
+        "a",
+        "hoe",
+        "to",
+        "remove",
+        "the",
+        "weeds"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She use a hoe to remove the weeds.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “used”."
+        },
+        {
+          "en": "She used a hoe for remove the weeds.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ."
+        },
+        {
+          "en": "She used an hoe to remove the weeds.",
+          "explanationVi": "Trước phụ âm /h/ dùng “a”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:hoe-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:hoe-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Every farmer in the village owns a hoe.",
+      "vi": "Nông dân nào trong làng cũng có một cái cuốc.",
+      "audio": "64d87da5a57320a7165dedd91545eaafc3c14a7cfb41ca0e94d31f5dbf7eb3fc",
+      "tokens": [
+        "Every",
+        "farmer",
+        "in",
+        "the",
+        "village",
+        "owns",
+        "a",
+        "hoe"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Every farmer in the village own a hoe.",
+          "explanationVi": "Sau “every farmer” (số ít) dùng “owns”."
+        },
+        {
+          "en": "Every farmers in the village owns a hoe.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "Every farmer in the village owns hoe.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        4
+      ],
+      "wordIds": [
+        "word:hoe-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:irrigation-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Without irrigation, the rice would die in the dry season.",
+      "vi": "Không có thủy lợi, lúa sẽ chết vào mùa khô.",
+      "audio": "1cf8d115f0d6d4cc9795e3a54372244eecadafb698e44cc8019c509f8f1fdc1b",
+      "tokens": [
+        "Without",
+        "irrigation",
+        "the",
+        "rice",
+        "would",
+        "die",
+        "in",
+        "the",
+        "dry",
+        "season"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Without irrigation, the rice would died in the dry season.",
+          "explanationVi": "Sau “would” dùng động từ nguyên mẫu “die”."
+        },
+        {
+          "en": "Without irrigation, the rice would die on the dry season.",
+          "explanationVi": "Với mùa dùng giới từ “in”."
+        },
+        {
+          "en": "Without irrigation, the rice would die in dry the season.",
+          "explanationVi": "Mạo từ “the” đứng trước tính từ: “the dry season”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        8
+      ],
+      "wordIds": [
+        "word:irrigation-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:irrigation-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The new irrigation system saves a lot of water.",
+      "vi": "Hệ thống tưới tiêu mới tiết kiệm rất nhiều nước.",
+      "audio": "be7e1f6528f89b6788a66c6e0bc89c9f88e85b917d0c8d82f8a5f69a702853ba",
+      "tokens": [
+        "The",
+        "new",
+        "irrigation",
+        "system",
+        "saves",
+        "a",
+        "lot",
+        "of",
+        "water"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The new irrigation system save a lot of water.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “saves”."
+        },
+        {
+          "en": "The new irrigation system saves a lot of waters.",
+          "explanationVi": "“Water” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "The new irrigation system saves many water.",
+          "explanationVi": "“Water” không đếm được nên dùng “a lot of”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        3
+      ],
+      "wordIds": [
+        "word:irrigation-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:livestock-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "My grandparents keep livestock such as pigs and chickens.",
+      "vi": "Ông bà tôi nuôi gia súc, gia cầm như lợn và gà.",
+      "audio": "a9d288fca7dd0334a4baad24ede29a0239886899171d763e4c8a7b4df3e2dc0c",
+      "tokens": [
+        "My",
+        "grandparents",
+        "keep",
+        "livestock",
+        "such",
+        "as",
+        "pigs",
+        "and",
+        "chickens"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My grandparents keeps livestock such as pigs and chickens.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “keep”."
+        },
+        {
+          "en": "My grandparents keep livestocks such as pigs and chickens.",
+          "explanationVi": "“Livestock” không thêm “s”."
+        },
+        {
+          "en": "My grandparents keep livestock such like pigs and chickens.",
+          "explanationVi": "Cụm đúng là “such as”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        6
+      ],
+      "wordIds": [
+        "word:livestock-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:livestock-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The floods killed a lot of livestock last year.",
+      "vi": "Năm ngoái lũ lụt làm chết rất nhiều vật nuôi.",
+      "audio": "61eb0c8cbd1d88644f4af1a13724dc634b4a5376469d82b0922c9941db3aa0bf",
+      "tokens": [
+        "The",
+        "floods",
+        "killed",
+        "a",
+        "lot",
+        "of",
+        "livestock",
+        "last",
+        "year"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The floods kill a lot of livestock last year.",
+          "explanationVi": "“Last year” là quá khứ nên dùng “killed”."
+        },
+        {
+          "en": "The floods killed a lot of livestock the last year.",
+          "explanationVi": "Nói “last year”, không có “the”."
+        },
+        {
+          "en": "The floods killed a lot livestock last year.",
+          "explanationVi": "Cụm đúng là “a lot of”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        2
+      ],
+      "wordIds": [
+        "word:livestock-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:manure-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Cow manure is a cheap natural fertilizer.",
+      "vi": "Phân bò là loại phân bón tự nhiên rẻ tiền.",
+      "audio": "78c3a1ad6badb44215e77efeda46caf964f0d8460268c5354e8a08bff285e623",
+      "tokens": [
+        "Cow",
+        "manure",
+        "is",
+        "a",
+        "cheap",
+        "natural",
+        "fertilizer"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Cow manure are a cheap natural fertilizer.",
+          "explanationVi": "“Manure” không đếm được nên dùng “is”."
+        },
+        {
+          "en": "Cow manure is an cheap natural fertilizer.",
+          "explanationVi": "Trước phụ âm dùng “a”."
+        },
+        {
+          "en": "Cow manure is a cheaply natural fertilizer.",
+          "explanationVi": "Trước danh từ dùng tính từ “cheap”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        5
+      ],
+      "wordIds": [
+        "word:manure-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:manure-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "They spread manure on the fields before planting.",
+      "vi": "Họ rải phân chuồng lên ruộng trước khi trồng.",
+      "audio": "b3396b872ed1695c7ba8fdffeae118963f0fcf52095a05356730768364cc44c1",
+      "tokens": [
+        "They",
+        "spread",
+        "manure",
+        "on",
+        "the",
+        "fields",
+        "before",
+        "planting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "They spreaded manure on the fields before planting.",
+          "explanationVi": "Quá khứ của “spread” vẫn là “spread”."
+        },
+        {
+          "en": "They spread manures on the fields before planting.",
+          "explanationVi": "“Manure” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "They spread manure on the fields before plant.",
+          "explanationVi": "Sau “before” dùng V-ing “planting”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        7
+      ],
+      "wordIds": [
+        "word:manure-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:paddy-field-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The paddy fields turn yellow just before the harvest.",
+      "vi": "Những cánh đồng lúa chuyển sang màu vàng ngay trước mùa gặt.",
+      "audio": "500e00bb2eb716f1d75bccb9b4032dc7d686f6696b85c8c336c38b42e35f031d",
+      "tokens": [
+        "The",
+        "paddy",
+        "fields",
+        "turn",
+        "yellow",
+        "just",
+        "before",
+        "the",
+        "harvest"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The paddy fields turns yellow just before the harvest.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “turn”."
+        },
+        {
+          "en": "The paddy fields turn yellow just before of the harvest.",
+          "explanationVi": "Không dùng “of” sau “before”."
+        },
+        {
+          "en": "The paddy fields turn yellowly just before the harvest.",
+          "explanationVi": "Sau “turn” (trở nên) dùng tính từ “yellow”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        8
+      ],
+      "wordIds": [
+        "word:paddy-field-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:paddy-field-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Farmers plant rice by hand in the paddy field.",
+      "vi": "Nông dân cấy lúa bằng tay trên ruộng.",
+      "audio": "f2c9a240f7f65a79e700ac8ffb1f9c75f918516fd5bbd0e7f5e48b1d511c8631",
+      "tokens": [
+        "Farmers",
+        "plant",
+        "rice",
+        "by",
+        "hand",
+        "in",
+        "the",
+        "paddy",
+        "field"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Farmers plants rice by hand in the paddy field.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “plant”."
+        },
+        {
+          "en": "Farmers plant rice by the hand in the paddy field.",
+          "explanationVi": "Cụm “by hand” không có mạo từ."
+        },
+        {
+          "en": "Farmers plant rice with hand in the paddy field.",
+          "explanationVi": "Cụm đúng là “by hand”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:paddy-field-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pasture-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The farmer moves his cattle to a new pasture each month.",
+      "vi": "Mỗi tháng người nông dân chuyển đàn gia súc sang một bãi cỏ mới.",
+      "audio": "1eef9569d12ae63943979546d0fb55fd8c3a90c7c81b9f2753f5846f2db61af9",
+      "tokens": [
+        "The",
+        "farmer",
+        "moves",
+        "his",
+        "cattle",
+        "to",
+        "a",
+        "new",
+        "pasture",
+        "each",
+        "month"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The farmer move his cattle to a new pasture each month.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “moves”."
+        },
+        {
+          "en": "The farmer moves his cattles to a new pasture each month.",
+          "explanationVi": "“Cattle” đã mang nghĩa số nhiều, không thêm “s”."
+        },
+        {
+          "en": "The farmer moves his cattle to a new pasture each months.",
+          "explanationVi": "Sau “each” dùng danh từ số ít."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:pasture-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pasture-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Green pastures cover the hills in the rainy season.",
+      "vi": "Vào mùa mưa, đồng cỏ xanh phủ kín các ngọn đồi.",
+      "audio": "4579427f68e9cc08657d9442b2a11446bf2863a6afb7338e6152002e46302e69",
+      "tokens": [
+        "Green",
+        "pastures",
+        "cover",
+        "the",
+        "hills",
+        "in",
+        "the",
+        "rainy",
+        "season"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Green pastures covers the hills in the rainy season.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “cover”."
+        },
+        {
+          "en": "Green pastures cover the hills in the rain season.",
+          "explanationVi": "Mùa mưa là “the rainy season”."
+        },
+        {
+          "en": "Green pastures cover the hills on the rainy season.",
+          "explanationVi": "Với mùa dùng giới từ “in”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        7
+      ],
+      "wordIds": [
+        "word:pasture-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pest-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Rats are a serious pest in the rice fields.",
+      "vi": "Chuột là loài gây hại nghiêm trọng trên đồng lúa.",
+      "audio": "a7f469721e6548bb5b66cc5fc5b4044cc3b882cd6fc9f380c688c20a62e14907",
+      "tokens": [
+        "Rats",
+        "are",
+        "a",
+        "serious",
+        "pest",
+        "in",
+        "the",
+        "rice",
+        "fields"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Rats is a serious pest in the rice fields.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “are”."
+        },
+        {
+          "en": "Rats are a seriously pest in the rice fields.",
+          "explanationVi": "Trước danh từ dùng tính từ “serious”."
+        },
+        {
+          "en": "Rats are serious pest in the rice fields.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        3
+      ],
+      "wordIds": [
+        "word:pest-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pest-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Ducks help farmers by eating pests in the fields.",
+      "vi": "Vịt giúp nông dân bằng cách ăn sâu bọ ngoài đồng.",
+      "audio": "a49c51eb170402d64997a224a4481cefe371d00ad123d305ced57f7cbe51354c",
+      "tokens": [
+        "Ducks",
+        "help",
+        "farmers",
+        "by",
+        "eating",
+        "pests",
+        "in",
+        "the",
+        "fields"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Ducks helps farmers by eating pests in the fields.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “help”."
+        },
+        {
+          "en": "Ducks help farmers by eat pests in the fields.",
+          "explanationVi": "Sau giới từ “by” dùng V-ing “eating”."
+        },
+        {
+          "en": "Ducks help to farmers by eating pests in the fields.",
+          "explanationVi": "“Help” + người, không cần “to”."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        4
+      ],
+      "wordIds": [
+        "word:pest-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pesticide-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Organic farms don't use chemical pesticides.",
+      "vi": "Các trang trại hữu cơ không dùng thuốc trừ sâu hóa học.",
+      "audio": "7694117e4de1b58e6ce5ccee6faf9a6a54ce0437d8a2612373121f745871cdb6",
+      "tokens": [
+        "Organic",
+        "farms",
+        "don't",
+        "use",
+        "chemical",
+        "pesticides"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Organic farms doesn't use chemical pesticides.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “don't”."
+        },
+        {
+          "en": "Organic farms don't uses chemical pesticides.",
+          "explanationVi": "Sau “don't” dùng động từ nguyên mẫu “use”."
+        },
+        {
+          "en": "Organic farms don't use chemically pesticides.",
+          "explanationVi": "Trước danh từ dùng tính từ “chemical”."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        4
+      ],
+      "wordIds": [
+        "word:pesticide-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pesticide-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Wash fruit well to remove any pesticide.",
+      "vi": "Rửa trái cây thật kỹ để loại bỏ thuốc trừ sâu.",
+      "audio": "3ac981917084522f5fbf41b3af6856a0c73985f800e1515bd6c8ddc08305e778",
+      "tokens": [
+        "Wash",
+        "fruit",
+        "well",
+        "to",
+        "remove",
+        "any",
+        "pesticide"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Washing fruit well to remove any pesticide.",
+          "explanationVi": "Câu mệnh lệnh dùng động từ nguyên mẫu “Wash”."
+        },
+        {
+          "en": "Wash fruit good to remove any pesticide.",
+          "explanationVi": "Bổ nghĩa cho động từ dùng trạng từ “well”."
+        },
+        {
+          "en": "Wash fruit well for remove any pesticide.",
+          "explanationVi": "Chỉ mục đích dùng “to” + động từ."
+        }
+      ],
+      "gapCandidates": [
+        0,
+        4
+      ],
+      "wordIds": [
+        "word:pesticide-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:piglet-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Our pig had twelve piglets last night.",
+      "vi": "Đêm qua lợn nái nhà tôi đẻ mười hai con lợn con.",
+      "audio": "0c6f1a691a3b161f4402db049cb161c63c60f441468417bba4805d278fc6f088",
+      "tokens": [
+        "Our",
+        "pig",
+        "had",
+        "twelve",
+        "piglets",
+        "last",
+        "night"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Our pig has twelve piglets last night.",
+          "explanationVi": "“Last night” là quá khứ nên dùng “had”."
+        },
+        {
+          "en": "Our pig had twelve piglet last night.",
+          "explanationVi": "Sau “twelve” dùng số nhiều “piglets”."
+        },
+        {
+          "en": "Our pig had twelve piglets the last night.",
+          "explanationVi": "Nói “last night”, không có “the”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:piglet-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:piglet-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Piglets need to stay warm in cold weather.",
+      "vi": "Lợn con cần được giữ ấm khi trời lạnh.",
+      "audio": "9d0ead30f7f91da342293fc573e4dd3c9fd50db8638883b541c4baa74837faea",
+      "tokens": [
+        "Piglets",
+        "need",
+        "to",
+        "stay",
+        "warm",
+        "in",
+        "cold",
+        "weather"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Piglets needs to stay warm in cold weather.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “need”."
+        },
+        {
+          "en": "Piglets need stay warm in cold weather.",
+          "explanationVi": "Sau “need” cần “to” + động từ."
+        },
+        {
+          "en": "Piglets need to stay warmly in cold weather.",
+          "explanationVi": "Sau “stay” dùng tính từ “warm”."
+        }
+      ],
+      "gapCandidates": [
+        4,
+        6
+      ],
+      "wordIds": [
+        "word:piglet-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pigsty-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The pigsty is behind the house, near the garden.",
+      "vi": "Chuồng lợn ở phía sau nhà, gần khu vườn.",
+      "audio": "ac5ea2ceb84ba4f5af9d3a3292b24d67e914321b5698ca00be52bcbb2191dcde",
+      "tokens": [
+        "The",
+        "pigsty",
+        "is",
+        "behind",
+        "the",
+        "house",
+        "near",
+        "the",
+        "garden"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The pigsty are behind the house, near the garden.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The pigsty is behind of the house, near the garden.",
+          "explanationVi": "Không dùng “of” sau “behind”."
+        },
+        {
+          "en": "The pigsty is behind the house, near to garden.",
+          "explanationVi": "Cần mạo từ “the” trước “garden”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        8
+      ],
+      "wordIds": [
+        "word:pigsty-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:pigsty-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "She cleans the pigsty every morning.",
+      "vi": "Sáng nào cô ấy cũng dọn chuồng lợn.",
+      "audio": "eb8b2bdd1df63d98d4d0a5f3e6f1c049804d0cf26adff0aec27ba4c144df641c",
+      "tokens": [
+        "She",
+        "cleans",
+        "the",
+        "pigsty",
+        "every",
+        "morning"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "She clean the pigsty every morning.",
+          "explanationVi": "Chủ ngữ “she” nên dùng “cleans”."
+        },
+        {
+          "en": "She cleans the pigsty every mornings.",
+          "explanationVi": "Sau “every” dùng danh từ số ít."
+        },
+        {
+          "en": "She cleans the pigsty in every morning.",
+          "explanationVi": "Trước “every morning” không dùng giới từ."
+        }
+      ],
+      "gapCandidates": [
+        1,
+        5
+      ],
+      "wordIds": [
+        "word:pigsty-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:plow-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "In the past, buffaloes pulled the plow.",
+      "vi": "Ngày xưa, trâu kéo cày.",
+      "audio": "6a6895b019796c71a4238db41daa0f6ac38181e105979460191d023831e59c2c",
+      "tokens": [
+        "In",
+        "the",
+        "past",
+        "buffaloes",
+        "pulled",
+        "the",
+        "plow"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "In the past, buffaloes pull the plow.",
+          "explanationVi": "“In the past” nên dùng quá khứ “pulled”."
+        },
+        {
+          "en": "In past, buffaloes pulled the plow.",
+          "explanationVi": "Cụm đúng là “in the past”."
+        },
+        {
+          "en": "On the past, buffaloes pulled the plow.",
+          "explanationVi": "Cụm đúng là “in the past”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:plow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:plow-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "The farmer fixed the broken plow before planting.",
+      "vi": "Người nông dân sửa cái cày bị hỏng trước khi gieo trồng.",
+      "audio": "285f87a8a6d12d52f64ae3552f55846a3a864153fbffb668d364d6f5792b2ddf",
+      "tokens": [
+        "The",
+        "farmer",
+        "fixed",
+        "the",
+        "broken",
+        "plow",
+        "before",
+        "planting"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The farmer fix the broken plow before planting.",
+          "explanationVi": "Chuyện đã xảy ra nên dùng quá khứ “fixed”."
+        },
+        {
+          "en": "The farmer fixed the broke plow before planting.",
+          "explanationVi": "Tính từ “bị hỏng” là “broken”."
+        },
+        {
+          "en": "The farmer fixed the broken plow before plant.",
+          "explanationVi": "Sau “before” dùng V-ing “planting”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:plow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:poultry-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Poultry is the main income of many families here.",
+      "vi": "Gia cầm là nguồn thu nhập chính của nhiều gia đình ở đây.",
+      "audio": "b416b1c0119b9fce4ddf5f6b2ebda53e8bb21cce87c9849aebb646d16954306c",
+      "tokens": [
+        "Poultry",
+        "is",
+        "the",
+        "main",
+        "income",
+        "of",
+        "many",
+        "families",
+        "here"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Poultry is the main income of much families here.",
+          "explanationVi": "“Families” đếm được nên dùng “many”."
+        },
+        {
+          "en": "Poultry is the mainly income of many families here.",
+          "explanationVi": "Trước danh từ dùng tính từ “main”."
+        },
+        {
+          "en": "Poultry is the main income of many family here.",
+          "explanationVi": "Sau “many” dùng danh từ số nhiều."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:poultry-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:poultry-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Bird flu spreads quickly on poultry farms.",
+      "vi": "Cúm gia cầm lây lan nhanh ở các trại gia cầm.",
+      "audio": "104a609128a9eee8d9778672f1f4a91c0c7aa0b6c07e4e0eef641793239e7433",
+      "tokens": [
+        "Bird",
+        "flu",
+        "spreads",
+        "quickly",
+        "on",
+        "poultry",
+        "farms"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Bird flu spread quickly on poultry farms.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “spreads”."
+        },
+        {
+          "en": "Bird flu spreads quick on poultry farms.",
+          "explanationVi": "Bổ nghĩa cho động từ dùng trạng từ “quickly”."
+        },
+        {
+          "en": "Bird flu spreads quickly on poultry farm.",
+          "explanationVi": "Không có mạo từ nên dùng số nhiều “farms”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:poultry-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:rooster-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The rooster wakes everyone up at five o'clock.",
+      "vi": "Con gà trống đánh thức mọi người lúc năm giờ.",
+      "audio": "4bc63551c09e320841591722f2f6edd526fee2bdde4c4821e51306c9721b00ff",
+      "tokens": [
+        "The",
+        "rooster",
+        "wakes",
+        "everyone",
+        "up",
+        "at",
+        "five",
+        "o'clock"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The rooster wake everyone up at five o'clock.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “wakes”."
+        },
+        {
+          "en": "The rooster wakes everyone up on five o'clock.",
+          "explanationVi": "Với giờ dùng giới từ “at”."
+        },
+        {
+          "en": "The rooster wakes everyone up at five clock.",
+          "explanationVi": "Giờ đúng là “o'clock”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        3
+      ],
+      "wordIds": [
+        "word:rooster-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:rooster-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A rooster is bigger and more colorful than a hen.",
+      "vi": "Gà trống to hơn và sặc sỡ hơn gà mái.",
+      "audio": "49cda7a0658f595042795632f98314f392dfd13369fad2bdb81cf2c8bbab148c",
+      "tokens": [
+        "A",
+        "rooster",
+        "is",
+        "bigger",
+        "and",
+        "more",
+        "colorful",
+        "than",
+        "a",
+        "hen"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A rooster is more big and more colorful than a hen.",
+          "explanationVi": "So sánh hơn của “big” là “bigger”."
+        },
+        {
+          "en": "A rooster is bigger and colorfuller than a hen.",
+          "explanationVi": "Tính từ dài dùng “more colorful”."
+        },
+        {
+          "en": "A rooster is bigger and more colorful that a hen.",
+          "explanationVi": "So sánh hơn dùng “than”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:rooster-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scarecrow-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The farmer put a scarecrow in the middle of the field.",
+      "vi": "Người nông dân dựng một con bù nhìn giữa cánh đồng.",
+      "audio": "539a420a1855a797cc5a3bba80c0f3db21f2be1c5b598b5e62948d73c045db6c",
+      "tokens": [
+        "The",
+        "farmer",
+        "put",
+        "a",
+        "scarecrow",
+        "in",
+        "the",
+        "middle",
+        "of",
+        "the",
+        "field"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The farmer putted a scarecrow in the middle of the field.",
+          "explanationVi": "Quá khứ của “put” vẫn là “put”."
+        },
+        {
+          "en": "The farmer put a scarecrow in the middle on the field.",
+          "explanationVi": "Cụm đúng là “in the middle of”."
+        },
+        {
+          "en": "The farmer put a scarecrow in middle of the field.",
+          "explanationVi": "Cụm đúng là “in the middle of”."
+        }
+      ],
+      "gapCandidates": [
+        7,
+        10
+      ],
+      "wordIds": [
+        "word:scarecrow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:scarecrow-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "A scarecrow keeps birds away from the rice.",
+      "vi": "Bù nhìn giúp đuổi chim khỏi ruộng lúa.",
+      "audio": "c11041b323aac1660205f99813b6bda8160e75e229fc55f7d41ca14f23eab843",
+      "tokens": [
+        "A",
+        "scarecrow",
+        "keeps",
+        "birds",
+        "away",
+        "from",
+        "the",
+        "rice"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "A scarecrow keep birds away from the rice.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “keeps”."
+        },
+        {
+          "en": "A scarecrow keeps birds away of the rice.",
+          "explanationVi": "Cụm đúng là “away from”."
+        },
+        {
+          "en": "A scarecrow keeps bird away from the rice.",
+          "explanationVi": "Nói chung về chim dùng số nhiều “birds”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        4
+      ],
+      "wordIds": [
+        "word:scarecrow-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sow-v-1",
+    "kind": "sentence",
+    "body": {
+      "en": "Farmers sow the seeds when the rain comes.",
+      "vi": "Nông dân gieo hạt khi mưa đến.",
+      "audio": "9de00f6574e17ed75cc5146348fefe207ed8e1d6272a0cc0fc080e7ee2c5a36d",
+      "tokens": [
+        "Farmers",
+        "sow",
+        "the",
+        "seeds",
+        "when",
+        "the",
+        "rain",
+        "comes"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Farmers sows the seeds when the rain comes.",
+          "explanationVi": "Chủ ngữ số nhiều nên dùng “sow”."
+        },
+        {
+          "en": "Farmers sow the seeds when the rain come.",
+          "explanationVi": "Chủ ngữ “the rain” số ít nên dùng “comes”."
+        },
+        {
+          "en": "Farmers sow the seeds when the rain will come.",
+          "explanationVi": "Sau “when” chỉ thời gian dùng hiện tại đơn."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        6
+      ],
+      "wordIds": [
+        "word:sow-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:sow-v-2",
+    "kind": "sentence",
+    "body": {
+      "en": "We sowed corn in this field last spring.",
+      "vi": "Mùa xuân năm ngoái chúng tôi gieo ngô trên cánh đồng này.",
+      "audio": "d47fb25b45a3c58a5abf6c85f29bfb1cddb65deb67c6123bcc97541635074912",
+      "tokens": [
+        "We",
+        "sowed",
+        "corn",
+        "in",
+        "this",
+        "field",
+        "last",
+        "spring"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "We sow corn in this field last spring.",
+          "explanationVi": "“Last spring” là quá khứ nên dùng “sowed”."
+        },
+        {
+          "en": "We sowed corns in this field last spring.",
+          "explanationVi": "“Corn” không đếm được, không thêm “s”."
+        },
+        {
+          "en": "We sowed corn in this field the last spring.",
+          "explanationVi": "Nói “last spring”, không có “the”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        5
+      ],
+      "wordIds": [
+        "word:sow-v"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tractor-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The tractor can plow a whole field in one day.",
+      "vi": "Máy cày có thể cày xong cả một thửa ruộng trong một ngày.",
+      "audio": "2f354ab9c1766f68689490c0bdf3adf3b6fab3635c87a91a98bfd87f8c82b07c",
+      "tokens": [
+        "The",
+        "tractor",
+        "can",
+        "plow",
+        "a",
+        "whole",
+        "field",
+        "in",
+        "one",
+        "day"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The tractor can plows a whole field in one day.",
+          "explanationVi": "Sau “can” dùng động từ nguyên mẫu “plow”."
+        },
+        {
+          "en": "The tractor can plow a whole field in one days.",
+          "explanationVi": "Sau “one” dùng danh từ số ít."
+        },
+        {
+          "en": "The tractor can plow whole a field in one day.",
+          "explanationVi": "Trật tự đúng là “a whole field”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        9
+      ],
+      "wordIds": [
+        "word:tractor-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:tractor-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "My uncle drives an old tractor on his farm.",
+      "vi": "Chú tôi lái một chiếc máy kéo cũ trong trang trại.",
+      "audio": "f384d2e6eb1463edf4606da9a6fddbf6a410ba61bd2ce2768af93fd27c69af7b",
+      "tokens": [
+        "My",
+        "uncle",
+        "drives",
+        "an",
+        "old",
+        "tractor",
+        "on",
+        "his",
+        "farm"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "My uncle drive an old tractor on his farm.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “drives”."
+        },
+        {
+          "en": "My uncle drives a old tractor on his farm.",
+          "explanationVi": "Trước âm nguyên âm dùng “an”."
+        },
+        {
+          "en": "My uncle drives an old tractor on her farm.",
+          "explanationVi": "“Uncle” là nam nên dùng “his”."
+        }
+      ],
+      "gapCandidates": [
+        2,
+        4
+      ],
+      "wordIds": [
+        "word:tractor-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:water-buffalo-n-1",
+    "kind": "sentence",
+    "body": {
+      "en": "The water buffalo is a symbol of the Vietnamese countryside.",
+      "vi": "Con trâu là biểu tượng của làng quê Việt Nam.",
+      "audio": "6b86bef72ce525879a3b8321f4bffe4cfcd461cb4bc84c0e45471594571f74a8",
+      "tokens": [
+        "The",
+        "water",
+        "buffalo",
+        "is",
+        "a",
+        "symbol",
+        "of",
+        "the",
+        "Vietnamese",
+        "countryside"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "The water buffalo are a symbol of the Vietnamese countryside.",
+          "explanationVi": "Chủ ngữ số ít nên dùng “is”."
+        },
+        {
+          "en": "The water buffalo is symbol of the Vietnamese countryside.",
+          "explanationVi": "Danh từ đếm được số ít cần mạo từ “a”."
+        },
+        {
+          "en": "The water buffalo is a symbol of the Vietnam countryside.",
+          "explanationVi": "Tính từ chỉ quốc tịch là “Vietnamese”."
+        }
+      ],
+      "gapCandidates": [
+        5,
+        9
+      ],
+      "wordIds": [
+        "word:water-buffalo-n"
+      ]
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "sort": 0,
+    "id": "sentence:water-buffalo-n-2",
+    "kind": "sentence",
+    "body": {
+      "en": "Children used to ride water buffaloes in the fields.",
+      "vi": "Ngày trước trẻ con thường cưỡi trâu ngoài đồng.",
+      "audio": "d380aab2ce1bc8f142e3063570a439a11367c37151c989019036a8be65fdb31c",
+      "tokens": [
+        "Children",
+        "used",
+        "to",
+        "ride",
+        "water",
+        "buffaloes",
+        "in",
+        "the",
+        "fields"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "wrongVariants": [
+        {
+          "en": "Children used to riding water buffaloes in the fields.",
+          "explanationVi": "Sau “used to” dùng động từ nguyên mẫu “ride”."
+        },
+        {
+          "en": "Children use to ride water buffaloes in the fields.",
+          "explanationVi": "Thói quen trong quá khứ là “used to”."
+        },
+        {
+          "en": "Childrens used to ride water buffaloes in the fields.",
+          "explanationVi": "“Children” đã là số nhiều, không thêm “s”."
+        }
+      ],
+      "gapCandidates": [
+        3,
+        0
+      ],
+      "wordIds": [
+        "word:water-buffalo-n"
+      ]
+    },
+    "status": "approved"
+  }
+]

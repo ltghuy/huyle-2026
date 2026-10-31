@@ -1,0 +1,688 @@
+[
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:cash-crop-n",
+    "kind": "word",
+    "body": {
+      "headword": "cash crop",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kæʃ krɑp/",
+      "meaningsVi": [
+        "cây trồng hàng hóa",
+        "cây công nghiệp (trồng để bán)"
+      ],
+      "examples": [
+        "sentence:cash-crop-n-1",
+        "sentence:cash-crop-n-2"
+      ],
+      "synonyms": [],
+      "audio": "834896cd0d1fcae340c2bf8638b92f53ed1261e078070fce9d894ed43be1a7ba",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:chick-n",
+    "kind": "word",
+    "body": {
+      "headword": "chick",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/tʃɪk/",
+      "meaningsVi": [
+        "gà con"
+      ],
+      "examples": [
+        "sentence:chick-n-1",
+        "sentence:chick-n-2"
+      ],
+      "synonyms": [],
+      "audio": "9c70581eb42cf8b8aabe439d17428bc4cbbcb7cf21834eb6a32ada53a00912ed",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:chicken-coop-n",
+    "kind": "word",
+    "body": {
+      "headword": "chicken coop",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtʃɪkən kup/",
+      "meaningsVi": [
+        "chuồng gà"
+      ],
+      "examples": [
+        "sentence:chicken-coop-n-1",
+        "sentence:chicken-coop-n-2"
+      ],
+      "synonyms": [],
+      "audio": "d6024a15a90ded7ca2d91d84cdb41686979d3292bb0c8d681530f26ea4365195",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:compost-n",
+    "kind": "word",
+    "body": {
+      "headword": "compost",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈkɑmpoʊst/",
+      "meaningsVi": [
+        "phân hữu cơ, phân ủ"
+      ],
+      "examples": [
+        "sentence:compost-n-1",
+        "sentence:compost-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0afbc0c90fc8e481a3c76ac97311eab9c0f68cce713fe8eb357e121fdf1e7fa7",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:crop-rotation-n",
+    "kind": "word",
+    "body": {
+      "headword": "crop rotation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/krɑp roʊˈteɪʃən/",
+      "meaningsVi": [
+        "luân canh cây trồng"
+      ],
+      "examples": [
+        "sentence:crop-rotation-n-1",
+        "sentence:crop-rotation-n-2"
+      ],
+      "synonyms": [],
+      "audio": "aa8f30f7b81903cbade008d716ab31bde73f04e16e86e621e3c09c8343c11e41",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:crop-yield-n",
+    "kind": "word",
+    "body": {
+      "headword": "crop yield",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/krɑp jild/",
+      "meaningsVi": [
+        "năng suất cây trồng",
+        "sản lượng thu hoạch"
+      ],
+      "examples": [
+        "sentence:crop-yield-n-1",
+        "sentence:crop-yield-n-2"
+      ],
+      "synonyms": [],
+      "audio": "d0bcaceb40f1cf73d714e2c71b6a30c06dc1b844b3322ef87cf6cbf62b011bc4",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:dairy-farm-n",
+    "kind": "word",
+    "body": {
+      "headword": "dairy farm",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈdɛri fɑrm/",
+      "meaningsVi": [
+        "trang trại bò sữa"
+      ],
+      "examples": [
+        "sentence:dairy-farm-n-1",
+        "sentence:dairy-farm-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2d2f2aef1f84e2c109b1bd1985f1c6d4baae62effe783f769d39c93907fb8cde",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:fertilizer-n",
+    "kind": "word",
+    "body": {
+      "headword": "fertilizer",
+      "variants": [
+        "fertiliser"
+      ],
+      "pos": "noun",
+      "ipa": "/ˈfɝtəˌlaɪzɚ/",
+      "meaningsVi": [
+        "phân bón"
+      ],
+      "examples": [
+        "sentence:fertilizer-n-1",
+        "sentence:fertilizer-n-2"
+      ],
+      "synonyms": [],
+      "audio": "5b210d2d3371325357e8ebcc9dc58d9e88638085b9bbb7d4bea83116a33a1bee",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:fish-farm-n",
+    "kind": "word",
+    "body": {
+      "headword": "fish farm",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/fɪʃ fɑrm/",
+      "meaningsVi": [
+        "trại nuôi cá"
+      ],
+      "examples": [
+        "sentence:fish-farm-n-1",
+        "sentence:fish-farm-n-2"
+      ],
+      "synonyms": [],
+      "audio": "20b5c13306bd2ccadd8842416a1b15caa79dd6432865f03f705d5c6ccf358e3a",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:graze-v",
+    "kind": "word",
+    "body": {
+      "headword": "graze",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ɡreɪz/",
+      "meaningsVi": [
+        "ăn cỏ (gia súc)",
+        "chăn thả"
+      ],
+      "examples": [
+        "sentence:graze-v-1",
+        "sentence:graze-v-2"
+      ],
+      "synonyms": [],
+      "audio": "b9d076073c4bd54c4a4341adee75558d015b36dd80145d85967498da7a8dcfcd",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:hen-n",
+    "kind": "word",
+    "body": {
+      "headword": "hen",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/hɛn/",
+      "meaningsVi": [
+        "gà mái"
+      ],
+      "examples": [
+        "sentence:hen-n-1",
+        "sentence:hen-n-2"
+      ],
+      "synonyms": [],
+      "audio": "154d33d1068417bb9258f30fcf64a252c94f29068c84f44aa8ac6ee078464eec",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:hoe-n",
+    "kind": "word",
+    "body": {
+      "headword": "hoe",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/hoʊ/",
+      "meaningsVi": [
+        "cái cuốc"
+      ],
+      "examples": [
+        "sentence:hoe-n-1",
+        "sentence:hoe-n-2"
+      ],
+      "synonyms": [],
+      "audio": "98272807102af4c43622c7b736aa9e4f73b6d0d742c541ad0e705163d49a4cd6",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:irrigation-n",
+    "kind": "word",
+    "body": {
+      "headword": "irrigation",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˌɪrəˈɡeɪʃən/",
+      "meaningsVi": [
+        "thủy lợi",
+        "sự tưới tiêu"
+      ],
+      "examples": [
+        "sentence:irrigation-n-1",
+        "sentence:irrigation-n-2"
+      ],
+      "synonyms": [],
+      "audio": "2d17430f0e4212bd805d07fcba63e76c8f73d6d966d6d627cfb829283a631fd0",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:livestock-n",
+    "kind": "word",
+    "body": {
+      "headword": "livestock",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈlaɪvˌstɑk/",
+      "meaningsVi": [
+        "vật nuôi, gia súc (nói chung)"
+      ],
+      "examples": [
+        "sentence:livestock-n-1",
+        "sentence:livestock-n-2"
+      ],
+      "synonyms": [],
+      "audio": "803b93a01b466356698bc17abfc52f16ead4b9a56697c63ac59e29acfb198ece",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:manure-n",
+    "kind": "word",
+    "body": {
+      "headword": "manure",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/məˈnʊr/",
+      "meaningsVi": [
+        "phân chuồng"
+      ],
+      "examples": [
+        "sentence:manure-n-1",
+        "sentence:manure-n-2"
+      ],
+      "synonyms": [],
+      "audio": "d361a26cbdc4833e3cdaf9d2991b42e15472dd1a649e9b1b0d2d710bc5217256",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:paddy-field-n",
+    "kind": "word",
+    "body": {
+      "headword": "paddy field",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpædi fild/",
+      "meaningsVi": [
+        "ruộng lúa"
+      ],
+      "examples": [
+        "sentence:paddy-field-n-1",
+        "sentence:paddy-field-n-2"
+      ],
+      "synonyms": [],
+      "audio": "965fea3cbfdca7eef02a7d5c9bab200b7bb1551fbd73dc3dd93297aa2bb726d7",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:pasture-n",
+    "kind": "word",
+    "body": {
+      "headword": "pasture",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpæstʃɚ/",
+      "meaningsVi": [
+        "đồng cỏ (chăn thả)"
+      ],
+      "examples": [
+        "sentence:pasture-n-1",
+        "sentence:pasture-n-2"
+      ],
+      "synonyms": [],
+      "audio": "7723e7665a594a908ee6a7a5a20ce99a33388706c2cb5444d79d760349cef6c8",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:pest-n",
+    "kind": "word",
+    "body": {
+      "headword": "pest",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pɛst/",
+      "meaningsVi": [
+        "sâu bệnh, loài gây hại (cho cây trồng)"
+      ],
+      "examples": [
+        "sentence:pest-n-1",
+        "sentence:pest-n-2"
+      ],
+      "synonyms": [],
+      "audio": "96e809cb92fad415b2a99e06b40f62e8768bf6addc31bedbaf035b567f119534",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:pesticide-n",
+    "kind": "word",
+    "body": {
+      "headword": "pesticide",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɛstəˌsaɪd/",
+      "meaningsVi": [
+        "thuốc trừ sâu"
+      ],
+      "examples": [
+        "sentence:pesticide-n-1",
+        "sentence:pesticide-n-2"
+      ],
+      "synonyms": [],
+      "audio": "4cdb91f6cbcfc6c23d4aca7fb3bff01a7052fcd6e79d2d0ef7f818afb1ed97d7",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:piglet-n",
+    "kind": "word",
+    "body": {
+      "headword": "piglet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɪɡlɪt/",
+      "meaningsVi": [
+        "lợn con",
+        "heo con"
+      ],
+      "examples": [
+        "sentence:piglet-n-1",
+        "sentence:piglet-n-2"
+      ],
+      "synonyms": [],
+      "audio": "928139597c0cac39e75416ab4c478855dae9710682d78359f90296312316c962",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:pigsty-n",
+    "kind": "word",
+    "body": {
+      "headword": "pigsty",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpɪɡˌstaɪ/",
+      "meaningsVi": [
+        "chuồng lợn"
+      ],
+      "examples": [
+        "sentence:pigsty-n-1",
+        "sentence:pigsty-n-2"
+      ],
+      "synonyms": [],
+      "audio": "d5cd5663ac8815e731ecbc74bc237011cea88857e28839b5e958aefe378f8a36",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:plow-n",
+    "kind": "word",
+    "body": {
+      "headword": "plow",
+      "variants": [
+        "plough"
+      ],
+      "pos": "noun",
+      "ipa": "/plaʊ/",
+      "meaningsVi": [
+        "cái cày"
+      ],
+      "examples": [
+        "sentence:plow-n-1",
+        "sentence:plow-n-2"
+      ],
+      "synonyms": [],
+      "audio": "b1819e8045f079cb2b1acec729f72cc35cff69f3fa97fcdacf3e2e9f6acbb8b3",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:poultry-n",
+    "kind": "word",
+    "body": {
+      "headword": "poultry",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈpoʊltri/",
+      "meaningsVi": [
+        "gia cầm"
+      ],
+      "examples": [
+        "sentence:poultry-n-1",
+        "sentence:poultry-n-2"
+      ],
+      "synonyms": [],
+      "audio": "0351ea71624831e27fcd9da1478843c026ad06b7fe980d81a59cff7b35eacaee",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:rooster-n",
+    "kind": "word",
+    "body": {
+      "headword": "rooster",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈrustɚ/",
+      "meaningsVi": [
+        "gà trống"
+      ],
+      "examples": [
+        "sentence:rooster-n-1",
+        "sentence:rooster-n-2"
+      ],
+      "synonyms": [],
+      "audio": "aacd4c123a544f0834b5b8739f45e21bf93b00607c5ace83eb5013fcf40d549a",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:scarecrow-n",
+    "kind": "word",
+    "body": {
+      "headword": "scarecrow",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈskærˌkroʊ/",
+      "meaningsVi": [
+        "bù nhìn"
+      ],
+      "examples": [
+        "sentence:scarecrow-n-1",
+        "sentence:scarecrow-n-2"
+      ],
+      "synonyms": [],
+      "audio": "e167d0a1730eeadd21cedbd60cbc11389e8449c9167f0b894819c87f133e20ea",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "nature-weather",
+    "sort": 0,
+    "id": "word:sow-v",
+    "kind": "word",
+    "body": {
+      "headword": "sow",
+      "variants": [],
+      "pos": "verb",
+      "ipa": "/ˈsoʊ/",
+      "meaningsVi": [
+        "gieo (hạt)"
+      ],
+      "examples": [
+        "sentence:sow-v-1",
+        "sentence:sow-v-2"
+      ],
+      "synonyms": [],
+      "audio": "ff1a8c92d85fce44ffe977b5a25f4076036bf4d5a1935233d9a24e6294572ecf",
+      "source": "specialized"
+    },
+    "status": "approved",
+    "reviewNotes": [
+      "IPA flagged: CMUdict gave /saʊ/",
+      "The verb sow /soʊ/ (gieo), not the noun sow /saʊ/ (lợn nái)."
+    ]
+  },
+  {
+    "level": "B1",
+    "topic": "business-economy",
+    "sort": 0,
+    "id": "word:tractor-n",
+    "kind": "word",
+    "body": {
+      "headword": "tractor",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈtræktɚ/",
+      "meaningsVi": [
+        "máy cày",
+        "máy kéo"
+      ],
+      "examples": [
+        "sentence:tractor-n-1",
+        "sentence:tractor-n-2"
+      ],
+      "synonyms": [],
+      "audio": "6ba25923f9be6ca76056216acfc390e52ad5802354b18a536bd4949531190f04",
+      "source": "specialized"
+    },
+    "status": "approved"
+  },
+  {
+    "level": "B1",
+    "topic": "animals",
+    "sort": 0,
+    "id": "word:water-buffalo-n",
+    "kind": "word",
+    "body": {
+      "headword": "water buffalo",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ˈwɔtɚ ˈbʌfəˌloʊ/",
+      "meaningsVi": [
+        "con trâu"
+      ],
+      "examples": [
+        "sentence:water-buffalo-n-1",
+        "sentence:water-buffalo-n-2"
+      ],
+      "synonyms": [],
+      "audio": "62438b8088600ee1d80a12b9a311b225adee8b04c7458129bb1192ca432f7806",
+      "source": "specialized"
+    },
+    "status": "approved"
+  }
+]
