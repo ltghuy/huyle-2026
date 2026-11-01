@@ -212,7 +212,7 @@ describe("SQL", () => {
     expect(files[2]).toContain("UPDATE content_items SET deleted = 1, updated_version = 5 WHERE id = 'word:gone-n';");
     expect(files[3]).toBe(
       "INSERT INTO content_meta (id, version, published_at, counts) VALUES (1, 5, 1000, " +
-        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0,"forms":0,"set":0}') ` +
+        `'{"word":230,"grammar":0,"sentence":0,"writing":0,"placement":0,"forms":0,"set":0,"wording":0}') ` +
         "ON CONFLICT(id) DO UPDATE SET version = excluded.version, published_at = excluded.published_at, counts = excluded.counts;\n",
     );
   });
@@ -281,5 +281,36 @@ describe("vocabulary sets (feature 012)", () => {
     const rows = rowItemsOf(collected.items, collected.setScoped).items.filter((item) => item.kind !== "set");
     const prompts = generatePlacement(rows).map((item) => item.body.prompt);
     expect(prompts).not.toContain("deadline");
+  });
+});
+
+describe("wordings (feature 016)", () => {
+  const setFixture = (kind: string): SourceFile => ({
+    file: `${kind}/set-fx-office.json`,
+    data: JSON.parse(readFileSync(path.join(FIXTURES, kind, "set-fx-office.json"), "utf8")),
+  });
+  const wording = (slug: string, sentenceId: string) => ({
+    file: "wording/A1.json",
+    data: [{ id: `wording:${slug}`, kind: "wording", level: "A1", sort: 0, body: { sentenceId, accepted: ["Friday is the deadline."] }, status: "approved" }],
+  });
+  const collect = (extra: SourceFile) => collectApproved([...fixtureFiles(), ...["word", "sentence", "set"].map(setFixture), extra]);
+
+  it("accepts a wording that points at a vocabulary set's sentence, and publishes it as a row", () => {
+    const collected = collect(wording("fx-deadline-n", "sentence:fx-deadline-n"));
+    expect(collected.errors).toEqual([]);
+    expect(checkReferences(collected.items)).toEqual([]);
+    const { items } = rowItemsOf(collected.items, collected.setScoped);
+    expect(items.map((item) => item.id)).toContain("wording:fx-deadline-n");
+    expect(countsByKind(items).wording).toBe(1);
+  });
+
+  it("rejects a wording that points at an unknown sentence", () => {
+    const collected = collect(wording("fx-nothing", "sentence:fx-nothing"));
+    expect(checkReferences(collected.items)).toEqual(["wording:fx-nothing references sentence:fx-nothing, which is not approved or doesn't exist"]);
+  });
+
+  it("rejects a wording not named after its sentence", () => {
+    const collected = collect(wording("fx-other", "sentence:fx-deadline-n"));
+    expect(checkReferences(collected.items)).toEqual(["wording:fx-other must be named after its sentence sentence:fx-deadline-n"]);
   });
 });

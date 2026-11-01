@@ -97,6 +97,7 @@ describe("BackupPanel", () => {
         attempts: [makeAttempt("other-1", "word:apple", now)],
         lessons: [],
         extraLessons: [],
+        claims: [],
         attendance: [{ date: "2026-10-25", points: 10, bonus: 0, at: now }],
       },
       now,

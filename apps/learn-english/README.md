@@ -23,7 +23,7 @@ answers.
 | Ngữ pháp | `/grammar` | Grammar points and the 12 tenses, explained in Vietnamese with examples and practice |
 | Động từ bất quy tắc | `/irregular-verbs` | The 108 common irregular verbs with past and past participle, Vietnamese meaning, IPA and one "go, went, gone" clip each; filters by level and by pattern (cut – cut – cut, buy – bought – bought, come – came – come, go – went – gone); practice whose answers get their own review schedule in Ôn tập |
 | Ôn tập | `/review` | Reviews due today, scheduled with FSRS so each item comes back just before it would be forgotten |
-| Bài tập | `/exercises` | Free practice: multiple choice, spelling, listening, sentence ordering |
+| Bài tập | `/exercises` | Free practice: multiple choice, spelling, listening, sentence ordering, translating a Vietnamese sentence into English |
 | Từ khó | `/hard-words` | The words a learner gets wrong most often or takes longest to recall |
 | Hồ sơ | `/profile` | Attendance points, streaks, a 12-week calendar and progress per level |
 | Cài đặt | `/settings` | Name, level, appearance, sync, backup files, and replaying the guided tour |
@@ -119,7 +119,7 @@ pnpm e2e
 ## Content pipeline
 
 Course content lives in `content/` as JSON, one file per kind and level
-(`word/`, `sentence/`, `grammar/`, `writing/`). Every item starts as a draft and
+(`word/`, `sentence/`, `grammar/`, `writing/`, and `wording/` for approved alternative translations). Every item starts as a draft and
 reaches learners only after the owner approves it. The scripts run on the
 owner's machine; none of them ship in the app bundle.
 
@@ -135,6 +135,23 @@ owner's machine; none of them ship in the app bundle.
 Publishing bumps the content version last, so browsers refetch only after every
 row is in. Learners see the update without a new release of the app. Each
 script prints its full usage at the top of its file in `scripts/`.
+
+### Translation claims
+
+When a learner's English translation doesn't match an accepted wording, they
+can tap "Câu của mình cũng đúng": the answer counts as correct (Hard) and the
+claim waits in D1 for the owner. Claims are decided on the owner's machine:
+
+1. `pnpm content:claims pull [--remote] [--no-ai]` reads the pending claims,
+   groups identical wordings, decides the obvious ones (sentence gone, already
+   accepted) and asks Claude for a verdict on the rest (needs `ANTHROPIC_API_KEY`;
+   `--no-ai` skips it). It writes `content/.claims/<date>.html`.
+2. Open that sheet, approve or reject each group (a rejection needs a short
+   Vietnamese explanation for the learner) and download the decisions file.
+3. `pnpm content:claims apply <decisions.json> [--remote]` adds approved wordings
+   to `content/wording/{level}.json` and records every decision in D1.
+4. `pnpm content:publish` makes the approved wordings correct for everyone.
+   Learners whose claim was rejected see it once, the next day they open the app.
 
 `pnpm stats:report --from <date> --to <date> [--remote]` prints the anonymous
 usage stats: lessons completed and distinct devices per day, exercises answered
@@ -189,9 +206,10 @@ The rules ask Claude Code to load the same four skills as the handbook
 The app is the Worker `learn-english` (`wrangler.jsonc`, `open-next.config.ts`)
 on the custom domain `english.huyle.work`. It uses these bindings:
 
-- `DB`: the D1 database `learn-english` (content, sync blobs, anonymous stats, the weekly leaderboard)
+- `DB`: the D1 database `learn-english` (content, sync blobs, anonymous stats, the weekly leaderboard, translation claims)
 - `SYNC_LOOKUP_LIMITER`: a rate limit on wrong sync-code lookups, 10 per minute per IP
 - `LEADERBOARD_LIMITER`: a rate limit on leaderboard writes, 20 per minute per IP
+- `CLAIMS_LIMITER`: a rate limit on translation claims and their status checks, 20 per minute per IP
 - `STATS_SALT`: a secret, set with `wrangler secret put STATS_SALT`
 
 - **Automatic:** Cloudflare Workers Builds deploys pushes to `main` of the

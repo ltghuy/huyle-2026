@@ -6,6 +6,7 @@ import { NamePrompt } from "@/components/name/name-prompt";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
 import { StatsRunner } from "@/components/stats/stats-runner";
+import { ClaimsRunner } from "@/components/claims/claims-runner";
 import { SyncRunner } from "@/components/sync/sync-runner";
 import { AppTour } from "@/components/tour/app-tour";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -26,6 +27,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       <BackToTop />
       <SyncRunner />
       <StatsRunner />
+      <ClaimsRunner />
       <NamePrompt />
       {/* Reads ?tour=1, so it needs a Suspense boundary to keep the pages static. */}
       <Suspense fallback={null}>

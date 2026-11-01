@@ -53,6 +53,7 @@ describe("SyncPanel", () => {
         attempts: [],
         lessons: [],
         extraLessons: [],
+        claims: [],
         attendance: [{ date: "2026-10-20", points: 10, bonus: 0, at: 1 }],
       },
       Date.now(),

@@ -1,5 +1,6 @@
 import type { ContentItemOf } from "@/content/schema";
 import { localDate } from "@/learning/attendance";
+import { canTranslate } from "@/learning/exercises/translate";
 import { dueCards, hashString, REVIEW_CAP, reviewExercises } from "@/learning/lesson-plan";
 import type { ExerciseDescriptor, Profile, StoredCard } from "@/learning/types";
 import type { ContentIndex } from "./content-index";
@@ -27,5 +28,15 @@ export function reviewSession(due: readonly StoredCard[], index: ContentIndex, n
     const item = index.byId.get(id);
     return item?.kind === "forms" ? item.body.audio : "";
   };
-  return reviewExercises(due.slice(0, REVIEW_CAP), wordsById, (i, itemId) => hashString(`${base}|review|${i}|${itemId}`), audioOf);
+  // A word's or grammar point's translatable examples, a different one each time it comes back (feature 016).
+  const exampleOf = (card: StoredCard) => {
+    const item = index.byId.get(card.itemId);
+    if (item?.kind !== "word" && item?.kind !== "grammar") return undefined;
+    const examples = item.body.examples.filter((id) => {
+      const sentence = index.byId.get(id);
+      return sentence?.kind === "sentence" && !index.lesson.skip.has(id) && canTranslate(sentence);
+    });
+    return examples.length ? examples[card.reps % examples.length] : undefined;
+  };
+  return reviewExercises(due.slice(0, REVIEW_CAP), wordsById, (i, itemId) => hashString(`${base}|review|${i}|${itemId}`), audioOf, exampleOf);
 }

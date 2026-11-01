@@ -82,6 +82,21 @@ describe("prepareStep", () => {
     });
   });
 
+  it("builds a translate step from a sentence, with its approved wordings and related cards (016 AC-004)", () => {
+    const wording = { id: "wording:apple-1", kind: "wording" as const, level: "A1" as const, sort: 0, body: { sentenceId: "sentence:apple-1", accepted: ["I am eating an apple"] } };
+    const local = buildContentIndex([...index.byId.values(), wording]);
+    const step = prepareStep({ kind: "translate", itemIds: ["sentence:apple-1"], seed: 1 }, local, "k");
+    expect(step).toMatchObject({ type: "exercise", instance: { kind: "translate", sentenceId: "sentence:apple-1" }, related: { cardIds: ["word:apple", "grammar:present-simple"] } });
+    expect(step?.type === "exercise" && step.instance.kind === "translate" && step.instance.accepted).toContain("i am eating an apple");
+    expect(step?.type === "exercise" && step.instance).not.toHaveProperty("cardId");
+  });
+
+  it("records an Ôn tập translate step against the reviewed card (016 AC-019)", () => {
+    const step = prepareStep({ kind: "translate", itemIds: ["word:apple", "sentence:apple-1"], seed: 1 }, index, "k");
+    expect(step).toMatchObject({ type: "exercise", instance: { kind: "translate", sentenceId: "sentence:apple-1", cardId: "word:apple" } });
+    expect(prepareStep({ kind: "translate", itemIds: ["word:apple"], seed: 1 }, index, "k")).toBeNull();
+  });
+
   it("runs a saved tile-translate step as word-order (015 AC-003)", () => {
     const legacy = prepareStep({ kind: "tile-translate", itemIds: ["sentence:apple-1"], seed: 3 }, index, "k");
     const current = prepareStep({ kind: "word-order", itemIds: ["sentence:apple-1"], seed: 3 }, index, "k");

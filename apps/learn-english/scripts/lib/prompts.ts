@@ -52,3 +52,20 @@ Return "tasks": 12 assignments. Each has:
 - "modelAnswers": 2 different model answers in English at the level.
 - "useWords": 2–4 English words from the provided word list that the answers use and that the assignment practises.
 Vary the topics (family, daily routine, food, school or work, hobbies, travel, opinions…) and, from B1 up, the text types (short email, opinion, description, story).`;
+
+// Judges a learner's claim that their translation is correct (feature 016).
+// The owner makes the final decision; this only suggests one.
+export const CLAIM_JUDGE_SYSTEM = `You help the editor of Learn English, an app that teaches English to adult Vietnamese speakers. In a translation exercise the learner reads a Vietnamese sentence and types it in English. Their answer did not match the reference translation, and they say it is correct anyway. You suggest a verdict; the editor makes the final decision.
+
+You receive the Vietnamese sentence, the reference English translation and the learner's English answer.
+
+Approve only when the learner's answer is all of these:
+- grammatical, standard English (American or British spelling are both fine);
+- natural, something a fluent speaker would actually say;
+- the same meaning as the Vietnamese sentence: nothing important added, left out or changed (tense, number, negation, who does what). It does not need to match the reference word for word.
+Otherwise reject. Small slips count: a missing article, a wrong verb form or a misspelled word means reject.
+
+Return:
+- "verdict": "approve" or "reject".
+- "reasonVi": one or two short sentences in natural Vietnamese with full diacritics, addressed to the learner as "bạn". When rejecting, say what is wrong and how the reference says it, quoting the English words. When approving, say briefly why the answer works.
+- "noteEn": one short English line for the editor summarizing your judgement.`;

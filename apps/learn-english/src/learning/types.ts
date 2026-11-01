@@ -46,6 +46,8 @@ export const EXERCISE_KINDS = [
   "dictation",
   // Pick the underlined part that is wrong (feature 011).
   "find-error",
+  // Read the Vietnamese, type the English; a wrong answer can be claimed (feature 016).
+  "translate",
   // An irregular verb's past and participle (feature 008).
   "forms-typing",
   "forms-gap",
@@ -77,6 +79,35 @@ export interface Attempt {
 }
 
 export type LessonPartKind = "review" | "new-words" | "grammar" | "sentences" | "writing";
+
+/**
+ * Where a claim is: kept on the device until sent, then waiting for the
+ * owner's decision. Only a rejection reaches the learner, once (`shown`).
+ */
+export const CLAIM_STATUSES = ["unsent", "pending", "approved", "dropped", "rejected", "shown"] as const;
+export type ClaimStatus = (typeof CLAIM_STATUSES)[number];
+
+/** A wrong translate answer the learner said is also correct (feature 016). */
+export interface StoredClaim {
+  /** Random UUID made on the device; the only reference shared with the server. */
+  id: string;
+  sentenceId: string;
+  /** Trimmed, as typed. */
+  answer: string;
+  /** The sentence's English and Vietnamese, so the notice needs no content. */
+  expected: string;
+  vi: string;
+  /** Cards to bring forward if the claim is rejected. */
+  related: CardItemId[];
+  createdAt: number;
+  sentAt?: number;
+  /** Last time the server was asked about this claim. */
+  checkedAt?: number;
+  status: ClaimStatus;
+  /** The owner's explanation of a rejection. */
+  explanationVi?: string;
+  updatedAt: number;
+}
 
 export interface ExerciseDescriptor {
   kind: ExerciseKind;

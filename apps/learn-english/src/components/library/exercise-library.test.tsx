@@ -39,7 +39,8 @@ describe("exercise sets", () => {
     const cards = listSetCards(index, "A1");
     expect(cards.map((card) => card.key)).toEqual(["word.people-family", "word.home", "grammar.to-be", "sentence.home"]);
     // No wrong variants → no "choose the correct sentence".
-    expect(cards[3].sets.map((set) => set.type)).toEqual(["word-order", "sentence-gap"]);
+    expect(cards[3].sets.map((set) => set.type)).toEqual(["word-order", "sentence-gap", "translate"]);
+    expect(TYPE_LABELS.translate).toBe("Dịch câu");
   });
 
   it("lists Nghe chép for sentences with audio (010 AC-011)", () => {
@@ -81,11 +82,11 @@ describe("ExerciseLibrary", () => {
     expect(await screen.findByRole("region", { name: "Từ vựng" })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Ngữ pháp" })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Mẫu câu" })).toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 4 + 1 + 2);
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 4 + 1 + 3);
 
     act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=home"));
     expect(screen.queryByRole("region", { name: "Ngữ pháp" })).not.toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 2);
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 3);
 
     act(() => window.history.replaceState(null, "", "/exercises?level=A1&type=grammar-gap"));
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);

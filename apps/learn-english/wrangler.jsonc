@@ -32,6 +32,12 @@
       "name": "LEADERBOARD_LIMITER",
       "namespace_id": "1002",
       "simple": { "limit": 20, "period": 60 }
+    },
+    // Throttles translation claims and claim status reads per IP (feature 016).
+    {
+      "name": "CLAIMS_LIMITER",
+      "namespace_id": "1003",
+      "simple": { "limit": 20, "period": 60 }
     }
   ],
   "routes": [{ "pattern": "english.huyle.work", "custom_domain": true }]

@@ -211,3 +211,26 @@ describe("run (temp copy of the fixtures)", () => {
     expect(statusOf("word", "word:book-n")).toBe("approved");
   });
 });
+
+describe("wordings (feature 016)", () => {
+  const wording = { id: "wording:fx-cat-n", kind: "wording", level: "A1", sort: 0, body: { sentenceId: "sentence:fx-cat-n", accepted: ["A cat."] }, status: "approved" };
+  const withWording = (drafts: string[] = []): SourceFile[] => [
+    ...files(drafts),
+    { file: "content/wording/A1.json", kind: "wording", level: "A1", data: [wording] },
+  ];
+
+  it("keeps a sentence approved while an approved wording points at it", () => {
+    const all = withWording();
+    const { entries } = entriesOf(all);
+    const { selected } = selectEntries(entries, { files: new Set(["content/sentence/A1.json"]), ids: ["sentence:fx-cat-n"] });
+    const plan = planUnapprove(entries, selected);
+    expect(plan.changed).toEqual([]);
+    expect(plan.refused[0].reason).toContain("wording:fx-cat-n");
+  });
+
+  it("lists wordings without errors", () => {
+    const { entries, problems } = entriesOf(withWording());
+    expect(problems).toEqual([]);
+    expect(summarize(entries).find((row) => row.kind === "wording")).toEqual({ kind: "wording", level: "A1", draft: 0, approved: 1, invalid: 0 });
+  });
+});

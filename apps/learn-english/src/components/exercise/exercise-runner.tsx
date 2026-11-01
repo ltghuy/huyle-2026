@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { submitClaim } from "@/claims/claims-client";
 import { playAnswerSound } from "@/lib/answer-sound";
 import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
@@ -103,6 +104,12 @@ export function ExerciseRunner({
   const [swapped, setSwapped] = useState<Record<string, boolean>>({});
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [confirmExit, setConfirmExit] = useState(false);
+  // A wrong answer that can still be claimed (feature 016) is recorded only
+  // once the learner moves on, claims it or leaves, so a claim never has to
+  // undo a saved wrong attempt.
+  // A ref, so a double tap can't record it twice.
+  const held = useRef<StepOutcome | null>(null);
+  const saving = useRef(false);
   // Set once the last step is left: finishing is async in some callers, and a
   // second tap must not finish (and award) twice.
   const [finished, setFinished] = useState(false);
@@ -129,17 +136,59 @@ export function ExerciseRunner({
     // Retries are practice only: the first try is what counts (AC-006).
     if (retrying) return;
     setScore((current) => ({ correct: current.correct + (graded.correct ? 1 : 0), total: current.total + 1 }));
-    await onOutcome(step, {
+    const outcome: StepOutcome = {
       itemId: itemIdOf(instance),
       exercise: entry.exercise,
       result: graded,
       ms: Math.round(performance.now() - shownAt.current),
       related: step.related?.cardIds ?? [],
-    });
+    };
+    if (!graded.correct && entry.claimOf?.(instance, answer)) held.current = outcome;
+    else await onOutcome(step, outcome);
+  }
+
+  /** Records the held outcome, if any, before the step is left. */
+  async function flushHeld() {
+    const outcome = held.current;
+    if (!outcome) return;
+    held.current = null;
+    saving.current = true;
+    try {
+      await onOutcome(step, outcome);
+    } finally {
+      saving.current = false;
+    }
+  }
+
+  function handleClaim() {
+    if (step.type !== "exercise" || !instance || !result || result.correct) return;
+    const claim = entryFor(instance).claimOf?.(instance, answer);
+    if (!claim) return;
+    submitClaim({ ...claim, related: step.related?.cardIds ?? [] });
+    // Counted as right but hard, like a hinted answer (016 AC-007).
+    const claimed = { ...result, correct: true, hinted: true, claimed: true };
+    setResult(claimed);
+    const retryKey = retryStep(step, Boolean(swapped[step.key]), round + 1).key;
+    setWrong((current) => current.filter((wrongStep) => wrongStep.key !== retryKey));
+    if (retrying) return;
+    setScore((current) => ({ ...current, correct: current.correct + 1 }));
+    if (held.current) held.current = { ...held.current, result: claimed };
+  }
+
+  async function handleExit() {
+    await flushHeld();
+    onExit();
   }
 
   function handleContinue() {
-    if (finished) return;
+    if (finished || saving.current) return;
+    const recording = held.current ? flushHeld() : null;
+    // Move on at once; only finishing waits, so the last answer is saved before the lesson completes.
+    if (recording && index + 1 >= steps.length) void recording.then(advance);
+    else advance();
+  }
+
+  function advance() {
     const next = index + 1;
     if (!retrying) onAdvance?.(next);
     if (next >= steps.length) {
@@ -185,8 +234,10 @@ export function ExerciseRunner({
     else setConfirmExit(true);
   }
 
-  const View = instance ? entryFor(instance).View : null;
+  const entry = instance ? entryFor(instance) : null;
+  const View = entry?.View ?? null;
   const canCheck = step.type === "exercise" && answer !== null;
+  const canClaim = Boolean(instance && result && !result.correct && entry?.claimOf?.(instance, answer));
 
   const exitDialog = (
     <AlertDialog open={confirmExit} onOpenChange={setConfirmExit}>
@@ -197,7 +248,7 @@ export function ExerciseRunner({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Học tiếp</AlertDialogCancel>
-          <AlertDialogAction onClick={onExit}>Dừng lại</AlertDialogAction>
+          <AlertDialogAction onClick={handleExit}>Dừng lại</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -250,6 +301,7 @@ export function ExerciseRunner({
               result={result}
               seed={step.seed}
               onAudioError={handleAudioError}
+              onClaim={canClaim ? handleClaim : undefined}
             />
           ) : null}
         </main>

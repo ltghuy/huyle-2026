@@ -8,7 +8,7 @@ export const contentItems = sqliteTable(
   "content_items",
   {
     id: text("id").primaryKey(),
-    kind: text("kind", { enum: ["word", "grammar", "sentence", "writing", "placement", "forms", "set"] }).notNull(),
+    kind: text("kind", { enum: ["word", "grammar", "sentence", "writing", "placement", "forms", "set", "wording"] }).notNull(),
     level: text("level", { enum: ["A1", "A2", "B1", "B2", "C1"] }).notNull(),
     topic: text("topic"),
     sort: integer("sort").notNull().default(0),
@@ -80,4 +80,25 @@ export const leaderboardEntries = sqliteTable(
     updatedAt: integer("updated_at").notNull(),
   },
   (table) => [index("leaderboard_entries_last_date_streak").on(table.lastDate, table.streak)],
+);
+
+// Learner claims that a wrong translation was right (feature 016). `id` is a
+// random UUID made in the browser; the device id is stored only as a hash that
+// changes daily (as in `stats_devices`), which caps claims per device per day.
+// The owner decides each claim with `scripts/claims.ts`; decided rows are
+// deleted 90 days after the decision.
+export const claims = sqliteTable(
+  "claims",
+  {
+    id: text("id").primaryKey(),
+    sentenceId: text("sentence_id").notNull(),
+    answer: text("answer").notNull(),
+    deviceHash: text("device_hash").notNull(),
+    day: text("day").notNull(),
+    createdAt: integer("created_at").notNull(),
+    status: text("status", { enum: ["pending", "approved", "rejected", "dropped"] }).notNull().default("pending"),
+    explanationVi: text("explanation_vi"),
+    decidedAt: integer("decided_at"),
+  },
+  (table) => [index("claims_status").on(table.status), index("claims_device_day").on(table.deviceHash, table.day)],
 );

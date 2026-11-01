@@ -12,4 +12,6 @@ export interface ExerciseViewProps<Instance, Answer> {
   seed: number;
   /** Lets the runner swap a listening exercise when its audio fails. */
   onAudioError?: () => void;
+  /** Set only while a wrong answer can be claimed as also correct (feature 016). */
+  onClaim?: () => void;
 }

@@ -510,3 +510,104 @@ describe("find the error (feature 011)", () => {
     expect(screen.getByText(", bạn đã chọn")).toBeInTheDocument();
   });
 });
+
+describe("translate (feature 016)", () => {
+  async function translateStep(key = "t") {
+    const { buildTranslate } = await import("@/learning/exercises/translate");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("sea", { tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."], vi: "Nhắm mắt lại và tưởng tượng biển cả.", grammarSlug: "imperative" });
+    return {
+      key,
+      type: "exercise" as const,
+      instance: buildTranslate({ sentence: item })!,
+      seed: 1,
+      related: { cardIds: ["grammar:imperative" as const], link: { href: "/grammar?topic=imperative", label: "imperative" } },
+    };
+  }
+
+  async function answer(text: string) {
+    fireEvent.change(screen.getByRole("textbox", { name: "Câu tiếng Anh của bạn" }), { target: { value: text } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+  }
+
+  it("shows only the Vietnamese, and accepts a matching translation (AC-001, AC-002)", async () => {
+    const { onOutcome } = setup([await translateStep()]);
+    expect(screen.getByText("Dịch câu sau sang tiếng Anh")).toBeInTheDocument();
+    expect(screen.getByText("Nhắm mắt lại và tưởng tượng biển cả.")).toBeInTheDocument();
+    expect(screen.queryByText("Close your eyes and imagine the sea.")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Kiểm tra" })).toBeDisabled();
+
+    await answer("close your eyes, and imagine the sea");
+    expect(screen.getByText("Chính xác!")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Câu của mình cũng đúng" })).not.toBeInTheDocument();
+    expect(onOutcome).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ itemId: "sentence:sea", exercise: "translate", result: expect.objectContaining({ correct: true }) }));
+  });
+
+  it("shows the learner's answer, the reference and the grammar link after a wrong answer, and records it on Continue (AC-003)", async () => {
+    const { onOutcome, onFinish } = setup([await translateStep()]);
+    await answer("Shut your eyes and picture the sea.");
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.getByText("Shut your eyes and picture the sea.")).toBeInTheDocument();
+    expect(screen.getAllByText("Close your eyes and imagine the sea.").length).toBeGreaterThan(0);
+    expect(screen.getByRole("link", { name: "Xem lại: imperative" })).toBeInTheDocument();
+    expect(onOutcome).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+    await vi.waitFor(() => expect(onFinish).toHaveBeenCalledWith({ correct: 0, total: 1 }));
+    expect(onOutcome).toHaveBeenCalledTimes(1);
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ result: { correct: false }, related: ["grammar:imperative"] });
+  });
+
+  it("counts a claimed answer as correct but hard, once, and moves on (AC-006, AC-007)", async () => {
+    const claims = await import("@/claims/claims-client");
+    const submit = vi.spyOn(claims, "submitClaim").mockImplementation(() => {});
+    const { onOutcome, onFinish } = setup([await translateStep()]);
+    await answer("Shut your eyes and picture the sea.");
+    fireEvent.click(screen.getByRole("button", { name: "Câu của mình cũng đúng" }));
+
+    expect(screen.getByText("Đã tính là đúng")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Câu của mình cũng đúng" })).not.toBeInTheDocument();
+    expect(submit).toHaveBeenCalledWith({
+      sentenceId: "sentence:sea",
+      answer: "Shut your eyes and picture the sea.",
+      expected: "Close your eyes and imagine the sea.",
+      vi: "Nhắm mắt lại và tưởng tượng biển cả.",
+      related: ["grammar:imperative"],
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+    await vi.waitFor(() => expect(onFinish).toHaveBeenCalledWith({ correct: 1, total: 1 }));
+    expect(onOutcome).toHaveBeenCalledTimes(1);
+    expect(onOutcome.mock.calls[0][1].result).toMatchObject({ correct: true, hinted: true, claimed: true });
+    submit.mockRestore();
+  });
+
+  it("doesn't retry a claimed answer in a library run", async () => {
+    const claims = await import("@/claims/claims-client");
+    const submit = vi.spyOn(claims, "submitClaim").mockImplementation(() => {});
+    const onFinish = vi.fn();
+    render(<ExerciseRunner steps={[await translateStep()]} retryWrong onOutcome={vi.fn()} onFinish={onFinish} onExit={vi.fn()} />);
+    await answer("Shut your eyes and picture the sea.");
+    fireEvent.click(screen.getByRole("button", { name: "Câu của mình cũng đúng" }));
+    fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+    await vi.waitFor(() => expect(onFinish).toHaveBeenCalledWith({ correct: 1, total: 1 }));
+    expect(screen.queryByRole("button", { name: "Làm lại câu sai" })).not.toBeInTheDocument();
+    submit.mockRestore();
+  });
+
+  it("offers no claim for an answer far longer than the sentence (AC-010)", async () => {
+    setup([await translateStep()]);
+    await answer("word ".repeat(30));
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Câu của mình cũng đúng" })).not.toBeInTheDocument();
+  });
+
+  it("records a held wrong answer when the learner leaves", async () => {
+    const { onOutcome, onExit } = setup([await translateStep(), await translateStep("t2")]);
+    await answer("Shut your eyes and picture the sea.");
+    fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Dừng lại" })));
+    expect(onOutcome).toHaveBeenCalledTimes(1);
+    expect(onExit).toHaveBeenCalled();
+  });
+});

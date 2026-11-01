@@ -1,0 +1,15 @@
+[
+  {
+    "id": "wording:fx-apple-n",
+    "kind": "wording",
+    "level": "A1",
+    "sort": 0,
+    "body": {
+      "sentenceId": "sentence:fx-apple-n",
+      "accepted": [
+        "I've got an apple."
+      ]
+    },
+    "status": "approved"
+  }
+]

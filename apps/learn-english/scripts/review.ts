@@ -102,6 +102,8 @@ export function referencesOf(item: SourceItem): string[] {
   if (item.kind === "forms") return [item.body.wordId];
   // A set is published with all its words (feature 012).
   if (item.kind === "set") return [...item.body.wordIds];
+  // Approved learner wordings of a sentence (feature 016); they never appear on a review sheet.
+  if (item.kind === "wording") return [item.body.sentenceId];
   return [];
 }
 

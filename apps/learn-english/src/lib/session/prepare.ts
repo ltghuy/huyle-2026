@@ -9,6 +9,7 @@ import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
 import { buildRecall } from "@/learning/exercises/recall";
 import { buildSentenceGap } from "@/learning/exercises/sentence-gap";
+import { buildTranslate, canTranslate } from "@/learning/exercises/translate";
 import { buildWordOrder } from "@/learning/exercises/word-order";
 import type { CardItemId, ExerciseDescriptor } from "@/learning/types";
 import type { RelatedItems, RunnerStep } from "@/components/exercise/exercise-runner";
@@ -169,6 +170,13 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
         : null;
     case "choose-sentence":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildChooseSentence({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
+    case "translate": {
+      // In Ôn tập the target is the reviewed card and the sentence comes second, so the card is rescheduled.
+      const sentence = item.kind === "sentence" ? item : index.byId.get(descriptor.itemIds[1] ?? "");
+      if (sentence?.kind !== "sentence" || (item.kind !== "sentence" && item.kind !== "word" && item.kind !== "grammar")) return null;
+      const cardId = item.kind === "sentence" ? undefined : (item.id as CardItemId);
+      return exerciseStep(key, seed, buildTranslate({ sentence, wordings: index.wordings.get(sentence.id), cardId }), { related: sentenceRelated(index, sentence) });
+    }
     case "find-error":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildFindError({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
     case "dictation":
@@ -212,6 +220,8 @@ export function canPrepareSentenceStep(kind: ExerciseDescriptor["kind"], sentenc
       return item.body.gapCandidates.length > 0;
     case "dictation":
       return canDictate(item);
+    case "translate":
+      return canTranslate(item);
     default:
       return prepareStep({ kind, itemIds: [sentenceId], seed: 0 }, index, "probe") !== null;
   }

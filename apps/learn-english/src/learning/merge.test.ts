@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { mergeSnapshots } from "./merge";
 import { toSnapshotMeta, type LearnerState, type SnapshotData } from "./snapshot";
-import type { Attempt, DailyLesson, ExtraLesson, Profile, StoredCard } from "./types";
+import type { Attempt, ClaimStatus, DailyLesson, ExtraLesson, Profile, StoredCard, StoredClaim } from "./types";
 
 function card(extra: Partial<StoredCard> = {}): StoredCard {
   return {
@@ -55,11 +55,11 @@ const profile: Profile = {
 };
 
 function local(extra: Partial<LearnerState> = {}): LearnerState {
-  return { profile, cards: [], attendance: [], lessons: [], extraLessons: [], attempts: [], ...extra };
+  return { profile, cards: [], attendance: [], lessons: [], extraLessons: [], claims: [], attempts: [], ...extra };
 }
 
 function remote(extra: Partial<SnapshotData> = {}): SnapshotData {
-  return { meta: toSnapshotMeta(profile), cards: [], attendance: [], lessons: [], extraLessons: [], attempts: [], ...extra };
+  return { meta: toSnapshotMeta(profile), cards: [], attendance: [], lessons: [], extraLessons: [], claims: [], attempts: [], ...extra };
 }
 
 function extra(id: string, more: Partial<ExtraLesson> = {}): ExtraLesson {
@@ -79,6 +79,36 @@ describe("mergeSnapshots", () => {
       remote({ extraLessons: [extra("x", { plan: [], completedAt: 5 })] }),
     );
     expect(merged.extraLessons).toEqual([extra("x", { plan, completedAt: 5 })]);
+  });
+
+  it("keeps the further claim status, then the newer one (016)", () => {
+    const claim = (id: string, status: ClaimStatus, updatedAt = 1): StoredClaim => ({
+      id,
+      sentenceId: "sentence:hello",
+      answer: "Hi there",
+      expected: "Hello there",
+      vi: "Xin chào",
+      related: [],
+      createdAt: 1,
+      status,
+      updatedAt,
+    });
+    const merged = mergeSnapshots(
+      local({
+        claims: [claim("a", "pending", 9), claim("b", "shown"), claim("c", "approved", 1), claim("d", "rejected"), claim("e", "unsent")],
+      }),
+      remote({
+        claims: [claim("a", "rejected", 2), claim("b", "rejected", 9), claim("c", "dropped", 5), claim("d", "dropped", 9), claim("f", "pending")],
+      }),
+    );
+    expect(merged.claims.map((c) => [c.id, c.status])).toEqual([
+      ["a", "rejected"],
+      ["b", "shown"],
+      ["c", "dropped"],
+      ["d", "rejected"],
+      ["e", "unsent"],
+      ["f", "pending"],
+    ]);
   });
 
   it("unions attempts by id without duplicates", () => {

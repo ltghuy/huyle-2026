@@ -21,6 +21,7 @@ import { gradeMcq, type McqInstance } from "@/learning/exercises/mcq";
 import { gradeMissingLetters, type MissingLettersInstance } from "@/learning/exercises/missing-letters";
 import { gradeRecall, type RecallInstance } from "@/learning/exercises/recall";
 import { gradeSentenceGap, type SentenceGapInstance } from "@/learning/exercises/sentence-gap";
+import { claimOfTranslate, gradeTranslate, type ClaimDraft, type TranslateInstance } from "@/learning/exercises/translate";
 import { gradeWordOrder, type WordOrderInstance } from "@/learning/exercises/word-order";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ExerciseKind } from "@/learning/types";
@@ -35,6 +36,7 @@ import {
 import { FormsGapView, FormsListeningView, FormsTypingView } from "./forms-exercises";
 import { DictationView } from "./dictation-exercise";
 import { FindErrorView } from "./find-error-exercise";
+import { TranslateView } from "./translate-exercise";
 import type { ExerciseViewProps } from "./types";
 import {
   GrammarGapView,
@@ -59,6 +61,7 @@ export type ExerciseInstance =
   | WritingInstance
   | DictationInstance
   | FindErrorInstance
+  | TranslateInstance
   | FormsTypingInstance
   | FormsGapInstance
   | FormsListeningInstance;
@@ -67,6 +70,8 @@ interface Entry<I, A> {
   exercise: ExerciseKind;
   View: ComponentType<ExerciseViewProps<I, A>>;
   grade: (instance: I, answer: A) => GradeResult;
+  /** Kinds whose wrong answers can be claimed as also correct (feature 016): the claim, or null when this answer can't be. */
+  claimOf?: (instance: I, answer: A) => ClaimDraft | null;
 }
 
 // Each entry pairs a renderer with its grader; `entryFor` picks by kind and mode.
@@ -98,6 +103,8 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
       return entry({ exercise: "find-error", View: FindErrorView, grade: gradeFindError });
     case "dictation":
       return entry({ exercise: "dictation", View: DictationView, grade: gradeDictation });
+    case "translate":
+      return entry({ exercise: "translate", View: TranslateView, grade: gradeTranslate, claimOf: claimOfTranslate });
     case "forms-typing":
       return entry({ exercise: "forms-typing", View: FormsTypingView, grade: gradeFormsTyping });
     case "forms-gap":
@@ -118,6 +125,9 @@ export function itemIdOf(instance: ExerciseInstance): string {
     case "dictation":
     case "find-error":
       return instance.sentenceId;
+    case "translate":
+      // In Ôn tập the reviewed card is the item, so it gets rescheduled.
+      return instance.cardId ?? instance.sentenceId;
     case "writing":
       return instance.writingId;
     default:

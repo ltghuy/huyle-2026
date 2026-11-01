@@ -54,8 +54,8 @@ export async function recordOutcome({ outcome, context, now, lessonPosition }: R
   if (!result.correct && outcome.related.length > 0) await bringForward(outcome.related.filter((id) => id !== itemId), now);
 }
 
-/** Makes existing cards due now (AC-035); items not studied yet are left alone. */
-async function bringForward(ids: readonly CardItemId[], now: number): Promise<void> {
+/** Makes existing cards due now (AC-035); items not studied yet are left alone. Also used when a claim is rejected (016 AC-016). */
+export async function bringForward(ids: readonly CardItemId[], now: number): Promise<void> {
   const cards = (await Promise.all(ids.map((id) => getCard(id)))).filter((card): card is StoredCard => card !== undefined && card.due > now);
   if (cards.length) await putCards(cards.map((card) => ({ ...card, due: now, updatedAt: now })));
 }

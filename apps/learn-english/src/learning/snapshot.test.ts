@@ -10,7 +10,7 @@ import {
   type LearnerState,
   type Migration,
 } from "./snapshot";
-import type { Attempt, CardItemId, DailyLesson, Profile, StoredCard } from "./types";
+import type { Attempt, CardItemId, ClaimStatus, DailyLesson, Profile, StoredCard, StoredClaim } from "./types";
 
 const DAY = 24 * 60 * 60 * 1000;
 const TZ = "Asia/Ho_Chi_Minh";
@@ -79,13 +79,14 @@ const state: LearnerState = {
   ],
   lessons: [lesson("2026-10-12"), lesson("2026-10-13"), lesson("2026-10-26")],
   extraLessons: [],
+  claims: [],
   attempts: [attempt("a1", "word:cat", NOW - DAY)],
 };
 
 describe("buildSnapshot", () => {
   it("drops the device id and computes the summary", () => {
     const snapshot = buildSnapshot(state, NOW, TZ);
-    expect(snapshot).toMatchObject({ app: "learn-english", version: 3, exportedAt: NOW });
+    expect(snapshot).toMatchObject({ app: "learn-english", version: 4, exportedAt: NOW });
     expect(snapshot.data.meta).not.toHaveProperty("deviceId");
     expect(snapshot.summary).toEqual({ wordsLearned: 2, points: 50, streak: 3 });
   });
@@ -108,6 +109,40 @@ describe("buildSnapshot", () => {
     delete v2data.extraLessons;
     const parsed = parseSnapshot({ ...v3, version: 2, data: v2data });
     expect(parsed.ok && parsed.snapshot.data.extraLessons).toEqual([]);
+  });
+
+  it("reads a version 3 file (before claims) with none (016)", () => {
+    const v4 = buildSnapshot(state, NOW, TZ);
+    const v3data: Partial<typeof v4.data> = { ...v4.data };
+    delete v3data.claims;
+    const parsed = parseSnapshot({ ...v4, version: 3, data: v3data });
+    expect(parsed.ok && parsed.snapshot.data.claims).toEqual([]);
+  });
+
+  it("keeps open claims and recent shown ones, drops finished and old shown ones (016)", () => {
+    const claim = (id: string, status: ClaimStatus, updatedAt = NOW): StoredClaim => ({
+      id,
+      sentenceId: "sentence:hello",
+      answer: "Hi there",
+      expected: "Hello there",
+      vi: "Xin chào",
+      related: ["word:hello"],
+      createdAt: NOW - 40 * DAY,
+      status,
+      updatedAt,
+    });
+    const claims = [
+      claim("unsent", "unsent", NOW - 60 * DAY),
+      claim("pending", "pending"),
+      claim("approved", "approved"),
+      claim("dropped", "dropped"),
+      claim("rejected", "rejected", NOW - 60 * DAY),
+      claim("shown-recent", "shown", NOW - 30 * DAY),
+      claim("shown-old", "shown", NOW - 31 * DAY),
+    ];
+    const snapshot = buildSnapshot({ ...state, claims }, NOW, TZ);
+    expect(snapshot.data.claims.map((c) => c.id)).toEqual(["unsent", "pending", "rejected", "shown-recent"]);
+    expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });
   });
 
   it("never exports the sync code or sync bookkeeping", () => {
@@ -192,7 +227,7 @@ describe("parseSnapshot", () => {
   });
 
   it("rejects a newer version", () => {
-    expect(parseSnapshot({ ...snapshot, version: 4 })).toEqual({ ok: false, reason: "newer-version" });
+    expect(parseSnapshot({ ...snapshot, version: 5 })).toEqual({ ok: false, reason: "newer-version" });
   });
 
   it("upgrades an older version through the migration chain", () => {
@@ -206,6 +241,7 @@ describe("parseSnapshot", () => {
       },
       1: MIGRATIONS[1],
       2: MIGRATIONS[2],
+      3: MIGRATIONS[3],
     };
     expect(parseSnapshot(v0, migrations)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(v0)).toEqual({ ok: false, reason: "invalid" });

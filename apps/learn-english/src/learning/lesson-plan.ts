@@ -6,6 +6,7 @@ import type { ContentItemOf } from "../content/schema";
 import { localDate } from "./attendance";
 import { canDictate } from "./exercises/dictation";
 import { canFindError } from "./exercises/find-error";
+import { canTranslate } from "./exercises/translate";
 import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
 import { nextSetWords } from "./sets";
 import { retrievability } from "./srs";
@@ -52,6 +53,7 @@ export const STEP_SECONDS: Record<ExerciseKind, number> = {
   writing: 150,
   dictation: 35,
   "find-error": 20,
+  translate: 40,
   // Ôn tập only (feature 008); the lesson never plans them.
   "forms-typing": 12,
   "forms-gap": 12,
@@ -60,13 +62,13 @@ export const STEP_SECONDS: Record<ExerciseKind, number> = {
 /** Reading a grammar point takes longer than a word card. */
 const GRAMMAR_STUDY_SECONDS = 90;
 /** Seconds set aside per sentence task before the kinds are chosen: the slowest kind. */
-const SENTENCE_RESERVE_SECONDS = 35;
+const SENTENCE_RESERVE_SECONDS = 40;
 /** A new word is a study card plus a multiple-choice check. */
 const NEW_WORD_SECONDS = STEP_SECONDS.study + STEP_SECONDS.mcq;
 
 const WORD_REVIEW_KINDS = ["mcq", "missing-letters", "listening", "recall"] as const;
 const FORMS_REVIEW_KINDS = ["forms-typing", "forms-gap", "forms-listening"] as const;
-const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "dictation", "find-error"] as const;
+const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "dictation", "find-error", "translate"] as const;
 
 /** The content the planner reads; the caller builds it from the content cache. */
 export interface LessonContent {
@@ -187,25 +189,33 @@ export function pickNewWords(
  * time it comes back (AC-012), and an irregular verb's forms (`forms:`
  * cards, feature 008) rotate through the forms kinds. Listening needs audio
  * (`audioOf` gives a forms item's clip). At least one is multiple choice when
- * any word is reviewed.
+ * any word is reviewed. When `exampleOf` gives a sentence for a word or
+ * grammar card, translating it joins the rotation (feature 016): words take
+ * it as one more kind, grammar alternates it with the gap-fill. The card stays
+ * the target and the sentence comes second, so the card is rescheduled.
  */
 export function reviewExercises(
   reviewed: readonly StoredCard[],
   wordsById: ReadonlyMap<string, WordItem>,
   seedOf: (index: number, itemId: string) => number,
   audioOf: (formsId: string) => string = () => "",
+  exampleOf: (card: StoredCard) => string | undefined = () => undefined,
 ): ExerciseDescriptor[] {
   const review: ExerciseDescriptor[] = reviewed.map((card, i) => {
     const descriptor = (kind: ExerciseKind): ExerciseDescriptor => ({ kind, itemIds: [card.itemId], seed: seedOf(i, card.itemId) });
     const turn = hashString(card.itemId) + card.reps;
-    if (card.itemId.startsWith("grammar:")) return descriptor("grammar-gap");
+    const example = card.itemId.startsWith("forms:") ? undefined : exampleOf(card);
+    const translate = (sentenceId: string): ExerciseDescriptor => ({ kind: "translate", itemIds: [card.itemId, sentenceId], seed: seedOf(i, card.itemId) });
+    if (card.itemId.startsWith("grammar:")) return example && turn % 2 === 1 ? translate(example) : descriptor("grammar-gap");
     if (card.itemId.startsWith("forms:")) {
       const kinds = FORMS_REVIEW_KINDS.filter((kind) => kind !== "forms-listening" || audioOf(card.itemId) !== "");
       return descriptor(kinds[turn % kinds.length]);
     }
     const word = wordsById.get(card.itemId);
-    const kinds = WORD_REVIEW_KINDS.filter((kind) => kind !== "listening" || (word?.body.audio ?? "") !== "");
-    return descriptor(kinds[turn % kinds.length]);
+    const kinds: ExerciseKind[] = WORD_REVIEW_KINDS.filter((kind) => kind !== "listening" || (word?.body.audio ?? "") !== "");
+    if (example) kinds.push("translate");
+    const kind = kinds[turn % kinds.length];
+    return kind === "translate" && example ? translate(example) : descriptor(kind);
   });
   if (review.length > 0 && !review.some((exercise) => exercise.kind === "mcq")) {
     const first = review.findIndex((exercise) => exercise.itemIds[0]?.startsWith("word:"));
@@ -326,5 +336,6 @@ function supports(kind: (typeof SENTENCE_KINDS)[number], sentence: SentenceItem)
   if (kind === "choose-sentence") return sentence.body.wrongVariants.length >= 3;
   if (kind === "dictation") return canDictate(sentence);
   if (kind === "find-error") return canFindError(sentence);
+  if (kind === "translate") return canTranslate(sentence);
   return true;
 }

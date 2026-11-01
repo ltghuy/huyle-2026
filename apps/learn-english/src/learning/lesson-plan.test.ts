@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { grammar, sentence, word } from "./exercises/fixtures";
 import type { GrammarItem, SentenceItem, WordItem } from "./exercises/types";
 import {
+  reviewExercises,
   buildLessonPlan,
   dueCards,
   estimateMinutes,
@@ -226,7 +227,7 @@ describe("buildLessonPlan", () => {
     const bare = { ...plain, sentences: plain.sentences.map((s) => ({ ...s, body: { ...s.body, gapCandidates: [], wrongVariants: [] } })) };
     const kinds = part(buildLessonPlan(input({ content: bare })), "sentences")!.exercises.map((e) => e.kind);
     expect(kinds).toHaveLength(3);
-    expect(kinds.every((kind) => kind === "word-order")).toBe(true);
+    expect(kinds.every((kind) => kind === "word-order" || kind === "translate")).toBe(true);
   });
 
   it("includes dictation among the sentence kinds when the sentence has audio (010 AC-013)", () => {
@@ -238,6 +239,14 @@ describe("buildLessonPlan", () => {
     // Without audio it is never picked.
     const silent = dates.flatMap((date) => part(buildLessonPlan(input({ date })), "sentences")!.exercises.map((e) => e.kind));
     expect(silent).not.toContain("dictation");
+  });
+
+  it("includes translating among the sentence kinds (016 AC-018)", () => {
+    const dates = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24"];
+    const steps = dates.flatMap((date) => part(buildLessonPlan(input({ date })), "sentences")!.exercises);
+    const translate = steps.filter((e) => e.kind === "translate");
+    expect(translate.length).toBeGreaterThan(0);
+    expect(translate.every((e) => e.itemIds.length === 1 && e.itemIds[0].startsWith("sentence:"))).toBe(true);
   });
 
   it("includes find-the-error when a wrong version replaces one part (011 AC-011)", () => {
@@ -355,5 +364,31 @@ describe("buildLessonPlan with a followed vocabulary set (feature 012)", () => {
 
   it("stays deterministic", () => {
     expect(buildLessonPlan(following())).toEqual(buildLessonPlan(following()));
+  });
+});
+
+describe("translate in Ôn tập (016 AC-019)", () => {
+  const seed = () => 1;
+  const wordsById = new Map<string, WordItem>();
+
+  it("rotates translating an example in with the word kinds, keeping the card as the target", () => {
+    const kinds = new Set<string>();
+    for (let reps = 0; reps < 10; reps++) {
+      // Second, because the first word is turned into multiple choice when none is.
+      const [, step] = reviewExercises([card("word:pear"), card("word:apple", { reps })], wordsById, seed, undefined, (c) => (c.itemId === "word:apple" ? "sentence:apple-1" : undefined));
+      kinds.add(step.kind);
+      if (step.kind === "translate") expect(step.itemIds).toEqual(["word:apple", "sentence:apple-1"]);
+    }
+    expect(kinds).toContain("translate");
+    expect(kinds).toContain("recall");
+  });
+
+  it("alternates gap-fill and translating for grammar, and never translates without an example", () => {
+    const kinds = [0, 1].map((reps) => reviewExercises([card("grammar:to-be", { reps })], wordsById, seed, undefined, () => "sentence:be-1")[0].kind);
+    expect(kinds.toSorted()).toEqual(["grammar-gap", "translate"]);
+    for (let reps = 0; reps < 6; reps++) {
+      expect(reviewExercises([card("grammar:to-be", { reps })], wordsById, seed)[0].kind).toBe("grammar-gap");
+      expect(reviewExercises([card("word:pear"), card("word:apple", { reps })], wordsById, seed)[1].kind).not.toBe("translate");
+    }
   });
 });

@@ -28,7 +28,13 @@ async function loadIndex(client: QueryClient, levels: readonly Level[]): Promise
     fetchContent(client, "forms"),
     // Specialized vocabulary sets carry their own words (feature 012).
     fetchContent(client, "set"),
-    ...levels.flatMap((level) => [fetchContent(client, "word", level), fetchContent(client, "sentence", level), fetchContent(client, "writing", level)]),
+    ...levels.flatMap((level) => [
+      fetchContent(client, "word", level),
+      fetchContent(client, "sentence", level),
+      fetchContent(client, "writing", level),
+      // Approved other wordings of the level's sentences (feature 016).
+      fetchContent(client, "wording", level),
+    ]),
   ];
   const [loaded, tombstones] = await Promise.all([Promise.all(requests), loadTombstones()]);
   const items = loaded.flatMap((entry) => entry.items as ContentItem[]);

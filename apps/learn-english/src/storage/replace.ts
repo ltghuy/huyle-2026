@@ -4,25 +4,27 @@ import { getAllAttempts } from "./attempts";
 import { getAllAttendance } from "./attendance";
 import { notifyChanged } from "./broadcast";
 import { getAllCards } from "./cards";
+import { getClaims } from "./claims";
 import { getDb, type StoreName } from "./db";
 import { getAllExtraLessons } from "./extra-lessons";
 import { getAllLessons } from "./lessons";
 import { createDefaultProfile, getProfile } from "./meta";
 
 /** The stores that hold the learner's progress (the content cache is left alone). */
-export const LEARNER_STORES = ["cards", "attempts", "lessons", "extraLessons", "attendance", "meta"] as const satisfies readonly StoreName[];
+export const LEARNER_STORES = ["cards", "attempts", "lessons", "extraLessons", "claims", "attendance", "meta"] as const satisfies readonly StoreName[];
 
 /** Everything the learner stores in this browser, read in parallel. */
 export async function readLearnerState(now: number): Promise<LearnerState> {
-  const [profile, cards, attempts, lessons, extraLessons, attendance] = await Promise.all([
+  const [profile, cards, attempts, lessons, extraLessons, claims, attendance] = await Promise.all([
     getProfile(),
     getAllCards(),
     getAllAttempts(),
     getAllLessons(),
     getAllExtraLessons(),
+    getClaims(),
     getAllAttendance(),
   ]);
-  return { profile: profile ?? createDefaultProfile(now), cards, attempts, lessons, extraLessons, attendance };
+  return { profile: profile ?? createDefaultProfile(now), cards, attempts, lessons, extraLessons, claims, attendance };
 }
 
 /**
@@ -37,6 +39,7 @@ export async function replaceAll(state: LearnerState): Promise<void> {
     for (const attempt of state.attempts) await tx.put("attempts", attempt);
     for (const lesson of state.lessons) await tx.put("lessons", lesson);
     for (const extra of state.extraLessons) await tx.put("extraLessons", extra);
+    for (const claim of state.claims) await tx.put("claims", claim);
     for (const row of state.attendance) await tx.put("attendance", row);
     await tx.put("meta", { key: "profile", value: state.profile });
   });
@@ -46,6 +49,6 @@ export async function replaceAll(state: LearnerState): Promise<void> {
 /** Clears all progress on this device and starts again with a default profile. */
 export async function resetAll(now: number): Promise<Profile> {
   const profile = createDefaultProfile(now);
-  await replaceAll({ profile, cards: [], attempts: [], lessons: [], extraLessons: [], attendance: [] });
+  await replaceAll({ profile, cards: [], attempts: [], lessons: [], extraLessons: [], claims: [], attendance: [] });
   return profile;
 }

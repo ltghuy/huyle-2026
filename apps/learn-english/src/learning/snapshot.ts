@@ -3,6 +3,7 @@ import { localDate, streaks } from "./attendance";
 import { NAME_MAX_LENGTH } from "./name";
 import { pointsBalance } from "./points";
 import {
+  CLAIM_STATUSES,
   EXERCISE_KINDS,
   LEVELS,
   type Attempt,
@@ -11,6 +12,7 @@ import {
   type ExtraLesson,
   type Profile,
   type StoredCard,
+  type StoredClaim,
 } from "./types";
 
 export const SNAPSHOT_APP = "learn-english";
@@ -20,13 +22,16 @@ export const SNAPSHOT_APP = "learn-english";
  * version 1 refuses version 2 as "newer-version" instead of dropping cards.
  * 3 (feature 013): `extraLessons`, the lessons bought with points. A version 2
  * file upgrades with none.
+ * 4 (feature 016): `claims`, translate answers the learner claimed are
+ * correct. A version 3 file upgrades with none.
  */
-export const SNAPSHOT_VERSION = 3;
+export const SNAPSHOT_VERSION = 4;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LESSON_DAYS = 14;
 const ATTEMPT_DAYS = 30;
 const OLD_ATTEMPTS_PER_ITEM = 8;
+const SHOWN_CLAIM_DAYS = 30;
 
 /** Everything the learner stores in this browser. */
 export interface LearnerState {
@@ -35,6 +40,7 @@ export interface LearnerState {
   attendance: Attendance[];
   lessons: DailyLesson[];
   extraLessons: ExtraLesson[];
+  claims: StoredClaim[];
   attempts: Attempt[];
 }
 
@@ -51,6 +57,7 @@ export interface SnapshotData {
   attendance: Attendance[];
   lessons: DailyLesson[];
   extraLessons: ExtraLesson[];
+  claims: StoredClaim[];
   attempts: Attempt[];
 }
 
@@ -84,8 +91,10 @@ const time = z.number().finite();
 const count = z.number().int().nonnegative();
 const level = z.enum(LEVELS);
 
+const cardItemId = z.union([z.templateLiteral(["word:", z.string()]), z.templateLiteral(["grammar:", z.string()]), z.templateLiteral(["forms:", z.string()])]);
+
 const cardSchema = z.object({
-  itemId: z.union([z.templateLiteral(["word:", z.string()]), z.templateLiteral(["grammar:", z.string()]), z.templateLiteral(["forms:", z.string()])]),
+  itemId: cardItemId,
   due: time,
   stability: z.number(),
   difficulty: z.number(),
@@ -144,6 +153,21 @@ const extraLessonSchema = z.object({
   updatedAt: time,
 }) satisfies z.ZodType<ExtraLesson>;
 
+const claimSchema = z.object({
+  id: z.string().min(1).max(64),
+  sentenceId: z.string().min(1),
+  answer: z.string(),
+  expected: z.string(),
+  vi: z.string(),
+  related: z.array(cardItemId),
+  createdAt: time,
+  sentAt: time.optional(),
+  checkedAt: time.optional(),
+  status: z.enum(CLAIM_STATUSES),
+  explanationVi: z.string().optional(),
+  updatedAt: time,
+}) satisfies z.ZodType<StoredClaim>;
+
 const attendanceSchema = z.object({
   date: localDateSchema,
   points: count,
@@ -185,6 +209,7 @@ export const snapshotSchema = z.object({
     attendance: z.array(attendanceSchema),
     lessons: z.array(lessonSchema),
     extraLessons: z.array(extraLessonSchema),
+    claims: z.array(claimSchema),
     attempts: z.array(attemptSchema),
   }),
 }) satisfies z.ZodType<Snapshot>;
@@ -227,6 +252,18 @@ function trimAttempts(attempts: readonly Attempt[], now: number): Attempt[] {
   return kept.sort((a, b) => a.at - b.at || (a.id < b.id ? -1 : 1));
 }
 
+/**
+ * Claims still in play: approved and dropped ones are finished, and a shown
+ * rejection is kept for 30 days so another device doesn't show it again.
+ */
+function trimClaims(claims: readonly StoredClaim[], now: number): StoredClaim[] {
+  const cutoff = now - SHOWN_CLAIM_DAYS * DAY_MS;
+  return claims.filter((claim) => {
+    if (claim.status === "approved" || claim.status === "dropped") return false;
+    return claim.status !== "shown" || claim.updatedAt >= cutoff;
+  });
+}
+
 /** `points` is what the learner has now: earned minus spent, never shown below 0. */
 export function summarize(data: Pick<SnapshotData, "cards" | "attendance" | "extraLessons">, today: string): Snapshot["summary"] {
   return {
@@ -250,6 +287,7 @@ export function buildSnapshot(state: LearnerState, now: number, timeZone: string
     lessons: state.lessons.filter((lesson) => lesson.date >= firstLessonDate),
     // Older extra lessons keep their price (it still counts as spent) but not their plan.
     extraLessons: state.extraLessons.map((extra) => (extra.date >= firstLessonDate ? extra : { ...extra, plan: [] })),
+    claims: trimClaims(state.claims, now),
     attempts: trimAttempts(state.attempts, now),
   };
   return { app: SNAPSHOT_APP, version: SNAPSHOT_VERSION, exportedAt: now, summary: summarize(data, today), data };
@@ -270,6 +308,11 @@ export const MIGRATIONS: Record<number, Migration> = {
   2: (snapshot) => {
     const data = snapshot.data as Record<string, unknown> | undefined;
     return data && typeof data === "object" ? { ...snapshot, data: { ...data, extraLessons: [] } } : snapshot;
+  },
+  // 3 → 4: no claims were made before version 4.
+  3: (snapshot) => {
+    const data = snapshot.data as Record<string, unknown> | undefined;
+    return data && typeof data === "object" ? { ...snapshot, data: { ...data, claims: [] } } : snapshot;
   },
 };
 

@@ -1,5 +1,5 @@
 import type { LearnerState, SnapshotData, SnapshotMeta } from "./snapshot";
-import type { Attempt, Attendance, DailyLesson, ExtraLesson, Profile, StoredCard } from "./types";
+import type { Attempt, Attendance, ClaimStatus, DailyLesson, ExtraLesson, Profile, StoredCard, StoredClaim } from "./types";
 
 function byKey<T>(rows: readonly T[], key: (row: T) => string): Map<string, T> {
   return new Map(rows.map((row) => [key(row), row]));
@@ -50,6 +50,16 @@ function pickExtraLesson(local: ExtraLesson, remote: ExtraLesson): ExtraLesson {
   return picked.plan.length === 0 && other.plan.length > 0 ? { ...picked, plan: other.plan } : picked;
 }
 
+// How far along a claim is. Approved and dropped are both final answers from
+// the owner, so they rank the same.
+const CLAIM_RANK: Record<ClaimStatus, number> = { unsent: 0, pending: 1, approved: 2, dropped: 2, rejected: 3, shown: 4 };
+
+/** The further status wins; tie: later `updatedAt`; full tie keeps local. */
+function pickClaim(local: StoredClaim, remote: StoredClaim): StoredClaim {
+  const order = CLAIM_RANK[remote.status] - CLAIM_RANK[local.status] || remote.updatedAt - local.updatedAt;
+  return order > 0 ? remote : local;
+}
+
 /**
  * Last writer wins per field by `fieldUpdatedAt`; a field without a timestamp
  * loses to one with, and ties keep local. `deviceId` and `sync` (this
@@ -90,6 +100,9 @@ export function mergeSnapshots(local: LearnerState, remote: SnapshotData): Learn
     ),
     // Every purchase from every device is kept (feature 013): ids never collide across devices.
     extraLessons: unionBy<ExtraLesson>(local.extraLessons, remote.extraLessons, (extra) => extra.id, pickExtraLesson).sort((a, b) =>
+      compareText(a.id, b.id),
+    ),
+    claims: unionBy<StoredClaim>(local.claims, remote.claims, (claim) => claim.id, pickClaim).sort((a, b) =>
       compareText(a.id, b.id),
     ),
     attempts: unionBy<Attempt>(local.attempts, remote.attempts, (attempt) => attempt.id, (mine) => mine).sort(

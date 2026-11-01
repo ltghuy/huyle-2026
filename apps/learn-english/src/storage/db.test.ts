@@ -13,7 +13,7 @@ describe("getDb", () => {
     await getDb();
     const request = indexedDB.open("learn-english");
     const db = await new Promise<IDBDatabase>((resolve) => (request.onsuccess = () => resolve(request.result)));
-    expect([...db.objectStoreNames].toSorted()).toEqual(["attempts", "attendance", "cards", "content", "extraLessons", "lessons", "meta"]);
+    expect([...db.objectStoreNames].toSorted()).toEqual(["attempts", "attendance", "cards", "claims", "content", "extraLessons", "lessons", "meta"]);
     const tx = db.transaction(["cards", "attempts"]);
     expect([...tx.objectStore("cards").indexNames]).toEqual(["due"]);
     expect([...tx.objectStore("attempts").indexNames].toSorted()).toEqual(["at", "itemId_at"]);
@@ -33,6 +33,22 @@ describe("getDb", () => {
     expect(await db.getAll("attendance")).toEqual([{ date: "2026-10-29", points: 10, bonus: 0, at: 1 }]);
     await db.put("extraLessons", { id: "2026-10-30#1#abc", date: "2026-10-30", price: 10, purchasedAt: 2, contentVersion: 1, plan: [], position: { part: 0, index: 0 }, updatedAt: 2 });
     expect(await db.getAllFromIndex("extraLessons", "date", { lower: "2026-10-30", upper: "2026-10-30" })).toHaveLength(1);
+  });
+
+  it("upgrades a version 2 database by adding the claims store and keeping the data (016)", async () => {
+    const v2 = indexedDB.open("learn-english", 2);
+    v2.onupgradeneeded = () => {
+      const keyPaths = { cards: "itemId", attempts: "id", lessons: "date", extraLessons: "id", attendance: "date", meta: "key", content: "key" };
+      for (const [name, keyPath] of Object.entries(keyPaths)) v2.result.createObjectStore(name, { keyPath });
+      v2.transaction!.objectStore("attendance").put({ date: "2026-10-29", points: 10, bonus: 0, at: 1 });
+    };
+    await new Promise<void>((resolve) => (v2.onsuccess = () => (v2.result.close(), resolve())));
+
+    const db = await getDb();
+    expect(await db.getAll("attendance")).toHaveLength(1);
+    const claim = { id: "c1", sentenceId: "sentence:hi", answer: "Hi", expected: "Hello", vi: "Chào", related: [], createdAt: 1, status: "pending" as const, updatedAt: 1 };
+    await db.put("claims", claim);
+    expect(await db.getAllFromIndex("claims", "status", { lower: "pending", upper: "pending" })).toEqual([claim]);
   });
 });
 

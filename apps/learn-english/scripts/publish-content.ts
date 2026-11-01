@@ -186,6 +186,11 @@ export function checkReferences(items: readonly ContentItem[]): string[] {
       if (item.body.grammarSlug) need(item.id, `grammar:${item.body.grammarSlug}`);
     }
     if (item.kind === "forms") need(item.id, item.body.wordId);
+    // A wording may point at a set's sentence, which is approved but not a row (feature 016).
+    if (item.kind === "wording") {
+      need(item.id, item.body.sentenceId);
+      if (item.id !== `wording:${item.body.sentenceId.replace(/^sentence:/, "")}`) errors.push(`${item.id} must be named after its sentence ${item.body.sentenceId}`);
+    }
   }
   return errors;
 }

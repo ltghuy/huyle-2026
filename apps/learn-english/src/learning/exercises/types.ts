@@ -16,4 +16,6 @@ export interface GradeResult {
   expected: string;
   /** Short Vietnamese explanation of the mistake, when the content has one. */
   explanationVi?: string;
+  /** Set by the runner, never a grader: the learner claimed a wrong answer is also correct (feature 016). */
+  claimed?: boolean;
 }

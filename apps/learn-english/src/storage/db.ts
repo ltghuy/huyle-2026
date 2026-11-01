@@ -1,8 +1,8 @@
 import { openDB, type IDBPDatabase, type IDBPTransaction } from "idb";
-import type { Attempt, Attendance, DailyLesson, ExtraLesson, StoredCard } from "@/learning/types";
+import type { Attempt, Attendance, DailyLesson, ExtraLesson, StoredCard, StoredClaim } from "@/learning/types";
 
 export const DB_NAME = "learn-english";
-export const DB_VERSION = 2;
+export const DB_VERSION = 3;
 
 /** One row of the `meta` store: a small key-value record (the profile lives under "profile"). */
 export interface MetaRecord<T = unknown> {
@@ -25,6 +25,7 @@ export interface StoreValues {
   attempts: Attempt;
   lessons: DailyLesson;
   extraLessons: ExtraLesson;
+  claims: StoredClaim;
   attendance: Attendance;
   meta: MetaRecord;
   content: ContentCacheEntry;
@@ -42,6 +43,8 @@ const STORES: { [S in StoreName]: { keyPath: string; indexes: Record<string, str
   lessons: { keyPath: "date", indexes: {}, since: 1 },
   // Extra lessons bought with points (feature 013).
   extraLessons: { keyPath: "id", indexes: { date: "date" }, since: 2 },
+  // Translate answers the learner claimed are correct (feature 016).
+  claims: { keyPath: "id", indexes: { status: "status" }, since: 3 },
   attendance: { keyPath: "date", indexes: {}, since: 1 },
   meta: { keyPath: "key", indexes: {}, since: 1 },
   content: { keyPath: "key", indexes: {}, since: 1 },

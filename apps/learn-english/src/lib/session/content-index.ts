@@ -25,6 +25,8 @@ export interface ContentIndex {
   sets: readonly IndexedSet[];
   /** Word id → ids of the sets it belongs to. */
   setsByWord: ReadonlyMap<string, readonly string[]>;
+  /** Sentence id → other English wordings the owner approved (feature 016). */
+  wordings: ReadonlyMap<string, readonly string[]>;
   lesson: LessonContent;
 }
 
@@ -73,6 +75,7 @@ export function buildContentIndex(items: readonly ContentItem[], tombstones: Rea
     forms: live.filter((item): item is Forms => item.kind === "forms").sort((a, b) => a.level.localeCompare(b.level) || bySortThenId(a, b)),
     sets,
     setsByWord,
+    wordings: new Map(live.flatMap((item) => (item.kind === "wording" ? [[item.body.sentenceId, item.body.accepted]] : []))),
     lesson: {
       wordsByLevel,
       grammarByLevel,

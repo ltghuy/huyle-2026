@@ -5,7 +5,7 @@ import { contentKindSchema, levelSchema, type ContentItem, type ContentKind } fr
 // handlers and the content client (no `server-only` here).
 
 /** Kinds whose items are always requested one level at a time. */
-export const LEVELLED_KINDS = ["word", "sentence", "writing"] as const satisfies readonly ContentKind[];
+export const LEVELLED_KINDS = ["word", "sentence", "writing", "wording"] as const satisfies readonly ContentKind[];
 
 export function requiresLevel(kind: ContentKind): boolean {
   return (LEVELLED_KINDS as readonly ContentKind[]).includes(kind);

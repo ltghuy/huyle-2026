@@ -7,7 +7,7 @@ import { LEVELS } from "../learning/types";
 
 export const levelSchema = z.enum(LEVELS);
 
-export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement", "forms", "set"] as const;
+export const CONTENT_KINDS = ["word", "grammar", "sentence", "writing", "placement", "forms", "set", "wording"] as const;
 export const contentKindSchema = z.enum(CONTENT_KINDS);
 export type ContentKind = z.infer<typeof contentKindSchema>;
 
@@ -124,6 +124,15 @@ export const formsBodySchema = z.object({
     .min(2),
 });
 
+/**
+ * Other English wordings of one sentence, approved by the owner from learners'
+ * claims (feature 016). The id mirrors the sentence: `wording:<sentence slug>`.
+ */
+export const wordingBodySchema = z.object({
+  sentenceId: idOf("sentence"),
+  accepted: z.array(nonEmpty).min(1),
+});
+
 const base = { level: levelSchema, topic: z.string().optional(), sort: z.number().int().default(0) };
 
 const wordItemSchema = z.object({ ...base, id: idOf("word"), kind: z.literal("word"), body: wordBodySchema });
@@ -155,6 +164,7 @@ export const contentItemSchema = z.discriminatedUnion("kind", [
   z.object({ ...base, id: idOf("placement"), kind: z.literal("placement"), body: placementBodySchema }),
   z.object({ ...base, id: idOf("forms"), kind: z.literal("forms"), body: formsBodySchema }),
   z.object({ ...base, id: idOf("set"), kind: z.literal("set"), body: setBodySchema }),
+  z.object({ ...base, id: idOf("wording"), kind: z.literal("wording"), body: wordingBodySchema }),
 ]);
 export type ContentItem = z.infer<typeof contentItemSchema>;
 export type ContentItemOf<K extends ContentKind> = Extract<ContentItem, { kind: K }>;
