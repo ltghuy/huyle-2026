@@ -226,7 +226,7 @@ describe("buildLessonPlan", () => {
     const bare = { ...plain, sentences: plain.sentences.map((s) => ({ ...s, body: { ...s.body, gapCandidates: [], wrongVariants: [] } })) };
     const kinds = part(buildLessonPlan(input({ content: bare })), "sentences")!.exercises.map((e) => e.kind);
     expect(kinds).toHaveLength(3);
-    expect(kinds.every((kind) => kind === "word-order" || kind === "tile-translate")).toBe(true);
+    expect(kinds.every((kind) => kind === "word-order")).toBe(true);
   });
 
   it("includes dictation among the sentence kinds when the sentence has audio (010 AC-013)", () => {

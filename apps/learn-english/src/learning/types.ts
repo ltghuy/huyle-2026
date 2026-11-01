@@ -38,6 +38,8 @@ export const EXERCISE_KINDS = [
   "word-order",
   "sentence-gap",
   "choose-sentence",
+  // Merged into word-order (feature 015): never planned or built any more, but
+  // kept so saved lessons, attempts, sync snapshots and stats that recorded it still parse.
   "tile-translate",
   "writing",
   // Hear a sentence and type it (feature 010).

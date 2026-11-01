@@ -21,7 +21,6 @@ import { gradeMcq, type McqInstance } from "@/learning/exercises/mcq";
 import { gradeMissingLetters, type MissingLettersInstance } from "@/learning/exercises/missing-letters";
 import { gradeRecall, type RecallInstance } from "@/learning/exercises/recall";
 import { gradeSentenceGap, type SentenceGapInstance } from "@/learning/exercises/sentence-gap";
-import { gradeTileTranslate, type TileTranslateInstance } from "@/learning/exercises/tile-translate";
 import { gradeWordOrder, type WordOrderInstance } from "@/learning/exercises/word-order";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ExerciseKind } from "@/learning/types";
@@ -29,7 +28,6 @@ import {
   ChooseSentenceView,
   gradeWriting,
   SentenceGapView,
-  TileTranslateView,
   WordOrderView,
   WritingView,
   type WritingInstance,
@@ -56,7 +54,6 @@ export type ExerciseInstance =
   | RecallInstance
   | GrammarGapInstance
   | WordOrderInstance
-  | TileTranslateInstance
   | SentenceGapInstance
   | ChooseSentenceInstance
   | WritingInstance
@@ -91,8 +88,6 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
       return entry({ exercise: "grammar-gap", View: GrammarGapView, grade: gradeGrammarGap });
     case "word-order":
       return entry({ exercise: "word-order", View: WordOrderView, grade: gradeWordOrder });
-    case "tile-translate":
-      return entry({ exercise: "tile-translate", View: TileTranslateView, grade: gradeTileTranslate });
     case "sentence-gap":
       return entry({ exercise: "sentence-gap", View: SentenceGapView, grade: gradeSentenceGap });
     case "choose-sentence":
@@ -118,7 +113,6 @@ export function itemIdOf(instance: ExerciseInstance): string {
     case "grammar-gap":
       return instance.grammarId;
     case "word-order":
-    case "tile-translate":
     case "sentence-gap":
     case "choose-sentence":
     case "dictation":

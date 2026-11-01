@@ -9,7 +9,6 @@ import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
 import { buildRecall } from "@/learning/exercises/recall";
 import { buildSentenceGap } from "@/learning/exercises/sentence-gap";
-import { buildTileTranslate, hasTileDistractors } from "@/learning/exercises/tile-translate";
 import { buildWordOrder } from "@/learning/exercises/word-order";
 import type { CardItemId, ExerciseDescriptor } from "@/learning/types";
 import type { RelatedItems, RunnerStep } from "@/components/exercise/exercise-runner";
@@ -75,12 +74,6 @@ function sentenceRelated(index: ContentIndex, sentence: Sentence): RelatedItems 
 function distractorWords(index: ContentIndex, sentence: Sentence): readonly string[] {
   const { headwords, dropped } = distractorSource(index, sentence);
   return dropped.size === 0 ? headwords : headwords.filter((headword) => !dropped.has(headword));
-}
-
-/** `distractorWords` one at a time, without copying the pool. */
-function* eachDistractorWord(index: ContentIndex, sentence: Sentence): Generator<string> {
-  const { headwords, dropped } = distractorSource(index, sentence);
-  for (const headword of headwords) if (!dropped.has(headword)) yield headword;
 }
 
 /**
@@ -167,6 +160,8 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
         ? exerciseStep(key, seed, buildGrammarGap({ grammar: item }, seed), { related: { cardIds: [item.id as CardItemId], link: grammarLink(item) } })
         : null;
     case "word-order":
+    // Merged into word-order (feature 015); lessons saved before then may still hold it.
+    case "tile-translate":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildWordOrder({ sentence: item, distractorPool: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) }) : null;
     case "sentence-gap":
       return item.kind === "sentence"
@@ -174,10 +169,6 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
         : null;
     case "choose-sentence":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildChooseSentence({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
-    case "tile-translate":
-      return item.kind === "sentence"
-        ? exerciseStep(key, seed, buildTileTranslate({ sentence: item, distractorPool: distractorWords(index, item) }, seed), { related: sentenceRelated(index, item) })
-        : null;
     case "find-error":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildFindError({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
     case "dictation":
@@ -219,8 +210,6 @@ export function canPrepareSentenceStep(kind: ExerciseDescriptor["kind"], sentenc
       return true;
     case "sentence-gap":
       return item.body.gapCandidates.length > 0;
-    case "tile-translate":
-      return hasTileDistractors(item, eachDistractorWord(index, item));
     case "dictation":
       return canDictate(item);
     default:

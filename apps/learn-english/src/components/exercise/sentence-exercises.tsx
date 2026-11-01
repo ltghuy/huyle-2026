@@ -5,7 +5,6 @@ import { ThumbsDown, ThumbsUp } from "lucide-react";
 import type { ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
 import type { SentenceGapInstance } from "@/learning/exercises/sentence-gap";
 import type { Tile } from "@/learning/exercises/tiles";
-import type { TileTranslateInstance } from "@/learning/exercises/tile-translate";
 import type { WordOrderInstance } from "@/learning/exercises/word-order";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -98,17 +97,6 @@ export function WordOrderView({ instance, answer, onAnswer, result }: ExerciseVi
       <Instruction>Sắp xếp các từ thành câu đúng</Instruction>
       <p className="text-xl">{instance.vi}</p>
       <TileBuilder tiles={instance.tiles} answer={answer} onAnswer={onAnswer} locked={result !== null} minToCheck={instance.body.tokens.length} />
-      {result ? <CorrectSentence en={instance.body.tokens.join(" ")} vi={instance.vi} audio={instance.audio} /> : null}
-    </div>
-  );
-}
-
-export function TileTranslateView({ instance, answer, onAnswer, result }: ExerciseViewProps<TileTranslateInstance, number[]>) {
-  return (
-    <div className="grid gap-6">
-      <Instruction>Dịch câu sau sang tiếng Anh</Instruction>
-      <p className="text-xl">{instance.vi}</p>
-      <TileBuilder tiles={instance.tiles} answer={answer} onAnswer={onAnswer} locked={result !== null} minToCheck={2} />
       {result ? <CorrectSentence en={instance.body.tokens.join(" ")} vi={instance.vi} audio={instance.audio} /> : null}
     </div>
   );

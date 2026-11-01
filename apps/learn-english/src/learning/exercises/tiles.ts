@@ -1,6 +1,6 @@
-// Shared by the tile exercises (word-order, tile-translate): answers are
-// compared by token text, so repeated words ("the ... the") are
-// interchangeable, against every accepted order of the sentence.
+// The tile exercise (word-order): answers are compared by token text, so
+// repeated words ("the ... the") are interchangeable, against every accepted
+// order of the sentence.
 import { normalize } from "../normalize";
 import { shuffle, type Rng } from "./random";
 import type { SentenceItem } from "./types";

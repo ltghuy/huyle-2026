@@ -82,6 +82,13 @@ describe("prepareStep", () => {
     });
   });
 
+  it("runs a saved tile-translate step as word-order (015 AC-003)", () => {
+    const legacy = prepareStep({ kind: "tile-translate", itemIds: ["sentence:apple-1"], seed: 3 }, index, "k");
+    const current = prepareStep({ kind: "word-order", itemIds: ["sentence:apple-1"], seed: 3 }, index, "k");
+    expect(legacy).toMatchObject({ type: "exercise", instance: { kind: "word-order", sentenceId: "sentence:apple-1" } });
+    expect(legacy).toEqual(current);
+  });
+
   it("gives dictation a word-order fallback and skips sentences it can't use (010)", () => {
     const heard = sentence("heard", { tokens: ["I", "eat", "an", "apple."], audio: "c".repeat(64), wordIds: ["word:apple"] });
     const year = sentence("year", { tokens: ["It", "opened", "in", "1990."], audio: "d".repeat(64) });

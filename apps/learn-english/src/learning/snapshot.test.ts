@@ -167,6 +167,11 @@ describe("parseSnapshot", () => {
     expect(parseSnapshot(JSON.stringify(bad)).ok).toBe(false);
   });
 
+  it("still parses attempts recorded as tile-translate, merged into word-order (015 AC-004)", () => {
+    const legacy = buildSnapshot({ ...state, attempts: [{ ...attempt("t1", "sentence:s1", NOW - DAY), exercise: "tile-translate" }] }, NOW, TZ);
+    expect(parseSnapshot(JSON.stringify(legacy)).ok).toBe(true);
+  });
+
   it("accepts its own output, as an object or as JSON text", () => {
     expect(parseSnapshot(snapshot)).toEqual({ ok: true, snapshot });
     expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });

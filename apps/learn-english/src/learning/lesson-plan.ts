@@ -47,7 +47,8 @@ export const STEP_SECONDS: Record<ExerciseKind, number> = {
   "word-order": 25,
   "sentence-gap": 20,
   "choose-sentence": 20,
-  "tile-translate": 35,
+  // Merged into word-order (feature 015); a saved step of this kind runs as word-order.
+  "tile-translate": 25,
   writing: 150,
   dictation: 35,
   "find-error": 20,
@@ -65,7 +66,7 @@ const NEW_WORD_SECONDS = STEP_SECONDS.study + STEP_SECONDS.mcq;
 
 const WORD_REVIEW_KINDS = ["mcq", "missing-letters", "listening", "recall"] as const;
 const FORMS_REVIEW_KINDS = ["forms-typing", "forms-gap", "forms-listening"] as const;
-const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "tile-translate", "dictation", "find-error"] as const;
+const SENTENCE_KINDS = ["word-order", "sentence-gap", "choose-sentence", "dictation", "find-error"] as const;
 
 /** The content the planner reads; the caller builds it from the content cache. */
 export interface LessonContent {
