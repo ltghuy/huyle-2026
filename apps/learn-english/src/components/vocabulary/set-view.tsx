@@ -24,10 +24,12 @@ interface SetViewProps {
   followed: boolean;
   search: string;
   onOpenWord: () => void;
+  unlearnedOnly: boolean;
+  onUnlearnedOnlyChange: (value: boolean) => void;
 }
 
 /** One vocabulary set: progress, follow / stop following, and its words (AC-003, AC-007, AC-010, AC-014). */
-export function SetView({ set, index, learned, followed, search, onOpenWord }: SetViewProps) {
+export function SetView({ set, index, learned, followed, search, onOpenWord, unlearnedOnly, onUnlearnedOnlyChange }: SetViewProps) {
   const { follow, unfollow, pending } = useFollowSet();
   const backHref = `/vocabulary${withParams(search, { set: null, word: null, view: "sets" })}`;
 
@@ -108,7 +110,16 @@ export function SetView({ set, index, learned, followed, search, onOpenWord }: S
           ) : null}
         </div>
       </section>
-      <WordList key={set.item.id} words={set.words} learned={learned} search={search} onOpen={onOpenWord} labelOf={labelOf} />
+      <WordList
+        key={set.item.id}
+        words={set.words}
+        learned={learned}
+        search={search}
+        onOpen={onOpenWord}
+        labelOf={labelOf}
+        unlearnedOnly={unlearnedOnly}
+        onUnlearnedOnlyChange={onUnlearnedOnlyChange}
+      />
     </>
   );
 }

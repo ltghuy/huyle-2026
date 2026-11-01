@@ -69,6 +69,24 @@ describe("VocabularyBrowser", () => {
     expect(window.location.search).toBe("?level=A1&topic=home");
   });
 
+  it("shows only unlearned words when asked, across topic changes (quick 032)", async () => {
+    await putCards([makeCard("word:father", Date.now()), makeCard("word:mother", Date.now())]);
+    visit("?level=A1");
+    const list = await screen.findByRole("region", { name: "Danh sách từ" });
+    await waitFor(() => expect(within(list).getAllByText("Đã học")).toHaveLength(2));
+
+    fireEvent.click(screen.getByRole("switch", { name: "Chỉ hiện từ chưa học" }));
+    expect(within(list).getAllByRole("link").map((link) => link.textContent)).toEqual([expect.stringContaining("kitchen")]);
+    expect(screen.getByRole("button", { name: "Tất cả: đã học 2/3" })).toBeInTheDocument();
+
+    // The list remounts for the new topic but keeps the choice.
+    fireEvent.click(screen.getByRole("button", { name: "Con người & gia đình: đã học 2/2" }));
+    const topicList = screen.getByRole("region", { name: "Danh sách từ" });
+    expect(screen.getByRole("switch", { name: "Chỉ hiện từ chưa học" })).toBeChecked();
+    expect(within(topicList).queryAllByRole("link")).toHaveLength(0);
+    expect(within(topicList).getByText("Bạn đã học hết các từ ở đây.")).toBeInTheDocument();
+  });
+
   it("shows an irregular verb's forms with a link to the section (008 AC-013)", async () => {
     visit("?level=B1&word=word%3Ago-v");
     const link = await screen.findByRole("link", { name: /go – went – gone/ });

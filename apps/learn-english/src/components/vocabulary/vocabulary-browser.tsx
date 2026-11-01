@@ -104,6 +104,7 @@ export function VocabularyBrowser() {
   const learned = cardIds ?? EMPTY_SET;
   const openedInApp = useRef(false);
   const [allTopics, setAllTopics] = useState(false);
+  const [unlearnedOnly, setUnlearnedOnly] = useState(false);
   const topicRow = useRef<HTMLDivElement>(null);
 
   const words = useMemo(() => (index && level ? (index.wordsByLevel[level] ?? []) : []), [index, level]);
@@ -180,6 +181,8 @@ export function VocabularyBrowser() {
             followed={followedSet === `set:${setSlug}`}
             search={search}
             onOpenWord={handleOpenWord}
+            unlearnedOnly={unlearnedOnly}
+            onUnlearnedOnlyChange={setUnlearnedOnly}
           />
         ) : (
           <SetList sets={content.index.sets} learned={learned} followed={followedSet} search={search} />
@@ -235,7 +238,15 @@ export function VocabularyBrowser() {
               </Button>
             </EmptyState>
           ) : (
-            <WordList key={`${level}-${topic}`} words={shown} learned={learned} search={search} onOpen={handleOpenWord} />
+            <WordList
+              key={`${level}-${topic}`}
+              words={shown}
+              learned={learned}
+              search={search}
+              onOpen={handleOpenWord}
+              unlearnedOnly={unlearnedOnly}
+              onUnlearnedOnlyChange={setUnlearnedOnly}
+            />
           )}
         </>
       )}

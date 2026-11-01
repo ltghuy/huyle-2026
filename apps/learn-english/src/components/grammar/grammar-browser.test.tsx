@@ -4,7 +4,8 @@ import { render } from "@/test-utils/render";
 import { grammar, sentence } from "@/learning/exercises/fixtures";
 import { buildContentIndex } from "@/lib/session/content-index";
 import { getAllAttempts } from "@/storage/attempts";
-import { getCard } from "@/storage/cards";
+import { getCard, putCards } from "@/storage/cards";
+import { newCard } from "@/learning/srs";
 import { resetStorage } from "@/storage/test-utils";
 import { GrammarBrowser } from "./grammar-browser";
 
@@ -76,6 +77,22 @@ describe("GrammarBrowser", () => {
     expect(within(a1).getByRole("link", { name: /Present Simple/ })).toHaveAttribute("href", "/grammar?topic=present-simple");
     expect(within(a1).getAllByText("Sắp có").length).toBeGreaterThan(0);
     expect(screen.getByRole("region", { name: "Trình độ C1" })).toBeInTheDocument();
+  });
+
+  it("hides learned and coming-soon topics when only unlearned ones are asked for (quick 032)", async () => {
+    await putCards([newCard("grammar:present-simple", Date.now())]);
+    visit("");
+    const a1 = await screen.findByRole("region", { name: "Trình độ A1" });
+    await within(a1).findByText("Đã học");
+
+    fireEvent.click(screen.getByRole("switch", { name: "Chỉ hiện chủ điểm chưa học" }));
+
+    expect(within(a1).queryByRole("link", { name: /Present Simple/ })).not.toBeInTheDocument();
+    expect(within(a1).queryByText("Sắp có")).not.toBeInTheDocument();
+    expect(within(a1).getByText("Bạn đã học hết các chủ điểm ở trình độ này.")).toBeInTheDocument();
+    const a2 = screen.getByRole("region", { name: "Trình độ A2" });
+    expect(within(a2).getByRole("link", { name: /Past Simple/ })).toBeInTheDocument();
+    expect(within(screen.getByRole("region", { name: "Trình độ C1" })).getByText("Các bài ở trình độ này đang được biên soạn.")).toBeInTheDocument();
   });
 
   it("shows every part of a topic and creates its card after practice (AC-024, AC-025, AC-013)", async () => {

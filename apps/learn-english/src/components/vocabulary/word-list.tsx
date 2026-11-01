@@ -8,6 +8,8 @@ import { withParams } from "@/lib/search-params";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 type Word = ContentItemOf<"word">;
 
@@ -22,14 +24,23 @@ interface WordListProps {
   onOpen: () => void;
   /** A tag per card: the level, or the set's name for a specialized word (feature 012). */
   labelOf?: (word: Word) => string;
+  /** Show only the words without a card yet (quick task 032). The page owns it so it survives topic and level changes. */
+  unlearnedOnly: boolean;
+  onUnlearnedOnlyChange: (value: boolean) => void;
 }
 
-/** Word cards of a level or a vocabulary set, with learned markers. */
-export function WordList({ words, learned, search, onOpen, labelOf }: WordListProps) {
+/** Word cards of a level or a vocabulary set, with learned markers and an "unlearned only" switch. */
+export function WordList({ words, learned, search, onOpen, labelOf, unlearnedOnly, onUnlearnedOnlyChange }: WordListProps) {
   const [limit, setLimit] = useState(CHUNK);
-  const visible = words.slice(0, limit);
+  const filtered = unlearnedOnly ? words.filter((word) => !learned.has(word.id)) : words;
+  const visible = filtered.slice(0, limit);
   return (
     <section aria-label="Danh sách từ" className="grid gap-4">
+      <div className="flex items-center gap-3">
+        <Switch id="vocabulary-unlearned-only" checked={unlearnedOnly} onCheckedChange={onUnlearnedOnlyChange} />
+        <Label htmlFor="vocabulary-unlearned-only">Chỉ hiện từ chưa học</Label>
+      </div>
+      {filtered.length === 0 ? <p className="text-sm text-muted-foreground">Bạn đã học hết các từ ở đây.</p> : null}
       <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {visible.map((word) => (
           <li key={word.id} className="[contain-intrinsic-size:auto_6rem] [content-visibility:auto]">
@@ -43,9 +54,9 @@ export function WordList({ words, learned, search, onOpen, labelOf }: WordListPr
           </li>
         ))}
       </ul>
-      {words.length > limit ? (
+      {filtered.length > limit ? (
         <Button variant="outline" className="h-11 justify-self-center px-6" onClick={() => setLimit((value) => value + CHUNK)}>
-          Xem thêm {Math.min(CHUNK, words.length - limit)} từ
+          Xem thêm {Math.min(CHUNK, filtered.length - limit)} từ
         </Button>
       ) : null}
     </section>

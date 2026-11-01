@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, ChevronRight, Clock } from "lucide-react";
@@ -12,7 +12,9 @@ import { GRAMMAR_TOPICS, grammarSlug, grammarTopicMeta } from "@/lib/topics";
 import { useCardIds } from "@/components/library/use-card-ids";
 import { ContentError, ListSkeleton } from "@/components/shell/load-states";
 import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
+import { Switch } from "@/components/ui/switch";
 import { GrammarTopic } from "./grammar-topic";
 
 type Grammar = ContentItemOf<"grammar">;
@@ -57,6 +59,7 @@ export function GrammarBrowser() {
   const done = ids ?? EMPTY_SET;
   const index = content.status === "ready" ? content.index : null;
   const rows = useMemo(() => (index ? rowsByLevel(index) : null), [index]);
+  const [unlearnedOnly, setUnlearnedOnly] = useState(false);
 
   if (content.status === "loading") return <ListSkeleton rows={6} />;
   if (content.status === "error" || !index || !rows) return <ContentError onRetry={content.retry} />;
@@ -68,17 +71,34 @@ export function GrammarBrowser() {
 
   return (
     <div className="grid gap-8 px-4 md:px-8">
+      <div className="flex items-center gap-3">
+        <Switch id="grammar-unlearned-only" checked={unlearnedOnly} onCheckedChange={setUnlearnedOnly} />
+        <Label htmlFor="grammar-unlearned-only">Chỉ hiện chủ điểm chưa học</Label>
+      </div>
       {LEVELS.map((rowLevel) => (
-        <LevelSection key={rowLevel} level={rowLevel} rows={rows[rowLevel]} done={done} />
+        <LevelSection key={rowLevel} level={rowLevel} rows={rows[rowLevel]} done={done} unlearnedOnly={unlearnedOnly} />
       ))}
     </div>
   );
 }
 
-function LevelSection({ level, rows, done }: { level: Level; rows: TopicRow[]; done: ReadonlySet<string> }) {
+function isLearned(row: TopicRow, done: ReadonlySet<string>): boolean {
+  return Boolean(row.item && done.has(row.item.id));
+}
+
+interface LevelSectionProps {
+  level: Level;
+  rows: TopicRow[];
+  done: ReadonlySet<string>;
+  /** Hide learned and coming-soon topics (quick task 032). */
+  unlearnedOnly: boolean;
+}
+
+function LevelSection({ level, rows, done, unlearnedOnly }: LevelSectionProps) {
   if (rows.length === 0) return null;
   const published = rows.filter((row) => row.item).length;
-  const learned = rows.filter((row) => row.item && done.has(row.item.id)).length;
+  const learned = rows.filter((row) => isLearned(row, done)).length;
+  const visible = unlearnedOnly ? rows.filter((row) => row.item && !isLearned(row, done)) : rows;
   const headingId = `grammar-${level}`;
   return (
     <section aria-labelledby={headingId} className="grid gap-3">
@@ -92,13 +112,16 @@ function LevelSection({ level, rows, done }: { level: Level; rows: TopicRow[]; d
         <Progress value={rows.length ? (learned / rows.length) * 100 : 0} className="w-full sm:ml-auto sm:w-40" aria-label={`Tiến độ ngữ pháp ${level}`} />
       </div>
       {published === 0 ? <p className="text-sm text-muted-foreground">Các bài ở trình độ này đang được biên soạn.</p> : null}
-      <ul className="grid gap-2 md:grid-cols-2">
-        {rows.map((row) => (
-          <li key={row.slug}>
-            <TopicRowView row={row} learned={Boolean(row.item && done.has(row.item.id))} />
-          </li>
-        ))}
-      </ul>
+      {published > 0 && visible.length === 0 ? <p className="text-sm text-muted-foreground">Bạn đã học hết các chủ điểm ở trình độ này.</p> : null}
+      {visible.length > 0 ? (
+        <ul className="grid gap-2 md:grid-cols-2">
+          {visible.map((row) => (
+            <li key={row.slug}>
+              <TopicRowView row={row} learned={isLearned(row, done)} />
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </section>
   );
 }
