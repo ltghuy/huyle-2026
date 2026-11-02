@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
-import { CheckCircle2, Plus, SearchX } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, Plus, SearchX } from "lucide-react";
 import { toast } from "sonner";
 import type { ContentItemOf } from "@/content/schema";
 import { newCard } from "@/learning/srs";
@@ -26,6 +26,14 @@ export type WordLookup =
    */
   | { status: "found"; word: Word; examples: Sentence[]; forms?: ContentItemOf<"forms">; setTitle?: string };
 
+/** Where the open word sits in the list behind the dialog; ids are undefined at either end. */
+export interface WordNav {
+  position: number;
+  total: number;
+  prevId?: string;
+  nextId?: string;
+}
+
 interface WordDialogProps {
   open: boolean;
   lookup: WordLookup;
@@ -33,19 +41,38 @@ interface WordDialogProps {
   onClose: () => void;
   /** After a card was created, so the caller can refresh its learned markers. */
   onLearned: () => void;
+  /** Present when the word is in the list the learner opened it from (quick task 035). */
+  nav?: WordNav;
+  onNavigate?: (wordId: string) => void;
 }
 
-/** Word details, opened from the list or a `?word=word:…` link (AC-007–AC-009). */
-export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDialogProps) {
+/** Word details, opened from the list or a `?word=word:…` link (AC-007–AC-009); arrows step through the list. */
+export function WordDialog({ open, lookup, learned, onClose, onLearned, nav, onNavigate }: WordDialogProps) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const wordId = lookup.status === "found" ? lookup.word.id : null;
+
+  useEffect(() => {
+    // A new word starts at the top, not where the last one was scrolled to.
+    if (contentRef.current) contentRef.current.scrollTop = 0;
+  }, [wordId]);
+
   function handleOpenChange(next: boolean) {
     if (!next) onClose();
   }
 
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    const target = event.key === "ArrowLeft" ? nav?.prevId : event.key === "ArrowRight" ? nav?.nextId : undefined;
+    if (!target || !onNavigate) return;
+    event.preventDefault();
+    onNavigate(target);
+  }
+
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent showCloseButton={false} className="max-h-[calc(100svh-2rem)] gap-5 overflow-y-auto p-5 sm:max-w-lg">
+      <DialogContent ref={contentRef} showCloseButton={false} onKeyDown={handleKeyDown} className="max-h-[calc(100svh-2rem)] gap-5 overflow-y-auto p-5 sm:max-w-lg">
         {lookup.status === "found" ? (
-          <WordDetails word={lookup.word} examples={lookup.examples} forms={lookup.forms} setTitle={lookup.setTitle} learned={learned} onLearned={onLearned} />
+          <WordDetails key={lookup.word.id} word={lookup.word} examples={lookup.examples} forms={lookup.forms} setTitle={lookup.setTitle} learned={learned} onLearned={onLearned} />
         ) : lookup.status === "missing" ? (
           <DialogHeader className="items-center py-6 text-center">
             <SearchX className="size-8 text-muted-foreground" aria-hidden />
@@ -60,9 +87,30 @@ export function WordDialog({ open, lookup, learned, onClose, onLearned }: WordDi
             <Skeleton className="h-24" />
           </div>
         )}
-        <DialogClose render={<Button variant="outline" className="h-11 w-full" />}>Đóng</DialogClose>
+        <div className="flex gap-2">
+          <DialogClose render={<Button variant="outline" className="h-11 flex-1" />}>Đóng</DialogClose>
+          {nav && onNavigate ? <WordNavButtons nav={nav} onNavigate={onNavigate} /> : null}
+        </div>
       </DialogContent>
     </Dialog>
+  );
+}
+
+/** Previous / next as one joined control, with the position between them. */
+function WordNavButtons({ nav, onNavigate }: { nav: WordNav; onNavigate: (wordId: string) => void }) {
+  const { prevId, nextId, position, total } = nav;
+  return (
+    <div role="group" aria-label="Chuyển từ" className="flex h-11 items-center rounded-lg border bg-background">
+      <Button variant="ghost" size="icon" className="size-11 rounded-r-none" disabled={!prevId} onClick={() => prevId && onNavigate(prevId)} aria-label="Từ trước" title="Từ trước (←)">
+        <ChevronLeft aria-hidden />
+      </Button>
+      <span className="min-w-12 px-1 text-center text-xs tabular-nums text-muted-foreground" aria-live="polite">
+        {position}/{total}
+      </span>
+      <Button variant="ghost" size="icon" className="size-11 rounded-l-none" disabled={!nextId} onClick={() => nextId && onNavigate(nextId)} aria-label="Từ tiếp theo" title="Từ tiếp theo (→)">
+        <ChevronRight aria-hidden />
+      </Button>
+    </div>
   );
 }
 

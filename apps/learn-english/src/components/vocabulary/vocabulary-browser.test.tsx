@@ -112,6 +112,31 @@ describe("VocabularyBrowser", () => {
     expect(await within(dialog).findByText("Từ này đã có trong lịch Ôn tập của bạn.")).toBeInTheDocument();
   });
 
+  it("steps to the previous and next word of the list without closing (quick 035)", async () => {
+    visit("?level=A1&word=word%3Akitchen");
+    const dialog = await screen.findByRole("dialog");
+    const nav = within(dialog).getByRole("group", { name: "Chuyển từ" });
+    expect(nav).toHaveTextContent("2/3");
+
+    fireEvent.click(within(nav).getByRole("button", { name: "Từ tiếp theo" }));
+    expect(await within(dialog).findByRole("heading", { name: "mother" })).toBeInTheDocument();
+    expect(window.location.search).toBe("?level=A1&word=word%3Amother");
+    expect(within(nav).getByRole("button", { name: "Từ tiếp theo" })).toBeDisabled();
+
+    fireEvent.keyDown(dialog, { key: "ArrowLeft" });
+    expect(await within(dialog).findByRole("heading", { name: "kitchen" })).toBeInTheDocument();
+    fireEvent.keyDown(dialog, { key: "ArrowLeft" });
+    expect(await within(dialog).findByRole("heading", { name: "father" })).toBeInTheDocument();
+    expect(within(nav).getByRole("button", { name: "Từ trước" })).toBeDisabled();
+  });
+
+  it("has no arrows for a word outside the list on screen", async () => {
+    visit("?level=A1&word=word%3Ago-v");
+    const dialog = await screen.findByRole("dialog");
+    await within(dialog).findByRole("heading", { name: "go" });
+    expect(within(dialog).queryByRole("group", { name: "Chuyển từ" })).not.toBeInTheDocument();
+  });
+
   it("says so when a linked word doesn't exist", async () => {
     visit("?level=A1&word=word%3Agone");
     expect(await screen.findByText("Không tìm thấy từ này")).toBeInTheDocument();

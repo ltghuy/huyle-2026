@@ -19,7 +19,7 @@ import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { WordDialog, type WordLookup } from "./word-dialog";
+import { WordDialog, type WordLookup, type WordNav } from "./word-dialog";
 import { SetList } from "./set-list";
 import { SetView } from "./set-view";
 import { WordList } from "./word-list";
@@ -80,6 +80,18 @@ function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], still
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
 /**
+ * The open word's place in the list it was opened from. With "unlearned only" on, the open word stays in the
+ * sequence after it is marked learned, so "next" still works from it.
+ */
+function wordNav(list: readonly Word[], wordId: string | null, learned: ReadonlySet<string>, unlearnedOnly: boolean): WordNav | undefined {
+  if (!wordId) return undefined;
+  const sequence = unlearnedOnly ? list.filter((word) => word.id === wordId || !learned.has(word.id)) : list;
+  const i = sequence.findIndex((word) => word.id === wordId);
+  if (i === -1) return undefined;
+  return { position: i + 1, total: sequence.length, prevId: sequence[i - 1]?.id, nextId: sequence[i + 1]?.id };
+}
+
+/**
  * `/vocabulary`: search, words by level and topic, learned markers and the
  * word dialog (AC-006–AC-009; 002). `?view=sets` lists the specialized
  * vocabulary sets and `?set=<slug>` opens one (feature 012).
@@ -130,6 +142,10 @@ export function VocabularyBrowser() {
   const collapsed = (group: TopicGroup, i: number) => !allTopics && i >= TOPICS_SHOWN && group.slug !== activeGroup?.slug;
   const hiddenTopics = groups.filter(collapsed).length;
 
+  const openSet = setSlug !== null ? content.index.sets.find((set) => set.item.id === `set:${setSlug}`) : undefined;
+  const listWords = showSets ? (openSet?.words ?? []) : shown;
+  const nav = wordNav(listWords, wordId, learned, unlearnedOnly);
+
   const lookup: WordLookup = wordId
     ? lookupWord(wordId, [index, fallback.status === "ready" ? fallback.index : null], needsAllLevels && fallback.status === "loading")
     : { status: "loading" };
@@ -154,6 +170,11 @@ export function VocabularyBrowser() {
     updateSearchParams({ word: id }, "push");
   }
 
+  function handleNavigateWord(id: string) {
+    // Replace, so closing still goes back to the list in one step.
+    updateSearchParams({ word: id });
+  }
+
   function handleCloseWord() {
     if (openedInApp.current) {
       openedInApp.current = false;
@@ -175,7 +196,7 @@ export function VocabularyBrowser() {
       {showSets ? (
         setSlug !== null ? (
           <SetView
-            set={content.index.sets.find((set) => set.item.id === `set:${setSlug}`)}
+            set={openSet}
             index={content.index}
             learned={learned}
             followed={followedSet === `set:${setSlug}`}
@@ -257,6 +278,8 @@ export function VocabularyBrowser() {
         learned={Boolean(wordId && learned.has(wordId))}
         onClose={handleCloseWord}
         onLearned={reloadCards}
+        nav={nav}
+        onNavigate={handleNavigateWord}
       />
     </div>
   );
