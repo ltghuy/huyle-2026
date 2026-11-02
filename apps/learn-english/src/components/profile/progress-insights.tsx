@@ -17,7 +17,7 @@ import { getAttemptsSince } from "@/storage/attempts";
 import { getAllCards } from "@/storage/cards";
 import { certificateTitle, type CertificateData } from "./certificate";
 import { CertificateDialog } from "./certificate-dialog";
-import { accuracy, dayMonth, percent, type LevelCount, type ProgressKind, countByLevel } from "./progress-math";
+import { accuracy, addDays, dayMonth, daysBetween, percent, type DayAccuracy, type LevelCount, type ProgressKind, countByLevel } from "./progress-math";
 
 const DAY_MS = 86_400_000;
 const STORES = ["cards", "attempts", "meta"] as const;
@@ -25,12 +25,12 @@ const STORES = ["cards", "attempts", "meta"] as const;
 async function loadProgress() {
   const now = Date.now();
   const [profile, cards, attempts] = await Promise.all([ensureProfile(), getAllCards(), getAttemptsSince(now - 30 * DAY_MS)]);
-  return { cards, profile, accuracy: accuracy(attempts, (at) => localDate(at, profile.timeZone)) };
+  return { cards, profile, today: localDate(now, profile.timeZone), accuracy: accuracy(attempts, (at) => localDate(at, profile.timeZone)) };
 }
 
 /**
  * Words learned per level, grammar topics completed, irregular verbs practised (008 AC-016) and 30-day
- * accuracy (AC-037). Every level row ends with its certificate, earned once the row is finished (009).
+ * accuracy as a daily line (AC-037). Every level row ends with its certificate, earned once the row is finished (009).
  */
 export function ProgressInsights() {
   const progress = useStorageQuery(["progress"], loadProgress, STORES);
@@ -97,7 +97,7 @@ export function ProgressInsights() {
           <CardTitle>Độ chính xác 30 ngày qua</CardTitle>
           <CardDescription>Tỉ lệ câu trả lời đúng trong bài học, ôn tập và bài tập.</CardDescription>
         </CardHeader>
-        <CardContent>{progress.status === "ready" ? <AccuracyView data={progress.data.accuracy} /> : <BarsSkeleton />}</CardContent>
+        <CardContent>{progress.status === "ready" ? <AccuracyView data={progress.data.accuracy} today={progress.data.today} /> : <BarsSkeleton />}</CardContent>
       </Card>
       <CertificateDialog data={certificate} onClose={() => setCertificate(null)} />
     </div>
@@ -172,7 +172,7 @@ function CertificateButton({ kind, row, unit, onOpen }: { kind: ProgressKind; ro
   );
 }
 
-function AccuracyView({ data }: { data: ReturnType<typeof accuracy> }) {
+function AccuracyView({ data, today }: { data: ReturnType<typeof accuracy>; today: string }) {
   if (data.overall.total === 0) {
     return <p className="text-sm text-muted-foreground">Bạn chưa trả lời câu nào trong 30 ngày qua. Làm bài học hôm nay để bắt đầu nhé!</p>;
   }
@@ -184,17 +184,99 @@ function AccuracyView({ data }: { data: ReturnType<typeof accuracy> }) {
           đúng {data.overall.correct}/{data.overall.total} câu
         </span>
       </p>
-      <ul className="grid gap-2" aria-label="Độ chính xác theo tuần">
-        {data.weeks.map((week) => (
-          <li key={week.week} className="flex items-center gap-3 text-sm">
-            <span className="w-24 text-muted-foreground">Tuần {dayMonth(week.week)}</span>
-            <Bar value={percent(week)} />
-            <span className="w-28 text-right tabular-nums text-muted-foreground">
-              {percent(week)}% ({week.correct}/{week.total})
-            </span>
+      <AccuracyChart days={data.days} today={today} />
+    </div>
+  );
+}
+
+const GRID = [100, 50, 0];
+
+/**
+ * Daily accuracy as a line from the first to the last day with answers, so the line spans the full width even after a few days.
+ * Hover shows the day's numbers; a hidden list carries them for screen readers.
+ */
+function AccuracyChart({ days, today }: { days: DayAccuracy[]; today: string }) {
+  const [active, setActive] = useState<number | null>(null);
+  const first = days[0].date;
+  const last = days[days.length - 1].date;
+  const span = daysBetween(first, last);
+  // A single day sits in the middle.
+  const xOf = (date: string) => (span === 0 ? 50 : (daysBetween(first, date) / span) * 100);
+  const points = days.map((day) => ({ day, x: xOf(day.date), y: 100 - percent(day) }));
+  const middle = span >= 4 ? addDays(first, Math.round(span / 2)) : null;
+  const dateLabel = (date: string) => (date === today ? "Hôm nay" : dayMonth(date));
+  const shown = active === null ? null : points[active];
+
+  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    let nearest = 0;
+    for (let i = 1; i < points.length; i++) if (Math.abs(points[i].x - x) < Math.abs(points[nearest].x - x)) nearest = i;
+    setActive(nearest);
+  }
+
+  return (
+    <div>
+      <ul className="sr-only" aria-label="Độ chính xác theo ngày">
+        {days.map((day) => (
+          <li key={day.date}>
+            {dayMonth(day.date)}: {percent(day)}% ({day.correct}/{day.total})
           </li>
         ))}
       </ul>
+      <div className="flex gap-2" aria-hidden>
+        <div className="relative w-9 shrink-0 text-right text-xs tabular-nums text-muted-foreground">
+          {GRID.map((value) => (
+            <span key={value} className="absolute right-0 -translate-y-1/2" style={{ top: `${100 - value}%` }}>
+              {value}%
+            </span>
+          ))}
+        </div>
+        <div className="relative h-40 flex-1 touch-none" onPointerMove={handlePointerMove} onPointerLeave={() => setActive(null)}>
+          <svg className="absolute inset-0 size-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {GRID.map((value) => (
+              <line key={value} x1={0} x2={100} y1={100 - value} y2={100 - value} className="stroke-border" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            ))}
+            {shown ? <line x1={shown.x} x2={shown.x} y1={0} y2={100} className="stroke-muted-foreground/50" strokeWidth={1} vectorEffect="non-scaling-stroke" /> : null}
+            <polyline
+              points={points.map((point) => `${point.x},${point.y}`).join(" ")}
+              fill="none"
+              className="stroke-success"
+              strokeWidth={2}
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+          {points.map((point, i) => (
+            <span
+              key={point.day.date}
+              className={`absolute size-2 -translate-1/2 rounded-full bg-success ring-2 ring-card ${i === active ? "scale-150" : ""}`}
+              style={{ left: `${point.x}%`, top: `${point.y}%` }}
+            />
+          ))}
+          {shown ? (
+            <div
+              className={`pointer-events-none absolute -top-2 z-10 rounded-md border bg-popover px-2 py-1 text-xs whitespace-nowrap text-popover-foreground shadow-md ${shown.x > 70 ? "-translate-x-full" : ""}`}
+              style={{ left: `calc(${shown.x}% ${shown.x > 70 ? "- 8px" : "+ 8px"})` }}
+            >
+              <div className="font-medium">{dayMonth(shown.day.date)}</div>
+              <div className="tabular-nums text-muted-foreground">
+                {percent(shown.day)}% đúng ({shown.day.correct}/{shown.day.total} câu)
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
+      <div className={`relative mt-2 ml-11 flex text-xs text-muted-foreground ${span === 0 ? "justify-center" : "justify-between"}`} aria-hidden>
+        <span>{dateLabel(first)}</span>
+        {middle ? (
+          <span className="absolute -translate-x-1/2" style={{ left: `${xOf(middle)}%` }}>
+            {dateLabel(middle)}
+          </span>
+        ) : null}
+        {span > 0 ? <span>{dateLabel(last)}</span> : null}
+      </div>
     </div>
   );
 }

@@ -120,6 +120,10 @@ describe("ProgressInsights", () => {
 
     expect(screen.getByText("75%")).toBeInTheDocument();
     expect(screen.getByText("đúng 3/4 câu")).toBeInTheDocument();
+    const days = within(screen.getByRole("list", { name: "Độ chính xác theo ngày" })).getAllByRole("listitem");
+    expect(days).toHaveLength(2);
+    expect(days[0]).toHaveTextContent("100% (2/2)");
+    expect(days[1]).toHaveTextContent("50% (1/2)");
   });
 });
 

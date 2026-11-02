@@ -73,29 +73,39 @@ export interface Accuracy {
   total: number;
 }
 
-export interface WeekAccuracy extends Accuracy {
-  /** Monday of the week, local "YYYY-MM-DD". */
-  week: string;
+export interface DayAccuracy extends Accuracy {
+  /** Local "YYYY-MM-DD". */
+  date: string;
 }
 
-/** Correct / total over the given attempts (placement answers excluded), overall and per calendar week. */
-export function accuracy(attempts: readonly Attempt[], toLocalDate: (at: number) => string): { overall: Accuracy; weeks: WeekAccuracy[] } {
+/** `date` moved by `days` (local "YYYY-MM-DD" in, same out). */
+export function addDays(date: string, days: number): string {
+  return fromUtc(toUtc(date) + days * DAY_MS);
+}
+
+/** Whole days from `from` to `to` (both local "YYYY-MM-DD"). */
+export function daysBetween(from: string, to: string): number {
+  return Math.round((toUtc(to) - toUtc(from)) / DAY_MS);
+}
+
+/** Correct / total over the given attempts (placement answers excluded), overall and per local day (days with answers only). */
+export function accuracy(attempts: readonly Attempt[], toLocalDate: (at: number) => string): { overall: Accuracy; days: DayAccuracy[] } {
   const overall = { correct: 0, total: 0 };
-  const byWeek = new Map<string, Accuracy>();
+  const byDay = new Map<string, Accuracy>();
   for (const attempt of attempts) {
     if (attempt.context === "placement") continue;
-    const week = weekStart(toLocalDate(attempt.at));
-    const bucket = byWeek.get(week) ?? { correct: 0, total: 0 };
+    const day = toLocalDate(attempt.at);
+    const bucket = byDay.get(day) ?? { correct: 0, total: 0 };
     bucket.total++;
     overall.total++;
     if (attempt.correct) {
       bucket.correct++;
       overall.correct++;
     }
-    byWeek.set(week, bucket);
+    byDay.set(day, bucket);
   }
-  const weeks = [...byWeek].map(([week, value]) => ({ week, ...value })).sort((a, b) => a.week.localeCompare(b.week));
-  return { overall, weeks };
+  const days = [...byDay].map(([date, value]) => ({ date, ...value })).sort((a, b) => a.date.localeCompare(b.date));
+  return { overall, days };
 }
 
 export function percent({ correct, total }: Accuracy): number {
