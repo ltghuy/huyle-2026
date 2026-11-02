@@ -74,7 +74,7 @@ export default function SettingsPage() {
 
         <SyncPanel />
 
-        <Card>
+        <Card id="bang-xep-hang" className="scroll-mt-20">
           <CardHeader>
             <CardTitle>Bảng xếp hạng tuần</CardTitle>
           </CardHeader>

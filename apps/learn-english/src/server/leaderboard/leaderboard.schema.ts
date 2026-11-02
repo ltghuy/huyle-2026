@@ -58,3 +58,17 @@ export interface SubmitResponse {
   total: number;
   rows: BoardRow[];
 }
+
+/** Top-10 request (feature 017): the learner's entry id travels in this header, never in the URL. */
+export const BOARD_ID_HEADER = "x-board-id";
+export const TOP_LIMIT = 10;
+
+export const topQuerySchema = z.object({ today: localDate, id: id.optional() });
+
+/** GET 200: the leaders, how many are on the board, and the asking learner's place when they're on it. */
+export interface TopResponse {
+  total: number;
+  rows: BoardRow[];
+  /** Absent when no id was sent, or the entry is missing or its streak is broken. */
+  me?: BoardRow;
+}

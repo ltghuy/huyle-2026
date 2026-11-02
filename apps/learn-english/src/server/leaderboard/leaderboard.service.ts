@@ -5,7 +5,7 @@ import { DAILY_POINTS } from "@/learning/attendance";
 import { BOARD_NEIGHBOURS, BONUS_ALLOWANCE, previousDay, type BoardRow } from "@/learning/leaderboard";
 import type { Db } from "@/server/db";
 import { leaderboardEntries as entries } from "@/server/db/schema";
-import type { SubmitResponse } from "./leaderboard.schema";
+import { TOP_LIMIT, type SubmitResponse, type TopResponse } from "./leaderboard.schema";
 
 // The board (feature 007, ranked by streak since 013). Every request is one
 // `db.batch()`: the guarded write, then the reads that rank the learner against
@@ -132,4 +132,36 @@ export async function removeEntry(db: Db, id: string, tokenHash: string): Promis
     db.select({ id: entries.id }).from(entries).where(eq(entries.id, id)).limit(1),
   ]);
   return remaining[0] ? { ok: false, reason: "forbidden" } : { ok: true };
+}
+
+/**
+ * The 10 longest live streaks, in board order, the number of learners on the board, and the place of
+ * entry `id` when it is on it (feature 017). Read-only; one batch.
+ */
+export async function topEntries(db: Db, today: string, id: string | undefined): Promise<TopResponse> {
+  const visibleSince = previousDay(today);
+  const me = alias(entries, "me");
+  const other = alias(entries, "other");
+  const ahead = or(
+    gt(other.streak, me.streak),
+    and(eq(other.streak, me.streak), or(gt(other.earned, me.earned), and(eq(other.earned, me.earned), lt(other.reachedAt, me.reachedAt)))),
+  );
+  const row = { id: entries.id, name: entries.name, streak: entries.streak, earned: entries.earned };
+  const [top, total, mine, aheadCount] = await db.batch([
+    db.select(row).from(entries).where(gte(entries.lastDate, visibleSince)).orderBy(desc(entries.streak), desc(entries.earned), asc(entries.reachedAt)).limit(TOP_LIMIT),
+    db.select({ n: count() }).from(entries).where(gte(entries.lastDate, visibleSince)),
+    db.select(row).from(entries).where(and(eq(entries.id, id ?? ""), gte(entries.lastDate, visibleSince))).limit(1),
+    db
+      .select({ n: count() })
+      .from(other)
+      .innerJoin(me, and(eq(me.id, id ?? ""), ne(other.id, me.id), gte(other.lastDate, visibleSince)))
+      .where(ahead),
+  ]);
+  const rows = top.map(({ id: rowId, ...rest }, i) => ({ ...rest, position: i + 1, me: rowId === id }));
+  const own = mine[0];
+  return {
+    total: total[0].n,
+    rows,
+    ...(own ? { me: { name: own.name, streak: own.streak, earned: own.earned, position: aheadCount[0].n + 1, me: true } } : {}),
+  };
 }

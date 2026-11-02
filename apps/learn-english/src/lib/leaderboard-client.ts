@@ -2,7 +2,7 @@ import { localDate } from "@/learning/attendance";
 import { boardNumbers, type BoardNumbers } from "@/learning/leaderboard";
 import type { LeaderboardState, Profile } from "@/learning/types";
 import type { ApiError } from "@/lib/http";
-import { LEADERBOARD_MESSAGES, type SubmitBody, type SubmitResponse } from "@/server/leaderboard/leaderboard.schema";
+import { BOARD_ID_HEADER, LEADERBOARD_MESSAGES, type SubmitBody, type SubmitResponse, type TopResponse } from "@/server/leaderboard/leaderboard.schema";
 import { getAllAttendance } from "@/storage/attendance";
 import { updateProfile } from "@/storage/meta";
 
@@ -86,4 +86,19 @@ export async function renameOnBoard(entry: Joined, name: string, profile: Pick<P
 export async function leaveBoard(entry: Joined, now: number): Promise<void> {
   await send("DELETE", { id: entry.id, token: entry.token });
   await updateProfile({ leaderboard: { status: "declined" } }, now);
+}
+
+/** The top 10 and, for a joined learner, their own place (feature 017). The entry id goes in a header, not the URL. */
+export async function fetchTopStreaks(today: string, id: string | undefined): Promise<TopResponse> {
+  let response: Response;
+  try {
+    response = await fetch(`${LEADERBOARD_URL}?today=${today}`, { headers: id ? { [BOARD_ID_HEADER]: id } : undefined, cache: "no-store" });
+  } catch {
+    throw new BoardError("Không kết nối được bảng xếp hạng. Bạn kiểm tra mạng nhé.");
+  }
+  if (!response.ok) {
+    const error = (await response.json().catch(() => undefined)) as ApiError | undefined;
+    throw new BoardError(error?.error.message ?? LEADERBOARD_MESSAGES.unavailable);
+  }
+  return (await response.json()) as TopResponse;
 }

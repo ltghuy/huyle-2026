@@ -12,6 +12,7 @@ import { render } from "@/test-utils/render";
 import { BoardAfterLesson } from "./board-after-lesson";
 import { LeaderboardSetting } from "./leaderboard-setting";
 import { StreakBoard } from "./streak-board";
+import { StreakTopTen } from "./streak-top-ten";
 
 // Feature 007 in the browser: consent once, the board after a lesson, Settings.
 
@@ -175,5 +176,57 @@ describe("StreakBoard (007 AC-002, AC-004; 013 AC-010, AC-012)", () => {
     render(<StreakBoard result={result} />);
     expect(meRow().style.transform).toBe("");
     expect(meRow()).toHaveTextContent("5");
+  });
+});
+
+describe("StreakTopTen (017)", () => {
+  const top = (rows: BoardRow[], me?: BoardRow, total = rows.length) => Response.json({ total, rows, ...(me ? { me } : {}) });
+
+  it("shows the top 10 and a join link to a learner not on the board, sending no id (AC-001, AC-003, AC-007)", async () => {
+    await profileWith({});
+    fetchMock.mockResolvedValue(top([row(1, "Gấu", 30), row(2, "Lan", 12)], undefined, 7));
+    render(<StreakTopTen />);
+    const list = await screen.findByRole("list", { name: "Top 10 chuỗi ngày học" });
+    expect(list).toHaveTextContent("🥇1Gấu30 ngày");
+    expect(screen.getByText("7 bạn trên bảng xếp hạng, xếp theo số ngày học liên tiếp.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Tham gia bảng xếp hạng" })).toHaveAttribute("href", "/settings#bang-xep-hang");
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(String(url)).toMatch(/^\/api\/leaderboard\?today=\d{4}-\d{2}-\d{2}$/);
+    expect(init?.headers).toBeUndefined();
+  });
+
+  it("marks the learner in the top 10, or adds their place below it (AC-004, AC-005)", async () => {
+    await profileWith({ leaderboard: JOINED });
+    fetchMock.mockResolvedValueOnce(top([row(1, "Minh Anh", 9, true)], row(1, "Minh Anh", 9, true)));
+    const { unmount } = render(<StreakTopTen />);
+    const list = await screen.findByRole("list", { name: "Top 10 chuỗi ngày học" });
+    expect(list.querySelector('[aria-current="true"]')).toHaveTextContent("Minh Anh(bạn)");
+    expect(screen.queryByText("Vị trí của bạn")).not.toBeInTheDocument();
+    expect(fetchMock.mock.calls[0][1]?.headers).toEqual({ "x-board-id": JOINED.id });
+    unmount();
+
+    fetchMock.mockResolvedValueOnce(top([row(1, "Gấu", 30)], row(12, "Minh Anh", 2, true), 20));
+    render(<StreakTopTen />);
+    expect(await screen.findByText("Vị trí của bạn")).toBeInTheDocument();
+    expect(screen.getByText("12")).toBeInTheDocument();
+  });
+
+  it("says a joined learner with a broken streak is off the board (AC-006)", async () => {
+    await profileWith({ leaderboard: JOINED });
+    fetchMock.mockResolvedValue(top([]));
+    render(<StreakTopTen />);
+    expect(await screen.findByText("Bảng xếp hạng đang trống")).toBeInTheDocument();
+    expect(screen.getByText("Chuỗi của bạn đang bị gián đoạn")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Học bài hôm nay" })).toHaveAttribute("href", "/");
+  });
+
+  it("offers a retry when the board can't be reached", async () => {
+    await profileWith({});
+    fetchMock.mockRejectedValue(new TypeError("offline"));
+    render(<StreakTopTen />);
+    expect(await screen.findByText("Không kết nối được bảng xếp hạng. Bạn kiểm tra mạng nhé.", {}, { timeout: 4000 })).toBeInTheDocument();
+    fetchMock.mockResolvedValue(top([row(1, "Gấu", 30)]));
+    fireEvent.click(screen.getByRole("button", { name: "Thử lại" }));
+    expect(await screen.findByRole("list", { name: "Top 10 chuỗi ngày học" })).toBeInTheDocument();
   });
 });

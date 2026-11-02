@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { pointsBalance } from "@/learning/points";
 import { getAllAttendance } from "@/storage/attendance";
 import { getAllExtraLessons } from "@/storage/extra-lessons";
+import { StreakTopTen } from "@/components/leaderboard/streak-top-ten";
 import { ensureProfile } from "@/hooks/use-profile";
 import { calendarWeeks, dayMonth, type CalendarDay } from "./progress-math";
 
@@ -51,15 +52,19 @@ export function AttendanceSummary() {
         <Stat icon={Flame} label="Chuỗi hiện tại" value={current} unit="ngày" />
         <Stat icon={Medal} label="Chuỗi dài nhất" value={longest} unit="ngày" />
       </dl>
-      <Card>
-        <CardHeader>
-          <CardTitle>Lịch học 12 tuần gần đây</CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3">
-          <AttendanceCalendar weeks={calendarWeeks(attended, today)} />
-          <Legend />
-        </CardContent>
-      </Card>
+      {/* The top 10 sits right of the calendar from lg up, below it on smaller screens (feature 017). */}
+      <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)]">
+        <Card>
+          <CardHeader>
+            <CardTitle>Lịch học 12 tuần gần đây</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-3">
+            <AttendanceCalendar weeks={calendarWeeks(attended, today)} />
+            <Legend />
+          </CardContent>
+        </Card>
+        <StreakTopTen />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { BOARD_NAME_ERRORS } from "@/learning/leaderboard";
 import type { ApiError } from "@/lib/http";
 import { LEADERBOARD_MESSAGES } from "@/server/leaderboard/leaderboard.schema";
 
-const service = { submitEntry: vi.fn(), removeEntry: vi.fn() };
+const service = { submitEntry: vi.fn(), removeEntry: vi.fn(), topEntries: vi.fn() };
 const limit = vi.fn<(options: { key: string }) => Promise<{ success: boolean }>>();
 const env: { LEADERBOARD_LIMITER?: { limit: typeof limit } } = {};
 
@@ -11,7 +11,7 @@ vi.mock("@/server/leaderboard/leaderboard.service", () => service);
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
 vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env }) }));
 
-const { POST, DELETE } = await import("./route");
+const { GET, POST, DELETE } = await import("./route");
 
 const ID = "00000000-0000-4000-8000-000000000001";
 const TOKEN = "a".repeat(43);
@@ -112,5 +112,39 @@ describe("DELETE /api/leaderboard (AC-010)", () => {
   it("answers 403 under another secret", async () => {
     service.removeEntry.mockResolvedValue({ ok: false, reason: "forbidden" });
     expect((await DELETE(request("DELETE", { id: ID, token: TOKEN }))).status).toBe(403);
+  });
+});
+
+describe("GET /api/leaderboard (017)", () => {
+  const get = (search: string, headers: Record<string, string> = {}) => GET(new Request(`https://english.huyle.work/api/leaderboard${search}`, { headers }));
+
+  beforeEach(() => {
+    service.topEntries.mockReset().mockResolvedValue({ total: 0, rows: [] });
+  });
+
+  it("reads the top 10 for the learner's date, with their id from the header, uncached", async () => {
+    const response = await get("?today=2026-11-20", { "x-board-id": ID });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(await response.json()).toEqual({ total: 0, rows: [] });
+    expect(service.topEntries).toHaveBeenCalledWith(expect.anything(), "2026-11-20", ID);
+
+    await get("?today=2026-11-20");
+    expect(service.topEntries).toHaveBeenLastCalledWith(expect.anything(), "2026-11-20", undefined);
+  });
+
+  it("answers 422 for a missing or far-off date, or a malformed id", async () => {
+    expect((await get("")).status).toBe(422);
+    expect((await get("?today=2026-11-25")).status).toBe(422);
+    expect((await get("?today=2026-11-20", { "x-board-id": "nope" })).status).toBe(422);
+    expect(service.topEntries).not.toHaveBeenCalled();
+  });
+
+  it("answers 503 when the database fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    service.topEntries.mockRejectedValue(new Error("D1 down"));
+    const response = await get("?today=2026-11-20");
+    expect(response.status).toBe(503);
+    expect(await message(response)).toBe(LEADERBOARD_MESSAGES.unavailable);
   });
 });

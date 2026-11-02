@@ -2,12 +2,14 @@ import type { z } from "zod";
 import { checkBoardName, daysBetween } from "@/learning/leaderboard";
 import { getDb } from "@/server/db";
 import {
+  BOARD_ID_HEADER,
   LEADERBOARD_MESSAGES as MESSAGES,
   removeBodySchema,
   submitBodySchema,
+  topQuerySchema,
   type SubmitResponse,
 } from "@/server/leaderboard/leaderboard.schema";
-import { removeEntry, submitEntry } from "@/server/leaderboard/leaderboard.service";
+import { removeEntry, submitEntry, topEntries } from "@/server/leaderboard/leaderboard.service";
 import { hashToken, isWriteThrottled } from "@/server/leaderboard/secret";
 
 // The leaderboard (feature 007, ranked by streak since 013). The token is the
@@ -43,6 +45,22 @@ async function readBody<T extends z.ZodType>(request: Request, schema: T): Promi
 function unavailable(scope: string, cause: unknown): Response {
   console.error(`Leaderboard ${scope} failed:`, cause);
   return error(MESSAGES.unavailable, 503);
+}
+
+/** The top 10 (feature 017): `?today=` is the learner's local date; their entry id, if any, comes in a header. */
+export async function GET(request: Request) {
+  const query = topQuerySchema.safeParse({
+    today: new URL(request.url).searchParams.get("today") ?? undefined,
+    id: request.headers.get(BOARD_ID_HEADER) ?? undefined,
+  });
+  if (!query.success) return error(MESSAGES.invalidBody, 422, query.error.issues);
+  // As for POST: every time zone's date is within a day of UTC's.
+  if (Math.abs(daysBetween(new Date().toISOString().slice(0, 10), query.data.today)) > 1) return error(MESSAGES.invalidBody, 422);
+  try {
+    return json(await topEntries(getDb(), query.data.today, query.data.id), 200);
+  } catch (cause) {
+    return unavailable("top", cause);
+  }
 }
 
 export async function POST(request: Request) {

@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it } from "vitest";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
-import { CLEANUP_LIMIT, RETENTION_MS, removeEntry, submitEntry, type EntryInput } from "./leaderboard.service";
+import { CLEANUP_LIMIT, RETENTION_MS, removeEntry, submitEntry, topEntries, type EntryInput } from "./leaderboard.service";
 
 const DAY = 86_400_000;
 const NOW = Date.parse("2026-11-20T10:00:00Z");
@@ -113,5 +113,40 @@ describe("removeEntry (AC-010, AC-014)", () => {
 
   it("is fine when there is no entry", async () => {
     expect(await removeEntry(db, id(7), "hash-7")).toEqual({ ok: true });
+  });
+});
+
+describe("topEntries (017)", () => {
+  it("lists the 10 longest live streaks in board order, with the count (AC-001, AC-002, AC-003)", async () => {
+    // Twelve learners on 1…12-day streaks, one tie broken by points, and one broken streak.
+    for (let n = 1; n <= 12; n++) await submitEntry(db, entry(n, n), NOW + n);
+    await submitEntry(db, entry(13, 12, 400), NOW + 13);
+    await submitEntry(db, entry(14, 50, 1000, { lastDate: "2026-11-18", previousStreak: 50, previousEarned: 1000 }), NOW);
+
+    const result = await topEntries(db, TODAY, undefined);
+    expect(result.total).toBe(13);
+    expect(result.me).toBeUndefined();
+    expect(result.rows.map((row) => [row.position, row.name, row.streak, row.me])).toEqual([
+      [1, "Learner 13", 12, false],
+      [2, "Learner 12", 12, false],
+      ...[11, 10, 9, 8, 7, 6, 5, 4].map((n, i) => [i + 3, `Learner ${n}`, n, false]),
+    ]);
+  });
+
+  it("gives the asking learner's place, in or out of the top 10 (AC-004, AC-005)", async () => {
+    for (let n = 1; n <= 12; n++) await submitEntry(db, entry(n, n), NOW + n);
+    const inside = await topEntries(db, TODAY, id(12));
+    expect(inside.rows[0]).toMatchObject({ name: "Learner 12", me: true });
+    expect(inside.me).toMatchObject({ position: 1, name: "Learner 12", streak: 12, me: true });
+
+    const outside = await topEntries(db, TODAY, id(1));
+    expect(outside.rows.some((row) => row.me)).toBe(false);
+    expect(outside.me).toMatchObject({ position: 12, name: "Learner 1", streak: 1 });
+  });
+
+  it("has no place for a broken streak or an unknown entry (AC-006)", async () => {
+    await submitEntry(db, entry(1, 4, 80, { lastDate: "2026-11-18", previousStreak: 4, previousEarned: 80 }), NOW);
+    expect(await topEntries(db, TODAY, id(1))).toEqual({ total: 0, rows: [] });
+    expect((await topEntries(db, TODAY, id(99))).me).toBeUndefined();
   });
 });
