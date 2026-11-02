@@ -139,9 +139,9 @@ describe("certificate text (009 AC-004, AC-006)", () => {
 
 describe("certificate image text (009 AC-004)", () => {
   it("names what was finished and the date in English", () => {
-    expect(englishAchievementText("word", "A1", 1164)).toBe("1,164 words at level A1");
-    expect(englishAchievementText("grammar", "A1", 1)).toBe("1 grammar topic at level A1");
-    expect(englishAchievementText("forms", "C1", 3)).toBe("3 irregular verbs at level C1");
+    expect(englishAchievementText("word", "A1")).toBe("words at level A1");
+    expect(englishAchievementText("grammar", "A1")).toBe("grammar topics at level A1");
+    expect(englishAchievementText("forms", "C1")).toBe("irregular verbs at level C1");
     expect(englishDate("2026-10-28")).toBe("October 28, 2026");
   });
 });

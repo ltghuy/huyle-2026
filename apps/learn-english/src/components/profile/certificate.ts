@@ -39,11 +39,11 @@ export function certificateFileName(kind: ProgressKind, level: Level): string {
   return `chung-nhan-${KIND_TEXT[kind].slug}-${level}.png`;
 }
 
-const KIND_ENGLISH: Record<ProgressKind, string> = { word: "word", grammar: "grammar topic", forms: "irregular verb" };
+const KIND_ENGLISH: Record<ProgressKind, string> = { word: "words", grammar: "grammar topics", forms: "irregular verbs" };
 
-/** "1,164 words at level A1", the achievement on the English certificate image. */
-export function englishAchievementText(kind: ProgressKind, level: Level, total: number): string {
-  return `${total.toLocaleString("en-US")} ${KIND_ENGLISH[kind]}${total === 1 ? "" : "s"} at level ${level}`;
+/** "words at level A1", the achievement on the English certificate image (no count). */
+export function englishAchievementText(kind: ProgressKind, level: Level): string {
+  return `${KIND_ENGLISH[kind]} at level ${level}`;
 }
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -133,7 +133,7 @@ export async function drawCertificate(canvas: HTMLCanvasElement, data: Certifica
   ctx.stroke();
 
   text(ctx, "has completed", cx, 675, `400 32px ${family}`, MUTED);
-  const achievement = englishAchievementText(data.kind, data.level, data.total);
+  const achievement = englishAchievementText(data.kind, data.level);
   const achievementSize = fitSize(ctx, achievement, 600, family, 48, W - 360);
   text(ctx, achievement, cx, 745, `600 ${achievementSize}px ${family}`, INK);
 
