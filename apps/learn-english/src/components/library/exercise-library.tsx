@@ -11,8 +11,9 @@ import { compareTopics, topicTitle } from "@/lib/topics";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ExerciseRun } from "./exercise-run";
-import { buildSetSteps, isSetType, levelOfSetId, listSetCards, SET_TYPES, TYPE_LABELS, type SetCard, type SetGroup } from "./exercise-sets";
+import { buildSetSteps, isSetType, levelOfSetId, listSetCards, SENTENCE_TYPES, TYPE_LABELS, WORD_TYPES, type SetCard, type SetGroup, type SetType } from "./exercise-sets";
 import { LevelTabs } from "./level-tabs";
 
 const ALL = "all";
@@ -23,7 +24,20 @@ const GROUPS: { group: SetGroup; title: string; icon: typeof BookA }[] = [
   { group: "sentence", title: "Mẫu câu", icon: MessageSquareText },
 ];
 
-const TYPE_ITEMS = [{ value: ALL, label: "Tất cả dạng bài" }, ...SET_TYPES.map((type) => ({ value: type, label: TYPE_LABELS[type] }))];
+/** The exercise types each tab offers in its type filter; Ngữ pháp has one type, so no filter. */
+const GROUP_TYPES: Record<SetGroup, readonly SetType[]> = { word: WORD_TYPES, grammar: ["grammar-gap"], sentence: SENTENCE_TYPES };
+
+function isSetGroup(value: string | null): value is SetGroup {
+  return GROUPS.some((entry) => entry.group === value);
+}
+
+function groupOfType(type: SetType): SetGroup {
+  return GROUPS.find(({ group }) => GROUP_TYPES[group].includes(type))?.group ?? "word";
+}
+
+function typeItems(group: SetGroup) {
+  return [{ value: ALL, label: "Tất cả dạng bài" }, ...GROUP_TYPES[group].map((type) => ({ value: type, label: TYPE_LABELS[type] }))];
+}
 
 function cardSummary(card: SetCard): string {
   if (card.group === "word") return `${card.count} từ`;
@@ -39,7 +53,10 @@ function findSet(cards: readonly SetCard[], id: string | null) {
   return null;
 }
 
-/** `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029). */
+/**
+ * `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029), in three tabs:
+ * Từ vựng, Ngữ pháp and Mẫu câu (`?tab=`, quick task 036).
+ */
 export function ExerciseLibrary() {
   const params = useSearchParams();
   const profile = useProfile();
@@ -48,7 +65,8 @@ export function ExerciseLibrary() {
   const level: Level | null = levelParam ?? (profile.status === "ready" ? profile.data.level : profile.status === "error" ? "A1" : null);
   const topic = params.get("topic") ?? ALL;
   const typeParam = params.get("type");
-  const type = isSetType(typeParam) ? typeParam : ALL;
+  const typeFilter = isSetType(typeParam) ? typeParam : null;
+  const tabParam = params.get("tab");
 
   const levels = useMemo(() => (level ? [level] : null), [level]);
   const content = useContentIndex(levels);
@@ -60,15 +78,29 @@ export function ExerciseLibrary() {
   const activeSet = active?.set;
   const buildSteps = useCallback((round: number) => (activeSet && index ? buildSetSteps(activeSet, index, round) : []), [activeSet, index]);
 
+  // No ?tab: a type or an open set picks its own tab (links like ?type=translate keep working), else Từ vựng.
+  const tab: SetGroup = isSetGroup(tabParam) ? tabParam : typeFilter ? groupOfType(typeFilter) : (activeSet?.group ?? "word");
+  const type = typeFilter && GROUP_TYPES[tab].includes(typeFilter) ? typeFilter : ALL;
+
   if (!level || content.status === "loading") return <ListSkeleton rows={6} />;
   if (content.status === "error") return <ContentError onRetry={content.retry} />;
 
-  const topics = [...new Set(cards.filter((card) => card.group !== "grammar").map((card) => card.scope))].sort(compareTopics);
+  const tabCards = cards.filter((card) => card.group === tab);
+  const hasTopics = tab !== "grammar";
+  const topics = hasTopics ? [...new Set(tabCards.map((card) => card.scope))].sort(compareTopics) : [];
   const topicItems = [{ value: ALL, label: "Tất cả chủ đề" }, ...topics.map((slug) => ({ value: slug, label: topicTitle(slug) }))];
-  const shown = cards
-    .filter((card) => topic === ALL || (card.group !== "grammar" && card.scope === topic))
+  const activeTopic = topics.includes(topic) ? topic : ALL;
+  const types = typeItems(tab);
+  const shown = tabCards
+    .filter((card) => activeTopic === ALL || card.scope === activeTopic)
     .map((card) => ({ ...card, sets: card.sets.filter((set) => type === ALL || set.type === type) }))
     .filter((card) => card.sets.length > 0);
+  const setCount = (group: SetGroup) => cards.filter((card) => card.group === group).reduce((sum, card) => sum + card.sets.length, 0);
+
+  function handleTabChange(next: unknown) {
+    // Types belong to one tab; the topic is kept, since Từ vựng and Mẫu câu share topics.
+    if (isSetGroup(String(next))) updateSearchParams({ tab: String(next), type: null });
+  }
 
   function handleLevelChange(next: Level) {
     updateSearchParams({ level: next, topic: null });
@@ -101,70 +133,75 @@ export function ExerciseLibrary() {
   }
 
   return (
-    <div className="grid gap-5 px-4 md:px-8">
+    <Tabs value={tab} onValueChange={handleTabChange} className="gap-5 px-4 md:px-8">
+      <TabsList variant="line" aria-label="Nhóm bài tập" className="w-full justify-start gap-1 border-b group-data-horizontal/tabs:h-12 sm:gap-4">
+        {GROUPS.map(({ group, title, icon: Icon }) => (
+          // Three tabs share a 360 px phone: they split the width there and the icons drop out.
+          <TabsTrigger key={group} value={group} className="px-1 text-sm sm:flex-none sm:px-2 sm:text-base">
+            <Icon className="max-sm:hidden" aria-hidden /> {title}
+            <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs tabular-nums text-muted-foreground">{setCount(group)}</span>
+          </TabsTrigger>
+        ))}
+      </TabsList>
+
       <div className="grid gap-3 lg:flex lg:flex-wrap lg:items-center">
         <LevelTabs value={level} onChange={handleLevelChange} />
         <div className="grid grid-cols-2 gap-3 sm:flex">
-          <Select value={topics.includes(topic) ? topic : ALL} onValueChange={handleTopicChange} items={topicItems}>
-            <SelectTrigger aria-label="Lọc theo chủ đề" className="w-full data-[size=default]:h-11 sm:w-56">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent alignItemWithTrigger={false} className="p-1">
-              {topicItems.map((item) => (
-                <SelectItem key={item.value} value={item.value} className="min-h-10">
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Select value={type} onValueChange={handleTypeChange} items={TYPE_ITEMS}>
-            <SelectTrigger aria-label="Lọc theo dạng bài" className="w-full data-[size=default]:h-11 sm:w-56">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent alignItemWithTrigger={false} className="p-1">
-              {TYPE_ITEMS.map((item) => (
-                <SelectItem key={item.value} value={item.value} className="min-h-10">
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {hasTopics ? (
+            <Select value={activeTopic} onValueChange={handleTopicChange} items={topicItems}>
+              <SelectTrigger aria-label="Lọc theo chủ đề" className="w-full data-[size=default]:h-11 sm:w-56">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent alignItemWithTrigger={false} className="p-1">
+                {topicItems.map((item) => (
+                  <SelectItem key={item.value} value={item.value} className="min-h-10">
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : null}
+          {types.length > 2 ? (
+            <Select value={type} onValueChange={handleTypeChange} items={types}>
+              <SelectTrigger aria-label="Lọc theo dạng bài" className="w-full data-[size=default]:h-11 sm:w-56">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent alignItemWithTrigger={false} className="p-1">
+                {types.map((item) => (
+                  <SelectItem key={item.value} value={item.value} className="min-h-10">
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : null}
         </div>
       </div>
 
-      {cards.length === 0 ? (
-        <EmptyState icon={ListChecks} title={`Chưa có bài tập trình độ ${level}`}>
-          <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
-        </EmptyState>
-      ) : shown.length === 0 ? (
-        <EmptyState icon={FilterX} title="Không có bài tập nào khớp bộ lọc">
-          <Button variant="outline" className="h-11" onClick={handleClearFilters}>
-            Bỏ lọc
-          </Button>
-        </EmptyState>
-      ) : (
-        GROUPS.map(({ group, title, icon: Icon }) => {
-          const groupCards = shown.filter((card) => card.group === group);
-          if (groupCards.length === 0) return null;
-          return (
-            <section key={group} aria-labelledby={`exercises-${group}`} className="grid gap-3">
-              <h2 id={`exercises-${group}`} className="flex items-center gap-2 text-lg font-semibold">
-                <Icon className="size-5 text-primary" aria-hidden /> {title}
-              </h2>
-              <ul className="grid gap-3 md:grid-cols-2">
-                {groupCards.map((card) => (
-                  <li key={card.key} className="[contain-intrinsic-size:auto_9rem] [content-visibility:auto]">
-                    <SetCardView card={card} onStart={handleStart} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          );
-        })
-      )}
+      <TabsContent value={tab}>
+        {tabCards.length === 0 ? (
+          <EmptyState icon={ListChecks} title={`Chưa có bài tập ${GROUPS.find((entry) => entry.group === tab)?.title.toLowerCase()} trình độ ${level}`}>
+            <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
+          </EmptyState>
+        ) : shown.length === 0 ? (
+          <EmptyState icon={FilterX} title="Không có bài tập nào khớp bộ lọc">
+            <Button variant="outline" className="h-11" onClick={handleClearFilters}>
+              Bỏ lọc
+            </Button>
+          </EmptyState>
+        ) : (
+          <ul className="grid gap-3 md:grid-cols-2">
+            {shown.map((card) => (
+              <li key={card.key} className="[contain-intrinsic-size:auto_9rem] [content-visibility:auto]">
+                <SetCardView card={card} onStart={handleStart} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </TabsContent>
 
       {active && index ? <ExerciseRun key={active.set.id} shuffled title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
-    </div>
+    </Tabs>
   );
 }
 

@@ -77,30 +77,47 @@ describe("ExerciseLibrary", () => {
 
   afterEach(() => vi.restoreAllMocks());
 
-  it("narrows the list with the topic and type filters (AC-026)", async () => {
+  it("splits the sets into Từ vựng, Ngữ pháp and Mẫu câu tabs (quick 036)", async () => {
     visit("?level=A1");
-    expect(await screen.findByRole("region", { name: "Từ vựng" })).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "Ngữ pháp" })).toBeInTheDocument();
-    expect(screen.getByRole("region", { name: "Mẫu câu" })).toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 4 + 1 + 3);
+    const tabs = await screen.findByRole("tablist", { name: "Nhóm bài tập" });
+    expect(within(tabs).getByRole("tab", { name: /Từ vựng/ })).toHaveTextContent("8");
+    expect(within(tabs).getByRole("tab", { name: /Ngữ pháp/ })).toHaveTextContent("1");
+    expect(within(tabs).getByRole("tab", { name: /Mẫu câu/ })).toHaveTextContent("3");
+    expect(within(tabs).getByRole("tab", { name: /Từ vựng/ })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(8);
+
+    fireEvent.click(within(tabs).getByRole("tab", { name: /Ngữ pháp/ }));
+    expect(window.location.search).toBe("?level=A1&tab=grammar");
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);
+    // One grammar exercise type and no topics: neither filter is offered.
+    expect(screen.queryByRole("combobox", { name: "Lọc theo chủ đề" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("combobox", { name: "Lọc theo dạng bài" })).not.toBeInTheDocument();
+
+    fireEvent.click(within(tabs).getByRole("tab", { name: /Mẫu câu/ }));
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(3);
+  });
+
+  it("picks the tab from a type link, and narrows it with the topic and type filters (AC-026)", async () => {
+    visit("?level=A1&type=grammar-gap");
+    expect(await screen.findByRole("tab", { name: /Ngữ pháp/ })).toHaveAttribute("aria-selected", "true");
 
     act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=home"));
-    expect(screen.queryByRole("region", { name: "Ngữ pháp" })).not.toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4 + 3);
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(4);
 
-    act(() => window.history.replaceState(null, "", "/exercises?level=A1&type=grammar-gap"));
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&tab=sentence&topic=home"));
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(3);
+
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&type=mcq"));
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(2);
+
+    act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=people-family&type=mcq"));
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);
-
-    act(() => window.history.replaceState(null, "", "/exercises?level=A1&topic=home&type=grammar-gap"));
-    expect(screen.getByText("Không có bài tập nào khớp bộ lọc")).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Bỏ lọc" }));
-    expect(window.location.search).toBe("?level=A1");
   });
 
   it("runs a set, shows the score and records each answer (AC-029)", async () => {
-    visit("?level=A1");
+    visit("?level=A1&tab=grammar");
     fireEvent.click(await screen.findByRole("button", { name: "Bắt đầu Điền vào chỗ trống: The verb to be" }));
-    expect(window.location.search).toBe("?level=A1&id=grammar-gap.to-be");
+    expect(window.location.search).toBe("?level=A1&tab=grammar&id=grammar-gap.to-be");
 
     const run = screen.getByRole("region", { name: "Điền vào chỗ trống: The verb to be" });
     const option = within(run).getAllByRole("radio").find((radio) => radio.textContent?.includes("are"));
