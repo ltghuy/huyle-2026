@@ -39,7 +39,7 @@ The home page is a plain dashboard: a "Bài học hôm nay" title, the streak an
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN a learner opens `/` THEN system SHALL show a hero with the "Streak Daily" wordmark as the page's only `h1`, a short Vietnamese tagline, a "Vào bài hôm nay" button to `/lesson`, a "Xem cách học" button to the benefits section, and a "Miễn phí · Không cần tài khoản" note
+- [x] AC-001: WHEN a learner opens `/` THEN system SHALL show a hero with the "Streak Daily" wordmark (plain foreground text, no gradient since quick 042) as the page's only `h1`, a short Vietnamese tagline, a "Vào bài hôm nay" button to `/lesson`, a "Xem cách học" button to the benefits section, and a "Miễn phí · Không cần tài khoản" note
 - [x] AC-002: WHEN the hero is shown THEN system SHALL show today's lesson section ("Bài học hôm nay", the streak and points, and the lesson card, unchanged in behavior) right below it, keeping the tour targets
 
 ### P2: Learn how it works and find the practice areas
@@ -60,7 +60,7 @@ The home page is a plain dashboard: a "Bài học hôm nay" title, the streak an
 
 **Acceptance Criteria:**
 
-- [x] AC-006: WHEN a learner opens `/profile` THEN system SHALL show the same hero as the home page at a smaller size (pill "Mỗi ngày bạn lại tiến thêm một chút", `h1` "Hồ sơ của bạn" in plain text (only the home wordmark is a gradient, 2026-11-03), one line of text), the "Chuyên cần" and "Tiến bộ" sections with the home page's section headings (eyebrow, `h2`, one line), the stat cards with the same icon chips as the home page's streak and points, and the closing band; their content and behavior are unchanged
+- [x] AC-006: WHEN a learner opens `/profile` THEN system SHALL show the same hero as the home page at a smaller size (pill "Mỗi ngày bạn lại tiến thêm một chút", `h1` "Hồ sơ của bạn" in plain text, one line of text), the "Chuyên cần" and "Tiến bộ" sections with the home page's section headings (eyebrow, `h2`, one line), the stat cards with the same icon chips as the home page's streak and points, and the closing band; their content and behavior are unchanged
 
 ## Edge Cases
 
@@ -85,7 +85,7 @@ Requested on 2026-11-03 with engdailystreak.com as the reference. The owner chos
 ### Design direction (ui-ux-pro-max)
 
 - Pattern: hero (value + CTA above the fold) → product (the lesson) → features → closing CTA. From `lg` the hero is split: text left-aligned, the 3D owl on the right (feature 021); stacked and centred below `lg`
-- Style: flat, the app's own shadcn tokens in light and dark; the only flourish is the wordmark gradient from `primary` to `streak` (interpolated with increasing hue, so it passes through purple and pink rather than grey or green, and the box is only as wide as the word) and a soft blurred `primary` glow behind the hero
+- Style: flat, the app's own shadcn tokens in light and dark; the only flourish is a soft blurred `primary` glow behind the hero
 - Type: the app's current font; wordmark 48 px on phones, 72 px from `md`; body 16 px
 - Icons: Lucide, matching the sidebar's (no emoji)
 - Cards: `rounded-xl border bg-card`, link cards with a 150–200 ms hover colour shift and a visible focus ring; touch targets ≥ 44 px

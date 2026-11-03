@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { OwlShowcase } from "./owl-showcase";
 
 /**
- * The home page's opening (019 AC-001, 021 AC-003): the gradient wordmark, tagline and the way into today's
+ * The home page's opening (019 AC-001, 021 AC-003): the wordmark, tagline and the way into today's
  * lesson, with the 3D owl. Stacked and centred on phones and tablets; from `lg` the text sits left and the
  * owl, larger, on the right.
  */
@@ -20,10 +20,7 @@ export function HomeHero() {
         <OwlShowcase className="lg:order-last lg:mr-12 xl:mr-24" />
         <div className="text-center lg:text-left">
           <HeroBadge icon={Flame} text="Mỗi ngày một chút, nhớ lâu hơn" />
-          <h1
-            id="page-title"
-            className="mx-auto mt-4 w-fit bg-linear-to-r/increasing from-primary to-streak bg-clip-text pb-1 text-5xl font-extrabold tracking-tight text-transparent md:text-7xl lg:mx-0"
-          >
+          <h1 id="page-title" className="mt-4 pb-1 text-5xl font-extrabold tracking-tight md:text-7xl">
             {SITE_NAME}
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground md:text-lg lg:mx-0">
