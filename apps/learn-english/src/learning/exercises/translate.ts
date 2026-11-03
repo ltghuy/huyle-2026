@@ -18,6 +18,9 @@ export interface TranslateInstance {
   vi: string;
   en: string;
   audio: string;
+  /** The sentence's tokens and words, to show the answer word by word (quick task 038). */
+  tokens: readonly string[];
+  wordIds: readonly string[];
   /** Answer keys of every accepted wording. */
   accepted: string[];
 }
@@ -92,6 +95,8 @@ export function buildTranslate({ sentence, wordings = [], cardId }: TranslateInp
     vi: body.vi,
     en: body.en,
     audio: body.audio,
+    tokens: body.tokens,
+    wordIds: body.wordIds,
     accepted: [...new Set(texts.flatMap(answerKeys))],
   };
 }

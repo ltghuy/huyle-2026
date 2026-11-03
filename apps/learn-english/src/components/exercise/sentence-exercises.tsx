@@ -12,21 +12,34 @@ import { cn } from "@/lib/utils";
 import { AudioButton } from "./audio-button";
 import { EnglishInput } from "./english-input";
 import { OptionList } from "./option-list";
+import { SentenceWords } from "./sentence-words";
 import type { ExerciseViewProps } from "./types";
 
 function Instruction({ children }: { children: React.ReactNode }) {
   return <h2 className="text-lg font-medium text-muted-foreground">{children}</h2>;
 }
 
+interface CorrectSentenceProps {
+  en: string;
+  vi: string;
+  audio: string;
+  /** Show the sentence as word chips that open each word's details (word order, quick task 037). */
+  words?: { tokens: readonly string[]; wordIds: readonly string[] };
+}
+
 /** The correct sentence with its translation and audio, shown once the answer is checked. */
-export function CorrectSentence({ en, vi, audio }: { en: string; vi: string; audio: string }) {
+export function CorrectSentence({ en, vi, audio, words }: CorrectSentenceProps) {
   return (
     <div className="flex items-start gap-3 rounded-xl bg-muted p-4">
       <div className="min-w-0 flex-1">
-        <p className="text-lg font-medium" lang="en">
-          {en}
-        </p>
-        <p className="mt-1 text-muted-foreground">{vi}</p>
+        {words ? (
+          <SentenceWords tokens={words.tokens} wordIds={words.wordIds} />
+        ) : (
+          <p className="text-lg font-medium" lang="en">
+            {en}
+          </p>
+        )}
+        <p className={words ? "mt-3 text-muted-foreground" : "mt-1 text-muted-foreground"}>{vi}</p>
       </div>
       <AudioButton source="sentence" audioKey={audio} label={en} />
     </div>
@@ -97,7 +110,7 @@ export function WordOrderView({ instance, answer, onAnswer, result }: ExerciseVi
       <Instruction>Sắp xếp các từ thành câu đúng</Instruction>
       <p className="text-xl">{instance.vi}</p>
       <TileBuilder tiles={instance.tiles} answer={answer} onAnswer={onAnswer} locked={result !== null} minToCheck={instance.body.tokens.length} />
-      {result ? <CorrectSentence en={instance.body.tokens.join(" ")} vi={instance.vi} audio={instance.audio} /> : null}
+      {result ? <CorrectSentence en={instance.body.tokens.join(" ")} vi={instance.vi} audio={instance.audio} words={instance.body} /> : null}
     </div>
   );
 }

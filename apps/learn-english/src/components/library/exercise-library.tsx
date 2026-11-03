@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { BookA, FilterX, ListChecks, MessageSquareText, Puzzle } from "lucide-react";
+import { BookA, PenLine, Puzzle } from "lucide-react";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import type { Level } from "@/learning/types";
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ExerciseRun } from "./exercise-run";
-import { buildSetSteps, isSetType, levelOfSetId, listSetCards, SENTENCE_TYPES, TYPE_LABELS, WORD_TYPES, type SetCard, type SetGroup, type SetType } from "./exercise-sets";
+import { buildSetSteps, isSetType, levelOfSetId, listSetCards, SENTENCE_TYPES, TYPE_LABELS, WORD_TAB_SENTENCE_TYPES, WORD_TYPES, type ExerciseSet, type SetCard, type SetGroup, type SetType } from "./exercise-sets";
 import { LevelTabs } from "./level-tabs";
 
 const ALL = "all";
@@ -21,11 +21,23 @@ const ALL = "all";
 const GROUPS: { group: SetGroup; title: string; icon: typeof BookA }[] = [
   { group: "word", title: "Từ vựng", icon: BookA },
   { group: "grammar", title: "Ngữ pháp", icon: Puzzle },
-  { group: "sentence", title: "Mẫu câu", icon: MessageSquareText },
+  { group: "sentence", title: "Viết câu", icon: PenLine },
 ];
 
-/** The exercise types each tab offers in its type filter; Ngữ pháp has one type, so no filter. */
-const GROUP_TYPES: Record<SetGroup, readonly SetType[]> = { word: WORD_TYPES, grammar: ["grammar-gap"], sentence: SENTENCE_TYPES };
+/**
+ * The exercise types each tab offers in its type filter; Ngữ pháp and Viết câu have one type, so no filter.
+ * Từ vựng also holds the other sentence types (feature 018), so `?type=dictation` opens there.
+ */
+const GROUP_TYPES: Record<SetGroup, readonly SetType[]> = { word: [...WORD_TYPES, ...WORD_TAB_SENTENCE_TYPES], grammar: ["grammar-gap"], sentence: ["translate"] };
+
+/** "Viết câu" sets are all "Dịch câu", so their button and run say what the tab is for (feature 018). */
+const WRITING_LABEL = "Luyện viết";
+
+function setLabel(set: ExerciseSet): string {
+  return set.group === "sentence" ? WRITING_LABEL : TYPE_LABELS[set.type];
+}
+
+const isSentenceType = (type: SetType) => SENTENCE_TYPES.some((sentenceType) => sentenceType === type);
 
 function isSetGroup(value: string | null): value is SetGroup {
   return GROUPS.some((entry) => entry.group === value);
@@ -40,7 +52,7 @@ function typeItems(group: SetGroup) {
 }
 
 function cardSummary(card: SetCard): string {
-  if (card.group === "word") return `${card.count} từ`;
+  if (card.group === "word" && !card.sets.every((set) => isSentenceType(set.type))) return `${card.count} từ`;
   if (card.group === "grammar") return `${card.title} · ${card.count} câu luyện`;
   return `${card.count} câu`;
 }
@@ -48,14 +60,14 @@ function cardSummary(card: SetCard): string {
 function findSet(cards: readonly SetCard[], id: string | null) {
   for (const card of cards) {
     const set = card.sets.find((entry) => entry.id === id);
-    if (set) return { set, title: `${TYPE_LABELS[set.type]}: ${card.titleEn ?? card.title}` };
+    if (set) return { set, title: `${setLabel(set)}: ${card.titleEn ?? card.title}` };
   }
   return null;
 }
 
 /**
  * `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029), in three tabs:
- * Từ vựng, Ngữ pháp and Mẫu câu (`?tab=`, quick task 036).
+ * Từ vựng, Ngữ pháp and Viết câu (`?tab=`, quick task 036; Viết câu has one Dịch câu set per topic, feature 018).
  */
 export function ExerciseLibrary() {
   const params = useSearchParams();
@@ -98,7 +110,7 @@ export function ExerciseLibrary() {
   const setCount = (group: SetGroup) => cards.filter((card) => card.group === group).reduce((sum, card) => sum + card.sets.length, 0);
 
   function handleTabChange(next: unknown) {
-    // Types belong to one tab; the topic is kept, since Từ vựng and Mẫu câu share topics.
+    // Types belong to one tab; the topic is kept, since Từ vựng and Viết câu share topics.
     if (isSetGroup(String(next))) updateSearchParams({ tab: String(next), type: null });
   }
 
@@ -180,11 +192,11 @@ export function ExerciseLibrary() {
 
       <TabsContent value={tab}>
         {tabCards.length === 0 ? (
-          <EmptyState icon={ListChecks} title={`Chưa có bài tập ${GROUPS.find((entry) => entry.group === tab)?.title.toLowerCase()} trình độ ${level}`}>
+          <EmptyState mood="think" title={`Chưa có bài tập ${GROUPS.find((entry) => entry.group === tab)?.title.toLowerCase()} trình độ ${level}`}>
             <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
           </EmptyState>
         ) : shown.length === 0 ? (
-          <EmptyState icon={FilterX} title="Không có bài tập nào khớp bộ lọc">
+          <EmptyState mood="think" title="Không có bài tập nào khớp bộ lọc">
             <Button variant="outline" className="h-11" onClick={handleClearFilters}>
               Bỏ lọc
             </Button>
@@ -217,8 +229,8 @@ function SetCardView({ card, onStart }: { card: SetCard; onStart: (id: string) =
       </div>
       <div className="flex flex-wrap gap-2">
         {card.sets.map((set) => (
-          <Button key={set.id} variant="outline" className="h-11 px-3" onClick={() => onStart(set.id)} aria-label={`Bắt đầu ${TYPE_LABELS[set.type]}: ${heading}`}>
-            {TYPE_LABELS[set.type]}
+          <Button key={set.id} variant="outline" className="h-11 px-3" onClick={() => onStart(set.id)} aria-label={`Bắt đầu ${setLabel(set)}: ${heading}`}>
+            {setLabel(set)}
           </Button>
         ))}
       </div>

@@ -68,9 +68,9 @@ export function TodayLesson() {
       <section className="rounded-xl border bg-card p-5" data-tour="lesson-card" aria-labelledby="today-title">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 id="today-title" className="text-lg font-semibold">
+            <h3 id="today-title" className="text-lg font-semibold">
               {done ? "Bạn đã học xong hôm nay" : startAt > 0 ? "Học tiếp bài hôm nay" : "Bài hôm nay đã sẵn sàng"}
-            </h2>
+            </h3>
             <p className="text-sm text-muted-foreground">
               {done ? "Bạn có thể ôn tập, làm bài tập hoặc dùng điểm để học thêm." : `${steps.length} bước · khoảng ${estimateMinutes(lesson.plan.flatMap((part) => part.exercises))} phút`}
             </p>
@@ -90,16 +90,16 @@ export function TodayLesson() {
             ))}
         </ol>
         {done ? (
-          <div className="mt-5 grid grid-cols-2 gap-3">
-            <Link href="/review" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
+          <div className="mt-5 grid grid-cols-2 gap-3 sm:flex">
+            <Link href="/review" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 sm:px-5")}>
               Ôn tập thêm
             </Link>
-            <Link href="/exercises" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12")}>
+            <Link href="/exercises" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 sm:px-5")}>
               Làm bài tập
             </Link>
           </div>
         ) : (
-          <Link href="/lesson" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-12 w-full text-base")}>
+          <Link href="/lesson" className={cn(buttonVariants({ size: "lg" }), "mt-5 h-11 w-full sm:w-auto sm:px-8")}>
             {startAt > 0 ? "Học tiếp" : "Bắt đầu"}
           </Link>
         )}

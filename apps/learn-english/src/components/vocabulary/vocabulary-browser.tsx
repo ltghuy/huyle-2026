@@ -1,14 +1,13 @@
 "use client";
 
+import { LevelBadge } from "@/components/shell/level-badge";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useSearchParams } from "next/navigation";
-import { BookOpen, Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import { LEVELS, type Level } from "@/learning/types";
-import { formsIdOf } from "@/learning/verbs";
-import type { ContentIndex } from "@/lib/session/content-index";
 import { parseLevel, updateSearchParams } from "@/lib/search-params";
 import { compareTopics, topicOf, topicTitle } from "@/lib/topics";
 import { cn } from "@/lib/utils";
@@ -20,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { WordDialog, type WordLookup, type WordNav } from "./word-dialog";
+import { lookupWord } from "./word-lookup";
 import { SetList } from "./set-list";
 import { SetView } from "./set-view";
 import { WordList } from "./word-list";
@@ -50,31 +50,6 @@ function groupByTopic(words: readonly Word[], learned: ReadonlySet<string>): Top
     groups.set(slug, group);
   }
   return [...groups.values()].sort((a, b) => compareTopics(a.slug, b.slug));
-}
-
-/** The first set's name for a specialized word (AC-004); undefined for course words. */
-function specializedSetTitle(index: ContentIndex, word: Word): string | undefined {
-  if (word.body.source !== "specialized") return undefined;
-  const first = index.byId.get(index.setsByWord.get(word.id)?.[0] ?? "");
-  return first?.kind === "set" ? first.body.titleVi : undefined;
-}
-
-function lookupWord(id: string, indexes: readonly (ContentIndex | null)[], stillLoading: boolean): WordLookup {
-  for (const index of indexes) {
-    const item = index?.byId.get(id);
-    if (item?.kind === "word") {
-      const examples = item.body.examples.map((exampleId) => index?.byId.get(exampleId)).filter((entry) => entry?.kind === "sentence");
-      const forms = index?.byId.get(formsIdOf(item.id));
-      return {
-        status: "found",
-        word: item,
-        examples: examples as ContentItemOf<"sentence">[],
-        forms: forms?.kind === "forms" ? forms : undefined,
-        setTitle: index ? specializedSetTitle(index, item) : undefined,
-      };
-    }
-  }
-  return stillLoading ? { status: "loading" } : { status: "missing" };
 }
 
 const EMPTY_SET: ReadonlySet<string> = new Set();
@@ -209,7 +184,7 @@ export function VocabularyBrowser() {
           <SetList sets={content.index.sets} learned={learned} followed={followedSet} search={search} />
         )
       ) : words.length === 0 ? (
-        <EmptyState icon={BookOpen} title={`Chưa có từ vựng trình độ ${level}`}>
+        <EmptyState mood="think" title={`Chưa có từ vựng trình độ ${level}`}>
           <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
         </EmptyState>
       ) : (
@@ -217,7 +192,9 @@ export function VocabularyBrowser() {
           <section aria-label="Chủ đề" className="grid gap-4 rounded-2xl border bg-card p-4 md:p-5">
             <div className="grid gap-2">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h2 className="font-semibold">{LEVEL_LABELS[level]}</h2>
+                <h2 className="flex items-center gap-2 font-semibold">
+                  <LevelBadge level={level} size="md" /> {LEVEL_LABELS[level].split(" · ")[1]}
+                </h2>
                 <p className="text-sm text-muted-foreground">
                   Bạn đã học <span className="font-semibold text-foreground tabular-nums">{learnedCount}/{words.length}</span> từ
                 </p>
@@ -253,7 +230,7 @@ export function VocabularyBrowser() {
           </section>
 
           {shown.length === 0 ? (
-            <EmptyState icon={BookOpen} title="Chủ đề này chưa có từ ở trình độ đã chọn">
+            <EmptyState mood="think" title="Chủ đề này chưa có từ ở trình độ đã chọn">
               <Button variant="outline" className="h-11" onClick={() => updateSearchParams({ topic: null })}>
                 Xem tất cả chủ đề
               </Button>

@@ -6,18 +6,24 @@ import type { RunnerStep } from "@/components/exercise/exercise-runner";
 import type { ContentIndex } from "@/lib/session/content-index";
 import { canPrepareSentenceStep, prepareStep } from "@/lib/session/prepare";
 import { parseLevel } from "@/lib/search-params";
-import { compareTopics, grammarSlug, grammarTopicMeta, topicOf, topicTitle } from "@/lib/topics";
+import { compareTopics, grammarSlug, grammarTopicMeta, OTHER_TOPIC, topicOf, topicTitle } from "@/lib/topics";
 
 // The exercise library (AC-026): one set per (level, topic, exercise type)
 // for words and sentences, and one per grammar topic. Steps are built with
 // the same generators as the daily lesson, seeded from the set id and a round
 // number. The library starts each open on a random round, so the order changes
 // every visit; "Làm lại" moves to the next round.
+//
+// Feature 018: the "Viết câu" tab has one "Dịch câu" set per topic, where a
+// sentence's topic is its first word's that has one. The other sentence types,
+// over all of a level's sentences, sit at the end of "Từ vựng".
 
 type Grammar = ContentItemOf<"grammar">;
 
 export const WORD_TYPES = ["mcq", "missing-letters", "listening", "recall"] as const;
 export const SENTENCE_TYPES = ["word-order", "sentence-gap", "choose-sentence", "dictation", "find-error", "translate"] as const;
+/** The sentence types of the all-sentences card in "Từ vựng"; "Dịch câu" has its own tab, "Viết câu" (feature 018). */
+export const WORD_TAB_SENTENCE_TYPES = SENTENCE_TYPES.filter((type) => type !== "translate");
 export const SET_TYPES = [...WORD_TYPES, "grammar-gap", ...SENTENCE_TYPES] as const;
 export type SetType = (typeof SET_TYPES)[number];
 export type SetGroup = "word" | "grammar" | "sentence";
@@ -40,7 +46,7 @@ export const TYPE_LABELS: Record<SetType, string> = {
 export const SET_SIZE = 10;
 
 export interface ExerciseSet {
-  /** `<type>.<level>.<topic>` for words and sentences, `grammar-gap.<slug>` for grammar. */
+  /** `<type>.<level>.<topic>` for words and sentences (`<type>.<level>.khac` for all sentences in "Từ vựng"), `grammar-gap.<slug>` for grammar. */
   id: string;
   type: SetType;
   group: SetGroup;
@@ -95,6 +101,16 @@ function eligibleSentences(index: ContentIndex, sentenceIds: readonly string[], 
   return sentenceIds.filter((id) => canPrepareSentenceStep(type as ExerciseKind, id, index));
 }
 
+/** The sentence's own topic, else that of the first of its words that has one, else `OTHER_TOPIC`. */
+function sentenceTopic(sentence: ContentItemOf<"sentence">, index: ContentIndex): string {
+  if (sentence.topic) return sentence.topic;
+  for (const id of sentence.body.wordIds) {
+    const word = index.byId.get(id);
+    if (word?.kind === "word" && word.topic) return word.topic;
+  }
+  return OTHER_TOPIC;
+}
+
 const cardCache = new WeakMap<ContentIndex, Map<Level, SetCard[]>>();
 
 /** Every set at `level`, grouped into cards (one per topic or grammar point), built once per loaded index. */
@@ -139,13 +155,26 @@ function buildSetCards(index: ContentIndex, level: Level): SetCard[] {
   }
 
   const sentences = index.lesson.sentences.filter((sentence) => sentence.level === level);
-  for (const [topic, group] of groupBy(sentences)) {
-    const ids = group.map((sentence) => sentence.id);
-    const sets = SENTENCE_TYPES.flatMap((type): ExerciseSet[] => {
-      const itemIds = eligibleSentences(index, ids, type);
-      return itemIds.length ? [{ id: `${type}.${level}.${topic}`, type, group: "sentence", level, scope: topic, itemIds }] : [];
-    });
-    if (sets.length) cards.push({ key: `sentence.${topic}`, group: "sentence", scope: topic, title: topicTitle(topic), count: ids.length, sets });
+  const sentenceIds = sentences.map((sentence) => sentence.id);
+  // Every sentence, one set per type but "Dịch câu", at the end of "Từ vựng" (feature 018 AC-005).
+  const typeSets = WORD_TAB_SENTENCE_TYPES.flatMap((type): ExerciseSet[] => {
+    const itemIds = eligibleSentences(index, sentenceIds, type);
+    return itemIds.length ? [{ id: `${type}.${level}.${OTHER_TOPIC}`, type, group: "word", level, scope: OTHER_TOPIC, itemIds }] : [];
+  });
+  if (typeSets.length) {
+    cards.push({ key: "word.sentences", group: "word", scope: OTHER_TOPIC, title: topicTitle(OTHER_TOPIC), count: sentenceIds.length, sets: typeSets });
+  }
+
+  // "Viết câu": one "Dịch câu" set per topic, the sentences with no topic last (AC-002).
+  const byTopic = new Map<string, string[]>();
+  for (const sentence of sentences) {
+    if (!canPrepareSentenceStep("translate", sentence.id, index)) continue;
+    const topic = sentenceTopic(sentence, index);
+    byTopic.set(topic, [...(byTopic.get(topic) ?? []), sentence.id]);
+  }
+  for (const [topic, itemIds] of [...byTopic.entries()].sort((a, b) => compareTopics(a[0], b[0]))) {
+    const set: ExerciseSet = { id: `translate.${level}.${topic}`, type: "translate", group: "sentence", level, scope: topic, itemIds };
+    cards.push({ key: `sentence.${topic}`, group: "sentence", scope: topic, title: topicTitle(topic), count: itemIds.length, sets: [set] });
   }
   return cards;
 }
@@ -183,3 +212,4 @@ export function buildSetSteps(set: ExerciseSet, index: ContentIndex, round = 0):
   }
   return steps;
 }
+

@@ -1,5 +1,6 @@
 "use client";
 
+import { LevelBadge } from "@/components/shell/level-badge";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -103,8 +104,8 @@ function LevelSection({ level, rows, done, unlearnedOnly }: LevelSectionProps) {
   return (
     <section aria-labelledby={headingId} className="grid gap-3">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <h2 id={headingId} className="text-lg font-semibold">
-          Trình độ {level}
+        <h2 id={headingId} className="flex items-center gap-2 text-lg font-semibold">
+          Trình độ <LevelBadge level={level} size="md" />
         </h2>
         <p className="text-sm text-muted-foreground tabular-nums">
           Đã học {learned}/{rows.length} chủ điểm

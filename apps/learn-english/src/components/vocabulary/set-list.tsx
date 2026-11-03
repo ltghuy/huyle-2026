@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BriefcaseBusiness, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { setProgress } from "@/learning/sets";
 import type { IndexedSet } from "@/lib/session/content-index";
 import { withParams } from "@/lib/search-params";
@@ -22,7 +22,7 @@ interface SetListProps {
 export function SetList({ sets, learned, followed, search }: SetListProps) {
   if (sets.length === 0) {
     return (
-      <EmptyState icon={BriefcaseBusiness} title="Chưa có bộ từ chuyên ngành nào">
+      <EmptyState mood="think" title="Chưa có bộ từ chuyên ngành nào">
         <p className="text-sm text-muted-foreground">Các bộ từ đang được biên soạn. Bạn quay lại sau nhé.</p>
       </EmptyState>
     );

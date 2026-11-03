@@ -1,17 +1,32 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/shell/page-header";
+import { ClosingCta } from "@/components/home/closing-cta";
+import { HomeHero } from "@/components/home/home-hero";
+import { HowItWorks } from "@/components/home/how-it-works";
+import { PracticeAreas } from "@/components/home/practice-areas";
+import { SectionHeading } from "@/components/shell/section-heading";
 import { TodayLesson } from "@/components/lesson/today-lesson";
 import { homeLd, JsonLd } from "@/lib/json-ld";
 import { pageMetadata, SITE_DESCRIPTION } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({ description: SITE_DESCRIPTION, path: "/" });
 
+/** Home: the hero, today's lesson right under it, then how it works, the practice areas and a closing call (feature 019). */
 export default function HomePage() {
   return (
     <>
       <JsonLd data={homeLd()} />
-      <PageHeader title="Bài học hôm nay" description="Ôn lại bài cũ, học từ mới và luyện câu, mỗi ngày một chút." />
-      <TodayLesson />
+      <HomeHero />
+      <div className="grid gap-14 pb-8 md:gap-20">
+        <section id="today" aria-labelledby="today-heading" className="grid gap-3">
+          <div className="px-4 md:px-8">
+            <SectionHeading id="today-heading" eyebrow="Hôm nay" title="Bài học hôm nay" description="Ôn lại bài cũ, học từ mới và luyện câu, mỗi ngày một chút." />
+          </div>
+          <TodayLesson />
+        </section>
+        <HowItWorks />
+        <PracticeAreas />
+        <ClosingCta />
+      </div>
     </>
   );
 }

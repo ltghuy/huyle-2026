@@ -1,4 +1,5 @@
-import { CheckCircle2, ListChecks, RotateCcw } from "lucide-react";
+import { ListChecks, RotateCcw } from "lucide-react";
+import { Owl } from "@/components/mascot/owl";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import type { RunnerScore } from "@/components/exercise/exercise-runner";
@@ -24,7 +25,8 @@ export function ScoreScreen({ title, score, onRetry, onDone, doneLabel = "Về d
   const percent = score.total ? Math.round((score.correct / score.total) * 100) : 100;
   return (
     <div className="mx-auto flex min-h-svh w-full max-w-xl flex-col justify-center gap-6 px-4 py-10 text-center">
-      <CheckCircle2 className="mx-auto size-14 text-success" aria-hidden />
+      {/* The owl cheers a good score and stays friendly otherwise (feature 021). */}
+      <Owl mood={score.total === 0 || score.correct / score.total >= 0.7 ? "cheer" : "happy"} size={112} className="mx-auto" />
       <div className="grid gap-2">
         <h2 className="text-2xl font-semibold">Hoàn thành bài tập</h2>
         <p className="text-muted-foreground">{title}</p>

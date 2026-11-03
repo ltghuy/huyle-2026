@@ -1,6 +1,6 @@
 {
   "name": "learn-english",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3002",
@@ -45,6 +45,7 @@
     "shadcn": "catalog:",
     "sonner": "^2.0.8",
     "tailwindcss": "catalog:",
+    "three": "catalog:",
     "ts-fsrs": "5.4.2",
     "tw-animate-css": "catalog:",
     "zod": "catalog:"
@@ -63,6 +64,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@types/three": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "drizzle-kit": "0.31.11",
     "eslint": "catalog:",

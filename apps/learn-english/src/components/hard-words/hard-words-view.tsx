@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import { Clock, Dumbbell, PartyPopper, XCircle } from "lucide-react";
+import { Clock, Dumbbell, XCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
@@ -40,7 +40,7 @@ export function HardWordsView() {
 
   if (rows.length === 0) {
     return (
-      <EmptyState icon={PartyPopper} title="Chưa có từ khó nào">
+      <EmptyState mood="cheer" title="Chưa có từ khó nào">
         <p className="max-w-sm text-sm text-muted-foreground">
           Tuyệt lắm! Khi bạn hay trả lời sai hoặc nhớ chậm một từ, từ đó sẽ hiện ở đây để bạn luyện thêm.
         </p>

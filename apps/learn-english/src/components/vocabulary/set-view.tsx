@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, SearchX } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import { isSetFinished, setLabel, setProgress } from "@/learning/sets";
 import type { ContentIndex, IndexedSet } from "@/lib/session/content-index";
@@ -35,7 +35,7 @@ export function SetView({ set, index, learned, followed, search, onOpenWord, unl
 
   if (!set) {
     return (
-      <EmptyState icon={SearchX} title="Không tìm thấy bộ từ này">
+      <EmptyState mood="think" title="Không tìm thấy bộ từ này">
         <Link href={backHref} className={cn(buttonVariants({ variant: "outline" }), "h-11")}>
           Xem các bộ chuyên ngành
         </Link>

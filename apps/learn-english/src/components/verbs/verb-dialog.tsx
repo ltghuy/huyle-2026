@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Dumbbell } from "lucide-react";
 import { AudioButton } from "@/components/exercise/audio-button";
 import { Badge } from "@/components/ui/badge";
+import { LevelBadge } from "@/components/shell/level-badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { PATTERN_LABELS, type VerbEntry } from "@/learning/verbs";
@@ -45,7 +46,7 @@ function VerbDetails({ verb, onPractise }: { verb: VerbEntry; onPractise: (verb:
       </DialogHeader>
 
       <div className="flex flex-wrap gap-2 text-sm">
-        <Badge variant="secondary">{forms.level}</Badge>
+        <LevelBadge level={forms.level} />
         <Badge variant="outline">
           {PATTERN_LABELS[pattern].title} · {PATTERN_LABELS[pattern].hintVi}
         </Badge>

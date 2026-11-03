@@ -71,15 +71,17 @@ export function AttendanceSummary() {
 
 function Stat({ icon: Icon, label, value, unit }: { icon: typeof Star; label: string; value: number; unit?: string }) {
   return (
-    <div className="flex flex-col gap-1 rounded-xl border bg-card p-3 sm:p-4">
-      <dt className="flex items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
-        <Icon className="size-4 shrink-0 text-streak" aria-hidden />
-        {label}
-      </dt>
-      <dd className="text-2xl font-semibold tabular-nums">
-        {value}
-        {unit ? <span className="ml-1 text-sm font-normal text-muted-foreground">{unit}</span> : null}
-      </dd>
+    <div className="flex items-center gap-3 rounded-xl border bg-card p-3 sm:p-4">
+      <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-streak/15 text-streak sm:size-10">
+        <Icon className="size-4 sm:size-5" aria-hidden />
+      </span>
+      <div className="min-w-0">
+        <dt className="text-xs text-muted-foreground sm:text-sm">{label}</dt>
+        <dd className="text-2xl font-semibold tabular-nums">
+          {value}
+          {unit ? <span className="ml-1 text-sm font-normal text-muted-foreground">{unit}</span> : null}
+        </dd>
+      </div>
     </div>
   );
 }

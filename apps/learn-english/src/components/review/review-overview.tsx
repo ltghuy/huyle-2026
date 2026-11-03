@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback } from "react";
-import { CalendarCheck, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { getAllCards } from "@/storage/cards";
 import { buttonVariants } from "@/components/ui/button";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
@@ -34,7 +34,7 @@ export function ReviewOverview() {
   const { due, nextDue } = queue.data;
   if (due.length === 0) {
     return (
-      <EmptyState icon={CalendarCheck} title="Hôm nay bạn không có gì cần ôn">
+      <EmptyState mood="cheer" title="Hôm nay bạn không có gì cần ôn">
         <p className="text-sm text-muted-foreground">
           {nextDue ? `Lần ôn tiếp theo: ${DATE_FORMAT.format(nextDue)}.` : "Học từ mới trong bài hôm nay để bắt đầu lịch ôn tập."}
         </p>

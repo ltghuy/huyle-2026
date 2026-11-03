@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookX, CheckCircle2, Dumbbell, Plus, Shuffle, XCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Dumbbell, Plus, Shuffle, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import type { ContentItemOf } from "@/content/schema";
 import { newCard } from "@/learning/srs";
@@ -56,7 +56,7 @@ export function GrammarTopic({ grammar, index, done, onCardsChanged }: GrammarTo
     return (
       <div className="grid gap-4 px-4 md:px-8">
         <BackLink />
-        <EmptyState icon={BookX} title="Bài ngữ pháp này chưa có">
+        <EmptyState mood="think" title="Bài ngữ pháp này chưa có">
           <p className="text-sm text-muted-foreground">Có thể bài đang được biên soạn. Bạn chọn một chủ điểm khác nhé.</p>
         </EmptyState>
       </div>

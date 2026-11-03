@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { PageHeader } from "@/components/shell/page-header";
+import { Shuffle } from "lucide-react";
+import { Owl } from "@/components/mascot/owl";
+import { PageHero } from "@/components/shell/page-hero";
 import { ListSkeleton } from "@/components/shell/load-states";
 import { VerbsBrowser } from "@/components/verbs/verbs-browser";
 import { pageMetadata } from "@/lib/site";
+
+const BADGE = { icon: Shuffle, text: "Nhóm theo quy luật để dễ nhớ" };
 
 export const metadata: Metadata = pageMetadata({
   title: "Động từ bất quy tắc",
@@ -14,7 +18,7 @@ export const metadata: Metadata = pageMetadata({
 export default function IrregularVerbsPage() {
   return (
     <>
-      <PageHeader title="Động từ bất quy tắc" description="Dạng quá khứ (V2) và quá khứ phân từ (V3) của các động từ thông dụng." />
+      <PageHero size="sm" badge={BADGE} title="Động từ bất quy tắc" description="Dạng quá khứ (V2) và quá khứ phân từ (V3) của các động từ thông dụng." mascot={<Owl mood="cheer" size="hero" />} />
       {/* The browser reads query params, so it renders in the browser below this boundary. */}
       <Suspense fallback={<ListSkeleton rows={6} />}>
         <VerbsBrowser />

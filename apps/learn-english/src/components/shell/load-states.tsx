@@ -1,4 +1,5 @@
-import { CloudOff, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
+import { Owl, type OwlMood } from "@/components/mascot/owl";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -15,8 +16,8 @@ export function ListSkeleton({ rows = 4 }: { rows?: number }) {
 
 export function ContentError({ onRetry }: { onRetry: () => void }) {
   return (
-    <div role="alert" className="mx-4 flex flex-col items-center gap-3 rounded-xl border px-6 py-12 text-center md:mx-8">
-      <CloudOff className="size-8 text-muted-foreground" aria-hidden />
+    <div role="alert" className="mx-4 flex flex-col items-center gap-3 rounded-2xl border bg-card px-6 py-10 text-center md:mx-8">
+      <Owl mood="sleepy" size={72} />
       <p>Chưa tải được nội dung. Bạn kiểm tra kết nối mạng rồi thử lại nhé.</p>
       <Button variant="outline" onClick={onRetry}>
         <RotateCcw aria-hidden /> Thử lại
@@ -25,10 +26,27 @@ export function ContentError({ onRetry }: { onRetry: () => void }) {
   );
 }
 
-export function EmptyState({ icon: Icon, title, children }: { icon: React.ComponentType<{ className?: string }>; title: string; children?: React.ReactNode }) {
+interface EmptyStateProps {
+  title: string;
+  children?: React.ReactNode;
+  /** The owl in this mood instead of the icon, on a soft panel (feature 020). */
+  mood?: OwlMood;
+  icon?: React.ComponentType<{ className?: string }>;
+}
+
+export function EmptyState({ icon: Icon, mood, title, children }: EmptyStateProps) {
+  if (mood) {
+    return (
+      <div className="mx-4 flex flex-col items-center gap-3 rounded-2xl border bg-card px-6 py-10 text-center md:mx-8">
+        <Owl mood={mood} size={72} />
+        <p className="text-lg font-semibold">{title}</p>
+        {children}
+      </div>
+    );
+  }
   return (
     <div className="mx-4 flex flex-col items-center gap-3 rounded-xl border border-dashed px-6 py-12 text-center md:mx-8">
-      <Icon className="size-8 text-muted-foreground" />
+      {Icon ? <Icon className="size-8 text-muted-foreground" /> : null}
       <p className="font-medium">{title}</p>
       {children}
     </div>

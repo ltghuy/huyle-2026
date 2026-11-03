@@ -32,7 +32,7 @@ export function TranslateView({ instance, answer, onAnswer, result, onClaim }: E
               </span>
             </p>
           ) : null}
-          <CorrectSentence en={instance.en} vi={instance.vi} audio={instance.audio} />
+          <CorrectSentence en={instance.en} vi={instance.vi} audio={instance.audio} words={instance} />
           {onClaim ? (
             <Button type="button" variant="outline" size="lg" className="h-12" onClick={onClaim}>
               <CheckCheck aria-hidden /> Câu của mình cũng đúng

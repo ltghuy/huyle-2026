@@ -2,11 +2,11 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { BookOpenText, Dumbbell, Search, SearchX } from "lucide-react";
+import { Dumbbell, Search } from "lucide-react";
 import { AudioButton } from "@/components/exercise/audio-button";
 import { ExerciseRun } from "@/components/library/exercise-run";
 import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-states";
-import { Badge } from "@/components/ui/badge";
+import { LevelBadge } from "@/components/shell/level-badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -76,7 +76,7 @@ export function VerbsBrowser() {
   if (verbs.status === "loading") return <ListSkeleton rows={6} />;
   if (all.length === 0) {
     return (
-      <EmptyState icon={BookOpenText} title="Phần này đang được biên soạn">
+      <EmptyState mood="think" title="Phần này đang được biên soạn">
         <p className="text-sm text-muted-foreground">Danh sách động từ bất quy tắc sẽ có sớm. Bạn quay lại sau nhé.</p>
       </EmptyState>
     );
@@ -133,7 +133,7 @@ export function VerbsBrowser() {
       </div>
 
       {shown.length === 0 ? (
-        <EmptyState icon={SearchX} title="Không tìm thấy động từ nào">
+        <EmptyState mood="think" title="Không tìm thấy động từ nào">
           <p className="text-sm text-muted-foreground">Bạn thử từ khác hoặc bỏ bớt bộ lọc nhé.</p>
         </EmptyState>
       ) : (
@@ -207,7 +207,7 @@ function VerbTable({ verbs, onOpen }: { verbs: readonly VerbEntry[]; onOpen: (ve
               </TableCell>
               <TableCell className="max-w-64 truncate text-muted-foreground">{verb.word.body.meaningsVi.join("; ")}</TableCell>
               <TableCell>
-                <Badge variant="secondary">{verb.forms.level}</Badge>
+                <LevelBadge level={verb.forms.level} />
               </TableCell>
               <TableCell className="pr-4">
                 {verb.forms.body.audio ? <AudioButton source="word" audioKey={verb.forms.body.audio} label={`ba dạng của ${verb.word.body.headword}`} /> : null}
@@ -231,7 +231,7 @@ function VerbCard({ verb, onOpen }: { verb: VerbEntry; onOpen: (verb: VerbEntry)
         </span>
         <span className="truncate text-sm text-muted-foreground">{word.body.meaningsVi.join("; ")}</span>
       </button>
-      <Badge variant="secondary">{forms.level}</Badge>
+      <LevelBadge level={forms.level} />
       {forms.body.audio ? <AudioButton source="word" audioKey={forms.body.audio} label={`ba dạng của ${word.body.headword}`} /> : null}
     </li>
   );
