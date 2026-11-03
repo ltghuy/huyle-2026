@@ -5,9 +5,9 @@
 A Turborepo monorepo (pnpm workspaces) with three Next.js 16 (App Router) apps:
 the portfolio in `apps/web` (huyle.work), the Frontend Handbook in
 `apps/react-handbook` (learn.huyle.work), and Learn English in
-`apps/learn-english` (english.huyle.work). The handbook and Learn English each
-have their own `CLAUDE.md` (stack, required skills), which loads when you work
-on their files.
+`apps/learn-english` (english.huyle.work, shown to learners as "Streak Daily").
+The handbook and Learn English each have their own `CLAUDE.md` (stack, required
+skills), which loads when you work on their files.
 
 ## Layout
 

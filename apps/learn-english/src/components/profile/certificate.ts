@@ -62,7 +62,7 @@ export function vietnameseDate(date: string): string {
 
 /** What the certificate says, for screen readers and the image's alt text. */
 export function certificateSummary(data: CertificateData): string {
-  return `Chứng nhận ${data.name} đã học xong ${achievementText(data.kind, data.level, data.total)}, ${vietnameseDate(data.date)}, English with Evan.`;
+  return `Chứng nhận ${data.name} đã học xong ${achievementText(data.kind, data.level, data.total)}, ${vietnameseDate(data.date)}, Streak Daily.`;
 }
 
 export const CERTIFICATE_WIDTH = 1600;
@@ -118,7 +118,7 @@ export async function drawCertificate(canvas: HTMLCanvasElement, data: Certifica
   ctx.lineWidth = 2;
   ctx.strokeRect(64, 64, W - 128, H - 128);
 
-  text(ctx, "ENGLISH WITH EVAN", cx, 180, `600 28px ${family}`, ACCENT, 6);
+  text(ctx, "STREAK DAILY", cx, 180, `600 28px ${family}`, ACCENT, 6);
   text(ctx, "CERTIFICATE", cx, 300, `700 96px ${family}`, INK, 4);
   text(ctx, "OF COMPLETION", cx, 356, `600 30px ${family}`, GOLD, 10);
 

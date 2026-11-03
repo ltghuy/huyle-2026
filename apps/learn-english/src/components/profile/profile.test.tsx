@@ -175,7 +175,7 @@ describe("progress certificates (009)", () => {
     const dialog = await screen.findByRole("dialog");
     expect(within(dialog).getByText("Bạn đã học xong 2 động từ bất quy tắc trình độ A1.")).toBeInTheDocument();
     const image = await within(dialog).findByRole("img");
-    expect(image).toHaveAttribute("alt", "Chứng nhận Minh Anh đã học xong 2 động từ bất quy tắc trình độ A1, ngày 27 tháng 10 năm 2026, English with Evan.");
+    expect(image).toHaveAttribute("alt", "Chứng nhận Minh Anh đã học xong 2 động từ bất quy tắc trình độ A1, ngày 27 tháng 10 năm 2026, Streak Daily.");
     expect(vi.mocked(certificatePng)).toHaveBeenLastCalledWith({ kind: "forms", level: "A1", total: 2, name: "Minh Anh", date: "2026-10-27" });
 
     const click = vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
