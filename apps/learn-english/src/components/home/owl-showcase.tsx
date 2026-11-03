@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { preload } from "react-dom";
 import { Owl } from "@/components/mascot/owl";
 import { cn } from "@/lib/utils";
+
+/** The owner's 3D owl, optimised (feature 021, quick 040). */
+const OWL_MODEL_URL = "/models/graduate-owl.glb";
 
 const LABEL = "Cú tốt nghiệp ôm cuốn sách ENGLISH A·B·C, kéo để xoay";
 
@@ -13,6 +17,13 @@ function hasWebGL(): boolean {
   } catch {
     return false;
   }
+}
+
+/** Fetches the GLB; it comes from the preload when that has finished. */
+async function fetchOwlModel(): Promise<ArrayBuffer> {
+  const response = await fetch(OWL_MODEL_URL);
+  if (!response.ok) throw new Error(`owl model: HTTP ${response.status}`);
+  return response.arrayBuffer();
 }
 
 /** Runs `task` when the browser is idle after the first render, so the 3D never competes with the page. */
@@ -32,6 +43,9 @@ function whenIdle(task: () => void): () => void {
 export function OwlShowcase({ className }: { className?: string }) {
   const stage = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  // Download the model with the page at low priority (quick 041), so it is in hand by the time three.js
+  // loads instead of starting after it. Same mode and credentials as the fetch below, so that reuses it.
+  preload(OWL_MODEL_URL, { as: "fetch", crossOrigin: "anonymous", fetchPriority: "low" });
 
   useEffect(() => {
     const container = stage.current;
@@ -39,9 +53,9 @@ export function OwlShowcase({ className }: { className?: string }) {
     let cancelled = false;
     let dispose: (() => void) | undefined;
     const cancelIdle = whenIdle(() => {
-      const sway = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      import("./owl-scene")
-        .then(({ mountOwlScene }) => mountOwlScene(container, { sway }))
+      const look = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      Promise.all([import("./owl-scene"), fetchOwlModel()])
+        .then(([{ mountOwlScene }, model]) => mountOwlScene(container, { look, model }))
         .then((scene) => {
           if (cancelled) scene.dispose();
           else {

@@ -47,9 +47,9 @@ Feature 020 gave Streak Daily a companion, Lửa (a flame). The owner has since 
 
 **Acceptance Criteria:**
 
-- [x] AC-003: WHEN the home page has rendered THEN system SHALL load the 3D owl (an optimised copy of the owner's GLB) in the hero, swaying gently (about ±25°) so its face stays toward the learner; the learner can drag to turn it. Phones and tablets show it above the wordmark; from `lg` the hero splits, text on the left and the owl, larger (25 rem tall from `lg`, 14 rem on tablets, 12 rem on phones, with a little headroom), on the right on a soft disc with a floor shadow and a "Hello! Cùng học nhé" bubble (2026-11-03: a full slow spin showed its back half the time, and the centred layout left wide screens empty)
+- [x] AC-003: WHEN the home page has rendered THEN system SHALL load the 3D owl (an optimised copy of the owner's GLB) in the hero, standing still and facing the learner while its pupils glance left and right (quick 040: the body no longer sways); the learner can drag to turn it. Phones and tablets show it above the wordmark; from `lg` the hero splits, text on the left and the owl, larger (25 rem tall from `lg`, 14 rem on tablets, 12 rem on phones, with a little headroom), on the right on a soft disc with a floor shadow and a "Hello! Cùng học nhé" bubble (2026-11-03: a full slow spin showed its back half the time, and the centred layout left wide screens empty; quick 039: the split hero starts on the page gutter like the sections below, with no centred max width)
 - [x] AC-004: WHEN WebGL is unavailable, the model fails to load, or it is still loading THEN system SHALL show the SVG owl in the same place and size, so the layout does not move
-- [x] AC-005: WHEN the learner prefers reduced motion THEN system SHALL not sway the 3D owl (dragging still works)
+- [x] AC-005: WHEN the learner prefers reduced motion THEN system SHALL keep the 3D owl's pupils still (dragging still works)
 
 ## Edge Cases
 
@@ -82,7 +82,7 @@ Requested on 2026-11-03 with the owner's `build_owl.py`, `graduate_owl.glb` and 
 ## Verification
 
 - 2026-11-03: `pnpm lint`, `pnpm typecheck`, `pnpm test` (899 passed; `src/components/mascot/owl.test.tsx` covers the moods, the label and the book text) and `pnpm build` pass; `/` stays static.
-- The owner's GLB went through `@gltf-transform/cli optimize` (join, weld, simplify, meshopt): 1.63 MB → 159 KB (`public/models/graduate-owl.glb`), and it looks the same as the preview from the front and back.
+- The owner's GLB went through `@gltf-transform/cli optimize` (join, weld, simplify, meshopt): 1.63 MB → 159 KB (`public/models/graduate-owl.glb`), and it looks the same as the preview from the front and back. Since quick 040 each eye's pupil and highlights stay a separate node (`Gaze_L`, `Gaze_R`): `designs/group_owl_eyes.mjs` groups them, then `optimize --flatten false --texture-compress false --simplify-error 0.001` gives 143 KB.
 - three.js loads as one lazy chunk (637 KB, 158 KB gzipped) that the home page's HTML doesn't reference; `/vocabulary` loads no three.js or model (0 requests).
 - Browser: dark at 1568 px, the SVG owl shows in the five study page heroes, Từ khó's empty state (cheer) and the home streak card (sleepy); the 3D owl turns slowly in the home hero, drags to turn, and the lesson card title is still above the fold. 390 px light: no horizontal scroll (`scrollWidth` 375).
 - Not checked in a browser: reduced motion (the code reads `prefers-reduced-motion` and turns auto-rotate off) and the no-WebGL fallback (the SVG stays when `hasWebGL()` is false or loading rejects).
