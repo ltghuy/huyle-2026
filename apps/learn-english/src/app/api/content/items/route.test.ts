@@ -6,6 +6,13 @@ import type { ContentItemsPayload } from "@/server/content/content.service";
 const getContentItems = vi.fn<(...args: unknown[]) => Promise<ContentItemsPayload>>();
 vi.mock("@/server/content/content.service", () => ({ getContentItems }));
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
+let signedIn = true;
+vi.mock("@/server/auth/session", () => ({
+  requireUser: async () =>
+    signedIn
+      ? { user: { id: "u1", name: "Minh Anh", email: "minh@example.com", image: null } }
+      : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
+}));
 
 const { GET } = await import("./route");
 
@@ -93,6 +100,39 @@ describe("GET /api/content/items with the Workers Cache API", () => {
     expect(second.headers.get("x-content-cache")).toBe("HIT");
     expect(await second.json()).toEqual(content);
     expect(getContentItems).toHaveBeenCalledTimes(1);
+  });
+
+  it("never reads or stores locked kinds in the shared cache, and keeps them private (022)", async () => {
+    for (const query of ["kind=grammar&v=3", "kind=writing&level=A1&v=3"]) {
+      store.set(`https://english.huyle.work/api/content/items?${query}`, new Response("poisoned"));
+      const response = await GET(request(query));
+      expect(response.headers.get("cache-control")).toBe("private, max-age=86400");
+      expect(response.headers.get("x-content-cache")).toBeNull();
+      expect(await response.json()).toEqual(content);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(store.size).toBe(2); // only the two planted entries: nothing was written
+  });
+
+  it("refuses locked kinds to guests before touching the cache (022 AC-013)", async () => {
+    signedIn = false;
+    const cachedGrammar = "https://english.huyle.work/api/content/items?kind=grammar&v=3";
+    store.set(cachedGrammar, new Response(JSON.stringify(content)));
+    for (const query of ["kind=grammar&v=3", "kind=writing&level=A1&v=3"]) {
+      const response = await GET(request(query));
+      expect(response.status).toBe(401);
+    }
+    expect(getContentItems).not.toHaveBeenCalled();
+    // A1 grammar is open to guests, as public content (owner, 2026-11-03).
+    const a1 = await GET(request("kind=grammar&level=A1&v=3"));
+    expect(a1.status).toBe(200);
+    expect(a1.headers.get("cache-control")).toBe("public, max-age=86400, immutable");
+    expect((await GET(request("kind=grammar&level=A2&v=3"))).status).toBe(401);
+    // Vocabulary, placement and irregular verbs stay open to guests.
+    for (const query of ["kind=word&level=A1&v=3", "kind=set&v=3", "kind=sentence&level=A1&v=3", "kind=placement&v=3", "kind=forms&v=3"]) {
+      expect((await GET(request(query))).status, query).toBe(200);
+    }
+    signedIn = true;
   });
 
   it("never caches a 409", async () => {

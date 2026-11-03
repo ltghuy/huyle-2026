@@ -3,7 +3,7 @@ import { BOARD_NAME_ERRORS } from "@/learning/leaderboard";
 import type { ApiError } from "@/lib/http";
 import { LEADERBOARD_MESSAGES } from "@/server/leaderboard/leaderboard.schema";
 
-const service = { submitEntry: vi.fn(), removeEntry: vi.fn(), topEntries: vi.fn() };
+const service = { submitEntry: vi.fn(), removeEntry: vi.fn(), topEntries: vi.fn(), dropOtherEntries: vi.fn(), removeAccountEntries: vi.fn() };
 const limit = vi.fn<(options: { key: string }) => Promise<{ success: boolean }>>();
 const env: { LEADERBOARD_LIMITER?: { limit: typeof limit } } = {};
 
@@ -11,6 +11,13 @@ vi.mock("@/server/leaderboard/leaderboard.service", () => service);
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
 vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env }) }));
 
+let signedIn = true;
+vi.mock("@/server/auth/session", () => ({
+  requireUser: async () =>
+    signedIn
+      ? { user: { id: "u1", name: "Minh Anh", email: "minh@example.com", image: null } }
+      : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
+}));
 const { GET, POST, DELETE } = await import("./route");
 
 const ID = "00000000-0000-4000-8000-000000000001";
@@ -36,6 +43,34 @@ beforeEach(() => {
   service.removeEntry.mockReset().mockResolvedValue({ ok: true });
   limit.mockReset().mockResolvedValue({ success: true });
   env.LEADERBOARD_LIMITER = { limit };
+  signedIn = true;
+});
+
+describe("/api/leaderboard for guests (022 AC-011, AC-013)", () => {
+  it("refuses every method without a session and touches nothing", async () => {
+    signedIn = false;
+    const get = await GET(new Request("https://english.huyle.work/api/leaderboard?today=2026-11-20"));
+    expect(get.status).toBe(401);
+    expect((await POST(request("POST", BODY))).status).toBe(401);
+    expect((await DELETE(request("DELETE", { id: ID, token: TOKEN }))).status).toBe(401);
+    expect(service.submitEntry).not.toHaveBeenCalled();
+    expect(service.removeEntry).not.toHaveBeenCalled();
+  });
+
+  it("ranks the Google account: one entry, keyed by the account, replacing this browser's older one", async () => {
+    await POST(request("POST", BODY));
+    expect(service.submitEntry.mock.calls[0][1]).toMatchObject({ id: "u1", userId: "u1" });
+    expect(service.dropOtherEntries).toHaveBeenCalledWith({}, "u1", { id: ID, tokenHash: expect.stringMatching(/^[0-9a-f]{64}$/) });
+  });
+
+  it("shows the chosen name, else the Google name", async () => {
+    await POST(request("POST", BODY));
+    expect(service.submitEntry.mock.calls[0][1]).toMatchObject({ name: "Minh Anh" });
+    await POST(request("POST", { ...BODY, name: "  " }));
+    expect(service.submitEntry.mock.calls[1][1]).toMatchObject({ name: "Minh Anh" });
+    await POST(request("POST", { ...BODY, name: "Evan" }));
+    expect(service.submitEntry.mock.calls[2][1]).toMatchObject({ name: "Evan" });
+  });
 });
 
 afterEach(() => {
@@ -49,7 +84,7 @@ describe("POST /api/leaderboard", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(await response.json()).toEqual({ rank: 1, previousRank: 2, total: 2, rows: [] });
     const [, input] = service.submitEntry.mock.calls[0];
-    expect(input).toMatchObject({ id: ID, name: "Minh Anh", today: "2026-11-20", lastDate: "2026-11-20", streak: 6, earned: 120, previousStreak: 5, previousEarned: 100 });
+    expect(input).toMatchObject({ id: "u1", name: "Minh Anh", today: "2026-11-20", lastDate: "2026-11-20", streak: 6, earned: 120, previousStreak: 5, previousEarned: 100 });
     expect(input.tokenHash).toMatch(/^[0-9a-f]{64}$/);
     expect(JSON.stringify(input)).not.toContain(TOKEN);
   });
@@ -103,15 +138,16 @@ describe("POST /api/leaderboard", () => {
 });
 
 describe("DELETE /api/leaderboard (AC-010)", () => {
-  it("deletes and answers 204", async () => {
+  it("takes the account's entries off the board, and this browser's older one, and answers 204", async () => {
     const response = await DELETE(request("DELETE", { id: ID, token: TOKEN }));
     expect(response.status).toBe(204);
+    expect(service.removeAccountEntries).toHaveBeenCalledWith({}, "u1");
     expect(service.removeEntry).toHaveBeenCalledWith({}, ID, expect.stringMatching(/^[0-9a-f]{64}$/));
   });
 
-  it("answers 403 under another secret", async () => {
+  it("still answers 204 when the browser's old entry belongs to someone else", async () => {
     service.removeEntry.mockResolvedValue({ ok: false, reason: "forbidden" });
-    expect((await DELETE(request("DELETE", { id: ID, token: TOKEN }))).status).toBe(403);
+    expect((await DELETE(request("DELETE", { id: ID, token: TOKEN }))).status).toBe(204);
   });
 });
 
@@ -122,15 +158,12 @@ describe("GET /api/leaderboard (017)", () => {
     service.topEntries.mockReset().mockResolvedValue({ total: 0, rows: [] });
   });
 
-  it("reads the top 10 for the learner's date, with their id from the header, uncached", async () => {
+  it("reads the top 10 for the learner's date and their account's place, uncached", async () => {
     const response = await get("?today=2026-11-20", { "x-board-id": ID });
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(await response.json()).toEqual({ total: 0, rows: [] });
-    expect(service.topEntries).toHaveBeenCalledWith(expect.anything(), "2026-11-20", ID);
-
-    await get("?today=2026-11-20");
-    expect(service.topEntries).toHaveBeenLastCalledWith(expect.anything(), "2026-11-20", undefined);
+    expect(service.topEntries).toHaveBeenCalledWith(expect.anything(), "2026-11-20", "u1");
   });
 
   it("answers 422 for a missing or far-off date, or a malformed id", async () => {

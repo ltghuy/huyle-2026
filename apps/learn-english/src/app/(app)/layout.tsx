@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { AccountLinker } from "@/components/account/account-linker";
+import { GuestNotice } from "@/components/account/guest-notice";
 import { AccountLink } from "@/components/shell/account-link";
 import { AppSidebar } from "@/components/shell/app-sidebar";
 import { BackToTop } from "@/components/shell/back-to-top";
@@ -26,6 +28,8 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       <MobileNav />
       <BackToTop />
       <SyncRunner />
+      <AccountLinker />
+      <GuestNotice />
       <StatsRunner />
       <ClaimsRunner />
       <NamePrompt />

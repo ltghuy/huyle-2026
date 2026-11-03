@@ -61,25 +61,12 @@ async function numbersToday(profile: Pick<Profile, "timeZone">, now: number): Pr
 }
 
 /** Sends the streak after a daily lesson and returns the learner's place before and after it (013 AC-010). */
-export async function submitStreak(entry: Joined, profile: Pick<Profile, "timeZone">, now: number): Promise<BoardResult> {
+export async function submitStreak(entry: Joined, profile: Pick<Profile, "timeZone" | "displayName">, now: number): Promise<BoardResult> {
   const numbers = await numbersToday(profile, now);
-  const body: SubmitBody = { id: entry.id, token: entry.token, name: entry.name, ...numbers };
+  // The chosen name; empty means the server shows the account's Google name (feature 022).
+  const body: SubmitBody = { id: entry.id, token: entry.token, name: profile.displayName?.trim() ?? "", ...numbers };
   const result = (await (await send("POST", body)).json()) as SubmitResponse;
   return { ...result, previous: { streak: numbers.previousStreak, earned: numbers.previousEarned } };
-}
-
-/**
- * Changes the shown name. While the streak is alive the entry is updated now;
- * otherwise the new name goes up with the next lesson, so a rename alone
- * never puts a learner with a broken streak back on the board.
- */
-export async function renameOnBoard(entry: Joined, name: string, profile: Pick<Profile, "timeZone">, now: number): Promise<void> {
-  const numbers = await numbersToday(profile, now);
-  if (numbers.streak > 0) {
-    const body: SubmitBody = { id: entry.id, token: entry.token, name, ...numbers, previousStreak: numbers.streak, previousEarned: numbers.earned };
-    await send("POST", body);
-  }
-  await updateProfile({ leaderboard: { ...entry, name } }, now);
 }
 
 /** Deletes the entry from the server, then saves "declined" (AC-010). */

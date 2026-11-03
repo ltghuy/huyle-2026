@@ -26,6 +26,7 @@ const EXPORT_FAILED = "Chưa xuất được tiến độ. Bạn thử lại nh�
 /** Export, import (summary + confirm) and reset (confirm + export suggestion): AC-042–AC-044. */
 export function BackupPanel() {
   const profile = useProfile();
+  const signedIn = profile.status === "ready" && profile.data.account !== undefined;
   const fileInput = useRef<HTMLInputElement>(null);
   const [importError, setImportError] = useState<string | null>(null);
   const [pending, setPending] = useState<Snapshot | null>(null);
@@ -62,9 +63,9 @@ export function BackupPanel() {
     if (!pending) return;
     setBusy(true);
     try {
-      await applySnapshot(pending);
+      const how = await applySnapshot(pending);
       setPending(null);
-      toast.success("Đã nhập tiến độ từ file sao lưu.");
+      toast.success(how === "merged" ? "Đã gộp tiến độ trong file vào tài khoản." : "Đã nhập tiến độ từ file sao lưu.");
     } catch {
       toast.error("Chưa nhập được tiến độ. Tiến độ hiện tại của bạn vẫn giữ nguyên.");
     } finally {
@@ -94,7 +95,7 @@ export function BackupPanel() {
       <CardHeader>
         <CardTitle>Sao lưu tiến độ</CardTitle>
         <CardDescription>
-          Tiến độ chỉ được lưu trên trình duyệt này. Bạn hãy xuất ra file để giữ an toàn hoặc chuyển sang máy khác.
+          Tải tiến độ về máy thành một file để giữ một bản riêng, hoặc nhập lại từ file. Khi bạn đã đăng nhập, phần nhập từ file được gộp vào tài khoản.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
@@ -141,13 +142,15 @@ export function BackupPanel() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Nhập file sao lưu này?</AlertDialogTitle>
-            <AlertDialogDescription>Tiến độ hiện tại trên trình duyệt này sẽ được thay bằng dữ liệu trong file.</AlertDialogDescription>
+            <AlertDialogDescription>
+              {signedIn ? "Tiến độ trong file sẽ được gộp vào tiến độ của tài khoản; không mất gì." : "Tiến độ hiện tại trên trình duyệt này sẽ được thay bằng dữ liệu trong file."}
+            </AlertDialogDescription>
           </AlertDialogHeader>
           {pending ? <SnapshotSummary snapshot={pending} /> : null}
           <AlertDialogFooter>
             <AlertDialogCancel disabled={busy}>Hủy</AlertDialogCancel>
             <AlertDialogAction onClick={handleConfirmImport} disabled={busy}>
-              Thay tiến độ
+              {signedIn ? "Gộp tiến độ" : "Thay tiến độ"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

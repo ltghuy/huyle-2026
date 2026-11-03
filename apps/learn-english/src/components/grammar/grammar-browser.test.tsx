@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, screen, within } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, fireEvent, screen, within } from "@testing-library/react";
 import { render } from "@/test-utils/render";
 import { grammar, sentence } from "@/learning/exercises/fixtures";
 import { buildContentIndex } from "@/lib/session/content-index";
@@ -9,6 +9,12 @@ import { newCard } from "@/learning/srs";
 import { resetStorage } from "@/storage/test-utils";
 import { GrammarBrowser } from "./grammar-browser";
 
+// Signed in unless a test says otherwise (feature 022).
+const account = vi.hoisted(() => ({ status: "signed-in" as "signed-in" | "guest" }));
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: account.status, account: null, session: undefined }),
+  canUseLockedAreas: (status: string) => status === "signed-in" || status === "expired",
+}));
 vi.mock("next/navigation", () => import("@/components/library/test-navigation"));
 
 const base = grammar("present-simple", [
@@ -135,5 +141,32 @@ describe("GrammarBrowser", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Về bài học/ }));
     expect(await screen.findByText("Đã học")).toBeInTheDocument();
+  });
+});
+
+describe("GrammarBrowser for guests (022 AC-009)", () => {
+  afterEach(() => {
+    account.status = "signed-in";
+  });
+
+  it("opens A1 topics to guests and locks the levels above (owner, 2026-11-03)", async () => {
+    account.status = "guest";
+    visit("");
+    const a1 = await screen.findByRole("region", { name: "Trình độ A1" });
+    expect(within(a1).getByRole("link", { name: /Present Simple/ })).toHaveAttribute("href", "/grammar?topic=present-simple");
+    expect(within(a1).queryAllByLabelText("Cần đăng nhập")).toHaveLength(0);
+    const a2 = screen.getByRole("region", { name: "Trình độ A2" });
+    expect(within(a2).getAllByLabelText("Cần đăng nhập").length).toBeGreaterThan(0);
+    expect(within(a2).queryByText("Sắp có")).not.toBeInTheDocument();
+  });
+
+  it("shows an A1 topic to a guest, and asks to sign in for one above A1", async () => {
+    account.status = "guest";
+    visit("?topic=present-simple");
+    expect(await screen.findByRole("heading", { name: /Present Simple/ })).toBeInTheDocument();
+    expect(screen.queryByText("Đăng nhập để học ngữ pháp")).not.toBeInTheDocument();
+    cleanup();
+    visit("?topic=past-simple");
+    expect(await screen.findByText("Đăng nhập để học ngữ pháp")).toBeInTheDocument();
   });
 });

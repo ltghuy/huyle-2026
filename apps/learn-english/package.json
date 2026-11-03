@@ -1,6 +1,6 @@
 {
   "name": "learn-english",
-  "version": "0.2.0",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3002",
@@ -32,6 +32,7 @@
     "@base-ui/utils": "^0.5.0",
     "@floating-ui/react-dom": "^2.1.9",
     "@tanstack/react-query": "catalog:",
+    "better-auth": "1.7.15",
     "class-variance-authority": "catalog:",
     "cn": "catalog:",
     "drizzle-orm": "0.45.4",

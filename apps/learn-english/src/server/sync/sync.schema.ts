@@ -17,7 +17,17 @@ export const SYNC_MESSAGES = {
   tooLarge: "Dữ liệu đồng bộ quá lớn (tối đa 1 MB).",
   conflict: "Tiến độ vừa được cập nhật từ thiết bị khác.",
   unavailable: "Máy chủ đồng bộ đang gặp sự cố. Bạn thử lại sau nhé.",
+  // Feature 022: the account keeps progress now; old codes can be merged into it for 7 days.
+  retired: "Mã đồng bộ đã ngừng hoạt động. Tiến độ giờ được lưu trong tài khoản Google của bạn.",
 } as const;
+
+/**
+ * Whether sync codes have stopped working (feature 022, AC-021): after `until`, the last day
+ * (UTC) a code can still be merged into an account. Unset means they still work.
+ */
+export function syncCodesRetired(until: string | undefined, now: number): boolean {
+  return until !== undefined && new Date(now).toISOString().slice(0, 10) > until;
+}
 
 /** The header value, normalised to its 12 characters; fails for a malformed code. */
 export const syncCodeHeaderSchema = z

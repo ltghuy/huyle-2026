@@ -1,5 +1,8 @@
 "use client";
 
+import { SignInPrompt } from "@/components/account/sign-in-prompt";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Dumbbell, Search } from "lucide-react";
@@ -38,7 +41,9 @@ export function VerbsBrowser() {
   const openSlug = searchParams.get("verb");
   const [query, setQuery] = useState("");
   const [run, setRun] = useState<Run | null>(null);
+  const [askSignIn, setAskSignIn] = useState(false);
   const verbs = useVerbs();
+  const guest = !canUseLockedAreas(useAccount().status);
 
   const all = useMemo(() => (verbs.status === "ready" ? verbs.verbs : []), [verbs]);
   const shown = useMemo(() => filterVerbs(all, { pattern, level, query }), [all, pattern, level, query]);
@@ -64,10 +69,16 @@ export function VerbsBrowser() {
 
   function handlePractiseOne(verb: VerbEntry) {
     handleClose();
-    setRun({ title: `Động từ ${verb.word.body.headword}`, verbs: [verb] });
+    // Guests see the list and each verb; drills need sign-in (feature 022, AC-009).
+    if (guest) setAskSignIn(true);
+    else setRun({ title: `Động từ ${verb.word.body.headword}`, verbs: [verb] });
   }
 
   function handlePractiseShown() {
+    if (guest) {
+      setAskSignIn(true);
+      return;
+    }
     const parts = [level, pattern ? PATTERN_LABELS[pattern].title : null].filter(Boolean);
     setRun({ title: `Động từ bất quy tắc${parts.length ? `: ${parts.join(", ")}` : ""}`, verbs: shown });
   }
@@ -148,6 +159,12 @@ export function VerbsBrowser() {
       )}
 
       <VerbDialog verb={open} onClose={handleClose} onPractise={handlePractiseOne} />
+      <Dialog open={askSignIn} onOpenChange={setAskSignIn}>
+        <DialogContent className="p-0 sm:max-w-md">
+          <DialogTitle className="sr-only">Cần đăng nhập</DialogTitle>
+          <SignInPrompt area="irregular-verbs" className="[&>div]:mx-0 [&>div]:border-0" />
+        </DialogContent>
+      </Dialog>
       {run ? <ExerciseRun key={run.title} shuffled title={run.title} buildSteps={buildSteps} onClose={() => setRun(null)} doneLabel="Về danh sách động từ" /> : null}
     </div>
   );

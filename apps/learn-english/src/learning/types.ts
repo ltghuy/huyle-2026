@@ -188,9 +188,30 @@ export interface Profile {
   vocabSet?: string;
   /** Random per-browser id; only ever sent hashed with the day (usage stats). */
   deviceId: string;
+  /**
+   * The Google account this device's progress belongs to (feature 022), cached so the app knows the
+   * learner offline. Device-only like `deviceId` and `sync`: never in backups, sync blobs or merges.
+   */
+  account?: AccountLink;
   schemaVersion: number;
   /** Last change time per field, for last-writer-wins merging across devices. */
   fieldUpdatedAt: Partial<Record<keyof Profile, number>>;
+}
+
+export interface AccountLink {
+  userId: string;
+  name: string;
+  email: string;
+  image: string | null;
+  /** When this device's progress was first sent to the account; missing while that move is pending (AC-018). */
+  linkedAt?: number;
+  /** The session ended (expired or signed out elsewhere); progress stays here until the learner signs in again (AC-006). */
+  expired?: boolean;
+  /** The account copy's revision this device last saw, as `SyncState.rev` for codes; 0 before the first upload. */
+  rev?: number;
+  lastSyncedAt?: number;
+  /** Local changes the account doesn't have yet. */
+  dirty?: boolean;
 }
 
 export type LeaderboardState = { status: "declined" } | { status: "joined"; id: string; token: string; name: string };

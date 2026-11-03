@@ -10,6 +10,8 @@ import { useStorageQuery } from "./use-storage-query";
 
 // Feature 005: one in-memory cache shared by every screen.
 
+// A signed-in learner (feature 022), so the index loads every kind.
+vi.mock("@/hooks/use-account", () => ({ useAccount: () => ({ status: "signed-in", account: null, session: undefined }), canUseLockedAreas: () => true }));
 vi.mock("@/content/client", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/content/client")>();
   return {

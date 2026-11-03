@@ -1,7 +1,7 @@
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { localDate } from "@/learning/attendance";
-import { BOARD_NAME_ERRORS, type BoardRow } from "@/learning/leaderboard";
+import type { BoardRow } from "@/learning/leaderboard";
 import type { LeaderboardState, Profile } from "@/learning/types";
 import { LEADERBOARD_URL } from "@/lib/leaderboard-client";
 import { addAttendance } from "@/storage/attendance";
@@ -17,6 +17,11 @@ import { StreakTopTen } from "./streak-top-ten";
 // Feature 007 in the browser: consent once, the board after a lesson, Settings.
 
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
+// A signed-in learner whose Google name is "Huy Le" (feature 022).
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: "signed-in", account: { userId: "u1", name: "Huy Le", email: "huy@example.com", image: null }, session: undefined }),
+  canUseLockedAreas: () => true,
+}));
 
 const JOINED: Extract<LeaderboardState, { status: "joined" }> = {
   status: "joined",
@@ -49,32 +54,28 @@ afterEach(() => {
 });
 
 describe("after the daily lesson", () => {
-  it("asks once, with the name prefilled, and declining sends nothing (AC-007, AC-008)", async () => {
+  it("asks once, naming the learner as they'll appear, and declining sends nothing (AC-007, AC-008)", async () => {
     await profileWith({});
     render(<BoardAfterLesson />);
-    expect(await screen.findByRole("dialog", { name: "Tham gia bảng xếp hạng?" })).toBeInTheDocument();
-    expect(screen.getByLabelText("Tên hiện trên bảng")).toHaveValue("Minh Anh");
+    const dialog = await screen.findByRole("dialog", { name: "Tham gia bảng xếp hạng?" });
+    expect(dialog).toHaveTextContent("Bạn sẽ hiện với tên Minh Anh");
 
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Không, cảm ơn" })));
     await waitFor(async () => expect((await getProfile())?.leaderboard).toEqual({ status: "declined" }));
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("checks the name before joining (AC-012)", async () => {
-    await profileWith({});
+  it("shows a learner without a chosen name under their Google name (022)", async () => {
+    await profileWith({ displayName: undefined });
     render(<BoardAfterLesson />);
-    fireEvent.change(await screen.findByLabelText("Tên hiện trên bảng"), { target: { value: "Đéo biết" } });
-    fireEvent.click(screen.getByRole("button", { name: "Tham gia" }));
-    expect(await screen.findByText(BOARD_NAME_ERRORS.blocked)).toBeInTheDocument();
-    expect((await getProfile())?.leaderboard).toBeUndefined();
+    expect(await screen.findByRole("dialog", { name: "Tham gia bảng xếp hạng?" })).toHaveTextContent("Bạn sẽ hiện với tên Huy Le");
   });
 
   it("joins under the chosen nickname, sends the streak and shows the board (AC-001, 013 AC-010)", async () => {
-    await profileWith({});
+    await profileWith({ displayName: "Gấu" });
     fetchMock.mockResolvedValue(Response.json({ rank: 1, previousRank: 2, total: 2, rows: [row(1, "Gấu", 10, true), row(2, "Lan", 5)] }));
     render(<BoardAfterLesson />);
-    fireEvent.change(await screen.findByLabelText("Tên hiện trên bảng"), { target: { value: "  Gấu " } });
-    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Tham gia" })));
+    await act(async () => fireEvent.click(await screen.findByRole("button", { name: "Tham gia" })));
 
     expect(await screen.findByRole("dialog", { name: "Bảng xếp hạng chuỗi ngày học" })).toBeInTheDocument();
     expect(screen.getByText("Bạn lên hạng 1, vượt qua 1 bạn!")).toBeInTheDocument();
@@ -135,16 +136,11 @@ describe("Settings (AC-009, AC-010)", () => {
     expect((await getProfile())?.leaderboard).toEqual(JOINED);
   });
 
-  it("renames on the board with the current streak", async () => {
-    await profileWith({ leaderboard: JOINED });
-    fetchMock.mockResolvedValue(Response.json({ rank: 1, previousRank: 1, total: 1, rows: [] }));
+  it("says which name the board shows, with no separate board name (022)", async () => {
+    await profileWith({ leaderboard: JOINED, displayName: undefined });
     render(<LeaderboardSetting />);
-    const field = await screen.findByLabelText("Tên hiện trên bảng");
-    fireEvent.change(field, { target: { value: "Gấu" } });
-    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Lưu tên" })));
-
-    await waitFor(async () => expect((await getProfile())?.leaderboard).toMatchObject({ name: "Gấu" }));
-    expect(sent()[0].body).toMatchObject({ name: "Gấu", streak: 1, earned: 20, previousStreak: 1, previousEarned: 20 });
+    expect(await screen.findByText(/Bạn hiện trên bảng với tên Huy Le/)).toBeInTheDocument();
+    expect(screen.queryByLabelText("Tên hiện trên bảng")).not.toBeInTheDocument();
   });
 });
 

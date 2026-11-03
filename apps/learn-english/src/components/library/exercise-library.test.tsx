@@ -9,6 +9,12 @@ import { resetStorage } from "@/storage/test-utils";
 import { buildSetSteps, hashString, listSetCards, SET_SIZE, TYPE_LABELS } from "./exercise-sets";
 import { ExerciseLibrary } from "./exercise-library";
 
+// Signed in unless a test says otherwise (feature 022).
+const account = vi.hoisted(() => ({ status: "signed-in" as "signed-in" | "guest" }));
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: account.status, account: null, session: undefined }),
+  canUseLockedAreas: (status: string) => status === "signed-in" || status === "expired",
+}));
 vi.mock("next/navigation", () => import("@/components/library/test-navigation"));
 
 const toBe = grammar("to-be", [
@@ -213,5 +219,19 @@ describe("ExerciseLibrary", () => {
       cleanup();
       vi.restoreAllMocks();
     }
+  });
+});
+
+describe("ExerciseLibrary for guests (022 AC-009)", () => {
+  afterEach(() => {
+    account.status = "signed-in";
+  });
+
+  it("shows the sets, and asks to sign in instead of running one", async () => {
+    account.status = "guest";
+    visit("?level=A1&tab=grammar");
+    fireEvent.click(await screen.findByRole("button", { name: "Bắt đầu Điền vào chỗ trống: The verb to be" }));
+    expect(await screen.findByText("Đăng nhập để làm bài tập")).toBeInTheDocument();
+    expect(screen.queryByRole("region", { name: "Điền vào chỗ trống: The verb to be" })).not.toBeInTheDocument();
   });
 });

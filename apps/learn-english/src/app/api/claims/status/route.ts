@@ -1,3 +1,4 @@
+import { requireUser } from "@/server/auth/session";
 import { getDb } from "@/server/db";
 import { CLAIMS_MESSAGES as MESSAGES, claimStatusRequestSchema, type ClaimStatusResponse } from "@/server/claims/claims.schema";
 import { claimStatuses } from "@/server/claims/claims.service";
@@ -7,6 +8,9 @@ import { claimsError, isClaimsThrottled, NO_STORE, readClaimsBody } from "@/serv
 // stay out of URLs and caches; unknown ids are left out of the answer.
 
 export async function POST(request: Request) {
+  // Signed-in learners only (feature 022, AC-013): claims come from exercises.
+  const session = await requireUser(request);
+  if ("response" in session) return session.response;
   const body = await readClaimsBody(request, claimStatusRequestSchema);
   if ("response" in body) return body.response;
   if (await isClaimsThrottled(request)) return claimsError(MESSAGES.throttled, 429);

@@ -1,3 +1,4 @@
+import { SignInGate } from "@/components/account/sign-in-gate";
 import type { Metadata } from "next";
 import { Sprout } from "lucide-react";
 import { pageMetadata } from "@/lib/site";
@@ -18,6 +19,7 @@ export default function ProfilePage() {
   return (
     <>
       <PageHero badge={BADGE} title="Hồ sơ của bạn" description={DESCRIPTION} mascot={<Owl mood="cheer" size={112} className="mx-auto" />} />
+      <SignInGate area="profile">
       <div className="grid gap-14 pb-8 md:gap-20">
         <section aria-labelledby="attendance-heading" className="grid gap-4">
           <div className="px-4 md:px-8">
@@ -33,6 +35,7 @@ export default function ProfilePage() {
         </section>
         <ClosingCta />
       </div>
+      </SignInGate>
     </>
   );
 }

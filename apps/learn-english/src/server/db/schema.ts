@@ -71,6 +71,8 @@ export const leaderboardEntries = sqliteTable(
   "leaderboard_entries",
   {
     id: text("id").primaryKey(),
+    // The signed-in learner who owns the entry (feature 022); deleting the account removes it.
+    userId: text("user_id").references(() => user.id, { onDelete: "cascade" }),
     tokenHash: text("token_hash").notNull(),
     name: text("name").notNull(),
     streak: integer("streak").notNull().default(0),
@@ -101,4 +103,99 @@ export const claims = sqliteTable(
     decidedAt: integer("decided_at"),
   },
   (table) => [index("claims_status").on(table.status), index("claims_device_day").on(table.deviceHash, table.day)],
+);
+
+// Google sign-in (feature 022). `user`, `session`, `account` and `verification` are Better Auth's
+// core tables (fields from `@better-auth/core` `getAuthTables`, 1.7.15); the Drizzle adapter maps
+// them by these property names. `statsOptOut` is an additional user field, set from the learner's
+// "Gửi thống kê ẩn danh" setting so the usage report can leave them out (AC-028).
+export const user = sqliteTable("user", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  emailVerified: integer("email_verified", { mode: "boolean" }).notNull().default(false),
+  image: text("image"),
+  statsOptOut: integer("stats_opt_out", { mode: "boolean" }).notNull().default(false),
+  createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
+});
+
+export const session = sqliteTable(
+  "session",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    token: text("token").notNull().unique(),
+    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
+    ipAddress: text("ip_address"),
+    userAgent: text("user_agent"),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
+  },
+  (table) => [index("session_user_id").on(table.userId)],
+);
+
+export const account = sqliteTable(
+  "account",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    accountId: text("account_id").notNull(),
+    providerId: text("provider_id").notNull(),
+    accessToken: text("access_token"),
+    refreshToken: text("refresh_token"),
+    idToken: text("id_token"),
+    accessTokenExpiresAt: integer("access_token_expires_at", { mode: "timestamp_ms" }),
+    refreshTokenExpiresAt: integer("refresh_token_expires_at", { mode: "timestamp_ms" }),
+    scope: text("scope"),
+    password: text("password"),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
+  },
+  (table) => [index("account_user_id").on(table.userId)],
+);
+
+export const verification = sqliteTable(
+  "verification",
+  {
+    id: text("id").primaryKey(),
+    identifier: text("identifier").notNull(),
+    value: text("value").notNull(),
+    expiresAt: integer("expires_at", { mode: "timestamp_ms" }).notNull(),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+    updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
+  },
+  (table) => [index("verification_identifier").on(table.identifier)],
+);
+
+// A signed-in learner's progress (feature 022): the same gzipped snapshot as `sync_profiles.data`,
+// one row per account, merged in the browser. `rev` guards concurrent writes from several devices.
+export const accountProgress = sqliteTable("account_progress", {
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => user.id, { onDelete: "cascade" }),
+  data: blob("data", { mode: "buffer" }).notNull(),
+  rev: integer("rev").notNull(),
+  size: integer("size").notNull(),
+  createdAt: integer("created_at").notNull(),
+  updatedAt: integer("updated_at").notNull(),
+});
+
+// Weeks an account was active, per device (feature 022, AC-027): `week` is the ISO week
+// (`2026-W45`), `device_hash` the SHA-256 of device id + user id + STATS_SALT. Counts only, for the
+// owner's usage report; removed with the account.
+export const accountActivity = sqliteTable(
+  "account_activity",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    week: text("week").notNull(),
+    deviceHash: text("device_hash").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.week, table.deviceHash] }), index("account_activity_week").on(table.week)],
 );

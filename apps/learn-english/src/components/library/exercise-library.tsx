@@ -1,5 +1,7 @@
 "use client";
 
+import { SignInPrompt } from "@/components/account/sign-in-prompt";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { useCallback, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { BookA, PenLine, Puzzle } from "lucide-react";
@@ -82,6 +84,7 @@ export function ExerciseLibrary() {
 
   const levels = useMemo(() => (level ? [level] : null), [level]);
   const content = useContentIndex(levels);
+  const guest = !canUseLockedAreas(useAccount().status);
   const index = content.status === "ready" ? content.index : null;
   const cards = useMemo(() => (index && level ? listSetCards(index, level) : []), [index, level]);
   const startedInApp = useRef(false);
@@ -143,6 +146,9 @@ export function ExerciseLibrary() {
       updateSearchParams({ id: null });
     }
   }
+
+  // A guest starting a set (AC-009): the prompt, and signing in comes back to this set (AC-012).
+  if (active && guest) return <SignInPrompt area="exercises" />;
 
   return (
     <Tabs value={tab} onValueChange={handleTabChange} className="gap-5 px-4 md:px-8">
@@ -212,7 +218,7 @@ export function ExerciseLibrary() {
         )}
       </TabsContent>
 
-      {active && index ? <ExerciseRun key={active.set.id} shuffled title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
+      {active && index && !guest ? <ExerciseRun key={active.set.id} shuffled title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
     </Tabs>
   );
 }

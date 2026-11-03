@@ -13,6 +13,13 @@ vi.mock("@/server/db", () => ({ getDb: () => db }));
 vi.mock("@/server/env", () => ({ getEnv: () => ({ STATS_SALT: SALT }) }));
 vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env }) }));
 
+let signedIn = true;
+vi.mock("@/server/auth/session", () => ({
+  requireUser: async () =>
+    signedIn
+      ? { user: { id: "u1", name: "Minh Anh", email: "minh@example.com", image: null } }
+      : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
+}));
 const { POST } = await import("./route");
 const { POST: STATUS } = await import("./status/route");
 
@@ -37,6 +44,17 @@ beforeEach(() => {
   service.claimStatuses.mockReset().mockResolvedValue([{ id: ID, status: "rejected", explanationVi: "Thiếu mạo từ." }]);
   limit.mockReset().mockResolvedValue({ success: true });
   env.CLAIMS_LIMITER = { limit };
+  signedIn = true;
+});
+
+describe("claims for guests (022 AC-013)", () => {
+  it("refuses sending and checking claims without a session", async () => {
+    signedIn = false;
+    expect((await POST(request("/api/claims", BODY))).status).toBe(401);
+    expect((await STATUS(request("/api/claims/status", { ids: [ID] }))).status).toBe(401);
+    expect(service.submitClaims).not.toHaveBeenCalled();
+    expect(service.claimStatuses).not.toHaveBeenCalled();
+  });
 });
 
 describe("POST /api/claims", () => {

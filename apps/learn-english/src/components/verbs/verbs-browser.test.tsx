@@ -1,11 +1,17 @@
 import { act, fireEvent, screen, within } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { forms, word } from "@/learning/exercises/fixtures";
 import { verbEntries } from "@/learning/verbs";
 import { resetStorage } from "@/storage/test-utils";
 import { render } from "@/test-utils/render";
 import { VerbsBrowser } from "./verbs-browser";
 
+// Signed in unless a test says otherwise (feature 022).
+const account = vi.hoisted(() => ({ status: "signed-in" as "signed-in" | "guest" }));
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: account.status, account: null, session: undefined }),
+  canUseLockedAreas: (status: string) => status === "signed-in" || status === "expired",
+}));
 vi.mock("next/navigation", () => import("@/components/library/test-navigation"));
 
 const words = [
@@ -111,5 +117,19 @@ describe("VerbsBrowser", () => {
     state = { status: "ready", verbs: [] };
     visit();
     expect(screen.getByText("Phần này đang được biên soạn")).toBeInTheDocument();
+  });
+});
+
+describe("VerbsBrowser for guests (022 AC-009)", () => {
+  afterEach(() => {
+    account.status = "signed-in";
+  });
+
+  it("shows the verbs, and asks to sign in instead of practising", async () => {
+    account.status = "guest";
+    visit("?level=A2");
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: /Luyện tập/ })));
+    expect(await screen.findByText("Đăng nhập để luyện động từ")).toBeInTheDocument();
+    expect(screen.queryByRole("region", { name: "Động từ bất quy tắc: A2" })).not.toBeInTheDocument();
   });
 });

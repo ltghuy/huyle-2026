@@ -1,120 +1,77 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, fireEvent, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { render } from "@/test-utils/render";
 import { buildSnapshot, bytesToBase64, encodeSnapshot } from "@/learning/snapshot";
+import { getAllCards } from "@/storage/cards";
 import { createDefaultProfile, getProfile, saveProfile } from "@/storage/meta";
 import { makeCard, resetStorage } from "@/storage/test-utils";
 import { fakeSyncServer } from "@/sync/test-server";
 import { SyncPanel } from "./sync-panel";
 
+// Feature 022 (AC-019, AC-020): old sync codes can only be merged into the signed-in account.
+
+const account = vi.hoisted(() => ({ status: "signed-in" as "signed-in" | "guest" }));
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: account.status, account: null, session: undefined }),
+  canUseLockedAreas: (status: string) => status === "signed-in" || status === "expired",
+}));
+
+const ACCOUNT = { userId: "u1", name: "Minh Anh", email: "minh@example.com", image: null, linkedAt: 1, rev: 0, dirty: false };
 let server: ReturnType<typeof fakeSyncServer>;
+
+async function oldCode(code = "TEST-0000-0001") {
+  const other = createDefaultProfile(Date.now(), () => "device-b");
+  const snapshot = buildSnapshot({ profile: other, cards: [makeCard("word:from-code", 0)], attempts: [], lessons: [], extraLessons: [], claims: [], attendance: [] }, Date.now(), other.timeZone);
+  server.rows.set(code.replace(/-/g, ""), { rev: 2, data: bytesToBase64(await encodeSnapshot(snapshot)), updatedAt: 1 });
+  return code;
+}
 
 beforeEach(async () => {
   await resetStorage();
   localStorage.clear();
   server = fakeSyncServer();
-  await saveProfile(createDefaultProfile(Date.now(), () => "device-a"));
+  account.status = "signed-in";
+  await saveProfile({ ...createDefaultProfile(Date.now(), () => "device-a"), account: ACCOUNT });
 });
 
 afterEach(() => {
   vi.unstubAllGlobals();
-  vi.restoreAllMocks();
 });
 
-async function click(name: string | RegExp) {
-  const button = await screen.findByRole("button", { name });
-  await waitFor(() => expect(button).toBeEnabled());
-  await act(async () => fireEvent.click(button));
-}
-
 describe("SyncPanel", () => {
-  it("off: explains the risk and turns sync on, then shows the code with a copy button", async () => {
+  it("is not shown to guests, and never offers to make a new code (AC-019)", async () => {
+    account.status = "guest";
+    const { container } = render(<SyncPanel />);
+    expect(container).toBeEmptyDOMElement();
+    account.status = "signed-in";
     render(<SyncPanel />);
-    expect(await screen.findByText(/Ai có mã đồng bộ đều xem và thay đổi được tiến độ này/)).toBeInTheDocument();
-
-    await click("Bật đồng bộ");
-
-    const code = await screen.findByLabelText("Mã đồng bộ");
-    expect(code).toHaveTextContent(/^[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{4}$/);
-    expect(screen.getByRole("button", { name: "Sao chép mã" })).toBeInTheDocument();
-    expect(screen.getByText(/Lần đồng bộ gần nhất:/)).toBeInTheDocument();
-
-    const writeText = vi.fn().mockResolvedValue(undefined);
-    Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText } });
-    await click("Sao chép mã");
-    expect(writeText).toHaveBeenCalledWith(code.textContent);
+    expect(await screen.findByText("Mã đồng bộ cũ")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Bật đồng bộ/ })).not.toBeInTheDocument();
   });
 
-  it("off: previews a code, then links after confirmation", async () => {
-    const snapshot = buildSnapshot(
-      {
-        profile: createDefaultProfile(0, () => "device-b"),
-        cards: [makeCard("word:a", 0), makeCard("word:b", 0)],
-        attempts: [],
-        lessons: [],
-        extraLessons: [],
-        claims: [],
-        attendance: [{ date: "2026-10-20", points: 10, bonus: 0, at: 1 }],
-      },
-      Date.now(),
-      "Asia/Ho_Chi_Minh",
-    );
-    server.rows.set("ABCD1234EFGH", { rev: 2, data: bytesToBase64(await encodeSnapshot(snapshot)), updatedAt: Date.UTC(2026, 9, 25, 3) });
+  it("merges a typed code's progress into the account and deletes the code (AC-020)", async () => {
+    const code = await oldCode();
     render(<SyncPanel />);
-
-    const input = await screen.findByLabelText("Nhập mã đồng bộ");
-    fireEvent.change(input, { target: { value: "abcd-1234-efgh" } });
-    await click("Kiểm tra mã");
-
-    const dialog = await screen.findByRole("alertdialog");
-    expect(within(dialog).getByText("Từ đã học").nextSibling).toHaveTextContent("2");
-    expect(within(dialog).getByText("Điểm").nextSibling).toHaveTextContent("10");
-    expect(within(dialog).getByText("Cập nhật lần cuối").nextSibling).toHaveTextContent(/25\/10\/26/);
-
-    await act(async () => fireEvent.click(within(dialog).getByRole("button", { name: "Liên kết" })));
-    await waitFor(async () => expect((await getProfile())?.sync?.code).toBe("ABCD-1234-EFGH"));
-    expect(await screen.findByLabelText("Mã đồng bộ")).toHaveTextContent("ABCD-1234-EFGH");
+    fireEvent.change(await screen.findByLabelText("Nhập mã đồng bộ"), { target: { value: code.toLowerCase() } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: /Gộp vào tài khoản/ })));
+    await waitFor(async () => expect((await getAllCards()).map((card) => card.itemId)).toContain("word:from-code"));
+    expect(server.row(code)).toBeUndefined();
+    await waitFor(() => expect(server.account).toBeDefined());
   });
 
-  it("off: shows a Vietnamese error for an unknown code", async () => {
+  it("offers this device's own linked code in one click", async () => {
+    const code = await oldCode();
+    await saveProfile({ ...(await getProfile())!, sync: { code, rev: 2, dirty: false } });
     render(<SyncPanel />);
-    fireEvent.change(await screen.findByLabelText("Nhập mã đồng bộ"), { target: { value: "ABCD-1234-EFGH" } });
-    await click("Kiểm tra mã");
-    expect(await screen.findByRole("alert")).toHaveTextContent("Không tìm thấy mã đồng bộ này");
-    expect(screen.queryByRole("alertdialog")).not.toBeInTheDocument();
+    await act(async () => fireEvent.click(await screen.findByRole("button", { name: "Gộp mã này vào tài khoản" })));
+    await waitFor(async () => expect((await getProfile())?.sync).toBeUndefined());
+    expect((await getAllCards()).map((card) => card.itemId)).toContain("word:from-code");
   });
 
-  it("on: syncs now, unlinks, and deletes the synced data after confirmation", async () => {
+  it("explains a wrong code in Vietnamese and keeps everything", async () => {
     render(<SyncPanel />);
-    await click("Bật đồng bộ");
-    const code = (await screen.findByLabelText("Mã đồng bộ")).textContent!;
-
-    await click("Đồng bộ ngay");
-    await waitFor(() => expect(server.calls.at(-1)?.method).toBe("GET"));
-
-    await click("Xóa dữ liệu đã đồng bộ");
-    const dialog = await screen.findByRole("alertdialog");
-    expect(server.row(code)).toBeDefined();
-    await act(async () => fireEvent.click(within(dialog).getByRole("button", { name: "Xóa" })));
-    await waitFor(() => expect(server.row(code)).toBeUndefined());
-    expect(await screen.findByRole("button", { name: "Bật đồng bộ" })).toBeInTheDocument();
-  });
-
-  it("on: unlinking keeps the server copy and shows the off state", async () => {
-    render(<SyncPanel />);
-    await click("Bật đồng bộ");
-    const code = (await screen.findByLabelText("Mã đồng bộ")).textContent!;
-    await click("Tắt đồng bộ trên thiết bị này");
-    expect(await screen.findByRole("button", { name: "Bật đồng bộ" })).toBeInTheDocument();
-    expect(server.row(code)).toBeDefined();
-  });
-
-  it("on: tells the learner when changes are waiting, and offline errors in Vietnamese", async () => {
-    await saveProfile({ ...createDefaultProfile(0, () => "device-a"), sync: { code: "ABCD-1234-EFGH", rev: 1, dirty: true } });
-    server.offline = true;
-    render(<SyncPanel />);
-    expect(await screen.findByText(/Có thay đổi chưa đồng bộ được/)).toBeInTheDocument();
-    await click("Đồng bộ ngay");
-    expect(await screen.findByRole("alert")).toHaveTextContent("Không kết nối được máy chủ");
+    fireEvent.change(await screen.findByLabelText("Nhập mã đồng bộ"), { target: { value: "ZZZZ-ZZZZ-ZZZZ" } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: /Gộp vào tài khoản/ })));
+    expect(await screen.findByText("Không tìm thấy mã đồng bộ này. Bạn kiểm tra lại mã nhé.")).toBeInTheDocument();
   });
 });

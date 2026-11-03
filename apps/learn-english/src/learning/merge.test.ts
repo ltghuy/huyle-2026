@@ -238,6 +238,13 @@ describe("mergeSnapshots", () => {
     expect(mergeSnapshots(local({ profile: mine }), remote({ meta: theirs })).profile).not.toHaveProperty("lastBackupAt");
   });
 
+  it("keeps this device's account link and ignores one in the remote (022)", () => {
+    const mine = { userId: "u1", name: "Minh Anh", email: "minh@example.com", image: null, linkedAt: 5 };
+    const theirs = { ...toSnapshotMeta(profile), account: { ...mine, userId: "intruder" }, fieldUpdatedAt: { account: 999 } } as unknown as SnapshotData["meta"];
+    const merged = mergeSnapshots(local({ profile: { ...profile, account: mine } }), remote({ meta: theirs }));
+    expect(merged.profile.account).toEqual(mine);
+  });
+
   it("always keeps the local deviceId", () => {
     const theirs = toSnapshotMeta(profile);
     const sneaky = { ...theirs, deviceId: "remote-device", fieldUpdatedAt: { deviceId: 999 } } as SnapshotData["meta"];

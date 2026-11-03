@@ -16,6 +16,7 @@ Decisions on gray areas and ambiguities resolved during discussion.
 - **Decision (revised 2026-10-26):** No sign-in. Progress is stored in the learner's browser, with an export/import backup file. No server database for learner data.
 - **Rationale:** First decided as multi-user with sign-in. Research showed signed-in, dynamic pages would likely not fit the Workers free plan (10 ms CPU, 50 DB queries per request). The owner chose to drop sign-in to stay free; without accounts nearly every page can be prebuilt, like the handbook.
 - **Caveats:** No automatic cross-device sync; clearing browser data loses progress unless a backup was exported. Adding optional accounts later stays possible: the backup file format becomes the sync payload.
+- **Superseded (2026-11-03):** feature 022 makes Google sign-in required for everything except vocabulary and the placement test, and retires sync codes. See `.artifacts/features/learn-english/022-google-sign-in/decisions.md`.
 
 ### Backend and database role (no AI, no accounts)
 

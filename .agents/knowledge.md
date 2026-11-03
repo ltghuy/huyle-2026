@@ -158,6 +158,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 
 ## Gotchas
 
+- **[022] Google sign-in without dynamic pages (design 2026-11-03).** Pages stay prerendered; only `/api/*` routes check the session through one seam (`src/server/auth/session.ts`, Better Auth built per request from `getEnv()`, values passed explicitly because its env reader only sees `process.env`). Account progress is the same opaque gzipped snapshot as sync codes, one row per user in `account_progress`, merged in the browser by `mergeSnapshots`; the account identity on the device (`Profile.account`) is device-only like `deviceId`/`sync`, so it never enters snapshots or `fieldUpdatedAt`. Content kinds that exist only for locked areas (`grammar`, `writing`, full `forms`) need a session and skip the edge cache (`private`) <!-- feature:022 date:2026-11-03 -->
 ### repo
 
 - **`pnpm deploy` is a pnpm built-in** — it never runs a `deploy` script. Use
@@ -417,6 +418,10 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 
 <!-- Queue for project-index to integrate into .agents/codebase/*.md. -->
 
+- **drizzle-kit drops `ON DELETE` from `ALTER TABLE … ADD … REFERENCES`.** The generated `0005_auth.sql` added `leaderboard_entries.user_id` without the cascade; it is written by hand there. Check every generated `ALTER TABLE ADD` that references another table [learn-english 022] <!-- feature:022 date:2026-11-03 -->
+- **Vitest 4 fails a test when a `vi.fn` implementation throws or rejects, even if the code under test catches it.** To test a caught failure, throw from a plain function in the `vi.mock` factory (as `src/server/auth/session.test.ts` does with `getAuth`) [learn-english 022] <!-- feature:022 date:2026-11-03 -->
+- **`pnpm add` rewrites the whole catalog under `catalogMode: prefer`:** it adds the new package to the catalog and re-sorts `pnpm-workspace.yaml`, dropping the comment groups. For a dependency only one app uses, restore the file and pin the exact version in that app's `package.json` (better-auth 1.7.15 in 022) [repo 022] <!-- feature:022 date:2026-11-03 -->
+- **The Dice UI tour (`src/components/ui/tour.tsx`) numbers steps by registration order.** A `TourStep` registers again, at the end of the list, whenever its `target` or `side` changes, and React Strict Mode interleaves that per step; when only some steps re-register, no step matches the current value and the tour shows only the dimmed backdrop. `AppTour` therefore renders the steps only after measuring all targets once and never changes their props mid-tour (it clears them when the tour ends) [learn-english 022] <!-- feature:022 date:2026-11-03 -->
 ### repo
 
 - (architecture) [004] Repo is now a Turborepo + pnpm workspace: the site is

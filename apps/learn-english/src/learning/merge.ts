@@ -62,15 +62,15 @@ function pickClaim(local: StoredClaim, remote: StoredClaim): StoredClaim {
 
 /**
  * Last writer wins per field by `fieldUpdatedAt`; a field without a timestamp
- * loses to one with, and ties keep local. `deviceId` and `sync` (this
- * device's link and bookkeeping) always stay local.
+ * loses to one with, and ties keep local. `deviceId`, `sync` and `account`
+ * (this device's link and bookkeeping) always stay local.
  */
 function mergeProfile(local: Profile, remote: SnapshotMeta): Profile {
   const merged: Record<string, unknown> = { ...local };
   const stamps: Profile["fieldUpdatedAt"] = { ...local.fieldUpdatedAt };
   const keys = new Set([...Object.keys(local), ...Object.keys(remote)]) as Set<keyof Profile>;
   for (const key of keys) {
-    if (key === "deviceId" || key === "sync" || key === "fieldUpdatedAt") continue;
+    if (key === "deviceId" || key === "sync" || key === "account" || key === "fieldUpdatedAt") continue;
     const remoteAt = remote.fieldUpdatedAt[key];
     const localAt = local.fieldUpdatedAt[key];
     if (remoteAt !== undefined && (localAt === undefined || remoteAt > localAt)) {

@@ -1,3 +1,4 @@
+import { SignInGate } from "@/components/account/sign-in-gate";
 import type { Metadata } from "next";
 import { ClosingCta } from "@/components/home/closing-cta";
 import { HomeHero } from "@/components/home/home-hero";
@@ -21,7 +22,9 @@ export default function HomePage() {
           <div className="px-4 md:px-8">
             <SectionHeading id="today-heading" eyebrow="Hôm nay" title="Bài học hôm nay" description="Ôn lại bài cũ, học từ mới và luyện câu, mỗi ngày một chút." />
           </div>
-          <TodayLesson />
+          <SignInGate area="lesson" tour="lesson-card">
+            <TodayLesson />
+          </SignInGate>
         </section>
         <HowItWorks />
         <PracticeAreas />

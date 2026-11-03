@@ -9,7 +9,7 @@ export const AUTHOR = { name: "Huy Le (Evan)", url: "https://huyle.work" };
 
 /** The site in one sentence: the home page and social-card description. */
 export const SITE_DESCRIPTION =
-  "Học tiếng Anh miễn phí cho người Việt: từ vựng theo trình độ và chủ đề, ngữ pháp và 12 thì, bài tập và lịch ôn tập giúp bạn nhớ lâu. Không cần tài khoản.";
+  "Học tiếng Anh miễn phí cho người Việt: từ vựng theo trình độ và chủ đề, ngữ pháp và 12 thì, bài tập và lịch ôn tập giúp bạn nhớ lâu. Miễn phí, đăng nhập bằng Google.";
 
 /**
  * The generated share images (`app/opengraph-image.tsx`, `app/twitter-image.tsx`).

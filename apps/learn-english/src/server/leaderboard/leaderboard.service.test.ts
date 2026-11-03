@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it } from "vitest";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
-import { CLEANUP_LIMIT, RETENTION_MS, removeEntry, submitEntry, topEntries, type EntryInput } from "./leaderboard.service";
+import { CLEANUP_LIMIT, dropOtherEntries, removeAccountEntries, RETENTION_MS, removeEntry, submitEntry, topEntries, type EntryInput } from "./leaderboard.service";
 
 const DAY = 86_400_000;
 const NOW = Date.parse("2026-11-20T10:00:00Z");
@@ -27,6 +27,55 @@ const entry = (n: number, streak: number, earned = streak * 20, extra: Partial<E
 
 beforeEach(() => {
   ({ db, sqlite } = sqliteDb());
+});
+
+describe("submitEntry owner (022)", () => {
+  const owner = (n: number) => (sqlite.prepare("SELECT user_id AS u FROM leaderboard_entries WHERE id = ?").get(id(n)) as { u: string | null }).u;
+
+  it("stores the signed-in owner, and fills it in on an entry made before sign-in", async () => {
+    sqlite.exec(`INSERT INTO user (id, name, email, created_at, updated_at) VALUES ('u1', 'L', 'l@example.com', ${NOW}, ${NOW})`);
+    await submitEntry(db, entry(1, 3), NOW);
+    expect(owner(1)).toBeNull();
+    await submitEntry(db, entry(1, 3, 60, { userId: "u1" }), NOW + 1);
+    expect(owner(1)).toBe("u1");
+    // A later submit without an owner keeps it.
+    await submitEntry(db, entry(1, 3), NOW + 2);
+    expect(owner(1)).toBe("u1");
+    sqlite.exec("DELETE FROM user WHERE id = 'u1'");
+    expect(sqlite.prepare("SELECT COUNT(*) AS n FROM leaderboard_entries").get()).toEqual({ n: 0 });
+  });
+});
+
+describe("one entry per Google account (022)", () => {
+  const ids = () => (sqlite.prepare("SELECT id FROM leaderboard_entries ORDER BY id").all() as { id: string }[]).map((row) => row.id);
+
+  beforeEach(() => {
+    sqlite.exec(`INSERT INTO user (id, name, email, created_at, updated_at) VALUES ('u1', 'L', 'l@example.com', ${NOW}, ${NOW})`);
+  });
+
+  it("drops the account's other entries and the browser entry it holds, keeping everyone else's", async () => {
+    await submitEntry(db, entry(1, 3), NOW); // this browser's old entry
+    await submitEntry(db, entry(2, 3, 60, { userId: "u1" }), NOW); // another device's, linked to the account
+    await submitEntry(db, entry(3, 3), NOW); // someone else
+    await submitEntry(db, { ...entry(4, 3), id: "u1", userId: "u1" }, NOW); // the account's entry
+
+    await dropOtherEntries(db, "u1", { id: id(1), tokenHash: "hash-1" });
+    expect(ids()).toEqual([id(3), "u1"].sort());
+  });
+
+  it("never drops a browser entry without its secret", async () => {
+    await submitEntry(db, entry(1, 3), NOW);
+    await dropOtherEntries(db, "u1", { id: id(1), tokenHash: "wrong" });
+    expect(ids()).toEqual([id(1)]);
+  });
+
+  it("takes the account off the board", async () => {
+    await submitEntry(db, { ...entry(4, 3), id: "u1", userId: "u1" }, NOW);
+    await submitEntry(db, entry(2, 3, 60, { userId: "u1" }), NOW);
+    await submitEntry(db, entry(3, 3), NOW);
+    await removeAccountEntries(db, "u1");
+    expect(ids()).toEqual([id(3)]);
+  });
 });
 
 describe("submitEntry (013)", () => {

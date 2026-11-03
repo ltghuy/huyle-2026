@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { NAV_ITEMS } from "@/components/shell/nav";
-import { sideFor, TOUR_STEPS } from "./tour-steps";
+import { sideFor, stepDescription, stepTitle, TOUR_STEPS, tourSteps } from "./tour-steps";
 
 function targetAt(rect: { top: number; left: number; width: number; height: number }): HTMLElement {
   const element = document.createElement("div");
@@ -44,5 +44,28 @@ describe("TOUR_STEPS (001 AC-039)", () => {
     for (const item of NAV_ITEMS) expect(targets).toContain(item.tour === "lesson" ? "lesson-card" : item.tour);
     expect(targets).toContain("streak");
     expect(new Set(targets).size).toBe(targets.length);
+  });
+});
+
+describe("the tour for guests and signed-in learners (022 AC-030)", () => {
+  const targets = (guest: boolean) => tourSteps(guest).map((step) => step.target);
+
+  it("starts a guest at signing in, without the streak step that sits inside the locked lesson", () => {
+    expect(targets(true)).toEqual(["account", "lesson-card", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "hard-words", "profile", "settings"]);
+  });
+
+  it("shows a signed-in learner their account after the profile", () => {
+    expect(targets(false)).toEqual(["lesson-card", "streak", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "hard-words", "profile", "account", "settings"]);
+  });
+
+  it("marks locked areas in the title for guests only, and gives guests their own account and lesson text", () => {
+    const step = (target: string) => TOUR_STEPS.find((def) => def.target === target)!;
+    expect(stepTitle(step("review"), true)).toBe("Ôn tập (cần đăng nhập)");
+    expect(stepTitle(step("review"), false)).toBe("Ôn tập");
+    expect(stepTitle(step("vocabulary"), true)).toBe("Từ vựng");
+    expect(stepDescription(step("account"), true)).toMatch(/^Đăng nhập bằng Google/);
+    expect(stepDescription(step("account"), false)).toMatch(/^Tài khoản Google của bạn/);
+    expect(stepDescription(step("lesson-card"), true)).toMatch(/^Sau khi đăng nhập/);
+    expect(stepDescription(step("review"), true)).toBe(step("review").description);
   });
 });

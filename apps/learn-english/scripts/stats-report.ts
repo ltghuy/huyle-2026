@@ -5,10 +5,14 @@
 //   pnpm stats:report --from 2026-10-01 --to 2026-10-31 [--remote]
 //
 // Reads local D1 unless --remote is passed. Days are the learners' local days
-// as the app reported them.
+// as the app reported them. Since feature 022 it also counts accounts per ISO
+// week (AC-027): created, active, back after their first week, and active on
+// two or more devices. Counts only; learners who turned off "Gửi thống kê ẩn
+// danh" are left out (AC-028).
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { isoWeek } from "../src/lib/iso-week";
 
 const DB_NAME = "learn-english";
 export const TOP_WORDS = 20;
@@ -88,6 +92,62 @@ export function totals(report: Report) {
   };
 }
 
+export interface AccountUserRow {
+  id: string;
+  created_at: number;
+  stats_opt_out: number;
+}
+export interface AccountActivityRow {
+  user_id: string;
+  week: string;
+  device_hash: string;
+}
+export interface AccountWeek {
+  week: string;
+  created: number;
+  active: number;
+  returning: number;
+  multiDevice: number;
+}
+
+/** The ISO weeks that overlap the range, in order. */
+export function weeksOf({ from, to }: { from: string; to: string }): string[] {
+  const weeks = new Set<string>();
+  for (let t = Date.parse(`${from}T00:00:00Z`); t <= Date.parse(`${to}T00:00:00Z`); t += 86_400_000) weeks.add(isoWeek(t));
+  return [...weeks];
+}
+
+/** The account queries: users (no names or emails) and their activity in the range's weeks. */
+export function accountQueries(weeks: string[]): string[] {
+  const list = weeks.map((week) => `'${week}'`).join(", ");
+  return [
+    "SELECT id, created_at, stats_opt_out FROM user",
+    `SELECT user_id, week, device_hash FROM account_activity WHERE week IN (${list})`,
+  ];
+}
+
+/** Per week: accounts created, active, back after their first week, and active on 2+ devices (AC-027, AC-028). */
+export function accountWeeks(users: AccountUserRow[], activity: AccountActivityRow[], weeks: string[]): AccountWeek[] {
+  const counted = new Map(users.filter((row) => !row.stats_opt_out).map((row) => [row.id, isoWeek(row.created_at)]));
+  return weeks.map((week) => {
+    const devices = new Map<string, Set<string>>();
+    for (const row of activity) {
+      if (row.week !== week || !counted.has(row.user_id)) continue;
+      const set = devices.get(row.user_id) ?? new Set<string>();
+      set.add(row.device_hash);
+      devices.set(row.user_id, set);
+    }
+    const active = [...devices.keys()];
+    return {
+      week,
+      created: [...counted.values()].filter((created) => created === week).length,
+      active: active.length,
+      returning: active.filter((id) => counted.get(id)! < week).length,
+      multiDevice: [...devices.values()].filter((set) => set.size >= 2).length,
+    };
+  });
+}
+
 // ---- I/O ----
 
 function query<T>(target: string, sql: string): T[] {
@@ -117,6 +177,11 @@ async function main() {
   console.table(report.exercises.length ? report.exercises : [{ kind: "(none)", answered: 0 }]);
   console.log(`Top ${TOP_WORDS} words answered wrong`);
   console.table(report.words.length ? report.words : [{ word: "(none)", wrong: 0 }]);
+
+  const weeks = weeksOf(range);
+  const [users, activity] = accountQueries(weeks).map((sql) => query(target, sql));
+  console.log("Accounts per ISO week: created, active, back after their first week, active on 2+ devices");
+  console.table(accountWeeks(users as AccountUserRow[], activity as AccountActivityRow[], weeks));
 }
 
 if (process.argv[1]?.endsWith("stats-report.ts")) {

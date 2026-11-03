@@ -34,7 +34,7 @@ export function HomeHero() {
               Xem cách học
             </Link>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">Miễn phí · Không cần tài khoản</p>
+          <p className="mt-3 text-sm text-muted-foreground">Miễn phí · Đăng nhập bằng Google</p>
         </div>
       </div>
     </section>

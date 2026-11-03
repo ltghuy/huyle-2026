@@ -4,9 +4,12 @@ import { LevelBadge } from "@/components/shell/level-badge";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle2, ChevronRight, Clock } from "lucide-react";
+import { CheckCircle2, ChevronRight, Clock, Lock } from "lucide-react";
+import { SignInPrompt } from "@/components/account/sign-in-prompt";
 import type { ContentItemOf } from "@/content/schema";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { useContentIndex } from "@/hooks/use-content-index";
+import { GUEST_GRAMMAR_LEVEL } from "@/server/content/content.schema";
 import { LEVELS, type Level } from "@/learning/types";
 import type { ContentIndex } from "@/lib/session/content-index";
 import { GRAMMAR_TOPICS, grammarSlug, grammarTopicMeta } from "@/lib/topics";
@@ -26,18 +29,21 @@ interface TopicRow {
   titleVi: string;
   /** Published content; topics still being written show as "Sắp có". */
   item?: Grammar;
+  /** A guest's row above A1 (feature 022): that grammar isn't loaded for guests, so the topic is listed and opening it asks to sign in. */
+  locked?: boolean;
 }
 
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
 /** The syllabus from `content/grammar-topics.json`, plus any published topic it doesn't list yet. */
-function rowsByLevel(index: ContentIndex): Record<Level, TopicRow[]> {
+function rowsByLevel(index: ContentIndex, guest: boolean): Record<Level, TopicRow[]> {
   const rows = Object.fromEntries(LEVELS.map((level) => [level, [] as TopicRow[]])) as Record<Level, TopicRow[]>;
   const listed = new Set<string>();
   for (const topic of GRAMMAR_TOPICS) {
     const item = index.byId.get(`grammar:${topic.slug}`);
     listed.add(topic.slug);
-    rows[topic.level].push({ slug: topic.slug, titleEn: topic.titleEn, titleVi: topic.titleVi, item: item?.kind === "grammar" ? item : undefined });
+    const locked = guest && topic.level !== GUEST_GRAMMAR_LEVEL;
+    rows[topic.level].push({ slug: topic.slug, titleEn: topic.titleEn, titleVi: topic.titleVi, item: item?.kind === "grammar" && !locked ? item : undefined, locked });
   }
   for (const level of LEVELS) {
     for (const item of index.grammarByLevel[level] ?? []) {
@@ -56,14 +62,18 @@ export function GrammarBrowser() {
   const level = (slug && grammarTopicMeta(slug)?.level) || "A1";
   const levels = useMemo(() => [level], [level]);
   const content = useContentIndex(levels);
+  const guest = !canUseLockedAreas(useAccount().status);
   const { ids, reload } = useCardIds();
   const done = ids ?? EMPTY_SET;
   const index = content.status === "ready" ? content.index : null;
-  const rows = useMemo(() => (index ? rowsByLevel(index) : null), [index]);
+  const rows = useMemo(() => (index ? rowsByLevel(index, guest) : null), [index, guest]);
   const [unlearnedOnly, setUnlearnedOnly] = useState(false);
 
   if (content.status === "loading") return <ListSkeleton rows={6} />;
   if (content.status === "error" || !index || !rows) return <ContentError onRetry={content.retry} />;
+
+  // A guest opening a topic above A1 (AC-009); signing in comes back to it (AC-012).
+  if (slug && guest && level !== GUEST_GRAMMAR_LEVEL) return <SignInPrompt area="grammar" />;
 
   if (slug) {
     const item = index.byId.get(`grammar:${slug}`);
@@ -97,7 +107,7 @@ interface LevelSectionProps {
 
 function LevelSection({ level, rows, done, unlearnedOnly }: LevelSectionProps) {
   if (rows.length === 0) return null;
-  const published = rows.filter((row) => row.item).length;
+  const published = rows.filter((row) => row.item || row.locked).length;
   const learned = rows.filter((row) => isLearned(row, done)).length;
   const visible = unlearnedOnly ? rows.filter((row) => row.item && !isLearned(row, done)) : rows;
   const headingId = `grammar-${level}`;
@@ -137,7 +147,7 @@ function TopicRowView({ row, learned }: { row: TopicRow; learned: boolean }) {
     </span>
   );
 
-  if (!row.item) {
+  if (!row.item && !row.locked) {
     return (
       <div className="flex min-h-16 items-center gap-3 rounded-xl border border-dashed px-4 py-3 text-muted-foreground">
         {titles}
@@ -159,6 +169,7 @@ function TopicRowView({ row, learned }: { row: TopicRow; learned: boolean }) {
           <CheckCircle2 className="text-success" aria-hidden /> Đã học
         </Badge>
       ) : null}
+      {row.locked ? <Lock className="size-4 shrink-0 text-muted-foreground" aria-label="Cần đăng nhập" /> : null}
       <ChevronRight className="size-4 shrink-0 text-muted-foreground" aria-hidden />
     </Link>
   );

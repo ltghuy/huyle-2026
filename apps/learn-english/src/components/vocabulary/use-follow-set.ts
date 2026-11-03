@@ -3,13 +3,15 @@
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { fetchContentIndex, levelsFor } from "@/hooks/use-content-index";
 import type { Profile } from "@/learning/types";
 import { replanTodayIfUnstarted } from "@/lib/session/today";
 import { updateProfile } from "@/storage/meta";
 
-/** When the change reaches the daily lesson: today when it hadn't started, else tomorrow. */
-function startsWhen(replanned: boolean): string {
+/** When the change reaches the daily lesson: today when it hadn't started, else tomorrow; for a guest, once they sign in (feature 022). */
+function startsWhen(replanned: boolean | "guest"): string {
+  if (replanned === "guest") return "khi bạn đăng nhập và học Bài học hôm nay";
   return replanned ? "từ Bài học hôm nay" : "từ ngày mai (bài hôm nay bạn đã bắt đầu)";
 }
 
@@ -20,10 +22,12 @@ function startsWhen(replanned: boolean): string {
  */
 export function useFollowSet() {
   const client = useQueryClient();
+  const { status } = useAccount();
+  const guest = !canUseLockedAreas(status);
   const [pending, setPending] = useState(false);
 
-  /** Saves the choice; null when it couldn't be saved, else whether today's lesson was planned again. */
-  async function change(vocabSet: string | undefined): Promise<boolean | null> {
+  /** Saves the choice; null when it couldn't be saved, else whether today's lesson was planned again ("guest": guests have no lesson). */
+  async function change(vocabSet: string | undefined): Promise<boolean | "guest" | null> {
     setPending(true);
     const now = Date.now();
     let profile: Profile;
@@ -33,6 +37,10 @@ export function useFollowSet() {
       setPending(false);
       toast.error("Chưa lưu được. Bạn thử lại nhé.");
       return null;
+    }
+    if (guest) {
+      setPending(false);
+      return "guest";
     }
     try {
       const { index, version } = await fetchContentIndex(client, levelsFor(profile.level));

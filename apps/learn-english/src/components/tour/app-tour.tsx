@@ -31,26 +31,31 @@ import {
   TourTitle,
 } from "@/components/ui/tour";
 import { useProfile } from "@/hooks/use-profile";
-import { findTarget, sideFor, TOUR_STEPS, type TourSide } from "./tour-steps";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
+import { learnerName } from "@/lib/learner-name";
+import { findTarget, sideFor, stepDescription, stepTitle, tourSteps, type TourSide, type TourStepDef } from "./tour-steps";
 
 interface Placement {
   target: HTMLElement | null;
   side: TourSide;
 }
 
-function placements(): Placement[] {
-  return TOUR_STEPS.map((def) => {
+function placements(steps: TourStepDef[]): Placement[] {
+  return steps.map((def) => {
     const target = findTarget(def.target);
     return { target, side: sideFor(target) };
   });
 }
 
-/** Resolves once the first step's target is on the page (the home card renders after storage loads), or after ~2 s. */
-function whenFirstTargetReady(callback: () => void): () => void {
+/**
+ * Resolves once the first step's target and the lesson card are on the page (the card, or the guest's
+ * sign-in prompt in its place, renders after storage and the session load), or after ~2 s.
+ */
+function whenTargetsReady(first: string, callback: () => void): () => void {
   let tries = 0;
   let timer = 0;
   const check = () => {
-    if (findTarget(TOUR_STEPS[0].target) || tries++ >= 20) callback();
+    if ((findTarget(first) && findTarget("lesson-card")) || tries++ >= 20) callback();
     else timer = window.setTimeout(check, 100);
   };
   check();
@@ -68,19 +73,28 @@ export function AppTour() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const profile = useProfile();
+  const { status, account } = useAccount();
+  const guest = !canUseLockedAreas(status);
+  const steps = tourSteps(guest);
   const [phase, setPhase] = useState<Phase>("idle");
   const [step, setStep] = useState(0);
+  // Measured once when the tour starts. The tour registers a step again, at the end of its list,
+  // whenever its target or side changes; when only some changed, the order broke and no step matched
+  // the current one, so the tour showed nothing (seen for guests in feature 022). Steps therefore
+  // render only once measured and keep their props; the targets are live elements, so the cards
+  // still follow them as the page moves.
   const [targets, setTargets] = useState<Placement[]>([]);
 
   const ready = profile.status === "ready" ? profile.data : null;
   const replay = searchParams.get("tour") === "1";
   // After the name prompt (feature 003), so the two dialogs never stack.
-  const firstVisit = Boolean(ready?.displayName && !ready.tourSeen && ready.placement !== "pending");
+  const name = learnerName(ready?.displayName, account?.name);
+  const firstVisit = Boolean(name && !ready?.tourSeen && ready?.placement !== "pending");
   const welcomeOpen = phase === "idle" && pathname === "/" && firstVisit && !replay;
 
   useEffect(() => {
     if (!replay || pathname !== "/" || phase === "touring") return;
-    return whenFirstTargetReady(startTour);
+    return whenTargetsReady(steps[0].target, startTour);
     // startTour only reads the DOM and sets state.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [replay, pathname, phase]);
@@ -93,12 +107,12 @@ export function AppTour() {
       const slot = event.key === "ArrowRight" ? "tour-next" : event.key === "ArrowLeft" ? "tour-prev" : null;
       if (!slot) return;
       const button = document.querySelector<HTMLButtonElement>(`[data-slot="${slot}"]:not(:disabled)`);
-      if (button && !(slot === "tour-next" && step === TOUR_STEPS.length - 1)) button.click();
+      if (button && !(slot === "tour-next" && step === steps.length - 1)) button.click();
     }
     // Capture phase: focused dialog primitives stop arrow keys from bubbling.
     window.addEventListener("keydown", handleKey, true);
     return () => window.removeEventListener("keydown", handleKey, true);
-  }, [phase, step]);
+  }, [phase, step, steps.length]);
 
   function markSeen() {
     void updateProfile({ tourSeen: true }, Date.now());
@@ -107,7 +121,7 @@ export function AppTour() {
   function startTour() {
     // Seen as soon as it starts: closing the browser mid-tour must not force it again.
     markSeen();
-    setTargets(placements());
+    setTargets(placements(steps));
     setStep(0);
     setPhase("touring");
     if (replay) router.replace("/");
@@ -118,24 +132,28 @@ export function AppTour() {
     setPhase("done");
   }
 
+  /** Ends the tour; the steps unmount, so a replay measures and registers them afresh. */
+  function finish() {
+    setPhase("done");
+    setTargets([]);
+  }
+
   function handleTourOpenChange(open: boolean) {
-    if (!open) setPhase("done");
+    if (!open) finish();
   }
 
   function handleStepChange(next: number) {
-    // Re-measure on every step: layout may have changed since the tour opened.
-    setTargets(placements());
     setStep(next);
   }
 
   function handleWelcomeStart() {
-    whenFirstTargetReady(startTour);
+    whenTargetsReady(steps[0].target, startTour);
   }
 
   function handleNext(event: React.MouseEvent) {
-    if (step === TOUR_STEPS.length - 1) {
+    if (step === steps.length - 1) {
       event.preventDefault();
-      setPhase("done");
+      finish();
     }
   }
 
@@ -145,10 +163,11 @@ export function AppTour() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <Compass className="size-10 text-primary" aria-hidden />
-            <AlertDialogTitle>Chào mừng {ready?.displayName ?? "bạn"} đến với Streak Daily!</AlertDialogTitle>
+            <AlertDialogTitle>Chào mừng {name ?? "bạn"} đến với Streak Daily!</AlertDialogTitle>
             <AlertDialogDescription>
-              Mỗi ngày bạn có một bài học ngắn gồm ôn tập, từ mới, ngữ pháp và luyện câu. Ứng dụng nhắc bạn ôn lại đúng lúc sắp quên, gom
-              những từ khó để luyện riêng, và cộng điểm chuyên cần mỗi ngày bạn học. Mình đi một vòng xem các phần chính nhé?
+              {guest
+                ? "Bạn tra và học từ vựng ngay được. Đăng nhập bằng Google để có bài học ngắn mỗi ngày, lịch ôn tập nhắc đúng lúc sắp quên, ngữ pháp, bài tập và chuỗi ngày học. Mình đi một vòng xem các phần chính nhé?"
+                : "Mỗi ngày bạn có một bài học ngắn gồm ôn tập, từ mới, ngữ pháp và luyện câu. Ứng dụng nhắc bạn ôn lại đúng lúc sắp quên, gom những từ khó để luyện riêng, và cộng điểm chuyên cần mỗi ngày bạn học. Mình đi một vòng xem các phần chính nhé?"}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -163,14 +182,14 @@ export function AppTour() {
         onOpenChange={handleTourOpenChange}
         value={step}
         onValueChange={handleStepChange}
-        onComplete={() => setPhase("done")}
-        onSkip={() => setPhase("done")}
+        onComplete={finish}
+        onSkip={finish}
         spotlightPadding={6}
       >
         <TourPortal>
           <TourSpotlight />
           <TourSpotlightRing className="rounded-lg" />
-          {TOUR_STEPS.map((def, i) => {
+          {targets.length !== steps.length ? null : steps.map((def, i) => {
             const target = targets[i]?.target ?? null;
             return (
               <TourStep
@@ -189,16 +208,16 @@ export function AppTour() {
               >
                 {target ? <TourArrow /> : null}
                 <TourHeader>
-                  <TourTitle id={`tour-title-${i}`}>{def.title}</TourTitle>
-                  <TourDescription id={`tour-desc-${i}`}>{def.description}</TourDescription>
+                  <TourTitle id={`tour-title-${i}`}>{stepTitle(def, guest)}</TourTitle>
+                  <TourDescription id={`tour-desc-${i}`}>{stepDescription(def, guest)}</TourDescription>
                 </TourHeader>
                 <TourFooter>
                   <TourStepCounter format={(current, total) => `${current}/${total}`} className="mr-auto self-center" />
                   <TourPrev aria-label="Bước trước" variant="outline" disabled={i === 0}>
                     Trước
                   </TourPrev>
-                  <TourNext aria-label={i === TOUR_STEPS.length - 1 ? "Kết thúc hướng dẫn" : "Bước tiếp theo"} onClick={handleNext}>
-                    {i === TOUR_STEPS.length - 1 ? "Xong" : "Tiếp"}
+                  <TourNext aria-label={i === steps.length - 1 ? "Kết thúc hướng dẫn" : "Bước tiếp theo"} onClick={handleNext}>
+                    {i === steps.length - 1 ? "Xong" : "Tiếp"}
                   </TourNext>
                 </TourFooter>
                 <TourClose aria-label="Đóng hướng dẫn" />

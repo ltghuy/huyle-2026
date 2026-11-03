@@ -1,4 +1,5 @@
 import { localDate } from "@/learning/attendance";
+import { mergeSnapshots } from "@/learning/merge";
 import { buildSnapshot, parseSnapshot, type ParseResult, type Snapshot } from "@/learning/snapshot";
 import type { Profile } from "@/learning/types";
 import { getProfile, updateProfile } from "@/storage/meta";
@@ -42,14 +43,21 @@ export async function readBackupFile(file: Blob): Promise<ParseResult> {
 
 /**
  * Replaces all progress with the snapshot (AC-043). This browser keeps its own
- * `deviceId` and sync link, which never travel in a backup.
+ * `deviceId` and sync link, which never travel in a backup. When the device is
+ * linked to an account (feature 022), the file is merged in instead, so it
+ * can't wipe the account's progress, and the link stays.
  */
-export async function applySnapshot(snapshot: Snapshot): Promise<void> {
+export async function applySnapshot(snapshot: Snapshot): Promise<"merged" | "replaced"> {
   const local = await getProfile();
+  if (local?.account) {
+    await replaceAll(mergeSnapshots(await readLearnerState(Date.now()), snapshot.data));
+    return "merged";
+  }
   const profile: Profile = { ...snapshot.data.meta, deviceId: local?.deviceId ?? crypto.randomUUID() };
   if (local?.sync) profile.sync = local.sync;
   const { cards, attempts, lessons, extraLessons, claims, attendance } = snapshot.data;
   await replaceAll({ profile, cards, attempts, lessons, extraLessons, claims, attendance });
+  return "replaced";
 }
 
 /**

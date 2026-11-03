@@ -1,8 +1,11 @@
 import { z } from "zod";
 import { jsonError } from "@/lib/http";
+import { requireUser } from "@/server/auth/session";
 import {
   contentItemsQueryInput,
   contentItemsQuerySchema,
+  isGuestContent,
+  isLockedKind,
   type ContentItemsQuery,
   type StaleVersionResponse,
 } from "@/server/content/content.schema";
@@ -13,6 +16,8 @@ import { getDb } from "@/server/db";
 const CACHE_HEADER = "x-content-cache";
 // A given (kind, level, v) never changes: a new publish bumps `v`.
 const IMMUTABLE = "public, max-age=86400, immutable";
+// Locked kinds (feature 022) may be kept by the learner's browser, never by a shared cache.
+const PRIVATE = "private, max-age=86400";
 
 // One canonical URL per (kind, level, v), so extra or reordered params can't
 // split the cache or bypass it.
@@ -37,9 +42,17 @@ export async function GET(request: Request) {
   }
   const query = parsed.data;
   const key = cacheKey(request, query);
+  // A1 grammar is open to guests and cached like any public content.
+  const locked = isLockedKind(query.kind) && !isGuestContent(query.kind, query.level);
 
-  const cached = await matchEdgeCache(key);
-  if (cached) return withCacheStatus(cached, "HIT");
+  if (locked) {
+    // Checked before the edge cache, which is shared by everyone.
+    const session = await requireUser(request);
+    if ("response" in session) return session.response;
+  } else {
+    const cached = await matchEdgeCache(key);
+    if (cached) return withCacheStatus(cached, "HIT");
+  }
 
   let content;
   try {
@@ -62,6 +75,7 @@ export async function GET(request: Request) {
   }
 
   const body = content.json;
+  if (locked) return new Response(body, { headers: { "Content-Type": "application/json", "Cache-Control": PRIVATE } });
   const headers = { "Content-Type": "application/json", "Cache-Control": IMMUTABLE };
   putEdgeCache(key, new Response(body, { headers }));
   return new Response(body, { headers: { ...headers, [CACHE_HEADER]: "MISS" } });

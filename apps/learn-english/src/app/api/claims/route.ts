@@ -1,3 +1,4 @@
+import { requireUser } from "@/server/auth/session";
 import { getDb } from "@/server/db";
 import { getEnv } from "@/server/env";
 import { CLAIMS_MESSAGES as MESSAGES, claimsRequestSchema, type ClaimsResponse } from "@/server/claims/claims.schema";
@@ -8,6 +9,9 @@ import { claimsError, isClaimsThrottled, NO_STORE, readClaimsBody } from "@/serv
 // it kept. Refused ones (over the daily limit) are left out of `accepted`.
 
 export async function POST(request: Request) {
+  // Signed-in learners only (feature 022, AC-013): claims come from exercises.
+  const session = await requireUser(request);
+  if ("response" in session) return session.response;
   const body = await readClaimsBody(request, claimsRequestSchema);
   if ("response" in body) return body.response;
   if (await isClaimsThrottled(request)) return claimsError(MESSAGES.throttled, 429);

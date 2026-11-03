@@ -1,11 +1,30 @@
 import { z } from "zod";
 import { contentKindSchema, levelSchema, type ContentItem, type ContentKind } from "@/content/schema";
+import type { Level } from "@/learning/types";
 
 // Request and response shapes of the content API, shared by the route
 // handlers and the content client (no `server-only` here).
 
 /** Kinds whose items are always requested one level at a time. */
 export const LEVELLED_KINDS = ["word", "sentence", "writing", "wording"] as const satisfies readonly ContentKind[];
+
+/**
+ * Kinds that exist only for areas guests can't open (feature 022, AC-013): grammar lessons with
+ * their practice, and writing tasks. They need a session and are never stored in a shared cache.
+ */
+export const LOCKED_KINDS = ["grammar", "writing"] as const satisfies readonly ContentKind[];
+
+export function isLockedKind(kind: ContentKind): boolean {
+  return (LOCKED_KINDS as readonly ContentKind[]).includes(kind);
+}
+
+/** The grammar level guests may learn without signing in (owner's choice, 2026-11-03). */
+export const GUEST_GRAMMAR_LEVEL = "A1" satisfies Level;
+
+/** Whether a request for a locked kind is the part guests may have: A1 grammar, asked for by level. */
+export function isGuestContent(kind: ContentKind, level: Level | undefined): boolean {
+  return kind === "grammar" && level === GUEST_GRAMMAR_LEVEL;
+}
 
 export function requiresLevel(kind: ContentKind): boolean {
   return (LEVELLED_KINDS as readonly ContentKind[]).includes(kind);

@@ -1,0 +1,13 @@
+# Copy to .dev.vars and fill in. Never commit .dev.vars.
+# Salt for the anonymous usage stats (32+ characters).
+STATS_SALT=
+# Google sign-in (feature 022)
+# 32+ random characters, e.g. `openssl rand -base64 32`
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3002
+# OAuth client (Web application) from Google Cloud Console. Redirect URIs:
+#   http://localhost:3002/api/auth/callback/google
+#   http://localhost:3102/api/auth/callback/google
+#   https://english.huyle.work/api/auth/callback/google
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=

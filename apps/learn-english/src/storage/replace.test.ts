@@ -7,7 +7,7 @@ import { getClaims, putClaims } from "./claims";
 import { getContentCache, putContentCache } from "./content";
 import { getAllLessons, putLesson } from "./lessons";
 import { createDefaultProfile, getProfile, saveProfile } from "./meta";
-import { readLearnerState, replaceAll, resetAll } from "./replace";
+import { clearDevice, readLearnerState, replaceAll, resetAll } from "./replace";
 import { makeAttempt, makeCard, resetStorage } from "./test-utils";
 
 const claim = (id: string): StoredClaim => ({
@@ -73,5 +73,29 @@ describe("replaceAll / resetAll", () => {
     const state = await readLearnerState(10);
     expect(state.profile).toMatchObject({ level: "A1", placement: "pending", createdAt: 10 });
     expect([state.cards, state.attempts, state.lessons, state.attendance, state.claims]).toEqual([[], [], [], [], []]);
+  });
+});
+
+describe("clearDevice", () => {
+  beforeEach(resetStorage);
+
+  it("clears progress and the device's sync and backup notes, but keeps the content cache (022)", async () => {
+    await seed();
+    await putContentCache("word", "A1", { version: 3, items: [], tombstones: [], fetchedAt: 1 });
+    localStorage.setItem("learn-english:sync-fingerprint", "abc");
+    localStorage.setItem("learn-english:backup-reminder-dismissed", "1");
+    localStorage.setItem("learn-english:accent", "teal");
+
+    const profile = await clearDevice(5);
+
+    expect(await getAllCards()).toEqual([]);
+    expect(await getAllAttempts()).toEqual([]);
+    expect(await getAllAttendance()).toEqual([]);
+    expect((await getProfile())?.deviceId).toBe(profile.deviceId);
+    expect((await getProfile())?.account).toBeUndefined();
+    expect(localStorage.getItem("learn-english:sync-fingerprint")).toBeNull();
+    expect(localStorage.getItem("learn-english:backup-reminder-dismissed")).toBeNull();
+    expect(localStorage.getItem("learn-english:accent")).toBe("teal");
+    expect(await getContentCache("word", "A1")).not.toBeUndefined();
   });
 });

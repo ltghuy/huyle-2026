@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dailyTable, parseRange, reportQueries, totals, type Report } from "./stats-report";
+import { accountQueries, accountWeeks, dailyTable, parseRange, reportQueries, totals, weeksOf, type Report } from "./stats-report";
 
 const range = { from: "2026-10-26", to: "2026-10-28" };
 
@@ -54,5 +54,35 @@ describe("formatting", () => {
 
   it("totals the range", () => {
     expect(totals(report)).toEqual({ lessons: 3, placements: 1, deviceDays: 3, exercises: 45 });
+  });
+});
+
+describe("account weeks (022 AC-027, AC-028)", () => {
+  const at = (day: string) => Date.parse(`${day}T10:00:00Z`);
+  const users = [
+    { id: "a", created_at: at("2026-10-27"), stats_opt_out: 0 }, // week 44
+    { id: "b", created_at: at("2026-11-03"), stats_opt_out: 0 }, // week 45
+    { id: "c", created_at: at("2026-11-04"), stats_opt_out: 1 }, // opted out
+  ];
+  const activity = [
+    { user_id: "a", week: "2026-W44", device_hash: "a1" },
+    { user_id: "a", week: "2026-W45", device_hash: "a1" },
+    { user_id: "a", week: "2026-W45", device_hash: "a2" },
+    { user_id: "b", week: "2026-W45", device_hash: "b1" },
+    { user_id: "c", week: "2026-W45", device_hash: "c1" },
+    { user_id: "c", week: "2026-W45", device_hash: "c2" },
+  ];
+
+  it("lists the ISO weeks a range touches", () => {
+    expect(weeksOf({ from: "2026-10-31", to: "2026-11-03" })).toEqual(["2026-W44", "2026-W45"]);
+    expect(accountQueries(["2026-W44", "2026-W45"])[1]).toContain("week IN ('2026-W44', '2026-W45')");
+    expect(accountQueries([])[0]).not.toMatch(/name|email/);
+  });
+
+  it("counts created, active, returning and multi-device accounts, leaving out those who opted out", () => {
+    expect(accountWeeks(users, activity, ["2026-W44", "2026-W45"])).toEqual([
+      { week: "2026-W44", created: 1, active: 1, returning: 0, multiDevice: 0 },
+      { week: "2026-W45", created: 1, active: 2, returning: 1, multiDevice: 1 },
+    ]);
   });
 });

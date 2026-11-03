@@ -5,8 +5,10 @@ import {
   type SyncConflictResponse,
   type UpdateSyncResponse,
 } from "@/server/sync/sync.schema";
+import type { GetProgressResponse, PutProgressResponse } from "@/server/progress/progress.schema";
 
-// Thin fetch wrappers over /api/sync. Every failure becomes a SyncError with a
+// Thin fetch wrappers over /api/sync (sync codes) and /api/progress (the account, feature 022).
+// Every failure becomes a SyncError with a
 // kind the caller can act on and a Vietnamese message the UI can show as is.
 
 export type SyncErrorKind =
@@ -18,6 +20,8 @@ export type SyncErrorKind =
   | "conflict"
   | "invalid-data"
   | "newer-version"
+  | "unauthorized"
+  | "retired"
   | "server";
 
 export const SYNC_ERROR_MESSAGES: Record<SyncErrorKind, string> = {
@@ -29,6 +33,8 @@ export const SYNC_ERROR_MESSAGES: Record<SyncErrorKind, string> = {
   conflict: "Tiến độ đang được cập nhật từ thiết bị khác. Ứng dụng sẽ thử lại sau.",
   "invalid-data": "Dữ liệu đồng bộ bị hỏng hoặc không đọc được.",
   "newer-version": "Dữ liệu đồng bộ đến từ phiên bản mới hơn của ứng dụng. Bạn hãy tải lại trang rồi thử lại nhé.",
+  unauthorized: "Phiên đăng nhập đã hết hạn. Bạn đăng nhập lại để tiếp tục đồng bộ nhé.",
+  retired: "Mã đồng bộ đã ngừng hoạt động. Tiến độ giờ được lưu trong tài khoản Google của bạn.",
   server: "Máy chủ đồng bộ đang gặp sự cố. Bạn thử lại sau nhé.",
 };
 
@@ -50,18 +56,20 @@ export function isTransient(error: unknown): boolean {
   return error instanceof SyncError && ["offline", "server", "throttled", "conflict"].includes(error.kind);
 }
 
-const ENDPOINT = "/api/sync";
+const CODE_ENDPOINT = "/api/sync";
+const ACCOUNT_ENDPOINT = "/api/progress";
 const TIMEOUT_MS = 20_000;
 /** Browsers refuse keepalive bodies over 64 KiB in total; keep a margin. */
 export const KEEPALIVE_MAX_CHARS = 60_000;
 
 interface RequestOptions {
+  endpoint?: string;
   code?: string;
   body?: unknown;
   keepalive?: boolean;
 }
 
-async function send(method: string, { code, body, keepalive }: RequestOptions): Promise<Response> {
+async function send(method: string, { endpoint = CODE_ENDPOINT, code, body, keepalive }: RequestOptions): Promise<Response> {
   const headers: Record<string, string> = { Accept: "application/json" };
   if (code) headers[SYNC_CODE_HEADER] = code;
   let payload: string | undefined;
@@ -71,7 +79,7 @@ async function send(method: string, { code, body, keepalive }: RequestOptions): 
   }
   let response: Response;
   try {
-    response = await fetch(ENDPOINT, {
+    response = await fetch(endpoint, {
       method,
       headers,
       body: payload,
@@ -90,12 +98,16 @@ async function toError(response: Response): Promise<SyncError> {
   switch (response.status) {
     case 400:
       return new SyncError("invalid-code");
+    case 401:
+      return new SyncError("unauthorized");
     case 404:
       return new SyncError("not-found");
     case 409: {
       const body = (await response.json().catch(() => null)) as Partial<SyncConflictResponse> | null;
       return new SyncError("conflict", { rev: typeof body?.rev === "number" ? body.rev : undefined });
     }
+    case 410:
+      return new SyncError("retired");
     case 413:
       return new SyncError("too-large");
     case 429:
@@ -124,4 +136,18 @@ export async function putRemote(
 
 export async function deleteRemote(code: string): Promise<void> {
   await send("DELETE", { code });
+}
+
+/** The signed-in account's progress (feature 022); 404 ("not-found") while the account has none. */
+export async function getAccountRemote(): Promise<GetProgressResponse> {
+  return (await (await send("GET", { endpoint: ACCOUNT_ENDPOINT })).json()) as GetProgressResponse;
+}
+
+/** `rev` 0 creates the account's first copy; `deviceId` and `countMe` feed the owner's usage counts. */
+export async function putAccountRemote(
+  rev: number,
+  data: string,
+  { deviceId, countMe, keepalive = false }: { deviceId: string; countMe: boolean; keepalive?: boolean },
+): Promise<PutProgressResponse> {
+  return (await (await send("PUT", { endpoint: ACCOUNT_ENDPOINT, body: { rev, data, deviceId, countMe }, keepalive })).json()) as PutProgressResponse;
 }

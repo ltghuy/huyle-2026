@@ -29,6 +29,8 @@ export interface EntryInput {
   earned: number;
   previousStreak: number;
   previousEarned: number;
+  /** The signed-in learner (feature 022): deleting the account deletes the entry. */
+  userId?: string;
 }
 
 export type SubmitResult = ({ ok: true } & SubmitResponse) | { ok: false; reason: "forbidden" | "implausible" };
@@ -77,10 +79,10 @@ export async function submitEntry(db: Db, input: EntryInput, now: number): Promi
     and(sql`excluded.streak <= ${entries.streak} + ${days}`, sql`excluded.earned <= ${entries.earned} + ${days} * ${DAILY_POINTS} + ${BONUS_ALLOWANCE}`),
   );
 
-  const { id, tokenHash, name, lastDate, streak, earned } = input;
+  const { id, tokenHash, name, lastDate, streak, earned, userId } = input;
   const write = db
     .insert(entries)
-    .values({ id, tokenHash, name, lastDate, streak, earned, reachedAt: now, updatedAt: now })
+    .values({ id, tokenHash, name, lastDate, streak, earned, reachedAt: now, updatedAt: now, userId })
     .onConflictDoUpdate({
       target: entries.id,
       set: {
@@ -90,6 +92,8 @@ export async function submitEntry(db: Db, input: EntryInput, now: number): Promi
         lastDate: keepOrNew("last_date"),
         reachedAt: sql`CASE WHEN NOT (${newer}) OR (${entries.streak} = excluded.streak AND ${entries.earned} = excluded.earned) THEN ${entries.reachedAt} ELSE excluded.reached_at END`,
         updatedAt: sql`excluded.updated_at`,
+        // An entry made before sign-in existed gets its owner on the next submit.
+        userId: sql`coalesce(excluded.user_id, ${entries.userId})`,
       },
       setWhere: and(eq(entries.tokenHash, sql`excluded.token_hash`), plausible),
     })
@@ -123,6 +127,22 @@ export async function submitEntry(db: Db, input: EntryInput, now: number): Promi
     ...below.map((row, i) => ({ ...row, position: rank + i + 1, me: false })),
   ];
   return { ok: true, rank, previousRank: previouslyAhead[0].n + 1, total: total[0].n + 1, rows };
+}
+
+/**
+ * One entry per Google account (feature 022): deletes the learner's other entries, those already
+ * linked to the account and the browser-made entry the request proves it holds (`old`), so the
+ * account's entry (id = the account id) is the only one left to rank.
+ */
+export async function dropOtherEntries(db: Db, userId: string, old?: { id: string; tokenHash: string }): Promise<void> {
+  const owned = eq(entries.userId, userId);
+  const held = old ? and(eq(entries.id, old.id), eq(entries.tokenHash, old.tokenHash)) : undefined;
+  await db.delete(entries).where(and(ne(entries.id, userId), held ? or(owned, held) : owned));
+}
+
+/** Takes the account off the board: its entry and any others it owns (feature 022). */
+export async function removeAccountEntries(db: Db, userId: string): Promise<void> {
+  await db.delete(entries).where(or(eq(entries.id, userId), eq(entries.userId, userId)));
 }
 
 /** Deletes the entry when the secret matches. "forbidden" when it exists under another secret. */

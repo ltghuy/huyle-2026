@@ -121,6 +121,27 @@ describe("BackupPanel", () => {
     expect(await getProfile()).toMatchObject({ displayName: "Gia Huy", level: "A2", tourSeen: true, deviceId: "local-device", sync: LOCAL_SYNC });
   });
 
+  it("merges a file into a signed-in learner's progress instead of replacing it, keeping the account (022)", async () => {
+    await seedLocal();
+    const account = { userId: "u1", name: "Minh Anh", email: "minh@example.com", image: null, linkedAt: 1 };
+    await saveProfile({ ...(await getProfile())!, account });
+    const now = Date.now();
+    const other: Profile = createDefaultProfile(now - DAY_MS, () => "other-device");
+    const snapshot = buildSnapshot(
+      { profile: other, cards: [makeCard("word:apple", now)], attempts: [], lessons: [], extraLessons: [], claims: [], attendance: [] },
+      now,
+      other.timeZone,
+    );
+
+    render(<BackupPanel />);
+    await pickFile(JSON.stringify(snapshot));
+    const dialog = await screen.findByRole("alertdialog");
+    expect(dialog).toHaveTextContent("gộp vào tiến độ của tài khoản");
+    await act(async () => fireEvent.click(within(dialog).getByRole("button", { name: "Gộp tiến độ" })));
+    await waitFor(async () => expect((await getAllCards()).map((card) => card.itemId).sort()).toEqual(["word:apple", "word:local"]));
+    expect((await getProfile())?.account).toEqual(account);
+  });
+
   it("resets all progress after confirmation", async () => {
     await seedLocal();
     render(<BackupPanel />);

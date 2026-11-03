@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { localDate, streaks } from "./attendance";
+import { hardWords } from "./hard-words";
 import { NAME_MAX_LENGTH } from "./name";
 import { pointsBalance } from "./points";
 import {
@@ -49,7 +50,7 @@ export interface LearnerState {
  * stay behind: the sync code works like a password, and `rev`/`dirty` describe
  * this device only.
  */
-export type SnapshotMeta = Omit<Profile, "deviceId" | "sync">;
+export type SnapshotMeta = Omit<Profile, "deviceId" | "sync" | "account">;
 
 export interface SnapshotData {
   meta: SnapshotMeta;
@@ -214,13 +215,16 @@ export const snapshotSchema = z.object({
   }),
 }) satisfies z.ZodType<Snapshot>;
 
-/** The profile without the device-only fields (`deviceId`, `sync`). */
+/** The profile without the device-only fields (`deviceId`, `sync`, `account`). */
 export function toSnapshotMeta(profile: Profile): SnapshotMeta {
   const meta: Partial<Profile> = { ...profile, fieldUpdatedAt: { ...profile.fieldUpdatedAt } };
   delete meta.deviceId;
   delete meta.sync;
+  delete meta.account;
   delete meta.fieldUpdatedAt!.deviceId;
   delete meta.fieldUpdatedAt!.sync;
+  // `account` isn't in PROFILE_KEYS: a stamp for it would make older tabs reject the snapshot.
+  delete meta.fieldUpdatedAt!.account;
   return meta as SnapshotMeta;
 }
 
@@ -273,6 +277,20 @@ export function summarize(data: Pick<SnapshotData, "cards" | "attendance" | "ext
       data.attendance.map((row) => row.date),
       today,
     ).current,
+  };
+}
+
+/** What a learner's progress amounts to, for the message after it moves into an account (feature 022, AC-014). */
+export type ProgressSummary = Snapshot["summary"] & {
+  grammarLearned: number;
+  hardWords: number;
+};
+
+export function progressSummary(state: Pick<LearnerState, "cards" | "attendance" | "extraLessons" | "attempts">, today: string): ProgressSummary {
+  return {
+    ...summarize(state, today),
+    grammarLearned: state.cards.filter((card) => card.itemId.startsWith("grammar:")).length,
+    hardWords: hardWords(state.attempts).length,
   };
 }
 

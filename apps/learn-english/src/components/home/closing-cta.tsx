@@ -12,7 +12,7 @@ export function ClosingCta() {
           <h2 id="cta-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
             Hôm nay bạn đã học chưa?
           </h2>
-          <p className="mt-2 opacity-90">Một bài ngắn là đủ giữ chuỗi ngày học. Bắt đầu ngay, không cần đăng ký.</p>
+          <p className="mt-2 opacity-90">Một bài ngắn là đủ giữ chuỗi ngày học. Bắt đầu ngay, miễn phí với tài khoản Google.</p>
         </div>
         <Link href="/lesson" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "h-11 shrink-0 self-start px-5 md:self-auto")}>
           Vào bài hôm nay <ArrowRight aria-hidden />

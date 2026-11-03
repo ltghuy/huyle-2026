@@ -16,7 +16,7 @@ describe("HomePage", () => {
     expect(screen.getAllByRole("heading", { level: 1 }).map((heading) => heading.textContent)).toEqual(["Streak Daily"]);
     expect(screen.getAllByRole("link", { name: /Vào bài hôm nay/ }).map((link) => link.getAttribute("href"))).toEqual(["/lesson", "/lesson"]);
     expect(screen.getByRole("link", { name: "Xem cách học" })).toHaveAttribute("href", "#how");
-    expect(screen.getByText("Miễn phí · Không cần tài khoản")).toBeInTheDocument();
+    expect(screen.getByText("Miễn phí · Đăng nhập bằng Google")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "Bài học hôm nay" })).toBeInTheDocument();
   });
 

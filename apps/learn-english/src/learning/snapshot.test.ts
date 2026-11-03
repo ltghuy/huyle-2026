@@ -7,6 +7,7 @@ import {
   encodeSnapshot,
   MIGRATIONS,
   parseSnapshot,
+  progressSummary,
   type LearnerState,
   type Migration,
 } from "./snapshot";
@@ -84,6 +85,16 @@ const state: LearnerState = {
 };
 
 describe("buildSnapshot", () => {
+  it("never lets the account link leave the device (022)", () => {
+    const account = { userId: "u1", name: "Minh Anh", email: "minh@example.com", image: null, linkedAt: NOW };
+    const withAccount = { ...state, profile: { ...profile, account, fieldUpdatedAt: { ...profile.fieldUpdatedAt, account: NOW } } };
+    const snapshot = buildSnapshot(withAccount, NOW, TZ);
+    expect(snapshot.data.meta).not.toHaveProperty("account");
+    expect(snapshot.data.meta.fieldUpdatedAt).not.toHaveProperty("account");
+    // Older tabs validate fieldUpdatedAt keys, so the snapshot must still parse.
+    expect(parseSnapshot(JSON.parse(JSON.stringify(snapshot))).ok).toBe(true);
+  });
+
   it("drops the device id and computes the summary", () => {
     const snapshot = buildSnapshot(state, NOW, TZ);
     expect(snapshot).toMatchObject({ app: "learn-english", version: 4, exportedAt: NOW });
@@ -308,5 +319,16 @@ describe("encodeSnapshot / decodeSnapshot", () => {
     expect(snapshot.data.attempts).toHaveLength(15_000);
     const bytes = await encodeSnapshot(snapshot);
     expect(bytes.length).toBeLessThan(1_048_576);
+  });
+});
+
+describe("progressSummary", () => {
+  it("adds learned grammar topics and hard words to the summary (022 AC-014)", () => {
+    const wrong = (id: string, at: number): Attempt => ({ ...attempt(id, "word:dog", at), correct: false });
+    const summary = progressSummary(
+      { ...state, cards: [...state.cards, card("grammar:past-simple")], attempts: [wrong("w1", NOW - 3), wrong("w2", NOW - 2), wrong("w3", NOW - 1)] },
+      "2026-10-26",
+    );
+    expect(summary).toMatchObject({ wordsLearned: 2, grammarLearned: 2, hardWords: 1 });
   });
 });

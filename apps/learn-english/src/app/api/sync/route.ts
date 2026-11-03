@@ -1,19 +1,19 @@
+import { requireUser } from "@/server/auth/session";
 import type { z } from "zod";
 import { getDb } from "@/server/db";
 import { getEnv } from "@/server/env";
 import { hashSyncCode } from "@/server/sync/code";
 import {
-  createSyncBodySchema,
   SYNC_CODE_HEADER,
   SYNC_MESSAGES as MESSAGES,
   syncCodeHeaderSchema,
+  syncCodesRetired,
   updateSyncBodySchema,
-  type CreateSyncResponse,
   type GetSyncResponse,
   type SyncConflictResponse,
   type UpdateSyncResponse,
 } from "@/server/sync/sync.schema";
-import { createSyncProfile, deleteSyncProfile, getSyncProfile, putSyncProfile } from "@/server/sync/sync.service";
+import { deleteSyncProfile, getSyncProfile, putSyncProfile } from "@/server/sync/sync.service";
 import { isLookupThrottled } from "@/server/sync/throttle";
 
 // Sync blobs (AC-047–AC-051). The code is a bearer secret: it only travels in
@@ -70,26 +70,30 @@ function unavailable(scope: string, cause: unknown): Response {
   return error(MESSAGES.unavailable, 503);
 }
 
-export async function POST(request: Request) {
-  let maxBytes: number;
+/** No new codes since feature 022 (AC-019): the account keeps progress in step across devices. */
+export async function POST() {
+  return error(MESSAGES.retired, 410);
+}
+
+/**
+ * The checks every remaining method shares (feature 022): a signed-in learner (AC-013) and a code
+ * window that hasn't closed (AC-020, AC-021). Codes are only read to merge them into the account.
+ */
+async function gate(request: Request): Promise<Response | null> {
+  const session = await requireUser(request);
+  if ("response" in session) return session.response;
+  let until: string | undefined;
   try {
-    maxBytes = getEnv().SYNC_MAX_BYTES;
+    until = getEnv().SYNC_CODES_UNTIL;
   } catch (cause) {
     return unavailable("env", cause);
   }
-  const body = await readBody(request, createSyncBodySchema, maxBytes);
-  if ("response" in body) return body.response;
-
-  try {
-    const result = await createSyncProfile(getDb(), body.data.data, { now: Date.now(), maxBytes });
-    if (!result.ok) return error(MESSAGES.tooLarge, 413);
-    return json({ code: result.code, rev: 1 } satisfies CreateSyncResponse, 201);
-  } catch (cause) {
-    return unavailable("create", cause);
-  }
+  return syncCodesRetired(until, Date.now()) ? error(MESSAGES.retired, 410) : null;
 }
 
 export async function GET(request: Request) {
+  const closed = await gate(request);
+  if (closed) return closed;
   const codeHash = await readCodeHash(request);
   if ("response" in codeHash) return codeHash.response;
 
@@ -105,6 +109,8 @@ export async function GET(request: Request) {
 }
 
 export async function PUT(request: Request) {
+  const closed = await gate(request);
+  if (closed) return closed;
   const codeHash = await readCodeHash(request);
   if ("response" in codeHash) return codeHash.response;
   let maxBytes: number;
@@ -131,6 +137,8 @@ export async function PUT(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  const closed = await gate(request);
+  if (closed) return closed;
   const codeHash = await readCodeHash(request);
   if ("response" in codeHash) return codeHash.response;
 

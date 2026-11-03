@@ -1,3 +1,4 @@
+import { AccountCard } from "@/components/settings/account-card";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
@@ -23,8 +24,9 @@ const LINK_BUTTON = cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11
 export default function SettingsPage() {
   return (
     <>
-      <PageHeader title="Cài đặt" description="Tên, trình độ, giao diện, âm thanh, sao lưu, đồng bộ, bảng xếp hạng và hướng dẫn." />
+      <PageHeader title="Cài đặt" description="Tài khoản, tên, trình độ, giao diện, âm thanh, sao lưu, bảng xếp hạng và hướng dẫn." />
       <div className="mx-auto grid w-full max-w-3xl gap-4 px-4 md:mx-0 md:px-8">
+        <AccountCard />
         <BackupReminder />
         <Card>
           <CardHeader>

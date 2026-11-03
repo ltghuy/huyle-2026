@@ -14,7 +14,15 @@ const env: { SYNC_LOOKUP_LIMITER?: { limit: typeof limit } } = {};
 
 vi.mock("@/server/sync/sync.service", () => service);
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
-vi.mock("@/server/env", () => ({ getEnv: () => ({ SYNC_MAX_BYTES: 1_048_576, STATS_SALT: "x".repeat(32) }) }));
+let until: string | undefined;
+vi.mock("@/server/env", () => ({ getEnv: () => ({ SYNC_MAX_BYTES: 1_048_576, STATS_SALT: "x".repeat(32), SYNC_CODES_UNTIL: until }) }));
+let signedIn = true;
+vi.mock("@/server/auth/session", () => ({
+  requireUser: async () =>
+    signedIn
+      ? { user: { id: "u1", name: "Minh Anh", email: "minh@example.com", image: null } }
+      : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
+}));
 vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env }) }));
 
 const { POST, GET, PUT, DELETE } = await import("./route");
@@ -43,53 +51,39 @@ beforeEach(() => {
   for (const fn of Object.values(service)) fn.mockReset();
   limit.mockReset().mockResolvedValue({ success: true });
   env.SYNC_LOOKUP_LIMITER = { limit };
+  signedIn = true;
+  until = undefined;
 });
 
-describe("POST /api/sync", () => {
-  it("creates a profile and answers 201 with the code and rev 1, uncached", async () => {
-    service.createSyncProfile.mockResolvedValue({ ok: true, code: CODE });
-    const response = await POST(request("POST", { body: { data: DATA } }));
-    expect(response.status).toBe(201);
-    expect(response.headers.get("Cache-Control")).toBe("no-store");
-    expect(await response.json()).toEqual({ code: CODE, rev: 1 });
-    expect(service.createSyncProfile).toHaveBeenCalledWith({}, DATA, expect.objectContaining({ maxBytes: 1_048_576 }));
-  });
-
-  it.each([
-    ["broken JSON", "{", 400, SYNC_MESSAGES.invalidJson],
-    ["a missing data field", {}, 422, SYNC_MESSAGES.invalidBody],
-    ["data that isn't base64", { data: "not base64!" }, 422, SYNC_MESSAGES.invalidBody],
-  ])("rejects %s with a Vietnamese message", async (_, body, status, text) => {
-    const response = await POST(request("POST", { body }));
-    expect(response.status).toBe(status);
-    expect(response.headers.get("Cache-Control")).toBe("no-store");
-    expect(await message(response)).toBe(text);
+describe("retiring sync codes (022)", () => {
+  it("no longer creates codes (AC-019)", async () => {
+    const response = await POST();
+    expect(response.status).toBe(410);
+    expect(await message(response)).toBe(SYNC_MESSAGES.retired);
     expect(service.createSyncProfile).not.toHaveBeenCalled();
   });
 
-  it("answers 413 when the service finds the payload too large", async () => {
-    service.createSyncProfile.mockResolvedValue({ ok: false, reason: "too-large" });
-    const response = await POST(request("POST", { body: { data: DATA } }));
-    expect(response.status).toBe(413);
-    expect(await message(response)).toBe(SYNC_MESSAGES.tooLarge);
+  it("only lets a signed-in learner read, write or delete a code (AC-013)", async () => {
+    signedIn = false;
+    for (const response of [await GET(request("GET", { code: CODE })), await PUT(request("PUT", { code: CODE, body: { rev: 1, data: DATA } })), await DELETE(request("DELETE", { code: CODE }))]) {
+      expect(response.status).toBe(401);
+    }
+    expect(service.getSyncProfile).not.toHaveBeenCalled();
+    expect(limit).not.toHaveBeenCalled();
   });
 
-  it("answers 413 from the declared length before reading the body", async () => {
-    // Request drops a hand-set content-length, so this is a stand-in.
-    const json = vi.fn();
-    const oversized = { headers: new Headers({ "content-length": "5000000" }), json } as unknown as Request;
-    const response = await POST(oversized);
-    expect(response.status).toBe(413);
-    expect(json).not.toHaveBeenCalled();
-    expect(service.createSyncProfile).not.toHaveBeenCalled();
-  });
+  it("works through the last day of the window and answers 410 after it (AC-020, AC-021)", async () => {
+    vi.useFakeTimers({ toFake: ["Date"], now: Date.parse("2026-11-17T23:59:00Z") });
+    until = "2026-11-17";
+    service.getSyncProfile.mockResolvedValue({ ok: true, rev: 1, data: DATA, updatedAt: 1 });
+    expect((await GET(request("GET", { code: CODE }))).status).toBe(200);
 
-  it("answers 503 when D1 fails", async () => {
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    service.createSyncProfile.mockRejectedValue(new Error("D1 down"));
-    const response = await POST(request("POST", { body: { data: DATA } }));
-    expect(response.status).toBe(503);
-    expect(await message(response)).toBe(SYNC_MESSAGES.unavailable);
+    vi.setSystemTime(Date.parse("2026-11-18T00:00:00Z"));
+    for (const response of [await GET(request("GET", { code: CODE })), await PUT(request("PUT", { code: CODE, body: { rev: 1, data: DATA } })), await DELETE(request("DELETE", { code: CODE }))]) {
+      expect(response.status).toBe(410);
+    }
+    expect(service.getSyncProfile).toHaveBeenCalledTimes(1);
+    vi.useRealTimers();
   });
 });
 

@@ -4,6 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CircleUserRound } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { AccountAvatar } from "@/components/account/account-avatar";
+import { SignInButton } from "@/components/account/sign-in-button";
+import { useAccount } from "@/hooks/use-account";
+import { learnerName } from "@/lib/learner-name";
 import { useProfile } from "@/hooks/use-profile";
 import { cn } from "@/lib/utils";
 import { isActive } from "./nav";
@@ -18,8 +22,11 @@ import { isActive } from "./nav";
 export function AccountLink() {
   const pathname = usePathname();
   const profile = useProfile();
-  const name = profile.status === "ready" ? profile.data.displayName : undefined;
+  const { status, account } = useAccount();
+  // The name the learner chose, else their Google name (feature 022, AC-002).
+  const name = learnerName(profile.status === "ready" ? profile.data.displayName : undefined, account?.name);
   const active = isActive(pathname, "/profile");
+  const guest = status === "guest";
 
   return (
     <div className="pointer-events-none sticky top-0 z-30 h-0">
@@ -27,8 +34,9 @@ export function AccountLink() {
         aria-hidden
         className="absolute inset-x-0 top-0 h-[4.25rem] bg-background/70 mask-b-from-70% backdrop-blur-md md:h-[4.75rem]"
       />
-      <div className="pointer-events-auto absolute top-3 right-4 flex max-w-[calc(100%-2rem)] items-center gap-2 rounded-full bg-background/80 p-1 shadow-sm ring-1 ring-border/60 backdrop-blur md:top-5 md:right-8">
-        {name ? (
+      <div data-tour="account" className="pointer-events-auto absolute top-3 right-4 flex max-w-[calc(100%-2rem)] items-center gap-2 rounded-full bg-background/80 p-1 shadow-sm ring-1 ring-border/60 backdrop-blur md:top-5 md:right-8">
+        {guest ? <SignInButton size="sm" className="h-9 rounded-full border-0 shadow-none md:h-8" /> : null}
+        {!guest && name ? (
           <p className="flex min-w-0 items-center gap-1.5 pl-2 font-medium">
             <span className="inline-block origin-[70%_70%] animate-wave" aria-hidden>
               👋
@@ -47,9 +55,11 @@ export function AccountLink() {
             "size-11 shrink-0 rounded-full md:size-10 aria-[current=page]:border-primary aria-[current=page]:text-primary",
           )}
         >
-          <CircleUserRound className="size-5" aria-hidden />
+          {account && !guest ? <AccountAvatar name={account.name} image={account.image} /> : <CircleUserRound className="size-5" aria-hidden />}
         </Link>
+        {status === "expired" ? <SignInButton size="sm" label="Đăng nhập lại" className="h-9 rounded-full md:h-8" /> : null}
       </div>
     </div>
   );
 }
+

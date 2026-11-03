@@ -20,11 +20,13 @@ interface NameFormProps {
   onSaved?: (name: string) => void;
   /** Stack the button under the field (dialog) instead of beside it (settings). */
   stacked?: boolean;
+  /** An empty field clears the name instead of being an error (signed-in learners, feature 022). */
+  optional?: boolean;
   autoFocus?: boolean;
 }
 
 /** Name field with the shared rule (AC-003), saved to the profile (AC-004). */
-export function NameForm({ id, label, initialName = "", submitLabel, onSaved, stacked = false, autoFocus = false }: NameFormProps) {
+export function NameForm({ id, label, initialName = "", submitLabel, onSaved, stacked = false, autoFocus = false, optional = false }: NameFormProps) {
   const [value, setValue] = useState(initialName);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -33,16 +35,17 @@ export function NameForm({ id, label, initialName = "", submitLabel, onSaved, st
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const name = cleanName(value);
-    if (!name) {
+    const clearing = optional && value.trim() === "";
+    if (!name && !clearing) {
       setError(NAME_ERROR);
       return;
     }
     setError(null);
     setSaving(true);
     try {
-      await updateProfile({ displayName: name }, Date.now());
-      setValue(name);
-      onSaved?.(name);
+      await updateProfile({ displayName: name ?? undefined }, Date.now());
+      setValue(name ?? "");
+      onSaved?.(name ?? "");
     } catch {
       toast.error("Chưa lưu được tên. Bạn thử lại nhé.");
     } finally {

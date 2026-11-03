@@ -46,6 +46,29 @@ export async function replaceAll(state: LearnerState): Promise<void> {
   notifyChanged(stores);
 }
 
+/** Device-only notes in localStorage that belong to the progress being cleared. */
+const DEVICE_KEYS = [
+  "learn-english:sync-fingerprint", // src/sync/sync-client.ts: what was last synced
+  "learn-english:backup-reminder-dismissed", // src/components/settings/backup-reminder.tsx
+] as const;
+
+/**
+ * Clears this device after signing out or deleting the account (feature 022, AC-005, AC-023):
+ * all progress and its device-only notes go, so the next learner starts clean. The content cache,
+ * sound and colour preferences stay.
+ */
+export async function clearDevice(now: number): Promise<Profile> {
+  const profile = await resetAll(now);
+  for (const key of DEVICE_KEYS) {
+    try {
+      localStorage.removeItem(key);
+    } catch {
+      // Blocked storage: nothing was kept there either.
+    }
+  }
+  return profile;
+}
+
 /** Clears all progress on this device and starts again with a default profile. */
 export async function resetAll(now: number): Promise<Profile> {
   const profile = createDefaultProfile(now);

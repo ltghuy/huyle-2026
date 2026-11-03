@@ -36,6 +36,13 @@
       "when": 1793545830981,
       "tag": "0004_claims",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1793719131710,
+      "tag": "0005_auth",
+      "breakpoints": true
     }
   ]
 }

@@ -2,6 +2,7 @@
 
 import { UserRound } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useAccount } from "@/hooks/use-account";
 import { useProfile } from "@/hooks/use-profile";
 import { NameForm } from "./name-form";
 
@@ -9,10 +10,14 @@ import { NameForm } from "./name-form";
 // close, and ignoring that keeps the dialog up until a name is saved (AC-002).
 function ignoreOpenChange() {}
 
-/** Asks for the learner's name on any page until one is stored (AC-001, AC-005). */
+/**
+ * Asks a guest for their name on any page until one is stored (AC-001, AC-005). A signed-in learner
+ * is called by their Google name, so a chosen name is optional for them (feature 022).
+ */
 export function NamePrompt() {
   const profile = useProfile();
-  const open = profile.status === "ready" && !profile.data.displayName;
+  const { status } = useAccount();
+  const open = status === "guest" && profile.status === "ready" && !profile.data.displayName;
 
   return (
     <Dialog open={open} onOpenChange={ignoreOpenChange}>

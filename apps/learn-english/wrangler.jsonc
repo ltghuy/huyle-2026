@@ -8,6 +8,12 @@
     "binding": "ASSETS",
     "directory": ".open-next/assets"
   },
+  // Plain values (feature 022). `.dev.vars` overrides them locally (BETTER_AUTH_URL=http://localhost:3002).
+  // Secrets are set with `wrangler secret put`: STATS_SALT, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID,
+  // GOOGLE_CLIENT_SECRET. SYNC_CODES_UNTIL (release + 7 days) is added here at release.
+  "vars": {
+    "BETTER_AUTH_URL": "https://english.huyle.work"
+  },
   // Content, sync blobs and anonymous stats. Local dev and preview use a
   // local SQLite copy; `--remote` commands hit this database.
   "d1_databases": [
@@ -37,6 +43,12 @@
     {
       "name": "CLAIMS_LIMITER",
       "namespace_id": "1003",
+      "simple": { "limit": 20, "period": 60 }
+    },
+    // Throttles starting a Google sign-in and its callback per IP (feature 022).
+    {
+      "name": "AUTH_LIMITER",
+      "namespace_id": "1004",
       "simple": { "limit": 20, "period": 60 }
     }
   ],

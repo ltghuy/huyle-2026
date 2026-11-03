@@ -1,3 +1,4 @@
+import { SignInGate } from "@/components/account/sign-in-gate";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import { HardWordsView } from "@/components/hard-words/hard-words-view";
@@ -13,7 +14,9 @@ export default function HardWordsPage() {
   return (
     <>
       <PageHero size="sm" badge={BADGE} title="Từ khó" description="Những từ bạn hay sai hoặc nhớ lâu, gom lại để luyện thêm." mascot={<Owl mood="think" size="hero" />} />
-      <HardWordsView />
+      <SignInGate area="hard-words">
+        <HardWordsView />
+      </SignInGate>
     </>
   );
 }

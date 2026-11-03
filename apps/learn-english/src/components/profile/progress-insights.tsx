@@ -1,5 +1,7 @@
 "use client";
 
+import { useAccount } from "@/hooks/use-account";
+import { learnerName } from "@/lib/learner-name";
 import { useState } from "react";
 import { Award, Lock } from "lucide-react";
 import { toast } from "sonner";
@@ -33,6 +35,7 @@ async function loadProgress() {
  * accuracy as a daily line (AC-037). Every level row ends with its certificate, earned once the row is finished (009).
  */
 export function ProgressInsights() {
+  const { account } = useAccount();
   const progress = useStorageQuery(["progress"], loadProgress, STORES);
   // Learned words can come from any level (vocabulary browsing, placement), so all levels are loaded.
   const content = useContentIndex(LEVELS);
@@ -43,7 +46,7 @@ export function ProgressInsights() {
   function handleOpenCertificate(kind: ProgressKind, row: LevelCount) {
     if (progress.status !== "ready") return;
     const { displayName, timeZone } = progress.data.profile;
-    setCertificate({ kind, level: row.level, total: row.total, name: displayName?.trim() || "Bạn", date: localDate(row.lastLearnedAt ?? Date.now(), timeZone) });
+    setCertificate({ kind, level: row.level, total: row.total, name: learnerName(displayName, account?.name) ?? "Bạn", date: localDate(row.lastLearnedAt ?? Date.now(), timeZone) });
   }
 
   return (
