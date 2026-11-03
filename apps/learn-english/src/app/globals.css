@@ -114,6 +114,12 @@
   --level-b1: oklch(0.52 0.17 255);
   --level-b2: oklch(0.52 0.2 295);
   --level-c1: oklch(0.55 0.2 0);
+  /* The Settings swatches (feature 004): each accent's --primary in this mode, kept in step with the blocks below. */
+  --swatch-indigo: oklch(0.511 0.262 276.966);
+  --swatch-blue: oklch(0.546 0.245 262.881);
+  --swatch-teal: oklch(0.511 0.096 186.391);
+  --swatch-orange: oklch(0.56 0.165 45);
+  --swatch-pink: oklch(0.525 0.223 3.958);
 }
 
 .dark {
@@ -161,6 +167,11 @@
   --level-b1: oklch(0.77 0.13 255);
   --level-b2: oklch(0.77 0.14 295);
   --level-c1: oklch(0.78 0.14 0);
+  --swatch-indigo: oklch(0.673 0.182 276.935);
+  --swatch-blue: oklch(0.707 0.165 254.624);
+  --swatch-teal: oklch(0.777 0.152 181.912);
+  --swatch-orange: oklch(0.75 0.183 55.934);
+  --swatch-pink: oklch(0.718 0.202 349.761);
 }
 
 /* Main colour picked in Settings (feature 004); indigo above is the default.
@@ -186,14 +197,16 @@
   --sidebar-accent-foreground: oklch(0.511 0.096 186.391);
 }
 :root[data-accent="orange"] {
-  --primary: oklch(0.553 0.195 38.402);
-  --link: oklch(0.553 0.195 38.402);
-  --selection: oklch(0.553 0.195 38.402);
+  --primary: oklch(0.56 0.165 45);
+  --link: oklch(0.56 0.165 45);
+  --selection: oklch(0.56 0.165 45);
   --ring: oklch(0.646 0.222 41.116);
-  --sidebar-primary: oklch(0.553 0.195 38.402);
+  --sidebar-primary: oklch(0.56 0.165 45);
   --sidebar-ring: oklch(0.646 0.222 41.116);
   --sidebar-accent: oklch(0.98 0.016 73.684);
-  --sidebar-accent-foreground: oklch(0.553 0.195 38.402);
+  --sidebar-accent-foreground: oklch(0.56 0.165 45);
+  /* Gold, so the streak flame stays apart from an orange accent. */
+  --streak: oklch(0.56 0.12 80);
 }
 :root[data-accent="pink"] {
   --primary: oklch(0.525 0.223 3.958);
@@ -234,6 +247,7 @@
   --sidebar-ring: oklch(0.75 0.183 55.934);
   --sidebar-accent: oklch(0.266 0.079 36.259);
   --sidebar-accent-foreground: oklch(0.901 0.076 70.697);
+  --streak: oklch(0.86 0.16 95);
 }
 :root.dark[data-accent="pink"] {
   --primary: oklch(0.718 0.202 349.761);

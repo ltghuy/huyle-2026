@@ -48,7 +48,7 @@ The app always follows the device's light or dark setting and always uses indigo
 
 **Acceptance Criteria:**
 
-- [x] AC-003: WHEN the learner opens the "Giao diện" card THEN system SHALL show five main colours as labelled swatches ("Chàm", "Xanh dương", "Xanh ngọc", "Cam", "Hồng"), with the current one marked ("Chàm" by default)
+- [x] AC-003: WHEN the learner opens the "Giao diện" card THEN system SHALL show five main colours as labelled swatches ("Chàm", "Xanh dương", "Xanh ngọc", "Cam", "Hồng"), with the current one marked ("Chàm" by default); each swatch shows that colour as the current mode will use it (quick 043)
 - [x] AC-004: WHEN the learner picks a colour THEN system SHALL use it for buttons, links, focus rings, progress bars and the active menu item in light and dark mode at once, with button text that stays readable (at least 4.5:1 contrast)
 - [x] AC-005: WHEN a page loads after a colour was chosen THEN system SHALL show that colour from the first paint, with no flash of the default colour
 
@@ -70,6 +70,7 @@ The app always follows the device's light or dark setting and always uses indigo
 - AC-005: `src/lib/appearance.test.ts` (pre-paint script applies only known values); Playwright 2026-10-27 with every app script blocked: after a reload `<html>` already had `dark` and `data-accent="orange"`, and no hydration warnings appeared
 - Screenshots checked in light and dark (Settings card, placement screen in dark orange)
 - Fix 2026-10-27: the active and hover menu item kept indigo (`--sidebar-accent` wasn't overridden); each colour now sets it, and its text contrast is 4.9–6.3:1 in light mode and 10.4–11.6:1 in dark. Checked in sidebar screenshots, dark orange and light pink
+- Fix 2026-11-03 (quick 043): swatches were fixed 500 shades, lighter than the light-mode buttons, and teal (2.4:1) and orange (2.9:1) were under 3:1 on the card. Each swatch is now `var(--swatch-*)`, the accent's `--primary` in the current mode (5.0:1 or more in both modes), with the check in `primary-foreground`. Light orange moves from the out-of-gamut, reddish `oklch(0.553 0.195 38.4)` to `oklch(0.56 0.165 45)`: 4.8:1 for white button text, 5.0:1 as text on white. With orange picked, `--streak` turns gold (light `oklch(0.56 0.12 80)`, dark `oklch(0.86 0.16 95)`) so the flame and points stay distinct from the accent.
 - Gates 2026-10-27: lint, typecheck, 523 unit tests, build
 
 ## Open Questions

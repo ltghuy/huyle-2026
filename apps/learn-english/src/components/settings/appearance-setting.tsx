@@ -80,7 +80,7 @@ export function AppearanceSetting() {
                 className="sr-only"
               />
               <span className="flex size-5 items-center justify-center rounded-full" style={{ background: swatch }} aria-hidden>
-                {accent === id ? <Check className="size-3.5 text-white" strokeWidth={3} /> : null}
+                {accent === id ? <Check className="size-3.5 text-primary-foreground" strokeWidth={3} /> : null}
               </span>
               {label}
             </label>

@@ -4,12 +4,13 @@
 // itself is next-themes' job.
 
 export const ACCENTS = [
-  // Swatches use the 500 shade so they read the same in both modes.
-  { id: "indigo", label: "Chàm", swatch: "oklch(0.585 0.233 277.117)" },
-  { id: "blue", label: "Xanh dương", swatch: "oklch(0.623 0.214 259.815)" },
-  { id: "teal", label: "Xanh ngọc", swatch: "oklch(0.704 0.14 182.503)" },
-  { id: "orange", label: "Cam", swatch: "oklch(0.705 0.213 47.604)" },
-  { id: "pink", label: "Hồng", swatch: "oklch(0.656 0.241 354.308)" },
+  // Each swatch is the accent's own --primary in the current mode (`--swatch-*` in globals.css), so it
+  // shows the colour the buttons and links will get.
+  { id: "indigo", label: "Chàm", swatch: "var(--swatch-indigo)" },
+  { id: "blue", label: "Xanh dương", swatch: "var(--swatch-blue)" },
+  { id: "teal", label: "Xanh ngọc", swatch: "var(--swatch-teal)" },
+  { id: "orange", label: "Cam", swatch: "var(--swatch-orange)" },
+  { id: "pink", label: "Hồng", swatch: "var(--swatch-pink)" },
 ] as const;
 
 export type Accent = (typeof ACCENTS)[number]["id"];
