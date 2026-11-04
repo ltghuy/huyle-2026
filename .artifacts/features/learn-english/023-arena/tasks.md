@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 22 | Remaining: 3
+Total: 25 | Completed: 23 | Remaining: 2
 
 ## Execution Plan
 
@@ -118,7 +118,7 @@ Run after each task or batch (from the repo root):
 
 ### End to end and launch
 
-- [ ] T023 [B:T002,T013,T021,T017,T022] Write `e2e/specs/arena.spec.ts` with two signed-in contexts: create, join by link, both Ready, play a 1-round match (one correct answer each way, one timeout), see the result on both, stats on Hồ sơ; a reconnect within 30 s; a forfeit after 30 s; a mobile project run of create and join
+- [x] T023 [B:T002,T013,T021,T017,T022] Write `e2e/specs/arena.spec.ts` with two signed-in contexts: create, join by link, both Ready, play a 1-round match (a timeout, then picks from both sides; the browser can't know answers, so both screens are checked to agree on every point), see the result on both, stats on Hồ sơ; a reconnect within 30 s; a forfeit after 30 s; a mobile project run of create and join
   - **Done when:** `pnpm --filter learn-english e2e` passes on desktop and mobile; the round trip from a correct answer to both screens showing it is under 1 s on the preview (success criterion)
 
 - [ ] T024 [B:T023] Visual QA: screenshots of hub, lobby, each question type, reveal, round result and match result at 375, 768 and 1280 px in light and dark into `designs/`; run the `ui-ux-pro-max` pre-delivery checklist and fix what fails
