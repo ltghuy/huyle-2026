@@ -323,7 +323,7 @@ At most two elements animate at once; every keyframe is disabled by `@media (pre
 
 ### Visual QA (T024, 2026-11-04)
 
-85 screenshots in `designs/` (`{375,768,1280}-{light,dark}-{screen}.png`), made by `e2e/specs/arena-shots.spec.ts` (`ARENA_SHOTS=1`) against the preview with two signed-in learners: hub, create dialog, lobby (waiting, Ready window), each question type, the wrong-try state, each reveal, round result, paused, leave confirmation, match results (won, forfeit) and the Hồ sơ stats. 768 px covers hub, create, lobby and one question.
+85 screenshots (`{375,768,1280}-{light,dark}-{screen}.png`), made by `e2e/specs/arena-shots.spec.ts` (`ARENA_SHOTS=1`) against the preview with two signed-in learners: hub, create dialog, lobby (waiting, Ready window), each question type, the wrong-try state, each reveal, round result, paused, leave confirmation, match results (won, forfeit) and the Hồ sơ stats. 768 px covers hub, create, lobby and one question. The screenshots are not kept in the repo; run that spec to make them again.
 
 Fixed from the screenshots: letter slots and reveal tiles of 7+ letter words wrapped at 375 px (tiles now shrink to fit one row; phrases wrap between words); reveal tiles collapsed inside the centred reveal box (full-width row); the hub's two cards overflowed beside the sidebar at 768 px (side by side from 1024 px, code tiles fluid); "Rời trận" was 36 px tall (now 44 px).
 
