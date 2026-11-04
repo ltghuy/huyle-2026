@@ -87,7 +87,7 @@ const projectOverrides: Array<Partial<Project>> = [
     oneLiner:
       "Khóa học tiếng Anh miễn phí cho người Việt: từ vựng theo trình độ, ngữ pháp và bài học ngắn mỗi ngày, nhắc lại từ đúng lúc bạn sắp quên.",
     description:
-      "Từ vựng từ A1 đến C1 kèm phiên âm IPA, phát âm và nghĩa tiếng Việt, ngữ pháp và 12 thì giải thích bằng tiếng Việt, động từ bất quy tắc, cùng bài tập chọn theo chủ đề. Lịch ôn tập ngắt quãng lo phần ôn bài. Không cần tài khoản: tiến độ lưu ngay trên trình duyệt và đồng bộ giữa các thiết bị bằng một mã.",
+      "Từ vựng từ A1 đến C1 kèm phiên âm IPA, phát âm và nghĩa tiếng Việt, ngữ pháp và 12 thì giải thích bằng tiếng Việt, động từ bất quy tắc, cùng bài tập chọn theo chủ đề. Lịch ôn tập ngắt quãng lo phần ôn bài. Đăng nhập bằng Google để tiến độ giống nhau trên mọi thiết bị.",
   },
 ];
 

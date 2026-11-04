@@ -46,7 +46,7 @@ export const projects: Project[] = [
     oneLiner:
       "A free English course for Vietnamese speakers: vocabulary by level, grammar, and short daily lessons that bring words back right before you forget them.",
     description:
-      "Words from A1 to C1 with IPA, audio, and Vietnamese meanings, grammar and the 12 tenses explained in Vietnamese, irregular verbs, and exercises you can pick by topic. Spaced repetition plans each review. There are no accounts: progress stays in your browser and syncs between devices with a code.",
+      "Words from A1 to C1 with IPA, audio, and Vietnamese meanings, grammar and the 12 tenses explained in Vietnamese, irregular verbs, and exercises you can pick by topic. Spaced repetition plans each review. Sign in with Google and your progress is the same on every device.",
     tech: ["Next.js", "React", "Cloudflare D1"],
     links: { demo: "https://english.huyle.work/" },
   },
