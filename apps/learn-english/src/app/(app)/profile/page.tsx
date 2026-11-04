@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Sprout } from "lucide-react";
 import { pageMetadata } from "@/lib/site";
 import { ClosingCta } from "@/components/home/closing-cta";
+import { ArenaStats } from "@/components/profile/arena-stats";
 import { AttendanceSummary } from "@/components/profile/attendance-summary";
 import { ProgressInsights } from "@/components/profile/progress-insights";
 import { Owl } from "@/components/mascot/owl";
@@ -32,6 +33,12 @@ export default function ProfilePage() {
             <SectionHeading id="progress-heading" eyebrow="Tiến bộ" title="Bạn đã học được bao nhiêu" description="Học hết một trình độ để nhận chứng nhận của trình độ đó." />
           </div>
           <ProgressInsights />
+        </section>
+        <section aria-labelledby="arena-heading" className="grid gap-4">
+          <div className="px-4 md:px-8">
+            <SectionHeading id="arena-heading" eyebrow="Đấu trường" title="Thành tích đấu" description="Số trận thắng thua khi thách đấu bạn bè." />
+          </div>
+          <ArenaStats />
         </section>
         <ClosingCta />
       </div>

@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 21 | Remaining: 4
+Total: 25 | Completed: 22 | Remaining: 3
 
 ## Execution Plan
 
@@ -113,7 +113,7 @@ Run after each task or batch (from the repo root):
 - [x] T021 [B:T020] Build `AnswerReveal` (tiles flipping in, "Bạn nhanh hơn! +1" / rival / "Hết giờ", IPA and audio for words), `RoundResult` (sudden-death banner), `MatchResult` (winner, round scores, record, confetti on a win, "Đấu lại" waiting state, "Về Đấu trường")
   - **Done when:** tests cover AC-018, AC-020, AC-021, AC-022, AC-026 and AC-027 views, and reduced motion leaves no keyframe animation
 
-- [ ] T022 [B:T009,T014] Add the Arena section to Hồ sơ (`src/components/profile/arena-stats.tsx`, `src/app/(app)/profile/page.tsx`) reading `/api/arena/stats`: wins, losses, best streak, or an invite to "Đấu trường" when there are none
+- [x] T022 [B:T009,T014] Add the Arena section to Hồ sơ (`src/components/profile/arena-stats.tsx`, `src/app/(app)/profile/page.tsx`) reading `/api/arena/stats`: wins, losses, best streak, or an invite to "Đấu trường" when there are none
   - **Done when:** `arena-stats.test.tsx` covers numbers, the empty invite and a failed load (AC-030)
 
 ### End to end and launch
