@@ -24,7 +24,7 @@ export function Lobby({ handle, me }: LobbyProps) {
   const bothHere = room.players.length === 2;
 
   return (
-    <div className="mx-auto grid w-full max-w-md gap-6">
+    <div className="mx-auto grid w-full max-w-2xl gap-6">
       <InvitePanel code={room.code} />
 
       <section aria-labelledby="players-title" className="grid gap-2">

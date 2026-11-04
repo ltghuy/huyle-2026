@@ -98,7 +98,7 @@ export function RoomScreen() {
 
   if (!CODE_PATTERN.test(code)) return <Message title="Mã phòng không hợp lệ" text="Mã phòng có 6 ký tự. Bạn kiểm tra lại liên kết nhé." />;
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:pt-8">
+    <main className="mx-auto w-full max-w-4xl px-4 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:pt-8">
       <SignInGate area="arena" owl className="py-12">
         {account ? <LiveRoom code={code} me={account.userId} name={name} /> : null}
       </SignInGate>
