@@ -96,7 +96,7 @@ Defaults chosen by the agent without asking; revisit if the owner disagrees.
 
 ### Unresolved sudden death
 
-- **Tentative Decision:** If 3 sudden-death questions all go unanswered, the player who answered their round questions faster in total wins the round.
+- **Tentative Decision:** If 3 sudden-death questions all go unanswered, the player who took less time in total on the questions they won that round wins it. If that is equal too (for example 0-0 with no answers), the room's seed picks one.
 - **Revisit when:** The owner prefers a draw or another rule.
 
 ### Answer reveal time
@@ -113,3 +113,9 @@ Defaults chosen by the agent without asking; revisit if the owner disagrees.
 
 - **Tentative Decision:** A player whose socket drops before the match starts gets the same 30 s to come back before counting as having left (AC-010).
 - **Revisit when:** Rooms linger with absent players, or the owner wants leaving to be immediate.
+
+### Ready can be taken back, and an abandoned room closes fast
+
+- **Tentative Decision:** Pressing "Sẵn sàng" again takes it back until both are ready. A room whose creator never connects (or drops and doesn't return within 30 s) closes then, instead of waiting out the 10-minute idle limit.
+- **Revisit when:** Players press Ready by accident and want it locked, or a creator needs longer to come back.
+

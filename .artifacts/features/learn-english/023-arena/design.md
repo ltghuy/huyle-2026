@@ -114,11 +114,11 @@ Per-socket attachment: `{ userId }` (`serializeAttachment`, under 16 KiB).
 
 **Socket messages** (Zod in `src/learning/arena/protocol.ts`, JSON text frames):
 
-Client → room: `ready`, `start` (creator, after the window closed), `answer { q, text? , choice? }`, `typing { q }` (once per question), `rematch`, `leave`.
+Client → room: `ready`, `start` (creator, after the window closed), `answer { q, text }` (typed), `choose { q, choice }` (0 to 3), `typing { q }` (once per question), `rematch`, `leave`. Any other field, including an identity, is stripped.
 
-Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join, reconnect and every phase change), `typing { userId }`, `wrong { userId }`, `scored { userId, q }`, `error { message }` (Vietnamese).
+Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join, reconnect and every change of phase or score; a point shows as `reveal.answeredBy`, so there is no separate `scored` frame), `typing { userId }`, `wrong { userId }`, `error { message }` (Vietnamese). Close codes: 4000 room closed, 4001 replaced by a newer tab, 1009 frame too big.
 
-`PublicRoom` carries players, phase, round, scores, `deadline`, and the current question's public view only: listening `{ audio, options }`; recall `{ meaningsVi, pos }` (no headword, no audio before the reveal: the clip says the word); write `{ vi }`. In `reveal` it adds `answer` (headword or English sentence) and `answeredBy`.
+`PublicRoom` carries players, phase, round, scores, `deadline`, `lockedOut`, round results, and the current question's public view only: listening `{ audio, options }`; recall `{ meaningsVi, pos, mask }` (`mask` is the headword with letters as `_`, for the letter slots; no headword, no audio before the reveal: the clip says the word); write `{ vi }`. In `reveal` it adds `answer` (headword or English sentence), `answerIndex` for listening, `ipa` and `audio` for words, and `answeredBy`.
 
 ### Currently Exposed Fields
 
@@ -139,11 +139,14 @@ Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join,
 | Every deadline is the room's single alarm (`deadline` in state); `alarm()` dispatches a `tick` event; handlers check phase and deadline first | `setTimeout` blocks hibernation and bills duration; alarms can retry, so ticks must be idempotent |
 | "First" is processing order in the room; answers arriving after `deadline` are ignored even if the alarm is late | The object handles one event at a time (spec AC-016, edge cases); alarm precision is undocumented |
 | Sign-in reaches the socket as a 60 s HMAC ticket from a signed-in route, not by running Better Auth in the worker | `getAuth()` needs the Next.js request context (src/server/db/index.ts:9-11); one auth seam stays in `session.ts` |
-| Rooms read content straight from D1 (`kind IN ('word','sentence','wording') AND level = ?`, one query at round start) with Drizzle on `this.env.DB` | No Next.js context in the object; one query per round fits the one-D1-call habit; rows read are plentiful |
+| Rooms read content straight from D1 (`kind IN ('word','sentence','wording') AND level = ?`) with Drizzle on `this.env.DB`, once per match: when the countdown ends (`needsPool`) the machine builds every round's 12 questions plus 3 sudden-death ones and keeps them in the room state | No Next.js context in the object. A hibernating room loses its memory, so loading per question or per round would re-read the level (about 3,000 rows) after every wake; once per match keeps a duel near 3,000 rows read |
 | Stats are written by the room at match end in one `db.batch` through `recordResult(db, winnerId, loserId)` in `arena.service.ts`, which takes `db` as a parameter | Same service from routes (tests) and the object; batch keeps both rows consistent |
 | Room code: 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789`; the object named by the code is claimed through an RPC `create(settings, creator)` that fails if already used; the route retries up to 5 times | No D1 table for codes; 31^6 ≈ 887 million codes |
+| Mid-match, leaving on purpose (`leave`) is an immediate forfeit; a drop pauses the match for 30 s. On return an interrupted question restarts with full time, and a countdown, reveal or round result runs again | Quitting must not dodge a loss (decisions.md, Disconnects) |
 | Lobby disconnects get the same 30 s grace as in-match ones before counting as leaving | Phones drop sockets when an app is backgrounded for a moment (tentative, decisions.md) |
 | Client clock: every `state` carries `serverNow`; the client keeps `offset = serverNow - Date.now()` and draws countdowns from `deadline - (Date.now() + offset)` | Both screens show the same countdown (AC-007, AC-012) |
+| Which items a type can ask: "Nghe" only words with a clip; "Nhớ từ" every word with a meaning; "Viết câu" only translatable sentences of at most 12 tokens (`MAX_WRITE_TOKENS`). A mode is offered when each of its types has a round plus sudden death: 15 items, or 5 each in "Hỗn hợp" (`availableModes`) | A 30 s question must be typeable; a listening question needs its clip |
+| Within a round an item is asked once, even across types (a word is never both heard and recalled); items asked earlier in the match come last and are reused only when a type runs out | Fair, varied rounds on small levels |
 | Recall typos (`typo: true`) count as correct | Same as solo play; a race shouldn't punish a one-letter slip on long words |
 | Message limits per socket: at most 5 `answer` per second (extra dropped), one `typing` per question, frames over 2 KB closed with 1009 | Edge case on flooding; keeps billed requests low |
 | Second tab: a new socket for a user closes the older one with code 4001 ("Phòng đã mở ở tab khác") | Edge case; the newest tab wins |
@@ -262,7 +265,7 @@ Waiting for the rival: their row is a dashed placeholder "Đang chờ đối th�
 - Headline: "Bạn nhanh hơn! +1" (primary, `score-pop` on your chip), "Minh nhanh hơn" (rival colour), or "Hết giờ, không ai đúng" (muted, owl "sleepy").
 - For words: IPA and the speaker button, so the reveal still teaches.
 
-**Round result** (5 s, card over the duel): "Hiệp 1: Bạn thắng 7–5", pips update in gold, owl "cheer" or "think"; tied rounds announce "Hòa 6–6, câu quyết định!" before the sudden-death question, which gets a gold border and the label "Câu quyết định".
+**Round result** (5 s, card over the duel): "Hiệp 1: Bạn thắng 7–5", pips update in gold, owl "cheer" or "think". A tied round goes straight from the last reveal to the sudden-death question (`suddenDeath > 0`), which shows a gold border, "Hòa 6–6" and the label "Câu quyết định". The last round has no result card: the match result follows the last reveal.
 
 **Match result**
 ```

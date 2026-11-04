@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 2 | Remaining: 23
+Total: 25 | Completed: 7 | Remaining: 18
 
 ## Execution Plan
 
@@ -52,19 +52,19 @@ Run after each task or batch (from the repo root):
 
 ### Arena rules (pure, `src/learning/arena/`)
 
-- [ ] T003 [P] Define the protocol in `protocol.ts`: room settings (`mode`, `level`, `rounds`), client frames (`ready`, `start`, `answer`, `typing`, `rematch`, `leave`), room frames (`state`, `typing`, `wrong`, `scored`, `error`), `PublicRoom` and question public views; size caps
+- [x] T003 [P] Define the protocol in `protocol.ts`: room settings (`mode`, `level`, `rounds`), client frames (`ready`, `start`, `answer`, `choose`, `typing`, `rematch`, `leave`), room frames (`state`, `typing`, `wrong`, `error`), `PublicRoom` and question public views; size caps
   - **Done when:** `protocol.test.ts` accepts every valid frame and rejects unknown types, bad settings, and text over the cap
 
-- [ ] T004 [B:T003] Build rounds in `questions.ts`: `buildRound(pool, settings, seed, count)` (12, or 1 for sudden death; "Hỗn hợp" spreads 4/4/4), `publicView(q)` (no answer; recall without audio), `grade(q, answer)` via `gradeListeningChoice`, `gradeRecall` (typo counts) and `gradeTranslate` with wordings, `availableModes(pool)`
+- [x] T004 [B:T003] Build rounds in `questions.ts`: `buildRound(pool, settings, seed, count)` (12, or 1 for sudden death; "Hỗn hợp" spreads 4/4/4), `publicView(q)` (no answer; recall without audio), `grade(q, answer)` via `gradeListeningChoice`, `gradeRecall` (typo counts) and `gradeTranslate` with wordings, `availableModes(pool)`
   - **Done when:** `questions.test.ts` covers same seed same list, per-mode types, public views leaking nothing, grading per type (wordings, contractions, recall typo), and a level short of items disabling its mode (AC-002 availability, AC-011, AC-015, AC-019)
 
-- [ ] T005 [B:T003] Write the state machine's room and lobby part in `machine.ts`: `create`, `join`, `leave`, lobby disconnect grace, the 30 s Ready window opened on join, `ready`, expiry back to lobby, creator `start`, 3 s countdown, idle close after 10 min, creator leaving closes the room; `reduce(state, event, now) → { state, send, alarmAt }`
+- [x] T005 [B:T003] Write the state machine's room and lobby part in `machine.ts`: `create`, `join`, `leave`, lobby disconnect grace, the 30 s Ready window opened on join, `ready`, expiry back to lobby, creator `start`, 3 s countdown, idle close after 10 min, creator leaving closes the room; `reduce(state, event, now) → { state, send, alarmAt }`
   - **Done when:** `machine.test.ts` covers AC-007, AC-008, AC-009, AC-010 and the idle-close and own-room edge cases, including a duplicate `tick` doing nothing
 
-- [ ] T006 [B:T005,T004] Add play to the machine: questions with per-type deadlines, private answers, `typing` once per question, `wrong` relays, lock-out after a wrong choice, typed retries, first processed correct answer scores, late answers ignored, timeout without a point, 3 s reveal, round end after 12, 5 s round result, sudden death up to 3 then the faster-total rule, match end at 1/1 or 2/3, answer flood limit
+- [x] T006 [B:T005,T004] Add play to the machine: questions with per-type deadlines, private answers, `typing` once per question, `wrong` relays, lock-out after a wrong choice, typed retries, first processed correct answer scores, late answers ignored, timeout without a point, 3 s reveal, round end after 12, 5 s round result, sudden death up to 3 then the faster-total rule, match end at 1/1 or 2/3, answer flood limit
   - **Done when:** tests cover AC-012, AC-013, AC-014, AC-016, AC-017, AC-018, AC-020, AC-021, AC-022 and the near-simultaneous, late-answer and flooding edge cases
 
-- [ ] T007 [B:T006] Add the rest: in-match disconnect pause with 30 s grace, reconnect restarting the question with full time, forfeit to the player who stayed, a newer socket replacing an older one, rematch when both ask (new seed, back to Ready)
+- [x] T007 [B:T006] Add the rest: in-match disconnect pause with 30 s grace, reconnect restarting the question with full time, forfeit to the player who stayed, a newer socket replacing an older one, rematch when both ask (new seed, back to Ready)
   - **Done when:** tests cover AC-024, AC-025, AC-026, AC-027 and the second-tab edge case
 
 ### Server
@@ -78,7 +78,7 @@ Run after each task or batch (from the repo root):
 - [ ] T010 [B:T004] Write the content loader `src/server/arena/content.ts`: one D1 query for a level's words, sentences and wordings (not deleted), parsed with `contentItemSchema` into the pool `buildRound` takes
   - **Done when:** a test over `sqliteDb()` with seeded content returns the pool and skips deleted rows
 
-- [ ] T011 [B:T001,T007,T008,T009,T010] Build the real `ArenaRoom` in `src/server/arena/room.ts`: `create()` RPC, socket accept with the ticket identity in the attachment, frames validated and fed to `reduce`, state saved under `room` after each event, one alarm from `alarmAt`, broadcasts with `serverNow`, content loaded once per round, `recordResult` at match end, nothing else written (AC-023), close codes 4001 and 1009
+- [ ] T011 [B:T001,T007,T008,T009,T010] Build the real `ArenaRoom` in `src/server/arena/room.ts`: `create()` RPC, socket accept with the ticket identity in the attachment, frames validated and fed to `reduce`, state saved under `room` after each event, one alarm from `alarmAt`, broadcasts with `serverNow`, content loaded once per round, `recordResult` at match end, nothing else written (AC-023), close codes 4001 and 1009. A `replace` effect closes the user's older sockets with 4001; their `webSocketClose` must not become a `disconnect` while a newer socket for that user is open. Before a tick, load the level's content when `needsPool(state)`
   - **Done when:** unit tests with a fake storage, fake sockets and a fake clock drive a full 1-round match through the class; on `pnpm cf:preview` a scripted two-socket run reaches match end and writes one `arena_stats` row per player
 
 - [ ] T012 [B:T011] Route sockets in `worker.ts`: verify the ticket, 401 when missing or expired, forward to `ARENA_ROOM.getByName(code)`; answer 503 with the Vietnamese "Đấu trường đang tạm nghỉ…" when the object call throws

@@ -1,0 +1,148 @@
+// The Arena's socket protocol (feature 023): room settings, the frames a player
+// sends, and the frames and room view the room sends back. Pure and shared by
+// the room (Durable Object) and the browser.
+import { z } from "zod";
+import { LEVELS } from "../types";
+
+/** What the creator picks: one question type, or the three mixed ("Hỗn hợp"). */
+export const ARENA_MODES = ["listen", "recall", "write", "mixed"] as const;
+export type ArenaMode = (typeof ARENA_MODES)[number];
+
+/** "Nghe và chọn từ", "Nhớ lại từ", "Viết câu". */
+export const QUESTION_TYPES = ["listen", "recall", "write"] as const;
+export type QuestionType = (typeof QUESTION_TYPES)[number];
+
+export const settingsSchema = z.object({
+  mode: z.enum(ARENA_MODES),
+  level: z.enum(LEVELS),
+  rounds: z.union([z.literal(1), z.literal(3)]),
+});
+export type ArenaSettings = z.infer<typeof settingsSchema>;
+
+/** A frame longer than this closes the socket (1009); typed answers are far shorter. */
+export const MAX_FRAME_BYTES = 2048;
+/** Longest typed answer, the same cap as a translate claim (feature 016). */
+export const MAX_ANSWER_LENGTH = 500;
+/** Options in "Nghe và chọn từ" (`LISTENING_OPTIONS`). */
+export const CHOICE_COUNT = 4;
+
+/** Socket close codes the client reacts to. */
+export const CLOSE_CODES = {
+  /** The room closed (creator left, idle, match over and everyone gone). */
+  roomClosed: 4000,
+  /** The same player opened the room in another tab; the newer socket wins. */
+  replaced: 4001,
+  /** A frame over MAX_FRAME_BYTES. */
+  tooBig: 1009,
+} as const;
+
+const questionIndex = z.number().int().min(0).max(99);
+
+export const clientFrameSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("ready") }),
+  z.object({ type: z.literal("start") }),
+  z.object({ type: z.literal("typing"), q: questionIndex }),
+  z.object({ type: z.literal("answer"), q: questionIndex, text: z.string().trim().min(1).max(MAX_ANSWER_LENGTH) }),
+  z.object({ type: z.literal("choose"), q: questionIndex, choice: z.number().int().min(0).max(CHOICE_COUNT - 1) }),
+  z.object({ type: z.literal("rematch") }),
+  z.object({ type: z.literal("leave") }),
+]);
+export type ClientFrame = z.infer<typeof clientFrameSchema>;
+
+/** A player's frame, or null when it is too long, not JSON, or not a known frame. */
+export function parseClientFrame(raw: string): ClientFrame | null {
+  if (new TextEncoder().encode(raw).length > MAX_FRAME_BYTES) return null;
+  let data: unknown;
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  const parsed = clientFrameSchema.safeParse(data);
+  return parsed.success ? parsed.data : null;
+}
+
+export const PHASES = ["lobby", "ready", "countdown", "question", "reveal", "round-end", "paused", "match-end", "closed"] as const;
+export type Phase = (typeof PHASES)[number];
+
+export const publicPlayerSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  image: z.string().nullable(),
+  connected: z.boolean(),
+  ready: z.boolean(),
+  /** Points in the current round. */
+  score: z.number().int(),
+  roundsWon: z.number().int(),
+});
+export type PublicPlayer = z.infer<typeof publicPlayerSchema>;
+
+/** What a question shows before its reveal: never the answer, and no clip for recall (it says the word). */
+export const publicQuestionSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("listen"), audio: z.string(), options: z.array(z.string()).length(CHOICE_COUNT) }),
+  /** `mask`: the headword with each letter as "_", keeping spaces, hyphens and apostrophes ("___-_____"). */
+  z.object({ type: z.literal("recall"), meaningsVi: z.array(z.string()).min(1), pos: z.string(), mask: z.string() }),
+  z.object({ type: z.literal("write"), vi: z.string() }),
+]);
+export type PublicQuestion = z.infer<typeof publicQuestionSchema>;
+
+export const revealSchema = z.object({
+  /** The headword, or the English sentence. */
+  answer: z.string(),
+  ipa: z.string().optional(),
+  audio: z.string().optional(),
+  /** Option index of the answer, for "Nghe và chọn từ". */
+  answerIndex: z.number().int().optional(),
+  /** Who scored; null when time ran out. */
+  answeredBy: z.string().nullable(),
+});
+export type Reveal = z.infer<typeof revealSchema>;
+
+export const roundResultSchema = z.object({
+  round: z.number().int(),
+  scores: z.record(z.string(), z.number().int()),
+  winnerId: z.string(),
+});
+export type RoundResult = z.infer<typeof roundResultSchema>;
+
+export const END_REASONS = ["won", "forfeit", "cancelled"] as const;
+
+export const publicRoomSchema = z.object({
+  code: z.string(),
+  settings: settingsSchema,
+  creatorId: z.string(),
+  phase: z.enum(PHASES),
+  players: z.array(publicPlayerSchema),
+  /** 1-based; 0 before the first round. */
+  round: z.number().int(),
+  /** 0-based question in the round, sudden-death questions after the 12. */
+  questionIndex: z.number().int(),
+  questionCount: z.number().int(),
+  /** Sudden-death questions asked this round (0 to 3). */
+  suddenDeath: z.number().int(),
+  /** Epoch ms (room clock) when the current phase ends; null when nothing is counting down. */
+  deadline: z.number().nullable(),
+  question: publicQuestionSchema.nullable(),
+  questionType: z.enum(QUESTION_TYPES).nullable(),
+  /** Players who picked a wrong option this question and are locked out of it. */
+  lockedOut: z.array(z.string()),
+  reveal: revealSchema.nullable(),
+  rounds: z.array(roundResultSchema),
+  /** The player the match is waiting for while paused. */
+  pausedFor: z.string().nullable(),
+  winnerId: z.string().nullable(),
+  endReason: z.enum(END_REASONS).nullable(),
+  /** Players who asked for a rematch. */
+  rematch: z.array(z.string()),
+});
+export type PublicRoom = z.infer<typeof publicRoomSchema>;
+
+export const roomFrameSchema = z.discriminatedUnion("type", [
+  /** The whole room, on join, reconnect and every change of phase or score. `serverNow` sets the client's clock offset. */
+  z.object({ type: z.literal("state"), room: publicRoomSchema, serverNow: z.number() }),
+  z.object({ type: z.literal("typing"), userId: z.string() }),
+  z.object({ type: z.literal("wrong"), userId: z.string() }),
+  /** A Vietnamese message for the player, e.g. a refused action. */
+  z.object({ type: z.literal("error"), message: z.string() }),
+]);
+export type RoomFrame = z.infer<typeof roomFrameSchema>;
