@@ -3,7 +3,7 @@ id: 023
 feature: arena
 type: brownfield
 scope: complex
-status: in-progress
+status: to-review
 branch: main
 created: 2026-11-04
 ---
@@ -44,13 +44,13 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-001: WHEN a signed-in learner opens "Đấu trường" (Arena) THEN system SHALL offer "Tạo phòng" (create a room) and a field to join by code
-- [ ] AC-028: WHEN the app shows its menu THEN system SHALL list "Đấu trường" in the sidebar (and in the phone menu), locked for guests like the other sign-in areas
-- [ ] AC-002: WHEN a learner creates a room THEN system SHALL let them choose the mode ("Nghe", "Nhớ từ", "Viết câu", "Hỗn hợp"), the level (A1 to C1, their own level preselected) and the rounds (1, or best of 3)
-- [ ] AC-003: WHEN a room is created THEN system SHALL show its unique 6-character code, a copyable invite link that opens the room, and a QR code of that link
-- [ ] AC-004: WHEN a signed-in learner enters a valid code or opens an invite link THEN system SHALL put them in the room and show both players' names and avatars to both players
-- [ ] AC-005: WHEN a code is unknown, expired, or the room already has two players or has started THEN system SHALL say so in Vietnamese and not join
-- [ ] AC-006: WHEN a guest opens "Đấu trường" or an invite link THEN system SHALL show the sign-in prompt used by other locked areas, and after sign-in from an invite link SHALL continue into that room
+- [x] AC-001: WHEN a signed-in learner opens "Đấu trường" (Arena) THEN system SHALL offer "Tạo phòng" (create a room) and a field to join by code
+- [x] AC-028: WHEN the app shows its menu THEN system SHALL list "Đấu trường" in the sidebar (and in the phone menu), locked for guests like the other sign-in areas
+- [x] AC-002: WHEN a learner creates a room THEN system SHALL let them choose the mode ("Nghe", "Nhớ từ", "Viết câu", "Hỗn hợp"), the level (A1 to C1, their own level preselected) and the rounds (1, or best of 3)
+- [x] AC-003: WHEN a room is created THEN system SHALL show its unique 6-character code, a copyable invite link that opens the room, and a QR code of that link
+- [x] AC-004: WHEN a signed-in learner enters a valid code or opens an invite link THEN system SHALL put them in the room and show both players' names and avatars to both players
+- [x] AC-005: WHEN a code is unknown, expired, or the room already has two players or has started THEN system SHALL say so in Vietnamese and not join
+- [x] AC-006: WHEN a guest opens "Đấu trường" or an invite link THEN system SHALL show the sign-in prompt used by other locked areas, and after sign-in from an invite link SHALL continue into that room
 
 ### P1: Ready check
 
@@ -60,10 +60,10 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-007: WHEN the second player joins THEN system SHALL open a 30-second Ready window and show its countdown to both players
-- [ ] AC-008: WHEN both players press "Sẵn sàng" (Ready) within the window THEN system SHALL start the match with a short countdown on both screens
-- [ ] AC-009: WHEN the window ends without both players ready THEN system SHALL clear both Ready marks and let the creator press "Bắt đầu" (Start) to open a new 30-second window
-- [ ] AC-010: WHEN a player leaves the room before the match starts THEN system SHALL tell the other player, and a creator leaving SHALL close the room
+- [x] AC-007: WHEN the second player joins THEN system SHALL open a 30-second Ready window and show its countdown to both players
+- [x] AC-008: WHEN both players press "Sẵn sàng" (Ready) within the window THEN system SHALL start the match with a short countdown on both screens
+- [x] AC-009: WHEN the window ends without both players ready THEN system SHALL clear both Ready marks and let the creator press "Bắt đầu" (Start) to open a new 30-second window
+- [x] AC-010: WHEN a player leaves the room before the match starts THEN system SHALL tell the other player, and a creator leaving SHALL close the room
 
 ### P1: Play a round
 
@@ -73,17 +73,17 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-011: WHEN a round starts THEN system SHALL ask 12 questions of the room's mode at the room's level, the same questions in the same order for both players
-- [ ] AC-012: WHEN a question shows THEN system SHALL give 15 s for "Nghe và chọn từ" (listen and select the word), 15 s for "Nhớ lại từ" (recall the word) and 30 s for "Viết câu" (write the sentence: read the Vietnamese, type the English), with the same countdown on both screens
-- [ ] AC-013: WHEN a player answers THEN system SHALL use only that player's own answer box, and SHALL show the opponent only that they are typing or got it wrong, never the text they typed or picked
-- [ ] AC-014: WHEN a player picks a wrong option in "Nghe và chọn từ" THEN system SHALL lock them out of that question; typed questions SHALL accept retries until someone is right or time runs out
-- [ ] AC-015: WHEN a typed answer is checked THEN system SHALL grade it like the existing exercise of that type ("Viết câu" accepts the sentence's accepted word orders and approved wordings, forgiving case, punctuation, spacing and contractions)
-- [ ] AC-016: WHEN the first correct answer arrives THEN system SHALL give that player 1 point, end the question for both, and show who scored. "First" SHALL be decided by when the server received the answer
-- [ ] AC-017: WHEN time runs out with no correct answer THEN system SHALL give no point
-- [ ] AC-018: WHEN a question ends THEN system SHALL show the correct answer to both players for a few seconds before the next question
-- [ ] AC-019: WHEN a question is on screen THEN system SHALL NOT have sent its answer to either browser
-- [ ] AC-020: WHEN 12 questions are done THEN system SHALL show the round score, and the player with more points SHALL win the round
-- [ ] AC-021: WHEN a round ends tied THEN system SHALL ask a sudden-death question whose first correct answer wins the round; if nobody gets it, another follows, up to 3
+- [x] AC-011: WHEN a round starts THEN system SHALL ask 12 questions of the room's mode at the room's level, the same questions in the same order for both players
+- [x] AC-012: WHEN a question shows THEN system SHALL give 15 s for "Nghe và chọn từ" (listen and select the word), 15 s for "Nhớ lại từ" (recall the word) and 30 s for "Viết câu" (write the sentence: read the Vietnamese, type the English), with the same countdown on both screens
+- [x] AC-013: WHEN a player answers THEN system SHALL use only that player's own answer box, and SHALL show the opponent only that they are typing or got it wrong, never the text they typed or picked
+- [x] AC-014: WHEN a player picks a wrong option in "Nghe và chọn từ" THEN system SHALL lock them out of that question; typed questions SHALL accept retries until someone is right or time runs out
+- [x] AC-015: WHEN a typed answer is checked THEN system SHALL grade it like the existing exercise of that type ("Viết câu" accepts the sentence's accepted word orders and approved wordings, forgiving case, punctuation, spacing and contractions)
+- [x] AC-016: WHEN the first correct answer arrives THEN system SHALL give that player 1 point, end the question for both, and show who scored. "First" SHALL be decided by when the server received the answer
+- [x] AC-017: WHEN time runs out with no correct answer THEN system SHALL give no point
+- [x] AC-018: WHEN a question ends THEN system SHALL show the correct answer to both players for a few seconds before the next question
+- [x] AC-019: WHEN a question is on screen THEN system SHALL NOT have sent its answer to either browser
+- [x] AC-020: WHEN 12 questions are done THEN system SHALL show the round score, and the player with more points SHALL win the round
+- [x] AC-021: WHEN a round ends tied THEN system SHALL ask a sudden-death question whose first correct answer wins the round; if nobody gets it, another follows, up to 3
 
 ### P1: Win the match
 
@@ -93,10 +93,10 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-022: WHEN a player wins the rounds needed (1 of 1, or 2 of 3) THEN system SHALL end the match and show the winner and the round scores to both players
-- [ ] AC-023: WHEN a match ends THEN system SHALL NOT change points, the daily streak, the leaderboard or Ôn tập
-- [ ] AC-029: WHEN a match ends with a winner THEN system SHALL record a win for the winner and a loss for the other player on their accounts, the same on every device they sign in on
-- [ ] AC-030: WHEN a signed-in learner opens Hồ sơ THEN system SHALL show their Arena wins, losses and longest win streak; with no duels yet it SHALL invite them to the Arena instead
+- [x] AC-022: WHEN a player wins the rounds needed (1 of 1, or 2 of 3) THEN system SHALL end the match and show the winner and the round scores to both players
+- [x] AC-023: WHEN a match ends THEN system SHALL NOT change points, the daily streak, the leaderboard or Ôn tập
+- [x] AC-029: WHEN a match ends with a winner THEN system SHALL record a win for the winner and a loss for the other player on their accounts, the same on every device they sign in on
+- [x] AC-030: WHEN a signed-in learner opens Hồ sơ THEN system SHALL show their Arena wins, losses and longest win streak; with no duels yet it SHALL invite them to the Arena instead
 
 ### P1: Disconnects
 
@@ -106,9 +106,9 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-024: WHEN a player disconnects during a match THEN system SHALL pause the match and show the other player "Đang chờ {tên} kết nối lại…" (waiting for the player to reconnect) with a 30-second countdown
-- [ ] AC-025: WHEN the player reconnects within 30 s THEN system SHALL restore their view and restart the interrupted question with its full time
-- [ ] AC-026: WHEN the player is not back within 30 s THEN system SHALL end the match and the player who stayed SHALL win
+- [x] AC-024: WHEN a player disconnects during a match THEN system SHALL pause the match and show the other player "Đang chờ {tên} kết nối lại…" (waiting for the player to reconnect) with a 30-second countdown
+- [x] AC-025: WHEN the player reconnects within 30 s THEN system SHALL restore their view and restart the interrupted question with its full time
+- [x] AC-026: WHEN the player is not back within 30 s THEN system SHALL end the match and the player who stayed SHALL win
 
 ### P2: Rematch
 
@@ -117,7 +117,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [ ] AC-027: WHEN a match ends THEN system SHALL offer "Đấu lại" (rematch); WHEN both players choose it THEN system SHALL keep the room and settings and open a new Ready window with new questions
+- [x] AC-027: WHEN a match ends THEN system SHALL offer "Đấu lại" (rematch); WHEN both players choose it THEN system SHALL keep the room and settings and open a new Ready window with new questions
 
 ## Edge Cases
 

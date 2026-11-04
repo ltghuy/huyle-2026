@@ -24,6 +24,7 @@ answers.
 | Động từ bất quy tắc | `/irregular-verbs` | The 108 common irregular verbs with past and past participle, Vietnamese meaning, IPA and one "go, went, gone" clip each; filters by level and by pattern (cut – cut – cut, buy – bought – bought, come – came – come, go – went – gone); practice whose answers get their own review schedule in Ôn tập |
 | Ôn tập | `/review` | Reviews due today, scheduled with FSRS so each item comes back just before it would be forgotten |
 | Bài tập | `/exercises` | Free practice: multiple choice, spelling, listening, sentence ordering, translating a Vietnamese sentence into English |
+| Đấu trường | `/arena` | Live 1-on-1 duels with a friend (signed-in learners): create a room (mode, level, 1 or 3 rounds), share its code, link or QR, then race on the same timed questions: listen and pick the word, recall it from its meaning, or translate a sentence. The first right answer scores; wins and losses show on Hồ sơ |
 | Từ khó | `/hard-words` | The words a learner gets wrong most often or takes longest to recall |
 | Hồ sơ | `/profile` | Attendance points, streaks, a 12-week calendar and progress per level |
 | Cài đặt | `/settings` | Name, level, appearance, sync, backup files, and replaying the guided tour |
@@ -204,13 +205,18 @@ The rules ask Claude Code to load the same four skills as the handbook
 ## Deployment
 
 The app is the Worker `learn-english` (`wrangler.jsonc`, `open-next.config.ts`)
-on the custom domain `english.huyle.work`. It uses these bindings:
+on the custom domain `english.huyle.work`. Its entry is `worker.ts`: Arena
+sockets (`/api/arena/socket`) go to their room, everything else to the Next.js
+app OpenNext builds into `.open-next/worker.js`. It uses these bindings:
 
 - `DB`: the D1 database `learn-english` (content, sync blobs, anonymous stats, the weekly leaderboard, translation claims)
 - `SYNC_LOOKUP_LIMITER`: a rate limit on wrong sync-code lookups, 10 per minute per IP
 - `LEADERBOARD_LIMITER`: a rate limit on leaderboard writes, 20 per minute per IP
 - `CLAIMS_LIMITER`: a rate limit on translation claims and their status checks, 20 per minute per IP
 - `STATS_SALT`: a secret, set with `wrangler secret put STATS_SALT`
+- `ARENA_ROOM`: the `ArenaRoom` Durable Object, one per Arena room (SQLite-backed, created by the `v1` migration in `wrangler.jsonc` on deploy)
+- `ARENA_LIMITER`: a rate limit on creating and joining Arena rooms, 20 per minute per IP
+- `ARENA_SECRET`: a secret (32+ characters) that signs Arena room tickets, set with `wrangler secret put ARENA_SECRET`
 
 - **Automatic:** Cloudflare Workers Builds deploys pushes to `main` of the
   monorepo and uploads a preview version for other branches. Settings: root
@@ -225,6 +231,13 @@ on the custom domain `english.huyle.work`. It uses these bindings:
 Neither applies D1 migrations. Apply new ones to production with
 `pnpm exec wrangler d1 migrations apply learn-english --remote` before
 deploying code that needs them.
+
+**Arena rollout (feature 023), in this order, before the first push of the Arena to `main`:**
+
+1. `pnpm exec wrangler d1 migrations apply learn-english --remote` (adds `arena_stats`, migration 0006)
+2. `pnpm exec wrangler secret put ARENA_SECRET` with 32+ random characters (`openssl rand -base64 32`)
+3. Push or `pnpm cf:english:deploy`; the deploy creates the `ArenaRoom` class
+4. On two devices with two Google accounts: create, join, play a best-of-3 duel, and check both records on Hồ sơ
 
 Audio clips are static files served by two asset-only Workers, configured in
 `audio/words.wrangler.jsonc` and `audio/sentences.wrangler.jsonc`, at
