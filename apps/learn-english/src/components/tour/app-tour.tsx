@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { Compass } from "lucide-react";
 import { updateProfile } from "@/storage/meta";
 import {
@@ -33,18 +33,50 @@ import {
 import { useProfile } from "@/hooks/use-profile";
 import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { learnerName } from "@/lib/learner-name";
-import { findTarget, sideFor, stepDescription, stepTitle, tourSteps, type TourSide, type TourStepDef } from "./tour-steps";
+import { CARD_GAP, CARD_ROOM_Y, findTarget, scrollDelta, sideFor, stepDescription, stepTitle, tourSteps, type TourSide, type TourStepDef } from "./tour-steps";
 
 interface Placement {
-  target: HTMLElement | null;
+  /**
+   * The step's target, as a ref the step keeps for the whole tour. The page can swap the element
+   * (the lesson card renders a skeleton, then the card), so `followTarget` points it at the live one.
+   */
+  ref: { current: HTMLElement | null };
+  /** Whether a target was on screen when the tour started; without one the step shows centred. */
+  found: boolean;
   side: TourSide;
 }
 
 function placements(steps: TourStepDef[]): Placement[] {
   return steps.map((def) => {
     const target = findTarget(def.target);
-    return { target, side: sideFor(target) };
+    return { ref: { current: target }, found: Boolean(target), side: sideFor(target) };
   });
+}
+
+/** Points the step at its live element when the one it holds left the page; true when it changed. */
+function followTarget(def: TourStepDef, placement: Placement): boolean {
+  if (!placement.found || placement.ref.current?.isConnected) return false;
+  const next = findTarget(def.target);
+  if (!next) return false;
+  placement.ref.current = next;
+  return true;
+}
+
+/** Room the step's card takes beside its target: the card's own height once it is on screen. */
+function cardRoom(index: number): number {
+  const card = document.getElementById(`tour-title-${index}`)?.closest('[role="dialog"]');
+  const height = card?.getBoundingClientRect().height ?? 0;
+  return height > 0 ? height + CARD_GAP : CARD_ROOM_Y;
+}
+
+/** Scrolls the page so the step's target shows in full, with room for the card on its side. */
+function scrollToStep(placement: Placement, index: number) {
+  const target = placement.ref.current;
+  if (!placement.found || !target) return;
+  const delta = scrollDelta(target, placement.side, cardRoom(index));
+  if (Math.abs(delta) < 1) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollBy({ top: delta, behavior: reduce ? "auto" : "smooth" });
 }
 
 /**
@@ -84,6 +116,8 @@ export function AppTour() {
   // render only once measured and keep their props; the targets are live elements, so the cards
   // still follow them as the page moves.
   const [targets, setTargets] = useState<Placement[]>([]);
+  // Re-renders the steps after a target ref moved to a new element, so they measure it.
+  const [, rerender] = useReducer((count: number) => count + 1, 0);
 
   const ready = profile.status === "ready" ? profile.data : null;
   const replay = searchParams.get("tour") === "1";
@@ -114,6 +148,35 @@ export function AppTour() {
     return () => window.removeEventListener("keydown", handleKey, true);
   }, [phase, step, steps.length]);
 
+  useEffect(() => {
+    const placement = targets[step];
+    const def = steps[step];
+    if (phase !== "touring" || !placement || !def) return;
+    // The tour's own auto-scroll is off in controlled mode, so each step scrolls its target into view.
+    if (followTarget(def, placement)) rerender();
+    // After the step's card has rendered, so its height can be measured.
+    let frame = requestAnimationFrame(() => {
+      frame = 0;
+      scrollToStep(placement, step);
+    });
+    const observer = new MutationObserver(() => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (!followTarget(def, placement)) return;
+        rerender();
+        scrollToStep(placement, step);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+    // steps is rebuilt each render; the step's definition is fixed by `step` and `targets`.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, step, targets]);
+
   function markSeen() {
     void updateProfile({ tourSeen: true }, Date.now());
   }
@@ -124,7 +187,9 @@ export function AppTour() {
     setTargets(placements(steps));
     setStep(0);
     setPhase("touring");
-    if (replay) router.replace("/");
+    // Without `scroll: false` the navigation scrolls to the top, undoing the first step's scroll
+    // (the signed-in tour starts at the lesson card, further down the page).
+    if (replay) router.replace("/", { scroll: false });
   }
 
   function handleSkipWelcome() {
@@ -190,13 +255,14 @@ export function AppTour() {
           <TourSpotlight />
           <TourSpotlightRing className="rounded-lg" />
           {targets.length !== steps.length ? null : steps.map((def, i) => {
-            const target = targets[i]?.target ?? null;
+            const placement = targets[i];
+            const found = Boolean(placement?.found);
             return (
               <TourStep
                 key={def.target}
                 // No visible target (hidden menu on a phone): show the step as a centred card.
-                target={target ?? "body"}
-                forceMount={!target}
+                target={found ? (placement.ref as React.RefObject<HTMLElement>) : "body"}
+                forceMount={!found}
                 side={targets[i]?.side ?? "bottom"}
                 align={targets[i]?.side === "right" ? "start" : "center"}
                 collisionPadding={12}
@@ -204,9 +270,9 @@ export function AppTour() {
                 aria-modal="true"
                 aria-labelledby={`tour-title-${i}`}
                 aria-describedby={`tour-desc-${i}`}
-                className={target ? undefined : "top-1/2! left-1/2! -translate-x-1/2 -translate-y-1/2"}
+                className={found ? undefined : "top-1/2! left-1/2! -translate-x-1/2 -translate-y-1/2"}
               >
-                {target ? <TourArrow /> : null}
+                {found ? <TourArrow /> : null}
                 <TourHeader>
                   <TourTitle id={`tour-title-${i}`}>{stepTitle(def, guest)}</TourTitle>
                   <TourDescription id={`tour-desc-${i}`}>{stepDescription(def, guest)}</TourDescription>

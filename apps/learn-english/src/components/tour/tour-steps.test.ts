@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { NAV_ITEMS } from "@/components/shell/nav";
-import { sideFor, stepDescription, stepTitle, TOUR_STEPS, tourSteps } from "./tour-steps";
+import { CARD_ROOM_Y, scrollDelta, sideFor, stepDescription, stepTitle, TOUR_STEPS, tourSteps } from "./tour-steps";
 
 function targetAt(rect: { top: number; left: number; width: number; height: number }): HTMLElement {
   const element = document.createElement("div");
@@ -32,9 +32,50 @@ describe("sideFor", () => {
     expect(sideFor(targetAt({ top: 790, left: 0, width: 78, height: 56 }))).toBe("top");
   });
 
+  it("puts the card above a target too tall to leave room below it (the signed-in lesson card on a short screen)", () => {
+    setViewport(1288, 623);
+    expect(sideFor(targetAt({ top: 160, left: 270, width: 990, height: 420 }))).toBe("top");
+  });
+
   it("puts the card below targets on phones", () => {
     setViewport(390, 844);
     expect(sideFor(targetAt({ top: 120, left: 16, width: 120, height: 40 }))).toBe("bottom");
+  });
+});
+
+describe("scrollDelta", () => {
+  afterEach(() => setViewport(1024, 768));
+
+  it("leaves a target alone when it and its card already fit", () => {
+    setViewport(1280, 800);
+    expect(scrollDelta(targetAt({ top: 130, left: 270, width: 990, height: 300 }), "bottom")).toBe(0);
+    expect(scrollDelta(targetAt({ top: 200, left: 8, width: 240, height: 48 }), "right")).toBe(0);
+    expect(scrollDelta(targetAt({ top: 740, left: 0, width: 78, height: 44 }), "top")).toBe(0);
+  });
+
+  it("scrolls a lesson card cut off at the bottom up, keeping room for the card above it", () => {
+    setViewport(1288, 623);
+    // Card above: the target's top lands at the card's room, as it is taller than what is left.
+    expect(scrollDelta(targetAt({ top: 475, left: 270, width: 990, height: 420 }), "top")).toBe(475 - CARD_ROOM_Y);
+  });
+
+  it("shows all of a tall lesson card when the measured step card leaves room for it", () => {
+    setViewport(1288, 623);
+    // A 132 px card plus its gap: scrolling 284 px puts the lesson card at 191 to 611, all on screen.
+    expect(scrollDelta(targetAt({ top: 475, left: 270, width: 990, height: 420 }), "top", 160)).toBe(895 - (623 - 12));
+  });
+
+  it("scrolls only as far as needed when the whole target fits", () => {
+    setViewport(1280, 800);
+    // Card below: just enough for the target and its card to show.
+    expect(scrollDelta(targetAt({ top: 400, left: 270, width: 990, height: 200 }), "bottom")).toBe(400 + 200 + CARD_ROOM_Y - 800);
+    expect(scrollDelta(targetAt({ top: 700, left: 270, width: 990, height: 60 }), "top")).toBe(0);
+    expect(scrollDelta(targetAt({ top: 760, left: 270, width: 990, height: 60 }), "top")).toBe(760 + 60 - (800 - 12));
+  });
+
+  it("scrolls back up to a target above the screen", () => {
+    setViewport(1280, 800);
+    expect(scrollDelta(targetAt({ top: -300, left: 270, width: 990, height: 200 }), "bottom")).toBe(-312);
   });
 });
 

@@ -64,17 +64,44 @@ export type TourSide = "top" | "bottom" | "right";
 
 /** Room the step card needs beside a target: its `w-80` width plus offset and collision padding. */
 const CARD_ROOM = 320 + 32;
+/** Room a step card takes above or below a target before it is measured: its tallest text plus offset and padding. */
+export const CARD_ROOM_Y = 260;
+/** What a measured step card adds to its own height: the side offset and collision padding. */
+export const CARD_GAP = 16 + 12;
+/** Space kept between a scrolled-to target and the edge of the screen. */
+const EDGE = 12;
 
 /**
- * Where the step card goes so it stays on screen: above bottom-bar items,
- * beside sidebar items on desktop, else below (wide targets such as the lesson card).
+ * Where the step card goes so it stays on screen: above bottom-bar items and targets too tall to
+ * leave room below once scrolled to, beside sidebar items on desktop, else below.
  */
 export function sideFor(target: HTMLElement | null): TourSide {
   if (!target) return "bottom";
   const rect = target.getBoundingClientRect();
   if (rect.top > window.innerHeight * 0.6) return "top";
   if (window.innerWidth >= 768 && window.innerWidth - rect.right >= CARD_ROOM) return "right";
+  if (rect.height + CARD_ROOM_Y + EDGE > window.innerHeight) return "top";
   return "bottom";
+}
+
+/**
+ * How far to scroll the page so the target shows on screen with `room` for the card on `side`
+ * (0 when it already does). A target taller than the room left keeps its top in view.
+ */
+export function scrollDelta(target: HTMLElement, side: TourSide, room = CARD_ROOM_Y): number {
+  const { top, bottom } = target.getBoundingClientRect();
+  const height = window.innerHeight;
+  if (side === "top") {
+    if (top >= room && bottom <= height - EDGE) return 0;
+    return Math.min(top - room, bottom - (height - EDGE));
+  }
+  if (side === "bottom") {
+    if (top >= EDGE && bottom + room <= height) return 0;
+    if (top < EDGE) return top - EDGE;
+    return Math.min(bottom + room - height, top - EDGE);
+  }
+  if (top >= EDGE && bottom <= height - EDGE) return 0;
+  return top < EDGE ? top - EDGE : bottom - (height - EDGE);
 }
 
 /**
