@@ -2,32 +2,41 @@ import { AudioButton } from "@/components/exercise/audio-button";
 import { Owl } from "@/components/mascot/owl";
 import type { PublicPlayer, QuestionType, Reveal } from "@/learning/arena/protocol";
 import { cn } from "@/lib/utils";
+import { slotWords, TileWord, wordTileClass } from "./letter-slots";
 import { Tile } from "./tile";
 
 const STAGGER_MS = 30;
 
-/** The answer as tiles: a word letter by letter, a sentence word by word. */
+/** The answer as tiles: a word letter by letter (shrinking to fit a phone), a sentence word by word. */
 function AnswerTiles({ answer, byWord }: { answer: string; byWord: boolean }) {
-  const pieces = byWord ? answer.split(/\s+/) : [...answer];
-  const small = !byWord && pieces.length > 10;
-  return (
-    <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5" lang="en" aria-hidden>
-      {pieces.map((piece, i) =>
-        piece === " " ? (
-          <span key={i} className="w-3" />
-        ) : (
-          <Tile
-            key={i}
-            flip
-            state="correct"
-            size={byWord ? "sm" : small ? "sm" : "md"}
-            className={cn(byWord && "w-auto px-2.5 text-base", !byWord && "lowercase")}
-            style={{ animationDelay: `${i * STAGGER_MS}ms` }}
-          >
-            {piece}
+  if (byWord) {
+    return (
+      <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5" lang="en" aria-hidden>
+        {answer.split(/\s+/).map((word, i) => (
+          <Tile key={i} flip state="correct" size="sm" className="w-auto px-2.5 text-base" style={{ animationDelay: `${i * STAGGER_MS}ms` }}>
+            {word}
           </Tile>
-        ),
-      )}
+        ))}
+      </div>
+    );
+  }
+  const words = slotWords([...answer].map((char) => ({ kind: char === " " ? "gap" : "letter", char })));
+  const single = words.length === 1;
+  let index = 0;
+  return (
+    <div className="flex w-full flex-wrap justify-center gap-x-3 gap-y-2" lang="en" aria-hidden>
+      {words.map((word, w) => (
+        <TileWord key={w} single={single}>
+          {word.map((piece) => {
+            const delay = index++ * STAGGER_MS;
+            return (
+              <Tile key={delay} flip state="correct" size={single ? "md" : "sm"} className={cn("lowercase", wordTileClass(single))} style={{ animationDelay: `${delay}ms` }}>
+                {piece.char}
+              </Tile>
+            );
+          })}
+        </TileWord>
+      ))}
     </div>
   );
 }

@@ -321,9 +321,29 @@ At most two elements animate at once; every keyframe is disabled by `@media (pre
 - Mobile first: the answer area sits at the bottom with safe-area padding, and the on-screen keyboard must not cover the input (`scrollIntoView` on focus within the focus layout).
 - Light and dark mode via tokens only; contrast checked for every new pair.
 
-### Visual QA before done
+### Visual QA (T024, 2026-11-04)
 
-Screenshots of hub, lobby, each question type, reveal, round result and match result at 375, 768 and 1280 px in light and dark, saved in `.artifacts/features/learn-english/023-arena/designs/`, and the `ui-ux-pro-max` pre-delivery checklist ticked.
+85 screenshots in `designs/` (`{375,768,1280}-{light,dark}-{screen}.png`), made by `e2e/specs/arena-shots.spec.ts` (`ARENA_SHOTS=1`) against the preview with two signed-in learners: hub, create dialog, lobby (waiting, Ready window), each question type, the wrong-try state, each reveal, round result, paused, leave confirmation, match results (won, forfeit) and the Hồ sơ stats. 768 px covers hub, create, lobby and one question.
+
+Fixed from the screenshots: letter slots and reveal tiles of 7+ letter words wrapped at 375 px (tiles now shrink to fit one row; phrases wrap between words); reveal tiles collapsed inside the centred reveal box (full-width row); the hub's two cards overflowed beside the sidebar at 768 px (side by side from 1024 px, code tiles fluid); "Rời trận" was 36 px tall (now 44 px).
+
+Not the Arena: in headless Chromium, light mode at 375 px, the shared translucent header draws a coloured band; `/privacy` shows it too, and real Chrome doesn't. Worth a look on a real phone.
+
+`ui-ux-pro-max` pre-delivery checklist:
+
+- [x] Tested at 375 px; [ ] landscape not tested
+- [x] Reduced motion (screenshots and e2e run with it); [ ] largest system text size not tested
+- [x] Dark mode contrast measured on its own (T014 table)
+- [x] Touch targets ≥ 44 px (after the "Rời trận" fix); the reveal's replay button is the app's standard 36 px icon button
+- [x] No emoji icons in the Arena (lucide throughout; the header's wave emoji is the app's)
+- [x] Pressed states move by transform only, no layout shift
+- [x] Theme tokens only; no raw colours (tile test)
+- [x] Clear pressed, disabled and focus states; motion 150–300 ms
+- [x] Screen-reader order follows the visual order; inputs and options are labelled
+- [x] Primary text ≥ 4.5:1 and secondary ≥ 3:1 in both modes; both themes checked
+- [x] Safe area at the bottom of the room page; content never under the phone menu
+- [x] Small phone, tablet and desktop checked
+- [x] Colour is never the only sign: "Bạn" / names, icons and text with every state
 
 ## Data Flow
 

@@ -71,7 +71,7 @@ function Paused({ room, offset, me }: { room: PublicRoom; offset: number; me: st
 function LeaveMatch({ onLeave }: { onLeave: () => void }) {
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="ghost" size="sm" className="h-9 gap-1.5 text-muted-foreground" />}>
+      <AlertDialogTrigger render={<Button variant="ghost" className="h-11 gap-1.5 px-3 text-muted-foreground" />}>
         <Flag aria-hidden className="size-4" /> Rời trận
       </AlertDialogTrigger>
       <AlertDialogContent>

@@ -34,10 +34,10 @@ interface CodeInputProps {
 export function CodeInput({ id, value, onChange, invalid, describedBy }: CodeInputProps) {
   const letters = Array.from({ length: CODE_LENGTH }, (_, i) => value[i] ?? "");
   return (
-    <div className="relative w-fit">
-      <div aria-hidden className="flex gap-1.5 sm:gap-2">
+    <div className="relative w-full max-w-sm">
+      <div aria-hidden className="grid grid-cols-6 gap-1.5 sm:gap-2">
         {letters.map((letter, i) => (
-          <Tile key={i} size="lg" state={letter ? "filled" : "empty"} className={cn(invalid && "border-destructive")}>
+          <Tile key={i} size="lg" state={letter ? "filled" : "empty"} className={cn("aspect-square h-auto w-full", invalid && "border-destructive")}>
             {letter || "·"}
           </Tile>
         ))}

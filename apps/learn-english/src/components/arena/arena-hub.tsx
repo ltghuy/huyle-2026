@@ -17,7 +17,7 @@ export function ArenaHub() {
 
   return (
     <div className="grid gap-4 px-4 pb-10 md:px-8">
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <section aria-labelledby="arena-create" className="grid content-start gap-3 rounded-xl border bg-card p-5">
           <h2 id="arena-create" className="text-lg font-semibold">
             Thách đấu một người bạn

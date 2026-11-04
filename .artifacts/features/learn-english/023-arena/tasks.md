@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 23 | Remaining: 2
+Total: 25 | Completed: 24 | Remaining: 1
 
 ## Execution Plan
 
@@ -121,7 +121,7 @@ Run after each task or batch (from the repo root):
 - [x] T023 [B:T002,T013,T021,T017,T022] Write `e2e/specs/arena.spec.ts` with two signed-in contexts: create, join by link, both Ready, play a 1-round match (a timeout, then picks from both sides; the browser can't know answers, so both screens are checked to agree on every point), see the result on both, stats on Hồ sơ; a reconnect within 30 s; a forfeit after 30 s; a mobile project run of create and join
   - **Done when:** `pnpm --filter learn-english e2e` passes on desktop and mobile; the round trip from a correct answer to both screens showing it is under 1 s on the preview (success criterion)
 
-- [ ] T024 [B:T023] Visual QA: screenshots of hub, lobby, each question type, reveal, round result and match result at 375, 768 and 1280 px in light and dark into `designs/`; run the `ui-ux-pro-max` pre-delivery checklist and fix what fails
+- [x] T024 [B:T023] Visual QA: screenshots of hub, lobby, each question type, reveal, round result and match result at 375, 768 and 1280 px in light and dark into `designs/`; run the `ui-ux-pro-max` pre-delivery checklist and fix what fails
   - **Done when:** screenshots are saved and every checklist item is ticked in design.md
 
 - [ ] T025 [B:T024] Prepare the rollout: document in knowledge.md and the app README that production needs `migrations/0006_arena.sql` applied remotely and `ARENA_SECRET` set before deploy; owner applies, sets and deploys; check on production with two accounts
