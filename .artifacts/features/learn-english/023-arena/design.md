@@ -110,7 +110,7 @@ Per-socket attachment: `{ userId }` (`serializeAttachment`, under 16 KiB).
 | `/api/arena/rooms` | POST | `{ mode, level, rounds }` | 201 `{ code, ticket }`; 401/503 sign-in; 422 invalid; 429 throttled |
 | `/api/arena/join` | POST | `{ code }` | 200 `{ code, ticket, settings }`; 404 "Không tìm thấy phòng"; 409 full or started; 403 own room as second player is allowed only for the creator's reconnect |
 | `/api/arena/stats` | GET | none | 200 `{ wins, losses, streak, bestStreak }` (zeros when no row) |
-| `/api/arena/socket?code=&ticket=` | GET + `Upgrade: websocket` | handled by the custom worker, never by Next.js | 101 socket; 401 bad or expired ticket; 404 unknown room |
+| `/api/arena/socket?code=` | GET + `Upgrade: websocket`, ticket in `Sec-WebSocket-Protocol: arena, <ticket>` | handled by the custom worker (`src/server/arena/socket-route.ts`), never by Next.js | 101 socket answering subprotocol `arena`; 400 bad code; 401 missing or expired ticket; 503 room unreachable. An unknown room accepts the socket, sends `error` "Phòng đã đóng." and closes with 4000 |
 
 **Socket messages** (Zod in `src/learning/arena/protocol.ts`, JSON text frames):
 
@@ -138,10 +138,13 @@ Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join,
 | A pure state machine `src/learning/arena/machine.ts` (`reduce(state, event, now) → { state, send[], alarmAt }`), wrapped by a thin `ArenaRoom` class | Rules are unit-testable without Workers APIs and follow the layer rules; the class only persists, broadcasts and sets the alarm |
 | Every deadline is the room's single alarm (`deadline` in state); `alarm()` dispatches a `tick` event; handlers check phase and deadline first | `setTimeout` blocks hibernation and bills duration; alarms can retry, so ticks must be idempotent |
 | "First" is processing order in the room; answers arriving after `deadline` are ignored even if the alarm is late | The object handles one event at a time (spec AC-016, edge cases); alarm precision is undocumented |
+| The ticket travels in the WebSocket subprotocol header (`new WebSocket(url, ["arena", ticket])`), not the query string | It carries the player's name and avatar; URLs end up in logs, and a browser can't set other headers on a WebSocket |
 | Sign-in reaches the socket as a 60 s HMAC ticket from a signed-in route, not by running Better Auth in the worker | `getAuth()` needs the Next.js request context (src/server/db/index.ts:9-11); one auth seam stays in `session.ts` |
 | Rooms read content straight from D1 (`kind IN ('word','sentence','wording') AND level = ?`) with Drizzle on `this.env.DB`, once per match: when the countdown ends (`needsPool`) the machine builds every round's 12 questions plus 3 sudden-death ones and keeps them in the room state | No Next.js context in the object. A hibernating room loses its memory, so loading per question or per round would re-read the level (about 3,000 rows) after every wake; once per match keeps a duel near 3,000 rows read |
-| Stats are written by the room at match end in one `db.batch` through `recordResult(db, winnerId, loserId)` in `arena.service.ts`, which takes `db` as a parameter | Same service from routes (tests) and the object; batch keeps both rows consistent |
-| Room code: 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789`; the object named by the code is claimed through an RPC `create(settings, creator)` that fails if already used; the route retries up to 5 times | No D1 table for codes; 31^6 ≈ 887 million codes |
+| Stats are written by the room at match end in one `db.batch` through `recordResult(db, winnerId, loserId, now)` in `src/server/arena/stats.ts`, which takes `db` as a parameter and has no `server-only` (the room imports it); the same goes for `ticket.ts` and `content.ts` | Same service from routes (tests) and the object; batch keeps both rows consistent |
+| Room code: 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789` (`CODE_PATTERN` in protocol.ts); the object named by the code is claimed through an RPC `create(settings, creator)` that fails if already used; the route retries up to 5 times. Joining reads the room's `status()` over RPC. A typed code is forgiven case and spaces |
+| The player's shown name is their chosen name (sent in the create/join body, checked with `checkBoardName`), else their Google name | The same name the rest of the app and the board use |
+| The server doesn't check a mode's availability at create: the create screen does it from the browser's cached content (`availableModes`), and a short level still closes safely at the countdown | Checking on the server would read the level's content on every create | No D1 table for codes; 31^6 ≈ 887 million codes |
 | Mid-match, leaving on purpose (`leave`) is an immediate forfeit; a drop pauses the match for 30 s. On return an interrupted question restarts with full time, and a countdown, reveal or round result runs again | Quitting must not dodge a loss (decisions.md, Disconnects) |
 | Lobby disconnects get the same 30 s grace as in-match ones before counting as leaving | Phones drop sockets when an app is backgrounded for a moment (tentative, decisions.md) |
 | Client clock: every `state` carries `serverNow`; the client keeps `offset = serverNow - Date.now()` and draws countdowns from `deadline - (Date.now() + offset)` | Both screens show the same countdown (AC-007, AC-012) |
@@ -166,10 +169,14 @@ Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join,
 | State machine | `src/learning/arena/machine.ts` | new | Phases, events (`join`, `disconnect`, `ready`, `start`, `answer`, `typing`, `tick`, `rematch`, `leave`), timings constants (30 s ready, 3 s countdown, 15/15/30 s questions, 3 s reveal, 5 s round result, 30 s grace, 10 min idle), scoring, ties, forfeits |
 | Room object | `src/server/arena/room.ts` | new | `ArenaRoom extends DurableObject`: `create()` RPC, `fetch()` accepts sockets with hibernation, `webSocketMessage/Close`, `alarm()`; loads and saves `room`, sends messages, sets the alarm, loads content, records stats |
 | Tickets | `src/server/arena/ticket.ts` | new | `signTicket`, `verifyTicket` (Web Crypto HMAC) |
-| Arena service | `src/server/arena/arena.service.ts` | new | `createRoom` (codes + RPC + retry), `joinRoom` (room status RPC), `recordResult(db, …)`, `getStats(db, userId)` |
+| Arena service | `src/server/arena/arena.service.ts` | new | `createRoom` (codes + RPC + retry), `joinRoom` (room status RPC); routes only, with `server-only` |
+| Arena stats | `src/server/arena/stats.ts` | new | `recordResult(db, …)`, `getStats(db, userId)`; used by the room and the stats route |
 | Arena schemas | `src/server/arena/arena.schema.ts` | new | Request/response Zod for the three routes |
-| Content loader | `src/server/arena/content.ts` | new | One D1 query for a level's words, sentences and wordings, parsed with `contentItemSchema` |
+| Content loader | `src/server/arena/content.ts` | new | `loadArenaPool(db, level)`: one D1 query for a level's words, sentences and wordings, parsed with `contentItemSchema` |
 | Routes | `src/app/api/arena/rooms/route.ts`, `join/route.ts`, `stats/route.ts` | new | Thin: `requireUser`, `readBody`, limiter, service |
+| Route helpers | `src/server/arena/request.ts` | new | `json`, `error`, `readBody` (1 KB cap), `isThrottled` (`ARENA_LIMITER`), as each route family keeps its own |
+| Socket route | `src/server/arena/socket-route.ts` | new | `handleArenaSocket`: code, ticket from the subprotocol, identity header, 503 on failure; `worker.ts` only calls it |
+| E2E content | `scripts/fixtures/content/{word,sentence}/A2-arena.json` | new | 20 words with clip keys and 20 short sentences at A2, so A1 lesson flows stay unchanged |
 | Env | `src/server/env.ts` | modify | `ARENA_SECRET` |
 | DB schema + migration | `src/server/db/schema.ts`, `migrations/0006_arena.sql` | modify / new | `arena_stats` with a hand-written cascade |
 | Arena hub page | `src/app/(app)/arena/page.tsx` | new | Static shell in the app layout: `PageHero`, `<SignInGate area="arena">`, `ArenaHub` (create, join, own stats); metadata via `pageMetadata` |

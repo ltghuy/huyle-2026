@@ -27,8 +27,11 @@ function statement(db: DatabaseSync, sql: string, params: SQLInputValue[] = []) 
   };
 }
 
-/** A Drizzle client over a fresh in-memory database, plus the raw database for setup and checks. */
-export function sqliteDb(): { db: Db; sqlite: DatabaseSync } {
+/**
+ * A Drizzle client over a fresh in-memory database, plus the raw database for setup and checks, and
+ * the D1 stand-in itself for code that builds its own client (the Arena room, feature 023).
+ */
+export function sqliteDb(): { db: Db; sqlite: DatabaseSync; d1: D1Database } {
   const sqlite = new DatabaseSync(":memory:");
   for (const file of readdirSync(MIGRATIONS).filter((name) => name.endsWith(".sql")).sort()) {
     for (const sql of readFileSync(join(MIGRATIONS, file), "utf8").split("--> statement-breakpoint")) sqlite.exec(sql);
@@ -49,5 +52,5 @@ export function sqliteDb(): { db: Db; sqlite: DatabaseSync } {
       }
     },
   };
-  return { db: drizzle(d1 as unknown as D1Database, { schema }) as unknown as Db, sqlite };
+  return { db: drizzle(d1 as unknown as D1Database, { schema }) as unknown as Db, sqlite, d1: d1 as unknown as D1Database };
 }

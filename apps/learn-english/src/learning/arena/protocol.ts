@@ -19,6 +19,9 @@ export const settingsSchema = z.object({
 });
 export type ArenaSettings = z.infer<typeof settingsSchema>;
 
+/** Room codes: 6 characters without look-alikes (no 0/O, 1/I/L). */
+export const CODE_PATTERN = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
+
 /** A frame longer than this closes the socket (1009); typed answers are far shorter. */
 export const MAX_FRAME_BYTES = 2048;
 /** Longest typed answer, the same cap as a translate claim (feature 016). */

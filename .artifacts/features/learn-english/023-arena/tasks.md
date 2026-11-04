@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 7 | Remaining: 18
+Total: 25 | Completed: 13 | Remaining: 12
 
 ## Execution Plan
 
@@ -69,22 +69,22 @@ Run after each task or batch (from the repo root):
 
 ### Server
 
-- [ ] T008 [B:T001] Add `ARENA_SECRET` (min 32) to `src/server/env.ts` and `.dev.vars.example`, and `src/server/arena/ticket.ts` with `signTicket` / `verifyTicket` (HMAC-SHA256, 60 s, bound to a code)
+- [x] T008 [B:T001] Add `ARENA_SECRET` (min 32) to `src/server/env.ts` and `.dev.vars.example`, and `src/server/arena/ticket.ts` with `signTicket` / `verifyTicket` (HMAC-SHA256, 60 s, bound to a code)
   - **Done when:** `ticket.test.ts` (node env) covers round trip, expiry, tampering and a wrong code
 
-- [ ] T009 [P] Add `arena_stats` to `src/server/db/schema.ts`, generate `migrations/0006_arena.sql` and hand-write `ON DELETE CASCADE`; write `recordResult(db, winnerId, loserId)` and `getStats(db, userId)` in `src/server/arena/arena.service.ts`
+- [x] T009 [P] Add `arena_stats` to `src/server/db/schema.ts`, generate `migrations/0006_arena.sql` and hand-write `ON DELETE CASCADE`; write `recordResult(db, winnerId, loserId, now)` and `getStats(db, userId)` in `src/server/arena/stats.ts` (no `server-only`: the room imports it)
   - **Done when:** `arena.service.test.ts` over `sqliteDb()` covers first win, win streak growth and reset on a loss, best streak, zeros for a new user, and the row going when the user is deleted (AC-029)
 
-- [ ] T010 [B:T004] Write the content loader `src/server/arena/content.ts`: one D1 query for a level's words, sentences and wordings (not deleted), parsed with `contentItemSchema` into the pool `buildRound` takes
+- [x] T010 [B:T004] Write the content loader `src/server/arena/content.ts`: one D1 query for a level's words, sentences and wordings (not deleted), parsed with `contentItemSchema` into the pool `buildRound` takes
   - **Done when:** a test over `sqliteDb()` with seeded content returns the pool and skips deleted rows
 
-- [ ] T011 [B:T001,T007,T008,T009,T010] Build the real `ArenaRoom` in `src/server/arena/room.ts`: `create()` RPC, socket accept with the ticket identity in the attachment, frames validated and fed to `reduce`, state saved under `room` after each event, one alarm from `alarmAt`, broadcasts with `serverNow`, content loaded once per round, `recordResult` at match end, nothing else written (AC-023), close codes 4001 and 1009. A `replace` effect closes the user's older sockets with 4001; their `webSocketClose` must not become a `disconnect` while a newer socket for that user is open. Before a tick, load the level's content when `needsPool(state)`
+- [x] T011 [B:T001,T007,T008,T009,T010] Build the real `ArenaRoom` in `src/server/arena/room.ts`: `create()` RPC, socket accept with the ticket identity in the attachment, frames validated and fed to `reduce`, state saved under `room` after each event, one alarm from `alarmAt`, broadcasts with `serverNow`, content loaded once per round, `recordResult` at match end, nothing else written (AC-023), close codes 4001 and 1009. A `replace` effect closes the user's older sockets with 4001; their `webSocketClose` must not become a `disconnect` while a newer socket for that user is open. Before a tick, load the level's content when `needsPool(state)`
   - **Done when:** unit tests with a fake storage, fake sockets and a fake clock drive a full 1-round match through the class; on `pnpm cf:preview` a scripted two-socket run reaches match end and writes one `arena_stats` row per player
 
-- [ ] T012 [B:T011] Route sockets in `worker.ts`: verify the ticket, 401 when missing or expired, forward to `ARENA_ROOM.getByName(code)`; answer 503 with the Vietnamese "Đấu trường đang tạm nghỉ…" when the object call throws
+- [x] T012 [B:T011] Route sockets in `worker.ts`: verify the ticket, 401 when missing or expired, forward to `ARENA_ROOM.getByName(code)`; answer 503 with the Vietnamese "Đấu trường đang tạm nghỉ…" when the object call throws
   - **Done when:** worker tests cover pass-through to OpenNext, 401, 404 for an unknown room and 503; the preview still serves every page
 
-- [ ] T013 [B:T012,T009] Add `POST /api/arena/rooms`, `POST /api/arena/join`, `GET /api/arena/stats` with `src/server/arena/arena.schema.ts`, `createRoom` (code alphabet, RPC claim, up to 5 retries) and `joinRoom` (status RPC: unknown, full, started), and the `ARENA_LIMITER` binding
+- [x] T013 [B:T012,T009] Add `POST /api/arena/rooms`, `POST /api/arena/join`, `GET /api/arena/stats` with `src/server/arena/arena.schema.ts`, `createRoom` (code alphabet, RPC claim, up to 5 retries) and `joinRoom` (status RPC: unknown, full, started), and the `ARENA_LIMITER` binding
   - **Done when:** route tests cover 401 guest, 422 bad body, 429, 201/200 shapes, 404 and 409 (AC-003 code, AC-004, AC-005)
 
 ### Game pieces and client

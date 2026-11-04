@@ -1,0 +1,462 @@
+[
+  {
+    "id": "word:fxa-orange",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "headword": "orange",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/orange/",
+      "meaningsVi": [
+        "quả cam"
+      ],
+      "examples": [
+        "sentence:fxa-orange"
+      ],
+      "synonyms": [],
+      "audio": "5d2b49c05d7516e5e5363525e0a561e21ebe27ae3d776900b8e18438281844ab",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-window",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 1,
+    "status": "approved",
+    "body": {
+      "headword": "window",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/window/",
+      "meaningsVi": [
+        "cửa sổ"
+      ],
+      "examples": [
+        "sentence:fxa-window"
+      ],
+      "synonyms": [],
+      "audio": "f4520c65fbb0b1db0817b9d195dd7f7faecc73cfd2c3e9ad4b17c62920274bcc",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-garden",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 2,
+    "status": "approved",
+    "body": {
+      "headword": "garden",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/garden/",
+      "meaningsVi": [
+        "khu vườn"
+      ],
+      "examples": [
+        "sentence:fxa-garden"
+      ],
+      "synonyms": [],
+      "audio": "f823135fcf5e3094915ffbb18308b6499a42affdcceda76d26626d181573d195",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-pencil",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 3,
+    "status": "approved",
+    "body": {
+      "headword": "pencil",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pencil/",
+      "meaningsVi": [
+        "bút chì"
+      ],
+      "examples": [
+        "sentence:fxa-pencil"
+      ],
+      "synonyms": [],
+      "audio": "cf83204fdf3c575242379a613269460f1b57a03ef1b4b543b56a2a7372a01528",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-market",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 4,
+    "status": "approved",
+    "body": {
+      "headword": "market",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/market/",
+      "meaningsVi": [
+        "chợ"
+      ],
+      "examples": [
+        "sentence:fxa-market"
+      ],
+      "synonyms": [],
+      "audio": "7796cc562b30a51104bf6fa2aaf80987d0aab21d7e1676fef8c09eace0aa6a58",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-rabbit",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 5,
+    "status": "approved",
+    "body": {
+      "headword": "rabbit",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/rabbit/",
+      "meaningsVi": [
+        "con thỏ"
+      ],
+      "examples": [
+        "sentence:fxa-rabbit"
+      ],
+      "synonyms": [],
+      "audio": "4a9a49192e288af5141a44652359a73f72a9bd54798c667e03674920a1642845",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-bridge",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 6,
+    "status": "approved",
+    "body": {
+      "headword": "bridge",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/bridge/",
+      "meaningsVi": [
+        "cây cầu"
+      ],
+      "examples": [
+        "sentence:fxa-bridge"
+      ],
+      "synonyms": [],
+      "audio": "b807a30e8ad18a93883673fcf73601af8c0a4992642c29179258e839d6ed1bf0",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-candle",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 7,
+    "status": "approved",
+    "body": {
+      "headword": "candle",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/candle/",
+      "meaningsVi": [
+        "cây nến"
+      ],
+      "examples": [
+        "sentence:fxa-candle"
+      ],
+      "synonyms": [],
+      "audio": "f211b04677ea888dbffdaa97acd471bd717de5e6d24be0702f2e254d81ca03fb",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-forest",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 8,
+    "status": "approved",
+    "body": {
+      "headword": "forest",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/forest/",
+      "meaningsVi": [
+        "khu rừng"
+      ],
+      "examples": [
+        "sentence:fxa-forest"
+      ],
+      "synonyms": [],
+      "audio": "e0287bf09ea8ec1e897287930f9e67a539297ba708d624ce289f55b28a67b3d0",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-button",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 9,
+    "status": "approved",
+    "body": {
+      "headword": "button",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/button/",
+      "meaningsVi": [
+        "cái cúc áo"
+      ],
+      "examples": [
+        "sentence:fxa-button"
+      ],
+      "synonyms": [],
+      "audio": "9d1cb146e5cb8bf51d6ef4d18273186479625d0ce71ffb62ff5f2463af02fa9c",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-ladder",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 10,
+    "status": "approved",
+    "body": {
+      "headword": "ladder",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/ladder/",
+      "meaningsVi": [
+        "cái thang"
+      ],
+      "examples": [
+        "sentence:fxa-ladder"
+      ],
+      "synonyms": [],
+      "audio": "5ae34dc96b26fd655b394c9abd30e82157a42766c4787b52bed3f80c4131d57f",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-mirror",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 11,
+    "status": "approved",
+    "body": {
+      "headword": "mirror",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/mirror/",
+      "meaningsVi": [
+        "cái gương"
+      ],
+      "examples": [
+        "sentence:fxa-mirror"
+      ],
+      "synonyms": [],
+      "audio": "28bbb842c5d97a7806754f714cc68be29f5a72243527131b2407a5447420a972",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-pillow",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 12,
+    "status": "approved",
+    "body": {
+      "headword": "pillow",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pillow/",
+      "meaningsVi": [
+        "cái gối"
+      ],
+      "examples": [
+        "sentence:fxa-pillow"
+      ],
+      "synonyms": [],
+      "audio": "02239fc821c15518d9b29867adbb0d3fedbcbf6168af6c589a816bfddc3c6512",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-basket",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 13,
+    "status": "approved",
+    "body": {
+      "headword": "basket",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/basket/",
+      "meaningsVi": [
+        "cái giỏ"
+      ],
+      "examples": [
+        "sentence:fxa-basket"
+      ],
+      "synonyms": [],
+      "audio": "189ce6a54888bcd8d5fab1d521e9bd1db89d76a1da1dc88efaa46c6b6e360d87",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-kettle",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 14,
+    "status": "approved",
+    "body": {
+      "headword": "kettle",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/kettle/",
+      "meaningsVi": [
+        "ấm đun nước"
+      ],
+      "examples": [
+        "sentence:fxa-kettle"
+      ],
+      "synonyms": [],
+      "audio": "de1697b452eaf122325d79176c10be70336b93089fce7b1b333adb120e93807a",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-blanket",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 15,
+    "status": "approved",
+    "body": {
+      "headword": "blanket",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/blanket/",
+      "meaningsVi": [
+        "cái chăn"
+      ],
+      "examples": [
+        "sentence:fxa-blanket"
+      ],
+      "synonyms": [],
+      "audio": "33556d524255e7a829da2b05571bca2c39504c5135dd0cbec0bb7fc9b95d592a",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-castle",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 16,
+    "status": "approved",
+    "body": {
+      "headword": "castle",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/castle/",
+      "meaningsVi": [
+        "lâu đài"
+      ],
+      "examples": [
+        "sentence:fxa-castle"
+      ],
+      "synonyms": [],
+      "audio": "cb7786fd6266a2ddd9bece0b7061cab1ea575d99b0bca0a340533a0e70b3e19d",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-island",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 17,
+    "status": "approved",
+    "body": {
+      "headword": "island",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/island/",
+      "meaningsVi": [
+        "hòn đảo"
+      ],
+      "examples": [
+        "sentence:fxa-island"
+      ],
+      "synonyms": [],
+      "audio": "a3c2ee500940231cd323d898dc0d50866b4c52c0f309b2058ca772fa59f7054f",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-pocket",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 18,
+    "status": "approved",
+    "body": {
+      "headword": "pocket",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/pocket/",
+      "meaningsVi": [
+        "cái túi áo"
+      ],
+      "examples": [
+        "sentence:fxa-pocket"
+      ],
+      "synonyms": [],
+      "audio": "7a18d24decbba98c39dcaf9e092d1634aa7625f1f3aa20034eb5b1150c9890fa",
+      "source": "cefrj-1.5"
+    }
+  },
+  {
+    "id": "word:fxa-wallet",
+    "kind": "word",
+    "level": "A2",
+    "topic": "everyday",
+    "sort": 19,
+    "status": "approved",
+    "body": {
+      "headword": "wallet",
+      "variants": [],
+      "pos": "noun",
+      "ipa": "/wallet/",
+      "meaningsVi": [
+        "cái ví"
+      ],
+      "examples": [
+        "sentence:fxa-wallet"
+      ],
+      "synonyms": [],
+      "audio": "871bd5ea04d9fcae57b7f47c78fd64fde999a8ed0cd99a9589a8b56e4140d68f",
+      "source": "cefrj-1.5"
+    }
+  }
+]

@@ -199,3 +199,16 @@ export const accountActivity = sqliteTable(
   },
   (table) => [primaryKey({ columns: [table.userId, table.week, table.deviceHash] }), index("account_activity_week").on(table.week)],
 );
+
+// Arena results per account (feature 023, AC-029/AC-030): wins, losses, the current run of wins
+// and the longest one. Written by the room when a match ends; removed with the account.
+export const arenaStats = sqliteTable("arena_stats", {
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => user.id, { onDelete: "cascade" }),
+  wins: integer("wins").notNull().default(0),
+  losses: integer("losses").notNull().default(0),
+  streak: integer("streak").notNull().default(0),
+  bestStreak: integer("best_streak").notNull().default(0),
+  updatedAt: integer("updated_at").notNull(),
+});

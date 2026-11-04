@@ -73,3 +73,23 @@ describe("getAuthEnv", () => {
     expect(() => getEnv()).not.toThrow();
   });
 });
+
+describe("getArenaEnv", () => {
+  beforeEach(() => {
+    vi.resetModules();
+    for (const key of Object.keys(env)) delete env[key];
+  });
+
+  it("parses the ticket secret", async () => {
+    env.ARENA_SECRET = "a".repeat(32);
+    const { getArenaEnv } = await import("./env");
+    expect(getArenaEnv()).toEqual({ ARENA_SECRET: "a".repeat(32) });
+  });
+
+  it("rejects a missing or short secret", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    env.ARENA_SECRET = "short";
+    const { getArenaEnv } = await import("./env");
+    expect(() => getArenaEnv()).toThrow("Invalid environment variables");
+  });
+});

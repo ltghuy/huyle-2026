@@ -34,6 +34,17 @@ export type AuthEnv = z.infer<typeof authEnvSchema>;
 
 export const getAuthEnv = cache((): AuthEnv => parseBindings(authEnvSchema));
 
+// The Arena (feature 023): signs the short-lived tickets that let a signed-in player open a room's
+// socket. Apart from the others for the same reason as the auth secrets; only the Arena reads it.
+// The custom worker (`worker.ts`) can't import this module and reads `env.ARENA_SECRET` itself.
+const arenaEnvSchema = z.object({
+  ARENA_SECRET: z.string().min(32),
+});
+
+export type ArenaEnv = z.infer<typeof arenaEnvSchema>;
+
+export const getArenaEnv = cache((): ArenaEnv => parseBindings(arenaEnvSchema));
+
 function parseBindings<T extends z.ZodType>(schema: T): z.infer<T> {
   const parsed = schema.safeParse(getCloudflareContext().env);
   if (!parsed.success) {

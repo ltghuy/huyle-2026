@@ -11,3 +11,5 @@ BETTER_AUTH_URL=http://localhost:3002
 #   https://english.huyle.work/api/auth/callback/google
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
+# The Arena (feature 023): signs room tickets. 32+ random characters, e.g. `openssl rand -base64 32`
+ARENA_SECRET=

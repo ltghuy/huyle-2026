@@ -16,6 +16,8 @@ export default defineConfig({
       // `server-only` throws outside a React Server build; tests import server
       // modules directly, so it resolves to an empty module here.
       "server-only": fileURLToPath(new URL("./test/empty-module.ts", import.meta.url)),
+      // The Workers runtime module the Arena room imports (feature 023); a small stand-in for tests.
+      "cloudflare:workers": fileURLToPath(new URL("./test/cloudflare-workers.ts", import.meta.url)),
     },
   },
 });

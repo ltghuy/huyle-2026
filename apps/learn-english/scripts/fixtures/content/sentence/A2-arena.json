@@ -1,0 +1,662 @@
+[
+  {
+    "id": "sentence:fxa-orange",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 0,
+    "status": "approved",
+    "body": {
+      "en": "I see the orange.",
+      "vi": "Tôi thấy quả cam.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "orange"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-orange"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-window",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 1,
+    "status": "approved",
+    "body": {
+      "en": "I see the window.",
+      "vi": "Tôi thấy cửa sổ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "window"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-window"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-garden",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 2,
+    "status": "approved",
+    "body": {
+      "en": "I see the garden.",
+      "vi": "Tôi thấy khu vườn.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "garden"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-garden"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-pencil",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 3,
+    "status": "approved",
+    "body": {
+      "en": "I see the pencil.",
+      "vi": "Tôi thấy bút chì.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "pencil"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-pencil"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-market",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 4,
+    "status": "approved",
+    "body": {
+      "en": "I see the market.",
+      "vi": "Tôi thấy chợ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "market"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-market"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-rabbit",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 5,
+    "status": "approved",
+    "body": {
+      "en": "I see the rabbit.",
+      "vi": "Tôi thấy con thỏ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "rabbit"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-rabbit"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-bridge",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 6,
+    "status": "approved",
+    "body": {
+      "en": "I see the bridge.",
+      "vi": "Tôi thấy cây cầu.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "bridge"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-bridge"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-candle",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 7,
+    "status": "approved",
+    "body": {
+      "en": "I see the candle.",
+      "vi": "Tôi thấy cây nến.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "candle"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-candle"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-forest",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 8,
+    "status": "approved",
+    "body": {
+      "en": "I see the forest.",
+      "vi": "Tôi thấy khu rừng.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "forest"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-forest"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-button",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 9,
+    "status": "approved",
+    "body": {
+      "en": "I see the button.",
+      "vi": "Tôi thấy cái cúc áo.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "button"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-button"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-ladder",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 10,
+    "status": "approved",
+    "body": {
+      "en": "I see the ladder.",
+      "vi": "Tôi thấy cái thang.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "ladder"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-ladder"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-mirror",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 11,
+    "status": "approved",
+    "body": {
+      "en": "I see the mirror.",
+      "vi": "Tôi thấy cái gương.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "mirror"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-mirror"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-pillow",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 12,
+    "status": "approved",
+    "body": {
+      "en": "I see the pillow.",
+      "vi": "Tôi thấy cái gối.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "pillow"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-pillow"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-basket",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 13,
+    "status": "approved",
+    "body": {
+      "en": "I see the basket.",
+      "vi": "Tôi thấy cái giỏ.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "basket"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-basket"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-kettle",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 14,
+    "status": "approved",
+    "body": {
+      "en": "I see the kettle.",
+      "vi": "Tôi thấy ấm đun nước.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "kettle"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-kettle"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-blanket",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 15,
+    "status": "approved",
+    "body": {
+      "en": "I see the blanket.",
+      "vi": "Tôi thấy cái chăn.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "blanket"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-blanket"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-castle",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 16,
+    "status": "approved",
+    "body": {
+      "en": "I see the castle.",
+      "vi": "Tôi thấy lâu đài.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "castle"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-castle"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-island",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 17,
+    "status": "approved",
+    "body": {
+      "en": "I see the island.",
+      "vi": "Tôi thấy hòn đảo.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "island"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-island"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-pocket",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 18,
+    "status": "approved",
+    "body": {
+      "en": "I see the pocket.",
+      "vi": "Tôi thấy cái túi áo.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "pocket"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-pocket"
+      ]
+    }
+  },
+  {
+    "id": "sentence:fxa-wallet",
+    "kind": "sentence",
+    "level": "A2",
+    "sort": 19,
+    "status": "approved",
+    "body": {
+      "en": "I see the wallet.",
+      "vi": "Tôi thấy cái ví.",
+      "audio": "",
+      "tokens": [
+        "I",
+        "see",
+        "the",
+        "wallet"
+      ],
+      "acceptedOrders": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "wrongVariants": [],
+      "gapCandidates": [
+        3
+      ],
+      "wordIds": [
+        "word:fxa-wallet"
+      ]
+    }
+  }
+]
