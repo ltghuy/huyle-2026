@@ -6,6 +6,7 @@ import { ClipboardCheck, Compass } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AppearanceSetting } from "@/components/settings/appearance-setting";
+import { DeleteAccount } from "@/components/settings/delete-account";
 import { BackupPanel } from "@/components/settings/backup-panel";
 import { BackupReminder } from "@/components/settings/backup-reminder";
 import { LeaderboardSetting } from "@/components/leaderboard/leaderboard-setting";
@@ -101,6 +102,8 @@ export default function SettingsPage() {
             <StatsToggle />
           </CardContent>
         </Card>
+
+        <DeleteAccount />
       </div>
     </>
   );

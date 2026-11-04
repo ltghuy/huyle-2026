@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Download, LogOut, Trash2 } from "lucide-react";
-import { useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
+import { LogOut } from "lucide-react";
 import { AccountAvatar } from "@/components/account/account-avatar";
 import { SignInButton } from "@/components/account/sign-in-button";
 import {
@@ -20,10 +18,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { SESSION_QUERY_KEY, useAccount } from "@/hooks/use-account";
+import { useAccount } from "@/hooks/use-account";
 import { signOutOfGoogle, type SessionAccount } from "@/lib/auth-client";
-import { clearDevice } from "@/storage/replace";
-import { exportProgress } from "./backup-actions";
+import { useLeaveAccount } from "./use-leave-account";
 
 const PUSH_FAILED = "Chưa gửi được các thay đổi mới nhất lên tài khoản. Nếu đăng xuất bây giờ, những thay đổi đó sẽ mất.";
 
@@ -40,7 +37,8 @@ async function pushLastChanges(): Promise<boolean> {
 
 /**
  * The account in Settings (feature 022, AC-001, AC-005, AC-022, AC-023): sign in as a guest; once
- * signed in, who the learner is, signing out, and deleting the account with all its progress.
+ * signed in, who the learner is and signing out. Deleting the account sits at the end of Settings
+ * (`DeleteAccount`).
  */
 export function AccountCard() {
   const { status, account } = useAccount();
@@ -67,18 +65,10 @@ export function AccountCard() {
 }
 
 function SignedIn({ account, expired }: { account: SessionAccount; expired: boolean }) {
-  const queryClient = useQueryClient();
-  const [dialog, setDialog] = useState<"sign-out" | "delete" | null>(null);
+  const leaveAccount = useLeaveAccount();
+  const [open, setOpen] = useState(false);
   const [pushFailed, setPushFailed] = useState(false);
   const [busy, setBusy] = useState(false);
-
-  async function finish(message: string) {
-    await clearDevice(Date.now());
-    await queryClient.invalidateQueries({ queryKey: SESSION_QUERY_KEY });
-    setDialog(null);
-    setPushFailed(false);
-    toast.success(message);
-  }
 
   async function handleSignOut() {
     setBusy(true);
@@ -89,34 +79,15 @@ function SignedIn({ account, expired }: { account: SessionAccount; expired: bool
       return;
     }
     await signOutOfGoogle().catch(() => {});
-    await finish("Đã đăng xuất. Tiến độ của bạn vẫn được lưu trong tài khoản.");
+    await leaveAccount("Đã đăng xuất. Tiến độ của bạn vẫn được lưu trong tài khoản.");
+    setOpen(false);
+    setPushFailed(false);
     setBusy(false);
   }
 
-  async function handleExport() {
-    try {
-      await exportProgress(Date.now());
-      toast.success("Đã tải file sao lưu về máy.");
-    } catch {
-      toast.error("Chưa xuất được file sao lưu. Bạn thử lại nhé.");
-    }
-  }
-
-  async function handleDelete() {
-    setBusy(true);
-    const response = await fetch("/api/account", { method: "DELETE", credentials: "same-origin" }).catch(() => null);
-    if (!response?.ok) {
-      setBusy(false);
-      toast.error("Chưa xóa được tài khoản. Bạn kiểm tra mạng rồi thử lại nhé.");
-      return;
-    }
-    await finish("Đã xóa tài khoản và toàn bộ tiến độ.");
-    setBusy(false);
-  }
-
-  function handleOpenChange(open: boolean) {
-    if (open) return;
-    setDialog(null);
+  function handleOpenChange(next: boolean) {
+    if (next) return;
+    setOpen(false);
     setPushFailed(false);
   }
 
@@ -135,16 +106,13 @@ function SignedIn({ account, expired }: { account: SessionAccount; expired: bool
           <SignInButton label="Đăng nhập lại" />
         </div>
       ) : null}
-      <div className="flex flex-wrap gap-2">
-        <Button variant="outline" size="lg" className="h-11 px-4" onClick={() => setDialog("sign-out")}>
+      <div>
+        <Button variant="outline" size="lg" className="h-11 px-4" onClick={() => setOpen(true)}>
           <LogOut aria-hidden /> Đăng xuất
-        </Button>
-        <Button variant="ghost" size="lg" className="h-11 px-4 text-destructive" onClick={() => setDialog("delete")}>
-          <Trash2 aria-hidden /> Xóa tài khoản
         </Button>
       </div>
 
-      <AlertDialog open={dialog === "sign-out"} onOpenChange={handleOpenChange}>
+      <AlertDialog open={open} onOpenChange={handleOpenChange}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Đăng xuất khỏi thiết bị này?</AlertDialogTitle>
@@ -156,27 +124,6 @@ function SignedIn({ account, expired }: { account: SessionAccount; expired: bool
             <AlertDialogCancel disabled={busy}>Hủy</AlertDialogCancel>
             <AlertDialogAction variant={pushFailed ? "destructive" : "default"} onClick={handleSignOut} disabled={busy}>
               {pushFailed ? "Vẫn đăng xuất" : "Đăng xuất"}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog open={dialog === "delete"} onOpenChange={handleOpenChange}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Xóa tài khoản?</AlertDialogTitle>
-            <AlertDialogDescription>
-              Tài khoản và toàn bộ tiến độ (từ đã học, lịch ôn tập, chuỗi ngày học, điểm) sẽ bị xóa khỏi máy chủ và thiết bị này, không lấy lại được. Bạn nên xuất
-              tiến độ ra file trước.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel disabled={busy}>Hủy</AlertDialogCancel>
-            <Button variant="outline" onClick={handleExport} disabled={busy}>
-              <Download aria-hidden /> Xuất trước
-            </Button>
-            <AlertDialogAction variant="destructive" onClick={handleDelete} disabled={busy}>
-              Xóa tài khoản
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
