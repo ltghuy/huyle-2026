@@ -127,6 +127,9 @@ Run after each task or batch (from the repo root):
 - [ ] T025 [B:T024] Prepare the rollout: document in knowledge.md and the app README that production needs `migrations/0006_arena.sql` applied remotely and `ARENA_SECRET` set before deploy; owner applies, sets and deploys; check on production with two accounts
   - **Done when:** a best-of-3 duel between two devices on mobile data finishes with matching results (owner-run, 10 of 10 per success criteria) and stats show on both profiles
 
+- [x] T026 [B:T024] Let the creator change the settings before a match (AC-031): a `settings` frame and machine event (creator only, lobby or Ready window; a change clears Ready and restarts an open window), the room's content cache keyed by level, the create form's fields shared with a "Đổi cài đặt" dialog in the lobby, and the opponent's notice
+  - **Done when:** machine tests cover a change in the lobby and in the Ready window, a refused change from the opponent and in a match; a room test covers a new level loading its own content; lobby tests cover the button for the creator only and the notice
+
 ## Requirements Coverage
 
 | Requirement | Tasks |
@@ -161,3 +164,4 @@ Run after each task or batch (from the repo root):
 | AC-028 | T017 |
 | AC-029 | T009, T011 |
 | AC-030 | T022 |
+| AC-031 | T026 |

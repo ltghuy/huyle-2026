@@ -9,6 +9,11 @@ describe("parseClientFrame", () => {
     expect(parseClientFrame('{"type":"answer","q":0,"text":"  I like apples. "}')).toEqual({ type: "answer", q: 0, text: "I like apples." });
     expect(parseClientFrame('{"type":"choose","q":11,"choice":3}')).toEqual({ type: "choose", q: 11, choice: 3 });
     expect(parseClientFrame('{"type":"rematch"}')).toEqual({ type: "rematch" });
+    expect(parseClientFrame('{"type":"settings","settings":{"mode":"write","level":"B1","rounds":1}}')).toEqual({
+      type: "settings",
+      settings: { mode: "write", level: "B1", rounds: 1 },
+    });
+    expect(parseClientFrame('{"type":"settings","settings":{"mode":"write","level":"B1","rounds":2}}')).toBeNull();
     expect(parseClientFrame('{"type":"leave"}')).toEqual({ type: "leave" });
   });
 

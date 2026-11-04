@@ -33,6 +33,7 @@ export const MESSAGES = {
   started: "Trận đấu đã bắt đầu, bạn không vào được nữa.",
   closed: "Phòng đã đóng.",
   creatorOnly: "Chỉ chủ phòng mới bắt đầu được.",
+  creatorSettings: "Chỉ chủ phòng mới đổi được cài đặt.",
   noQuestions: "Trình độ này chưa đủ câu hỏi cho chế độ đã chọn.",
 } as const;
 
@@ -108,6 +109,7 @@ export type RoomEvent =
   | { type: "typing"; userId: string; q: number }
   | { type: "answer"; userId: string; q: number; answer: ArenaAnswer }
   | { type: "rematch"; userId: string }
+  | { type: "settings"; userId: string; settings: ArenaSettings }
   | { type: "tick" };
 
 export type Effect =
@@ -220,6 +222,22 @@ function pressReady(state: RoomState, userId: string, now: number): Result {
   if (!allReady) return broadcast(next);
   // Both ready: the match is on, the room no longer idles (AC-008).
   return broadcast({ ...next, phase: "countdown", deadline: now + COUNTDOWN_MS, idleUntil: null });
+}
+
+function sameSettings(a: ArenaSettings, b: ArenaSettings): boolean {
+  return a.mode === b.mode && a.level === b.level && a.rounds === b.rounds;
+}
+
+/**
+ * The creator changes the mode, level or rounds before a match, e.g. for a rematch (AC-031).
+ * Nobody stays ready for settings they didn't agree to: an open Ready window starts again.
+ */
+function changeSettings(state: RoomState, userId: string, settings: ArenaSettings, now: number): Result {
+  if (!BEFORE_MATCH.has(state.phase) || !state.players.some((p) => p.id === userId)) return unchanged(state);
+  if (userId !== state.creatorId) return { state, effects: [{ type: "send", to: userId, frame: { type: "error", message: MESSAGES.creatorSettings } }] };
+  if (sameSettings(state.settings, settings)) return unchanged(state);
+  const changed: RoomState = { ...state, settings };
+  return broadcast(state.phase === "ready" ? openReadyWindow(changed, now) : changed);
 }
 
 // ── Drops during a match, and rematch (T007) ──────────────────────────────────
@@ -465,6 +483,8 @@ export function reduce(state: RoomState, event: RoomEvent, now: number, pool?: A
       return unchanged(state);
     case "rematch":
       return askRematch(state, event.userId, now);
+    case "settings":
+      return changeSettings(state, event.userId, event.settings, now);
     case "ready":
       return pressReady(state, event.userId, now);
     case "start": {

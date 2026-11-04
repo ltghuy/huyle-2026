@@ -13,10 +13,11 @@ import { useProfile } from "@/hooks/use-profile";
 import { CODE_PATTERN } from "@/learning/arena/protocol";
 import { ArenaError, joinRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
-import { MODE_OPTIONS } from "./create-room";
 import { Duel } from "./duel";
+import { EditSettings } from "./edit-settings";
 import { Lobby } from "./lobby";
-import { useArenaRoom, type ArenaRoomHandle } from "./use-arena-room";
+import { settingsLine } from "./settings-fields";
+import { useArenaRoom } from "./use-arena-room";
 
 const BACK = "/arena";
 
@@ -31,11 +32,6 @@ function Message({ title, text }: { title: string; text?: string }) {
       </Link>
     </div>
   );
-}
-
-function settingsLine(room: NonNullable<ArenaRoomHandle["room"]>): string {
-  const mode = MODE_OPTIONS.find((option) => option.value === room.settings.mode)?.label ?? "";
-  return `${mode} · ${room.settings.level} · ${room.settings.rounds === 1 ? "1 hiệp" : "3 hiệp"}`;
 }
 
 /** The live room for a signed-in player: a fresh ticket, the socket, then the lobby or the duel. */
@@ -77,7 +73,10 @@ function LiveRoom({ code, me, name }: { code: string; me: string; name?: string 
         ) : (
           <span />
         )}
-        <p className="text-sm text-muted-foreground">{settingsLine(room)}</p>
+        <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
+          <p className="text-sm text-muted-foreground">{settingsLine(room.settings)}</p>
+          {inLobby && room.creatorId === me ? <EditSettings settings={room.settings} onSave={handle.changeSettings} /> : null}
+        </div>
       </header>
       {handle.status === "reconnecting" ? (
         <p role="status" className="rounded-lg bg-muted px-3 py-2 text-center text-sm">

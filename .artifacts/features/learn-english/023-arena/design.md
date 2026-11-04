@@ -114,7 +114,7 @@ Per-socket attachment: `{ userId }` (`serializeAttachment`, under 16 KiB).
 
 **Socket messages** (Zod in `src/learning/arena/protocol.ts`, JSON text frames):
 
-Client → room: `ready`, `start` (creator, after the window closed), `answer { q, text }` (typed), `choose { q, choice }` (0 to 3), `typing { q }` (once per question), `rematch`, `leave`. Any other field, including an identity, is stripped.
+Client → room: `ready`, `start` (creator, after the window closed), `answer { q, text }` (typed), `choose { q, choice }` (0 to 3), `typing { q }` (once per question), `rematch`, `settings { mode, level, rounds }` (creator, in the lobby or the Ready window; AC-031), `leave`. Any other field, including an identity, is stripped.
 
 Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join, reconnect and every change of phase or score; a point shows as `reveal.answeredBy`, so there is no separate `scored` frame), `typing { userId }`, `wrong { userId }`, `error { message }` (Vietnamese). Close codes: 4000 room closed, 4001 replaced by a newer tab, 1009 frame too big.
 
@@ -166,7 +166,7 @@ Room → client: `state { room: PublicRoom, serverNow }` (full snapshot on join,
 | Env types | `cloudflare-env.d.ts` | regenerate | `pnpm cf:typegen` |
 | Arena protocol | `src/learning/arena/protocol.ts` | new | Zod schemas and types for socket messages, settings, `PublicRoom` |
 | Questions | `src/learning/arena/questions.ts` | new | `buildRound(pool, settings, seed) → ServerQuestion[]` (12, or 1 for sudden death); `publicView(q)`; `grade(q, answer)` delegating to the exercise graders; which modes a level can offer |
-| State machine | `src/learning/arena/machine.ts` | new | Phases, events (`join`, `disconnect`, `ready`, `start`, `answer`, `typing`, `tick`, `rematch`, `leave`), timings constants (30 s ready, 3 s countdown, 15/15/30 s questions, 3 s reveal, 5 s round result, 30 s grace, 10 min idle), scoring, ties, forfeits |
+| State machine | `src/learning/arena/machine.ts` | new | Phases, events (`join`, `disconnect`, `ready`, `start`, `answer`, `typing`, `tick`, `rematch`, `settings`, `leave`), timings constants (30 s ready, 3 s countdown, 15/15/30 s questions, 3 s reveal, 5 s round result, 30 s grace, 10 min idle), scoring, ties, forfeits |
 | Room object | `src/server/arena/room.ts` | new | `ArenaRoom extends DurableObject`: `create()` RPC, `fetch()` accepts sockets with hibernation, `webSocketMessage/Close`, `alarm()`; loads and saves `room`, sends messages, sets the alarm, loads content, records stats |
 | Tickets | `src/server/arena/ticket.ts` | new | `signTicket`, `verifyTicket` (Web Crypto HMAC) |
 | Arena service | `src/server/arena/arena.service.ts` | new | `createRoom` (codes + RPC + retry), `joinRoom` (room status RPC); routes only, with `server-only` |
@@ -418,6 +418,7 @@ sequenceDiagram
 | AC-025 | reconnect restarts the question | machine.ts; use-arena-room.ts | Planned |
 | AC-026 | grace `tick` → forfeit | machine.ts | Planned |
 | AC-027 | rematch | machine.ts; match-result.tsx | Planned |
+| AC-031 | change settings before a match | machine.ts; room.ts; edit-settings.tsx | Planned |
 | AC-028 | nav item, "Thêm" sheet | src/components/shell/nav.ts | Planned |
 | AC-029 | `recordResult` batch | src/server/arena/arena.service.ts; room.ts | Planned |
 | AC-030 | wins | src/components/profile/arena-stats.tsx; stats route | Planned |

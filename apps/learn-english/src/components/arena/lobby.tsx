@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Check, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Owl } from "@/components/mascot/owl";
@@ -7,6 +8,7 @@ import { READY_MS } from "@/learning/arena/machine";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
 import { PlayerRow } from "./players";
+import { sameSettings, settingsLine } from "./settings-fields";
 import type { ArenaRoomHandle } from "./use-arena-room";
 
 interface LobbyProps {
@@ -23,9 +25,21 @@ export function Lobby({ handle, me }: LobbyProps) {
   const windowOpen = room.phase === "ready";
   const bothHere = room.players.length === 2;
 
+  // The opponent hears when the creator changes the settings (AC-031); adjusted while rendering, not in an effect.
+  const [seen, setSeen] = useState(room.settings);
+  const [notice, setNotice] = useState<string | null>(null);
+  if (!sameSettings(seen, room.settings)) {
+    setSeen(room.settings);
+    setNotice(isCreator ? null : `Chủ phòng đã đổi cài đặt: ${settingsLine(room.settings)}`);
+  }
+
   return (
     <div className="mx-auto grid w-full max-w-2xl gap-6">
       <InvitePanel code={room.code} />
+
+      <p role="status" className={notice ? "rounded-lg bg-primary/10 px-3 py-2 text-center text-sm" : "sr-only"}>
+        {notice}
+      </p>
 
       <section aria-labelledby="players-title" className="grid gap-2">
         <h2 id="players-title" className="text-sm font-medium text-muted-foreground">

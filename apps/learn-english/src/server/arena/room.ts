@@ -52,6 +52,8 @@ function toEvent(userId: string, frame: ClientFrame): RoomEvent {
       return { type: "answer", userId, q: frame.q, answer: { choice: frame.choice } };
     case "typing":
       return { type: "typing", userId, q: frame.q };
+    case "settings":
+      return { type: "settings", userId, settings: frame.settings };
     default:
       return { type: frame.type, userId };
   }
@@ -63,8 +65,8 @@ function randomSeed(): number {
 
 export class ArenaRoom extends DurableObject<CloudflareEnv> {
   private state: RoomState | null = null;
-  /** The level's content, kept while the object is in memory; loaded at most once per match. */
-  private pool: ArenaPool | null = null;
+  /** A level's content, kept while the object is in memory; loaded again only when the creator changes the level (AC-031). */
+  private pool: { level: ArenaSettings["level"]; content: ArenaPool } | null = null;
 
   constructor(ctx: DurableObjectState, env: CloudflareEnv) {
     super(ctx, env);
@@ -147,8 +149,8 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   }
 
   private async loadPool(level: ArenaSettings["level"]): Promise<ArenaPool> {
-    this.pool ??= await loadArenaPool(this.db(), level);
-    return this.pool;
+    if (this.pool?.level !== level) this.pool = { level, content: await loadArenaPool(this.db(), level) };
+    return this.pool.content;
   }
 
   private db(): Db {

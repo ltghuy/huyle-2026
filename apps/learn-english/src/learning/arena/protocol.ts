@@ -48,6 +48,8 @@ export const clientFrameSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("answer"), q: questionIndex, text: z.string().trim().min(1).max(MAX_ANSWER_LENGTH) }),
   z.object({ type: z.literal("choose"), q: questionIndex, choice: z.number().int().min(0).max(CHOICE_COUNT - 1) }),
   z.object({ type: z.literal("rematch") }),
+  /** The creator changes the room's settings before a match (AC-031). */
+  z.object({ type: z.literal("settings"), settings: settingsSchema }),
   z.object({ type: z.literal("leave") }),
 ]);
 export type ClientFrame = z.infer<typeof clientFrameSchema>;

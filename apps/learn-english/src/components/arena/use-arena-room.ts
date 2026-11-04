@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CLOSE_CODES, roomFrameSchema, type ClientFrame, type PublicRoom } from "@/learning/arena/protocol";
+import { CLOSE_CODES, roomFrameSchema, type ArenaSettings, type ClientFrame, type PublicRoom } from "@/learning/arena/protocol";
 import { socketUrl } from "@/lib/arena-client";
 
 // The live room in the browser (feature 023): one socket to the room, the room
@@ -29,6 +29,8 @@ export interface ArenaRoomHandle {
   /** Tells the opponent you're typing; sent once per question. */
   typingStarted: () => void;
   rematch: () => void;
+  /** The creator's new settings for the next match (AC-031). */
+  changeSettings: (settings: ArenaSettings) => void;
   leave: () => void;
 }
 
@@ -168,6 +170,7 @@ export function useArenaRoom(code: string, ticket: string | null, { refreshTicke
   const ready = useCallback(() => send({ type: "ready" }), [send]);
   const start = useCallback(() => send({ type: "start" }), [send]);
   const rematch = useCallback(() => send({ type: "rematch" }), [send]);
+  const changeSettings = useCallback((settings: ArenaSettings) => send({ type: "settings", settings }), [send]);
   const leave = useCallback(() => send({ type: "leave" }), [send]);
   const answer = useCallback((text: string) => {
     if (currentQuestion !== null && text.trim()) send({ type: "answer", q: currentQuestion, text: text.trim() });
@@ -183,5 +186,5 @@ export function useArenaRoom(code: string, ticket: string | null, { refreshTicke
     send({ type: "typing", q: currentQuestion });
   }, [currentQuestion, room, send]);
 
-  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, leave };
+  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, changeSettings, leave };
 }

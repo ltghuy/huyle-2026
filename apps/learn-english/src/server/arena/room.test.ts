@@ -153,6 +153,33 @@ describe("ArenaRoom", () => {
     ]);
   });
 
+  it("loads the new level's content when the creator changes it for a rematch (AC-031)", async () => {
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    const minh = await connect(MINH);
+    const lan = await connect(LAN);
+    await send(minh, { type: "ready" });
+    await send(lan, { type: "ready" });
+    while (stored().phase !== "match-end") {
+      const state = stored();
+      if (state.phase === "question") await send(minh, { type: "answer", q: state.questionIndex, text: (rightAnswer(currentQuestion(state)!) as { text: string }).text });
+      else await fireAlarm();
+    }
+
+    await send(minh, { type: "rematch" });
+    await send(lan, { type: "rematch" });
+    await send(lan, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1 } });
+    expect(lan.sent.at(-1)).toEqual({ type: "error", message: "Chỉ chủ phòng mới đổi được cài đặt." });
+    await send(minh, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1 } });
+    expect(lan.lastRoom()).toMatchObject({ phase: "ready", settings: { level: "A2" } });
+
+    // The A1 content from the first match stays in memory; A2 has none, so the room must not reuse it.
+    await send(minh, { type: "ready" });
+    await send(lan, { type: "ready" });
+    await fireAlarm();
+    expect(lan.sent).toContainEqual({ type: "error", message: "Trình độ này chưa đủ câu hỏi cho chế độ đã chọn." });
+    expect(lan.closed?.code).toBe(CLOSE_CODES.roomClosed);
+  });
+
   it("relays typing and wrong answers to the opponent without the text (AC-013)", async () => {
     await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
     const minh = await connect(MINH);

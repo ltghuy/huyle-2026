@@ -4,7 +4,7 @@ import { render } from "@/test-utils/render";
 import { createDefaultProfile, saveProfile } from "@/storage/meta";
 import { resetStorage } from "@/storage/test-utils";
 import ArenaRoomPage from "@/app/(focus)/arena/room/page";
-import { ME, player, publicRoom, roomHandle } from "./test-room";
+import { ME, RIVAL, player, publicRoom, roomHandle } from "./test-room";
 import type { ArenaRoomHandle } from "./use-arena-room";
 
 let search = new URLSearchParams("code=K7P2QX");
@@ -79,6 +79,25 @@ describe("the room page", () => {
     expect(await screen.findByText("Viết câu · B1 · 1 hiệp")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Rời phòng/ })).toBeInTheDocument();
     expect(screen.getByText(/Đang chờ đối thủ/)).toBeInTheDocument();
+  });
+
+  it("offers Đổi cài đặt to the creator only, and only before the match (AC-031)", async () => {
+    handle = roomHandle(publicRoom({ phase: "ready", players: [player(ME), player(RIVAL)], deadline: Date.now() + 30_000 }));
+    stubFetch(true);
+    const { unmount } = render(<ArenaRoomPage />);
+    expect(await screen.findByRole("button", { name: /Đổi cài đặt/ })).toBeInTheDocument();
+    unmount();
+
+    handle = roomHandle(publicRoom({ creatorId: RIVAL, phase: "ready", players: [player(RIVAL), player(ME)], deadline: Date.now() + 30_000 }));
+    const opponent = render(<ArenaRoomPage />);
+    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Đổi cài đặt/ })).not.toBeInTheDocument();
+    opponent.unmount();
+
+    handle = roomHandle(publicRoom({ phase: "match-end", players: [player(ME), player(RIVAL)], winnerId: ME, endReason: "won" }));
+    render(<ArenaRoomPage />);
+    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Đổi cài đặt/ })).not.toBeInTheDocument();
   });
 
   it("says the room closed when the connection ends without a result", async () => {

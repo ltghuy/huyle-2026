@@ -107,6 +107,45 @@ describe("the Ready window", () => {
   });
 });
 
+describe("changing the settings before a match (AC-031)", () => {
+  const WRITE_B1 = { mode: "write", level: "B1", rounds: 1 } as const;
+
+  it("lets the creator change them in the lobby, and the next match uses them", () => {
+    const lobby = reduce(room(), { type: "join", player: MINH }, T0 + 500).state;
+    const changed = reduce(lobby, { type: "settings", userId: "minh", settings: WRITE_B1 }, T0 + 1_000);
+    expect(changed.state).toMatchObject({ phase: "lobby", deadline: null, settings: WRITE_B1 });
+    expect(changed.effects).toEqual([{ type: "broadcast" }]);
+    expect(toPublic(changed.state).settings).toEqual(WRITE_B1);
+  });
+
+  it("clears both Ready ticks and restarts an open Ready window", () => {
+    const oneReady = reduce(readyRoom(), { type: "ready", userId: "lan" }, T0 + 5_000).state;
+    const changed = reduce(oneReady, { type: "settings", userId: "minh", settings: WRITE_B1 }, T0 + 20_000).state;
+    expect(changed).toMatchObject({ phase: "ready", deadline: T0 + 20_000 + READY_MS, settings: WRITE_B1 });
+    expect(changed.players.every((p) => !p.ready)).toBe(true);
+  });
+
+  it("ignores the same settings, so nobody loses their Ready tick", () => {
+    const oneReady = reduce(readyRoom(), { type: "ready", userId: "lan" }, T0 + 5_000).state;
+    expect(reduce(oneReady, { type: "settings", userId: "minh", settings: oneReady.settings }, T0 + 6_000)).toEqual({ state: oneReady, effects: [] });
+  });
+
+  it("refuses the opponent with a message", () => {
+    const state = readyRoom();
+    const refused = reduce(state, { type: "settings", userId: "lan", settings: WRITE_B1 }, T0 + 5_000);
+    expect(refused.state).toBe(state);
+    expect(refused.effects).toEqual([{ type: "send", to: "lan", frame: { type: "error", message: MESSAGES.creatorSettings } }]);
+  });
+
+  it("can't change anything once the countdown has started", () => {
+    const counting = run(readyRoom(), [
+      [{ type: "ready", userId: "minh" }, T0 + 5_000],
+      [{ type: "ready", userId: "lan" }, T0 + 6_000],
+    ]).state;
+    expect(reduce(counting, { type: "settings", userId: "minh", settings: WRITE_B1 }, T0 + 7_000)).toEqual({ state: counting, effects: [] });
+  });
+});
+
 describe("leaving before the match (AC-010)", () => {
   it("tells the creator when the opponent leaves and waits for a new one", () => {
     const { state, effects } = reduce(readyRoom(), { type: "leave", userId: "lan" }, T0 + 5_000);

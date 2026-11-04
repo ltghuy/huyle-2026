@@ -113,11 +113,13 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 ### P2: Rematch
 
 - As a player, I want to play again with the same opponent so that we don't have to make a new room
+- As the room creator, I want to change the mode, level or rounds before the next match so that a rematch can be harder, easier or shorter
 - **Why P2:** Keeps friends playing; not needed for a first duel
 
 **Acceptance Criteria:**
 
 - [x] AC-027: WHEN a match ends THEN system SHALL offer "Đấu lại" (rematch); WHEN both players choose it THEN system SHALL keep the room and settings and open a new Ready window with new questions
+- [x] AC-031: WHEN the room is in the lobby or the Ready window THEN system SHALL let the room creator change the mode, level and rounds ("Đổi cài đặt"); WHEN they save a change THEN system SHALL clear both players' Ready, restart the 30-second window if it was open, use the new settings for the next match, and show the opponent "Chủ phòng đã đổi cài đặt: {cài đặt}"
 
 ## Edge Cases
 
@@ -127,6 +129,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 - WHEN a learner tries to join their own room as the opponent THEN system SHALL refuse
 - WHEN a room stays without a second player or without starting for 10 minutes THEN system SHALL close it and its code SHALL stop working
 - WHEN the level has fewer usable questions of a type than a round needs THEN system SHALL not offer that mode at that level
+- WHEN the opponent, not the creator, tries to change the room's settings THEN system SHALL refuse it
 - WHEN a player sends answers faster than a person could type THEN system SHALL limit them and not let them flood the room
 - WHEN a player's audio cannot play THEN system SHALL let them replay it during "Nghe và chọn từ" and still count the time
 
