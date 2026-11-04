@@ -16,7 +16,8 @@ import { compareTopics, grammarSlug, grammarTopicMeta, OTHER_TOPIC, topicOf, top
 //
 // Feature 018: the "Viết câu" tab has one "Dịch câu" set per topic, where a
 // sentence's topic is its first word's that has one. The other sentence types,
-// over all of a level's sentences, sit at the end of "Từ vựng".
+// over all of a level's sentences, sit at the end of "Từ vựng" in "Chủ đề khác",
+// together with the word types over the level's words those sentences use.
 
 type Grammar = ContentItemOf<"grammar">;
 
@@ -64,6 +65,8 @@ export interface SetCard {
   /** English grammar title, shown with `lang="en"`. */
   titleEn?: string;
   count: number;
+  /** Words in a card that has both word and sentence sets ("Chủ đề khác"); `count` is then its sentences. */
+  wordCount?: number;
   sets: ExerciseSet[];
 }
 
@@ -111,6 +114,18 @@ function sentenceTopic(sentence: ContentItemOf<"sentence">, index: ContentIndex)
   return OTHER_TOPIC;
 }
 
+/** The words of `level` that the sentences use, each once, in the order they first appear. */
+function sentenceWordIds(sentences: readonly ContentItemOf<"sentence">[], index: ContentIndex, level: Level): string[] {
+  const ids = new Set<string>();
+  for (const sentence of sentences) {
+    for (const id of sentence.body.wordIds) {
+      const word = index.byId.get(id);
+      if (word?.kind === "word" && word.level === level) ids.add(id);
+    }
+  }
+  return [...ids];
+}
+
 const cardCache = new WeakMap<ContentIndex, Map<Level, SetCard[]>>();
 
 /** Every set at `level`, grouped into cards (one per topic or grammar point), built once per loaded index. */
@@ -156,13 +171,26 @@ function buildSetCards(index: ContentIndex, level: Level): SetCard[] {
 
   const sentences = index.lesson.sentences.filter((sentence) => sentence.level === level);
   const sentenceIds = sentences.map((sentence) => sentence.id);
-  // Every sentence, one set per type but "Dịch câu", at the end of "Từ vựng" (feature 018 AC-005).
+  // Every sentence, one set per type but "Dịch câu", at the end of "Từ vựng" (feature 018 AC-005),
+  // after one set per word type over the level's words those sentences use.
+  const wordIds = sentenceWordIds(sentences, index, level);
+  const wordSets = WORD_TYPES.filter((type) => wordIds.length > 0 && (type !== "mcq" || words.length >= MCQ_OPTIONS)).map(
+    (type): ExerciseSet => ({ id: `${type}.${level}.${OTHER_TOPIC}`, type, group: "word", level, scope: OTHER_TOPIC, itemIds: wordIds }),
+  );
   const typeSets = WORD_TAB_SENTENCE_TYPES.flatMap((type): ExerciseSet[] => {
     const itemIds = eligibleSentences(index, sentenceIds, type);
     return itemIds.length ? [{ id: `${type}.${level}.${OTHER_TOPIC}`, type, group: "word", level, scope: OTHER_TOPIC, itemIds }] : [];
   });
-  if (typeSets.length) {
-    cards.push({ key: "word.sentences", group: "word", scope: OTHER_TOPIC, title: topicTitle(OTHER_TOPIC), count: sentenceIds.length, sets: typeSets });
+  if (wordSets.length || typeSets.length) {
+    cards.push({
+      key: "word.sentences",
+      group: "word",
+      scope: OTHER_TOPIC,
+      title: topicTitle(OTHER_TOPIC),
+      count: sentenceIds.length,
+      wordCount: wordIds.length,
+      sets: [...wordSets, ...typeSets],
+    });
   }
 
   // "Viết câu": one "Dịch câu" set per topic, the sentences with no topic last (AC-002).

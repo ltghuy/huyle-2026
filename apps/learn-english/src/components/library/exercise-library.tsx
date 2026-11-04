@@ -54,6 +54,7 @@ function typeItems(group: SetGroup) {
 }
 
 function cardSummary(card: SetCard): string {
+  if (card.wordCount) return `${card.wordCount} từ · ${card.count} câu`;
   if (card.group === "word" && !card.sets.every((set) => isSentenceType(set.type))) return `${card.count} từ`;
   if (card.group === "grammar") return `${card.title} · ${card.count} câu luyện`;
   return `${card.count} câu`;

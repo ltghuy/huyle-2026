@@ -51,6 +51,21 @@ describe("exercise sets", () => {
     expect(TYPE_LABELS.translate).toBe("Dịch câu");
   });
 
+  it("gives Chủ đề khác every word type too, over the level's words its sentences use (quick 045)", () => {
+    const used = (slug: string, wordIds: string[]) => sentence(slug, { tokens: ["My", "mother", "is", "kind."], wordIds });
+    const local = buildContentIndex([...items, used("family-1", ["word:mother", "word:kitchen"]), used("family-2", ["word:mother", "word:missing"])]);
+    const card = listSetCards(local, "A1").find((c) => c.key === "word.sentences")!;
+    expect(card).toMatchObject({ count: 3, wordCount: 2 });
+    expect(card.sets.slice(0, 4).map((set) => [set.id, set.itemIds])).toEqual([
+      ["mcq.A1.khac", ["word:mother", "word:kitchen"]],
+      ["missing-letters.A1.khac", ["word:mother", "word:kitchen"]],
+      ["listening.A1.khac", ["word:mother", "word:kitchen"]],
+      ["recall.A1.khac", ["word:mother", "word:kitchen"]],
+    ]);
+    expect(card.sets[4].type).toBe("word-order");
+    expect(buildSetSteps(card.sets[3], local, 0)).toHaveLength(2);
+  });
+
   it("groups Viết câu by the topic of a sentence's first word that has one (018 AC-002)", () => {
     const plain = (slug: string, wordIds: string[]) => sentence(slug, { tokens: ["My", "mother", "is", "kind."], wordIds });
     const local = buildContentIndex([
