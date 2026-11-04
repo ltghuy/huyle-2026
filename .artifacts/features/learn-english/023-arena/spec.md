@@ -44,7 +44,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN a signed-in learner opens "Đấu trường" (Arena) THEN system SHALL offer "Tạo phòng" (create a room) and a field to join by code
+- [x] AC-001: WHEN a signed-in learner opens "Đấu trường" (Arena) THEN system SHALL offer "Tạo phòng" (create a room) and a field to join by code (since feature 024 both are on `/arena/1v1`, reached from the hub's "Đấu 1-1" card)
 - [x] AC-028: WHEN the app shows its menu THEN system SHALL list "Đấu trường" in the sidebar (and in the phone menu), locked for guests like the other sign-in areas
 - [x] AC-002: WHEN a learner creates a room THEN system SHALL let them choose the mode ("Nghe", "Nhớ từ", "Viết câu", "Hỗn hợp"), the level (A1 to C1, their own level preselected) and the rounds (1, or best of 3)
 - [x] AC-003: WHEN a room is created THEN system SHALL show its unique 6-character code, a copyable invite link that opens the room, and a QR code of that link

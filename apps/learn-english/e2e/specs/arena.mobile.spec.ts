@@ -1,7 +1,7 @@
 import { devices, expect, test } from "@playwright/test";
 import { E2E_USERS, signInAs } from "../helpers";
 
-// Feature 023 on a phone: create a room, and join it by typing the code into the hub.
+// Features 023 and 024 on a phone: create a room on the 1-1 screen, and join it there by typing the code.
 test("on a phone, a room is created and joined by its code", async ({ browser, baseURL }) => {
   const open = async (user: (typeof E2E_USERS)[keyof typeof E2E_USERS]) => {
     const context = await browser.newContext({ ...devices["Pixel 7"], baseURL, locale: "vi-VN", reducedMotion: "reduce" });
@@ -12,17 +12,17 @@ test("on a phone, a room is created and joined by its code", async ({ browser, b
   const lan = await open(E2E_USERS.lan);
 
   await minh.goto("/arena");
-  await minh.getByRole("button", { name: "Tạo phòng" }).click();
-  const dialog = minh.getByRole("dialog", { name: "Tạo phòng đấu" });
-  await dialog.getByRole("button", { name: "A2" }).click();
-  const create = dialog.getByRole("button", { name: "Tạo phòng" });
+  await minh.getByRole("link", { name: "Đấu 1-1" }).click();
+  await minh.waitForURL("**/arena/1v1");
+  await minh.getByRole("button", { name: "A2" }).click();
+  const create = minh.getByRole("button", { name: "Tạo phòng" });
   await expect(create).toBeEnabled({ timeout: 15_000 });
   await create.click();
   await minh.waitForURL(/\/arena\/room\?code=/);
   const code = new URL(minh.url()).searchParams.get("code")!;
   await expect(minh.getByRole("button", { name: "Sao chép liên kết" })).toBeInViewport();
 
-  await lan.goto("/arena");
+  await lan.goto("/arena/1v1");
   await lan.getByLabel("Vào phòng bằng mã").fill(code.toLowerCase());
   await lan.getByRole("button", { name: "Vào phòng" }).click();
   await lan.waitForURL(`**/arena/room?code=${code}`);

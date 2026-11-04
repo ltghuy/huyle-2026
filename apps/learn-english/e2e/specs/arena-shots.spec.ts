@@ -34,16 +34,16 @@ async function shot(page: Page, name: string) {
 
 async function create(page: Page, mode: RegExp, rounds: RegExp, prefix?: string): Promise<string> {
   await page.goto("/arena");
-  await expect(page.getByRole("button", { name: "Tạo phòng" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Đấu 1-1" })).toBeVisible();
   if (prefix) await shot(page, `${prefix}-hub`);
-  await page.getByRole("button", { name: "Tạo phòng" }).click();
-  const dialog = page.getByRole("dialog", { name: "Tạo phòng đấu" });
-  await dialog.getByRole("button", { name: "A2" }).click();
-  await dialog.getByRole("radio", { name: mode }).check({ force: true });
-  await dialog.getByRole("button", { name: rounds }).click();
-  await expect(dialog.getByRole("button", { name: "Tạo phòng" })).toBeEnabled({ timeout: 15_000 });
+  await page.getByRole("link", { name: "Đấu 1-1" }).click();
+  await page.waitForURL("**/arena/1v1");
+  await page.getByRole("button", { name: "A2" }).click();
+  await page.getByRole("radio", { name: mode }).check({ force: true });
+  await page.getByRole("button", { name: rounds }).click();
+  await expect(page.getByRole("button", { name: "Tạo phòng" })).toBeEnabled({ timeout: 15_000 });
   if (prefix) await shot(page, `${prefix}-create`);
-  await dialog.getByRole("button", { name: "Tạo phòng" }).click();
+  await page.getByRole("button", { name: "Tạo phòng" }).click();
   await page.waitForURL(/code=/);
   return new URL(page.url()).searchParams.get("code")!;
 }

@@ -92,14 +92,16 @@ export function JoinRoom({ name }: { name?: string }) {
       <label htmlFor={inputId} className="font-semibold">
         Vào phòng bằng mã
       </label>
-      <CodeInput id={inputId} value={code} onChange={handleCodeChange} invalid={Boolean(error)} describedBy={messageId} />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <CodeInput id={inputId} value={code} onChange={handleCodeChange} invalid={Boolean(error)} describedBy={messageId} />
+        <Button type="submit" variant="outline" size="lg" className="h-12 w-full gap-2 sm:w-fit" disabled={!complete || joining}>
+          <LogIn aria-hidden />
+          {joining ? "Đang vào phòng…" : "Vào phòng"}
+        </Button>
+      </div>
       <p id={messageId} role={error ? "alert" : undefined} className={cn("min-h-5 text-sm", error ? "text-destructive" : "text-muted-foreground")}>
         {error ?? "Nhập 6 ký tự bạn bè gửi, hoặc dán liên kết mời."}
       </p>
-      <Button type="submit" variant="outline" size="lg" className="h-11 w-full sm:w-fit" disabled={!complete || joining}>
-        <LogIn aria-hidden />
-        {joining ? "Đang vào phòng…" : "Vào phòng"}
-      </Button>
     </form>
   );
 }

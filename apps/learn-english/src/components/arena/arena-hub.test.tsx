@@ -5,6 +5,7 @@ import { render } from "@/test-utils/render";
 import { POOL } from "@/learning/arena/fixtures";
 import { createDefaultProfile, saveProfile } from "@/storage/meta";
 import { resetStorage } from "@/storage/test-utils";
+import ArenaDuelPage from "@/app/(app)/arena/1v1/page";
 import ArenaPage from "@/app/(app)/arena/page";
 import { codeFrom } from "./join-room";
 
@@ -59,17 +60,40 @@ describe("codeFrom", () => {
   });
 });
 
-describe("the Arena hub", () => {
-  it("asks guests to sign in (AC-006)", async () => {
-    stubFetch(false);
+describe("the Arena hub (feature 024)", () => {
+  it("shows the two kinds of match: 1-1 opens its screen, teams are coming soon (AC-001 to AC-003)", () => {
     render(<ArenaPage />);
+    const duel = screen.getByRole("link", { name: "Đấu 1-1" });
+    expect(duel).toHaveAttribute("href", "/arena/1v1");
+    expect(duel).toHaveAccessibleDescription(/ai trả lời đúng trước thì ghi điểm/);
+
+    const team = screen.getByRole("group", { name: "Đấu đội" });
+    expect(team).toHaveAttribute("aria-disabled", "true");
+    expect(team).toHaveAccessibleDescription(/chưa mở/);
+    expect(within(team).getByText("Sắp ra mắt")).toBeInTheDocument();
+    expect(within(team).queryByRole("link")).not.toBeInTheDocument();
+    expect(within(team).queryByRole("button")).not.toBeInTheDocument();
+  });
+});
+
+describe("the 1-1 screen", () => {
+  it("asks guests to sign in (023 AC-006, 024 AC-007)", async () => {
+    stubFetch(false);
+    render(<ArenaDuelPage />);
     expect(await screen.findByText("Đăng nhập để vào Đấu trường")).toBeInTheDocument();
   });
 
-  it("shows create, join and the learner's record (AC-001)", async () => {
+  it("shows you against an empty seat, the settings, create, join, the record and the way back (024 AC-004 to AC-008)", async () => {
     stubFetch(true);
-    render(<ArenaPage />);
+    render(<ArenaDuelPage />);
+    expect(await screen.findByRole("heading", { level: 1, name: "Thách đấu 1-1" })).toBeInTheDocument();
+    expect(screen.getByText("Minh")).toBeInTheDocument();
+    expect(screen.getByText("Đối thủ")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "A1" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByLabelText(/Hỗn hợp/)).toBeChecked();
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(await screen.findByRole("button", { name: "Tạo phòng" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Đấu trường" })).toHaveAttribute("href", "/arena");
     expect(screen.getByLabelText("Vào phòng bằng mã")).toBeInTheDocument();
     expect(await screen.findByText("12 thắng")).toBeInTheDocument();
     expect(screen.getByText("Chuỗi thắng dài nhất 4")).toBeInTheDocument();
@@ -83,12 +107,10 @@ describe("the Arena hub", () => {
       sent = JSON.parse(String(init?.body));
       return Response.json({ code: "K7P2QX", ticket: "t", settings: sent }, { status: 201 });
     };
-    render(<ArenaPage />);
-    fireEvent.click(await screen.findByRole("button", { name: "Tạo phòng" }));
-    const dialog = await screen.findByRole("dialog", { name: "Tạo phòng đấu" });
-    fireEvent.click(within(dialog).getByLabelText(/Viết câu/));
-    fireEvent.click(within(dialog).getByRole("button", { name: /1 hiệp/ }));
-    const create = within(dialog).getByRole("button", { name: "Tạo phòng" });
+    render(<ArenaDuelPage />);
+    const create = await screen.findByRole("button", { name: "Tạo phòng" });
+    fireEvent.click(screen.getByLabelText(/Viết câu/));
+    fireEvent.click(screen.getByRole("button", { name: /1 hiệp/ }));
     await waitFor(() => expect(create).toBeEnabled());
     fireEvent.click(create);
     await waitFor(() => expect(push).toHaveBeenCalledWith("/arena/room?code=K7P2QX"));
@@ -97,13 +119,11 @@ describe("the Arena hub", () => {
 
   it("disables the modes a level can't fill and falls back to one it can", async () => {
     stubFetch(true);
-    render(<ArenaPage />);
-    fireEvent.click(await screen.findByRole("button", { name: "Tạo phòng" }));
-    const dialog = await screen.findByRole("dialog", { name: "Tạo phòng đấu" });
-    fireEvent.click(within(dialog).getByRole("button", { name: "B1" }));
-    await waitFor(() => expect(within(dialog).getByLabelText(/Nghe/)).toBeDisabled());
-    expect(within(dialog).getByLabelText(/Viết câu/)).toBeDisabled();
-    expect(within(dialog).getByLabelText(/Nhớ từ/)).toBeChecked();
+    render(<ArenaDuelPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "B1" }));
+    await waitFor(() => expect(screen.getByLabelText(/Nghe/)).toBeDisabled());
+    expect(screen.getByLabelText(/Viết câu/)).toBeDisabled();
+    expect(screen.getByLabelText(/Nhớ từ/)).toBeChecked();
   });
 
   it("joins by code, and says why when the code is wrong (AC-005)", async () => {
@@ -113,7 +133,7 @@ describe("the Arena hub", () => {
       const { code } = JSON.parse(String(init?.body)) as { code: string };
       return code === "K7P2QX" ? Response.json({ code, ticket: "t", settings: {} }) : Response.json({ error: { message: "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé." } }, { status: 404 });
     };
-    render(<ArenaPage />);
+    render(<ArenaDuelPage />);
     const input = await screen.findByLabelText("Vào phòng bằng mã");
     const submit = screen.getByRole("button", { name: "Vào phòng" });
     fireEvent.change(input, { target: { value: "abc" } });

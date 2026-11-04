@@ -18,15 +18,15 @@ async function stats(page: Page) {
   return (await (await page.request.get("/api/arena/stats")).json()) as { wins: number; losses: number };
 }
 
-/** Creates a 1-round "Nghe" room at A2 from the hub and returns its code. */
+/** Creates a 1-round "Nghe" room at A2 from the hub's "Đấu 1-1" and returns its code. */
 async function createRoom(page: Page): Promise<string> {
   await page.goto("/arena");
-  await page.getByRole("button", { name: "Tạo phòng" }).click();
-  const dialog = page.getByRole("dialog", { name: "Tạo phòng đấu" });
-  await dialog.getByRole("button", { name: "A2" }).click();
-  await dialog.getByRole("radio", { name: /^Nghe/ }).check({ force: true });
-  await dialog.getByRole("button", { name: /1 hiệp/ }).click();
-  const create = dialog.getByRole("button", { name: "Tạo phòng" });
+  await page.getByRole("link", { name: "Đấu 1-1" }).click();
+  await page.waitForURL("**/arena/1v1");
+  await page.getByRole("button", { name: "A2" }).click();
+  await page.getByRole("radio", { name: /^Nghe/ }).check({ force: true });
+  await page.getByRole("button", { name: /1 hiệp/ }).click();
+  const create = page.getByRole("button", { name: "Tạo phòng" });
   await expect(create).toBeEnabled({ timeout: 15_000 });
   await create.click();
   await page.waitForURL(/\/arena\/room\?code=[A-Z2-9]{6}$/);
