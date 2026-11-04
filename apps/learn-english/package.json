@@ -24,7 +24,7 @@
     "content:review": "tsx scripts/review.ts",
     "content:claims": "tsx scripts/claims.ts",
     "stats:report": "tsx scripts/stats-report.ts",
-    "e2e:seed": "rm -rf .wrangler/e2e && wrangler d1 migrations apply learn-english --local --persist-to .wrangler/e2e && tsx scripts/publish-content.ts --local --persist-to .wrangler/e2e --allow-missing-audio --content-dir scripts/fixtures/content",
+    "e2e:seed": "rm -rf .wrangler/e2e && wrangler d1 migrations apply learn-english --local --persist-to .wrangler/e2e && tsx scripts/publish-content.ts --local --persist-to .wrangler/e2e --allow-missing-audio --content-dir scripts/fixtures/content && wrangler d1 execute learn-english --local --persist-to .wrangler/e2e --file e2e/fixtures/users.sql",
     "content:audio": "tsx scripts/generate-audio.ts"
   },
   "dependencies": {

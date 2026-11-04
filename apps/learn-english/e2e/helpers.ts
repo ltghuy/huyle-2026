@@ -1,4 +1,35 @@
-import { expect, type Page } from "@playwright/test";
+import { createHmac } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { expect, type BrowserContext, type Page } from "@playwright/test";
+
+/** Learners seeded by `e2e/fixtures/users.sql` (feature 023); keep in step with it. */
+export const E2E_USERS = {
+  minh: { id: "e2e-minh", name: "Minh Anh", token: "e2e-token-minh" },
+  lan: { id: "e2e-lan", name: "Lan", token: "e2e-token-lan" },
+} as const;
+
+/** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */
+function authSecret(): string {
+  if (process.env.BETTER_AUTH_SECRET) return process.env.BETTER_AUTH_SECRET;
+  const line = readFileSync(join(__dirname, "..", ".dev.vars"), "utf8")
+    .split("\n")
+    .find((entry) => entry.startsWith("BETTER_AUTH_SECRET="));
+  if (!line) throw new Error("BETTER_AUTH_SECRET is missing from .dev.vars");
+  return line.slice("BETTER_AUTH_SECRET=".length).trim();
+}
+
+/**
+ * Signs a browser context in as a seeded learner: sets Better Auth's session cookie the way it
+ * signs it (token, ".", base64 HMAC-SHA256 of the token, URL-encoded). The preview serves http, so
+ * the cookie has no `__Secure-` prefix.
+ */
+export async function signInAs(context: BrowserContext, user: (typeof E2E_USERS)[keyof typeof E2E_USERS], baseURL: string) {
+  const signature = createHmac("sha256", authSecret()).update(user.token).digest("base64");
+  await context.addCookies([
+    { name: "better-auth.session_token", value: encodeURIComponent(`${user.token}.${signature}`), url: baseURL, httpOnly: true, sameSite: "Lax" },
+  ]);
+}
 
 /** Answers the first-visit name prompt (feature 003), which shows on every page until a name is saved. */
 export async function enterName(page: Page, name = "Minh Anh") {
