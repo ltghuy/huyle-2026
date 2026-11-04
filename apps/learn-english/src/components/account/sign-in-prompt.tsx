@@ -4,7 +4,7 @@ import { Owl, type OwlMood } from "@/components/mascot/owl";
 import { SignInButton } from "./sign-in-button";
 
 /** The areas guests can't open (feature 022, AC-009, AC-010, AC-011). */
-export type LockedArea = "lesson" | "streak" | "review" | "hard-words" | "profile" | "grammar" | "exercises" | "irregular-verbs";
+export type LockedArea = "lesson" | "streak" | "review" | "hard-words" | "profile" | "grammar" | "exercises" | "irregular-verbs" | "arena";
 
 const COPY: Record<LockedArea, { title: string; text: string; mood: OwlMood }> = {
   lesson: { title: "Đăng nhập để học bài hôm nay", text: "Mỗi ngày một bài ngắn: ôn từ cũ, học từ mới và luyện câu. Tiến độ được lưu vào tài khoản, học trên máy nào cũng tiếp tục được.", mood: "cheer" },
@@ -15,6 +15,7 @@ const COPY: Record<LockedArea, { title: string; text: string; mood: OwlMood }> =
   grammar: { title: "Đăng nhập để học ngữ pháp", text: "Xem bài học, ví dụ và luyện tập cho từng chủ điểm ngữ pháp.", mood: "think" },
   exercises: { title: "Đăng nhập để làm bài tập", text: "Mọi bộ bài tập đều mở sau khi bạn đăng nhập.", mood: "cheer" },
   "irregular-verbs": { title: "Đăng nhập để luyện động từ", text: "Bạn vẫn xem được bảng động từ. Đăng nhập để luyện các dạng của chúng.", mood: "think" },
+  arena: { title: "Đăng nhập để vào Đấu trường", text: "Thách đấu bạn bè bằng mã phòng: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm.", mood: "cheer" },
 };
 
 /**

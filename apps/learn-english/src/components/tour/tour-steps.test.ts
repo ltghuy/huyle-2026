@@ -92,11 +92,11 @@ describe("the tour for guests and signed-in learners (022 AC-030)", () => {
   const targets = (guest: boolean) => tourSteps(guest).map((step) => step.target);
 
   it("starts a guest at signing in, without the streak step that sits inside the locked lesson", () => {
-    expect(targets(true)).toEqual(["account", "lesson-card", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "hard-words", "profile", "settings"]);
+    expect(targets(true)).toEqual(["account", "lesson-card", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "arena", "hard-words", "profile", "settings"]);
   });
 
   it("shows a signed-in learner their account after the profile", () => {
-    expect(targets(false)).toEqual(["lesson-card", "streak", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "hard-words", "profile", "account", "settings"]);
+    expect(targets(false)).toEqual(["lesson-card", "streak", "vocabulary", "grammar", "irregular-verbs", "review", "exercises", "arena", "hard-words", "profile", "account", "settings"]);
   });
 
   it("marks locked areas in the title for guests only, and gives guests their own account and lesson text", () => {

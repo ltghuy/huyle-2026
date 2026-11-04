@@ -7,6 +7,7 @@ import {
   Shuffle,
   RotateCcw,
   Settings,
+  Swords,
   TriangleAlert,
 } from "lucide-react";
 
@@ -26,6 +27,7 @@ export const NAV_ITEMS = [
   { href: "/irregular-verbs", label: "Động từ bất quy tắc", icon: Shuffle, tour: "irregular-verbs" },
   { href: "/review", label: "Ôn tập", icon: RotateCcw, tour: "review" },
   { href: "/exercises", label: "Bài tập", icon: Dumbbell, tour: "exercises" },
+  { href: "/arena", label: "Đấu trường", icon: Swords, tour: "arena" },
   { href: "/hard-words", label: "Từ khó", icon: TriangleAlert, tour: "hard-words" },
   { href: "/settings", label: "Cài đặt", icon: Settings, tour: "settings" },
 ] as const satisfies readonly NavItem[];

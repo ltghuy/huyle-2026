@@ -215,6 +215,18 @@ Settled with the `ui-ux-pro-max` skill on 2026-11-04 (product match: "Trivia & Q
 
 Each pair is checked for 4.5:1 text contrast (3:1 for large numbers and icons) in light and dark before merging; where gold fails as text it is used as a fill behind `foreground` text instead.
 
+**Contrast, measured (T014, OKLCH → sRGB, WCAG ratio).** "You" is the accent's `--primary`; the rival is another accent's primary, chosen per accent. Backgrounds: light `--background`/`--card` white; dark `--background` oklch(0.145 0 0), `--card` oklch(0.205 0 0).
+
+| Accent | You, light | Rival, light | You, dark (bg / card) | Rival, dark (bg / card) |
+|--------|-----------|--------------|------------------------|--------------------------|
+| indigo (default) | 6.44 | 4.98 (orange) | 6.34 / 5.74 | 8.32 / 7.53 |
+| blue | 5.26 | 4.98 (orange) | 7.51 / 6.79 | 8.32 / 7.53 |
+| teal | 5.39 | 5.89 (pink) | 10.61 / 9.60 | 7.17 / 6.49 |
+| orange | 4.98 | 6.44 (indigo) | 8.32 / 7.53 | 6.34 / 5.74 |
+| pink | 5.89 | 6.44 (indigo) | 7.17 / 6.49 | 6.34 / 5.74 |
+
+Gold: foreground text on gold 9.23 (light) and 11.53 (dark). Gold on white is 2.15, under the 3:1 a round pip needs, so a won pip in light mode has a `--streak` edge (about 5:1) and the rounds won are also shown as a number.
+
 ### Screens
 
 **Hub `/arena`** (app layout, `PageHero` with the owl "cheer")
@@ -284,7 +296,7 @@ Waiting for the rival: their row is a dashed placeholder "Đang chờ đối th�
 │ [   Đấu lại   ] [ Về Đấu trường ]
 └─────────────────────────────┘
 ```
-A light confetti of 12 accent-coloured tiles on a win (CSS only, once, none under reduced motion). "Đấu lại" shows "Đang chờ Minh…" until both choose it.
+A light confetti of 12 accent-coloured tiles on a win (CSS only, once, none under reduced motion). When a round level on points was decided by the tie-break, the round and match results say so ("Hòa điểm sau câu quyết định: người trả lời nhanh hơn … thắng hiệp này"), so a 2–2 loss isn't a mystery. "Đấu lại" shows "Đang chờ Minh…" until both choose it.
 
 **Paused:** a dimmed overlay "Đang chờ Minh kết nối lại…" with a 30 s ring for the one who stayed; the one who dropped sees "Đang kết nối lại…" and the same ring.
 

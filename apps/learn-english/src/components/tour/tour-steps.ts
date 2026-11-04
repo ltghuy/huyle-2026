@@ -33,6 +33,7 @@ export const TOUR_STEPS: TourStepDef[] = [
   { target: "irregular-verbs", locked: true, title: "Động từ bất quy tắc", description: "Tra dạng quá khứ và quá khứ phân từ của động từ bất quy tắc, nghe phát âm và luyện riêng từng động từ." },
   { target: "review", locked: true, title: "Ôn tập", description: "Ứng dụng nhắc bạn ôn lại đúng lúc bạn sắp quên, để nhớ từ lâu hơn." },
   { target: "exercises", locked: true, title: "Bài tập", description: "Tự luyện bất kỳ phần nào: trắc nghiệm, điền chữ, nghe chép, sắp xếp câu, tìm lỗi sai." },
+  { target: "arena", locked: true, title: "Đấu trường", description: "Thách đấu bạn bè bằng mã phòng: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm. Số trận thắng thua được lưu vào hồ sơ." },
   { target: "hard-words", locked: true, title: "Từ khó", description: "Những từ bạn hay sai hoặc nhớ lâu được gom lại đây để luyện riêng." },
   { target: "profile", locked: true, title: "Hồ sơ", description: "Xem điểm hiện có, tổng điểm đã nhận, chuỗi ngày học và lịch các ngày bạn đã học." },
   {

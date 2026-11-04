@@ -10,7 +10,7 @@ Paths are relative to `apps/learn-english/`. Design: `design.md` (UI in "UI & Ex
 
 ## Summary
 
-Total: 25 | Completed: 13 | Remaining: 12
+Total: 25 | Completed: 21 | Remaining: 4
 
 ## Execution Plan
 
@@ -89,28 +89,28 @@ Run after each task or batch (from the repo root):
 
 ### Game pieces and client
 
-- [ ] T014 [P] Add `--arena-rival` (per accent, light and dark) and `--arena-gold` to `src/app/globals.css` with `tile-flip`, `tile-shake` and `score-pop` keyframes disabled under reduced motion, and the `Tile` component (`src/components/arena/tile.tsx`, `cva` with `face`, `state`, `size`)
+- [x] T014 [P] Add `--arena-rival` (per accent, light and dark) and `--arena-gold` to `src/app/globals.css` with `tile-flip`, `tile-shake` and `score-pop` keyframes disabled under reduced motion, and the `Tile` component (`src/components/arena/tile.tsx`, `cva` with `face`, `state`, `size`)
   - **Done when:** `tile.test.tsx` covers states and sizes; every new colour pair is checked for contrast in light and dark for all five accents and the results noted in design.md
 
-- [ ] T015 [B:T003] Write `src/lib/arena-client.ts` (create, join, stats with Vietnamese errors) and `src/components/arena/use-arena-room.ts` (socket lifecycle, backoff reconnect up to the grace, clock offset from `serverNow`, state from frames, actions) plus a `FakeArenaRoom` for screen tests
+- [x] T015 [B:T003] Write `src/lib/arena-client.ts` (create, join, stats with Vietnamese errors) and `src/components/arena/use-arena-room.ts` (socket lifecycle, backoff reconnect up to the grace, clock offset from `serverNow`, state from frames, actions) plus `use-countdown.ts` and `test-room.ts` (room view builder and a spy handle) for screen tests
   - **Done when:** `use-arena-room.test.ts` with a fake WebSocket covers state frames, offset countdowns, reconnect, 4001 and error frames
 
-- [ ] T016 [B:T014,T015] Build the hub `src/app/(app)/arena/page.tsx` with `ArenaHub`: "Tạo phòng" sheet (mode, level, rounds toggle groups, unavailable modes disabled with a reason), the 6-tile code join that accepts paste, the stats line; `LockedArea` `"arena"` with its copy; `/arena` in the sitemap
+- [x] T016 [B:T014,T015] Build the hub `src/app/(app)/arena/page.tsx` with `ArenaHub`: "Tạo phòng" sheet (mode, level, rounds toggle groups, unavailable modes disabled with a reason), the 6-tile code join that accepts paste, the stats line; `LockedArea` `"arena"` with its copy; `/arena` in the sitemap
   - **Done when:** component tests cover the create options, join validation and the guest prompt (AC-001, AC-002, AC-006 hub part)
 
-- [ ] T017 [P] Add "Đấu trường" (`Swords`, tour `arena`) after "Bài tập" in `src/components/shell/nav.ts` (it lands in "Thêm" on phones) and a locked tour step after "Bài tập"; update the tour order tests
+- [x] T017 [P] Add "Đấu trường" (`Swords`, tour `arena`) after "Bài tập" in `src/components/shell/nav.ts` (it lands in "Thêm" on phones) and a locked tour step after "Bài tập"; update the tour order tests
   - **Done when:** nav and tour tests pass with the new item and step (AC-028)
 
-- [ ] T018 [B:T016] Build the room page `src/app/(focus)/arena/room/page.tsx` (`index: false`) with `RoomScreen`, `Lobby` and `InvitePanel` (code tiles, copy link, QR via `qrcode` pinned in the app's `package.json`), the Ready button and 30 s ring, "Bắt đầu lại" for the creator, and the guest prompt that returns to the same `?code=` after sign-in
+- [x] T018 [B:T016] Build the room page `src/app/(focus)/arena/room/page.tsx` (`index: false`) with `RoomScreen`, `Lobby` and `InvitePanel` (code tiles, copy link, QR via `qrcode` pinned in the app's `package.json`), the Ready button and 30 s ring, "Bắt đầu lại" for the creator, and the guest prompt that returns to the same `?code=` after sign-in
   - **Done when:** screen tests against `FakeArenaRoom` cover AC-003, AC-004, AC-006, AC-007, AC-008, AC-009 and AC-010 views; build passes
 
-- [ ] T019 [B:T018] Build the duel frame: `Scoreboard` (chips for you and the rival, scores, round pips), `TimerBar` (warning under 5 s, destructive under 3 s), `OpponentStatus` ("đang gõ…", "sai"), the `aria-live` announcer, focus handling and the paused overlay
+- [x] T019 [B:T018] Build the duel frame: `Scoreboard` (chips for you and the rival, scores, round pips), `TimerBar` (warning under 5 s, destructive under 3 s), `OpponentStatus` ("đang gõ…", "sai"), the `aria-live` announcer, focus handling and the paused overlay
   - **Done when:** tests cover live announcements, the timer colours and the paused overlay (AC-012 display, AC-013 opponent side, AC-024 view)
 
-- [ ] T020 [B:T019] Build the three question views: `QuestionListen` (play button, 2×2 option tiles, keys 1–4, lock-out view), `QuestionRecall` (meaning, part of speech, `LetterSlots` fed by a real input), `QuestionWrite` (Vietnamese card, textarea, Enter sends); wrong tries shake and keep the text selected
+- [x] T020 [B:T019] Build the three question views: `QuestionListen` (play button, 2×2 option tiles, keys 1–4, lock-out view), `QuestionRecall` (meaning, part of speech, `LetterSlots` fed by a real input), `QuestionWrite` (Vietnamese card, textarea, Enter sends); wrong tries shake and keep the text selected
   - **Done when:** tests cover sending answers, keys, lock-out and slots (AC-013, AC-014 views)
 
-- [ ] T021 [B:T020] Build `AnswerReveal` (tiles flipping in, "Bạn nhanh hơn! +1" / rival / "Hết giờ", IPA and audio for words), `RoundResult` (sudden-death banner), `MatchResult` (winner, round scores, record, confetti on a win, "Đấu lại" waiting state, "Về Đấu trường")
+- [x] T021 [B:T020] Build `AnswerReveal` (tiles flipping in, "Bạn nhanh hơn! +1" / rival / "Hết giờ", IPA and audio for words), `RoundResult` (sudden-death banner), `MatchResult` (winner, round scores, record, confetti on a win, "Đấu lại" waiting state, "Về Đấu trường")
   - **Done when:** tests cover AC-018, AC-020, AC-021, AC-022, AC-026 and AC-027 views, and reduced motion leaves no keyframe animation
 
 - [ ] T022 [B:T009,T014] Add the Arena section to Hồ sơ (`src/components/profile/arena-stats.tsx`, `src/app/(app)/profile/page.tsx`) reading `/api/arena/stats`: wins, losses, best streak, or an invite to "Đấu trường" when there are none

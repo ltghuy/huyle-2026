@@ -7,6 +7,28 @@
 @theme inline {
   /* The header greeting's 👋 waves twice when a page opens. */
   --animate-wave: wave 1.2s ease-in-out 2;
+  /* Arena pieces (feature 023); the reduced-motion rule below cuts them to a blink. */
+  --animate-tile-flip: tile-flip 250ms ease-out both;
+  --animate-tile-shake: tile-shake 250ms ease-in-out;
+  --animate-score-pop: score-pop 300ms ease-out;
+  --animate-confetti: confetti 1.2s ease-in forwards;
+  @keyframes tile-flip {
+    from { transform: rotateX(90deg); opacity: 0; }
+    to { transform: rotateX(0); opacity: 1; }
+  }
+  @keyframes tile-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  @keyframes score-pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  @keyframes confetti {
+    from { transform: translateY(-1rem) rotate(0deg); opacity: 1; }
+    to { transform: translateY(70vh) rotate(var(--confetti-turn, 200deg)); opacity: 0; }
+  }
   @keyframes wave {
     0%, 60%, 100% { transform: rotate(0deg); }
     10%, 30% { transform: rotate(14deg); }
@@ -37,6 +59,8 @@
   --color-destructive: var(--destructive);
   --color-success: var(--success);
   --color-streak: var(--streak);
+  --color-arena-rival: var(--arena-rival);
+  --color-arena-gold: var(--arena-gold);
   /* One hue per CEFR level (feature 020). */
   --color-level-a1: var(--level-a1);
   --color-level-a2: var(--level-a2);
@@ -109,6 +133,11 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.585 0.233 277.117);
   --streak: oklch(0.555 0.163 48.998);
+  /* The Arena (feature 023): the rival player's colour, orange against the default and blue
+     accents (other accents override it), and gold for rounds won. Gold is a fill behind
+     foreground text, never text on the page background. */
+  --arena-rival: oklch(0.56 0.165 45);
+  --arena-gold: oklch(0.769 0.188 70.08);
   --level-a1: oklch(0.52 0.14 150);
   --level-a2: oklch(0.52 0.1 195);
   --level-b1: oklch(0.52 0.17 255);
@@ -162,6 +191,8 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.673 0.182 276.935);
   --streak: oklch(0.828 0.189 84.429);
+  --arena-rival: oklch(0.75 0.183 55.934);
+  --arena-gold: oklch(0.828 0.189 84.429);
   --level-a1: oklch(0.8 0.16 150);
   --level-a2: oklch(0.8 0.11 195);
   --level-b1: oklch(0.77 0.13 255);
@@ -195,6 +226,7 @@
   --sidebar-ring: oklch(0.6 0.118 184.704);
   --sidebar-accent: oklch(0.984 0.014 180.72);
   --sidebar-accent-foreground: oklch(0.511 0.096 186.391);
+  --arena-rival: oklch(0.525 0.223 3.958);
 }
 :root[data-accent="orange"] {
   --primary: oklch(0.56 0.165 45);
@@ -207,6 +239,7 @@
   --sidebar-accent-foreground: oklch(0.56 0.165 45);
   /* Gold, so the streak flame stays apart from an orange accent. */
   --streak: oklch(0.56 0.12 80);
+  --arena-rival: oklch(0.511 0.262 276.966);
 }
 :root[data-accent="pink"] {
   --primary: oklch(0.525 0.223 3.958);
@@ -217,6 +250,8 @@
   --sidebar-ring: oklch(0.592 0.249 0.584);
   --sidebar-accent: oklch(0.971 0.014 343.198);
   --sidebar-accent-foreground: oklch(0.525 0.223 3.958);
+  /* The Arena rival (feature 023): a hue far from the accent; the other accents' primaries. */
+  --arena-rival: oklch(0.511 0.262 276.966);
 }
 :root.dark[data-accent="blue"] {
   --primary: oklch(0.707 0.165 254.624);
@@ -237,6 +272,7 @@
   --sidebar-ring: oklch(0.777 0.152 181.912);
   --sidebar-accent: oklch(0.277 0.046 192.524);
   --sidebar-accent-foreground: oklch(0.91 0.096 180.426);
+  --arena-rival: oklch(0.718 0.202 349.761);
 }
 :root.dark[data-accent="orange"] {
   --primary: oklch(0.75 0.183 55.934);
@@ -248,6 +284,7 @@
   --sidebar-accent: oklch(0.266 0.079 36.259);
   --sidebar-accent-foreground: oklch(0.901 0.076 70.697);
   --streak: oklch(0.86 0.16 95);
+  --arena-rival: oklch(0.673 0.182 276.935);
 }
 :root.dark[data-accent="pink"] {
   --primary: oklch(0.718 0.202 349.761);
@@ -258,6 +295,7 @@
   --sidebar-ring: oklch(0.718 0.202 349.761);
   --sidebar-accent: oklch(0.284 0.109 3.907);
   --sidebar-accent-foreground: oklch(0.899 0.061 343.231);
+  --arena-rival: oklch(0.673 0.182 276.935);
 }
 
 @layer base {
