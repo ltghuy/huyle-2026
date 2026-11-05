@@ -22,11 +22,13 @@ import {
   type RoomState,
 } from "@/learning/arena/machine";
 import { CLOSE_CODES, MAX_FRAME_BYTES, parseClientFrame, type ArenaSettings, type ClientFrame, type RoomFrame } from "@/learning/arena/protocol";
+import { historyEntries } from "@/learning/arena/history";
 import type { ArenaPool } from "@/learning/arena/questions";
 import type { Db } from "@/server/db";
 import * as schema from "@/server/db/schema";
 import { loadArenaPool } from "./content";
 import { ARENA_PROTOCOL, PLAYER_HEADER } from "./socket-route";
+import { recordMatch } from "./history";
 import { recordResult } from "./stats";
 
 const STATE_KEY = "room";
@@ -217,6 +219,12 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
         } catch (error) {
           // The match still ends for both; only the stats row is missing.
           console.error("Arena stats not saved:", error);
+        }
+        try {
+          // On its own, so a failed history write never costs the totals (feature 025).
+          await recordMatch(this.db(), historyEntries(effect.match, crypto.randomUUID()));
+        } catch (error) {
+          console.error("Arena history not saved:", error);
         }
         return;
     }

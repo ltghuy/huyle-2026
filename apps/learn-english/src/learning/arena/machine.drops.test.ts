@@ -76,13 +76,13 @@ describe("a drop during the match (AC-024, AC-025, AC-026)", () => {
     const paused = reduce(inQuestion(), { type: "disconnect", userId: "lan" }, T0 + 5_000).state;
     const over = reduce(paused, { type: "tick" }, T0 + 5_000 + GRACE_MS);
     expect(over.state).toMatchObject({ phase: "match-end", winnerId: "minh", endReason: "forfeit", pausedFor: null });
-    expect(over.effects).toContainEqual({ type: "record", winnerId: "minh", loserId: "lan" });
+    expect(over.effects).toContainEqual(expect.objectContaining({ type: "record", winnerId: "minh", loserId: "lan" }));
   });
 
   it("treats leaving mid-match as a forfeit", () => {
     const over = reduce(inQuestion(), { type: "leave", userId: "minh" }, T0 + 5_000);
     expect(over.state).toMatchObject({ phase: "match-end", winnerId: "lan", endReason: "forfeit" });
-    expect(over.effects).toContainEqual({ type: "record", winnerId: "lan", loserId: "minh" });
+    expect(over.effects).toContainEqual(expect.objectContaining({ type: "record", winnerId: "lan", loserId: "minh" }));
   });
 
   it("pauses during the countdown too, and runs it again on return", () => {

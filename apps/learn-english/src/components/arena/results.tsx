@@ -1,7 +1,8 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
+import { useEffect } from "react";
 import { RotateCcw, Trophy } from "lucide-react";
 import { Owl } from "@/components/mascot/owl";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import type { PublicRoom } from "@/learning/arena/protocol";
 import { fetchArenaStats } from "@/lib/arena-client";
 import { cn } from "@/lib/utils";
 import { ARENA_STATS_KEY } from "./arena-record";
+import { ARENA_MATCHES_KEY } from "./match-parts";
 import { Scoreboard } from "./scoreboard";
 import { useCountdown } from "./use-countdown";
 
@@ -89,6 +91,11 @@ interface MatchResultProps {
 /** The end of the match (AC-022, AC-026, AC-027): the winner, each round's score, your record, and play again. */
 export function MatchResult({ room, me, onRematch }: MatchResultProps) {
   const stats = useQuery({ queryKey: ARENA_STATS_KEY, queryFn: fetchArenaStats, staleTime: 0, refetchOnMount: "always" });
+  const queryClient = useQueryClient();
+  // The history now has this match: the hub card and Lịch sử đấu fetch again when next opened (feature 025).
+  useEffect(() => {
+    void queryClient.invalidateQueries({ queryKey: ARENA_MATCHES_KEY });
+  }, [queryClient]);
   const youWon = room.winnerId === me;
   const rival = room.players.find((p) => p.id !== me);
   const youAsked = room.rematch.includes(me);

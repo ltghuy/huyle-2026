@@ -161,6 +161,8 @@ describe("leaving before the match (AC-010)", () => {
     expect(state.phase).toBe("closed");
     expect(effects).toContainEqual({ type: "close", userId: null, code: CLOSE_CODES.roomClosed, message: MESSAGES.closed });
     expect(nextAlarm(state)).toBeNull();
+    // A cancelled lobby is no match: nothing goes to the stats or the history (feature 025, AC-002).
+    expect(effects.some((e) => e.type === "record")).toBe(false);
   });
 
   it("gives a dropped player 30 s to come back before they count as gone", () => {

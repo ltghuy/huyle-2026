@@ -185,8 +185,33 @@ describe("rounds and the match", () => {
     expect(end.state.winnerId).toBe("minh");
     expect(end.state.endReason).toBe("won");
     expect(end.state.rounds).toEqual([{ round: 1, scores: { minh: 8, lan: 4 }, winnerId: "minh" }]);
-    expect(end.effects).toContainEqual({ type: "record", winnerId: "minh", loserId: "lan" });
+    expect(end.effects).toContainEqual(expect.objectContaining({ type: "record", winnerId: "minh", loserId: "lan" }));
     expect(nextAlarm(end.state)).not.toBeNull();
+  });
+
+  it("puts the whole match on the record for the history (feature 025, AC-001)", () => {
+    const one = play(startMatch("recall", 3), () => "lan");
+    const two = play(tick(one.state).state, (i) => (i < 8 ? "lan" : "minh"));
+    const record = two.effects.find((e) => e.type === "record");
+    expect(record).toEqual({
+      type: "record",
+      winnerId: "lan",
+      loserId: "minh",
+      match: {
+        endedAt: now,
+        reason: "won",
+        settings: { mode: "recall", level: "A1", rounds: 3 },
+        winnerId: "lan",
+        players: [
+          { ...MINH, roundsWon: 0 },
+          { ...LAN, roundsWon: 2 },
+        ],
+        rounds: [
+          { round: 1, scores: { minh: 0, lan: 12 }, winnerId: "lan" },
+          { round: 2, scores: { minh: 4, lan: 8 }, winnerId: "lan" },
+        ],
+      },
+    });
   });
 
   it("shows the round result, then starts round 2 with fresh scores", () => {
@@ -228,6 +253,7 @@ describe("sudden death (AC-021)", () => {
     const won = tick(answer(sudden, "lan", true).state);
     expect(won.state).toMatchObject({ phase: "match-end", winnerId: "lan" });
     expect(won.state.rounds[0].scores).toEqual({ minh: 6, lan: 7 });
+    expect(won.state.rounds[0].suddenDeath).toBe(true);
   });
 
   it("asks up to 3, then gives the round to the player who was faster on the questions they won", () => {

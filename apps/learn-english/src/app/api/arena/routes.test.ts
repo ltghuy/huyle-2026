@@ -24,10 +24,13 @@ vi.mock("@/server/arena/arena.service", async (original) => ({
 }));
 const getStats = vi.fn();
 vi.mock("@/server/arena/stats", () => ({ getStats: (...args: unknown[]) => getStats(...args) }));
+const listHistory = vi.fn();
+vi.mock("@/server/arena/history", () => ({ listHistory: (...args: unknown[]) => listHistory(...args) }));
 
 const rooms = await import("./rooms/route");
 const join = await import("./join/route");
 const stats = await import("./stats/route");
+const matches = await import("./matches/route");
 
 const post = (route: { POST: (r: Request) => Promise<Response> }, body: unknown) =>
   route.POST(new Request("https://english.huyle.work/api/arena", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }));
@@ -109,5 +112,33 @@ describe("GET /api/arena/stats", () => {
     const response = await stats.GET(new Request("https://english.huyle.work/api/arena/stats"));
     expect(await response.json()).toEqual({ wins: 3, losses: 1, streak: 2, bestStreak: 3 });
     expect(getStats.mock.calls[0][1]).toBe("minh");
+  });
+});
+
+describe("GET /api/arena/matches (feature 025)", () => {
+  const get = (url = "https://english.huyle.work/api/arena/matches?userId=lan") => matches.GET(new Request(url));
+
+  it("refuses guests (AC-007)", async () => {
+    signedIn = false;
+    expect((await get()).status).toBe(401);
+    expect(listHistory).not.toHaveBeenCalled();
+  });
+
+  it("returns only the signed-in learner's record and matches, never cached", async () => {
+    listHistory.mockReset().mockResolvedValue({ stats: { wins: 1, losses: 0, streak: 1, bestStreak: 1 }, matches: [] });
+    const response = await get();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ stats: { wins: 1, losses: 0, streak: 1, bestStreak: 1 }, matches: [] });
+    // The query string's user id is ignored: it is always the session's.
+    expect(listHistory.mock.calls[0][1]).toBe("minh");
+  });
+
+  it("answers 503 in Vietnamese when the database fails (AC-008)", async () => {
+    listHistory.mockReset().mockRejectedValue(new Error("D1 down"));
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    const response = await get();
+    expect(response.status).toBe(503);
+    expect(await response.json()).toEqual({ error: { message: "Đấu trường đang tạm nghỉ, bạn thử lại sau nhé." } });
   });
 });

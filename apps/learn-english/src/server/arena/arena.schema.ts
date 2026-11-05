@@ -42,3 +42,24 @@ export interface ArenaStatsResponse {
   streak: number;
   bestStreak: number;
 }
+
+/** One past match from the signed-in learner's side (feature 025). */
+export interface ArenaMatch {
+  id: string;
+  /** Epoch ms. */
+  endedAt: number;
+  won: boolean;
+  forfeit: boolean;
+  /** Rounds won. */
+  score: { mine: number; theirs: number };
+  /** Null when the opponent has deleted their account. */
+  opponent: { name: string; image: string | null } | null;
+  settings: ArenaSettings;
+  rounds: { round: number; mine: number; theirs: number; won: boolean; suddenDeath: boolean; onTime: boolean }[];
+}
+
+/** The learner's record and their newest matches, newest first. */
+export interface ArenaMatchesResponse {
+  stats: ArenaStatsResponse;
+  matches: ArenaMatch[];
+}

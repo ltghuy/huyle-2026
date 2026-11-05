@@ -107,6 +107,8 @@ export const roundResultSchema = z.object({
   round: z.number().int(),
   scores: z.record(z.string(), z.number().int()),
   winnerId: z.string(),
+  /** The round went to sudden death (feature 025). Absent on rounds without it, and on rooms saved before. */
+  suddenDeath: z.boolean().optional(),
 });
 export type RoundResult = z.infer<typeof roundResultSchema>;
 

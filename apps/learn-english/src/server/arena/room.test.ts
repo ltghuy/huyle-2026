@@ -151,6 +151,13 @@ describe("ArenaRoom", () => {
       { user_id: "lan", wins: 0, losses: 1 },
       { user_id: "minh", wins: 1, losses: 0 },
     ]);
+    // Both players' history entries, from each side, under one match id (feature 025, AC-001).
+    const history = database.sqlite.prepare("SELECT match_id, user_id, opponent_name, won, rounds_won, opponent_rounds_won FROM arena_matches ORDER BY user_id").all() as Record<string, unknown>[];
+    expect(history).toMatchObject([
+      { user_id: "lan", opponent_name: "Minh Anh", won: 0, rounds_won: 0, opponent_rounds_won: 1 },
+      { user_id: "minh", opponent_name: "Lan", won: 1, rounds_won: 1, opponent_rounds_won: 0 },
+    ]);
+    expect(history[0].match_id).toBe(history[1].match_id);
   });
 
   it("loads the new level's content when the creator changes it for a rematch (AC-031)", async () => {

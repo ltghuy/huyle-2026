@@ -24,7 +24,7 @@ answers.
 | Động từ bất quy tắc | `/irregular-verbs` | The 108 common irregular verbs with past and past participle, Vietnamese meaning, IPA and one "go, went, gone" clip each; filters by level and by pattern (cut – cut – cut, buy – bought – bought, come – came – come, go – went – gone); practice whose answers get their own review schedule in Ôn tập |
 | Ôn tập | `/review` | Reviews due today, scheduled with FSRS so each item comes back just before it would be forgotten |
 | Bài tập | `/exercises` | Free practice: multiple choice, spelling, listening, sentence ordering, translating a Vietnamese sentence into English |
-| Đấu trường | `/arena` | Live 1-on-1 duels with a friend (signed-in learners): create a room (mode, level, 1 or 3 rounds), share its code, link or QR, then race on the same timed questions: listen and pick the word, recall it from its meaning, or translate a sentence. The first right answer scores; wins and losses show on Hồ sơ |
+| Đấu trường | `/arena` | Live 1-on-1 duels with a friend (signed-in learners): create a room (mode, level, 1 or 3 rounds), share its code, link or QR, then race on the same timed questions: listen and pick the word, recall it from its meaning, or translate a sentence. The first right answer scores; wins and losses show on Hồ sơ, and each learner's 50 newest matches (score, opponent, time, points per round) on `/arena/history` |
 | Từ khó | `/hard-words` | The words a learner gets wrong most often or takes longest to recall |
 | Hồ sơ | `/profile` | Attendance points, streaks, a 12-week calendar and progress per level |
 | Cài đặt | `/settings` | Name, level, appearance, sync, backup files, and replaying the guided tour |

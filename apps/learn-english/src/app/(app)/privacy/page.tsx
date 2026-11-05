@@ -23,6 +23,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
     body: [
       "Từ tài khoản Google, ứng dụng chỉ nhận tên, địa chỉ email và ảnh đại diện. Ứng dụng không đọc được Gmail, Drive, danh bạ hay bất cứ thứ gì khác, và không bao giờ biết mật khẩu của bạn.",
       "Ứng dụng lưu tiến độ học của bạn trong tài khoản: từ và chủ điểm ngữ pháp đã học cùng lịch ôn tập, các bài học, chuỗi ngày học và điểm, câu trả lời trong bài tập (dùng để tìm từ khó), cùng các cài đặt học như trình độ, bộ từ đang học và tên gọi. Nhờ vậy tiến độ giống nhau trên mọi thiết bị bạn đăng nhập.",
+      "Khi bạn đấu ở Đấu trường, ứng dụng lưu số trận thắng, thua cùng 50 trận gần nhất của bạn: kết quả, điểm từng hiệp, thời gian, và tên cùng ảnh đại diện mà đối thủ dùng trong trận.",
       "Để biết bạn còn đăng nhập, trình duyệt giữ một cookie phiên. Phiên kéo dài 30 ngày kể từ lần bạn dùng ứng dụng gần nhất; mỗi lần bạn học, phiên được gia hạn.",
     ],
   },
@@ -45,6 +46,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
     body: [
       "Chỉ khi bạn chọn tham gia bảng xếp hạng: tên gọi bạn tự đặt (hoặc tên Google nếu chưa đặt) và chuỗi ngày học của bạn; điểm chỉ dùng để xếp hạng khi bằng chuỗi, không hiện ra. Mỗi tài khoản Google chỉ có một chỗ trên bảng. Email và ảnh đại diện không bao giờ hiện cho người khác.",
       "Bạn rời bảng bất cứ lúc nào trong Cài đặt. Ai không học trong 90 ngày sẽ tự được xóa khỏi bảng.",
+      "Ở Đấu trường, đối thủ thấy tên và ảnh đại diện của bạn trong trận, và sau đó trong lịch sử đấu của họ.",
     ],
   },
   {
@@ -56,7 +58,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "Giữ bao lâu và cách xóa",
     body: [
-      "Tài khoản và tiến độ được giữ cho đến khi bạn xóa tài khoản. Vào Cài đặt, chọn “Xóa tài khoản”: tài khoản, toàn bộ tiến độ, các tuần đã học và chỗ trên bảng xếp hạng bị xóa khỏi máy chủ và khỏi thiết bị, không lấy lại được. Bạn có thể xuất tiến độ ra file trước.",
+      "Tài khoản và tiến độ được giữ cho đến khi bạn xóa tài khoản. Vào Cài đặt, chọn “Xóa tài khoản”: tài khoản, toàn bộ tiến độ, các tuần đã học, chỗ trên bảng xếp hạng và lịch sử đấu bị xóa khỏi máy chủ và khỏi thiết bị, không lấy lại được. Trong lịch sử đấu của người từng đấu với bạn, tên và ảnh của bạn cũng bị xóa. Bạn có thể xuất tiến độ ra file trước.",
       "Đăng xuất chỉ xóa tiến độ khỏi thiết bị đang dùng; tài khoản vẫn giữ nguyên và bạn đăng nhập lại là có lại tiến độ.",
       "Nếu bạn từng dùng mã đồng bộ: mã cũ chỉ còn dùng được để gộp tiến độ vào tài khoản trong một thời gian ngắn. Sau khi gộp, hoặc khi hết thời gian đó, dữ liệu của mã bị xóa.",
     ],

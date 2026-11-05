@@ -1,9 +1,9 @@
 import type { ArenaSettings } from "@/learning/arena/protocol";
 import type { ApiError } from "@/lib/http";
-import { ARENA_MESSAGES, type ArenaStatsResponse, type RoomTicket } from "@/server/arena/arena.schema";
+import { ARENA_MESSAGES, type ArenaMatchesResponse, type ArenaStatsResponse, type RoomTicket } from "@/server/arena/arena.schema";
 
 // Browser side of the Arena routes (feature 023): create a room, join one by
-// code, and read the learner's record. Each answers in Vietnamese on failure.
+// code, and read the learner's record and match history. Each answers in Vietnamese on failure.
 
 /** A failed Arena request, with the Vietnamese message to show. */
 export class ArenaError extends Error {
@@ -47,6 +47,11 @@ export function joinRoom(code: string, name?: string): Promise<RoomTicket> {
 
 export function fetchArenaStats(): Promise<ArenaStatsResponse> {
   return request<ArenaStatsResponse>("/api/arena/stats");
+}
+
+/** The learner's record and newest matches (feature 025). */
+export function fetchArenaMatches(): Promise<ArenaMatchesResponse> {
+  return request<ArenaMatchesResponse>("/api/arena/matches");
 }
 
 /** The room's socket URL on this site. */

@@ -123,8 +123,19 @@ export type Effect =
   | { type: "close"; userId: string | null; code: number; message?: string }
   /** The player opened the room again (another tab): close their older sockets with 4001, keep the newest. */
   | { type: "replace"; userId: string }
-  /** Save the match result to both players' stats (AC-029). */
-  | { type: "record"; winnerId: string; loserId: string };
+  /** Save the match result to both players' stats (AC-029) and history (feature 025). */
+  | { type: "record"; winnerId: string; loserId: string; match: FinishedMatch };
+
+/** What the history keeps of a match that ended with a winner (feature 025, AC-001). */
+export interface FinishedMatch {
+  endedAt: number;
+  reason: "won" | "forfeit";
+  settings: ArenaSettings;
+  winnerId: string;
+  players: (PlayerIdentity & { roundsWon: number })[];
+  /** The rounds that finished; a forfeit can end the match mid-round. */
+  rounds: RoundResult[];
+}
 
 export interface Result {
   state: RoomState;
@@ -362,7 +373,12 @@ function roundWinner(state: RoomState, tieBreak: boolean): string | null {
 }
 
 function endRound(state: RoomState, winnerId: string, now: number): Result {
-  const result: RoundResult = { round: state.round, scores: Object.fromEntries(state.players.map((p) => [p.id, p.score])), winnerId };
+  const result: RoundResult = {
+    round: state.round,
+    scores: Object.fromEntries(state.players.map((p) => [p.id, p.score])),
+    winnerId,
+    ...(state.suddenDeath > 0 ? { suddenDeath: true } : {}),
+  };
   const next: RoomState = {
     ...state,
     rounds: [...state.rounds, result],
@@ -377,7 +393,15 @@ function endMatch(state: RoomState, winnerId: string, reason: "won" | "forfeit",
   const loserId = state.players.find((p) => p.id !== winnerId)!.id;
   // A finished room closes after a while unless they play again (T007 rematch).
   const ended: RoomState = { ...state, phase: "match-end", deadline: null, idleUntil: now + IDLE_MS, winnerId, endReason: reason, questionStartedAt: null };
-  return broadcast(ended, { type: "record", winnerId, loserId });
+  const match: FinishedMatch = {
+    endedAt: now,
+    reason,
+    settings: state.settings,
+    winnerId,
+    players: state.players.map(({ id, name, image, roundsWon }) => ({ id, name, image, roundsWon })),
+    rounds: state.rounds,
+  };
+  return broadcast(ended, { type: "record", winnerId, loserId, match });
 }
 
 /** After a reveal: the next question, sudden death, or the end of the round. */

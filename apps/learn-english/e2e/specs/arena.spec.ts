@@ -18,6 +18,33 @@ async function stats(page: Page) {
   return (await (await page.request.get("/api/arena/stats")).json()) as { wins: number; losses: number };
 }
 
+type HistoryMatch = { id: string; won: boolean; forfeit: boolean; score: { mine: number; theirs: number }; opponent: { name: string } | null };
+
+/** The learner's newest matches (feature 025). */
+async function history(page: Page): Promise<HistoryMatch[]> {
+  return ((await (await page.request.get("/api/arena/matches")).json()) as { matches: HistoryMatch[] }).matches;
+}
+
+/**
+ * Each match added since `before` shows on both sides, mirrored (feature 025, AC-001). Other tests
+ * play with the same two accounts in parallel, so this checks every new match, not only this one.
+ */
+async function expectMirroredHistory(minh: Page, lan: Page, before: Set<string>) {
+  const [minhSide, lanSide] = [await history(minh), await history(lan)];
+  const added = minhSide.filter((m) => !before.has(m.id));
+  expect(added.length).toBeGreaterThan(0);
+  for (const match of added) {
+    const other = lanSide.find((m) => m.id === match.id);
+    expect(other, `Lan's side of ${match.id}`).toBeDefined();
+    expect(match.opponent?.name).toBe("Lan");
+    expect(other!.opponent?.name).toBe("Minh Anh");
+    expect(other!.won).toBe(!match.won);
+    expect(other!.forfeit).toBe(match.forfeit);
+    expect(other!.score).toEqual({ mine: match.score.theirs, theirs: match.score.mine });
+  }
+  return added;
+}
+
 /** Creates a 1-round "Nghe" room at A2 from the hub's "Đấu 1-1" and returns its code. */
 async function createRoom(page: Page): Promise<string> {
   await page.goto("/arena");
@@ -57,6 +84,7 @@ test.describe("Arena duels", () => {
     const minh = await signedIn(browser, E2E_USERS.minh, baseURL!);
     const lan = await signedIn(browser, E2E_USERS.lan, baseURL!);
     const before = { minh: await stats(minh), lan: await stats(lan) };
+    const seen = new Set((await history(minh)).map((m) => m.id));
 
     const code = await createRoom(minh);
     await expect(minh.getByText("Đang chờ đối thủ", { exact: false })).toBeVisible();
@@ -115,6 +143,18 @@ test.describe("Arena duels", () => {
     console.log(`Arena reveal latency (ms): ${latencies.join(", ") || "none measured"}; questions: ${questions}`);
     for (const latency of latencies) expect(latency).toBeLessThan(1_000);
 
+    // The match is in both players' history, and Lan finds it from the hub card (feature 025).
+    await expectMirroredHistory(minh, lan, seen);
+    await lan.goto("/arena");
+    const card = lan.getByRole("link", { name: "Lịch sử đấu" });
+    await expect(card).toContainText("Trận gần nhất:", { timeout: 10_000 });
+    await card.click();
+    await lan.waitForURL("**/arena/history");
+    const rows = lan.getByRole("list", { name: "Các trận gần đây" }).getByRole("button");
+    await expect(rows.first()).toContainText("Minh Anh");
+    await rows.first().click();
+    await expect(lan.getByRole("dialog").getByText("Hiệp 1")).toBeVisible();
+
     // The record shows on Hồ sơ (AC-030).
     await minh.goto("/profile");
     await expect(minh.getByRole("heading", { name: "Thành tích đấu" })).toBeVisible();
@@ -125,6 +165,7 @@ test.describe("Arena duels", () => {
     test.setTimeout(120_000);
     const minh = await signedIn(browser, E2E_USERS.minh, baseURL!);
     const lan = await signedIn(browser, E2E_USERS.lan, baseURL!);
+    const seen = new Set((await history(minh)).map((m) => m.id));
     const code = await createRoom(minh);
     await lan.goto(`/arena/room?code=${code}`);
     await bothReady(minh, lan);
@@ -141,6 +182,9 @@ test.describe("Arena duels", () => {
     await minh.getByRole("alertdialog").getByRole("button", { name: "Rời trận" }).click();
     await minh.waitForURL("**/arena");
     await expect(matchTitle(lan)).toHaveText("Minh Anh đã rời trận, bạn thắng", { timeout: 10_000 });
+    // Saved as a forfeit Minh lost (feature 025, AC-004).
+    await expect.poll(async () => (await history(minh)).some((m) => !seen.has(m.id) && m.forfeit && !m.won)).toBe(true);
+    await expectMirroredHistory(minh, lan, seen);
   });
 
   test("a player who doesn't come back in 30 s loses the match (AC-026)", async ({ browser, baseURL }) => {

@@ -212,3 +212,31 @@ export const arenaStats = sqliteTable("arena_stats", {
   bestStreak: integer("best_streak").notNull().default(0),
   updatedAt: integer("updated_at").notNull(),
 });
+
+// Arena match history (feature 025): one row per player per finished match, from that player's
+// side, with the opponent as they were in the match. The room keeps each player's 50 newest.
+// Removed with the owner's account; when the opponent deletes theirs, `opponent_id` goes null
+// and account deletion blanks the name and picture (`deleteAccount`).
+export const arenaMatches = sqliteTable(
+  "arena_matches",
+  {
+    matchId: text("match_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    opponentId: text("opponent_id").references(() => user.id, { onDelete: "set null" }),
+    opponentName: text("opponent_name"),
+    opponentImage: text("opponent_image"),
+    won: integer("won", { mode: "boolean" }).notNull(),
+    forfeit: integer("forfeit", { mode: "boolean" }).notNull(),
+    roundsWon: integer("rounds_won").notNull(),
+    opponentRoundsWon: integer("opponent_rounds_won").notNull(),
+    /** JSON `HistoryRound[]` from the owner's side. */
+    rounds: text("rounds").notNull(),
+    mode: text("mode").notNull(),
+    level: text("level").notNull(),
+    bestOf: integer("best_of").notNull(),
+    endedAt: integer("ended_at").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.matchId, table.userId] }), index("arena_matches_user_ended").on(table.userId, table.endedAt)],
+);
