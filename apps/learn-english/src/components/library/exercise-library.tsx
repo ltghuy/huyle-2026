@@ -153,12 +153,13 @@ export function ExerciseLibrary() {
 
   return (
     <Tabs value={tab} onValueChange={handleTabChange} className="gap-5 px-4 md:px-8">
-      <TabsList variant="line" aria-label="Nhóm bài tập" className="w-full justify-start gap-1 border-b group-data-horizontal/tabs:h-12 sm:gap-4">
+      <TabsList variant="line" aria-label="Nhóm bài tập" className="w-full justify-start gap-0 border-b group-data-horizontal/tabs:h-12 min-[360px]:gap-1 sm:gap-4">
         {GROUPS.map(({ group, title, icon: Icon }) => (
-          // Three tabs share a 360 px phone: they split the width there and the icons drop out.
-          <TabsTrigger key={group} value={group} className="px-1 text-sm sm:flex-none sm:px-2 sm:text-base">
+          // Three tabs share a phone: they split the width there and the icons drop out. Below 360 px
+          // the gaps and the badge padding shrink too, so they fit a 320 px screen (quick 050).
+          <TabsTrigger key={group} value={group} className="gap-1 px-0.5 text-sm min-[360px]:gap-1.5 min-[360px]:px-1 sm:flex-none sm:px-2 sm:text-base">
             <Icon className="max-sm:hidden" aria-hidden /> {title}
-            <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs tabular-nums text-muted-foreground">{setCount(group)}</span>
+            <span className="rounded-full bg-muted px-1 py-0.5 text-xs tabular-nums text-muted-foreground min-[360px]:px-1.5">{setCount(group)}</span>
           </TabsTrigger>
         ))}
       </TabsList>
