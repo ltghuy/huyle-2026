@@ -43,8 +43,12 @@ export const LIBRARY_GROUP = {
   hrefs: ["/vocabulary", "/grammar", "/irregular-verbs"],
 } as const satisfies { label: string; icon: LucideIcon; hrefs: readonly string[] };
 
-/** Mobile bottom bar: at most five slots; the rest live behind "Thêm". */
-export const MOBILE_PRIMARY = ["/", "/review", "/vocabulary", "/exercises"] as const;
+/**
+ * Mobile bottom bar, in this order: at most five slots counting "Thêm", which holds the rest.
+ * `MOBILE_CENTER` is the raised button in the middle (quick 049).
+ */
+export const MOBILE_PRIMARY = ["/", "/vocabulary", "/arena", "/review"] as const;
+export const MOBILE_CENTER = "/arena";
 
 export function isActive(pathname: string, href: string): boolean {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);

@@ -6,14 +6,16 @@ import { useState } from "react";
 import { Ellipsis, Info } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { MOBILE_PRIMARY, NAV_ITEMS, isActive } from "./nav";
+import { MOBILE_CENTER, MOBILE_PRIMARY, NAV_ITEMS, isActive } from "./nav";
 
-const PRIMARY = NAV_ITEMS.filter((item) => (MOBILE_PRIMARY as readonly string[]).includes(item.href));
+// In the bar's own order, not the sidebar's.
+const PRIMARY = MOBILE_PRIMARY.map((href) => NAV_ITEMS.find((item) => item.href === href)!);
 const MORE = NAV_ITEMS.filter((item) => !(MOBILE_PRIMARY as readonly string[]).includes(item.href));
 
-const tabClass = "flex min-h-14 flex-1 flex-col items-center justify-center gap-1 text-xs font-medium";
+// One-line labels: "Đấu trường" would otherwise wrap on a 320 px phone.
+const tabClass = "flex min-h-14 flex-1 flex-col items-center justify-center gap-1 text-xs font-medium whitespace-nowrap";
 
-/** Bottom navigation for phones: four destinations plus "Thêm" for the rest. */
+/** Bottom navigation for phones: four destinations, Arena raised in the middle, plus "Thêm" for the rest. */
 export function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -27,6 +29,29 @@ export function MobileNav() {
       <ul className="flex">
         {PRIMARY.map((item) => {
           const active = isActive(pathname, item.href);
+          if (item.href === MOBILE_CENTER) {
+            return (
+              <li key={item.href} className="flex flex-1">
+                <Link
+                  href={item.href}
+                  data-tour={item.tour}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(tabClass, active ? "text-primary" : "text-foreground")}
+                >
+                  {/* A raised circle that stands out from the bar; the ring in the page colour cuts it from the border. */}
+                  <span
+                    className={cn(
+                      "-mt-6 flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg ring-4 ring-background transition-transform active:scale-95",
+                      active && "ring-primary/30",
+                    )}
+                  >
+                    <item.icon className="size-6" aria-hidden />
+                  </span>
+                  {item.label}
+                </Link>
+              </li>
+            );
+          }
           return (
             <li key={item.href} className="flex flex-1">
               <Link
