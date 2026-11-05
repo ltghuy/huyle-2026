@@ -426,6 +426,7 @@ Entries are grouped by scope: `repo` (workspace, tooling, deploy), `web` (the po
 - **Inside a Durable Object there is no `getCloudflareContext()`:** services the object calls take `db` (Drizzle over `this.env.DB`) as a parameter instead of calling `getDb()` [learn-english 023] <!-- feature:023 date:2026-11-04 -->
 - **`ON DELETE SET NULL` clears only the id column:** a snapshot of another user (name, picture) in a row they don't own survives their account deletion. `deleteAccount` blanks the Arena opponent snapshot in the same batch as the user delete [learn-english 025] <!-- feature:025 date:2026-11-05 -->
 - **Arena e2e tests share two accounts and run in parallel:** a before/after count of one learner's wins or matches can include another test's match (the 30 s forfeit test finishes inside the full-match test). Assert on what a test can own (mirrored rows for every new match id), or run those specs serially [learn-english 025] <!-- feature:025 date:2026-11-05 -->
+- **`cloudflare-env.d.ts` is gitignored, so Workers Builds never has it:** the clean checkout lacks the binding and Workers runtime types, and Next's build type check fails once code uses them (every push from feature 023 until quick 053). `build` and `typecheck` now run `pnpm cf:typegen` first. Check a build that matters with a fresh `git clone` + `pnpm install --frozen-lockfile` [learn-english quick 053] <!-- quick:053 date:2026-11-05 -->
 
 ## Codebase Feedback
 
