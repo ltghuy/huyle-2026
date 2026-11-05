@@ -54,6 +54,7 @@ The Arena hub (feature 023) shows two flat cards side by side: "Thách đấu m�
 - [x] AC-006: WHEN the learner has played before THEN system SHALL show their record (wins, losses, best streak) on the screen
 - [x] AC-007: WHEN a guest opens `/arena/1v1` THEN system SHALL show the sign-in prompt used by other locked areas (feature 023 AC-006)
 - [x] AC-008: WHEN the learner wants to go back THEN system SHALL offer a link to "Đấu trường"
+- [x] AC-009: WHEN the learner hovers or focuses the help button in the top-right corner of the "Thách đấu 1-1" card THEN system SHALL show the tooltip "Cách chơi và cách giành chiến thắng?"; WHEN they press it THEN system SHALL open a dialog with the game guide: how a room starts, the 12 shared questions and the time per mode, how points, rounds, sudden death and the match are won, and what leaving or finishing a match does (feature 023 rules; added 2026-11-05 by quick 052)
 
 ## Edge Cases
 

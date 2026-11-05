@@ -12,6 +12,7 @@ import type { Level } from "@/learning/types";
 import { ArenaError, createRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
 import { ArenaRecord } from "./arena-record";
+import { GameGuide } from "./game-guide";
 import { JoinRoom, roomPath } from "./join-room";
 import { PlayerAvatar } from "./players";
 import { SettingsFields, useSettingsDraft } from "./settings-fields";
@@ -22,12 +23,15 @@ interface Learner {
   level: Level;
 }
 
-/** You against an empty seat: the opponent is whoever you send the code to. */
+/** You against an empty seat: the opponent is whoever you send the code to. The guide sits in the corner (AC-009). */
 function VersusHeader({ learner }: { learner: Learner }) {
   return (
     <header className="relative isolate grid justify-items-center gap-4 overflow-hidden border-b px-5 pt-8 pb-6 text-center">
       <span aria-hidden className="pointer-events-none absolute top-0 -left-10 -z-10 size-48 rounded-full bg-primary/20 blur-3xl" />
       <span aria-hidden className="pointer-events-none absolute top-0 -right-10 -z-10 size-48 rounded-full bg-arena-rival/15 blur-3xl" />
+      <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
+        <GameGuide />
+      </div>
       <div aria-hidden className="flex items-center gap-5 sm:gap-8">
         <figure className="grid w-24 justify-items-center gap-2">
           <PlayerAvatar player={learner} you className="size-16 text-lg" />
