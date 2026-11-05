@@ -51,12 +51,16 @@ function isVisible(element: Element): boolean {
 
 /**
  * The element a step should point at: the first visible match, else the
- * mobile "Thêm" button (items hidden in that sheet), else null so the step
- * shows centred instead of pointing at nothing.
+ * closed sidebar group holding it, else the mobile "Thêm" button (items
+ * hidden in that sheet), else null so the step shows centred instead of
+ * pointing at nothing.
  */
 export function findTarget(target: string, root: ParentNode = document): HTMLElement | null {
   const match = [...root.querySelectorAll(`[data-tour="${target}"]`)].find(isVisible);
   if (match) return match as HTMLElement;
+  // A closed sidebar group (quick 048) hides its items; point at the group's row instead.
+  const group = [...root.querySelectorAll(`[data-tour-fallback~="${target}"]`)].find(isVisible);
+  if (group) return group as HTMLElement;
   const more = [...root.querySelectorAll('[data-tour="more"]')].find(isVisible);
   return (more as HTMLElement | undefined) ?? null;
 }

@@ -2,6 +2,7 @@ import {
   BookOpenText,
   Dumbbell,
   House,
+  Library,
   type LucideIcon,
   NotebookPen,
   Shuffle,
@@ -31,6 +32,16 @@ export const NAV_ITEMS = [
   { href: "/hard-words", label: "Từ khó", icon: TriangleAlert, tour: "hard-words" },
   { href: "/settings", label: "Cài đặt", icon: Settings, tour: "settings" },
 ] as const satisfies readonly NavItem[];
+
+/**
+ * Desktop sidebar: these pages sit under one collapsible "Thư viện" row (quick 048).
+ * The mobile bar and its "Thêm" sheet still list them one by one.
+ */
+export const LIBRARY_GROUP = {
+  label: "Thư viện",
+  icon: Library,
+  hrefs: ["/vocabulary", "/grammar", "/irregular-verbs"],
+} as const satisfies { label: string; icon: LucideIcon; hrefs: readonly string[] };
 
 /** Mobile bottom bar: at most five slots; the rest live behind "Thêm". */
 export const MOBILE_PRIMARY = ["/", "/review", "/vocabulary", "/exercises"] as const;
