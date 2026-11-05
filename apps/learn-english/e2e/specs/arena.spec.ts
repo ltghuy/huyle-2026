@@ -1,5 +1,5 @@
 import { expect, test, type Browser, type Page } from "@playwright/test";
-import { E2E_USERS, enterName, signInAs } from "../helpers";
+import { E2E_USERS, signInAs } from "../helpers";
 
 // Feature 023: live duels between two signed-in learners on the Cloudflare preview (real Worker,
 // Durable Object and D1). Rooms use "Nghe" at A2, the e2e Arena content, so a pick ends a question
@@ -159,8 +159,6 @@ test.describe("Arena duels", () => {
 
   test("guests are asked to sign in and come back to the same room (AC-006)", async ({ page }) => {
     await page.goto("/arena/room?code=K7P2QX");
-    // A guest is asked their name first (feature 003).
-    await enterName(page);
     await expect(page.getByText("Đăng nhập để vào Đấu trường")).toBeVisible();
     await expect(page).toHaveURL(/\/arena\/room\?code=K7P2QX$/);
     await expect(page.getByRole("button", { name: "Đăng nhập với Google" })).toBeVisible();

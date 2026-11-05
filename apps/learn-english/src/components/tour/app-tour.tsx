@@ -121,9 +121,9 @@ export function AppTour() {
 
   const ready = profile.status === "ready" ? profile.data : null;
   const replay = searchParams.get("tour") === "1";
-  // After the name prompt (feature 003), so the two dialogs never stack.
+  // No name is needed: without one the dialog says "bạn" (quick 051).
   const name = learnerName(ready?.displayName, account?.name);
-  const firstVisit = Boolean(name && !ready?.tourSeen && ready?.placement !== "pending");
+  const firstVisit = Boolean(ready && !ready.tourSeen && ready.placement !== "pending");
   const welcomeOpen = phase === "idle" && pathname === "/" && firstVisit && !replay;
 
   useEffect(() => {

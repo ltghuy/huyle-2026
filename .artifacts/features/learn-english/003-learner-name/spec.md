@@ -16,7 +16,7 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 
 ## Goals
 
-- [x] Every learner has a name stored before they use the app, with no way past the prompt without one
+- [x] ~~Every learner has a name stored before they use the app, with no way past the prompt without one~~ (retired 2026-11-05 by quick 051: the name is optional)
 - [x] The name is used to greet the learner, can be changed later, and is kept by backup and sync so a future certificate can use it
 
 ## Out of Scope
@@ -37,11 +37,11 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN a learner opens any page and no name is stored THEN system SHALL show a Vietnamese dialog asking for their name, before the placement test and before the welcome dialog
-- [x] AC-002: WHEN the name dialog is open THEN system SHALL not close it with Escape, an outside click or a close button; the only way on is saving a valid name
+- [x] AC-001: ~~WHEN a learner opens any page and no name is stored THEN system SHALL show a Vietnamese dialog asking for their name, before the placement test and before the welcome dialog~~ Retired 2026-11-05 (quick 051): no dialog asks for a name. A learner without one goes straight to the placement test, and the app calls them "bạn" (or by their Google name once signed in)
+- [x] AC-002: ~~WHEN the name dialog is open THEN system SHALL not close it with Escape, an outside click or a close button; the only way on is saving a valid name~~ Retired 2026-11-05 with the dialog (quick 051)
 - [x] AC-003: WHEN the learner submits a name THEN system SHALL trim it, collapse repeated spaces, and accept it only if it has 1 to 40 characters and at least one letter; otherwise SHALL show a Vietnamese error next to the field and keep the dialog open
 - [x] AC-004: WHEN a valid name is saved THEN system SHALL store it with the learner's progress (included in backup files and sync, never in anonymous stats) and close the dialog
-- [x] AC-005: WHEN a learner who already used the app before this feature opens it THEN system SHALL ask for their name once in the same way, without losing any progress
+- [x] AC-005: ~~WHEN a learner who already used the app before this feature opens it THEN system SHALL ask for their name once in the same way, without losing any progress~~ Retired 2026-11-05 with the dialog (quick 051)
 
 ### P2: See and change my name
 
@@ -51,7 +51,7 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 **Acceptance Criteria:**
 
 - [x] AC-006: WHEN a learner with a name opens any page with navigation THEN system SHALL greet them by name ("Chào {tên}!") in the top-right corner of the page header, left of the profile link (moved from above the home lesson card in quick task 010), and the first-visit welcome dialog SHALL address them by name
-- [x] AC-007: WHEN the learner opens Settings THEN system SHALL show their name in an editable field and save a change with the same rules as AC-003, confirming with a Vietnamese message
+- [x] AC-007: WHEN the learner opens Settings THEN system SHALL show their name in an editable field labelled "Tên gọi (không bắt buộc)" and save a change with the same rules as AC-003, confirming with a Vietnamese message. An empty field clears the name, for guests and signed-in learners alike (quick 051)
 
 ## Edge Cases
 
@@ -62,16 +62,16 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 
 ## Success Criteria
 
-- [x] A fresh browser cannot reach the placement test, a lesson or any page's content without saving a name
+- [x] ~~A fresh browser cannot reach the placement test, a lesson or any page's content without saving a name~~ (retired 2026-11-05 by quick 051: a fresh browser reaches the placement test with no name asked for)
 - [x] Importing a backup that has a name puts that name in place of the one typed in the new browser; sync keeps the most recently changed name
 
 ## Evidence
 
-- AC-001, AC-002, AC-003: `src/components/name/name-prompt.test.tsx`; e2e `first-visit.spec.ts` "the name prompt can't be dismissed…" (shown on /placement before the test, Escape keeps it, "123" rejected)
-- AC-004: `name-prompt.test.tsx` (stored with a timestamp), `src/learning/snapshot.test.ts` (in backups), `settings.test.tsx` (import replaces it); stats send counts only
-- AC-005: `name-prompt.test.tsx` "asks a learner from before names existed"
-- AC-006: e2e `first-visit.spec.ts` ("Chào mừng Minh Anh", "Chào Minh Anh!")
-- AC-007: `name-prompt.test.tsx` NameSetting
+- AC-001, AC-002, AC-005: retired; e2e `first-visit.spec.ts` "a fresh browser starts the placement test without being asked for a name"
+- AC-003: `src/components/name/name-form.test.tsx` (" 42 " rejected, "Minh Anh" saved)
+- AC-004: `name-form.test.tsx` (stored with a timestamp), `src/learning/snapshot.test.ts` (in backups), `settings.test.tsx` (import replaces it); stats send counts only
+- AC-006: `src/components/account/learner-name.test.tsx` ("Chào Huy Le!"); without a name the welcome dialog says "Chào mừng bạn" (e2e `first-visit.spec.ts`)
+- AC-007: `name-form.test.tsx` NameSetting; `learner-name.test.tsx` (a guest clears the name)
 - Gates 2026-10-27: lint, typecheck, 518 unit tests, build, 10/10 e2e
 
 ## Open Questions
@@ -81,6 +81,8 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 ## Notes
 
 Requested 2026-10-27 by the owner: "require user enter the name, we will use this name for communicate and create the certificate (in the future)". Changes the first-visit flow of feature 001 (AC-038: the welcome dialog now comes after the name).
+
+2026-11-05, owner: "no need to required learner enter the name (nickname) in the first name access into system". Quick 051 removed the first-visit dialog. The name stays optional in Settings, and every place that shows it already falls back to the Google name, then "bạn" or "Học viên".
 
 ## Baseline
 

@@ -4,7 +4,6 @@ import { GuestNotice } from "@/components/account/guest-notice";
 import { AccountLink } from "@/components/shell/account-link";
 import { AppSidebar } from "@/components/shell/app-sidebar";
 import { BackToTop } from "@/components/shell/back-to-top";
-import { NamePrompt } from "@/components/name/name-prompt";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
 import { StatsRunner } from "@/components/stats/stats-runner";
@@ -32,7 +31,6 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
       <GuestNotice />
       <StatsRunner />
       <ClaimsRunner />
-      <NamePrompt />
       {/* Reads ?tour=1, so it needs a Suspense boundary to keep the pages static. */}
       <Suspense fallback={null}>
         <AppTour />

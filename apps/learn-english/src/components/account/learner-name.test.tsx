@@ -2,7 +2,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { render } from "@/test-utils/render";
 import { AccountLink } from "@/components/shell/account-link";
-import { NamePrompt } from "@/components/name/name-prompt";
 import { NameSetting } from "@/components/settings/name-setting";
 import { learnerName } from "@/lib/learner-name";
 import { createDefaultProfile, getProfile, saveProfile } from "@/storage/meta";
@@ -33,16 +32,10 @@ describe("learnerName", () => {
 });
 
 describe("signed in without a chosen name", () => {
-  it("greets by the Google name and doesn't ask for a name", async () => {
+  it("greets by the Google name", async () => {
     stubSession(true);
-    render(
-      <>
-        <AccountLink />
-        <NamePrompt />
-      </>,
-    );
+    render(<AccountLink />);
     expect(await screen.findByText("Chào Huy Le!")).toBeInTheDocument();
-    expect(screen.queryByText("Bạn tên là gì?")).not.toBeInTheDocument();
   });
 
   it("lets the chosen name be cleared in Settings, going back to the Google name", async () => {
@@ -58,9 +51,13 @@ describe("signed in without a chosen name", () => {
 });
 
 describe("guests", () => {
-  it("are still asked for a name", async () => {
+  it("may leave the name empty in Settings (quick 051)", async () => {
     stubSession(false);
-    render(<NamePrompt />);
-    expect(await screen.findByText("Bạn tên là gì?")).toBeInTheDocument();
+    await saveProfile({ ...createDefaultProfile(0, () => "device-a"), displayName: "Minh" });
+    render(<NameSetting />);
+    const field = await screen.findByLabelText("Tên gọi (không bắt buộc)");
+    fireEvent.change(field, { target: { value: "  " } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Lưu tên" })));
+    await waitFor(async () => expect((await getProfile())?.displayName).toBeUndefined());
   });
 });
