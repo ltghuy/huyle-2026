@@ -33,6 +33,7 @@ export const MESSAGES = {
   closed: "Phòng đã đóng.",
   creatorOnly: "Chỉ chủ phòng mới bắt đầu được.",
   creatorSettings: "Chỉ chủ phòng mới đổi được cài đặt.",
+  pickGone: "Người này đã rời phòng.",
   noQuestions: "Trình độ này chưa đủ câu hỏi cho chế độ đã chọn.",
 } as const;
 
@@ -110,6 +111,7 @@ export type RoomEvent =
   | { type: "typing"; userId: string; q: number }
   | { type: "answer"; userId: string; q: number; answer: ArenaAnswer }
   | { type: "rematch"; userId: string }
+  | { type: "pick"; userId: string; opponentId: string }
   | { type: "settings"; userId: string; settings: ArenaSettings }
   | { type: "tick" };
 
@@ -313,8 +315,13 @@ function askRematch(state: RoomState, userId: string, now: number): Result {
   if (!state.players.some((p) => p.id === userId)) return unchanged(state);
   const asked: RoomState = { ...state, rematch: [...state.rematch, userId] };
   if (!asked.players.every((p) => asked.rematch.includes(p.id) && p.connected)) return broadcast(asked);
+  return broadcast(nextMatch(asked, asked.players, asked.spectators, now));
+}
+
+/** A new match in the same room and settings: new questions, fresh scores, a new Ready window (AC-027; feature 027). */
+function nextMatch(state: RoomState, players: Player[], spectators: PlayerIdentity[], now: number): RoomState {
   const fresh: RoomState = {
-    ...asked,
+    ...state,
     seed: randomInt(createRng(state.seed), 2 ** 31),
     questions: [],
     round: 0,
@@ -328,9 +335,28 @@ function askRematch(state: RoomState, userId: string, now: number): Result {
     endReason: null,
     rematch: [],
     idleUntil: now + IDLE_MS,
-    players: asked.players.map((p) => ({ ...p, score: 0, roundsWon: 0, answerMs: 0, recentAnswers: [] })),
+    players: players.map((p) => ({ ...p, score: 0, roundsWon: 0, answerMs: 0, recentAnswers: [] })),
+    spectators,
   };
-  return broadcast(openReadyWindow(fresh, now));
+  return openReadyWindow(fresh, now);
+}
+
+/**
+ * After a match the host picks who plays them next (feature 027): the last opponent (a rematch) or a spectator,
+ * who takes the second seat while the last opponent watches, or leaves the room if they are gone already.
+ */
+function pickOpponent(state: RoomState, userId: string, opponentId: string, now: number): Result {
+  if (state.phase !== "match-end" || state.endReason === "cancelled" || userId !== state.creatorId) return unchanged(state);
+  const host = state.players.find((p) => p.id === userId)!;
+  const last = state.players.find((p) => p.id !== userId);
+  const refuse: Result = { state, effects: [{ type: "send", to: userId, frame: { type: "error", message: MESSAGES.pickGone } }] };
+  if (last && opponentId === last.id) return last.connected ? broadcast(nextMatch(state, state.players, state.spectators, now)) : refuse;
+  const chosen = state.spectators.find((s) => s.id === opponentId);
+  if (!chosen) return refuse;
+  const watchers = state.spectators.filter((s) => s.id !== opponentId);
+  if (last?.connected) watchers.push({ id: last.id, name: last.name, image: last.image });
+  const seated: Player = { ...newPlayer(chosen, now), connected: true, goneAt: null };
+  return broadcast(nextMatch(state, [host, seated], watchers, now));
 }
 
 // ── The match (T006) ──────────────────────────────────────────────────────────
@@ -529,6 +555,8 @@ export function reduce(state: RoomState, event: RoomEvent, now: number, pool?: A
       return unchanged(state);
     case "rematch":
       return askRematch(state, event.userId, now);
+    case "pick":
+      return pickOpponent(state, event.userId, event.opponentId, now);
     case "settings":
       return changeSettings(state, event.userId, event.settings, now);
     case "ready":

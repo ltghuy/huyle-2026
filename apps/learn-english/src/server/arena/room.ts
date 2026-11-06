@@ -58,6 +58,8 @@ function toEvent(userId: string, frame: ClientFrame): RoomEvent {
       return { type: "typing", userId, q: frame.q };
     case "settings":
       return { type: "settings", userId, settings: frame.settings };
+    case "pick":
+      return { type: "pick", userId, opponentId: frame.userId };
     default:
       return { type: frame.type, userId };
   }

@@ -15,6 +15,8 @@ describe("parseClientFrame", () => {
     });
     expect(parseClientFrame('{"type":"settings","settings":{"mode":"write","level":"B1","rounds":2}}')).toBeNull();
     expect(parseClientFrame('{"type":"leave"}')).toEqual({ type: "leave" });
+    expect(parseClientFrame('{"type":"pick","userId":"an"}')).toEqual({ type: "pick", userId: "an" });
+    expect(parseClientFrame('{"type":"pick","userId":""}')).toBeNull();
   });
 
   it("rejects text that isn't JSON, unknown frames and bad fields", () => {

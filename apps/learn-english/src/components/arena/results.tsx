@@ -3,7 +3,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useEffect } from "react";
-import { RotateCcw, Trophy } from "lucide-react";
+import { RotateCcw, Swords, Trophy } from "lucide-react";
 import { Owl } from "@/components/mascot/owl";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ROUND_RESULT_MS } from "@/learning/arena/machine";
@@ -11,6 +11,7 @@ import type { PublicRoom } from "@/learning/arena/protocol";
 import { fetchArenaStats } from "@/lib/arena-client";
 import { cn } from "@/lib/utils";
 import { ARENA_STATS_KEY } from "./arena-record";
+import { PlayerAvatar } from "./players";
 import { ARENA_MATCHES_KEY } from "./match-parts";
 import { isSpectating, Scoreboard, sides } from "./scoreboard";
 import { useCountdown } from "./use-countdown";
@@ -88,6 +89,42 @@ function headline(room: PublicRoom, me: string): string {
   return youWon ? "Bạn thắng!" : `${rival?.name ?? "Đối thủ"} thắng`;
 }
 
+const CHOOSING = "Chủ phòng đang chọn đối thủ trận sau…";
+
+/** Whether the host can pick the next opponent: the match ended normally and the host is still here (feature 027). */
+function hostCanPick(room: PublicRoom): boolean {
+  return room.endReason !== "cancelled" && Boolean(room.players.find((p) => p.id === room.creatorId)?.connected);
+}
+
+/** The host's choice of who plays next (feature 027, AC-001): the last opponent, if still here, and every spectator. */
+function PickOpponent({ room, me, onPick }: { room: PublicRoom; me: string; onPick: (userId: string) => void }) {
+  const candidates = [
+    ...room.players.filter((p) => p.id !== me && p.connected).map((p) => ({ id: p.id, name: p.name, image: p.image, last: true })),
+    ...room.spectators.map((s) => ({ id: s.id, name: s.name, image: null, last: false })),
+  ];
+  if (candidates.length === 0) return null;
+  return (
+    <section aria-labelledby="pick-title" className="grid w-full max-w-xs gap-2 text-left">
+      <h3 id="pick-title" className="text-sm font-medium text-muted-foreground">
+        Chọn đối thủ trận sau
+      </h3>
+      <ul className="grid gap-2">
+        {candidates.map((candidate) => (
+          <li key={candidate.id}>
+            <Button variant="outline" className="h-12 w-full justify-start gap-3" onClick={() => onPick(candidate.id)}>
+              <PlayerAvatar player={candidate} you={false} className="size-8" />
+              <span className="min-w-0 flex-1 truncate text-left">{candidate.name}</span>
+              <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Swords aria-hidden className="size-3.5" /> {candidate.last ? "Đấu lại" : "Đang xem"}
+              </span>
+            </Button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 /** A spectator's end of the match (feature 026): who won and each round, with no record and no rematch. */
 function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
   const winner = room.players.find((p) => p.id === room.winnerId);
@@ -110,6 +147,11 @@ function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
         </ul>
       ) : null}
       {room.rounds.some((round) => wonOnTime(round.scores)) ? <p className="max-w-sm text-sm text-muted-foreground">{ON_TIME}</p> : null}
+      {hostCanPick(room) ? (
+        <p role="status" className="text-sm text-muted-foreground">
+          {CHOOSING}
+        </p>
+      ) : null}
       <Link href="/arena" className={buttonVariants({ variant: "outline", size: "lg", className: "h-12 w-full max-w-xs" })}>
         Về Đấu trường
       </Link>
@@ -121,6 +163,8 @@ interface MatchResultProps {
   room: PublicRoom;
   me: string;
   onRematch: () => void;
+  /** The host picks who plays next (feature 027). */
+  onPick: (userId: string) => void;
 }
 
 /** The end of the match (AC-022, AC-026, AC-027): the winner, each round's score, and for a player their record and play again. */
@@ -128,7 +172,7 @@ export function MatchResult(props: MatchResultProps) {
   return isSpectating(props.room, props.me) ? <WatchedResult room={props.room} me={props.me} /> : <PlayerResult {...props} />;
 }
 
-function PlayerResult({ room, me, onRematch }: MatchResultProps) {
+function PlayerResult({ room, me, onRematch, onPick }: MatchResultProps) {
   const stats = useQuery({ queryKey: ARENA_STATS_KEY, queryFn: fetchArenaStats, staleTime: 0, refetchOnMount: "always" });
   const queryClient = useQueryClient();
   // The history now has this match: the hub card and Lịch sử đấu fetch again when next opened (feature 025).
@@ -140,6 +184,10 @@ function PlayerResult({ room, me, onRematch }: MatchResultProps) {
   const youAsked = room.rematch.includes(me);
   const rivalAsked = rival ? room.rematch.includes(rival.id) : false;
   const rivalGone = !rival?.connected;
+  // With people watching, the host picks the next opponent instead of the two-way rematch (feature 027).
+  const watchers = room.spectators.length > 0 && hostCanPick(room);
+  const picking = watchers && room.creatorId === me;
+  const hostChoosing = watchers && room.creatorId !== me;
 
   return (
     <section aria-labelledby="match-title" className="relative grid justify-items-center gap-4 overflow-hidden rounded-xl border bg-card px-5 py-8 text-center">
@@ -166,15 +214,19 @@ function PlayerResult({ room, me, onRematch }: MatchResultProps) {
       ) : null}
 
       <div className="grid w-full max-w-xs gap-2">
-        <Button size="lg" className="h-12 gap-2 text-base" onClick={onRematch} disabled={youAsked || rivalGone}>
-          <RotateCcw aria-hidden />
-          {youAsked ? `Đang chờ ${rival?.name ?? "đối thủ"}…` : "Đấu lại"}
-        </Button>
+        {picking ? (
+          <PickOpponent room={room} me={me} onPick={onPick} />
+        ) : (
+          <Button size="lg" className="h-12 gap-2 text-base" onClick={onRematch} disabled={youAsked || rivalGone}>
+            <RotateCcw aria-hidden />
+            {youAsked ? `Đang chờ ${rival?.name ?? "đối thủ"}…` : "Đấu lại"}
+          </Button>
+        )}
         <Link href="/arena" className={buttonVariants({ variant: "outline", size: "lg", className: "h-12" })}>
           Về Đấu trường
         </Link>
         <p className="min-h-5 text-sm text-muted-foreground" role="status">
-          {rivalGone ? `${rival?.name ?? "Đối thủ"} đã rời phòng.` : rivalAsked && !youAsked ? `${rival?.name} muốn đấu lại!` : ""}
+          {hostChoosing ? CHOOSING : rivalGone ? `${rival?.name ?? "Đối thủ"} đã rời phòng.` : rivalAsked && !youAsked ? `${rival?.name} muốn đấu lại!` : ""}
         </p>
       </div>
     </section>

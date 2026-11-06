@@ -53,6 +53,7 @@ export function roomHandle(room: PublicRoom | null, overrides: Partial<ArenaRoom
     choose: vi.fn(),
     typingStarted: vi.fn(),
     rematch: vi.fn(),
+    pickOpponent: vi.fn(),
     changeSettings: vi.fn(),
     leave: vi.fn(),
     ...overrides,

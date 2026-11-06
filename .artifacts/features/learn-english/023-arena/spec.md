@@ -118,7 +118,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 
 **Acceptance Criteria:**
 
-- [x] AC-027: WHEN a match ends THEN system SHALL offer "Đấu lại" (rematch); WHEN both players choose it THEN system SHALL keep the room and settings and open a new Ready window with new questions
+- [x] AC-027: WHEN a match ends THEN system SHALL offer "Đấu lại" (rematch); WHEN both players choose it THEN system SHALL keep the room and settings and open a new Ready window with new questions (since feature 027, when people are watching the host gets "Chọn đối thủ trận sau" instead of the button, with the last opponent as one of the choices)
 - [x] AC-031: WHEN the room is in the lobby or the Ready window THEN system SHALL let the room creator change the mode, level and rounds ("Đổi cài đặt"); WHEN they save a change THEN system SHALL clear both players' Ready, restart the 30-second window if it was open, use the new settings for the next match, and show the opponent "Chủ phòng đã đổi cài đặt: {cài đặt}"
 
 ## Edge Cases

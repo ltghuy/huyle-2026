@@ -174,7 +174,7 @@ export function Duel({ handle, me }: DuelProps) {
       ) : room.phase === "round-end" ? (
         <RoundResult room={room} me={me} offset={handle.offset} />
       ) : room.phase === "match-end" ? (
-        <MatchResult room={room} me={me} onRematch={handle.rematch} />
+        <MatchResult room={room} me={me} onRematch={handle.rematch} onPick={handle.pickOpponent} />
       ) : null}
     </>
   );

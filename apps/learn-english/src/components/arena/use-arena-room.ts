@@ -29,6 +29,8 @@ export interface ArenaRoomHandle {
   /** Tells the opponent you're typing; sent once per question. */
   typingStarted: () => void;
   rematch: () => void;
+  /** The host picks who plays them next, after a match (feature 027). */
+  pickOpponent: (userId: string) => void;
   /** The creator's new settings for the next match (AC-031). */
   changeSettings: (settings: ArenaSettings) => void;
   leave: () => void;
@@ -170,6 +172,7 @@ export function useArenaRoom(code: string, ticket: string | null, { refreshTicke
   const ready = useCallback(() => send({ type: "ready" }), [send]);
   const start = useCallback(() => send({ type: "start" }), [send]);
   const rematch = useCallback(() => send({ type: "rematch" }), [send]);
+  const pickOpponent = useCallback((userId: string) => send({ type: "pick", userId }), [send]);
   const changeSettings = useCallback((settings: ArenaSettings) => send({ type: "settings", settings }), [send]);
   const leave = useCallback(() => send({ type: "leave" }), [send]);
   const answer = useCallback((text: string) => {
@@ -186,5 +189,5 @@ export function useArenaRoom(code: string, ticket: string | null, { refreshTicke
     send({ type: "typing", q: currentQuestion });
   }, [currentQuestion, room, send]);
 
-  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, changeSettings, leave };
+  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, pickOpponent, changeSettings, leave };
 }
