@@ -106,7 +106,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 - [x] AC-010: WHEN a learner answers a review item THEN system SHALL record whether it was correct and how long the answer took, and SHALL schedule the next review: a correct, fast answer pushes it further out; a wrong answer brings it back soon (same or next day)
 - [x] AC-011: WHEN a learner opens the review screen THEN system SHALL show how many items are due today and let them review them in one session
-- [x] AC-012: WHEN an item is reviewed THEN system SHALL test it with a varied exercise type (multiple choice, fill missing letters, listening, meaning recall) instead of always the same one
+- [x] AC-012: WHEN an item is reviewed THEN system SHALL test it with a varied exercise type (multiple choice, fill missing letters, listening, meaning recall) instead of always the same one. Meaning recall is typed into one tile per letter of the word, and each typed letter shows green when it is right in that place and red when it is not; the tiles take focus as each question opens, in Ôn tập, Bài tập and Hôm nay alike (quick 054)
 - [x] AC-013: WHEN the learner studies grammar points THEN system SHALL schedule them for review the same way as words
 
 ### P1: Daily curriculum and attendance points

@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import { SendHorizontal } from "lucide-react";
 import { AudioButton, audioUrl } from "@/components/exercise/audio-button";
-import { EnglishInput } from "@/components/exercise/english-input";
+import { LetterInput } from "@/components/exercise/letter-input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import type { PublicQuestion, Reveal } from "@/learning/arena/protocol";
 import { cn } from "@/lib/utils";
-import { LetterSlots } from "./letter-slots";
 import { tileVariants } from "./tile";
 import { useTypedAnswer } from "./use-typed-answer";
 
@@ -139,26 +138,14 @@ export function QuestionRecall({ question, wrongCount, closed, onAnswer, onTypin
         </Badge>
         <p className="text-2xl font-semibold text-balance">{question.meaningsVi.join("; ")}</p>
       </div>
-      <LetterSlots mask={question.mask} typed={text} />
       <div data-shake className="grid gap-1">
-        <div className="flex items-start gap-2">
-          <div className="min-w-0 flex-1">
-            <EnglishInput
-              ref={inputRef}
-              aria-label="Từ tiếng Anh"
-              placeholder="Gõ từ tiếng Anh…"
-              value={text}
-              onChange={(event) => change(event.target.value)}
-              disabled={closed}
-              aria-invalid={wrongTry > 0 || undefined}
-              className={cn(wrongTry > 0 && "border-destructive")}
-            />
-          </div>
-          <Button type="submit" size="lg" className="h-12 w-12 shrink-0" disabled={closed || !text.trim()} aria-label="Gửi">
-            <SendHorizontal aria-hidden />
+        <LetterInput ref={inputRef} aria-label="Từ tiếng Anh" mask={question.mask} value={text} onChange={change} disabled={closed} invalid={wrongTry > 0} />
+        <div className="flex items-center justify-between gap-2">
+          <WrongNote show={wrongTry > 0} />
+          <Button type="submit" className="h-11 gap-2" disabled={closed || !text.trim()}>
+            <SendHorizontal aria-hidden /> Gửi
           </Button>
         </div>
-        <WrongNote show={wrongTry > 0} />
       </div>
     </form>
   );

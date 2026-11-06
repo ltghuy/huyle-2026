@@ -24,12 +24,18 @@ export function EnglishInput({ value, className, ...props }: Omit<ComponentProps
         className={cn("h-12 text-lg md:text-lg", className)}
         {...props}
       />
-      {hasNonAscii(value) ? (
-        <p className="flex items-center gap-2 text-sm text-muted-foreground" role="status">
-          <Keyboard className="size-4 shrink-0" aria-hidden />
-          Có vẻ bộ gõ tiếng Việt đang bật. Hãy tắt Telex/VNI để gõ tiếng Anh.
-        </p>
-      ) : null}
+      <TelexHint value={value} />
     </div>
+  );
+}
+
+/** Asks the learner to switch Telex/VNI off as soon as accented letters show up in `value`. */
+export function TelexHint({ value }: { value: string }) {
+  if (!hasNonAscii(value)) return null;
+  return (
+    <p className="flex items-center gap-2 text-sm text-muted-foreground" role="status">
+      <Keyboard className="size-4 shrink-0" aria-hidden />
+      Có vẻ bộ gõ tiếng Việt đang bật. Hãy tắt Telex/VNI để gõ tiếng Anh.
+    </p>
   );
 }

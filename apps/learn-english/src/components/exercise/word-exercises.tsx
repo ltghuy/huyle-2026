@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { letterMask } from "@/learning/arena/questions";
 import type { GrammarGapInstance } from "@/learning/exercises/grammar-gap";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ListeningChoiceInstance, ListeningTypingInstance } from "@/learning/exercises/listening";
@@ -10,6 +11,7 @@ import type { RecallInstance } from "@/learning/exercises/recall";
 import { cn } from "@/lib/utils";
 import { AudioButton, playClipOnce } from "./audio-button";
 import { EnglishInput } from "./english-input";
+import { LetterInput } from "./letter-input";
 import { OptionList } from "./option-list";
 import type { ExerciseViewProps } from "./types";
 
@@ -120,10 +122,12 @@ export function RecallView({ instance, answer, onAnswer, result }: ExerciseViewP
       <p className="text-center text-sm text-muted-foreground" lang="en">
         ({instance.pos})
       </p>
-      <EnglishInput
+      <LetterInput
         aria-label="Từ tiếng Anh"
+        mask={letterMask(instance.headword)}
+        answer={instance.headword}
         value={answer ?? ""}
-        onChange={(event) => onAnswer(event.target.value.trim() ? event.target.value : null)}
+        onChange={(value) => onAnswer(value.trim() ? value : null)}
         disabled={result !== null}
       />
     </div>

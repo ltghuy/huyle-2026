@@ -45,9 +45,38 @@ export function wordTileClass(single: boolean): string {
   return single ? "aspect-square h-auto w-auto min-w-0 max-w-11 flex-1 basis-0 text-[clamp(0.8rem,4.5vw,1.25rem)]" : "";
 }
 
-/** One empty tile per letter of the answer, filling as the learner types (the word-puzzle moment). Decorative: the input has the label. */
-export function LetterSlots({ mask, typed }: { mask: string; typed: string }) {
-  const words = slotWords(fillSlots(mask, typed));
+export type LetterVerdict = "right" | "wrong";
+
+/**
+ * Checks each typed letter against the answer's letter in the same slot (case-insensitive).
+ * Slots line up with the answer because the mask keeps its marks in place.
+ */
+export function letterVerdicts(slots: Slot[], answer: string): (LetterVerdict | null)[] {
+  const expected = [...answer];
+  return slots.map((slot, i) => {
+    if (slot.kind !== "letter" || !slot.char) return null;
+    return slot.char.toLowerCase() === expected[i]?.toLowerCase() ? "right" : "wrong";
+  });
+}
+
+function letterState(char: string, verdict: LetterVerdict | null) {
+  if (verdict === "right") return "correct";
+  if (verdict === "wrong") return "wrong";
+  return char ? "filled" : "empty";
+}
+
+const VERDICT_TEXT: Record<LetterVerdict, string> = { right: "text-success", wrong: "text-destructive" };
+
+/**
+ * One empty tile per letter of the answer, filling as the learner types (the word-puzzle moment).
+ * With `answer` (practice only; the Arena never sends it), each letter shows green when it is
+ * right in that slot and red when it is not. Decorative: the input has the label.
+ */
+export function LetterSlots({ mask, typed, answer }: { mask: string; typed: string; answer?: string }) {
+  const slots = fillSlots(mask, typed);
+  const verdicts = answer === undefined ? null : letterVerdicts(slots, answer);
+  const indexed = slots.map((slot, i) => ({ ...slot, verdict: verdicts?.[i] ?? null }));
+  const words = slotWords(indexed);
   const single = words.length === 1;
   return (
     <div aria-hidden className="flex w-full flex-wrap justify-center gap-x-3 gap-y-2" lang="en">
@@ -59,7 +88,13 @@ export function LetterSlots({ mask, typed }: { mask: string; typed: string }) {
                 {slot.char}
               </span>
             ) : (
-              <Tile key={i} size={single ? "md" : "sm"} state={slot.char ? "filled" : "empty"} className={cn("lowercase", wordTileClass(single))}>
+              <Tile
+                key={i}
+                size={single ? "md" : "sm"}
+                state={letterState(slot.char, slot.verdict)}
+                data-verdict={slot.verdict ?? undefined}
+                className={cn("lowercase", slot.verdict && VERDICT_TEXT[slot.verdict], wordTileClass(single))}
+              >
                 {slot.char || "·"}
               </Tile>
             ),
