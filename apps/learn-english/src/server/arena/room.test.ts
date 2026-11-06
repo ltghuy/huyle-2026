@@ -114,6 +114,22 @@ describe("ArenaRoom", () => {
     expect(room.status()).toMatchObject({ phase: "lobby", creatorId: "minh", playerIds: ["minh"] });
   });
 
+  it("lets a spectator watch and keeps a room saved before spectators existed working (feature 026)", async () => {
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    const old = stored() as Partial<RoomState>;
+    delete old.spectators;
+    fake.storage.set("room", old);
+    await newRoom();
+    const minh = await connect(MINH);
+    await connect(LAN);
+    const khoa = await connect({ id: "khoa", name: "Khoa", image: null });
+    expect(room.status()).toMatchObject({ playerIds: ["minh", "lan"], spectatorIds: ["khoa"] });
+    expect(minh.lastRoom().spectators).toEqual([{ id: "khoa", name: "Khoa" }]);
+    expect(khoa.lastRoom().players.map((p) => p.id)).toEqual(["minh", "lan"]);
+    await room.webSocketClose(khoa as unknown as WebSocket);
+    expect(minh.lastRoom().spectators).toEqual([]);
+  });
+
   it("refuses a socket to a room that doesn't exist", async () => {
     const socket = await connect(MINH);
     expect(socket.sent).toEqual([{ type: "error", message: "Phòng đã đóng." }]);

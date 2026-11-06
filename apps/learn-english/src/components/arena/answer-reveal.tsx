@@ -45,13 +45,14 @@ interface AnswerRevealProps {
   reveal: Reveal;
   questionType: QuestionType;
   me: string;
-  rival: PublicPlayer | undefined;
+  players: PublicPlayer[];
 }
 
 /** The answer for both players before the next question (AC-018): who was faster, then the answer itself. */
-export function AnswerReveal({ reveal, questionType, me, rival }: AnswerRevealProps) {
+export function AnswerReveal({ reveal, questionType, me, players }: AnswerRevealProps) {
   const byYou = reveal.answeredBy === me;
   const byRival = reveal.answeredBy !== null && !byYou;
+  const scorer = players.find((p) => p.id === reveal.answeredBy);
   return (
     <section aria-label="Đáp án" className="grid justify-items-center gap-3 rounded-xl border bg-muted/40 p-4 text-center">
       <p className={cn("flex items-center gap-2 text-lg font-bold", byYou ? "text-primary" : byRival ? "text-arena-rival" : "text-muted-foreground")}>
@@ -60,7 +61,7 @@ export function AnswerReveal({ reveal, questionType, me, rival }: AnswerRevealPr
             Bạn nhanh hơn! <span className="animate-score-pop rounded-md bg-primary px-1.5 text-sm text-primary-foreground">+1</span>
           </>
         ) : byRival ? (
-          `${rival?.name ?? "Đối thủ"} nhanh hơn`
+          `${scorer?.name ?? "Đối thủ"} nhanh hơn`
         ) : (
           <>
             <Owl mood="sleepy" size={32} /> Hết giờ, không ai đúng

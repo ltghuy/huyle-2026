@@ -22,6 +22,8 @@ interface ListenProps {
   reveal: Reveal | null;
   /** You picked wrong and can't pick again this question. */
   lockedOut: boolean;
+  /** A spectator: the options show but can't be picked (feature 026). */
+  watching?: boolean;
   onChoose: (choice: number) => void;
 }
 
@@ -32,9 +34,9 @@ function inField(event: KeyboardEvent): boolean {
 }
 
 /** "Nghe và chọn từ": the clip plays once, Space replays it, 1–4 or a tap picks (AC-014). */
-export function QuestionListen({ question, reveal, lockedOut, onChoose }: ListenProps) {
+export function QuestionListen({ question, reveal, lockedOut, watching = false, onChoose }: ListenProps) {
   const [picked, setPicked] = useState<number | null>(null);
-  const open = !reveal && !lockedOut;
+  const open = !reveal && !lockedOut && !watching;
 
   useEffect(() => {
     const audio = new Audio(audioUrl("word", question.audio));
@@ -68,14 +70,14 @@ export function QuestionListen({ question, reveal, lockedOut, onChoose }: Listen
   function stateOf(index: number) {
     if (reveal) return index === reveal.answerIndex ? "correct" : index === picked ? "wrong" : "locked";
     if (lockedOut) return index === picked ? "wrong" : "locked";
-    return "idle";
+    return watching ? "locked" : "idle";
   }
 
   return (
     <div className="grid gap-5">
       <div className="grid justify-items-center gap-2">
         <AudioButton audioKey={question.audio} source="word" label="từ cần chọn" size="lg" className="size-20 [&_svg:not([class*='size-'])]:size-8" />
-        <p className="text-sm text-muted-foreground">Nghe rồi chọn từ đúng · phím cách để nghe lại</p>
+        <p className="text-sm text-muted-foreground">{watching ? "Người chơi nghe rồi chọn từ đúng" : "Nghe rồi chọn từ đúng"} · phím cách để nghe lại</p>
       </div>
       <div role="radiogroup" aria-label="Chọn từ bạn nghe được" className="grid grid-cols-1 gap-2.5 min-[360px]:grid-cols-2">
         {question.options.map((option, index) => (
@@ -96,7 +98,7 @@ export function QuestionListen({ question, reveal, lockedOut, onChoose }: Listen
           </button>
         ))}
       </div>
-      {lockedOut && !reveal ? (
+      {lockedOut && !reveal && !watching ? (
         <p role="status" className="text-center text-sm text-muted-foreground">
           Bạn đã chọn sai, chờ đối thủ…
         </p>
@@ -109,6 +111,8 @@ interface TypedProps {
   /** Your wrong tries in the room so far (from the room's "wrong" frames). */
   wrongCount: number;
   closed: boolean;
+  /** A spectator: the prompt and the blank slots show, with nothing to type or send (feature 026). */
+  watching?: boolean;
   onAnswer: (text: string) => void;
   onTyping: () => void;
 }
@@ -122,7 +126,7 @@ function WrongNote({ show }: { show: boolean }) {
 }
 
 /** "Nhớ lại từ": the meaning, then the word typed into letter slots (AC-014: retries until someone is right). */
-export function QuestionRecall({ question, wrongCount, closed, onAnswer, onTyping }: TypedProps & { question: Of<"recall"> }) {
+export function QuestionRecall({ question, wrongCount, closed, watching = false, onAnswer, onTyping }: TypedProps & { question: Of<"recall"> }) {
   const { text, change, send, inputRef, wrongTry } = useTypedAnswer({ wrongCount, onSend: onAnswer, onTyping });
 
   function handleSubmit(event: React.FormEvent) {
@@ -139,20 +143,22 @@ export function QuestionRecall({ question, wrongCount, closed, onAnswer, onTypin
         <p className="text-2xl font-semibold text-balance">{question.meaningsVi.join("; ")}</p>
       </div>
       <div data-shake className="grid gap-1">
-        <LetterInput ref={inputRef} aria-label="Từ tiếng Anh" mask={question.mask} value={text} onChange={change} disabled={closed} invalid={wrongTry > 0} />
-        <div className="flex items-center justify-between gap-2">
-          <WrongNote show={wrongTry > 0} />
-          <Button type="submit" className="h-11 gap-2" disabled={closed || !text.trim()}>
-            <SendHorizontal aria-hidden /> Gửi
-          </Button>
-        </div>
+        <LetterInput ref={inputRef} aria-label="Từ tiếng Anh" mask={question.mask} value={text} onChange={change} disabled={closed || watching} invalid={wrongTry > 0} />
+        {watching ? null : (
+          <div className="flex items-center justify-between gap-2">
+            <WrongNote show={wrongTry > 0} />
+            <Button type="submit" className="h-11 gap-2" disabled={closed || !text.trim()}>
+              <SendHorizontal aria-hidden /> Gửi
+            </Button>
+          </div>
+        )}
       </div>
     </form>
   );
 }
 
 /** "Viết câu": read the Vietnamese, type the English; Enter sends, Shift+Enter is a new line. */
-export function QuestionWrite({ question, wrongCount, closed, onAnswer, onTyping }: TypedProps & { question: Of<"write"> }) {
+export function QuestionWrite({ question, wrongCount, closed, watching = false, onAnswer, onTyping }: TypedProps & { question: Of<"write"> }) {
   const { text, change, send, inputRef, wrongTry } = useTypedAnswer({ wrongCount, onSend: onAnswer, onTyping });
 
   function handleSubmit(event: React.FormEvent) {
@@ -173,31 +179,33 @@ export function QuestionWrite({ question, wrongCount, closed, onAnswer, onTyping
         <p className="text-xs font-medium text-muted-foreground">Dịch sang tiếng Anh</p>
         <p className="mt-1 text-xl font-semibold text-balance">{question.vi}</p>
       </div>
-      <div data-shake className="grid gap-1">
-        <Textarea
-          ref={inputRef}
-          lang="en"
-          rows={2}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="sentences"
-          spellCheck={false}
-          aria-label="Câu tiếng Anh"
-          placeholder="Gõ câu tiếng Anh…"
-          value={text}
-          onChange={(event) => change(event.target.value)}
-          onKeyDown={handleKeyDown}
-          disabled={closed}
-          aria-invalid={wrongTry > 0 || undefined}
-          className={cn("min-h-20 resize-none text-lg md:text-lg", wrongTry > 0 && "border-destructive")}
-        />
-        <div className="flex items-center justify-between gap-2">
-          <WrongNote show={wrongTry > 0} />
-          <Button type="submit" className="h-11 gap-2" disabled={closed || !text.trim()}>
-            <SendHorizontal aria-hidden /> Gửi
-          </Button>
+      {watching ? null : (
+        <div data-shake className="grid gap-1">
+          <Textarea
+            ref={inputRef}
+            lang="en"
+            rows={2}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="sentences"
+            spellCheck={false}
+            aria-label="Câu tiếng Anh"
+            placeholder="Gõ câu tiếng Anh…"
+            value={text}
+            onChange={(event) => change(event.target.value)}
+            onKeyDown={handleKeyDown}
+            disabled={closed}
+            aria-invalid={wrongTry > 0 || undefined}
+            className={cn("min-h-20 resize-none text-lg md:text-lg", wrongTry > 0 && "border-destructive")}
+          />
+          <div className="flex items-center justify-between gap-2">
+            <WrongNote show={wrongTry > 0} />
+            <Button type="submit" className="h-11 gap-2" disabled={closed || !text.trim()}>
+              <SendHorizontal aria-hidden /> Gửi
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </form>
   );
 }

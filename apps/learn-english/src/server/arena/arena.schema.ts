@@ -8,7 +8,6 @@ export const ARENA_MESSAGES = {
   invalidBody: "Thông tin phòng không hợp lệ.",
   notFound: "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé.",
   full: "Phòng đã đủ người.",
-  started: "Trận đấu trong phòng này đã bắt đầu.",
   throttled: "Bạn thao tác quá nhanh. Vui lòng đợi một phút rồi thử lại.",
   unavailable: "Đấu trường đang tạm nghỉ, bạn thử lại sau nhé.",
 } as const;

@@ -12,7 +12,7 @@ import { fetchArenaStats } from "@/lib/arena-client";
 import { cn } from "@/lib/utils";
 import { ARENA_STATS_KEY } from "./arena-record";
 import { ARENA_MATCHES_KEY } from "./match-parts";
-import { Scoreboard } from "./scoreboard";
+import { isSpectating, Scoreboard, sides } from "./scoreboard";
 import { useCountdown } from "./use-countdown";
 
 function nameOf(room: PublicRoom, id: string, me: string): string {
@@ -27,11 +27,16 @@ export function wonOnTime(scores: Record<string, number>): boolean {
 
 const ON_TIME = "Hòa điểm sau câu quyết định: người trả lời nhanh hơn ở các câu đã ghi điểm thắng hiệp này.";
 
-/** "7–5", yours first. */
-function score(scores: Record<string, number>, me: string): string {
-  const mine = scores[me] ?? 0;
-  const theirs = Object.entries(scores).find(([id]) => id !== me)?.[1] ?? 0;
+/** "7–5", the left side first: yours, or the first seat's for a spectator. */
+function score(scores: Record<string, number>, leftId: string): string {
+  const mine = scores[leftId] ?? 0;
+  const theirs = Object.entries(scores).find(([id]) => id !== leftId)?.[1] ?? 0;
   return `${mine}–${theirs}`;
+}
+
+/** The id the scores are read from: yours, or the first seat's for a spectator (feature 026). */
+function leftId(room: PublicRoom, me: string): string {
+  return sides(room, me).left?.id ?? me;
 }
 
 /** Between rounds, for 5 seconds (AC-020). */
@@ -40,6 +45,7 @@ export function RoundResult({ room, me, offset }: { room: PublicRoom; me: string
   const left = Math.ceil(useCountdown(room.deadline, offset) / 1_000);
   if (!last) return null;
   const youWon = last.winnerId === me;
+  const firstSeat = leftId(room, me);
   return (
     <div className="grid gap-4">
       <Scoreboard room={room} me={me} />
@@ -48,7 +54,7 @@ export function RoundResult({ room, me, offset }: { room: PublicRoom; me: string
         <h2 id="round-title" className="text-2xl font-bold">
           Hiệp {last.round}: {youWon ? "Bạn thắng" : `${nameOf(room, last.winnerId, me)} thắng`}
         </h2>
-        <p className={cn("text-4xl font-bold tabular-nums", youWon ? "text-primary" : "text-arena-rival")}>{score(last.scores, me)}</p>
+        <p className={cn("text-4xl font-bold tabular-nums", last.winnerId === firstSeat ? "text-primary" : "text-arena-rival")}>{score(last.scores, firstSeat)}</p>
         {wonOnTime(last.scores) ? <p className="max-w-sm text-sm text-muted-foreground">{ON_TIME}</p> : null}
         <p className="text-sm text-muted-foreground" aria-live="off">
           Hiệp {last.round + 1} bắt đầu sau {left > 0 ? left : Math.ceil(ROUND_RESULT_MS / 1_000)} giây
@@ -82,14 +88,47 @@ function headline(room: PublicRoom, me: string): string {
   return youWon ? "Bạn thắng!" : `${rival?.name ?? "Đối thủ"} thắng`;
 }
 
+/** A spectator's end of the match (feature 026): who won and each round, with no record and no rematch. */
+function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
+  const winner = room.players.find((p) => p.id === room.winnerId);
+  const loser = room.players.find((p) => p.id !== room.winnerId);
+  const left = leftId(room, me);
+  const title = room.endReason === "forfeit" ? `${loser?.name ?? "Một người chơi"} đã rời trận, ${winner?.name ?? "người còn lại"} thắng` : `${winner?.name ?? "Người chơi"} thắng!`;
+  return (
+    <section aria-labelledby="match-title" className="grid justify-items-center gap-4 rounded-xl border bg-card px-5 py-8 text-center">
+      <Owl mood="cheer" size={112} />
+      <h2 id="match-title" className="text-3xl font-bold">
+        {title}
+      </h2>
+      {room.rounds.length > 0 ? (
+        <ul className="flex flex-wrap justify-center gap-2 text-sm">
+          {room.rounds.map((round) => (
+            <li key={round.round} className="rounded-full border px-3 py-1 tabular-nums">
+              Hiệp {round.round} · {score(round.scores, left)}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {room.rounds.some((round) => wonOnTime(round.scores)) ? <p className="max-w-sm text-sm text-muted-foreground">{ON_TIME}</p> : null}
+      <Link href="/arena" className={buttonVariants({ variant: "outline", size: "lg", className: "h-12 w-full max-w-xs" })}>
+        Về Đấu trường
+      </Link>
+    </section>
+  );
+}
+
 interface MatchResultProps {
   room: PublicRoom;
   me: string;
   onRematch: () => void;
 }
 
-/** The end of the match (AC-022, AC-026, AC-027): the winner, each round's score, your record, and play again. */
-export function MatchResult({ room, me, onRematch }: MatchResultProps) {
+/** The end of the match (AC-022, AC-026, AC-027): the winner, each round's score, and for a player their record and play again. */
+export function MatchResult(props: MatchResultProps) {
+  return isSpectating(props.room, props.me) ? <WatchedResult room={props.room} me={props.me} /> : <PlayerResult {...props} />;
+}
+
+function PlayerResult({ room, me, onRematch }: MatchResultProps) {
   const stats = useQuery({ queryKey: ARENA_STATS_KEY, queryFn: fetchArenaStats, staleTime: 0, refetchOnMount: "always" });
   const queryClient = useQueryClient();
   // The history now has this match: the hub card and Lịch sử đấu fetch again when next opened (feature 025).

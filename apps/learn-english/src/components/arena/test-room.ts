@@ -33,6 +33,7 @@ export function publicRoom(overrides: Partial<PublicRoom> = {}): PublicRoom {
     winnerId: null,
     endReason: null,
     rematch: [],
+    spectators: [],
     ...overrides,
   };
 }

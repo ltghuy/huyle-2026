@@ -24,7 +24,7 @@ import { CountdownRing } from "./countdown-ring";
 import { OpponentStatus } from "./opponent-status";
 import { QuestionListen, QuestionRecall, QuestionWrite } from "./question-views";
 import { MatchResult, RoundResult } from "./results";
-import { Scoreboard } from "./scoreboard";
+import { isSpectating, Scoreboard } from "./scoreboard";
 import { TimerBar } from "./timer-bar";
 import { useCountdown } from "./use-countdown";
 import type { ArenaRoomHandle } from "./use-arena-room";
@@ -90,10 +90,11 @@ function LeaveMatch({ onLeave }: { onLeave: () => void }) {
   );
 }
 
-/** The open question in its own view, fresh for each question (its input starts empty). */
+/** The open question in its own view, fresh for each question (its input starts empty); read-only for a spectator. */
 function QuestionArea({ handle, me }: { handle: LiveHandle; me: string }) {
   const { room } = handle;
   const question = room.question;
+  const watching = isSpectating(room, me);
   if (!question) return <div className="min-h-48 rounded-xl border bg-card" aria-hidden />;
   const key = `${room.round}:${room.questionIndex}`;
   const closed = room.phase !== "question";
@@ -101,15 +102,15 @@ function QuestionArea({ handle, me }: { handle: LiveHandle; me: string }) {
   return (
     <div className="rounded-xl border bg-card p-4 sm:p-5">
       {question.type === "listen" ? (
-        <QuestionListen key={key} question={question} reveal={room.reveal} lockedOut={room.lockedOut.includes(me)} onChoose={handle.choose} />
+        <QuestionListen key={key} question={question} reveal={room.reveal} lockedOut={room.lockedOut.includes(me)} watching={watching} onChoose={handle.choose} />
       ) : question.type === "recall" ? (
-        <QuestionRecall key={key} question={question} wrongCount={myWrong} closed={closed} onAnswer={handle.answer} onTyping={handle.typingStarted} />
+        <QuestionRecall key={key} question={question} wrongCount={myWrong} closed={closed} watching={watching} onAnswer={handle.answer} onTyping={handle.typingStarted} />
       ) : (
-        <QuestionWrite key={key} question={question} wrongCount={myWrong} closed={closed} onAnswer={handle.answer} onTyping={handle.typingStarted} />
+        <QuestionWrite key={key} question={question} wrongCount={myWrong} closed={closed} watching={watching} onAnswer={handle.answer} onTyping={handle.typingStarted} />
       )}
       {room.phase === "reveal" && room.reveal && room.questionType ? (
         <div className="mt-4">
-          <AnswerReveal reveal={room.reveal} questionType={room.questionType} me={me} rival={room.players.find((p) => p.id !== me)} />
+          <AnswerReveal reveal={room.reveal} questionType={room.questionType} me={me} players={room.players} />
         </div>
       ) : null}
     </div>
@@ -120,7 +121,9 @@ function QuestionArea({ handle, me }: { handle: LiveHandle; me: string }) {
 function Playing({ handle, me }: DuelProps) {
   const router = useRouter();
   const { room } = handle;
-  const rival = room.players.find((p) => p.id !== me);
+  // The rival for a player; both players for a spectator (feature 026).
+  const others = room.players.filter((p) => p.id !== me);
+  const watching = others.length === room.players.length;
   const suddenDeath = room.suddenDeath > 0;
   const totalMs = room.questionType ? QUESTION_SECONDS[room.questionType] * 1_000 : 0;
 
@@ -144,11 +147,14 @@ function Playing({ handle, me }: DuelProps) {
             )}
             {room.questionType ? <span className="text-muted-foreground"> · {QUESTION_LABELS[room.questionType]}</span> : null}
           </p>
-          <LeaveMatch onLeave={handleLeave} />
+          {/* A spectator leaves from the room's header: it costs nobody anything (feature 026). */}
+          {watching ? null : <LeaveMatch onLeave={handleLeave} />}
         </div>
         {room.phase === "question" ? <TimerBar deadline={room.deadline} offset={handle.offset} totalMs={totalMs} /> : <div className="h-2.5" aria-hidden />}
         <QuestionArea handle={handle} me={me} />
-        {rival ? <OpponentStatus rival={rival} typing={handle.typing.includes(rival.id)} wrong={handle.wrong} /> : null}
+        {others.map((other) => (
+          <OpponentStatus key={other.id} rival={other} typing={handle.typing.includes(other.id)} wrong={handle.wrong} />
+        ))}
         {room.phase === "paused" ? <Paused room={room} offset={handle.offset} me={me} /> : null}
       </div>
     </div>

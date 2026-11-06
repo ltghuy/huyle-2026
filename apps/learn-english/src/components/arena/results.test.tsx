@@ -20,7 +20,7 @@ const rival = player(RIVAL);
 
 describe("AnswerReveal (AC-018)", () => {
   it("says you were faster with +1, and shows the word as tiles with its IPA and clip", () => {
-    render(<AnswerReveal reveal={{ answer: "apple", ipa: "/ˈæp.əl/", audio: "a".repeat(64), answerIndex: 0, answeredBy: ME }} questionType="listen" me={ME} rival={rival} />);
+    render(<AnswerReveal reveal={{ answer: "apple", ipa: "/ˈæp.əl/", audio: "a".repeat(64), answerIndex: 0, answeredBy: ME }} questionType="listen" me={ME} players={[rival]} />);
     expect(screen.getByText("Bạn nhanh hơn!")).toBeInTheDocument();
     expect(screen.getByText("+1")).toBeInTheDocument();
     expect(screen.getByText("Đáp án: apple")).toBeInTheDocument();
@@ -30,9 +30,9 @@ describe("AnswerReveal (AC-018)", () => {
   });
 
   it("names the rival when they were faster, and says when time ran out", () => {
-    const { rerender } = render(<AnswerReveal reveal={{ answer: "apple", answeredBy: RIVAL }} questionType="recall" me={ME} rival={rival} />);
+    const { rerender } = render(<AnswerReveal reveal={{ answer: "apple", answeredBy: RIVAL }} questionType="recall" me={ME} players={[rival]} />);
     expect(screen.getByText("Lan nhanh hơn")).toBeInTheDocument();
-    rerender(<AnswerReveal reveal={{ answer: "I like apples.", answeredBy: null }} questionType="write" me={ME} rival={rival} />);
+    rerender(<AnswerReveal reveal={{ answer: "I like apples.", answeredBy: null }} questionType="write" me={ME} players={[rival]} />);
     expect(screen.getByText("Hết giờ, không ai đúng")).toBeInTheDocument();
     // A sentence shows word by word, without a clip.
     expect(document.querySelectorAll('[data-slot="tile"]')).toHaveLength(3);

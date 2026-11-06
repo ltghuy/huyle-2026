@@ -45,11 +45,11 @@ describe("joining (AC-004, AC-005)", () => {
     expect(toPublic(state).players[1]).toMatchObject({ name: "Lan", image: LAN.image });
   });
 
-  it("refuses a third player, and anyone once the match has started", () => {
+  it("never seats a third player: they watch instead (feature 026)", () => {
     const state = readyRoom();
     const third = reduce(state, { type: "join", player: KHOA }, T0 + 2_000);
     expect(third.state.players).toHaveLength(2);
-    expect(third.effects).toEqual([{ type: "close", userId: "khoa", code: CLOSE_CODES.roomClosed, message: MESSAGES.full }]);
+    expect(third.state.spectators).toEqual([KHOA]);
   });
 
   it("gives a returning player their own seat instead of a second one (own-room edge case)", () => {

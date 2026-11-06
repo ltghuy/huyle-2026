@@ -100,6 +100,30 @@ describe("the room page", () => {
     expect(screen.queryByRole("button", { name: /Đổi cài đặt/ })).not.toBeInTheDocument();
   });
 
+  it("tells a spectator they're watching, lets them leave mid-match, and shows everyone the watcher count (feature 026)", async () => {
+    const watching = publicRoom({
+      creatorId: RIVAL,
+      phase: "round-end",
+      round: 1,
+      players: [player(RIVAL), player("khoa", { name: "Khoa" })],
+      spectators: [{ id: ME, name: "Minh Anh" }, { id: "an", name: "An" }],
+      rounds: [{ round: 1, scores: { [RIVAL]: 7, khoa: 5 }, winnerId: RIVAL }],
+      deadline: Date.now() + 5_000,
+    });
+    handle = roomHandle(watching);
+    stubFetch(true);
+    const { unmount } = render(<ArenaRoomPage />);
+    expect(await screen.findByText("Bạn đang xem trận đấu")).toBeInTheDocument();
+    expect(screen.getByText(/2 người đang xem/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Rời phòng/ })).toBeInTheDocument();
+    unmount();
+
+    handle = roomHandle(publicRoom({ phase: "lobby", players: [player(ME), player(RIVAL)], spectators: [{ id: "an", name: "An" }] }));
+    render(<ArenaRoomPage />);
+    expect(await screen.findByText(/1 người đang xem/)).toBeInTheDocument();
+    expect(screen.queryByText("Bạn đang xem trận đấu")).not.toBeInTheDocument();
+  });
+
   it("says the room closed when the connection ends without a result", async () => {
     handle = roomHandle(null, { status: "closed", error: "Phòng đang mở ở một tab khác." });
     stubFetch(true);

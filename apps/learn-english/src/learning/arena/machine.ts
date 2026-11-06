@@ -10,7 +10,7 @@
 // T005: room, lobby and the Ready window. T006: play. T007: drops during a
 // match (pause, resume, forfeit), a second tab, and rematch.
 import { createRng, randomInt } from "../exercises/random";
-import { CLOSE_CODES, type ArenaSettings, type Phase, type PublicRoom, type RoomFrame, type RoundResult } from "./protocol";
+import { CLOSE_CODES, MAX_SPECTATORS, type ArenaSettings, type Phase, type PublicRoom, type RoomFrame, type RoundResult } from "./protocol";
 import { buildRound, isCorrect, MAX_SUDDEN_DEATH, publicView, QUESTION_SECONDS, revealOf, ROUND_SIZE, type ArenaAnswer, type ArenaPool, type ServerQuestion } from "./questions";
 
 /** The 30-second Ready window (AC-007). */
@@ -30,7 +30,6 @@ export const MAX_ANSWERS_PER_SECOND = 5;
 
 export const MESSAGES = {
   full: "Phòng đã đủ người.",
-  started: "Trận đấu đã bắt đầu, bạn không vào được nữa.",
   closed: "Phòng đã đóng.",
   creatorOnly: "Chỉ chủ phòng mới bắt đầu được.",
   creatorSettings: "Chỉ chủ phòng mới đổi được cài đặt.",
@@ -98,6 +97,8 @@ export interface RoomState {
   pausedFrom: Phase | null;
   /** Players who asked for a rematch (AC-027). */
   rematch: string[];
+  /** People watching, connected ones only: they leave the list as soon as their socket closes (feature 026). */
+  spectators: PlayerIdentity[];
 }
 
 export type RoomEvent =
@@ -167,6 +168,7 @@ export function createRoom(input: { code: string; settings: ArenaSettings; creat
     pausedFor: null,
     pausedFrom: null,
     rematch: [],
+    spectators: [],
   };
 }
 
@@ -176,6 +178,9 @@ function newPlayer(identity: PlayerIdentity, now: number): Player {
 
 const unchanged = (state: RoomState): Result => ({ state, effects: [] });
 const broadcast = (state: RoomState, ...more: Effect[]): Result => ({ state, effects: [{ type: "broadcast" }, ...more] });
+
+const isPlayer = (state: RoomState, userId: string): boolean => state.players.some((player) => player.id === userId);
+const isSpectator = (state: RoomState, userId: string): boolean => state.spectators.some((spectator) => spectator.id === userId);
 
 function withPlayer(state: RoomState, userId: string, change: (player: Player) => Player): RoomState {
   return { ...state, players: state.players.map((player) => (player.id === userId ? change(player) : player)) };
@@ -207,10 +212,24 @@ function join(state: RoomState, identity: PlayerIdentity, now: number): Result {
   }
   const reject = (message: string): Result => ({ state, effects: [{ type: "close", userId: identity.id, code: CLOSE_CODES.roomClosed, message }] });
   if (state.phase === "closed") return reject(MESSAGES.closed);
-  if (state.phase !== "lobby") return reject(state.players.length >= 2 ? MESSAGES.full : MESSAGES.started);
-  if (state.players.length >= 2) return reject(MESSAGES.full);
+  if (isSpectator(state, identity.id)) {
+    // Another tab of someone already watching: still one place, the newest tab wins.
+    const spectators = state.spectators.map((spectator) => (spectator.id === identity.id ? identity : spectator));
+    return { state: { ...state, spectators }, effects: [{ type: "replace", userId: identity.id }, { type: "broadcast" }] };
+  }
+  if (state.phase !== "lobby" || state.players.length >= 2) {
+    // Both seats taken, or a match under way: watch while there is room (feature 026).
+    if (state.spectators.length >= MAX_SPECTATORS) return reject(MESSAGES.full);
+    return broadcast({ ...state, spectators: [...state.spectators, identity] });
+  }
   const joined: RoomState = { ...state, players: [...state.players, { ...newPlayer(identity, now), connected: true, goneAt: null }] };
   return broadcast(openReadyWindow(joined, now));
+}
+
+/** A spectator left or lost their connection: their place frees at once (feature 026, AC-008). */
+function removeSpectator(state: RoomState, userId: string, closeSocket: boolean): Result {
+  const next: RoomState = { ...state, spectators: state.spectators.filter((spectator) => spectator.id !== userId) };
+  return { state: next, effects: [{ type: "broadcast" }, ...(closeSocket ? [{ type: "close", userId, code: CLOSE_CODES.roomClosed } satisfies Effect] : [])] };
 }
 
 /** A player left on purpose or didn't come back in time: before the match the creator closes the room (AC-010). */
@@ -274,12 +293,14 @@ function resume(state: RoomState, now: number): RoomState {
 
 /** The player who stayed wins the match (AC-026). */
 function forfeit(state: RoomState, loserId: string, now: number): Result {
+  if (!isPlayer(state, loserId)) return unchanged(state);
   const winner = state.players.find((p) => p.id !== loserId);
   if (!winner) return closeRoom(state, MESSAGES.closed);
   return endMatch({ ...state, pausedFor: null, pausedFrom: null }, winner.id, "forfeit", now);
 }
 
 function disconnect(state: RoomState, userId: string, now: number): Result {
+  if (isSpectator(state, userId)) return removeSpectator(state, userId, false);
   if (!state.players.find((p) => p.id === userId)?.connected) return unchanged(state);
   const dropped = withPlayer(state, userId, (p) => ({ ...p, connected: false, goneAt: now + GRACE_MS }));
   if (IN_PLAY.has(state.phase)) return broadcast(pause(dropped, userId, now));
@@ -501,6 +522,7 @@ export function reduce(state: RoomState, event: RoomEvent, now: number, pool?: A
     case "disconnect":
       return disconnect(state, event.userId, now);
     case "leave":
+      if (isSpectator(state, event.userId)) return removeSpectator(state, event.userId, true);
       if (BEFORE_MATCH.has(state.phase)) return removePlayer(state, event.userId);
       // Leaving mid-match on purpose is a forfeit, so quitting can't dodge a loss.
       if (IN_PLAY.has(state.phase) || state.phase === "paused") return forfeit(state, event.userId, now);
@@ -512,7 +534,7 @@ export function reduce(state: RoomState, event: RoomEvent, now: number, pool?: A
     case "ready":
       return pressReady(state, event.userId, now);
     case "start": {
-      if (state.phase !== "lobby" || state.players.length !== 2) return unchanged(state);
+      if (state.phase !== "lobby" || state.players.length !== 2 || !isPlayer(state, event.userId)) return unchanged(state);
       if (event.userId !== state.creatorId) return { state, effects: [{ type: "send", to: event.userId, frame: { type: "error", message: MESSAGES.creatorOnly } }] };
       return broadcast(openReadyWindow(state, now));
     }
@@ -557,5 +579,6 @@ export function toPublic(state: RoomState): PublicRoom {
     winnerId: state.winnerId,
     endReason: state.endReason,
     rematch: [...state.rematch],
+    spectators: state.spectators.map(({ id, name }) => ({ id, name })),
   };
 }

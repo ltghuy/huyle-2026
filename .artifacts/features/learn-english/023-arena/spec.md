@@ -27,7 +27,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 |---------|--------|
 | Group rooms (3 to 10 players) | Planned later; 1-on-1 first |
 | Quick match with a random opponent | Needs matchmaking; later |
-| Spectators | Later |
+| Spectators | Later; added by feature 026 |
 | Shared chat that shows the opponent's guesses | Decided against: it lets players copy (decisions.md) |
 | Points, daily streak or Ôn tập changes from a duel | Duels must not be farmable with a second account; only win/loss stats are kept (decisions.md) |
 | Match review screen and "Thêm từ sai vào Ôn tập" | Not in v1 (decisions.md) |
@@ -49,7 +49,7 @@ Group rooms (up to 10 players) come later. This feature covers 1-on-1 duels only
 - [x] AC-002: WHEN a learner creates a room THEN system SHALL let them choose the mode ("Nghe", "Nhớ từ", "Viết câu", "Hỗn hợp"), the level (A1 to C1, their own level preselected) and the rounds (1, or best of 3)
 - [x] AC-003: WHEN a room is created THEN system SHALL show its unique 6-character code, a copyable invite link that opens the room, and a QR code of that link
 - [x] AC-004: WHEN a signed-in learner enters a valid code or opens an invite link THEN system SHALL put them in the room and show both players' names and avatars to both players
-- [x] AC-005: WHEN a code is unknown, expired, or the room already has two players or has started THEN system SHALL say so in Vietnamese and not join
+- [x] AC-005: WHEN a code is unknown, expired, or the room already has two players or has started THEN system SHALL say so in Vietnamese and not join (since feature 026, a room with both seats taken or a match under way still lets up to three people in to watch; only a room with five people is refused as full)
 - [x] AC-006: WHEN a guest opens "Đấu trường" or an invite link THEN system SHALL show the sign-in prompt used by other locked areas, and after sign-in from an invite link SHALL continue into that room
 
 ### P1: Ready check

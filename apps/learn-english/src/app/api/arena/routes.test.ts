@@ -93,7 +93,6 @@ describe("POST /api/arena/join", () => {
     for (const [reason, status, message] of [
       ["not-found", 404, "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé."],
       ["full", 409, "Phòng đã đủ người."],
-      ["started", 409, "Trận đấu trong phòng này đã bắt đầu."],
     ] as const) {
       joinRoom.mockResolvedValue({ ok: false, reason });
       const response = await post(join, { code: "K7P2QX" });

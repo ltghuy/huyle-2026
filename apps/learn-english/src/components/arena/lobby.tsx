@@ -8,6 +8,7 @@ import { READY_MS } from "@/learning/arena/machine";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
 import { PlayerRow } from "./players";
+import { isSpectating } from "./scoreboard";
 import { sameSettings, settingsLine } from "./settings-fields";
 import type { ArenaRoomHandle } from "./use-arena-room";
 
@@ -16,8 +17,35 @@ interface LobbyProps {
   me: string;
 }
 
+/** A spectator's lobby (feature 026): both seats and their Ready marks, nothing to press. */
+function WatchingLobby({ room }: { room: LobbyProps["handle"]["room"] }) {
+  const waiting = room.phase === "ready" ? "Đang chờ hai người chơi bấm Sẵn sàng…" : room.players.length < 2 ? "Đang chờ người chơi thứ hai…" : "Đang chờ chủ phòng bắt đầu…";
+  return (
+    <div className="mx-auto grid w-full max-w-2xl gap-6">
+      <section aria-labelledby="players-title" className="grid gap-2">
+        <h2 id="players-title" className="text-sm font-medium text-muted-foreground">
+          Người chơi
+        </h2>
+        <ul className="grid gap-2">
+          {room.players.map((player) => (
+            <PlayerRow key={player.id} player={player} you={false} creator={player.id === room.creatorId} showReady={room.phase === "ready"} otherLabel="Người chơi" />
+          ))}
+        </ul>
+      </section>
+      <p role="status" className="text-center text-sm text-muted-foreground">
+        {waiting}
+      </p>
+    </div>
+  );
+}
+
 /** Waiting room: the code to share, both seats, and the 30-second Ready window (AC-003, AC-004, AC-007–AC-010). */
 export function Lobby({ handle, me }: LobbyProps) {
+  if (isSpectating(handle.room, me)) return <WatchingLobby room={handle.room} />;
+  return <PlayerLobby handle={handle} me={me} />;
+}
+
+function PlayerLobby({ handle, me }: LobbyProps) {
   const { room } = handle;
   const you = room.players.find((p) => p.id === me);
   const rival = room.players.find((p) => p.id !== me);

@@ -55,9 +55,15 @@ describe("createRoom (AC-002, AC-003)", () => {
   });
 });
 
-describe("joinRoom (AC-004, AC-005)", () => {
+describe("joinRoom (AC-004, AC-005; feature 026)", () => {
   const LAN = { id: "lan", name: "Lan", email: "lan@example.com", image: null };
-  const status = (phase: RoomStatus["phase"], playerIds: string[]): RoomStatus => ({ phase, creatorId: "minh", playerIds, settings: SETTINGS });
+  const status = (phase: RoomStatus["phase"], playerIds: string[], spectatorIds: string[] = []): RoomStatus => ({
+    phase,
+    creatorId: "minh",
+    playerIds,
+    spectatorIds,
+    settings: SETTINGS,
+  });
   const join = (room: RoomStatus | null, user = LAN) => joinRoom(rooms({ status: async () => room }).rooms, { code: "K7P2QX", user, name: user.name, secret: SECRET, now: NOW });
 
   it("hands a ticket and the room's settings to the second player", async () => {
@@ -66,10 +72,19 @@ describe("joinRoom (AC-004, AC-005)", () => {
     if (result.ok) expect(result.value).toMatchObject({ code: "K7P2QX", settings: SETTINGS });
   });
 
-  it("says why it can't join an unknown, full or started room", async () => {
+  it("says why it can't join an unknown room", async () => {
     expect(await join(null)).toEqual({ ok: false, reason: "not-found" });
-    expect(await join(status("ready", ["minh", "khoa"]))).toEqual({ ok: false, reason: "full" });
-    expect(await join(status("question", ["minh", "khoa"]))).toEqual({ ok: false, reason: "full" });
+  });
+
+  it("lets people in to watch once both seats are taken, up to three of them", async () => {
+    expect((await join(status("ready", ["minh", "khoa"]))).ok).toBe(true);
+    expect((await join(status("question", ["minh", "khoa"], ["an", "binh"]))).ok).toBe(true);
+    expect(await join(status("question", ["minh", "khoa"], ["an", "binh", "chi"]))).toEqual({ ok: false, reason: "full" });
+    expect(await join(status("lobby", ["minh", "khoa"], ["an", "binh", "chi"]))).toEqual({ ok: false, reason: "full" });
+  });
+
+  it("lets a spectator back in even when the room is full", async () => {
+    expect((await join(status("question", ["minh", "khoa"], ["an", "lan", "chi"]))).ok).toBe(true);
   });
 
   it("always lets a seated player back in, even mid-match", async () => {

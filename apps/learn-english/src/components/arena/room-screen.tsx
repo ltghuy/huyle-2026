@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import { ArrowLeft, Eye, Loader2 } from "lucide-react";
 import { SignInGate } from "@/components/account/sign-in-gate";
 import { Owl } from "@/components/mascot/owl";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -16,6 +16,7 @@ import { learnerName } from "@/lib/learner-name";
 import { Duel } from "./duel";
 import { EditSettings } from "./edit-settings";
 import { Lobby } from "./lobby";
+import { isSpectating } from "./scoreboard";
 import { settingsLine } from "./settings-fields";
 import { useArenaRoom } from "./use-arena-room";
 
@@ -63,10 +64,13 @@ function LiveRoom({ code, me, name }: { code: string; me: string; name?: string 
   }
 
   const inLobby = room.phase === "lobby" || room.phase === "ready";
+  // Spectators may leave from any phase; players only from the lobby (mid-match, leaving is a forfeit with its own dialog).
+  const watching = isSpectating(room, me);
+  const watchers = room.spectators.length;
   return (
     <div className="grid gap-6">
       <header className="flex items-center justify-between gap-3">
-        {inLobby ? (
+        {inLobby || watching ? (
           <Button variant="ghost" className="h-11 gap-2 px-2" onClick={handleLeave}>
             <ArrowLeft aria-hidden /> Rời phòng
           </Button>
@@ -75,9 +79,19 @@ function LiveRoom({ code, me, name }: { code: string; me: string; name?: string 
         )}
         <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1">
           <p className="text-sm text-muted-foreground">{settingsLine(room.settings)}</p>
+          {watchers > 0 ? (
+            <p className="flex items-center gap-1 text-sm text-muted-foreground" title={room.spectators.map((s) => s.name).join(", ")}>
+              <Eye aria-hidden className="size-4" /> {watchers} người đang xem
+            </p>
+          ) : null}
           {inLobby && room.creatorId === me ? <EditSettings settings={room.settings} onSave={handle.changeSettings} /> : null}
         </div>
       </header>
+      {watching ? (
+        <p role="status" className="rounded-lg bg-primary/10 px-3 py-2 text-center text-sm">
+          Bạn đang xem trận đấu
+        </p>
+      ) : null}
       {handle.status === "reconnecting" ? (
         <p role="status" className="rounded-lg bg-muted px-3 py-2 text-center text-sm">
           Đang kết nối lại…

@@ -24,17 +24,19 @@ interface PlayerRowProps {
   creator: boolean;
   /** Show the Ready mark (the Ready window is open). */
   showReady: boolean;
+  /** What the seat is called when it isn't yours: "Đối thủ", or "Người chơi" for a spectator (feature 026). */
+  otherLabel?: string;
 }
 
 /** One seat in the lobby: avatar, name, "Bạn" / "Chủ phòng", and whether they're ready or away. */
-export function PlayerRow({ player, you, creator, showReady }: PlayerRowProps) {
+export function PlayerRow({ player, you, creator, showReady, otherLabel = "Đối thủ" }: PlayerRowProps) {
   return (
     <li className="flex min-h-14 items-center gap-3 rounded-xl border bg-card px-3 py-2">
       <PlayerAvatar player={player} you={you} />
       <div className="min-w-0 flex-1">
         <p className="truncate font-semibold">{player.name}</p>
         <p className="flex items-center gap-1 text-xs text-muted-foreground">
-          {you ? "Bạn" : "Đối thủ"}
+          {you ? "Bạn" : otherLabel}
           {creator ? (
             <>
               <span aria-hidden>·</span>

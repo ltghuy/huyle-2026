@@ -26,6 +26,8 @@ export const CODE_PATTERN = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
 export const MAX_FRAME_BYTES = 2048;
 /** Longest typed answer, the same cap as a translate claim (feature 016). */
 export const MAX_ANSWER_LENGTH = 500;
+/** People who may watch a room besides its two players (feature 026): five in all. */
+export const MAX_SPECTATORS = 3;
 /** Options in "Nghe và chọn từ" (`LISTENING_OPTIONS`). */
 export const CHOICE_COUNT = 4;
 
@@ -141,6 +143,8 @@ export const publicRoomSchema = z.object({
   endReason: z.enum(END_REASONS).nullable(),
   /** Players who asked for a rematch. */
   rematch: z.array(z.string()),
+  /** People watching without playing (feature 026); they can't answer or change anything. */
+  spectators: z.array(z.object({ id: z.string(), name: z.string() })),
 });
 export type PublicRoom = z.infer<typeof publicRoomSchema>;
 

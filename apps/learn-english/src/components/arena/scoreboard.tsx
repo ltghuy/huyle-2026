@@ -7,6 +7,20 @@ export function roundsToWin(room: Pick<PublicRoom, "settings">): number {
   return Math.floor(room.settings.rounds / 2) + 1;
 }
 
+/** Whether the viewer is watching rather than playing (feature 026). */
+export function isSpectating(room: Pick<PublicRoom, "players">, me: string): boolean {
+  return !room.players.some((p) => p.id === me);
+}
+
+/**
+ * The scoreboard's two sides: you on the left when you play; for a spectator, the creator (first seat) on the
+ * left and the other player on the right (feature 026).
+ */
+export function sides(room: Pick<PublicRoom, "players">, me: string): { left: PublicPlayer | undefined; right: PublicPlayer | undefined } {
+  const left = room.players.find((p) => p.id === me) ?? room.players[0];
+  return { left, right: room.players.find((p) => p !== left) };
+}
+
 function RoundPips({ won, needed, you }: { won: number; needed: number; you: boolean }) {
   if (needed <= 1) return null;
   return (
@@ -19,17 +33,18 @@ function RoundPips({ won, needed, you }: { won: number; needed: number; you: boo
   );
 }
 
-function Side({ player, you, needed, scored }: { player: PublicPlayer; you: boolean; needed: number; scored: boolean }) {
+/** One side of the board; `you` labels it "Bạn". The left side (yours, or the first seat for a spectator) wears the accent. */
+function Side({ player, you, start = you, needed, scored }: { player: PublicPlayer; you: boolean; start?: boolean; needed: number; scored: boolean }) {
   return (
-    <div className={cn("flex min-w-0 flex-1 items-center gap-2.5", you ? "" : "flex-row-reverse text-right")}>
-      <PlayerAvatar player={player} you={you} className="size-9" />
+    <div className={cn("flex min-w-0 flex-1 items-center gap-2.5", start ? "" : "flex-row-reverse text-right")}>
+      <PlayerAvatar player={player} you={start} className="size-9" />
       <div className="min-w-0">
         <p className="truncate text-sm font-semibold">{you ? "Bạn" : player.name}</p>
-        <RoundPips won={player.roundsWon} needed={needed} you={you} />
+        <RoundPips won={player.roundsWon} needed={needed} you={start} />
       </div>
       <span
         key={scored ? `${player.score}` : undefined}
-        className={cn("ml-auto text-3xl font-bold tabular-nums", you ? "text-primary" : "mr-auto ml-0 text-arena-rival", scored && "animate-score-pop")}
+        className={cn("ml-auto text-3xl font-bold tabular-nums", start ? "text-primary" : "mr-auto ml-0 text-arena-rival", scored && "animate-score-pop")}
       >
         {player.score}
       </span>
@@ -42,19 +57,20 @@ function Side({ player, you, needed, scored }: { player: PublicPlayer; you: bool
  * rounds won (pips, and in words for screen readers). Never colour alone: "Bạn" and the name label each side.
  */
 export function Scoreboard({ room, me }: { room: PublicRoom; me: string }) {
-  const you = room.players.find((p) => p.id === me);
-  const rival = room.players.find((p) => p.id !== me);
-  if (!you || !rival) return null;
+  const { left, right: rival } = sides(room, me);
+  if (!left || !rival) return null;
+  const you = left.id === me;
+  const leftName = you ? "Bạn" : left.name;
   const needed = roundsToWin(room);
   const lastScorer = room.reveal?.answeredBy ?? null;
   return (
     <section aria-label="Tỉ số" className="rounded-xl border bg-card px-3 py-2.5">
       <p className="sr-only">
-        Hiệp {room.round}. Bạn {you.score} điểm, {rival.name} {rival.score} điểm.
-        {needed > 1 ? ` Hiệp thắng: bạn ${you.roundsWon}, ${rival.name} ${rival.roundsWon}.` : ""}
+        Hiệp {room.round}. {leftName} {left.score} điểm, {rival.name} {rival.score} điểm.
+        {needed > 1 ? ` Hiệp thắng: ${you ? "bạn" : left.name} ${left.roundsWon}, ${rival.name} ${rival.roundsWon}.` : ""}
       </p>
       <div aria-hidden className="flex items-center gap-3">
-        <Side player={you} you needed={needed} scored={lastScorer === you.id} />
+        <Side player={left} you={you} start needed={needed} scored={lastScorer === left.id} />
         <span className="shrink-0 text-xs font-medium text-muted-foreground">{room.settings.rounds > 1 ? `Hiệp ${room.round}` : "vs"}</span>
         <Side player={rival} you={false} needed={needed} scored={lastScorer === rival.id} />
       </div>

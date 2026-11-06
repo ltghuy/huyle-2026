@@ -43,6 +43,8 @@ export interface RoomStatus {
   phase: RoomState["phase"];
   creatorId: string;
   playerIds: string[];
+  /** Who is watching (feature 026). */
+  spectatorIds: string[];
   settings: ArenaSettings;
 }
 
@@ -73,7 +75,9 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   constructor(ctx: DurableObjectState, env: CloudflareEnv) {
     super(ctx, env);
     void ctx.blockConcurrencyWhile(async () => {
-      this.state = (await ctx.storage.get<RoomState>(STATE_KEY)) ?? null;
+      const stored = await ctx.storage.get<RoomState>(STATE_KEY);
+      // Rooms saved before feature 026 have no spectators list.
+      this.state = stored ? { ...stored, spectators: stored.spectators ?? [] } : null;
     });
   }
 
@@ -85,10 +89,16 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     return true;
   }
 
-  /** RPC from the join route: the room's phase and seats, or null when there is no open room. */
+  /** RPC from the join route: the room's phase, seats and spectators, or null when there is no open room. */
   status(): RoomStatus | null {
     if (!this.state || this.state.phase === "closed") return null;
-    return { phase: this.state.phase, creatorId: this.state.creatorId, playerIds: this.state.players.map((p) => p.id), settings: this.state.settings };
+    return {
+      phase: this.state.phase,
+      creatorId: this.state.creatorId,
+      playerIds: this.state.players.map((p) => p.id),
+      spectatorIds: this.state.spectators.map((s) => s.id),
+      settings: this.state.settings,
+    };
   }
 
   fetch(request: Request): Response {
