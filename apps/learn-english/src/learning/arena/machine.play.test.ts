@@ -15,8 +15,8 @@ import {
   type Effect,
   type RoomState,
 } from "./machine";
-import type { ArenaMode } from "./protocol";
-import { QUESTION_SECONDS, ROUND_SIZE, type ArenaPool } from "./questions";
+import { QUESTION_TIMES, type ArenaMode, type QuestionTime } from "./protocol";
+import { ROUND_SIZE, type ArenaPool } from "./questions";
 
 const MINH = { id: "minh", name: "Minh Anh", image: null };
 const LAN = { id: "lan", name: "Lan", image: null };
@@ -25,9 +25,9 @@ const LAN = { id: "lan", name: "Lan", image: null };
 let now = 1_800_000_000_000;
 
 /** Both players in, both ready, the countdown over: question 1 of round 1 is open. */
-function startMatch(mode: ArenaMode = "mixed", rounds: 1 | 3 = 1, pool: ArenaPool = POOL): RoomState {
+function startMatch(mode: ArenaMode = "mixed", rounds: 1 | 3 = 1, pool: ArenaPool = POOL, seconds: QuestionTime = 15): RoomState {
   now = 1_800_000_000_000;
-  let state = createRoom({ code: "K7P2QX", settings: { mode, level: "A1", rounds }, creator: MINH, seed: 7, now });
+  let state = createRoom({ code: "K7P2QX", settings: { mode, level: "A1", rounds, seconds }, creator: MINH, seed: 7, now });
   state = reduce(state, { type: "join", player: MINH }, (now += 100)).state;
   state = reduce(state, { type: "join", player: LAN }, (now += 100)).state;
   state = reduce(state, { type: "ready", userId: "minh" }, (now += 100)).state;
@@ -63,13 +63,13 @@ function play(state: RoomState, winnerOf: (index: number) => string | null): { s
 }
 
 describe("starting the match", () => {
-  it("builds every round's questions once and opens question 1 with its type's time (AC-011, AC-012)", () => {
+  it("builds every round's questions once and opens question 1 with the room's question time (AC-011, 028 AC-003)", () => {
     const state = startMatch("mixed", 3);
     expect(state.phase).toBe("question");
     expect(state.round).toBe(1);
     expect(state.questions).toHaveLength(3);
     expect(state.questions.every((r) => r.main.length === ROUND_SIZE && r.suddenDeath.length === 3)).toBe(true);
-    expect(state.deadline).toBe(now + QUESTION_SECONDS[currentQuestion(state)!.type] * 1_000);
+    expect(state.deadline).toBe(now + 15_000);
     expect(needsPool(state)).toBe(false);
   });
 
@@ -78,15 +78,26 @@ describe("starting the match", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("gives the 30 s of Viết câu and the 15 s of the others", () => {
-    const write = startMatch("write");
-    expect(write.deadline! - now).toBe(30_000);
-    const listen = startMatch("listen");
-    expect(listen.deadline! - now).toBe(15_000);
+  it("gives every question type the room's question time, whichever of the four it is (028 AC-003)", () => {
+    for (const seconds of QUESTION_TIMES) {
+      for (const mode of ["listen", "recall", "write"] as const) {
+        const state = startMatch(mode, 1, POOL, seconds);
+        expect(state.deadline! - now).toBe(seconds * 1_000);
+      }
+    }
+  });
+
+  it("keeps the room's question time on later questions and in sudden death (028 AC-003)", () => {
+    const next = tick(tick(startMatch("mixed", 1, POOL, 45)).state).state;
+    expect(next.questionIndex).toBe(1);
+    expect(next.deadline! - next.questionStartedAt!).toBe(45_000);
+    const sudden = play(startMatch("mixed", 1, POOL, 25), (i) => (i % 2 === 0 ? "minh" : "lan")).state;
+    expect(sudden.suddenDeath).toBe(1);
+    expect(sudden.deadline! - sudden.questionStartedAt!).toBe(25_000);
   });
 
   it("closes the room when the level can't fill the match", () => {
-    let state = createRoom({ code: "K7P2QX", settings: { mode: "write", level: "A1", rounds: 1 }, creator: MINH, seed: 7, now });
+    let state = createRoom({ code: "K7P2QX", settings: { mode: "write", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, seed: 7, now });
     state = reduce(state, { type: "join", player: MINH }, now).state;
     state = reduce(state, { type: "join", player: LAN }, now).state;
     state = reduce(state, { type: "ready", userId: "minh" }, now).state;
@@ -200,7 +211,7 @@ describe("rounds and the match", () => {
       match: {
         endedAt: now,
         reason: "won",
-        settings: { mode: "recall", level: "A1", rounds: 3 },
+        settings: { mode: "recall", level: "A1", rounds: 3, seconds: 15 },
         winnerId: "lan",
         players: [
           { ...MINH, roundsWon: 0 },

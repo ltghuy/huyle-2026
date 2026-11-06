@@ -6,7 +6,8 @@ import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { MAX_SUDDEN_DEATH, QUESTION_SECONDS, ROUND_SIZE } from "@/learning/arena/questions";
+import { QUESTION_TIMES } from "@/learning/arena/protocol";
+import { MAX_SUDDEN_DEATH, ROUND_SIZE } from "@/learning/arena/questions";
 
 export const GUIDE_TOOLTIP = "Cách chơi và cách giành chiến thắng?";
 
@@ -22,7 +23,7 @@ const SECTIONS: readonly GuideSection[] = [
     title: "Vào trận",
     icon: Users,
     points: [
-      "Chọn chế độ, trình độ và số hiệp, bấm “Tạo phòng” rồi gửi mã 6 ký tự cho bạn bè.",
+      "Chọn chế độ, trình độ, số hiệp và thời gian mỗi câu, bấm “Tạo phòng” rồi gửi mã 6 ký tự cho bạn bè.",
       "Khi bạn bè vào phòng, cả hai bấm “Sẵn sàng” trong 30 giây để bắt đầu.",
     ],
   },
@@ -31,9 +32,10 @@ const SECTIONS: readonly GuideSection[] = [
     icon: Swords,
     points: [
       `Mỗi hiệp có ${ROUND_SIZE} câu hỏi, giống nhau và cùng thứ tự cho cả hai người.`,
-      `Nghe: nghe rồi chọn từ đúng trong ${QUESTION_SECONDS.listen} giây. Chọn sai là mất lượt ở câu đó.`,
-      `Nhớ từ: xem nghĩa tiếng Việt rồi gõ từ tiếng Anh trong ${QUESTION_SECONDS.recall} giây. Gõ sai thì gõ lại được.`,
-      `Viết câu: dịch câu tiếng Việt sang tiếng Anh trong ${QUESTION_SECONDS.write} giây. Gõ sai thì gõ lại được.`,
+      `Chủ phòng chọn thời gian cho mỗi câu: ${QUESTION_TIMES.join(", ")} giây.`,
+      "Nghe: nghe rồi chọn từ đúng. Chọn sai là mất lượt ở câu đó.",
+      "Nhớ từ: xem nghĩa tiếng Việt rồi gõ từ tiếng Anh. Gõ sai thì gõ lại được.",
+      "Viết câu: dịch câu tiếng Việt sang tiếng Anh. Gõ sai thì gõ lại được.",
       "Hỗn hợp: cả ba dạng xen kẽ nhau.",
     ],
   },

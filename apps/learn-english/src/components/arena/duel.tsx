@@ -15,8 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { COUNTDOWN_MS, GRACE_MS } from "@/learning/arena/machine";
-import type { PublicRoom } from "@/learning/arena/protocol";
-import { QUESTION_SECONDS } from "@/learning/arena/questions";
+import { questionMs, type PublicRoom } from "@/learning/arena/protocol";
 import { cn } from "@/lib/utils";
 import { Announcer, QUESTION_LABELS } from "./announcer";
 import { AnswerReveal } from "./answer-reveal";
@@ -125,7 +124,7 @@ function Playing({ handle, me }: DuelProps) {
   const others = room.players.filter((p) => p.id !== me);
   const watching = others.length === room.players.length;
   const suddenDeath = room.suddenDeath > 0;
-  const totalMs = room.questionType ? QUESTION_SECONDS[room.questionType] * 1_000 : 0;
+  const totalMs = room.questionType ? questionMs(room.settings) : 0;
 
   function handleLeave() {
     handle.leave();

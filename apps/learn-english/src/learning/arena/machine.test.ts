@@ -20,7 +20,7 @@ const LAN = { id: "lan", name: "Lan", image: "https://example.test/lan.png" };
 const KHOA = { id: "khoa", name: "Khoa", image: null };
 
 function room(): RoomState {
-  return createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 3 }, creator: MINH, seed: 1, now: T0 });
+  return createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 3, seconds: 15 }, creator: MINH, seed: 1, now: T0 });
 }
 
 /** Applies events in order, each at its own time, and returns the last result. */
@@ -108,7 +108,7 @@ describe("the Ready window", () => {
 });
 
 describe("changing the settings before a match (AC-031)", () => {
-  const WRITE_B1 = { mode: "write", level: "B1", rounds: 1 } as const;
+  const WRITE_B1 = { mode: "write", level: "B1", rounds: 1, seconds: 15 } as const;
 
   it("lets the creator change them in the lobby, and the next match uses them", () => {
     const lobby = reduce(room(), { type: "join", player: MINH }, T0 + 500).state;
@@ -128,6 +128,15 @@ describe("changing the settings before a match (AC-031)", () => {
   it("ignores the same settings, so nobody loses their Ready tick", () => {
     const oneReady = reduce(readyRoom(), { type: "ready", userId: "lan" }, T0 + 5_000).state;
     expect(reduce(oneReady, { type: "settings", userId: "minh", settings: oneReady.settings }, T0 + 6_000)).toEqual({ state: oneReady, effects: [] });
+  });
+
+  it("treats a new question time alone as a change (feature 028, AC-007)", () => {
+    const oneReady = reduce(readyRoom(), { type: "ready", userId: "lan" }, T0 + 5_000).state;
+    const slower = { ...oneReady.settings, seconds: 45 } as const;
+    const changed = reduce(oneReady, { type: "settings", userId: "minh", settings: slower }, T0 + 6_000);
+    expect(changed.effects).toEqual([{ type: "broadcast" }]);
+    expect(changed.state.settings.seconds).toBe(45);
+    expect(changed.state.players.every((p) => !p.ready)).toBe(true);
   });
 
   it("refuses the opponent with a message", () => {

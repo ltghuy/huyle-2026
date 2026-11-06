@@ -15,7 +15,7 @@ export function player(id: string, overrides: Partial<PublicPlayer> = {}): Publi
 export function publicRoom(overrides: Partial<PublicRoom> = {}): PublicRoom {
   return {
     code: "K7P2QX",
-    settings: { mode: "mixed", level: "A1", rounds: 3 },
+    settings: { mode: "mixed", level: "A1", rounds: 3, seconds: 15 },
     creatorId: ME,
     phase: "lobby",
     players: [player(ME)],

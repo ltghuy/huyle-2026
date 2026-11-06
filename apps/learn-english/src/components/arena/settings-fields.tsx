@@ -5,19 +5,19 @@ import { useId, useState } from "react";
 import { Brain, Headphones, PenLine, Shuffle, type LucideIcon } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { contentQuery } from "@/content/queries";
-import type { ArenaMode, ArenaSettings } from "@/learning/arena/protocol";
+import { QUESTION_TIMES, type ArenaMode, type ArenaSettings, type MatchSettings, type QuestionTime } from "@/learning/arena/protocol";
 import { availableModes } from "@/learning/arena/questions";
 import { LEVELS, type Level } from "@/learning/types";
 import { cn } from "@/lib/utils";
 
-// A room's settings form (feature 023): mode, level and rounds. Used to create a
+// A room's settings form (feature 023): mode, level, rounds and, since 028, the time per question. Used to create a
 // room (AC-002) and by the creator to change them before a match (AC-031).
 
 export const MODE_OPTIONS: readonly { value: ArenaMode; label: string; hint: string; icon: LucideIcon }[] = [
   { value: "mixed", label: "Hỗn hợp", hint: "Cả ba dạng, xen kẽ nhau", icon: Shuffle },
-  { value: "listen", label: "Nghe", hint: "Nghe và chọn từ · 15 giây", icon: Headphones },
-  { value: "recall", label: "Nhớ từ", hint: "Xem nghĩa, gõ từ · 15 giây", icon: Brain },
-  { value: "write", label: "Viết câu", hint: "Dịch câu sang tiếng Anh · 30 giây", icon: PenLine },
+  { value: "listen", label: "Nghe", hint: "Nghe và chọn từ", icon: Headphones },
+  { value: "recall", label: "Nhớ từ", hint: "Xem nghĩa, gõ từ", icon: Brain },
+  { value: "write", label: "Viết câu", hint: "Dịch câu sang tiếng Anh", icon: PenLine },
 ];
 
 const ROUND_OPTIONS = [
@@ -27,14 +27,15 @@ const ROUND_OPTIONS = [
 
 const NO_MODES = "Trình độ này chưa đủ câu hỏi cho Đấu trường. Bạn chọn trình độ khác nhé.";
 
-/** "Hỗn hợp · A2 · 3 hiệp". */
-export function settingsLine(settings: ArenaSettings): string {
+/** "Hỗn hợp · A2 · 3 hiệp · 15 giây/câu"; a past match has no question time (028). */
+export function settingsLine(settings: ArenaSettings | MatchSettings): string {
   const mode = MODE_OPTIONS.find((option) => option.value === settings.mode)?.label ?? "";
-  return `${mode} · ${settings.level} · ${settings.rounds === 1 ? "1 hiệp" : "3 hiệp"}`;
+  const line = `${mode} · ${settings.level} · ${settings.rounds === 1 ? "1 hiệp" : "3 hiệp"}`;
+  return "seconds" in settings ? `${line} · ${settings.seconds} giây/câu` : line;
 }
 
 export function sameSettings(a: ArenaSettings, b: ArenaSettings): boolean {
-  return a.mode === b.mode && a.level === b.level && a.rounds === b.rounds;
+  return a.mode === b.mode && a.level === b.level && a.rounds === b.rounds && a.seconds === b.seconds;
 }
 
 /** Modes the level can run, from the content this browser already caches; null while it loads. */
@@ -52,21 +53,24 @@ export interface SettingsDraft {
   mode: ArenaMode | null;
   level: Level;
   rounds: ArenaSettings["rounds"];
+  seconds: QuestionTime;
   available: ArenaMode[] | null;
   setMode: (mode: ArenaMode) => void;
   setLevel: (level: Level) => void;
   setRounds: (rounds: ArenaSettings["rounds"]) => void;
+  setSeconds: (seconds: QuestionTime) => void;
 }
 
 export function useSettingsDraft(initial: ArenaSettings): SettingsDraft {
   const [mode, setMode] = useState<ArenaMode>(initial.mode);
   const [level, setLevel] = useState<Level>(initial.level);
   const [rounds, setRounds] = useState<ArenaSettings["rounds"]>(initial.rounds);
+  const [seconds, setSeconds] = useState<QuestionTime>(initial.seconds);
   const available = useAvailableModes(level);
   // A mode the level can't run falls back to the first one it can (derived, not stored).
   const chosen = available && !available.includes(mode) ? (available[0] ?? null) : mode;
-  const settings = chosen && available !== null && available.length > 0 ? { mode: chosen, level, rounds } : null;
-  return { settings, mode: chosen, level, rounds, available, setMode, setLevel, setRounds };
+  const settings = chosen && available !== null && available.length > 0 ? { mode: chosen, level, rounds, seconds } : null;
+  return { settings, mode: chosen, level, rounds, seconds, available, setMode, setLevel, setRounds, setSeconds };
 }
 
 interface SettingsFieldsProps {
@@ -78,7 +82,7 @@ interface SettingsFieldsProps {
 export function SettingsFields({ draft, onChange }: SettingsFieldsProps) {
   const modeLabel = useId();
   const levelLabel = useId();
-  const roundsLabel = useId();
+  const secondsLabel = useId();
   const { available } = draft;
 
   function handleModeChange(value: ArenaMode) {
@@ -91,8 +95,13 @@ export function SettingsFields({ draft, onChange }: SettingsFieldsProps) {
     onChange?.();
   }
 
-  function handleRoundsChange(value: string[]) {
-    if (value[0]) draft.setRounds(Number(value[0]) as ArenaSettings["rounds"]);
+  function handleRoundsChange(value: string) {
+    draft.setRounds(Number(value) as ArenaSettings["rounds"]);
+    onChange?.();
+  }
+
+  function handleSecondsChange(value: string[]) {
+    if (value[0]) draft.setSeconds(Number(value[0]) as QuestionTime);
     onChange?.();
   }
 
@@ -140,18 +149,40 @@ export function SettingsFields({ draft, onChange }: SettingsFieldsProps) {
         </ToggleGroup>
       </div>
 
-      <div className="grid gap-2">
-        <span id={roundsLabel} className="text-sm font-medium">
-          Số hiệp
-        </span>
-        <ToggleGroup aria-labelledby={roundsLabel} variant="outline" spacing={0} value={[String(draft.rounds)]} onValueChange={handleRoundsChange}>
-          {ROUND_OPTIONS.map((option) => (
-            <ToggleGroupItem key={option.value} value={option.value} className="h-11 gap-1.5 px-4 aria-pressed:border-primary aria-pressed:bg-primary/15 aria-pressed:text-primary">
-              {option.label}
-              {"hint" in option ? <span className="text-xs text-muted-foreground">({option.hint})</span> : null}
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+      {/* Rounds and time share a row, and wrap onto two on a narrow screen. */}
+      <div className="flex flex-wrap gap-x-10 gap-y-6">
+        <fieldset className="grid gap-2">
+          <legend className="mb-2 text-sm font-medium">Số hiệp</legend>
+          <div className="flex h-11 items-center gap-5">
+            {ROUND_OPTIONS.map((option) => (
+              <label key={option.value} className="flex cursor-pointer items-center gap-2 rounded-md has-focus-visible:ring-3 has-focus-visible:ring-ring/50">
+                <input
+                  type="radio"
+                  name="arena-rounds"
+                  value={option.value}
+                  checked={String(draft.rounds) === option.value}
+                  onChange={() => handleRoundsChange(option.value)}
+                  className="size-5 cursor-pointer accent-primary"
+                />
+                <span className="font-medium">{option.label}</span>
+                {"hint" in option ? <span className="text-xs text-muted-foreground">({option.hint})</span> : null}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div className="grid gap-2">
+          <span id={secondsLabel} className="text-sm font-medium">
+            Thời gian mỗi câu
+          </span>
+          <ToggleGroup aria-labelledby={secondsLabel} variant="outline" spacing={0} value={[String(draft.seconds)]} onValueChange={handleSecondsChange} className="flex-wrap">
+            {QUESTION_TIMES.map((value) => (
+              <ToggleGroupItem key={value} value={String(value)} aria-label={`${value} giây`} className="h-11 min-w-14 px-3 font-semibold tabular-nums aria-pressed:border-primary aria-pressed:bg-primary/15 aria-pressed:text-primary">
+                {value}s
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
+        </div>
       </div>
 
       {available !== null && available.length === 0 ? <p className="text-sm text-muted-foreground">{NO_MODES}</p> : null}

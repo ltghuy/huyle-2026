@@ -40,7 +40,7 @@ async function create(page: Page, mode: RegExp, rounds: RegExp, prefix?: string)
   await page.waitForURL("**/arena/1v1");
   await page.getByRole("button", { name: "A2" }).click();
   await page.getByRole("radio", { name: mode }).check({ force: true });
-  await page.getByRole("button", { name: rounds }).click();
+  await page.getByRole("radio", { name: rounds }).check();
   await expect(page.getByRole("button", { name: "Tạo phòng" })).toBeEnabled({ timeout: 15_000 });
   if (prefix) await shot(page, `${prefix}-create`);
   await page.getByRole("button", { name: "Tạo phòng" }).click();

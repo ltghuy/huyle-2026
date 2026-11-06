@@ -110,11 +110,23 @@ describe("the 1-1 screen", () => {
     render(<ArenaDuelPage />);
     const create = await screen.findByRole("button", { name: "Tạo phòng" });
     fireEvent.click(screen.getByLabelText(/Viết câu/));
-    fireEvent.click(screen.getByRole("button", { name: /1 hiệp/ }));
+    fireEvent.click(screen.getByRole("radio", { name: /1 hiệp/ }));
+    fireEvent.click(screen.getByRole("button", { name: "45 giây" }));
     await waitFor(() => expect(create).toBeEnabled());
     fireEvent.click(create);
     await waitFor(() => expect(push).toHaveBeenCalledWith("/arena/room?code=K7P2QX"));
-    expect(sent).toEqual({ mode: "write", level: "A1", rounds: 1, name: "Minh" });
+    expect(sent).toEqual({ mode: "write", level: "A1", rounds: 1, seconds: 45, name: "Minh" });
+  });
+
+  it("offers four question times with 15 s chosen, and no fixed time on the mode cards (feature 028, AC-001, AC-005)", async () => {
+    stubFetch(true);
+    render(<ArenaDuelPage />);
+    await screen.findByRole("button", { name: "Tạo phòng" });
+    const group = screen.getByRole("group", { name: "Thời gian mỗi câu" });
+    const times = within(group).getAllByRole("button");
+    expect(times.map((b) => b.getAttribute("aria-label"))).toEqual(["15 giây", "25 giây", "30 giây", "45 giây"]);
+    expect(within(group).getByRole("button", { name: "15 giây" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByText(/· \d+ giây/)).toBeNull();
   });
 
   it("disables the modes a level can't fill and falls back to one it can", async () => {

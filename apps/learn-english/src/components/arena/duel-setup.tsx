@@ -8,6 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAccount } from "@/hooks/use-account";
 import { useProfile } from "@/hooks/use-profile";
+import { DEFAULT_QUESTION_TIME } from "@/learning/arena/protocol";
 import type { Level } from "@/learning/types";
 import { ArenaError, createRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
@@ -56,7 +57,7 @@ function VersusHeader({ learner }: { learner: Learner }) {
 /** The settings inline and one big "Tạo phòng" (feature 024 AC-004; the rules of 023 AC-002). */
 function CreatePanel({ learner }: { learner: Learner }) {
   const router = useRouter();
-  const draft = useSettingsDraft({ mode: "mixed", level: learner.level, rounds: 3 });
+  const draft = useSettingsDraft({ mode: "mixed", level: learner.level, rounds: 3, seconds: DEFAULT_QUESTION_TIME });
   const [error, setError] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
   const canCreate = draft.settings !== null && !creating;

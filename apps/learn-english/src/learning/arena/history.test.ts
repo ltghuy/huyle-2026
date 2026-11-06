@@ -5,7 +5,7 @@ import type { FinishedMatch } from "./machine";
 const MATCH: FinishedMatch = {
   endedAt: 1_800_000_000_000,
   reason: "won",
-  settings: { mode: "mixed", level: "A2", rounds: 3 },
+  settings: { mode: "mixed", level: "A2", rounds: 3, seconds: 15 },
   winnerId: "minh",
   players: [
     { id: "minh", name: "Minh Anh", image: "https://example.com/minh.png", roundsWon: 2 },

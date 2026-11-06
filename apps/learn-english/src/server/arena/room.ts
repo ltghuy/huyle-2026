@@ -21,7 +21,7 @@ import {
   type RoomEvent,
   type RoomState,
 } from "@/learning/arena/machine";
-import { CLOSE_CODES, MAX_FRAME_BYTES, parseClientFrame, type ArenaSettings, type ClientFrame, type RoomFrame } from "@/learning/arena/protocol";
+import { CLOSE_CODES, DEFAULT_QUESTION_TIME, MAX_FRAME_BYTES, parseClientFrame, type ArenaSettings, type ClientFrame, type RoomFrame } from "@/learning/arena/protocol";
 import { historyEntries } from "@/learning/arena/history";
 import type { ArenaPool } from "@/learning/arena/questions";
 import type { Db } from "@/server/db";
@@ -78,8 +78,10 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     super(ctx, env);
     void ctx.blockConcurrencyWhile(async () => {
       const stored = await ctx.storage.get<RoomState>(STATE_KEY);
-      // Rooms saved before feature 026 have no spectators list.
-      this.state = stored ? { ...stored, spectators: stored.spectators ?? [] } : null;
+      // Rooms saved before feature 026 have no spectators list, before 028 no question time.
+      this.state = stored
+        ? { ...stored, spectators: stored.spectators ?? [], settings: { ...stored.settings, seconds: stored.settings.seconds ?? DEFAULT_QUESTION_TIME } }
+        : null;
     });
   }
 

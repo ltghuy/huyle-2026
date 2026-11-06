@@ -18,7 +18,7 @@ vi.mock("@/content/queries", () => ({
     }),
 }));
 
-const CURRENT = { mode: "mixed", level: "A1", rounds: 3 } as const;
+const CURRENT = { mode: "mixed", level: "A1", rounds: 3, seconds: 15 } as const;
 
 async function openDialog() {
   fireEvent.click(screen.getByRole("button", { name: /Đổi cài đặt/ }));
@@ -33,14 +33,24 @@ describe("EditSettings (AC-031)", () => {
     render(<EditSettings settings={CURRENT} onSave={onSave} />);
     const dialog = await openDialog();
     expect(within(dialog).getByLabelText(/Hỗn hợp/)).toBeChecked();
-    expect(within(dialog).getByRole("button", { name: /3 hiệp/ })).toHaveAttribute("aria-pressed", "true");
+    expect(within(dialog).getByRole("radio", { name: /3 hiệp/ })).toBeChecked();
 
     fireEvent.click(within(dialog).getByRole("button", { name: "B1" }));
-    fireEvent.click(within(dialog).getByRole("button", { name: /1 hiệp/ }));
+    fireEvent.click(within(dialog).getByRole("radio", { name: /1 hiệp/ }));
     await waitFor(() => expect(within(dialog).getByLabelText(/Nhớ từ/)).toBeChecked());
     fireEvent.click(within(dialog).getByRole("button", { name: "Lưu cài đặt" }));
-    expect(onSave).toHaveBeenCalledWith({ mode: "recall", level: "B1", rounds: 1 });
+    expect(onSave).toHaveBeenCalledWith({ mode: "recall", level: "B1", rounds: 1, seconds: 15 });
     await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+  });
+
+  it("changes the question time (feature 028, AC-007)", async () => {
+    const onSave = vi.fn();
+    render(<EditSettings settings={CURRENT} onSave={onSave} />);
+    const dialog = await openDialog();
+    expect(within(dialog).getByRole("button", { name: "15 giây" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(within(dialog).getByRole("button", { name: "30 giây" }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Lưu cài đặt" }));
+    expect(onSave).toHaveBeenCalledWith({ ...CURRENT, seconds: 30 });
   });
 
   it("sends nothing when the settings didn't change", async () => {

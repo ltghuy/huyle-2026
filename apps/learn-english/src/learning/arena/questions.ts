@@ -14,9 +14,7 @@ import type { ArenaMode, PublicQuestion, QuestionType, Reveal } from "./protocol
 export const ROUND_SIZE = 12;
 /** Sudden-death questions a tied round may need (AC-021). */
 export const MAX_SUDDEN_DEATH = 3;
-/** Seconds per question type (AC-012). */
-export const QUESTION_SECONDS: Record<QuestionType, number> = { listen: 15, recall: 15, write: 30 };
-/** Longest sentence "Viết câu" asks: one that can be typed in 30 s. */
+/** Longest sentence "Viết câu" asks: one that can be typed in time. */
 export const MAX_WRITE_TOKENS = 12;
 
 /** A level's content, as the room loads it from D1. */

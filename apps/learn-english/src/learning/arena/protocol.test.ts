@@ -11,7 +11,7 @@ describe("parseClientFrame", () => {
     expect(parseClientFrame('{"type":"rematch"}')).toEqual({ type: "rematch" });
     expect(parseClientFrame('{"type":"settings","settings":{"mode":"write","level":"B1","rounds":1}}')).toEqual({
       type: "settings",
-      settings: { mode: "write", level: "B1", rounds: 1 },
+      settings: { mode: "write", level: "B1", rounds: 1, seconds: 15 },
     });
     expect(parseClientFrame('{"type":"settings","settings":{"mode":"write","level":"B1","rounds":2}}')).toBeNull();
     expect(parseClientFrame('{"type":"leave"}')).toEqual({ type: "leave" });
@@ -40,6 +40,16 @@ describe("parseClientFrame", () => {
 });
 
 describe("settingsSchema", () => {
+  it("accepts the four question times and defaults a missing one to 15 s (feature 028)", () => {
+    for (const seconds of [15, 25, 30, 45]) {
+      expect(settingsSchema.parse({ mode: "mixed", level: "B1", rounds: 3, seconds }).seconds).toBe(seconds);
+    }
+    expect(settingsSchema.parse({ mode: "mixed", level: "B1", rounds: 3 }).seconds).toBe(15);
+    expect(settingsSchema.safeParse({ mode: "mixed", level: "B1", rounds: 3, seconds: 20 }).success).toBe(false);
+    expect(settingsSchema.safeParse({ mode: "mixed", level: "B1", rounds: 3, seconds: "15" }).success).toBe(false);
+  });
+
+
   it("allows the four modes, the five levels and 1 or 3 rounds (AC-002)", () => {
     expect(settingsSchema.safeParse({ mode: "mixed", level: "B1", rounds: 3 }).success).toBe(true);
     expect(settingsSchema.safeParse({ mode: "write", level: "C1", rounds: 1 }).success).toBe(true);

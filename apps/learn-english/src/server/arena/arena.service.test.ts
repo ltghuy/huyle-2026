@@ -7,7 +7,7 @@ import { verifyTicket } from "./ticket";
 const SECRET = "s".repeat(32);
 const NOW = 1_800_000_000_000;
 const MINH = { id: "minh", name: "Minh Anh", email: "minh@example.com", image: "https://example.test/minh.png" };
-const SETTINGS = { mode: "mixed", level: "A1", rounds: 3 } as const;
+const SETTINGS = { mode: "mixed", level: "A1", rounds: 3, seconds: 15 } as const;
 
 function rooms(stub: { create?: (input: unknown) => Promise<boolean>; status?: () => Promise<RoomStatus | null> }) {
   const getByName = vi.fn(() => stub);

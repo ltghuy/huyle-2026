@@ -12,14 +12,13 @@ import {
   toPublic,
   type RoomState,
 } from "./machine";
-import { QUESTION_SECONDS } from "./questions";
 
 const MINH = { id: "minh", name: "Minh Anh", image: null };
 const LAN = { id: "lan", name: "Lan", image: null };
 const T0 = 1_800_000_000_000;
 
 function countdown(): RoomState {
-  let state = createRoom({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH, seed: 7, now: T0 });
+  let state = createRoom({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, seed: 7, now: T0 });
   state = reduce(state, { type: "join", player: MINH }, T0).state;
   state = reduce(state, { type: "join", player: LAN }, T0).state;
   state = reduce(state, { type: "ready", userId: "minh" }, T0).state;
@@ -60,7 +59,7 @@ describe("a drop during the match (AC-024, AC-025, AC-026)", () => {
     const paused = reduce(inQuestion(), { type: "disconnect", userId: "lan" }, T0 + 5_000).state;
     const back = reduce(paused, { type: "join", player: LAN }, T0 + 20_000).state;
     expect(back).toMatchObject({ phase: "question", questionIndex: 0, pausedFor: null, answeredBy: null, lockedOut: [] });
-    expect(back.deadline).toBe(T0 + 20_000 + QUESTION_SECONDS.recall * 1_000);
+    expect(back.deadline).toBe(T0 + 20_000 + 15_000);
     expect(back.players.every((p) => p.connected)).toBe(true);
   });
 

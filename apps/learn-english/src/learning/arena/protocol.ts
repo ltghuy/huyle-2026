@@ -12,12 +12,25 @@ export type ArenaMode = (typeof ARENA_MODES)[number];
 export const QUESTION_TYPES = ["listen", "recall", "write"] as const;
 export type QuestionType = (typeof QUESTION_TYPES)[number];
 
+/** Seconds the host can give each question (feature 028). */
+export const QUESTION_TIMES = [15, 25, 30, 45] as const;
+export type QuestionTime = (typeof QUESTION_TIMES)[number];
+/** The question time when none is chosen, also for requests from pages older than 028. */
+export const DEFAULT_QUESTION_TIME: QuestionTime = 15;
+
 export const settingsSchema = z.object({
   mode: z.enum(ARENA_MODES),
   level: z.enum(LEVELS),
   rounds: z.union([z.literal(1), z.literal(3)]),
+  seconds: z.union([z.literal(15), z.literal(25), z.literal(30), z.literal(45)]).default(DEFAULT_QUESTION_TIME),
 });
 export type ArenaSettings = z.infer<typeof settingsSchema>;
+/** A question's time in ms (feature 028). */
+export function questionMs(settings: ArenaSettings): number {
+  return settings.seconds * 1_000;
+}
+/** A past match's settings: history doesn't record the question time (028). */
+export type MatchSettings = Omit<ArenaSettings, "seconds">;
 
 /** Room codes: 6 characters without look-alikes (no 0/O, 1/I/L). */
 export const CODE_PATTERN = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;

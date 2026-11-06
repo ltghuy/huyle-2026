@@ -18,7 +18,7 @@ function run(state: RoomState, events: RoomEvent[], at: number) {
 
 /** Minh (host) beat Lan by forfeit while An and Binh watched: the match is over. */
 function ended(): RoomState {
-  let state = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1 }, creator: MINH, seed: 7, now: T0 });
+  let state = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, seed: 7, now: T0 });
   state = run(state, [{ type: "join", player: MINH }, { type: "join", player: LAN }, { type: "ready", userId: "minh" }, { type: "ready", userId: "lan" }], T0 + 1_000).state;
   state = reduce(state, { type: "tick" }, T0 + 1_000 + COUNTDOWN_MS, POOL).state;
   state = run(state, [{ type: "join", player: AN }, { type: "join", player: BINH }, { type: "rematch", userId: "lan" }, { type: "leave", userId: "lan" }], T0 + 5_000).state;
@@ -66,7 +66,7 @@ describe("the host picks the next opponent", () => {
     const state = ended();
     expect(reduce(state, { type: "pick", userId: "lan", opponentId: "an" }, AT).state).toBe(state);
     expect(reduce(state, { type: "pick", userId: "an", opponentId: "an" }, AT).state).toBe(state);
-    const lobby = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1 }, creator: MINH, seed: 7, now: T0 });
+    const lobby = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, seed: 7, now: T0 });
     expect(reduce(lobby, { type: "pick", userId: "minh", opponentId: "an" }, AT).state).toBe(lobby);
   });
 

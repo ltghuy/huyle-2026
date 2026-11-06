@@ -109,13 +109,13 @@ afterEach(() => {
 
 describe("ArenaRoom", () => {
   it("claims a code once", async () => {
-    expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH })).toBe(true);
-    expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: LAN })).toBe(false);
+    expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH })).toBe(true);
+    expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: LAN })).toBe(false);
     expect(room.status()).toMatchObject({ phase: "lobby", creatorId: "minh", playerIds: ["minh"] });
   });
 
   it("lets a spectator watch and keeps a room saved before spectators existed working (feature 026)", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const old = stored() as Partial<RoomState>;
     delete old.spectators;
     fake.storage.set("room", old);
@@ -130,6 +130,17 @@ describe("ArenaRoom", () => {
     expect(minh.lastRoom().spectators).toEqual([]);
   });
 
+  it("gives a room saved before question times existed 15 s per question (feature 028)", async () => {
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 45 }, creator: MINH });
+    const old = stored();
+    delete (old.settings as Partial<RoomState["settings"]>).seconds;
+    fake.storage.set("room", old);
+    await newRoom();
+    const minh = await connect(MINH);
+    expect(minh.lastRoom().settings.seconds).toBe(15);
+    expect(room.status()?.settings.seconds).toBe(15);
+  });
+
   it("refuses a socket to a room that doesn't exist", async () => {
     const socket = await connect(MINH);
     expect(socket.sent).toEqual([{ type: "error", message: "Phòng đã đóng." }]);
@@ -137,7 +148,7 @@ describe("ArenaRoom", () => {
   });
 
   it("plays a 1-round match end to end, survives hibernation and records the result (AC-016, AC-022, AC-029)", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     const lan = await connect(LAN);
     expect(minh.lastRoom()).toMatchObject({ phase: "ready", players: [{ name: "Minh Anh" }, { name: "Lan" }] });
@@ -177,7 +188,7 @@ describe("ArenaRoom", () => {
   });
 
   it("loads the new level's content when the creator changes it for a rematch (AC-031)", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     const lan = await connect(LAN);
     await send(minh, { type: "ready" });
@@ -190,9 +201,9 @@ describe("ArenaRoom", () => {
 
     await send(minh, { type: "rematch" });
     await send(lan, { type: "rematch" });
-    await send(lan, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1 } });
+    await send(lan, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1, seconds: 15 } });
     expect(lan.sent.at(-1)).toEqual({ type: "error", message: "Chỉ chủ phòng mới đổi được cài đặt." });
-    await send(minh, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1 } });
+    await send(minh, { type: "settings", settings: { mode: "recall", level: "A2", rounds: 1, seconds: 15 } });
     expect(lan.lastRoom()).toMatchObject({ phase: "ready", settings: { level: "A2" } });
 
     // The A1 content from the first match stays in memory; A2 has none, so the room must not reuse it.
@@ -204,7 +215,7 @@ describe("ArenaRoom", () => {
   });
 
   it("relays typing and wrong answers to the opponent without the text (AC-013)", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     const lan = await connect(LAN);
     await send(minh, { type: "ready" });
@@ -220,7 +231,7 @@ describe("ArenaRoom", () => {
   });
 
   it("keeps a player in when a newer tab replaces the old one, and pauses only on their last socket closing", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     const lan = await connect(LAN);
     await send(minh, { type: "ready" });
@@ -240,7 +251,7 @@ describe("ArenaRoom", () => {
   });
 
   it("ignores frames it can't read and closes a socket that sends an oversized one", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     const before = stored();
     await room.webSocketMessage(minh as unknown as WebSocket, "not json");
@@ -250,7 +261,7 @@ describe("ArenaRoom", () => {
   });
 
   it("sets the alarm only when the next deadline changes, and frees its storage when the room closes", async () => {
-    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1 }, creator: MINH });
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
     const minh = await connect(MINH);
     expect(fake.alarm()).toBe(stored().idleUntil);
     await send(minh, { type: "leave" });

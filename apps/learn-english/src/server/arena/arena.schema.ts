@@ -1,7 +1,7 @@
 // Request and response shapes of the Arena routes (feature 023). No
 // `server-only`: the browser's Arena client shares these types and messages.
 import { z } from "zod";
-import { CODE_PATTERN, settingsSchema, type ArenaSettings } from "@/learning/arena/protocol";
+import { CODE_PATTERN, settingsSchema, type ArenaSettings, type MatchSettings } from "@/learning/arena/protocol";
 
 export const ARENA_MESSAGES = {
   invalidJson: "Dữ liệu gửi lên không đúng định dạng.",
@@ -53,7 +53,7 @@ export interface ArenaMatch {
   score: { mine: number; theirs: number };
   /** Null when the opponent has deleted their account. */
   opponent: { name: string; image: string | null } | null;
-  settings: ArenaSettings;
+  settings: MatchSettings;
   rounds: { round: number; mine: number; theirs: number; won: boolean; suddenDeath: boolean; onTime: boolean }[];
 }
 

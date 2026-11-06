@@ -73,10 +73,10 @@ describe("the room page", () => {
   });
 
   it("shows the lobby with the room's settings once the room answers", async () => {
-    handle = roomHandle(publicRoom({ players: [player(ME)], settings: { mode: "write", level: "B1", rounds: 1 } }));
+    handle = roomHandle(publicRoom({ players: [player(ME)], settings: { mode: "write", level: "B1", rounds: 1, seconds: 15 } }));
     stubFetch(true);
     render(<ArenaRoomPage />);
-    expect(await screen.findByText("Viết câu · B1 · 1 hiệp")).toBeInTheDocument();
+    expect(await screen.findByText("Viết câu · B1 · 1 hiệp · 15 giây/câu")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Rời phòng/ })).toBeInTheDocument();
     expect(screen.getByText(/Đang chờ đối thủ/)).toBeInTheDocument();
   });
@@ -90,13 +90,13 @@ describe("the room page", () => {
 
     handle = roomHandle(publicRoom({ creatorId: RIVAL, phase: "ready", players: [player(RIVAL), player(ME)], deadline: Date.now() + 30_000 }));
     const opponent = render(<ArenaRoomPage />);
-    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp")).toBeInTheDocument();
+    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp · 15 giây/câu")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Đổi cài đặt/ })).not.toBeInTheDocument();
     opponent.unmount();
 
     handle = roomHandle(publicRoom({ phase: "match-end", players: [player(ME), player(RIVAL)], winnerId: ME, endReason: "won" }));
     render(<ArenaRoomPage />);
-    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp")).toBeInTheDocument();
+    expect(await screen.findByText("Hỗn hợp · A1 · 3 hiệp · 15 giây/câu")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Đổi cài đặt/ })).not.toBeInTheDocument();
   });
 

@@ -10,8 +10,8 @@
 // T005: room, lobby and the Ready window. T006: play. T007: drops during a
 // match (pause, resume, forfeit), a second tab, and rematch.
 import { createRng, randomInt } from "../exercises/random";
-import { CLOSE_CODES, MAX_SPECTATORS, type ArenaSettings, type Phase, type PublicRoom, type RoomFrame, type RoundResult } from "./protocol";
-import { buildRound, isCorrect, MAX_SUDDEN_DEATH, publicView, QUESTION_SECONDS, revealOf, ROUND_SIZE, type ArenaAnswer, type ArenaPool, type ServerQuestion } from "./questions";
+import { CLOSE_CODES, MAX_SPECTATORS, questionMs, type ArenaSettings, type Phase, type PublicRoom, type RoomFrame, type RoundResult } from "./protocol";
+import { buildRound, isCorrect, MAX_SUDDEN_DEATH, publicView, revealOf, ROUND_SIZE, type ArenaAnswer, type ArenaPool, type ServerQuestion } from "./questions";
 
 /** The 30-second Ready window (AC-007). */
 export const READY_MS = 30_000;
@@ -257,11 +257,11 @@ function pressReady(state: RoomState, userId: string, now: number): Result {
 }
 
 function sameSettings(a: ArenaSettings, b: ArenaSettings): boolean {
-  return a.mode === b.mode && a.level === b.level && a.rounds === b.rounds;
+  return a.mode === b.mode && a.level === b.level && a.rounds === b.rounds && a.seconds === b.seconds;
 }
 
 /**
- * The creator changes the mode, level or rounds before a match, e.g. for a rematch (AC-031).
+ * The creator changes the mode, level, rounds or question time before a match, e.g. for a rematch (AC-031).
  * Nobody stays ready for settings they didn't agree to: an open Ready window starts again.
  */
 function changeSettings(state: RoomState, userId: string, settings: ArenaSettings, now: number): Result {
@@ -393,11 +393,10 @@ export function currentQuestion(state: RoomState): ServerQuestion | null {
   return state.questionIndex < ROUND_SIZE ? (round.main[state.questionIndex] ?? null) : (round.suddenDeath[state.questionIndex - ROUND_SIZE] ?? null);
 }
 
-/** Opens question `index` of the current round with its type's time (AC-012). */
+/** Opens question `index` of the current round with the room's question time (028 AC-003). */
 function openQuestion(state: RoomState, index: number, now: number): RoomState {
   const opened: RoomState = { ...state, phase: "question", questionIndex: index, questionStartedAt: now, answeredBy: null, lockedOut: [], typing: [] };
-  const question = currentQuestion(opened)!;
-  return { ...opened, deadline: now + QUESTION_SECONDS[question.type] * 1_000 };
+  return { ...opened, deadline: now + questionMs(state.settings) };
 }
 
 function startRound(state: RoomState, round: number, now: number): RoomState {

@@ -17,7 +17,7 @@ function run(state: RoomState, events: RoomEvent[], at = T0 + 1_000) {
 }
 
 function lobbyWithBoth(): RoomState {
-  const state = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1 }, creator: MINH, seed: 7, now: T0 });
+  const state = createRoom({ code: "K7P2QX", settings: { mode: "mixed", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, seed: 7, now: T0 });
   return run(state, [
     { type: "join", player: MINH },
     { type: "join", player: LAN },
@@ -74,7 +74,7 @@ describe("what a spectator can't do (AC-006)", () => {
     for (const event of [
       { type: "ready", userId: "an" },
       { type: "start", userId: "an" },
-      { type: "settings", userId: "an", settings: { mode: "listen", level: "B1", rounds: 3 } },
+      { type: "settings", userId: "an", settings: { mode: "listen", level: "B1", rounds: 3, seconds: 15 } },
       { type: "rematch", userId: "an" },
     ] as RoomEvent[]) {
       const result = reduce(state, event, T0 + 3_000);

@@ -6,7 +6,7 @@
 import { and, desc, eq, notInArray } from "drizzle-orm";
 import { z } from "zod";
 import { HISTORY_LIMIT, type HistoryEntry } from "@/learning/arena/history";
-import type { ArenaSettings } from "@/learning/arena/protocol";
+import type { MatchSettings } from "@/learning/arena/protocol";
 import type { Db } from "@/server/db";
 import { arenaMatches, arenaStats } from "@/server/db/schema";
 import type { ArenaMatch, ArenaMatchesResponse } from "./arena.schema";
@@ -96,7 +96,7 @@ function toMatch(row: typeof arenaMatches.$inferSelect): ArenaMatch {
     score: { mine: row.roundsWon, theirs: row.opponentRoundsWon },
     opponent: row.opponentId && row.opponentName ? { name: row.opponentName, image: row.opponentImage } : null,
     // Written by the room from its validated settings.
-    settings: { mode: row.mode, level: row.level, rounds: row.bestOf } as ArenaSettings,
+    settings: { mode: row.mode, level: row.level, rounds: row.bestOf } as MatchSettings,
     // A row whose rounds don't parse still shows, without them.
     rounds: parseRounds(row.rounds),
   };

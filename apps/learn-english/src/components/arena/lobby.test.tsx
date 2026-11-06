@@ -70,7 +70,7 @@ describe("Lobby", () => {
 
   it("tells the opponent when the creator changes the settings, but not the creator (AC-031)", () => {
     const before = publicRoom({ phase: "ready", players: [player(ME), player(RIVAL)], deadline: Date.now() + 30_000 });
-    const after = { ...before, settings: { mode: "write", level: "B1", rounds: 1 } as const };
+    const after = { ...before, settings: { mode: "write", level: "B1", rounds: 1, seconds: 15 } as const };
     const opponent = render(<Lobby handle={roomHandle(before) as Parameters<typeof Lobby>[0]["handle"]} me={RIVAL} />);
     expect(screen.getByRole("status")).toBeEmptyDOMElement();
     opponent.rerender(<Lobby handle={roomHandle(after) as Parameters<typeof Lobby>[0]["handle"]} me={RIVAL} />);

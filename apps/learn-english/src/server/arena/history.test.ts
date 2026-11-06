@@ -23,7 +23,7 @@ function match(endedAt: number, winnerId = "minh", opponent = { id: "lan", name:
   return {
     endedAt,
     reason: "won",
-    settings: { mode: "listen", level: "A2", rounds: 1 },
+    settings: { mode: "listen", level: "A2", rounds: 1, seconds: 15 },
     winnerId,
     players: [
       { id: "minh", name: "Minh Anh", image: "https://example.com/minh.png", roundsWon: winnerId === "minh" ? 1 : 0 },
@@ -50,6 +50,7 @@ describe("arena match history (feature 025)", () => {
         forfeit: false,
         score: { mine: 1, theirs: 0 },
         opponent: { name: "Lan", image: null },
+        // History doesn't record the question time (feature 028).
         settings: { mode: "listen", level: "A2", rounds: 1 },
         rounds: [{ round: 1, mine: 7, theirs: 5, won: true, suddenDeath: false, onTime: false }],
       },

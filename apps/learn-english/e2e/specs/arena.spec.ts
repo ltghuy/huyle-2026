@@ -52,7 +52,7 @@ async function createRoom(page: Page): Promise<string> {
   await page.waitForURL("**/arena/1v1");
   await page.getByRole("button", { name: "A2" }).click();
   await page.getByRole("radio", { name: /^Nghe/ }).check({ force: true });
-  await page.getByRole("button", { name: /1 hiệp/ }).click();
+  await page.getByRole("radio", { name: /1 hiệp/ }).check();
   const create = page.getByRole("button", { name: "Tạo phòng" });
   await expect(create).toBeEnabled({ timeout: 15_000 });
   await create.click();

@@ -29,7 +29,7 @@ describe("deleteAccount", () => {
     const match = {
       endedAt: NOW,
       reason: "won" as const,
-      settings: { mode: "mixed" as const, level: "A1" as const, rounds: 1 as const },
+      settings: { mode: "mixed" as const, level: "A1" as const, rounds: 1 as const, seconds: 15 as const },
       winnerId: "minh",
       players: [
         { id: "minh", name: "Minh Anh", image: null, roundsWon: 1 },
