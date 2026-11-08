@@ -3,7 +3,7 @@ id: 030
 feature: tuxedo-cat
 type: brownfield
 scope: medium
-status: to-review
+status: done
 branch: main
 created: 2026-11-08
 ---
@@ -16,8 +16,8 @@ Feature 021 made the owner's purple graduate owl the app's companion: a flat SVG
 
 ## Goals
 
-- [ ] The owner's tuxedo cat is the only character in the app, recognisable from the 3D design at every size
-- [ ] The home page shows the real 3D cat without loading more than the owl did
+- [x] The owner's tuxedo cat is the only character in the app, recognisable from the 3D design at every size
+- [x] The home page shows the real 3D cat without loading more than the owl did
 
 ## Out of Scope
 
@@ -57,8 +57,8 @@ Feature 021 made the owner's purple graduate owl the app's companion: a flat SVG
 
 ## Success Criteria
 
-- [ ] The 3D code and model load only on the home page, after first render; the page stays a static shell
-- [ ] Lint, typecheck, tests and build pass; the cat looks right in light and dark at 1440 and 390 px
+- [x] The 3D code and model load only on the home page, after first render; the page stays a static shell
+- [x] Lint, typecheck, tests and build pass; the cat looks right in light and dark at 1440 and 390 px
 
 ## Open Questions
 
@@ -88,3 +88,16 @@ Feature 021 made the owner's purple graduate owl the app's companion: a flat SVG
 - AC-003: `public/models/tuxedo-cat.glb` is 61 KB (owner's file 3.2 MB). Hero captured with Playwright (SwiftShader) at 1440 px light and dark and at 390 px: the cat stands in the owl's place; five frames 0.3 s apart show the tail swinging out to the right and back, in view the whole time.
 - AC-004: unchanged from 021; the SVG cat sits under the canvas until the model is ready.
 - AC-005: by code: with reduced motion `wag` is false and the tail stays at `TAIL_REST`; not checked in a browser.
+
+## Audit
+
+2026-11-08. All goals and success criteria met.
+
+| Target | Result | Evidence |
+|--------|--------|----------|
+| G1: the cat is the only character, recognisable at every size | Met | No `Owl`, "owl" or "Cú" in `src/` or `e2e/`; the SVG rendered at every size the app uses (32, 36, 40, 56, 72, 88, 112 px) on white and on `#0e0e10` keeps the cap, the black and white coat and the orange book readable; at 32 px the sleepy "z" is barely visible |
+| G2: the real 3D cat on the home page, loading no more than the owl | Met | `tuxedo-cat.glb` is 61 KB against the owl's 143 KB; on `/` the browser requests it once (the preload and the fetch share one download) and draws the canvas |
+| SC1: 3D code and model only on the home page, after first render; the page stays static | Met | `/credits` and `/hard-words` request no `.glb` and draw no canvas; `mascot-scene.ts` (three.js) is imported only dynamically by `MascotShowcase`, on idle; the build lists `○ /` |
+| SC2: gates pass; the cat looks right in light and dark at 1440 and 390 px | Met | lint, typecheck, `pnpm test` (1277) and `pnpm build` pass; hero captured at 1440 px light and dark, 390 px light and dark, with no horizontal scroll (`scrollWidth` 390) |
+
+Observation, not a failure: at 390 px the cat's left ear tip passes just under the floating sign-in pill.
