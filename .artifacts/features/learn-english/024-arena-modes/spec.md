@@ -12,7 +12,7 @@ created: 2026-11-05
 
 ## Overview
 
-The Arena hub (feature 023) shows two flat cards side by side: "Thách đấu một người bạn" with a button that opens a dialog, and "Vào phòng bằng mã". The owner finds it unengaging, and there is no room for the team matches planned later. The hub becomes a choice of modes: "Đấu 1-1" and "Đấu đội" (shown but not available yet). "Đấu 1-1" opens its own screen that sets up a duel in one panel: a VS header, the room settings inline, a big "Tạo phòng" button, and joining by code below it.
+The Arena hub (feature 023) shows two flat cards side by side: "Thách đấu một người bạn" with a button that opens a dialog, and "Vào phòng bằng mã". The owner finds it unengaging, and there is no room for the team matches planned later. The hub becomes a choice of modes: "Đấu 1-1" and "Đấu đội" (shown but not available yet). "Đấu 1-1" opens its own screen that sets up a duel in one panel: a VS header, the room settings inline, a big "Tạo phòng" button, and joining by code below it. (Since quick 059, joining by code sits on the hub instead.)
 
 ## Goals
 
@@ -50,7 +50,7 @@ The Arena hub (feature 023) shows two flat cards side by side: "Thách đấu m�
 **Acceptance Criteria:**
 
 - [x] AC-004: WHEN a signed-in learner opens `/arena/1v1` THEN system SHALL show a VS header with their avatar and name against an empty "?" seat, the mode, level and rounds choices inline (their own level preselected, the modes a level can't fill disabled, as in feature 023 AC-002), and one full-width "Tạo phòng" button that creates the room and opens it
-- [x] AC-005: WHEN the learner has a code THEN system SHALL let them join from the same screen, below the settings, with the code tiles and "Vào phòng" (feature 023 AC-005 messages unchanged)
+- [x] AC-005: WHEN the learner has a code THEN system SHALL let them join from the hub ("Đấu trường"), in a full-width "Vào phòng bằng mã" card between the mode cards and "Lịch sử đấu", with the code tiles and "Vào phòng" (feature 023 AC-005 messages unchanged); a guest goes straight to the room, which asks them to sign in. `/arena/1v1` no longer has the code entry (changed 2026-11-08 by quick 059; it used to sit below the settings)
 - [x] AC-006: WHEN the learner has played before THEN system SHALL show their record (wins, losses, best streak) on the screen
 - [x] AC-007: WHEN a guest opens `/arena/1v1` THEN system SHALL show the sign-in prompt used by other locked areas (feature 023 AC-006)
 - [x] AC-008: WHEN the learner wants to go back THEN system SHALL offer a link to "Đấu trường"

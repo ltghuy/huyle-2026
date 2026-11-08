@@ -14,7 +14,7 @@ import { ArenaError, createRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
 import { ArenaRecord } from "./arena-record";
 import { GameGuide } from "./game-guide";
-import { JoinRoom, roomPath } from "./join-room";
+import { roomPath } from "./join-room";
 import { PlayerAvatar } from "./players";
 import { SettingsFields, useSettingsDraft } from "./settings-fields";
 
@@ -99,7 +99,7 @@ function CreatePanel({ learner }: { learner: Learner }) {
   );
 }
 
-/** `/arena/1v1` (feature 024): set up a duel on one screen, or join one by code. */
+/** `/arena/1v1` (feature 024): set up a duel on one screen. Joining by code lives on the hub (quick 059). */
 export function DuelSetup() {
   const profile = useProfile();
   const { account } = useAccount();
@@ -109,16 +109,6 @@ export function DuelSetup() {
   return (
     <div className="mx-auto grid w-full max-w-2xl gap-6">
       {learner ? <CreatePanel learner={learner} /> : <Skeleton className="h-[34rem] w-full rounded-2xl" />}
-
-      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-        <span aria-hidden className="h-px flex-1 bg-border" />
-        Hoặc có mã phòng?
-        <span aria-hidden className="h-px flex-1 bg-border" />
-      </div>
-
-      <section aria-label="Vào phòng" className="rounded-2xl border border-dashed p-5 sm:p-6">
-        <JoinRoom name={learner?.name} />
-      </section>
 
       <ArenaRecord />
     </div>

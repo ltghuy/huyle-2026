@@ -74,6 +74,40 @@ describe("the Arena hub (feature 024)", () => {
     expect(within(team).queryByRole("link")).not.toBeInTheDocument();
     expect(within(team).queryByRole("button")).not.toBeInTheDocument();
   });
+
+  it("joins by code from the hub, and says why when the code is wrong (AC-005, quick 059)", async () => {
+    stubFetch(true);
+    handler = (url, init) => {
+      if (url !== "/api/arena/join") return undefined;
+      const { code } = JSON.parse(String(init?.body)) as { code: string };
+      return code === "K7P2QX" ? Response.json({ code, ticket: "t", settings: {} }) : Response.json({ error: { message: "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé." } }, { status: 404 });
+    };
+    render(<ArenaPage />);
+    const input = await screen.findByLabelText("Vào phòng bằng mã");
+    const submit = screen.getByRole("button", { name: "Vào phòng" });
+    fireEvent.change(input, { target: { value: "abc" } });
+    expect(submit).toBeDisabled();
+
+    fireEvent.change(input, { target: { value: "ZZZZZZ" } });
+    fireEvent.click(submit);
+    expect(await screen.findByRole("alert")).toHaveTextContent("Không tìm thấy phòng");
+    expect(push).not.toHaveBeenCalled();
+
+    fireEvent.change(input, { target: { value: "https://english.huyle.work/arena/room?code=K7P2QX" } });
+    fireEvent.click(screen.getByRole("button", { name: "Vào phòng" }));
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/arena/room?code=K7P2QX"));
+  });
+
+  it("sends a guest with a code straight to the room, which asks them to sign in (AC-005, quick 059)", async () => {
+    stubFetch(false);
+    render(<ArenaPage />);
+    const input = screen.getByLabelText("Vào phòng bằng mã");
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/auth/get-session", expect.anything()));
+    fireEvent.change(input, { target: { value: "K7P2QX" } });
+    fireEvent.click(screen.getByRole("button", { name: "Vào phòng" }));
+    await waitFor(() => expect(push).toHaveBeenCalledWith("/arena/room?code=K7P2QX"));
+    expect(fetch).not.toHaveBeenCalledWith("/api/arena/join", expect.anything());
+  });
 });
 
 describe("friends on the hub (feature 031)", () => {
@@ -101,7 +135,7 @@ describe("the 1-1 screen", () => {
     expect(await screen.findByText("Đăng nhập để vào Đấu trường")).toBeInTheDocument();
   });
 
-  it("shows you against an empty seat, the settings, create, join, the record and the way back (024 AC-004 to AC-008)", async () => {
+  it("shows you against an empty seat, the settings, create, the record and the way back, and no code entry (024 AC-004 to AC-008)", async () => {
     stubFetch(true);
     render(<ArenaDuelPage />);
     expect(await screen.findByRole("heading", { level: 1, name: "Thách đấu 1-1" })).toBeInTheDocument();
@@ -112,7 +146,7 @@ describe("the 1-1 screen", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(await screen.findByRole("button", { name: "Tạo phòng" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Đấu trường" })).toHaveAttribute("href", "/arena");
-    expect(screen.getByLabelText("Vào phòng bằng mã")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Vào phòng bằng mã")).not.toBeInTheDocument();
     expect(await screen.findByText("12 thắng")).toBeInTheDocument();
     expect(screen.getByText("Chuỗi thắng dài nhất 4")).toBeInTheDocument();
   });
@@ -154,28 +188,5 @@ describe("the 1-1 screen", () => {
     await waitFor(() => expect(screen.getByLabelText(/Nghe/)).toBeDisabled());
     expect(screen.getByLabelText(/Viết câu/)).toBeDisabled();
     expect(screen.getByLabelText(/Nhớ từ/)).toBeChecked();
-  });
-
-  it("joins by code, and says why when the code is wrong (AC-005)", async () => {
-    stubFetch(true);
-    handler = (url, init) => {
-      if (url !== "/api/arena/join") return undefined;
-      const { code } = JSON.parse(String(init?.body)) as { code: string };
-      return code === "K7P2QX" ? Response.json({ code, ticket: "t", settings: {} }) : Response.json({ error: { message: "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé." } }, { status: 404 });
-    };
-    render(<ArenaDuelPage />);
-    const input = await screen.findByLabelText("Vào phòng bằng mã");
-    const submit = screen.getByRole("button", { name: "Vào phòng" });
-    fireEvent.change(input, { target: { value: "abc" } });
-    expect(submit).toBeDisabled();
-
-    fireEvent.change(input, { target: { value: "ZZZZZZ" } });
-    fireEvent.click(submit);
-    expect(await screen.findByRole("alert")).toHaveTextContent("Không tìm thấy phòng");
-    expect(push).not.toHaveBeenCalled();
-
-    fireEvent.change(input, { target: { value: "https://english.huyle.work/arena/room?code=K7P2QX" } });
-    fireEvent.click(screen.getByRole("button", { name: "Vào phòng" }));
-    await waitFor(() => expect(push).toHaveBeenCalledWith("/arena/room?code=K7P2QX"));
   });
 });

@@ -3,12 +3,13 @@ import { ArrowRight, Swords, Users } from "lucide-react";
 import { ArenaFriendsCard } from "@/components/social/arena-friends-card";
 import { cn } from "@/lib/utils";
 import { ArenaHistoryCard } from "./arena-history-card";
+import { JoinRoom } from "./join-room";
 
 export const DUEL_PATH = "/arena/1v1";
 
 const CARD = "relative isolate flex min-h-52 flex-col gap-4 overflow-hidden rounded-2xl border bg-card p-6";
 
-/** The Arena's home (feature 024): pick a kind of match, look back at past ones (feature 025), and on phones see friends (feature 031). Team matches come later. */
+/** The Arena's home (feature 024): pick a kind of match, join a friend's room by code (quick 059), look back at past ones (feature 025), and on phones see friends (feature 031). Team matches come later. */
 export function ArenaHub() {
   return (
     <div className="grid gap-4 px-4 pb-10 sm:grid-cols-2 md:px-8">
@@ -55,6 +56,8 @@ export function ArenaHub() {
           </span>
         </span>
       </div>
+
+      <JoinRoom className="sm:col-span-2" />
 
       {/* Phones have no sidebar, so friends show here (feature 031). */}
       <ArenaFriendsCard className="sm:col-span-2" />

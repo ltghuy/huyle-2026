@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Đấu 1-1",
   path: "/arena/1v1",
-  description: "Tạo phòng đấu 1-1, chọn chế độ, trình độ và số hiệp, rồi gửi mã cho bạn bè. Hoặc vào phòng bằng mã.",
+  description: "Tạo phòng đấu 1-1, chọn chế độ, trình độ và số hiệp, rồi gửi mã cho bạn bè.",
 });
 
 /** Feature 024: set up a 1-1 duel on one screen. */

@@ -2,8 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
-import { LogIn } from "lucide-react";
+import { KeyRound, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { CODE_PATTERN } from "@/learning/arena/protocol";
 import { ArenaError, joinRoom } from "@/lib/arena-client";
 import { cn } from "@/lib/utils";
@@ -59,10 +60,16 @@ export function CodeInput({ id, value, onChange, invalid, describedBy }: CodeInp
   );
 }
 
-/** "Vào phòng bằng mã": checks the code with the server so a wrong one is said here, then opens the room (AC-001, AC-005). */
-export function JoinRoom({ name }: { name?: string }) {
+/**
+ * The hub's "Vào phòng bằng mã" card (quick 059; feature 024 AC-005). A signed-in learner's code is
+ * checked with the server so a wrong one is said here (023 AC-005); a guest goes straight to the
+ * room, whose own sign-in prompt takes over.
+ */
+export function JoinRoom({ name, className }: { name?: string; className?: string }) {
   const router = useRouter();
+  const { status } = useAccount();
   const inputId = useId();
+  const textId = useId();
   const messageId = useId();
   const [code, setCode] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -78,6 +85,10 @@ export function JoinRoom({ name }: { name?: string }) {
     event.preventDefault();
     if (!complete || joining) return;
     setJoining(true);
+    if (!canUseLockedAreas(status)) {
+      router.push(roomPath(code));
+      return;
+    }
     try {
       await joinRoom(code, name);
       router.push(roomPath(code));
@@ -88,20 +99,34 @@ export function JoinRoom({ name }: { name?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
-      <label htmlFor={inputId} className="font-semibold">
-        Vào phòng bằng mã
-      </label>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <CodeInput id={inputId} value={code} onChange={handleCodeChange} invalid={Boolean(error)} describedBy={messageId} />
-        <Button type="submit" variant="outline" size="lg" className="h-12 w-full gap-2 sm:w-fit" disabled={!complete || joining}>
-          <LogIn aria-hidden />
-          {joining ? "Đang vào phòng…" : "Vào phòng"}
-        </Button>
+    <form onSubmit={handleSubmit} className={cn("grid gap-5 rounded-2xl border bg-card p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8", className)}>
+      <div className="flex items-start gap-4">
+        <span aria-hidden className="grid size-12 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary">
+          <KeyRound className="size-6" />
+        </span>
+        <div className="grid gap-1">
+          <label htmlFor={inputId} className="text-lg font-bold">
+            Vào phòng bằng mã
+          </label>
+          <p id={textId} className="text-sm text-muted-foreground">
+            Bạn bè đã tạo phòng? Nhập 6 ký tự họ gửi, hoặc dán liên kết mời.
+          </p>
+        </div>
       </div>
-      <p id={messageId} role={error ? "alert" : undefined} className={cn("min-h-5 text-sm", error ? "text-destructive" : "text-muted-foreground")}>
-        {error ?? "Nhập 6 ký tự bạn bè gửi, hoặc dán liên kết mời."}
-      </p>
+      <div className="grid gap-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <CodeInput id={inputId} value={code} onChange={handleCodeChange} invalid={Boolean(error)} describedBy={error ? messageId : textId} />
+          <Button type="submit" size="lg" className="h-12 w-full gap-2 sm:w-fit" disabled={!complete || joining}>
+            <LogIn aria-hidden />
+            {joining ? "Đang vào phòng…" : "Vào phòng"}
+          </Button>
+        </div>
+        {error ? (
+          <p id={messageId} role="alert" className="text-sm text-destructive">
+            {error}
+          </p>
+        ) : null}
+      </div>
     </form>
   );
 }

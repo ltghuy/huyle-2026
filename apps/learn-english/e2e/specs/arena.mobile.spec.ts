@@ -1,7 +1,7 @@
 import { devices, expect, test } from "@playwright/test";
 import { E2E_USERS, signInAs } from "../helpers";
 
-// Features 023 and 024 on a phone: create a room on the 1-1 screen, and join it there by typing the code.
+// Features 023 and 024 on a phone: create a room on the 1-1 screen, and join it from the hub by typing the code (quick 059).
 test("on a phone, a room is created and joined by its code", async ({ browser, baseURL }) => {
   const open = async (user: (typeof E2E_USERS)[keyof typeof E2E_USERS]) => {
     const context = await browser.newContext({ ...devices["Pixel 7"], baseURL, locale: "vi-VN", reducedMotion: "reduce" });
@@ -22,7 +22,8 @@ test("on a phone, a room is created and joined by its code", async ({ browser, b
   const code = new URL(minh.url()).searchParams.get("code")!;
   await expect(minh.getByRole("button", { name: "Sao chép liên kết" })).toBeInViewport();
 
-  await lan.goto("/arena/1v1");
+  // Joining by code sits on the hub since quick 059.
+  await lan.goto("/arena");
   await lan.getByLabel("Vào phòng bằng mã").fill(code.toLowerCase());
   await lan.getByRole("button", { name: "Vào phòng" }).click();
   await lan.waitForURL(`**/arena/room?code=${code}`);

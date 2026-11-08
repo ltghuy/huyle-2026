@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ArenaPage() {
   return (
     <>
-      <PageHero size="sm" badge={BADGE} title="Đấu trường" description="Chọn cách đấu: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm." mascot={<Mascot mood="cheer" size="hero" />} />
+      <PageHero size="sm" badge={BADGE} title="Đấu trường" description="Chọn cách đấu, hoặc vào phòng bằng mã bạn bè gửi. Cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm." mascot={<Mascot mood="cheer" size="hero" />} />
       <ArenaHub />
     </>
   );
