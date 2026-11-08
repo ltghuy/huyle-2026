@@ -65,6 +65,7 @@ const SECTIONS: LegalSection[] = [
     list: [
       "Google, để bạn đăng nhập;",
       "Cloudflare, nơi chạy ứng dụng và lưu dữ liệu. Máy chủ của Google và Cloudflare có thể đặt ngoài Việt Nam;",
+      "MoMo hoặc ngân hàng của bạn, chỉ khi bạn tự chuyển tiền ủng hộ qua mã QR: ứng dụng không nhận hay lưu thông tin thanh toán, còn chủ ứng dụng thấy tên người chuyển và lời nhắn như mọi giao dịch chuyển tiền;",
       "cơ quan nhà nước có thẩm quyền, chỉ khi có yêu cầu hợp lệ theo quy định của pháp luật.",
     ],
   },

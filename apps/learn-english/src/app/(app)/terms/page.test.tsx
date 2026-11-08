@@ -15,10 +15,11 @@ describe("TermsPage", () => {
       "5. Xử lý vi phạm",
       "6. Nội dung học",
       "7. Sở hữu trí tuệ",
-      "8. Miễn trừ trách nhiệm",
-      "9. Thay đổi điều khoản",
-      "10. Luật áp dụng và giải quyết khiếu nại",
-      "11. Liên hệ",
+      "8. Ủng hộ",
+      "9. Miễn trừ trách nhiệm",
+      "10. Thay đổi điều khoản",
+      "11. Luật áp dụng và giải quyết khiếu nại",
+      "12. Liên hệ",
     ]);
     expect(screen.getByText(/tên gọi của bạn \(trên bảng xếp hạng và ở Đấu trường\)/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Quyền riêng tư" })).toHaveAttribute("href", "/privacy");

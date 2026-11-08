@@ -25,7 +25,7 @@ The reference structure is borrowed, not its claims. Streak Daily has no passwor
 
 | Feature | Reason |
 |---------|--------|
-| Sections about passwords, AI keys (BYOK), chat, donations or a hotline | The app has none of these |
+| Sections about passwords, AI keys (BYOK), chat or a hotline | The app has none of these (donations came with quick 057) |
 | A consent checkbox at sign-in | Not asked for; the pages say that signing in means agreeing |
 | An age limit | The reference has none, and the owner has not asked for one |
 | Moderation tools in the app | The terms reserve the right; the tools are a separate feature |
@@ -52,9 +52,9 @@ The reference structure is borrowed, not its claims. Streak Daily has no passwor
 
 **Acceptance Criteria:**
 
-- [x] AC-004: WHEN a visitor opens `/terms` THEN system SHALL show a last-updated date and numbered sections: acceptance, the service, accounts, conduct rules (citing Nghị định 147/2024/NĐ-CP), handling violations, learning content, intellectual property (linking Nguồn dữ liệu), disclaimer, changes to the terms, governing law and complaints, contact
+- [x] AC-004: WHEN a visitor opens `/terms` THEN system SHALL show a last-updated date and numbered sections: acceptance, the service, accounts, conduct rules (citing Nghị định 147/2024/NĐ-CP), handling violations, learning content, intellectual property (linking Nguồn dữ liệu), donations (quick 057: voluntary, not refundable, unlocks nothing), disclaimer, changes to the terms, governing law and complaints, contact
 - [x] AC-005: WHEN the conduct section lists what learners can publish THEN it SHALL name what the app actually shows to others: the display name on the leaderboard and in Arena, and answers reported for review
-- [x] AC-006: WHEN a visitor reaches the end of any page with navigation THEN system SHALL show the footer from quick 055 (copyright, the note naming both decrees, "Quyền riêng tư" and "Điều khoản" linking to `/privacy` and `/terms`); focus-mode screens (lessons, review sessions, the placement test, the Arena room) have no footer, as they have no navigation
+- [x] AC-006: WHEN a visitor reaches the end of any page with navigation THEN system SHALL show the footer from quick 055 (copyright, the note naming both decrees, "Quyền riêng tư" and "Điều khoản" linking to `/privacy` and `/terms`); focus-mode screens (lessons, review sessions, the placement test, the Arena room) have no footer, as they have no navigation. Since quick 057 the footer also shows the owner's MoMo / VietQR donation code, linked to the full image to save; since quick 058 it has two rows: the app's name and one line about it beside the donation card, then the copyright, the decree note and the links
 - [x] AC-007: WHEN search engines read the sitemap THEN it SHALL list `/terms`
 
 ## Edge Cases

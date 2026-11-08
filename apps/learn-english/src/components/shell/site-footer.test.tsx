@@ -12,4 +12,11 @@ describe("SiteFooter", () => {
     expect(within(footer).getByRole("link", { name: "Quyền riêng tư" })).toHaveAttribute("href", "/privacy");
     expect(within(footer).getByRole("link", { name: "Điều khoản" })).toHaveAttribute("href", "/terms");
   });
+
+  it("shows the donation QR, linked to the full image to save (quick 057)", () => {
+    render(<SiteFooter />);
+    const donate = screen.getByRole("region", { name: "Ủng hộ" });
+    expect(within(donate).getByRole("img", { name: /Mã QR MoMo và VietQR/ })).toHaveAttribute("src", "/donate/momo-qr-card.webp");
+    expect(within(donate).getByRole("link", { name: "Mở mã QR để lưu ảnh" })).toHaveAttribute("href", "/donate/momo-qr.jpg");
+  });
 });

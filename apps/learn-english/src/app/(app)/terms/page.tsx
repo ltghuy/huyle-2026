@@ -74,6 +74,12 @@ const SECTIONS: LegalSection[] = [
     ],
   },
   {
+    title: "Ủng hộ",
+    body: [
+      "Bạn có thể ủng hộ để duy trì máy chủ bằng mã QR ở cuối mỗi trang. Khoản ủng hộ là tự nguyện và không hoàn lại. Nó không mở thêm tính năng nào và không phải hợp đồng mua bán dịch vụ: ứng dụng vẫn miễn phí như nhau với mọi người.",
+    ],
+  },
+  {
     title: "Miễn trừ trách nhiệm",
     body: [
       "Ứng dụng được cung cấp miễn phí, “nguyên trạng”, không cam kết luôn hoạt động liên tục. Chủ ứng dụng không chịu trách nhiệm về gián đoạn do sự cố mạng, do Google, Cloudflare hay các trường hợp bất khả kháng khác.",
