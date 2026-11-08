@@ -8,7 +8,7 @@ import { buildRecall } from "@/learning/exercises/recall";
 import { forms, word } from "@/learning/exercises/fixtures";
 import { buildFormsGap, buildFormsListening, buildFormsTyping } from "@/learning/exercises/forms";
 import { isSoundEnabled, playAnswerSound } from "@/lib/answer-sound";
-import { ExerciseRunner, type RunnerStep } from "./exercise-runner";
+import { AUTO_CONTINUE_MS, ExerciseRunner, type RunnerStep } from "./exercise-runner";
 import { CORRECT_FEEDBACK_MS } from "./feedback-panel";
 
 vi.mock("@/lib/answer-sound", () => ({ playAnswerSound: vi.fn(), isSoundEnabled: vi.fn(() => true) }));
@@ -103,6 +103,67 @@ describe("ExerciseRunner", () => {
     fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
     expect(await screen.findByText("Dừng bài ở đây?")).toBeInTheDocument();
     expect(onExit).not.toHaveBeenCalled();
+  });
+});
+
+describe("moving on by itself after a checked answer (quick 056)", () => {
+  const other = buildMcq({ target: pool[0], pool: [target, ...pool.slice(1)], direction: "en-vi" }, 2)!;
+  const steps: RunnerStep[] = [
+    { key: "a", type: "exercise", instance: mcq, seed: 1 },
+    { key: "b", type: "exercise", instance: other, seed: 2 },
+  ];
+
+  async function check(correct: boolean) {
+    const choice = correct ? mcq.answerIndex : (mcq.answerIndex + 1) % mcq.options.length;
+    fireEvent.click(screen.getAllByRole("radio")[choice]);
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+  }
+
+  it("moves to the next question 3 seconds after a right answer", async () => {
+    vi.useFakeTimers();
+    setup(steps);
+    await check(true);
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS - 1));
+    expect(screen.getByText("1/2")).toBeInTheDocument();
+    act(() => vi.advanceTimersByTime(1));
+    expect(screen.getByText("2/2")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Kiểm tra" })).toBeDisabled();
+  });
+
+  it("finishes by itself after a right answer on the last question", async () => {
+    vi.useFakeTimers();
+    const { onFinish } = setup([steps[0]]);
+    await check(true);
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS));
+    expect(onFinish).toHaveBeenCalledTimes(1);
+    expect(onFinish).toHaveBeenCalledWith({ correct: 1, total: 1 });
+  });
+
+  it("also moves on 3 seconds after a wrong answer, recording it", async () => {
+    vi.useFakeTimers();
+    const { onOutcome } = setup(steps);
+    await check(false);
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS - 1));
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    await act(async () => vi.advanceTimersByTime(1));
+    expect(screen.getByText("2/2")).toBeInTheDocument();
+    expect(onOutcome).toHaveBeenCalledWith(expect.objectContaining({ key: "a" }), expect.objectContaining({ result: expect.objectContaining({ correct: false }) }));
+  });
+
+  it("waits on a study card", () => {
+    vi.useFakeTimers();
+    setup([{ key: "st", type: "study", item: target, examples: [] }, steps[0]]);
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS * 3));
+    expect(screen.getByText("1/2")).toBeInTheDocument();
+  });
+
+  it("waits while the leave dialog is open", async () => {
+    vi.useFakeTimers();
+    setup(steps);
+    await check(true);
+    fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS * 2));
+    expect(screen.getByText("1/2")).toBeInTheDocument();
   });
 });
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useEffectEvent, useRef, useState, type FormEvent } from "react";
 import { RotateCcw, X } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import type { GradeResult } from "@/learning/exercises/types";
@@ -22,6 +22,9 @@ import { playAnswerSound } from "@/lib/answer-sound";
 import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
 import { StudyCard, type StudyItem } from "./study-card";
+
+/** How long the runner waits after a checked answer before moving on by itself (quick 056); the button's fill (`animate-auto-continue`) lasts as long. */
+export const AUTO_CONTINUE_MS = 3000;
 
 /** Words and grammar an exercise practises: linked after a wrong answer and brought forward in review. */
 export interface RelatedItems {
@@ -123,6 +126,16 @@ export function ExerciseRunner({
   useEffect(() => {
     shownAt.current = performance.now();
   }, [index, instance]);
+
+  // A checked answer, right or wrong, moves on by itself after a few seconds; study cards
+  // wait for the learner. The leave dialog pauses it (quick 056).
+  const autoContinue = step?.type === "exercise" && result !== null && !finished && !confirmExit;
+  const onAutoContinue = useEffectEvent(() => handleContinue());
+  useEffect(() => {
+    if (!autoContinue) return;
+    const timer = setTimeout(onAutoContinue, AUTO_CONTINUE_MS);
+    return () => clearTimeout(timer);
+  }, [autoContinue, step?.key]);
 
   if (!step) return null;
 
@@ -314,8 +327,15 @@ export function ExerciseRunner({
                 Đang lưu…
               </Button>
             ) : step.type === "study" || result ? (
-              <Button type="submit" size="lg" className="h-12 w-full text-base">
-                Tiếp tục
+              <Button type="submit" size="lg" className="relative h-12 w-full overflow-hidden text-base">
+                {autoContinue ? (
+                  <span
+                    key={step.key}
+                    aria-hidden
+                    className="absolute inset-0 origin-left bg-primary-foreground/15 motion-safe:animate-auto-continue motion-reduce:hidden"
+                  />
+                ) : null}
+                <span className="relative">Tiếp tục</span>
               </Button>
             ) : (
               <Button type="submit" size="lg" className="h-12 w-full text-base" disabled={!canCheck}>
