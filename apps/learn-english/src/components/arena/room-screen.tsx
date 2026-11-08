@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { ArrowLeft, Eye, Loader2 } from "lucide-react";
 import { SignInGate } from "@/components/account/sign-in-gate";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useAccount } from "@/hooks/use-account";
 import { useProfile } from "@/hooks/use-profile";
@@ -25,7 +25,7 @@ const BACK = "/arena";
 function Message({ title, text }: { title: string; text?: string }) {
   return (
     <div className="mx-auto grid max-w-sm justify-items-center gap-3 py-16 text-center">
-      <Owl mood="think" size={96} />
+      <Mascot mood="think" size={96} />
       <h1 className="text-xl font-semibold">{title}</h1>
       {text ? <p className="text-muted-foreground">{text}</p> : null}
       <Link href={BACK} className={buttonVariants({ variant: "outline", className: "h-11" })}>
@@ -112,7 +112,7 @@ export function RoomScreen() {
   if (!CODE_PATTERN.test(code)) return <Message title="Mã phòng không hợp lệ" text="Mã phòng có 6 ký tự. Bạn kiểm tra lại liên kết nhé." />;
   return (
     <main className="mx-auto w-full max-w-4xl px-4 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:pt-8">
-      <SignInGate area="arena" owl className="py-12">
+      <SignInGate area="arena" mascot className="py-12">
         {account ? <LiveRoom code={code} me={account.userId} name={name} /> : null}
       </SignInGate>
     </main>

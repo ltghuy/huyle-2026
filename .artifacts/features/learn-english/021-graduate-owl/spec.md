@@ -67,6 +67,8 @@ Feature 020 gave Streak Daily a companion, Lửa (a flame). The owner has since 
 
 ## Notes
 
+- Superseded by feature 030 (2026-11-08): the owner's tuxedo cat replaces the owl's drawing and 3D model; the placements, fallback and reduced-motion rules here still apply to the cat.
+
 Requested on 2026-11-03 with the owner's `build_owl.py`, `graduate_owl.glb` and preview image. The owner chose "SVG everywhere + 3D on the home page". It supersedes feature 020's Lửa (020 AC-001's drawing); 020's placements (AC-002, AC-003, AC-005) keep working with the owl.
 
 ## Baseline

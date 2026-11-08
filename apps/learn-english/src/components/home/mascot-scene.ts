@@ -1,50 +1,46 @@
-// The home hero's 3D owl (feature 021, AC-003–AC-005). Loaded on demand by OwlShowcase, so three.js
-// never reaches other pages. It stands still and glances left and right with its pupils (unless motion is
+// The home hero's 3D cat (feature 030 AC-003 to AC-005, after 021). Loaded on demand by MascotShowcase, so
+// three.js never reaches other pages. It stands still and wags its tail left and right (unless motion is
 // reduced), turns when dragged, and draws no frames off-screen.
 import { AmbientLight, DirectionalLight, HemisphereLight, NoToneMapping, Object3D, PerspectiveCamera, Scene, Vector3, WebGLRenderer, Box3 } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-export interface OwlScene {
+export interface MascotScene {
   dispose: () => void;
 }
 
-/** How far the pupils turn each way, in radians, and the seconds a look left and back right takes. */
-const GAZE_ANGLE = 0.22;
-const GAZE_PERIOD = 6;
-/** How sharply a glance moves: higher means a quicker move and a longer rest on each side. */
-const GAZE_SNAP = 2.5;
+/** Where the tail joins the body (`build_tuxedo_cat.py`: the first point of `tail_pts`), in model units. */
+const TAIL_BASE = new Vector3(0.08, 0.06, -0.18);
 /**
- * The pupils turn around a point this far behind their centre (model units), the centre of curvature of
- * the white at its front, so they slide along the eye instead of sinking into it or floating off it.
+ * The tail swings around the axis facing the learner, so it sweeps left and right as seen from the front,
+ * from TAIL_REST - TAIL_SWING (out to the right) to TAIL_REST + TAIL_SWING (in toward the body), in radians.
+ * Past about +0.1 it disappears behind the body, so the swing stays on the visible side.
  */
-const GAZE_PIVOT_DEPTH = 0.315;
-/** Half the pupil's depth: from the back of an eye's Gaze node to the pupil's centre (`build_owl.py`). */
-const PUPIL_HALF_DEPTH = 0.06;
+const TAIL_REST = -0.15;
+const TAIL_SWING = 0.25;
+/** Seconds for one swing out and back. */
+const TAIL_PERIOD = 1.6;
 
 /**
- * Wraps each eye's `Gaze_L` / `Gaze_R` node (pupil and highlights, kept apart by `group_owl_eyes.mjs`)
- * in a pivot behind it, and returns the pivots. Call before the owl is moved: it reads world positions.
+ * Wraps the `Tail_Wag` node (the tail, kept apart by `group_cat_tail.mjs`) in a pivot at the tail's base and
+ * returns it. Call before the model is moved: the node sits at the model's origin.
  */
-function gazePivots(owl: Object3D): Object3D[] {
-  return ["Gaze_L", "Gaze_R"].flatMap((name) => {
-    const gaze = owl.getObjectByName(name);
-    if (!gaze?.parent) return [];
-    const box = new Box3().setFromObject(gaze);
-    const pivot = new Object3D();
-    pivot.position.set((box.min.x + box.max.x) / 2, (box.min.y + box.max.y) / 2, box.min.z + PUPIL_HALF_DEPTH - GAZE_PIVOT_DEPTH);
-    gaze.parent.add(pivot);
-    pivot.attach(gaze);
-    return [pivot];
-  });
+function tailPivot(model: Object3D): Object3D | null {
+  const tail = model.getObjectByName("Tail_Wag");
+  if (!tail?.parent) return null;
+  const pivot = new Object3D();
+  pivot.position.copy(TAIL_BASE);
+  tail.parent.add(pivot);
+  pivot.attach(tail);
+  return pivot;
 }
 
 /**
- * Renders the owl from `model` (the GLB, fetched by OwlShowcase alongside this module) into `container`;
+ * Renders the cat from `model` (the GLB, fetched by MascotShowcase alongside this module) into `container`;
  * resolves once the first frame is drawn, rejects if the model can't be parsed.
  */
-export async function mountOwlScene(container: HTMLElement, { look, model }: { look: boolean; model: ArrayBuffer }): Promise<OwlScene> {
+export async function mountMascotScene(container: HTMLElement, { wag, model }: { wag: boolean; model: ArrayBuffer }): Promise<MascotScene> {
   const renderer = new WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = NoToneMapping;
@@ -69,16 +65,17 @@ export async function mountOwlScene(container: HTMLElement, { look, model }: { l
     renderer.dispose();
     throw error;
   }
-  const owl = gltf.scene;
-  scene.add(owl);
-  const pivots = gazePivots(owl);
+  const mascot = gltf.scene;
+  scene.add(mascot);
+  const tail = tailPivot(mascot);
+  if (tail) tail.rotation.z = TAIL_REST;
 
-  // Frame the model: about 2 units tall, feet on y = 0, facing +Z.
-  const box = new Box3().setFromObject(owl);
+  // Frame the model: about 1 unit tall, feet on y = 0, facing +Z.
+  const box = new Box3().setFromObject(mascot);
   const size = box.getSize(new Vector3());
   const center = box.getCenter(new Vector3());
   const camera = new PerspectiveCamera(30, 1, 0.1, 50);
-  // A little headroom around the owl.
+  // A little headroom around the cat.
   const distance = (size.y / 2 / Math.tan((camera.fov * Math.PI) / 360)) * 1.12;
   camera.position.set(center.x, center.y + size.y * 0.04, center.z + distance);
 
@@ -113,10 +110,9 @@ export async function mountOwlScene(container: HTMLElement, { look, model }: { l
 
   const start = performance.now();
   function frame() {
-    if (look) {
-      const wave = Math.sin(((performance.now() - start) / 1000) * ((2 * Math.PI) / GAZE_PERIOD));
-      const angle = (Math.tanh(GAZE_SNAP * wave) / Math.tanh(GAZE_SNAP)) * GAZE_ANGLE;
-      for (const pivot of pivots) pivot.rotation.y = angle;
+    if (wag && tail) {
+      const t = (performance.now() - start) / 1000;
+      tail.rotation.z = TAIL_REST + TAIL_SWING * Math.sin(t * ((2 * Math.PI) / TAIL_PERIOD));
     }
     controls.update();
     renderer.render(scene, camera);
@@ -132,7 +128,7 @@ export async function mountOwlScene(container: HTMLElement, { look, model }: { l
       resizeObserver.disconnect();
       renderer.setAnimationLoop(null);
       controls.dispose();
-      owl.traverse((node) => {
+      mascot.traverse((node) => {
         const mesh = node as { geometry?: { dispose: () => void }; material?: { dispose: () => void } | { dispose: () => void }[] };
         mesh.geometry?.dispose();
         for (const material of [mesh.material].flat()) material?.dispose();

@@ -1,5 +1,5 @@
 import { RotateCcw } from "lucide-react";
-import { Owl, type OwlMood } from "@/components/mascot/owl";
+import { Mascot, type MascotMood } from "@/components/mascot/mascot";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -17,7 +17,7 @@ export function ListSkeleton({ rows = 4 }: { rows?: number }) {
 export function ContentError({ onRetry }: { onRetry: () => void }) {
   return (
     <div role="alert" className="mx-4 flex flex-col items-center gap-3 rounded-2xl border bg-card px-6 py-10 text-center md:mx-8">
-      <Owl mood="sleepy" size={72} />
+      <Mascot mood="sleepy" size={72} />
       <p>Chưa tải được nội dung. Bạn kiểm tra kết nối mạng rồi thử lại nhé.</p>
       <Button variant="outline" onClick={onRetry}>
         <RotateCcw aria-hidden /> Thử lại
@@ -29,8 +29,8 @@ export function ContentError({ onRetry }: { onRetry: () => void }) {
 interface EmptyStateProps {
   title: string;
   children?: React.ReactNode;
-  /** The owl in this mood instead of the icon, on a soft panel (feature 020). */
-  mood?: OwlMood;
+  /** The cat in this mood instead of the icon, on a soft panel (feature 020). */
+  mood?: MascotMood;
   icon?: React.ComponentType<{ className?: string }>;
 }
 
@@ -38,7 +38,7 @@ export function EmptyState({ icon: Icon, mood, title, children }: EmptyStateProp
   if (mood) {
     return (
       <div className="mx-4 flex flex-col items-center gap-3 rounded-2xl border bg-card px-6 py-10 text-center md:mx-8">
-        <Owl mood={mood} size={72} />
+        <Mascot mood={mood} size={72} />
         <p className="text-lg font-semibold">{title}</p>
         {children}
       </div>

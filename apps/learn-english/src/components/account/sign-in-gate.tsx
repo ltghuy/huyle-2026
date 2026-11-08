@@ -13,14 +13,14 @@ interface SignInGateProps {
   tour?: string;
   /** For the prompt's wrapper, e.g. room above it on focus screens that have no navigation. */
   className?: string;
-  /** The owl in the prompt, for screens without a hero owl (focus screens). */
-  owl?: boolean;
+  /** The cat in the prompt, for screens without a hero cat (focus screens). */
+  mascot?: boolean;
 }
 
 /** A locked area (feature 022): its content for signed-in learners, a sign-in prompt for guests. */
-export function SignInGate({ area, children, fallback = null, tour, className, owl }: SignInGateProps) {
+export function SignInGate({ area, children, fallback = null, tour, className, mascot }: SignInGateProps) {
   const { status } = useAccount();
   if (status === "unknown") return fallback;
-  if (!canUseLockedAreas(status)) return <SignInPrompt area={area} tour={tour} className={className} owl={owl} />;
+  if (!canUseLockedAreas(status)) return <SignInPrompt area={area} tour={tour} className={className} mascot={mascot} />;
   return children;
 }

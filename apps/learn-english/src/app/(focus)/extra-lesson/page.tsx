@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({ title: "Bài học thêm", path
 
 export default function ExtraLessonPage() {
   return (
-    <SignInGate area="lesson" className="mx-auto max-w-xl py-16" owl>
+    <SignInGate area="lesson" className="mx-auto max-w-xl py-16" mascot>
       <ExtraLessonPlayer />
     </SignInGate>
   );

@@ -6,7 +6,7 @@ import { ClosingCta } from "@/components/home/closing-cta";
 import { ArenaStats } from "@/components/profile/arena-stats";
 import { AttendanceSummary } from "@/components/profile/attendance-summary";
 import { ProgressInsights } from "@/components/profile/progress-insights";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { PageHero } from "@/components/shell/page-hero";
 import { SectionHeading } from "@/components/shell/section-heading";
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = pageMetadata({ title: "Hồ sơ", path: "/prof
 export default function ProfilePage() {
   return (
     <>
-      <PageHero badge={BADGE} title="Hồ sơ của bạn" description={DESCRIPTION} mascot={<Owl mood="cheer" size={112} className="mx-auto" />} />
+      <PageHero badge={BADGE} title="Hồ sơ của bạn" description={DESCRIPTION} mascot={<Mascot mood="cheer" size={112} className="mx-auto" />} />
       <SignInGate area="profile">
       <div className="grid gap-14 pb-8 md:gap-20">
         <section aria-labelledby="attendance-heading" className="grid gap-4">

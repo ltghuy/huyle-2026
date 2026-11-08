@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { READY_MS } from "@/learning/arena/machine";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
@@ -79,7 +79,7 @@ function PlayerLobby({ handle, me }: LobbyProps) {
             <PlayerRow player={rival} you={false} creator={!isCreator} showReady={windowOpen} />
           ) : (
             <li className="flex min-h-14 items-center gap-3 rounded-xl border border-dashed px-3 py-2 text-muted-foreground">
-              <Owl mood="think" size={36} />
+              <Mascot mood="think" size={36} />
               <span className="text-sm">Đang chờ đối thủ… Gửi mã hoặc liên kết cho bạn bè nhé.</span>
             </li>
           )}

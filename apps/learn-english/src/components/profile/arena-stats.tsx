@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { Flame, Swords, Trophy, X, type LucideIcon } from "lucide-react";
 import { ARENA_STATS_KEY } from "@/components/arena/arena-record";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchArenaStats } from "@/lib/arena-client";
@@ -56,7 +56,7 @@ export function ArenaStats() {
   if (wins + losses === 0) {
     return (
       <div className="mx-4 flex flex-wrap items-center gap-4 rounded-xl border border-dashed p-4 md:mx-8">
-        <Owl mood="cheer" size={56} />
+        <Mascot mood="cheer" size={56} />
         <p className="min-w-0 flex-1 text-muted-foreground">Bạn chưa đấu trận nào. Thách một người bạn: ai trả lời đúng trước thì ghi điểm.</p>
         <Link href="/arena" className={buttonVariants({ className: "h-11 gap-2" })}>
           <Swords aria-hidden /> Vào Đấu trường

@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({ title: "Ôn tập", path: "/rev
 
 export default function ReviewSessionPage() {
   return (
-    <SignInGate area="review" className="mx-auto max-w-xl py-16" owl>
+    <SignInGate area="review" className="mx-auto max-w-xl py-16" mascot>
       <ReviewSession />
     </SignInGate>
   );

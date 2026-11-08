@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { owlMood } from "@/components/lesson/streak-summary";
+import { mascotMood } from "@/components/lesson/streak-summary";
 import { EmptyState } from "@/components/shell/load-states";
-import { Owl, type OwlMood } from "./owl";
+import { Mascot, type MascotMood } from "./mascot";
 
-describe("the owl (021 AC-001, AC-002)", () => {
+describe("the cat (030 AC-001, AC-002; placements from 021)", () => {
   it("draws each mood and is decoration unless labelled", () => {
-    for (const mood of ["happy", "cheer", "think", "sleepy"] satisfies OwlMood[]) {
-      const { container, unmount } = render(<Owl mood={mood} size={64} />);
+    for (const mood of ["happy", "cheer", "think", "sleepy"] satisfies MascotMood[]) {
+      const { container, unmount } = render(<Mascot mood={mood} size={64} />);
       const wrapper = container.firstElementChild as HTMLElement;
       expect(wrapper.dataset.mood).toBe(mood);
       expect(wrapper.style.width).toBe("64px");
@@ -18,10 +18,10 @@ describe("the owl (021 AC-001, AC-002)", () => {
   });
 
   it("is an image with a name when labelled, holding its ENGLISH A·B·C book", () => {
-    render(<Owl label="Cú đang vui" />);
-    const owl = screen.getByRole("img", { name: "Cú đang vui" });
-    expect(owl).toHaveTextContent("ENGLISH");
-    expect(owl).toHaveTextContent("A·B·C");
+    render(<Mascot label="Mèo đang vui" />);
+    const cat = screen.getByRole("img", { name: "Mèo đang vui" });
+    expect(cat).toHaveTextContent("ENGLISH");
+    expect(cat).toHaveTextContent("A·B·C");
   });
 
   it("takes the place of the icon in an empty state with a mood (AC-003)", () => {
@@ -31,8 +31,8 @@ describe("the owl (021 AC-001, AC-002)", () => {
   });
 
   it("picks its mood from the streak (AC-005)", () => {
-    expect(owlMood(3, false)).toBe("sleepy");
-    expect(owlMood(3, true)).toBe("happy");
-    expect(owlMood(7, true)).toBe("cheer");
+    expect(mascotMood(3, false)).toBe("sleepy");
+    expect(mascotMood(3, true)).toBe("happy");
+    expect(mascotMood(7, true)).toBe("cheer");
   });
 });

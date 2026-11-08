@@ -1,5 +1,5 @@
 import { AudioButton } from "@/components/exercise/audio-button";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import type { PublicPlayer, QuestionType, Reveal } from "@/learning/arena/protocol";
 import { cn } from "@/lib/utils";
 import { slotWords, TileWord, wordTileClass } from "./letter-slots";
@@ -64,7 +64,7 @@ export function AnswerReveal({ reveal, questionType, me, players }: AnswerReveal
           `${scorer?.name ?? "Đối thủ"} nhanh hơn`
         ) : (
           <>
-            <Owl mood="sleepy" size={32} /> Hết giờ, không ai đúng
+            <Mascot mood="sleepy" size={32} /> Hết giờ, không ai đúng
           </>
         )}
       </p>

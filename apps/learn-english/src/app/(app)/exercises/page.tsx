@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/site";
 import { Suspense } from "react";
 import { ExerciseLibrary } from "@/components/library/exercise-library";
 import { Dumbbell } from "lucide-react";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { PageHero } from "@/components/shell/page-hero";
 import { ListSkeleton } from "@/components/shell/load-states";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMetadata({ title: "Bài tập", path: "/ex
 export default function ExercisesPage() {
   return (
     <>
-      <PageHero size="sm" badge={BADGE} title="Bài tập" description="Tự luyện mọi phần của khóa học, mỗi bài 10 câu." mascot={<Owl mood="happy" size="hero" />} />
+      <PageHero size="sm" badge={BADGE} title="Bài tập" description="Tự luyện mọi phần của khóa học, mỗi bài 10 câu." mascot={<Mascot mood="happy" size="hero" />} />
       <Suspense fallback={<ListSkeleton rows={6} />}>
         <ExerciseLibrary />
       </Suspense>

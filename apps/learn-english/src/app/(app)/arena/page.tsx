@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Swords } from "lucide-react";
 import { ArenaHub } from "@/components/arena/arena-hub";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { PageHero } from "@/components/shell/page-hero";
 import { pageMetadata } from "@/lib/site";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ArenaPage() {
   return (
     <>
-      <PageHero size="sm" badge={BADGE} title="Đấu trường" description="Chọn cách đấu: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm." mascot={<Owl mood="cheer" size="hero" />} />
+      <PageHero size="sm" badge={BADGE} title="Đấu trường" description="Chọn cách đấu: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm." mascot={<Mascot mood="cheer" size="hero" />} />
       <ArenaHub />
     </>
   );

@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { Star } from "lucide-react";
-import { Owl, type OwlMood } from "@/components/mascot/owl";
+import { Mascot, type MascotMood } from "@/components/mascot/mascot";
 import { localDate, streaks } from "@/learning/attendance";
 import { pointsBalance } from "@/learning/points";
 import { getAllAttendance } from "@/storage/attendance";
@@ -11,8 +11,8 @@ import { useStorageQuery } from "@/hooks/use-storage-query";
 
 const STORES = ["attendance", "extraLessons"] as const;
 
-/** The owl's mood next to the streak (020 AC-005, 021): sleepy until today's lesson, then happy, cheering from 7 days. */
-export function owlMood(streak: number, learnedToday: boolean): OwlMood {
+/** The cat's mood next to the streak (020 AC-005, 021): sleepy until today's lesson, then happy, cheering from 7 days. */
+export function mascotMood(streak: number, learnedToday: boolean): MascotMood {
   if (!learnedToday) return "sleepy";
   return streak >= 7 ? "cheer" : "happy";
 }
@@ -31,7 +31,7 @@ export function StreakSummary({ timeZone }: { timeZone: string }) {
   return (
     <dl className="grid grid-cols-2 gap-3" data-tour="streak">
       <div className="flex items-center gap-3 rounded-xl border bg-card p-4">
-        <Owl mood={owlMood(streak, learnedToday)} size={40} />
+        <Mascot mood={mascotMood(streak, learnedToday)} size={40} />
         <div>
           <dt className="text-sm text-muted-foreground">Chuỗi ngày học</dt>
           <dd className="text-xl font-semibold">{streak} ngày</dd>

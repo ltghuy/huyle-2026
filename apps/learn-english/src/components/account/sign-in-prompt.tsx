@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { LockKeyhole } from "lucide-react";
-import { Owl, type OwlMood } from "@/components/mascot/owl";
+import { Mascot, type MascotMood } from "@/components/mascot/mascot";
 import { SignInButton } from "./sign-in-button";
 
 /** The areas guests can't open (feature 022, AC-009, AC-010, AC-011). */
 export type LockedArea = "lesson" | "streak" | "review" | "hard-words" | "profile" | "grammar" | "exercises" | "irregular-verbs" | "arena";
 
-const COPY: Record<LockedArea, { title: string; text: string; mood: OwlMood }> = {
+const COPY: Record<LockedArea, { title: string; text: string; mood: MascotMood }> = {
   lesson: { title: "Đăng nhập để học bài hôm nay", text: "Mỗi ngày một bài ngắn: ôn từ cũ, học từ mới và luyện câu. Tiến độ được lưu vào tài khoản, học trên máy nào cũng tiếp tục được.", mood: "cheer" },
   streak: { title: "Đăng nhập để giữ chuỗi ngày học", text: "Chuỗi ngày học và điểm của bạn được lưu vào tài khoản Google.", mood: "happy" },
   review: { title: "Đăng nhập để ôn tập", text: "Lịch ôn tập nhắc lại từ đúng lúc bạn sắp quên. Đăng nhập để bắt đầu.", mood: "think" },
@@ -20,16 +20,16 @@ const COPY: Record<LockedArea, { title: string; text: string; mood: OwlMood }> =
 
 /**
  * What a guest sees in place of a locked area: what signing in unlocks, the button and the privacy
- * note. Pages with a hero already show the owl, so the prompt shows a lock instead; focus screens
- * (no hero) pass `owl`.
+ * note. Pages with a hero already show the cat, so the prompt shows a lock instead; focus screens
+ * (no hero) pass `mascot`.
  */
-export function SignInPrompt({ area, tour, className, owl = false }: { area: LockedArea; tour?: string; className?: string; owl?: boolean }) {
+export function SignInPrompt({ area, tour, className, mascot = false }: { area: LockedArea; tour?: string; className?: string; mascot?: boolean }) {
   const { title, text, mood } = COPY[area];
   return (
     <div data-tour={tour} className={className}>
       <div className="mx-4 flex flex-col items-center gap-3 rounded-2xl border bg-card px-6 py-10 text-center md:mx-8">
-        {owl ? (
-          <Owl mood={mood} size={72} />
+        {mascot ? (
+          <Mascot mood={mood} size={72} />
         ) : (
           <span className="flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden>
             <LockKeyhole className="size-6" />

@@ -4,7 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useEffect } from "react";
 import { RotateCcw, Swords, Trophy } from "lucide-react";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ROUND_RESULT_MS } from "@/learning/arena/machine";
 import type { PublicRoom } from "@/learning/arena/protocol";
@@ -51,7 +51,7 @@ export function RoundResult({ room, me, offset }: { room: PublicRoom; me: string
     <div className="grid gap-4">
       <Scoreboard room={room} me={me} />
       <section aria-labelledby="round-title" className="grid justify-items-center gap-3 rounded-xl border bg-card p-6 text-center">
-        <Owl mood={youWon ? "cheer" : "think"} size={88} />
+        <Mascot mood={youWon ? "cheer" : "think"} size={88} />
         <h2 id="round-title" className="text-2xl font-bold">
           Hiệp {last.round}: {youWon ? "Bạn thắng" : `${nameOf(room, last.winnerId, me)} thắng`}
         </h2>
@@ -133,7 +133,7 @@ function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
   const title = room.endReason === "forfeit" ? `${loser?.name ?? "Một người chơi"} đã rời trận, ${winner?.name ?? "người còn lại"} thắng` : `${winner?.name ?? "Người chơi"} thắng!`;
   return (
     <section aria-labelledby="match-title" className="grid justify-items-center gap-4 rounded-xl border bg-card px-5 py-8 text-center">
-      <Owl mood="cheer" size={112} />
+      <Mascot mood="cheer" size={112} />
       <h2 id="match-title" className="text-3xl font-bold">
         {title}
       </h2>
@@ -192,7 +192,7 @@ function PlayerResult({ room, me, onRematch, onPick }: MatchResultProps) {
   return (
     <section aria-labelledby="match-title" className="relative grid justify-items-center gap-4 overflow-hidden rounded-xl border bg-card px-5 py-8 text-center">
       {youWon ? <Confetti /> : null}
-      <Owl mood={youWon ? "cheer" : "think"} size={112} />
+      <Mascot mood={youWon ? "cheer" : "think"} size={112} />
       <h2 id="match-title" className={cn("text-3xl font-bold", youWon ? "text-primary" : "")}>
         {headline(room, me)}
       </h2>

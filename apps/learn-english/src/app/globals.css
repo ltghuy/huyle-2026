@@ -324,7 +324,7 @@
   }
 }
 
-/* The owl bobs gently (features 020, 021); still when motion is reduced. */
+/* The mascot bobs gently (features 020, 021, 030); still when motion is reduced. */
 @media (prefers-reduced-motion: no-preference) {
   .mascot-bob {
     animation: mascot-bob 3.2s ease-in-out infinite;

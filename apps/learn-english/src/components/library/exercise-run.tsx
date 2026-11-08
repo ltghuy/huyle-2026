@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { toast } from "sonner";
 import { ExerciseRunner, type RunnerScore, type RunnerStep, type StepOutcome } from "@/components/exercise/exercise-runner";
 import { Button } from "@/components/ui/button";
@@ -57,7 +57,7 @@ export function ExerciseRun({ title, buildSteps, onFinished, onClose, doneLabel,
         <ScoreScreen title={title} score={score} onRetry={handleRetry} onDone={onClose} doneLabel={doneLabel} />
       ) : steps.length === 0 ? (
         <div className="mx-auto flex min-h-svh max-w-xl flex-col items-center justify-center gap-4 px-4 text-center">
-          <Owl mood="think" size={88} />
+          <Mascot mood="think" size={88} />
           <p className="font-medium">Bài này chưa đủ nội dung để luyện.</p>
           <p className="text-sm text-muted-foreground">Bạn chọn một bài khác nhé.</p>
           <Button className="h-11 px-6" onClick={onClose}>

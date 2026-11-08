@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import { Suspense } from "react";
 import { BookOpenText } from "lucide-react";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { PageHero } from "@/components/shell/page-hero";
 import { ListSkeleton } from "@/components/shell/load-states";
 import { VocabularyBrowser } from "@/components/vocabulary/vocabulary-browser";
@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMetadata({ title: "Từ vựng", path: "/v
 export default function VocabularyPage() {
   return (
     <>
-      <PageHero size="sm" badge={BADGE} title="Từ vựng" description="Học từ theo trình độ và chủ đề, mỗi từ có phiên âm, audio và câu ví dụ." mascot={<Owl mood="happy" size="hero" />} />
+      <PageHero size="sm" badge={BADGE} title="Từ vựng" description="Học từ theo trình độ và chủ đề, mỗi từ có phiên âm, audio và câu ví dụ." mascot={<Mascot mood="happy" size="hero" />} />
       {/* The browser reads query params, so it renders in the browser below this boundary. */}
       <Suspense fallback={<ListSkeleton rows={6} />}>
         <VocabularyBrowser />

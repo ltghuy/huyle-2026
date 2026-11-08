@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { Swords } from "lucide-react";
-import { Owl } from "@/components/mascot/owl";
+import { Mascot } from "@/components/mascot/mascot";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchArenaMatches } from "@/lib/arena-client";
@@ -44,7 +44,7 @@ export function MatchHistory() {
   if (matches.length === 0) {
     return (
       <div className="flex flex-wrap items-center gap-4 rounded-xl border border-dashed p-4">
-        <Owl mood="cheer" size={56} />
+        <Mascot mood="cheer" size={56} />
         <p className="min-w-0 flex-1 text-muted-foreground">
           {stats.wins + stats.losses > 0 ? "Các trận bạn đấu từ bây giờ sẽ được lưu ở đây." : "Bạn chưa đấu trận nào. Thách một người bạn, trận đầu tiên sẽ hiện ở đây."}
         </p>
