@@ -3,7 +3,7 @@ id: 029
 feature: legal-pages
 type: brownfield
 scope: medium
-status: to-review
+status: done
 branch: main
 created: 2026-11-08
 ---
@@ -18,8 +18,8 @@ The reference structure is borrowed, not its claims. Streak Daily has no passwor
 
 ## Goals
 
-- [ ] A learner can read, from the footer of every page, what data the app keeps, why, their rights under Nghị định 13/2023/NĐ-CP and how to use them
-- [ ] A learner can read the terms of use, including the conduct rules under Nghị định 147/2024/NĐ-CP
+- [x] A learner can read, from the footer of every page with navigation, what data the app keeps, why, their rights under Nghị định 13/2023/NĐ-CP and how to use them
+- [x] A learner can read the terms of use, including the conduct rules under Nghị định 147/2024/NĐ-CP
 
 ## Out of Scope
 
@@ -64,8 +64,8 @@ The reference structure is borrowed, not its claims. Streak Daily has no passwor
 
 ## Success Criteria
 
-- [ ] Both pages are reachable in one tap from the footer of every page with navigation, and both are static
-- [ ] No statement on either page describes something the app does not do
+- [x] Both pages are reachable in one tap from the footer of every page with navigation, and both are static
+- [x] No statement on either page describes something the app does not do
 
 ## Open Questions
 
@@ -93,3 +93,16 @@ The reference structure is borrowed, not its claims. Streak Daily has no passwor
 - 2026-11-08: `pnpm lint`, `pnpm typecheck`, `pnpm test` (1271 passed) and `pnpm build` pass; `/`, `/privacy` and `/terms` are static. `privacy/page.test.tsx` covers AC-001 and AC-003, `terms/page.test.tsx` AC-004 and AC-005, `shell/site-footer.test.tsx` AC-006. AC-007: `/terms` is in the sitemap paths.
 - AC-002 checked against the code: the IP is only the limiter key (`src/server/auth/throttle.ts`, `leaderboard/secret.ts`, `arena/request.ts`), account deletion is immediate (`account.service.ts`), "Xuất tiến độ" and "Xóa tài khoản" are in Cài đặt, progress is read by the session's user id (`api/progress/route.ts`).
 - 2026-11-08: checked in the browser on `/credits` and `/terms` at 1280 px and 390 px; the footer ends the page, clears the mobile bar, the raised Arena button and the back-to-top button, with no horizontal scroll (`scrollWidth` 375).
+
+- 2026-11-08: at 800 px (sidebar open) "Quyền riêng tư" wrapped onto three lines; the footer links no longer wrap and the link column doesn't shrink.
+
+## Audit
+
+2026-11-08. Goal 1 said "every page" while AC-006 says "every page with navigation"; the goal now matches AC-006 (focus-mode screens have no navigation and no footer).
+
+| Target | Result | Evidence |
+|--------|--------|----------|
+| G1: privacy policy, rights and how to use them, from the footer | Met | `SiteFooter` in the `(app)` layout, `site-footer.test.tsx`, `privacy/page.test.tsx` (ten sections, decree cited, Cài đặt link) |
+| G2: terms of use with the conduct rules | Met | `terms/page.test.tsx` (eleven sections, Nghị định 147/2024/NĐ-CP heading, conduct scope) |
+| SC1: one tap from every footer, both static | Met | footer links tested; build shows `○ /privacy` and `○ /terms`; browser check at 1280 px and 390 px |
+| SC2: no statement the app does not back | Met after a fix | Each fact checked against the code: session 30 days (`auth.ts`), reports and board 90 days (`claims.service.ts`, `leaderboard.service.ts`), 50 matches (`learning/arena/history.ts`), daily device hash (`stats.service.ts`), IP only as limiter key, immediate deletion. One claim was wrong: the page said a changed Google name or picture follows into the app, but better-auth keeps the first sign-in's name and picture because `overrideUserInfoOnSignIn` is not set. The rights list now says to contact the owner to change them. |

@@ -83,7 +83,7 @@ const SECTIONS: LegalSection[] = [
       "được biết dữ liệu nào được xử lý và để làm gì: chính là trang này;",
       "đồng ý hoặc rút lại sự đồng ý: tắt “Gửi thống kê ẩn danh”, rời bảng xếp hạng hoặc xóa tài khoản trong Cài đặt;",
       "xem và lấy bản sao dữ liệu: chọn “Xuất tiến độ” trong Cài đặt để tải tiến độ về máy;",
-      "chỉnh sửa: đổi tên gọi trong Cài đặt; tên và ảnh Google được đổi trong tài khoản Google của bạn;",
+      "chỉnh sửa: đổi tên gọi trong Cài đặt; ứng dụng giữ tên và ảnh Google từ lần đăng nhập đầu tiên, muốn sửa thì liên hệ chủ ứng dụng (mục 10);",
       "xóa dữ liệu: chọn “Xóa tài khoản” trong Cài đặt;",
       "hạn chế hoặc phản đối việc xử lý, khiếu nại và tố cáo: liên hệ chủ ứng dụng (mục 10) hoặc cơ quan nhà nước có thẩm quyền.",
     ],

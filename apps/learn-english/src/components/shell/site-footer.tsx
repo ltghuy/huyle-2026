@@ -18,9 +18,9 @@ export function SiteFooter() {
           </p>
           <p className="text-xs">Bảo vệ dữ liệu cá nhân theo Nghị định 13/2023/NĐ-CP &amp; Quản lý dịch vụ mạng theo Nghị định 147/2024/NĐ-CP.</p>
         </div>
-        <nav aria-label="Pháp lý" className="flex gap-6">
+        <nav aria-label="Pháp lý" className="flex shrink-0 gap-6">
           {LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-xs font-semibold tracking-widest uppercase underline-offset-4 hover:text-foreground hover:underline">
+            <Link key={link.href} href={link.href} className="text-xs font-semibold tracking-widest whitespace-nowrap uppercase underline-offset-4 hover:text-foreground hover:underline">
               {link.label}
             </Link>
           ))}
