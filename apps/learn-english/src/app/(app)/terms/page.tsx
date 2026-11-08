@@ -6,7 +6,7 @@ import { LegalLink, type LegalSection, LegalSections } from "@/components/legal/
 export const metadata: Metadata = pageMetadata({
   title: "Điều khoản sử dụng",
   path: "/terms",
-  description: "Những điều bạn đồng ý khi dùng Streak Daily: dịch vụ, tài khoản, quy tắc ứng xử, nội dung và trách nhiệm.",
+  description: "Những điều bạn đồng ý khi dùng Tuxedo English: dịch vụ, tài khoản, quy tắc ứng xử, nội dung và trách nhiệm.",
 });
 
 const AUTHOR_SITE = AUTHOR.url.replace(/^https?:\/\//, "");
@@ -107,7 +107,7 @@ const SECTIONS: LegalSection[] = [
 export default function TermsPage() {
   return (
     <>
-      <PageHeader title="Điều khoản sử dụng" description="Những điều bạn đồng ý khi dùng Streak Daily." />
+      <PageHeader title="Điều khoản sử dụng" description="Những điều bạn đồng ý khi dùng Tuxedo English." />
       <div className="grid max-w-3xl gap-4 px-4 pb-8 md:px-8">
         <LegalSections updated={UPDATED} note="Theo pháp luật Việt Nam." sections={SECTIONS} />
       </div>

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [AUTHOR],
   creator: AUTHOR.name,
-  keywords: ["học tiếng Anh", "từ vựng tiếng Anh", "ngữ pháp tiếng Anh", "12 thì tiếng Anh", "luyện tiếng Anh mỗi ngày", "Streak Daily"],
+  keywords: ["học tiếng Anh", "từ vựng tiếng Anh", "ngữ pháp tiếng Anh", "12 thì tiếng Anh", "luyện tiếng Anh mỗi ngày", "Tuxedo English"],
   openGraph: { type: "website", locale: "vi_VN", siteName: SITE_NAME, title: SITE_NAME, description: SITE_DESCRIPTION, images: [OG_IMAGE] },
   twitter: { card: "summary_large_image", title: SITE_NAME, description: SITE_DESCRIPTION, images: [TWITTER_IMAGE] },
 };

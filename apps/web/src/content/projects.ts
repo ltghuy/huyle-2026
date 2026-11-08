@@ -39,9 +39,9 @@ export const projects: Project[] = [
     links: { demo: "https://learn.huyle.work/" },
   },
   {
-    id: "streak-daily",
+    id: "tuxedo-english",
     index: 2,
-    name: "Streak Daily",
+    name: "Tuxedo English",
     role: "Personal project · english.huyle.work",
     oneLiner:
       "A free English course for Vietnamese speakers: vocabulary by level, grammar, and short daily lessons that bring words back right before you forget them.",

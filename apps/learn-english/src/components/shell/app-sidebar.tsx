@@ -112,7 +112,7 @@ export function AppSidebar() {
           className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-2 py-1.5 font-semibold group-data-[collapsible=icon]:flex-none group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
         >
           <GraduationCap className="size-6 shrink-0 text-primary" aria-hidden />
-          <span className="truncate group-data-[collapsible=icon]:hidden">Streak Daily</span>
+          <span className="truncate group-data-[collapsible=icon]:hidden">Tuxedo English</span>
         </Link>
         <SidebarTrigger aria-label={toggleLabel} title={toggleLabel} className="shrink-0 text-muted-foreground" />
       </SidebarHeader>

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 /** The production address. Canonical URLs, the sitemap and robots.txt are built from it. */
 export const SITE_URL = "https://english.huyle.work";
 
-export const SITE_NAME = "Streak Daily";
+export const SITE_NAME = "Tuxedo English";
 
 export const AUTHOR = { name: "Huy Le (Evan)", url: "https://huyle.work" };
 

@@ -6,7 +6,7 @@ import { LegalLink, type LegalSection, LegalSections } from "@/components/legal/
 export const metadata: Metadata = pageMetadata({
   title: "Quyền riêng tư",
   path: "/privacy",
-  description: "Streak Daily lưu những gì, để làm gì, ai thấy được, giữ bao lâu, quyền của bạn và cách xóa.",
+  description: "Tuxedo English lưu những gì, để làm gì, ai thấy được, giữ bao lâu, quyền của bạn và cách xóa.",
 });
 
 const AUTHOR_SITE = AUTHOR.url.replace(/^https?:\/\//, "");
@@ -122,7 +122,7 @@ const SECTIONS: LegalSection[] = [
 export default function PrivacyPage() {
   return (
     <>
-      <PageHeader title="Quyền riêng tư" description="Streak Daily lưu những gì, để làm gì, ai thấy được, giữ bao lâu, quyền của bạn và cách xóa." />
+      <PageHeader title="Quyền riêng tư" description="Tuxedo English lưu những gì, để làm gì, ai thấy được, giữ bao lâu, quyền của bạn và cách xóa." />
       <div className="grid max-w-3xl gap-4 px-4 pb-8 md:px-8">
         <LegalSections updated={UPDATED} note="Theo Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân." sections={SECTIONS} />
       </div>

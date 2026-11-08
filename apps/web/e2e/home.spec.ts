@@ -36,7 +36,7 @@ test.describe("home page smoke", () => {
     const work = page.locator("#work");
     await expect(work.locator("article")).toHaveCount(4);
     await expect(work.getByRole("heading", { name: "Frontend Handbook" })).toHaveCount(1);
-    await expect(work.getByRole("heading", { name: "Streak Daily" })).toHaveCount(1);
+    await expect(work.getByRole("heading", { name: "Tuxedo English" })).toHaveCount(1);
     await expect(work.getByRole("heading", { name: "Coming soon" })).toHaveCount(2);
     await expect(
       work.locator('a[href="https://learn.huyle.work/"]'),

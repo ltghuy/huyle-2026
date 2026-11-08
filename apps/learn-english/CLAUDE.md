@@ -3,7 +3,7 @@
 # learn-english (`apps/learn-english`)
 
 Learn English (english.huyle.work): an English course for Vietnamese speakers,
-one app of the monorepo. Learners see it as **Streak Daily** (`SITE_NAME` in
+one app of the monorepo. Learners see it as **Tuxedo English** (`SITE_NAME` in
 `src/lib/site.ts`); "Learn English" and `learn-english` stay the package and
 folder name. Next.js 16 (App Router) + React 19 + TypeScript + Tailwind v4 +
 shadcn/ui (base-nova). The UI is in Vietnamese; only the English being taught

@@ -7,13 +7,13 @@ import HomePage from "./page";
 vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), push: vi.fn() }), usePathname: () => "/" }));
 
 describe("HomePage", () => {
-  it("opens with the Streak Daily hero, then today's lesson (019 AC-001, AC-002)", () => {
+  it("opens with the Tuxedo English hero, then today's lesson (019 AC-001, AC-002)", () => {
     render(
       <SidebarProvider>
         <HomePage />
       </SidebarProvider>,
     );
-    expect(screen.getAllByRole("heading", { level: 1 }).map((heading) => heading.textContent)).toEqual(["Streak Daily"]);
+    expect(screen.getAllByRole("heading", { level: 1 }).map((heading) => heading.textContent)).toEqual(["Tuxedo English"]);
     expect(screen.getAllByRole("link", { name: /Vào bài hôm nay/ }).map((link) => link.getAttribute("href"))).toEqual(["/lesson", "/lesson"]);
     expect(screen.getByRole("link", { name: "Xem cách học" })).toHaveAttribute("href", "#how");
     expect(screen.getByText("Miễn phí · Đăng nhập bằng Google")).toBeInTheDocument();

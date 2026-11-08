@@ -228,7 +228,7 @@ export function AppTour() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <Compass className="size-10 text-primary" aria-hidden />
-            <AlertDialogTitle>Chào mừng {name ?? "bạn"} đến với Streak Daily!</AlertDialogTitle>
+            <AlertDialogTitle>Chào mừng {name ?? "bạn"} đến với Tuxedo English!</AlertDialogTitle>
             <AlertDialogDescription>
               {guest
                 ? "Bạn tra và học từ vựng ngay được. Đăng nhập bằng Google để có bài học ngắn mỗi ngày, lịch ôn tập nhắc đúng lúc sắp quên, ngữ pháp, bài tập và chuỗi ngày học. Mình đi một vòng xem các phần chính nhé?"

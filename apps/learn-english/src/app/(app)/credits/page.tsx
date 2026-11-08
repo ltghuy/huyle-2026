@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
 import { PageHeader } from "@/components/shell/page-header";
 
-export const metadata: Metadata = pageMetadata({ title: "Nguồn dữ liệu", path: "/credits", description: "Các nguồn mở dùng để xây dựng từ vựng, phiên âm và câu ví dụ của Streak Daily." });
+export const metadata: Metadata = pageMetadata({ title: "Nguồn dữ liệu", path: "/credits", description: "Các nguồn mở dùng để xây dựng từ vựng, phiên âm và câu ví dụ của Tuxedo English." });
 
 const SOURCES = [
   {
