@@ -24,4 +24,11 @@ describe("PrivacyPage", () => {
     expect(screen.getByRole("link", { name: "Cài đặt" })).toHaveAttribute("href", "/settings#tai-khoan");
     expect(screen.getByRole("link", { name: "Điều khoản sử dụng" })).toHaveAttribute("href", "/terms");
   });
+
+  it("says what friends see, what is stored and that deleting the account removes it (feature 031, AC-021)", () => {
+    render(<PrivacyPage />);
+    expect(screen.getByText(/lưu danh sách bạn bè, các lời mời kết bạn đã gửi và nhận, thông báo trong mục chuông, và lần cuối bạn mở ứng dụng/)).toBeInTheDocument();
+    expect(screen.getByText(/Chỉ những người bạn đã đồng ý kết bạn mới thấy tên và ảnh Google của bạn/)).toBeInTheDocument();
+    expect(screen.getByText(/lịch sử đấu, bạn bè, lời mời kết bạn và thông báo bị xóa ngay/)).toBeInTheDocument();
+  });
 });

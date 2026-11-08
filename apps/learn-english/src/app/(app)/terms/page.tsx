@@ -47,7 +47,7 @@ const SECTIONS: LegalSection[] = [
       "nội dung chống lại Nhà nước, gây phương hại an ninh quốc gia hoặc trật tự an toàn xã hội;",
       "nội dung bạo lực, khiêu dâm, kích động thù hằn hay phân biệt đối xử;",
       "nội dung lừa đảo, mạo danh người khác hoặc trái thuần phong mỹ tục;",
-      "lời xúc phạm, quấy rối người khác, hoặc tin rác.",
+      "lời xúc phạm, quấy rối người khác, hoặc tin rác (kể cả gửi lời mời kết bạn liên tục).",
     ],
   },
   {

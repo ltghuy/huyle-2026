@@ -76,6 +76,24 @@ describe("the Arena hub (feature 024)", () => {
   });
 });
 
+describe("friends on the hub (feature 031)", () => {
+  it("shows the friends list to signed-in learners on phones only (AC-017)", async () => {
+    stubFetch(true);
+    handler = (url) => (url === "/api/social/pulse" ? Response.json({ now: 1, friends: [{ id: "lan", name: "Lan", image: null, online: true, lastSeenAt: 1 }], outgoing: [], incoming: [], unread: 0 }) : undefined);
+    render(<ArenaPage />);
+    const section = await screen.findByRole("region", { name: "Bạn bè" });
+    expect(await within(section).findByText("Lan")).toBeInTheDocument();
+    expect(section.parentElement).toHaveClass("md:hidden");
+  });
+
+  it("shows no friends to guests", async () => {
+    stubFetch(false);
+    render(<ArenaPage />);
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/auth/get-session", expect.anything()));
+    expect(screen.queryByRole("region", { name: "Bạn bè" })).not.toBeInTheDocument();
+  });
+});
+
 describe("the 1-1 screen", () => {
   it("asks guests to sign in (023 AC-006, 024 AC-007)", async () => {
     stubFetch(false);

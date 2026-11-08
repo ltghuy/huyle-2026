@@ -51,8 +51,8 @@ export interface ArenaMatch {
   forfeit: boolean;
   /** Rounds won. */
   score: { mine: number; theirs: number };
-  /** Null when the opponent has deleted their account. */
-  opponent: { name: string; image: string | null } | null;
+  /** Null when the opponent has deleted their account. `id` lets the learner send a friend request (feature 031). */
+  opponent: { id: string; name: string; image: string | null } | null;
   settings: MatchSettings;
   rounds: { round: number; mine: number; theirs: number; won: boolean; suddenDeath: boolean; onTime: boolean }[];
 }

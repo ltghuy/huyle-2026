@@ -5,8 +5,8 @@ import { arenaMatches, user } from "@/server/db/schema";
 
 /**
  * Deletes the account and everything that belongs to it (feature 022, AC-023), in one batch: the
- * foreign keys cascade to its sessions, Google link, progress, activity, board entry and Arena
- * history. Other learners keep their matches against it, but without its name and picture
+ * foreign keys cascade to its sessions, Google link, progress, activity, board entry, Arena
+ * history, and its friendships, friend requests, presence and notifications on both sides (feature 031). Other learners keep their matches against it, but without its name and picture
  * (feature 025): `ON DELETE SET NULL` only clears the opponent id, so they are blanked first.
  * False when there was no such account.
  */

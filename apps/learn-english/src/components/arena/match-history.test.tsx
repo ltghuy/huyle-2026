@@ -21,7 +21,7 @@ const WON: ArenaMatch = {
   won: true,
   forfeit: false,
   score: { mine: 2, theirs: 1 },
-  opponent: { name: "Lan", image: null },
+  opponent: { id: "lan", name: "Lan", image: null },
   settings: { mode: "mixed", level: "A2", rounds: 3 },
   rounds: [
     { round: 1, mine: 5, theirs: 3, won: true, suddenDeath: false, onTime: false },
@@ -29,7 +29,7 @@ const WON: ArenaMatch = {
     { round: 3, mine: 7, theirs: 6, won: true, suddenDeath: true, onTime: false },
   ],
 };
-const LOST_BY_FORFEIT: ArenaMatch = { ...WON, id: "m1", endedAt: NOW - 60_000, won: false, forfeit: true, score: { mine: 0, theirs: 0 }, opponent: { name: "Khoa", image: null }, rounds: [] };
+const LOST_BY_FORFEIT: ArenaMatch = { ...WON, id: "m1", endedAt: NOW - 60_000, won: false, forfeit: true, score: { mine: 0, theirs: 0 }, opponent: { id: "khoa", name: "Khoa", image: null }, rounds: [] };
 const DELETED: ArenaMatch = { ...WON, id: "m0", endedAt: NOW - 120_000, forfeit: true, opponent: null, settings: { mode: "listen", level: "A1", rounds: 1 }, score: { mine: 1, theirs: 0 }, rounds: [{ round: 1, mine: 6, theirs: 6, won: true, suddenDeath: true, onTime: true }] };
 
 let history: () => Response;
@@ -42,6 +42,7 @@ function stubFetch() {
       const url = String(input);
       if (url === "/api/auth/get-session") return Response.json(signedIn ? { user: { id: "minh", name: "Minh Anh", email: "m@example.com" }, session: {} } : null);
       if (url === "/api/arena/matches") return history();
+      if (url === "/api/social/pulse") return Response.json({ now: 1, friends: [], outgoing: [], incoming: [], unread: 0 });
       return new Response("{}", { status: 503 });
     }),
   );
@@ -60,6 +61,18 @@ beforeEach(async () => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("Lịch sử đấu page (feature 025)", () => {
+  it("offers Kết bạn for a past opponent, but not for a deleted one (feature 031, AC-002)", async () => {
+    render(<ArenaHistoryPage />);
+    const list = await screen.findByRole("list", { name: "Các trận gần đây" });
+    fireEvent.click(within(list).getAllByRole("button")[0]);
+    expect(await within(await screen.findByRole("dialog")).findByRole("button", { name: "Kết bạn" })).toBeInTheDocument();
+    fireEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: /close|đóng/i }));
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+    fireEvent.click(within(list).getAllByRole("button")[2]);
+    const deleted = await screen.findByRole("dialog");
+    expect(within(deleted).queryByRole("button", { name: "Kết bạn" })).not.toBeInTheDocument();
+  });
+
   it("lists the matches newest first with result, score, opponent, settings and time (AC-003, AC-004)", async () => {
     render(<ArenaHistoryPage />);
     const list = await screen.findByRole("list", { name: "Các trận gần đây" });

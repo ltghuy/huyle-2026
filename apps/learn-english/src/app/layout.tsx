@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { InlineScript } from "@/components/inline-script";
 import { QueryProvider } from "@/components/query-provider";
+import { PresenceRunner } from "@/components/social/presence-runner";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -54,6 +55,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <QueryProvider>
             <TooltipProvider>{children}</TooltipProvider>
+            {/* Friends see the learner online on every page, focus screens included (feature 031). */}
+            <PresenceRunner />
           </QueryProvider>
           <Toaster position="top-center" />
         </ThemeProvider>

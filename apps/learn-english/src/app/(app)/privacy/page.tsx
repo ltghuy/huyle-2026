@@ -32,9 +32,10 @@ const SECTIONS: LegalSection[] = [
       "Khi bạn đăng nhập với Google, ứng dụng chỉ nhận tên, địa chỉ email và ảnh đại diện. Ứng dụng không đọc được Gmail, Drive, danh bạ hay bất cứ thứ gì khác, và không bao giờ biết mật khẩu của bạn.",
       "Ứng dụng lưu tiến độ học trong tài khoản: từ và chủ điểm ngữ pháp đã học cùng lịch ôn tập, các bài học, chuỗi ngày học và điểm, câu trả lời trong bài tập (dùng để tìm từ khó), cùng các cài đặt học như trình độ, bộ từ đang học và tên gọi.",
       "Khi bạn đấu ở Đấu trường, ứng dụng lưu số trận thắng, thua cùng 50 trận gần nhất của bạn: kết quả, điểm từng hiệp, thời gian, và tên cùng ảnh đại diện mà đối thủ dùng trong trận.",
+      "Khi bạn kết bạn ở Đấu trường, ứng dụng lưu danh sách bạn bè, các lời mời kết bạn đã gửi và nhận, thông báo trong mục chuông, và lần cuối bạn mở ứng dụng (để bạn bè biết bạn đang trực tuyến hay không).",
       "Khi bạn báo một câu dịch bị chấm sai, câu trả lời đó và câu gốc được gửi cho chủ ứng dụng xem lại, không kèm tên hay email của bạn.",
       "Khi “Gửi thống kê ẩn danh” đang bật (trong Cài đặt), ứng dụng đếm số bài học hoàn thành, số bài kiểm tra trình độ, số câu đã làm theo từng dạng bài và những từ hay bị trả lời sai. Mỗi thiết bị chỉ được nhận diện bằng một mã đã mã hóa, đổi mỗi ngày. Với tài khoản, ứng dụng ghi thêm những tuần bạn có học và trên bao nhiêu thiết bị (mỗi thiết bị là một mã đã mã hóa).",
-      "Để biết bạn còn đăng nhập, trình duyệt giữ một cookie phiên. Địa chỉ IP của bạn chỉ được dùng để chặn việc gửi quá nhiều yêu cầu trong thời gian ngắn (đăng nhập, ghi bảng xếp hạng, tạo hoặc vào phòng đấu) và không được lưu lại.",
+      "Để biết bạn còn đăng nhập, trình duyệt giữ một cookie phiên. Địa chỉ IP của bạn chỉ được dùng để chặn việc gửi quá nhiều yêu cầu trong thời gian ngắn (đăng nhập, ghi bảng xếp hạng, tạo hoặc vào phòng đấu, gửi lời mời kết bạn) và không được lưu lại.",
     ],
   },
   {
@@ -44,6 +45,7 @@ const SECTIONS: LegalSection[] = [
       "đăng nhập và nhận ra tài khoản của bạn;",
       "đồng bộ tiến độ giữa các thiết bị, lên lịch ôn tập và tìm từ khó cho bạn;",
       "hiện bảng xếp hạng và tổ chức trận đấu ở Đấu trường, khi bạn chọn tham gia;",
+      "cho bạn kết bạn và cho bạn bè biết bạn đang trực tuyến;",
       "sửa những câu bị chấm sai mà bạn đã báo;",
       "đếm số liệu tổng để biết có bao nhiêu người học và cải thiện bài học;",
       "chống lạm dụng và giữ ứng dụng an toàn.",
@@ -54,6 +56,7 @@ const SECTIONS: LegalSection[] = [
     body: [
       "Chỉ khi bạn chọn tham gia bảng xếp hạng: tên gọi bạn tự đặt (hoặc tên Google nếu chưa đặt) và chuỗi ngày học của bạn; điểm chỉ dùng để xếp hạng khi bằng chuỗi, không hiện ra. Mỗi tài khoản Google chỉ có một chỗ trên bảng. Email không bao giờ hiện cho người khác.",
       "Ở Đấu trường, đối thủ thấy tên và ảnh đại diện của bạn trong trận, và sau đó trong lịch sử đấu của họ.",
+      "Chỉ những người bạn đã đồng ý kết bạn mới thấy tên và ảnh Google của bạn trong danh sách bạn bè, bạn có đang trực tuyến không và lần cuối bạn hoạt động. Người bạn gửi lời mời thấy tên và ảnh Google của bạn trong mục thông báo.",
       "Chủ ứng dụng chỉ xem được con số thống kê tổng, không xem được tên hay email gắn với số liệu nào.",
     ],
   },
@@ -73,7 +76,7 @@ const SECTIONS: LegalSection[] = [
     title: "Thời gian lưu trữ",
     body: [
       "Tài khoản và tiến độ được giữ cho đến khi bạn xóa tài khoản. Phiên đăng nhập kéo dài 30 ngày kể từ lần bạn dùng ứng dụng gần nhất.",
-      "Câu trả lời bạn báo chấm sai bị xóa 90 ngày sau khi được xem xét. Ai không học trong 90 ngày sẽ tự được xóa khỏi bảng xếp hạng. Đấu trường chỉ giữ 50 trận gần nhất của bạn.",
+      "Câu trả lời bạn báo chấm sai bị xóa 90 ngày sau khi được xem xét. Ai không học trong 90 ngày sẽ tự được xóa khỏi bảng xếp hạng. Đấu trường chỉ giữ 50 trận gần nhất của bạn. Thông báo bị xóa sau 30 ngày. Lời mời kết bạn bị từ chối được giữ 7 ngày để người gửi không mời lại ngay, rồi bị xóa.",
       "Nếu bạn từng dùng mã đồng bộ: mã cũ chỉ còn dùng được để gộp tiến độ vào tài khoản trong một thời gian ngắn. Sau khi gộp, hoặc khi hết thời gian đó, dữ liệu của mã bị xóa.",
     ],
   },
@@ -82,7 +85,7 @@ const SECTIONS: LegalSection[] = [
     body: ["Theo Nghị định 13/2023/NĐ-CP, bạn có quyền:"],
     list: [
       "được biết dữ liệu nào được xử lý và để làm gì: chính là trang này;",
-      "đồng ý hoặc rút lại sự đồng ý: tắt “Gửi thống kê ẩn danh”, rời bảng xếp hạng hoặc xóa tài khoản trong Cài đặt;",
+      "đồng ý hoặc rút lại sự đồng ý: tắt “Gửi thống kê ẩn danh”, rời bảng xếp hạng hoặc xóa tài khoản trong Cài đặt, xóa bạn trong danh sách bạn bè;",
       "xem và lấy bản sao dữ liệu: chọn “Xuất tiến độ” trong Cài đặt để tải tiến độ về máy;",
       "chỉnh sửa: đổi tên gọi trong Cài đặt; ứng dụng giữ tên và ảnh Google từ lần đăng nhập đầu tiên, muốn sửa thì liên hệ chủ ứng dụng (mục 10);",
       "xóa dữ liệu: chọn “Xóa tài khoản” trong Cài đặt;",
@@ -94,7 +97,7 @@ const SECTIONS: LegalSection[] = [
     body: [
       <>
         Vào{" "}
-        <LegalLink href="/settings#tai-khoan">Cài đặt</LegalLink>, chọn “Xóa tài khoản”: tài khoản, toàn bộ tiến độ, các tuần đã học, chỗ trên bảng xếp hạng và lịch sử đấu bị xóa ngay khỏi máy chủ và khỏi thiết bị, không lấy lại được. Trong lịch sử đấu của người từng đấu với bạn, tên và ảnh của bạn cũng bị xóa. Bạn có thể xuất tiến độ ra file trước.
+        <LegalLink href="/settings#tai-khoan">Cài đặt</LegalLink>, chọn “Xóa tài khoản”: tài khoản, toàn bộ tiến độ, các tuần đã học, chỗ trên bảng xếp hạng, lịch sử đấu, bạn bè, lời mời kết bạn và thông báo bị xóa ngay khỏi máy chủ và khỏi thiết bị, không lấy lại được. Trong lịch sử đấu của người từng đấu với bạn, tên và ảnh của bạn cũng bị xóa, và bạn biến mất khỏi danh sách bạn bè của mọi người. Bạn có thể xuất tiến độ ra file trước.
       </>,
       "Đăng xuất chỉ xóa tiến độ khỏi thiết bị đang dùng; tài khoản vẫn giữ nguyên và bạn đăng nhập lại là có lại tiến độ.",
       "Nếu không đăng nhập được để tự xóa, hãy liên hệ chủ ứng dụng (mục 10).",

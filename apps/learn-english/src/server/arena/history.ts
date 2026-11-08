@@ -94,7 +94,7 @@ function toMatch(row: typeof arenaMatches.$inferSelect): ArenaMatch {
     won: row.won,
     forfeit: row.forfeit,
     score: { mine: row.roundsWon, theirs: row.opponentRoundsWon },
-    opponent: row.opponentId && row.opponentName ? { name: row.opponentName, image: row.opponentImage } : null,
+    opponent: row.opponentId && row.opponentName ? { id: row.opponentId, name: row.opponentName, image: row.opponentImage } : null,
     // Written by the room from its validated settings.
     settings: { mode: row.mode, level: row.level, rounds: row.bestOf } as MatchSettings,
     // A row whose rounds don't parse still shows, without them.

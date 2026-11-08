@@ -2,6 +2,7 @@
 
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { ArenaMatch } from "@/server/arena/arena.schema";
+import { FriendButton } from "@/components/social/friend-button";
 import { cn } from "@/lib/utils";
 import { forfeitLabel, OpponentAvatar, resultLabel, scoreLabel } from "./match-parts";
 import { settingsLine } from "./settings-fields";
@@ -28,6 +29,8 @@ export function MatchDetails({ match, name, when }: { match: ArenaMatch; name: s
             </DialogTitle>
             <DialogDescription className="truncate">với {name}</DialogDescription>
           </div>
+          {/* A friend request to a past opponent, even while they're away (feature 031, AC-002). */}
+          {match.opponent ? <FriendButton userId={match.opponent.id} className="ml-auto shrink-0" /> : null}
         </div>
       </DialogHeader>
       <p className="text-sm text-muted-foreground">

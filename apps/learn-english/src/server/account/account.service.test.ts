@@ -3,6 +3,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { historyEntries } from "@/learning/arena/history";
 import { listHistory, recordMatch } from "@/server/arena/history";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
+import { respond, sendRequest } from "@/server/social/friends.service";
+import { pulse } from "@/server/social/pulse.service";
 import { deleteAccount } from "./account.service";
 
 const NOW = Date.parse("2026-11-05T13:14:00Z");
@@ -45,5 +47,19 @@ describe("deleteAccount", () => {
     expect(sqlite.prepare("SELECT user_id, opponent_id, opponent_name, opponent_image FROM arena_matches").all()).toEqual([
       { user_id: "minh", opponent_id: null, opponent_name: null, opponent_image: null },
     ]);
+  });
+
+  it("removes friendships, requests, presence and notifications both ways (feature 031)", async () => {
+    sqlite.exec(`INSERT INTO user (id, name, email, created_at, updated_at) VALUES ('khoa', 'Khoa', 'khoa@example.com', ${NOW}, ${NOW})`);
+    await sendRequest(db, "lan", "minh", NOW);
+    await respond(db, "minh", "lan", true, NOW);
+    await sendRequest(db, "khoa", "lan", NOW);
+    await pulse(db, "lan", NOW);
+
+    await deleteAccount(db, "lan");
+
+    const count = (table: string) => (sqlite.prepare(`SELECT count(*) AS n FROM ${table}`).get() as { n: number }).n;
+    expect([count("friendships"), count("friend_requests"), count("presence"), count("notifications")]).toEqual([0, 0, 0, 0]);
+    expect((await pulse(db, "minh", NOW)).friends).toEqual([]);
   });
 });

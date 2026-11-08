@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { CheckCircle2, Crown, Hourglass, WifiOff } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { PublicPlayer } from "@/learning/arena/protocol";
@@ -26,10 +27,12 @@ interface PlayerRowProps {
   showReady: boolean;
   /** What the seat is called when it isn't yours: "Đối thủ", or "Người chơi" for a spectator (feature 026). */
   otherLabel?: string;
+  /** Shown at the row's end, before the status: the friend button (feature 031). */
+  action?: ReactNode;
 }
 
 /** One seat in the lobby: avatar, name, "Bạn" / "Chủ phòng", and whether they're ready or away. */
-export function PlayerRow({ player, you, creator, showReady, otherLabel = "Đối thủ" }: PlayerRowProps) {
+export function PlayerRow({ player, you, creator, showReady, otherLabel = "Đối thủ", action }: PlayerRowProps) {
   return (
     <li className="flex min-h-14 items-center gap-3 rounded-xl border bg-card px-3 py-2">
       <PlayerAvatar player={player} you={you} />
@@ -45,6 +48,7 @@ export function PlayerRow({ player, you, creator, showReady, otherLabel = "Đố
           ) : null}
         </p>
       </div>
+      {action}
       {!player.connected ? (
         <span className="flex items-center gap-1 text-sm text-muted-foreground">
           <WifiOff aria-hidden className="size-4" /> Mất kết nối

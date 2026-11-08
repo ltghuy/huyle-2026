@@ -1,9 +1,19 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
+import { render } from "@/test-utils/render";
 import { describe, expect, it, vi } from "vitest";
 import { Lobby } from "./lobby";
 import { ME, RIVAL, player, publicRoom, roomHandle } from "./test-room";
 
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
+// Signed in as the viewer with no friends yet, so the friend button shows (feature 031).
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: "signed-in", account: { userId: "minh", name: "Viewer", email: "v@example.com", image: null } }),
+}));
+vi.mock("@/lib/social-client", async (original) => ({
+  ...(await original<typeof import("@/lib/social-client")>()),
+  pulse: async () => ({ now: 1, friends: [], outgoing: [], incoming: [], unread: 0 }),
+}));
+
 
 function lobby(overrides: Parameters<typeof publicRoom>[0] = {}, me = ME) {
   const handle = roomHandle(publicRoom(overrides));
@@ -42,6 +52,13 @@ describe("Lobby", () => {
     expect(rows[0]).toHaveTextContent("Chủ phòng");
     expect(rows[1]).toHaveTextContent("Lan");
     expect(rows[1]).toHaveTextContent("Đối thủ");
+  });
+
+  it("offers Kết bạn on the opponent's seat, not your own (feature 031, AC-001)", async () => {
+    lobby({ phase: "ready", players: [player(ME), player(RIVAL)], deadline: Date.now() + 30_000 });
+    const rows = within(screen.getByRole("list")).getAllByRole("listitem");
+    expect(await within(rows[1]).findByRole("button", { name: "Kết bạn" })).toBeInTheDocument();
+    expect(within(rows[0]).queryByRole("button", { name: "Kết bạn" })).not.toBeInTheDocument();
   });
 
   it("counts down the Ready window and sends Sẵn sàng (AC-007, AC-008)", () => {

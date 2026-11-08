@@ -9,6 +9,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { ROUND_RESULT_MS } from "@/learning/arena/machine";
 import type { PublicRoom } from "@/learning/arena/protocol";
 import { fetchArenaStats } from "@/lib/arena-client";
+import { FriendButton } from "@/components/social/friend-button";
 import { cn } from "@/lib/utils";
 import { ARENA_STATS_KEY } from "./arena-record";
 import { PlayerAvatar } from "./players";
@@ -125,6 +126,22 @@ function PickOpponent({ room, me, onPick }: { room: PublicRoom; me: string; onPi
   );
 }
 
+/** Who was in the match with a way to send them a friend request (feature 031, AC-001). */
+function MatchPeople({ players }: { players: PublicRoom["players"] }) {
+  if (players.length === 0) return null;
+  return (
+    <ul aria-label="Kết bạn" className="grid w-full max-w-xs gap-2">
+      {players.map((player) => (
+        <li key={player.id} className="flex items-center gap-3 rounded-xl border bg-background/60 px-3 py-2 text-left">
+          <PlayerAvatar player={player} you={false} className="size-8" />
+          <span className="min-w-0 flex-1 truncate text-sm font-medium">{player.name}</span>
+          <FriendButton userId={player.id} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /** A spectator's end of the match (feature 026): who won and each round, with no record and no rematch. */
 function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
   const winner = room.players.find((p) => p.id === room.winnerId);
@@ -147,6 +164,7 @@ function WatchedResult({ room, me }: { room: PublicRoom; me: string }) {
         </ul>
       ) : null}
       {room.rounds.some((round) => wonOnTime(round.scores)) ? <p className="max-w-sm text-sm text-muted-foreground">{ON_TIME}</p> : null}
+      <MatchPeople players={room.players} />
       {hostCanPick(room) ? (
         <p role="status" className="text-sm text-muted-foreground">
           {CHOOSING}
@@ -212,6 +230,8 @@ function PlayerResult({ room, me, onRematch, onPick }: MatchResultProps) {
           Thành tích: {stats.data.wins} thắng · {stats.data.losses} thua
         </p>
       ) : null}
+
+      <MatchPeople players={rival ? [rival] : []} />
 
       <div className="grid w-full max-w-xs gap-2">
         {picking ? (

@@ -7,6 +7,14 @@ import { MatchResult, RoundResult } from "./results";
 import { ME, RIVAL, player, publicRoom } from "./test-room";
 
 vi.mock("sonner", () => ({ toast: { error: vi.fn(), success: vi.fn() } }));
+// Signed in as Minh with no friends yet, so the friend button shows (feature 031).
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: "signed-in", account: { userId: "minh", name: "Minh Anh", email: "m@example.com", image: null } }),
+}));
+vi.mock("@/lib/social-client", async (original) => ({
+  ...(await original<typeof import("@/lib/social-client")>()),
+  pulse: async () => ({ now: 1, friends: [], outgoing: [], incoming: [], unread: 0 }),
+}));
 
 beforeEach(() => {
   vi.stubGlobal(
@@ -65,6 +73,13 @@ describe("RoundResult (AC-020)", () => {
 });
 
 describe("MatchResult (AC-022, AC-026, AC-027)", () => {
+  it("offers Kết bạn for the opponent at the end (feature 031, AC-001)", async () => {
+    render(<MatchResult room={ended()} me={ME} onRematch={vi.fn()} onPick={vi.fn()} />);
+    const people = screen.getByRole("list", { name: "Kết bạn" });
+    expect(people).toHaveTextContent("Lan");
+    expect(await screen.findByRole("button", { name: "Kết bạn" })).toBeInTheDocument();
+  });
+
   it("celebrates a win with the round scores and the updated record", async () => {
     render(<MatchResult room={ended()} me={ME} onRematch={vi.fn()} onPick={vi.fn()} />);
     expect(screen.getByRole("heading", { name: "Bạn thắng!" })).toBeInTheDocument();

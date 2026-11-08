@@ -7,6 +7,7 @@ import { Mascot } from "@/components/mascot/mascot";
 import { READY_MS } from "@/learning/arena/machine";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
+import { FriendButton } from "@/components/social/friend-button";
 import { PlayerRow } from "./players";
 import { isSpectating } from "./scoreboard";
 import { sameSettings, settingsLine } from "./settings-fields";
@@ -28,7 +29,15 @@ function WatchingLobby({ room }: { room: LobbyProps["handle"]["room"] }) {
         </h2>
         <ul className="grid gap-2">
           {room.players.map((player) => (
-            <PlayerRow key={player.id} player={player} you={false} creator={player.id === room.creatorId} showReady={room.phase === "ready"} otherLabel="Người chơi" />
+            <PlayerRow
+              key={player.id}
+              player={player}
+              you={false}
+              creator={player.id === room.creatorId}
+              showReady={room.phase === "ready"}
+              otherLabel="Người chơi"
+              action={<FriendButton userId={player.id} />}
+            />
           ))}
         </ul>
       </section>
@@ -76,7 +85,7 @@ function PlayerLobby({ handle, me }: LobbyProps) {
         <ul className="grid gap-2">
           {you ? <PlayerRow player={you} you creator={isCreator} showReady={windowOpen} /> : null}
           {rival ? (
-            <PlayerRow player={rival} you={false} creator={!isCreator} showReady={windowOpen} />
+            <PlayerRow player={rival} you={false} creator={!isCreator} showReady={windowOpen} action={<FriendButton userId={rival.id} />} />
           ) : (
             <li className="flex min-h-14 items-center gap-3 rounded-xl border border-dashed px-3 py-2 text-muted-foreground">
               <Mascot mood="think" size={36} />

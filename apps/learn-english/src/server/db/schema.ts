@@ -1,4 +1,4 @@
-import { blob, index, integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { blob, index, integer, primaryKey, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 // Published course content. One row per word, grammar topic, sentence,
 // writing task or placement item; `body` holds the kind-specific JSON
@@ -239,4 +239,71 @@ export const arenaMatches = sqliteTable(
     endedAt: integer("ended_at").notNull(),
   },
   (table) => [primaryKey({ columns: [table.matchId, table.userId] }), index("arena_matches_user_ended").on(table.userId, table.endedAt)],
+);
+
+// Arena friends (feature 031). A friendship is two mirrored rows, one per side, so a learner's
+// list is one indexed read. Both sides' rows go with either account.
+export const friendships = sqliteTable(
+  "friendships",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    friendId: text("friend_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    createdAt: integer("created_at").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.userId, table.friendId] })],
+);
+
+// Friend requests (feature 031). A pending row waits for the receiver; an answered one is
+// deleted, except a declined one, which stays for 7 days from `updated_at` so the sender can't
+// send again straight away (they aren't told it was declined).
+export const friendRequests = sqliteTable(
+  "friend_requests",
+  {
+    fromId: text("from_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    toId: text("to_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    status: text("status", { enum: ["pending", "declined"] }).notNull(),
+    /** Epoch ms: when it was sent, or when it was declined. */
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.fromId, table.toId] }), index("friend_requests_to").on(table.toId, table.status)],
+);
+
+// When each learner was last active (feature 031). The pulse writes it at most every 45 s; the
+// last tab's goodbye sets `left`. Online = not left and seen within the last 150 s.
+export const presence = sqliteTable("presence", {
+  userId: text("user_id")
+    .primaryKey()
+    .references(() => user.id, { onDelete: "cascade" }),
+  lastSeenAt: integer("last_seen_at").notNull(),
+  left: integer("left", { mode: "boolean" }).notNull().default(false),
+});
+
+// The notification bell (feature 031). One row per recipient, kind and actor, so a request sent
+// again replaces its notification. A row goes with either account; the bell keeps 30 days.
+export const notifications = sqliteTable(
+  "notifications",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    kind: text("kind", { enum: ["friend_request", "friend_added", "friend_accepted"] }).notNull(),
+    actorId: text("actor_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    createdAt: integer("created_at").notNull(),
+    readAt: integer("read_at"),
+  },
+  (table) => [
+    index("notifications_user_created").on(table.userId, table.createdAt),
+    uniqueIndex("notifications_user_kind_actor").on(table.userId, table.kind, table.actorId),
+  ],
 );

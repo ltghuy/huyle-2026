@@ -57,6 +57,13 @@
       "when": 1793888433964,
       "tag": "0007_arena_matches",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1794154326115,
+      "tag": "0008_social",
+      "breakpoints": true
     }
   ]
 }

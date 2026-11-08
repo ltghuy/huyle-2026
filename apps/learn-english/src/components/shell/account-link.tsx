@@ -6,6 +6,7 @@ import { CircleUserRound } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { AccountAvatar } from "@/components/account/account-avatar";
 import { SignInButton } from "@/components/account/sign-in-button";
+import { NotificationBell } from "@/components/social/notification-bell";
 import { useAccount } from "@/hooks/use-account";
 import { learnerName } from "@/lib/learner-name";
 import { useProfile } from "@/hooks/use-profile";
@@ -17,7 +18,8 @@ import { isActive } from "./nav";
  * of every page with navigation while it scrolls (quick 012). The zero-height
  * sticky row keeps it out of the page flow; PageHeader leaves room for it.
  * Behind it, a blurred band as tall as that room covers the content that
- * scrolls up under the corner (quick 018); it doesn't take clicks.
+ * scrolls up under the corner (quick 018); it doesn't take clicks. The
+ * notification bell sits first in the pill for signed-in learners (feature 031).
  */
 export function AccountLink() {
   const pathname = usePathname();
@@ -36,6 +38,8 @@ export function AccountLink() {
       />
       <div data-tour="account" className="pointer-events-auto absolute top-3 right-4 flex max-w-[calc(100%-2rem)] items-center gap-2 rounded-full bg-background/80 p-1 shadow-sm ring-1 ring-border/60 backdrop-blur md:top-5 md:right-8">
         {guest ? <SignInButton size="sm" className="h-9 rounded-full border-0 shadow-none md:h-8" /> : null}
+        {/* Friend requests and replies, signed-in learners only (feature 031). */}
+        <NotificationBell />
         {!guest && name ? (
           <p className="flex min-w-0 items-center gap-1.5 pl-2 font-medium">
             <span className="inline-block origin-[70%_70%] animate-wave" aria-hidden>

@@ -21,6 +21,7 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { SidebarFriends } from "@/components/social/sidebar-friends";
 import { LIBRARY_GROUP, NAV_ITEMS, type NavItem, isActive } from "./nav";
 
 const inLibrary = (href: string) => (LIBRARY_GROUP.hrefs as readonly string[]).includes(href);
@@ -131,6 +132,8 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        {/* Friends and who is online, signed-in learners only (feature 031). */}
+        <SidebarFriends />
       </SidebarContent>
       <SidebarFooter>
         {/* A menu row like the items above, so its icon and label line up with theirs (quick 015). */}

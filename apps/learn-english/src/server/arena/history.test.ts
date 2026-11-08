@@ -49,14 +49,14 @@ describe("arena match history (feature 025)", () => {
         won: true,
         forfeit: false,
         score: { mine: 1, theirs: 0 },
-        opponent: { name: "Lan", image: null },
+        opponent: { id: "lan", name: "Lan", image: null },
         // History doesn't record the question time (feature 028).
         settings: { mode: "listen", level: "A2", rounds: 1 },
         rounds: [{ round: 1, mine: 7, theirs: 5, won: true, suddenDeath: false, onTime: false }],
       },
     ]);
     const lan = await listHistory(db, "lan");
-    expect(lan.matches[0]).toMatchObject({ won: false, score: { mine: 0, theirs: 1 }, opponent: { name: "Minh Anh", image: "https://example.com/minh.png" } });
+    expect(lan.matches[0]).toMatchObject({ won: false, score: { mine: 0, theirs: 1 }, opponent: { id: "minh", name: "Minh Anh", image: "https://example.com/minh.png" } });
     expect(lan.matches[0].rounds[0]).toMatchObject({ mine: 5, theirs: 7, won: false });
   });
 

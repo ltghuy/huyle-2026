@@ -3,10 +3,13 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, type BrowserContext, type Page } from "@playwright/test";
 
-/** Learners seeded by `e2e/fixtures/users.sql` (feature 023); keep in step with it. */
+/** Learners seeded by `e2e/fixtures/users.sql` (features 023, 031); keep in step with it. */
 export const E2E_USERS = {
   minh: { id: "e2e-minh", name: "Minh Anh", token: "e2e-token-minh" },
   lan: { id: "e2e-lan", name: "Lan", token: "e2e-token-lan" },
+  // Only the friends spec uses these two (feature 031).
+  khoa: { id: "e2e-khoa", name: "Khoa", token: "e2e-token-khoa" },
+  hoa: { id: "e2e-hoa", name: "Hoa", token: "e2e-token-hoa" },
 } as const;
 
 /** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */

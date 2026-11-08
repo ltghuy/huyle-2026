@@ -60,6 +60,12 @@
       "name": "ARENA_LIMITER",
       "namespace_id": "1005",
       "simple": { "limit": 20, "period": 60 }
+    },
+    // Throttles sending friend requests per IP (feature 031).
+    {
+      "name": "SOCIAL_LIMITER",
+      "namespace_id": "1006",
+      "simple": { "limit": 20, "period": 60 }
     }
   ],
   // One live Arena room per room code (feature 023). SQLite-backed: the only

@@ -1,13 +1,22 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { PublicRoom } from "@/learning/arena/protocol";
+import { render } from "@/test-utils/render";
 import { Duel } from "./duel";
 import { Lobby } from "./lobby";
 import { ME, RIVAL, player, publicRoom, roomHandle } from "./test-room";
 
-// What a spectator sees (feature 026, AC-004, AC-005): the live room with each player named, and nothing to press.
+// What a spectator sees (feature 026, AC-004, AC-005): the live room with each player named, and nothing to press but "Kết bạn" (feature 031).
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn() }) }));
+// Signed in as the viewer with no friends yet, so the friend button shows (feature 031).
+vi.mock("@/hooks/use-account", () => ({
+  useAccount: () => ({ status: "signed-in", account: { userId: "an", name: "Viewer", email: "v@example.com", image: null } }),
+}));
+vi.mock("@/lib/social-client", async (original) => ({
+  ...(await original<typeof import("@/lib/social-client")>()),
+  pulse: async () => ({ now: 1, friends: [], outgoing: [], incoming: [], unread: 0 }),
+}));
 
 const NOW = 1_800_000_000_000;
 const WATCHER = "an";
@@ -77,13 +86,16 @@ describe("a spectator in the match", () => {
 });
 
 describe("a spectator in the lobby", () => {
-  it("sees both seats and their Ready marks, with no Ready or start button", () => {
+  it("sees both seats and their Ready marks, with no Ready or start button, only Kết bạn (feature 031)", async () => {
+    // The friend buttons wait on the social query, which needs real timers.
+    vi.useRealTimers();
     const room = watched({ phase: "ready", players: [player(ME, { ready: true }), player(RIVAL)], question: null });
     render(<Lobby handle={{ ...roomHandle(room), room }} me={WATCHER} />);
     expect(screen.getByText("Minh Anh")).toBeInTheDocument();
     expect(screen.getByText("Lan")).toBeInTheDocument();
     expect(screen.getByText("Sẵn sàng")).toBeInTheDocument();
-    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+    expect(await screen.findAllByRole("button", { name: "Kết bạn" })).toHaveLength(2);
+    expect(screen.queryByRole("button", { name: /Sẵn sàng|Bắt đầu/ })).not.toBeInTheDocument();
     expect(screen.getByText("Đang chờ hai người chơi bấm Sẵn sàng…")).toBeInTheDocument();
   });
 });
