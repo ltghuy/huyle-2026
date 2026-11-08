@@ -26,7 +26,7 @@ The home page is a plain dashboard: a "Bài học hôm nay" title, the streak an
 |---------|--------|
 | Copying the reference's copy, colours, mascot or branding | Only its structure is borrowed; Streak Daily keeps its own theme and words |
 | A top navigation bar, search or sign-in | The app keeps its sidebar, is account-free and has search in Từ vựng |
-| A footer with contacts or donations | Not asked for; credits already sit in the sidebar |
+| Contacts or donations in the footer | Not asked for; credits already sit in the sidebar |
 | Scroll-triggered animation libraries | Subtle CSS only, no new dependency |
 
 ## User Stories
@@ -61,6 +61,7 @@ The home page is a plain dashboard: a "Bài học hôm nay" title, the streak an
 **Acceptance Criteria:**
 
 - [x] AC-006: WHEN a learner opens `/profile` THEN system SHALL show the same hero as the home page at a smaller size (pill "Mỗi ngày bạn lại tiến thêm một chút", `h1` "Hồ sơ của bạn" in plain text, one line of text), the "Chuyên cần" and "Tiến bộ" sections with the home page's section headings (eyebrow, `h2`, one line), the stat cards with the same icon chips as the home page's streak and points, and the closing band; their content and behavior are unchanged
+- [x] AC-007: WHEN a visitor scrolls to the end of the home page THEN system SHALL show a footer with the copyright line, a note naming Nghị định 13/2023/NĐ-CP (personal data) and 147/2024/NĐ-CP (network services), and links to `/privacy` and `/terms` (quick 055; since feature 029 the same footer ends every page with navigation, see 029 AC-006)
 
 ## Edge Cases
 

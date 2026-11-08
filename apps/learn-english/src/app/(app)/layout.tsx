@@ -4,6 +4,7 @@ import { GuestNotice } from "@/components/account/guest-notice";
 import { AccountLink } from "@/components/shell/account-link";
 import { AppSidebar } from "@/components/shell/app-sidebar";
 import { BackToTop } from "@/components/shell/back-to-top";
+import { SiteFooter } from "@/components/shell/site-footer";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { StorageBanner } from "@/components/shell/storage-banner";
 import { StatsRunner } from "@/components/stats/stats-runner";
@@ -22,7 +23,10 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
         <StorageBanner />
         <AccountLink />
         {/* Bottom padding keeps content clear of the mobile nav (h-14 + safe area). */}
-        <main className="flex-1 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-8">{children}</main>
+        <main className="flex flex-1 flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-8">
+          {children}
+          <SiteFooter />
+        </main>
       </SidebarInset>
       <MobileNav />
       <BackToTop />
