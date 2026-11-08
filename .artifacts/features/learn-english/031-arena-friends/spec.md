@@ -3,7 +3,7 @@ id: 031
 feature: arena-friends
 type: brownfield
 scope: large
-status: to-review
+status: done
 branch: main
 created: 2026-11-08
 ---
@@ -20,10 +20,10 @@ Requests often go to someone who isn't online, for example when a learner goes b
 
 ## Goals
 
-- [ ] A learner can send a friend request to the opponent of a duel they just played, and the other learner can accept it, without leaving the app or swapping codes
-- [ ] A signed-in learner sees all their friends in the sidebar on every app page, with who is online now and when each offline friend was last active
-- [ ] Nobody appears in another learner's friends list without having accepted
-- [ ] A learner who was offline when a request arrived sees it in the bell as soon as they open the app, and can answer it from there
+- [x] A learner can send a friend request to the opponent of a duel they just played, and the other learner can accept it, without leaving the app or swapping codes
+- [x] A signed-in learner sees all their friends in the sidebar on every app page, with who is online now and when each offline friend was last active
+- [x] Nobody appears in another learner's friends list without having accepted
+- [x] A learner who was offline when a request arrived sees it in the bell as soon as they open the app, and can answer it from there
 
 ## Out of Scope
 
@@ -140,11 +140,11 @@ The Đấu trường hub today. The friends section goes in the empty sidebar sp
 
 ## Success Criteria
 
-- [ ] Two learners on different devices go from a finished duel to being friends in under 30 seconds
-- [ ] A friend's online or offline change shows up in the other learner's sidebar within two minutes in every test
-- [ ] A request sent while the receiver is offline is in their bell the first time they open the app afterwards, in every test
-- [ ] A learner never appears in a list of someone whose request they did not accept, including when the service is called directly
-- [ ] The service stays on the current free hosting plan at today's traffic
+- [x] Two learners on different devices go from a finished duel to being friends in under 30 seconds
+- [x] A friend's online or offline change shows up in the other learner's sidebar within two minutes in every test
+- [x] A request sent while the receiver is offline is in their bell the first time they open the app afterwards, in every test
+- [x] A learner never appears in a list of someone whose request they did not accept, including when the service is called directly
+- [x] The service stays on the current free hosting plan at today's traffic
 
 ## Open Questions
 
