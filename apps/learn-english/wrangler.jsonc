@@ -12,13 +12,11 @@
   },
   // Plain values (feature 022). `.dev.vars` overrides them locally (BETTER_AUTH_URL=http://localhost:3002).
   // Secrets are set with `wrangler secret put`: STATS_SALT, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID,
-  // GOOGLE_CLIENT_SECRET. SYNC_CODES_UNTIL: the last day (UTC) an old sync code can be merged into
-  // an account; release (2026-11-04) + 7 days. After it, /api/sync answers 410.
+  // GOOGLE_CLIENT_SECRET.
   "vars": {
-    "BETTER_AUTH_URL": "https://english.huyle.work",
-    "SYNC_CODES_UNTIL": "2026-11-11"
+    "BETTER_AUTH_URL": "https://english.huyle.work"
   },
-  // Content, sync blobs and anonymous stats. Local dev and preview use a
+  // Content, account progress and anonymous stats. Local dev and preview use a
   // local SQLite copy; `--remote` commands hit this database.
   "d1_databases": [
     {
@@ -30,13 +28,8 @@
       "migrations_dir": "migrations"
     }
   ],
-  // Throttles wrong sync-code lookups per IP (brute-force guard).
+  // Namespace 1001 was the sync-code lookup limiter (removed in feature 037); don't reuse it.
   "ratelimits": [
-    {
-      "name": "SYNC_LOOKUP_LIMITER",
-      "namespace_id": "1001",
-      "simple": { "limit": 10, "period": 60 }
-    },
     // Throttles leaderboard writes per IP (feature 007); a learner posts about once a day.
     {
       "name": "LEADERBOARD_LIMITER",

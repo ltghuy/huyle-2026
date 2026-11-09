@@ -169,7 +169,7 @@ export function AiGradingSetting() {
           Bài &ldquo;Dịch câu&rdquo; thường chỉ chấm đúng khi câu của bạn giống đáp án. Thêm khóa API miễn phí của Google AI Studio để AI chấm câu của bạn theo nghĩa: viết khác mà đúng vẫn được tính là đúng, viết sai thì AI giải thích chỗ sai. Với &ldquo;Bài viết&rdquo;, AI nhận xét ngữ pháp, từ vựng, ý nghĩa và sửa bài cho bạn.
         </p>
         <p>
-          Khóa chỉ lưu trên thiết bị này, không gửi lên máy chủ của ứng dụng và không có trong bản sao lưu hay mã đồng bộ. Khi bạn đăng xuất, khóa cũng bị xóa. Mỗi lần chấm, đề bài tiếng Việt và bài bạn viết được gửi thẳng tới Google.
+          Khóa chỉ lưu trên thiết bị này, không gửi lên máy chủ của ứng dụng và không có trong bản sao lưu hay tiến độ đồng bộ với tài khoản. Khi bạn đăng xuất, khóa cũng bị xóa. Mỗi lần chấm, đề bài tiếng Việt và bài bạn viết được gửi thẳng tới Google.
         </p>
         <p>
           Ở gói miễn phí, Google có thể dùng và cho người đọc nội dung được gửi để cải thiện sản phẩm, nên đừng viết thông tin cá nhân vào bài. Google yêu cầu người dùng khóa từ 18 tuổi trở lên và không mở gói miễn phí ở Liên minh châu Âu, Anh và Thụy Sĩ.

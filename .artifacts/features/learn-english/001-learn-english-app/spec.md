@@ -200,11 +200,11 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [x] AC-047: WHEN a learner turns on sync in settings THEN system SHALL create a sync code that is easy to read and type, show it with a copy button, explain in Vietnamese that anyone with the code can see and change this progress, and upload the current progress
+- [x] AC-047: WHEN a learner turns on sync in settings THEN system SHALL create a sync code that is easy to read and type, show it with a copy button, explain in Vietnamese that anyone with the code can see and change this progress, and upload the current progress *(Removed in feature 037: sync codes no longer exist.)*
 - [x] AC-048: WHEN sync is on and progress changes THEN system SHALL upload the change within a minute while online, and as soon as the connection returns when offline
-- [x] AC-049: WHEN a learner enters a sync code on another device THEN system SHALL show what the synced progress contains (words learned, points, last updated) and, after confirmation, link the device and keep it in sync from then on
+- [x] AC-049: WHEN a learner enters a sync code on another device THEN system SHALL show what the synced progress contains (words learned, points, last updated) and, after confirmation, link the device and keep it in sync from then on *(Removed in feature 037: sync codes no longer exist.)*
 - [x] AC-050: WHEN two linked devices both changed progress since they last synced THEN system SHALL combine the changes without losing any answer or attendance day and without awarding a day's points twice
-- [x] AC-051: WHEN a learner turns sync off on a device THEN system SHALL unlink that device; WHEN they choose "delete synced data" THEN system SHALL remove the stored progress from the server after confirmation
+- [x] AC-051: WHEN a learner turns sync off on a device THEN system SHALL unlink that device; WHEN they choose "delete synced data" THEN system SHALL remove the stored progress from the server after confirmation *(Removed in feature 037: sync codes no longer exist.)*
 
 ### P1: Content updates without a new release
 

@@ -43,7 +43,7 @@ export async function readBackupFile(file: Blob): Promise<ParseResult> {
 
 /**
  * Replaces all progress with the snapshot (AC-043). This browser keeps its own
- * `deviceId` and sync link, which never travel in a backup. When the device is
+ * `deviceId`, which never travels in a backup. When the device is
  * linked to an account (feature 022), the file is merged in instead, so it
  * can't wipe the account's progress, and the link stays.
  */
@@ -54,19 +54,17 @@ export async function applySnapshot(snapshot: Snapshot): Promise<"merged" | "rep
     return "merged";
   }
   const profile: Profile = { ...snapshot.data.meta, deviceId: local?.deviceId ?? crypto.randomUUID() };
-  if (local?.sync) profile.sync = local.sync;
   const { cards, attempts, lessons, extraLessons, claims, attendance } = snapshot.data;
   await replaceAll({ profile, cards, attempts, lessons, extraLessons, claims, attendance });
   return "replaced";
 }
 
 /**
- * The gentle 14-day reminder: there is progress worth keeping, sync is off,
- * and no backup was made in the last 14 days (counted from the first visit
+ * The gentle 14-day reminder: there is progress worth keeping and no backup was made in the last 14 days (counted from the first visit
  * when there has never been one).
  */
 export function needsBackupReminder(profile: Profile, cardCount: number, now: number): boolean {
-  if (cardCount === 0 || profile.sync) return false;
+  if (cardCount === 0) return false;
   return now - (profile.lastBackupAt ?? profile.createdAt) >= BACKUP_REMINDER_DAYS * DAY_MS;
 }
 

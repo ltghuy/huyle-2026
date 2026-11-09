@@ -6,11 +6,8 @@ import { z } from "zod";
 const envSchema = z.object({
   // Salt for the daily device hash in usage stats.
   STATS_SALT: z.string().min(32),
-  // Largest gzipped sync snapshot the server stores.
+  // Largest gzipped progress snapshot the server stores for an account.
   SYNC_MAX_BYTES: z.coerce.number().int().positive().default(1_048_576),
-  // Last day (UTC, inclusive) an old sync code can be merged into an account (feature 022, AC-020/021).
-  // Unset means codes are still read as before.
-  SYNC_CODES_UNTIL: z.iso.date().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

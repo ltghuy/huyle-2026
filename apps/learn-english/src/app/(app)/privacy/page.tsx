@@ -78,7 +78,7 @@ const SECTIONS: LegalSection[] = [
     body: [
       "Tài khoản và tiến độ được giữ cho đến khi bạn xóa tài khoản. Phiên đăng nhập kéo dài 30 ngày kể từ lần bạn dùng ứng dụng gần nhất.",
       "Câu trả lời bạn báo chấm sai bị xóa 90 ngày sau khi được xem xét. Ai không học trong 90 ngày sẽ tự được xóa khỏi bảng xếp hạng. Đấu trường chỉ giữ 50 trận gần nhất của bạn. Thông báo bị xóa sau 30 ngày. Lời mời kết bạn bị từ chối được giữ 7 ngày để người gửi không mời lại ngay, rồi bị xóa.",
-      "Nếu bạn từng dùng mã đồng bộ: mã cũ chỉ còn dùng được để gộp tiến độ vào tài khoản trong một thời gian ngắn. Sau khi gộp, hoặc khi hết thời gian đó, dữ liệu của mã bị xóa.",
+      "Mã đồng bộ cũ đã ngừng hoạt động và không còn dùng được. Dữ liệu còn lại của các mã cũ sẽ được xóa khỏi máy chủ.",
     ],
   },
   {

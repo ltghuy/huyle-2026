@@ -164,6 +164,7 @@ export interface Attendance {
 
 export type PlacementStatus = "pending" | "skipped" | "done";
 
+/** A sync code link, left in profiles saved before feature 037 removed sync codes; never read. */
 export interface SyncState {
   code: string;
   rev: number;
@@ -181,6 +182,7 @@ export interface Profile {
   createdAt: number;
   timeZone: string;
   lastBackupAt?: number;
+  /** @deprecated Left over from sync codes (removed in feature 037); kept so it never reaches a snapshot. */
   sync?: SyncState;
   statsOptOut: boolean;
   /**

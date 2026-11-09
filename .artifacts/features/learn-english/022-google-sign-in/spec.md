@@ -91,8 +91,8 @@ This reverses feature 001's decision "Users and progress storage" (no sign-in). 
 **Acceptance Criteria:**
 
 - [ ] AC-019: WHEN this feature ships THEN system SHALL stop creating new sync codes and say in Settings that the account now keeps progress in step across devices
-- [ ] AC-020: WHEN a signed-in learner enters an existing sync code within 7 days of release THEN system SHALL merge that code's progress into the account (as in AC-015) and retire the code
-- [ ] AC-021: WHEN 7 days have passed since release THEN system SHALL stop accepting sync codes and delete the progress stored under them
+- [ ] AC-020: WHEN a signed-in learner enters an existing sync code within 7 days of release THEN system SHALL merge that code's progress into the account (as in AC-015) and retire the code *(Removed in feature 037: sync codes no longer exist.)*
+- [ ] AC-021: WHEN 7 days have passed since release THEN system SHALL stop accepting sync codes and delete the progress stored under them *(Removed in feature 037: sync codes no longer exist.)*
 
 ### P2: Account and personal data
 

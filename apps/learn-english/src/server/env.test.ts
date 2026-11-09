@@ -21,19 +21,6 @@ describe("getEnv", () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     expect(() => getEnv()).toThrow("Invalid environment variables");
   });
-
-  it("reads the sync-code cut-off when set and rejects a bad date", async () => {
-    env.STATS_SALT = "x".repeat(32);
-    env.SYNC_CODES_UNTIL = "2026-11-17";
-    const { getEnv } = await import("./env");
-    expect(getEnv().SYNC_CODES_UNTIL).toBe("2026-11-17");
-
-    vi.resetModules();
-    env.SYNC_CODES_UNTIL = "17/11/2026";
-    const fresh = await import("./env");
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    expect(() => fresh.getEnv()).toThrow("Invalid environment variables");
-  });
 });
 
 describe("getAuthEnv", () => {

@@ -15,7 +15,6 @@ import { LevelSetting } from "@/components/settings/level-setting";
 import { NameSetting } from "@/components/settings/name-setting";
 import { SoundToggle } from "@/components/settings/sound-toggle";
 import { StatsToggle } from "@/components/settings/stats-toggle";
-import { SyncPanel } from "@/components/settings/sync-panel";
 import { PageHeader } from "@/components/shell/page-header";
 import { cn } from "@/lib/utils";
 
@@ -84,8 +83,6 @@ export default function SettingsPage() {
         </Card>
 
         <BackupPanel />
-
-        <SyncPanel />
 
         <Card id="bang-xep-hang" className="scroll-mt-20">
           <CardHeader>

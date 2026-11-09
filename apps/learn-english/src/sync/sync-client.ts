@@ -7,18 +7,16 @@ import {
   decodeSnapshot,
   encodeSnapshot,
   progressSummary,
-  summarize,
   type LearnerState,
   type ProgressSummary,
   type Snapshot,
   type SnapshotData,
 } from "@/learning/snapshot";
 import type { AccountLink, Profile } from "@/learning/types";
-import { formatSyncCode, normalizeSyncCode } from "@/server/sync/code";
 import { subscribeChanges } from "@/storage/broadcast";
 import { getProfile, updateProfile } from "@/storage/meta";
 import { readLearnerState, replaceAll } from "@/storage/replace";
-import { createRemote, deleteRemote, getAccountRemote, getRemote, isTransient, putAccountRemote, putRemote, SyncError } from "./api";
+import { getAccountRemote, isTransient, putAccountRemote, SyncError } from "./api";
 
 // Browser side of sync (AC-047–AC-051). No React here.
 //
@@ -30,10 +28,10 @@ import { createRemote, deleteRemote, getAccountRemote, getRemote, isTransient, p
 // profile.sync bookkeeping) never cause an upload loop: they leave the
 // fingerprint unchanged and the check ends without a request.
 //
-// Two kinds of server copy share that machinery (feature 022): the signed-in
-// account's (`/api/progress`, bookkeeping in the device-only `profile.account`)
-// and, until they retire, sync codes (`/api/sync`, bookkeeping in `profile.sync`).
-// A `SyncTarget` says where the copy lives and where its bookkeeping goes.
+// The server copy is the signed-in account's (`/api/progress`, feature 022), with
+// its bookkeeping in the device-only `profile.account`. Sync codes (`/api/sync`)
+// were removed in feature 037. A `SyncTarget` says where the copy lives and
+// where its bookkeeping goes.
 
 export { SyncError, SYNC_ERROR_MESSAGES, type SyncErrorKind } from "./api";
 
@@ -56,7 +54,7 @@ interface SyncMark {
 }
 
 interface SyncTarget {
-  /** Scopes the stored fingerprint, so a code and an account never share one. */
+  /** Scopes the stored fingerprint, so two accounts on one browser never share one. */
   key: string;
   read(profile: Profile | undefined): SyncMark | undefined;
   /** The profile with `mark` recorded, for the merged state written by `replaceAll`. */
@@ -64,19 +62,6 @@ interface SyncTarget {
   save(mark: SyncMark, now: number): Promise<void>;
   get(): Promise<{ rev: number; data: string; updatedAt: number }>;
   put(rev: number, data: string, profile: Profile, keepalive: boolean): Promise<{ rev: number }>;
-}
-
-function codeTarget(code: string): SyncTarget {
-  return {
-    key: code,
-    read: (profile) => (profile?.sync?.code === code ? profile.sync : undefined),
-    apply: (profile, mark) => ({ ...profile, sync: { code, ...mark } }),
-    async save(mark, now) {
-      await updateProfile({ sync: { code, ...mark } }, now);
-    },
-    get: () => getRemote(code),
-    put: (rev, data, _profile, keepalive) => putRemote(code, rev, data, { keepalive }),
-  };
 }
 
 function accountTarget(userId: string): SyncTarget {
@@ -103,19 +88,10 @@ function accountTarget(userId: string): SyncTarget {
   };
 }
 
-/** Where this device syncs to now: the signed-in account, else a linked sync code, else nowhere. */
+/** Where this device syncs to now: the signed-in account, else nowhere. */
 function activeTarget(profile: Profile | undefined): SyncTarget | null {
   if (profile?.account && !profile.account.expired) return accountTarget(profile.account.userId);
-  if (profile?.sync) return codeTarget(profile.sync.code);
   return null;
-}
-
-export interface SyncPreview {
-  /** The code, formatted XXXX-XXXX-XXXX. */
-  code: string;
-  rev: number;
-  updatedAt: number;
-  summary: Snapshot["summary"];
 }
 
 // ---------------------------------------------------------------------------
@@ -197,12 +173,6 @@ async function fetchRemote(target: SyncTarget): Promise<Remote> {
   return { rev, updatedAt, snapshot: parsed.snapshot };
 }
 
-function toCode(input: string): string {
-  const normalised = normalizeSyncCode(input);
-  if (normalised === null) throw new SyncError("invalid-code");
-  return formatSyncCode(normalised);
-}
-
 async function markDirty(target: SyncTarget, now: number): Promise<void> {
   const current = target.read(await getProfile());
   if (current && !current.dirty) await target.save({ ...current, dirty: true }, now);
@@ -256,14 +226,10 @@ async function reconcile(target: SyncTarget, startRev: number, firstRemote: Remo
   throw new SyncError("conflict");
 }
 
-/**
- * After a failed step: a code the server forgot (deleted from another device) is unlinked here too;
- * a session that ended marks the account expired, so the learner is asked to sign in again (AC-006).
- */
+/** After a failed step: a session that ended marks the account expired, so the learner is asked to sign in again (AC-006). */
 async function handleFailure(error: unknown, target: SyncTarget): Promise<never> {
   if (error instanceof SyncError) {
     const profile = await getProfile();
-    if (error.kind === "not-found" && profile?.sync && target.key === profile.sync.code) await unlinkSync();
     if (error.kind === "unauthorized" && profile?.account && target.key === `account:${profile.account.userId}`) {
       await updateProfile({ account: { ...profile.account, expired: true } }, Date.now());
     }
@@ -273,41 +239,6 @@ async function handleFailure(error: unknown, target: SyncTarget): Promise<never>
 
 // ---------------------------------------------------------------------------
 // Public API
-
-/** Turns sync on: uploads the current progress and stores the new code (AC-047). Returns the code. */
-export function turnOnSync(): Promise<string> {
-  return withLock(async () => {
-    const now = Date.now();
-    const state = await readLearnerState(now);
-    const { base64, fingerprint: fp } = await encode(state, now);
-    const { code, rev } = await createRemote(base64);
-    await updateProfile({ sync: { code, rev, lastSyncedAt: now, dirty: false } }, now);
-    writeFingerprint(code, fp);
-    return code;
-  });
-}
-
-/** What the synced progress behind `code` contains, for the confirm dialog (AC-049). */
-export async function previewSync(input: string): Promise<SyncPreview> {
-  const code = toCode(input);
-  const remote = await fetchRemote(codeTarget(code));
-  const { data } = remote.snapshot;
-  const today = localDate(Date.now(), data.meta.timeZone);
-  return { code, rev: remote.rev, updatedAt: remote.updatedAt, summary: summarize(data, today) };
-}
-
-/** Links this device: merges the synced progress into local progress and uploads the result (AC-049, AC-050). */
-export function linkSync(input: string): Promise<void> {
-  const code = toCode(input);
-  return withLock(async () => {
-    const target = codeTarget(code);
-    const remote = await fetchRemote(target);
-    await reconcile(target, remote.rev, remote).catch((error: unknown) => {
-      // Linked and merged locally; the upload is retried by auto sync.
-      if (!isTransient(error)) throw error;
-    });
-  });
-}
 
 /**
  * Uploads local changes if there are any (409 → fetch, merge, apply, retry).
@@ -347,28 +278,6 @@ export function syncNow(): Promise<void> {
   });
 }
 
-/** Turns sync off on this device only; the synced copy stays on the server (AC-051). */
-export async function unlinkSync(): Promise<void> {
-  const sync = (await getProfile())?.sync;
-  await updateProfile({ sync: undefined }, Date.now());
-  if (sync) writeFingerprint(sync.code, undefined);
-}
-
-/** Deletes the synced copy from the server, then unlinks this device (AC-051). */
-export function deleteSyncedData(): Promise<void> {
-  return withLock(async () => {
-    const sync = (await getProfile())?.sync;
-    if (!sync) return;
-    try {
-      await deleteRemote(sync.code);
-    } catch (error) {
-      // Already gone is fine.
-      if (!(error instanceof SyncError && error.kind === "not-found")) throw error;
-    }
-    await unlinkSync();
-  });
-}
-
 /** The account as the session reports it (feature 022). */
 export type AccountIdentity = Pick<AccountLink, "userId" | "name" | "email" | "image">;
 
@@ -399,29 +308,6 @@ export function linkAccount(account: AccountIdentity): Promise<ProgressSummary> 
     const state = await readLearnerState(Date.now());
     return progressSummary(state, localDate(Date.now(), state.profile.timeZone));
   });
-}
-
-/**
- * Brings an old sync code's progress into this device and so into the account (feature 022,
- * AC-020): merges it in, deletes the code's copy and unlinks it; the account sync then uploads the
- * merge. `input` may be a code typed in or this device's own linked code.
- */
-export async function mergeSyncCode(input: string): Promise<ProgressSummary> {
-  const code = toCode(input);
-  await withLock(async () => {
-    const remote = await fetchRemote(codeTarget(code));
-    const now = Date.now();
-    await replaceAll(mergeSnapshots(await readLearnerState(now), remote.snapshot.data));
-    try {
-      await deleteRemote(code);
-    } catch (error) {
-      if (!(error instanceof SyncError && error.kind === "not-found")) throw error;
-    }
-    if ((await getProfile())?.sync?.code === code) await unlinkSync();
-  });
-  await pushNow().catch(() => {}); // auto sync retries
-  const state = await readLearnerState(Date.now());
-  return progressSummary(state, localDate(Date.now(), state.profile.timeZone));
 }
 
 /** Whether this device's progress has reached the account at least once (AC-018). */

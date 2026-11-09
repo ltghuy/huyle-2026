@@ -118,7 +118,8 @@ describe("BackupPanel", () => {
     await waitFor(async () => expect((await getAllCards()).map((card) => card.itemId)).toEqual(["word:apple", "word:cat"]));
     expect((await getAllAttempts()).map((attempt) => attempt.id)).toEqual(["other-1"]);
     expect((await getAllAttendance()).map((row) => row.date)).toEqual(["2026-10-25"]);
-    expect(await getProfile()).toMatchObject({ displayName: "Gia Huy", level: "A2", tourSeen: true, deviceId: "local-device", sync: LOCAL_SYNC });
+    expect(await getProfile()).toMatchObject({ displayName: "Gia Huy", level: "A2", tourSeen: true, deviceId: "local-device" });
+    expect((await getProfile())?.sync).toBeUndefined();
   });
 
   it("merges a file into a signed-in learner's progress instead of replacing it, keeping the account (022)", async () => {
@@ -166,7 +167,8 @@ describe("backup reminder", () => {
     expect(needsBackupReminder(profile({ lastBackupAt: now - 15 * DAY_MS }), 1, now)).toBe(true);
     expect(needsBackupReminder(profile({ lastBackupAt: now - 3 * DAY_MS }), 1, now)).toBe(false);
     expect(needsBackupReminder(profile({}), 0, now)).toBe(false);
-    expect(needsBackupReminder(profile({ sync: LOCAL_SYNC }), 1, now)).toBe(false);
+    // A sync code left over from before feature 037 no longer keeps the progress anywhere.
+    expect(needsBackupReminder(profile({ sync: LOCAL_SYNC }), 1, now)).toBe(true);
     expect(needsBackupReminder(profile({ createdAt: now - DAY_MS }), 1, now)).toBe(false);
   });
 
