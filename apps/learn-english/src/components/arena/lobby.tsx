@@ -5,6 +5,7 @@ import { Check, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Mascot } from "@/components/mascot/mascot";
 import { READY_MS } from "@/learning/arena/machine";
+import { ChallengeFriends } from "./challenge-friends";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
 import { FriendButton } from "@/components/social/friend-button";
@@ -94,6 +95,11 @@ function PlayerLobby({ handle, me }: LobbyProps) {
           )}
         </ul>
       </section>
+
+      {/* While the seat is free, the host can challenge an online friend (feature 035). */}
+      {isCreator && !rival && room.phase === "lobby" ? (
+        <ChallengeFriends code={room.code} hostName={you?.name} inRoom={[...room.players.map((p) => p.id), ...room.spectators.map((s) => s.id)]} />
+      ) : null}
 
       {windowOpen ? (
         <section aria-label="Sẵn sàng" className="grid justify-items-center gap-3">

@@ -8,11 +8,15 @@ vi.mock("@/server/auth/session", () => ({
       ? { user: { id: "minh", name: "Minh Anh", email: "minh@example.com", image: null } }
       : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
 }));
-vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env: { ARENA_ROOM: {} } }) }));
+vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env: { ARENA_ROOM: {}, LEARNER_LINK: {} } }) }));
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
 vi.mock("@/server/env", () => ({ getArenaEnv: () => ({ ARENA_SECRET: "s".repeat(32) }) }));
 vi.mock("@/server/arena/request", async (original) => ({
   ...(await original<typeof import("@/server/arena/request")>()),
+  isThrottled: async () => throttled,
+}));
+vi.mock("@/server/social/request", async (original) => ({
+  ...(await original<typeof import("@/server/social/request")>()),
   isThrottled: async () => throttled,
 }));
 const createRoom = vi.fn();
@@ -27,7 +31,18 @@ vi.mock("@/server/arena/stats", () => ({ getStats: (...args: unknown[]) => getSt
 const listHistory = vi.fn();
 vi.mock("@/server/arena/history", () => ({ listHistory: (...args: unknown[]) => listHistory(...args) }));
 
+const sendChallenge = vi.fn();
+const cancelChallenge = vi.fn();
+vi.mock("@/server/arena/challenge.service", async (original) => ({
+  ...(await original<typeof import("@/server/arena/challenge.service")>()),
+  sendChallenge: (...args: unknown[]) => sendChallenge(...args),
+  cancelChallenge: (...args: unknown[]) => cancelChallenge(...args),
+}));
+
 const rooms = await import("./rooms/route");
+const challenges = await import("./challenges/route");
+const cancel = await import("./challenges/cancel/route");
+const link = await import("./link/route");
 const join = await import("./join/route");
 const stats = await import("./stats/route");
 const matches = await import("./matches/route");
@@ -141,3 +156,56 @@ describe("GET /api/arena/matches (feature 025)", () => {
     expect(await response.json()).toEqual({ error: { message: "Đấu trường đang tạm nghỉ, bạn thử lại sau nhé." } });
   });
 });
+
+describe("challenges (feature 035)", () => {
+  beforeEach(() => {
+    sendChallenge.mockReset();
+    cancelChallenge.mockReset();
+  });
+
+  it("refuses guests and bad bodies", async () => {
+    expect((await post(challenges, { code: "K7P2QX", friendId: "" })).status).toBe(422);
+    expect((await post(challenges, { code: "nope", friendId: "lan" })).status).toBe(422);
+    signedIn = false;
+    expect((await post(challenges, { code: "K7P2QX", friendId: "lan" })).status).toBe(401);
+    expect((await post(cancel, { code: "K7P2QX", friendId: "lan" })).status).toBe(401);
+    expect((await post(link, {})).status).toBe(401);
+  });
+
+  it("sends as the signed-in host with their chosen name and answers the delivery state", async () => {
+    sendChallenge.mockResolvedValue({ ok: true, state: "busy" });
+    const response = await post(challenges, { code: "K7P2QX", friendId: "lan", name: "Minh" });
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ state: "busy" });
+    expect(sendChallenge.mock.calls[0][3]).toEqual({ code: "K7P2QX", friendId: "lan", host: { id: "minh", name: "Minh", image: null } });
+  });
+
+  it("maps each refusal to its status and Vietnamese message", async () => {
+    for (const [reason, status] of [["not-friend", 404], ["not-host", 403], ["seat-taken", 409]] as const) {
+      sendChallenge.mockResolvedValueOnce({ ok: false, reason });
+      const response = await post(challenges, { code: "K7P2QX", friendId: "lan" });
+      expect(response.status).toBe(status);
+      expect(((await response.json()) as { error: { message: string } }).error.message).toMatch(/[ạ-ỹ]/);
+    }
+  });
+
+  it("is throttled, and answers 503 when the link can't be reached", async () => {
+    sendChallenge.mockRejectedValueOnce(new Error("down"));
+    expect((await post(challenges, { code: "K7P2QX", friendId: "lan" })).status).toBe(503);
+    throttled = true;
+    expect((await post(challenges, { code: "K7P2QX", friendId: "lan" })).status).toBe(429);
+  });
+
+  it("cancels in the caller's name", async () => {
+    const response = await post(cancel, { code: "K7P2QX", friendId: "lan" });
+    expect(response.status).toBe(204);
+    expect(cancelChallenge.mock.calls[0][1]).toEqual({ code: "K7P2QX", friendId: "lan", hostId: "minh" });
+  });
+
+  it("hands a signed-in tab a link ticket", async () => {
+    const response = await post(link, {});
+    expect(response.status).toBe(200);
+    expect(((await response.json()) as { ticket: string }).ticket).toMatch(/^[\w-]+\.[\w-]+$/);
+  });
+});
+

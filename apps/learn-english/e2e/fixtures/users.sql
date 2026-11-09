@@ -30,3 +30,13 @@ INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt
 
 INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
   ('e2e-session-thu', 'e2e-thu', 'e2e-token-thu', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);
+
+-- Two learners for the challenge spec (feature 035): it makes them friends and back, so it
+-- uses its own pair while the friends spec changes Khoa and Hoa in parallel.
+INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt_out`, `created_at`, `updated_at`) VALUES
+  ('e2e-an', 'An', 'an@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000),
+  ('e2e-binh', 'Bình', 'binh@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000);
+
+INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
+  ('e2e-session-an', 'e2e-an', 'e2e-token-an', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
+  ('e2e-session-binh', 'e2e-binh', 'e2e-token-binh', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);

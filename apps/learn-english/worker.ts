@@ -8,6 +8,7 @@ import handler from "./.open-next/worker.js";
 import { handleArenaSocket } from "./src/server/arena/socket-route";
 
 export { ArenaRoom } from "./src/server/arena/room";
+export { LearnerLink } from "./src/server/arena/link";
 
 export default {
   async fetch(request, env, ctx) {

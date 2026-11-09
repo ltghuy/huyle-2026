@@ -1,6 +1,7 @@
 import type { ArenaSettings } from "@/learning/arena/protocol";
 import type { ApiError } from "@/lib/http";
-import { ARENA_MESSAGES, type ArenaMatchesResponse, type ArenaStatsResponse, type RoomTicket } from "@/server/arena/arena.schema";
+import type { DeliveryState } from "@/learning/arena/link";
+import { ARENA_MESSAGES, type ArenaMatchesResponse, type ArenaStatsResponse, type LinkTicket, type RoomTicket } from "@/server/arena/arena.schema";
 
 // Browser side of the Arena routes (feature 023): create a room, join one by
 // code, and read the learner's record and match history. Each answers in Vietnamese on failure.
@@ -57,4 +58,33 @@ export function fetchArenaMatches(): Promise<ArenaMatchesResponse> {
 /** The room's socket URL on this site. */
 export function socketUrl(code: string, location: Pick<Location, "protocol" | "host"> = window.location): string {
   return `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/api/arena/socket?code=${encodeURIComponent(code)}`;
+}
+
+/** The tab's link socket URL on this site (feature 035). */
+export function linkSocketUrl(location: Pick<Location, "protocol" | "host"> = window.location): string {
+  return `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/api/arena/link/socket`;
+}
+
+/** A 60-second ticket for the link socket. */
+export function fetchLinkTicket(): Promise<LinkTicket> {
+  return post<LinkTicket>("/api/arena/link", {});
+}
+
+/** "Thách đấu": whether the friend sees it, or an ArenaError with the reason (feature 035). */
+export function sendChallenge(code: string, friendId: string, name?: string): Promise<{ state: DeliveryState }> {
+  return post<{ state: DeliveryState }>("/api/arena/challenges", { code, friendId, ...(name ? { name } : {}) });
+}
+
+/**
+ * Withdraws a challenge. Fire and forget: `keepalive` lets it finish while the host leaves the
+ * page, and a lost cancel only means the friend's toast runs out its 30 seconds.
+ */
+export function cancelChallenge(code: string, friendId: string): void {
+  fetch("/api/arena/challenges/cancel", {
+    method: "POST",
+    credentials: "same-origin",
+    keepalive: true,
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ code, friendId }),
+  }).catch(() => {});
 }

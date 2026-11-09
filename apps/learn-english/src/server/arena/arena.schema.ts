@@ -10,6 +10,10 @@ export const ARENA_MESSAGES = {
   full: "Phòng đã đủ người.",
   throttled: "Bạn thao tác quá nhanh. Vui lòng đợi một phút rồi thử lại.",
   unavailable: "Đấu trường đang tạm nghỉ, bạn thử lại sau nhé.",
+  // Challenges (feature 035).
+  notFriend: "Bạn chỉ thách đấu được bạn bè.",
+  notHost: "Chỉ chủ phòng đang chờ đối thủ mới thách đấu được.",
+  seatTaken: "Phòng đã có đối thủ.",
 } as const;
 
 /** The learner's chosen name, if any; checked like a board name, else their Google name is used. */
@@ -27,6 +31,18 @@ export const joinBodySchema = z.object({
   name: chosenName,
 });
 export type JoinBody = z.infer<typeof joinBodySchema>;
+
+const roomCode = z.string().regex(CODE_PATTERN);
+const friendId = z.string().min(1).max(100);
+
+/** "Thách đấu" (feature 035): the host's name as the room shows it, like a create. */
+export const challengeBodySchema = z.object({ code: roomCode, friendId, name: chosenName });
+export const cancelChallengeBodySchema = z.object({ code: roomCode, friendId });
+
+/** A link socket ticket (feature 035), valid for 60 s like a room ticket. */
+export interface LinkTicket {
+  ticket: string;
+}
 
 export interface RoomTicket {
   code: string;

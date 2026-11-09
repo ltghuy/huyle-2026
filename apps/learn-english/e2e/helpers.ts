@@ -12,6 +12,9 @@ export const E2E_USERS = {
   hoa: { id: "e2e-hoa", name: "Hoa", token: "e2e-token-hoa" },
   // Only the translate spec's AI grading tests use her (feature 033).
   thu: { id: "e2e-thu", name: "Thư", token: "e2e-token-thu" },
+  // Only the challenge spec uses these two (feature 035).
+  an: { id: "e2e-an", name: "An", token: "e2e-token-an" },
+  binh: { id: "e2e-binh", name: "Bình", token: "e2e-token-binh" },
 } as const;
 
 /** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */

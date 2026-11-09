@@ -68,11 +68,18 @@
       "simple": { "limit": 20, "period": 60 }
     }
   ],
-  // One live Arena room per room code (feature 023). SQLite-backed: the only
-  // storage the Workers free plan allows.
+  // One live Arena room per room code (feature 023), and one link per signed-in
+  // learner that carries friends' challenges to their tabs (feature 035).
+  // SQLite-backed: the only storage the Workers free plan allows.
   "durable_objects": {
-    "bindings": [{ "name": "ARENA_ROOM", "class_name": "ArenaRoom" }]
+    "bindings": [
+      { "name": "ARENA_ROOM", "class_name": "ArenaRoom" },
+      { "name": "LEARNER_LINK", "class_name": "LearnerLink" }
+    ]
   },
-  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ArenaRoom"] }],
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ArenaRoom"] },
+    { "tag": "v2", "new_sqlite_classes": ["LearnerLink"] }
+  ],
   "routes": [{ "pattern": "english.huyle.work", "custom_domain": true }]
 }

@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it, vi } from "vitest";
-import { handleArenaSocket, PLAYER_HEADER, SOCKET_MESSAGES } from "./socket-route";
+import { LINK_CODE } from "@/learning/arena/link";
+import { handleArenaSocket, LINK_SOCKET_PATH, PLAYER_HEADER, SOCKET_MESSAGES } from "./socket-route";
 import { signTicket } from "./ticket";
 
 const SECRET = "s".repeat(32);
@@ -18,7 +19,10 @@ type Bindings = Parameters<typeof handleArenaSocket>[1];
 function env(fetch = vi.fn<(request: Request) => Promise<Response>>(async () => new Response("to the room"))) {
   const getByName = vi.fn(() => ({ fetch }));
   const room = { getByName } as unknown as Bindings["ARENA_ROOM"];
-  return { env: { ARENA_ROOM: room, ARENA_SECRET: SECRET } as Bindings, room, getByName, fetch };
+  const linkFetch = vi.fn<(request: Request) => Promise<Response>>(async () => new Response("to the link"));
+  const linkByName = vi.fn(() => ({ fetch: linkFetch }));
+  const link = { getByName: linkByName } as unknown as Bindings["LEARNER_LINK"];
+  return { env: { ARENA_ROOM: room, LEARNER_LINK: link, ARENA_SECRET: SECRET } as Bindings, room, getByName, fetch, linkByName, linkFetch };
 }
 
 describe("handleArenaSocket", () => {
@@ -65,7 +69,7 @@ describe("handleArenaSocket", () => {
   it("answers 503 in Vietnamese when the secret is missing or the room can't be reached", async () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     const ticket = await signTicket(MINH, SECRET, NOW);
-    const noSecret = await handleArenaSocket(upgrade("/api/arena/socket?code=K7P2QX", `arena, ${ticket}`), { ARENA_ROOM: env().room }, NOW);
+    const noSecret = await handleArenaSocket(upgrade("/api/arena/socket?code=K7P2QX", `arena, ${ticket}`), { ARENA_ROOM: env().room } as Bindings, NOW);
     expect(noSecret!.status).toBe(503);
     expect(await noSecret!.text()).toBe(SOCKET_MESSAGES.unavailable);
 
@@ -76,5 +80,25 @@ describe("handleArenaSocket", () => {
     );
     const down = await handleArenaSocket(upgrade("/api/arena/socket?code=K7P2QX", `arena, ${ticket}`), failing.env, NOW);
     expect(down!.status).toBe(503);
+  });
+
+  it("forwards a link socket to the learner's own link (feature 035)", async () => {
+    const ticket = await signTicket({ ...MINH, code: LINK_CODE }, SECRET, NOW);
+    const { env: bindings, linkByName, linkFetch, fetch } = env();
+    const response = await handleArenaSocket(upgrade(LINK_SOCKET_PATH, `arena, ${ticket}`), bindings, NOW);
+    expect(await response!.text()).toBe("to the link");
+    expect(linkByName).toHaveBeenCalledWith("minh");
+    expect(JSON.parse(linkFetch.mock.calls[0][0].headers.get(PLAYER_HEADER)!).id).toBe("minh");
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("never lets a room ticket open a link, or a link ticket a room", async () => {
+    const { env: bindings, linkFetch, fetch } = env();
+    const roomTicket = await signTicket(MINH, SECRET, NOW);
+    expect((await handleArenaSocket(upgrade(LINK_SOCKET_PATH, `arena, ${roomTicket}`), bindings, NOW))!.status).toBe(401);
+    const linkTicket = await signTicket({ ...MINH, code: LINK_CODE }, SECRET, NOW);
+    expect((await handleArenaSocket(upgrade("/api/arena/socket?code=K7P2QX", `arena, ${linkTicket}`), bindings, NOW))!.status).toBe(401);
+    expect(linkFetch).not.toHaveBeenCalled();
+    expect(fetch).not.toHaveBeenCalled();
   });
 });

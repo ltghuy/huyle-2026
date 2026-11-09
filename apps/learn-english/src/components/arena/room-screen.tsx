@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { ArrowLeft, Eye, Loader2 } from "lucide-react";
 import { SignInGate } from "@/components/account/sign-in-gate";
 import { Mascot } from "@/components/mascot/mascot";
@@ -13,6 +13,7 @@ import { useProfile } from "@/hooks/use-profile";
 import { CODE_PATTERN } from "@/learning/arena/protocol";
 import { ArenaError, joinRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
+import { link } from "@/lib/link-client";
 import { Duel } from "./duel";
 import { EditSettings } from "./edit-settings";
 import { Lobby } from "./lobby";
@@ -42,6 +43,13 @@ function LiveRoom({ code, me, name }: { code: string; me: string; name?: string 
   const ticket = useQuery({ queryKey: ["arena-ticket", code, me], queryFn: () => joinRoom(code, name), retry: false, staleTime: Infinity, gcTime: 0 });
   const refreshTicket = useCallback(() => joinRoom(code, name).then((fresh) => fresh.ticket), [code, name]);
   const handle = useArenaRoom(code, ticket.data?.ticket ?? null, { refreshTicket });
+  // While this room is open, friends' challenges find the learner busy (feature 035, AC-007).
+  const inRoom = handle.room !== null && handle.status !== "closed";
+  useEffect(() => {
+    if (!inRoom) return;
+    link.setRoom(code);
+    return () => link.setRoom(null);
+  }, [inRoom, code]);
 
   function handleLeave() {
     handle.leave();
