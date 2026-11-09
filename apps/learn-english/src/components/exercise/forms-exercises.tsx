@@ -86,7 +86,7 @@ export function FormsListeningView({ instance, answer, onAnswer, result, onAudio
     <div className="grid gap-6">
       <Instruction>Nghe ba dạng của động từ và chọn cách viết đúng</Instruction>
       <div className="flex justify-center">
-        <AudioButton source="word" audioKey={instance.audio} label="ba dạng cần nghe" size="lg" onError={onAudioError} />
+        <AudioButton source="word" audioKey={instance.audio} label="ba dạng cần nghe" size="lg" onError={onAudioError} autoPlay />
       </div>
       <OptionList
         label="Các lựa chọn"

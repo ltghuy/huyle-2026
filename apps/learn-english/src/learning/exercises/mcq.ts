@@ -24,7 +24,7 @@ export interface McqInstance {
   answerIndex: number;
   /** The target's meanings, for the explanation shown after answering. */
   explanationVi: string[];
-  /** The target word's clip, played once after a right answer; empty if none. */
+  /** The target word's clip, played once after the answer is checked; empty if none. */
   audio: string;
 }
 

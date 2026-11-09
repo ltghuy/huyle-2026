@@ -13,7 +13,7 @@ export interface RecallInstance {
   pos: string;
   headword: string;
   variants: string[];
-  /** The word's clip, played once after a right answer; empty if none. */
+  /** The word's clip, played once after the answer is checked; empty if none. */
   audio: string;
 }
 

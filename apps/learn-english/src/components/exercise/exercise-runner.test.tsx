@@ -87,11 +87,33 @@ describe("ExerciseRunner", () => {
         play() {
           return Promise.reject(new Error("offline"));
         }
+        pause() {}
       },
     );
     setup([{ key: "l", type: "exercise", instance: buildListeningTyping({ target }), seed: 1, fallback: buildRecall({ target }) }]);
     await act(async () => fireEvent.click(screen.getByRole("button", { name: /^Nghe:/ })));
     expect(screen.getByText("Gõ từ tiếng Anh có nghĩa là")).toBeInTheDocument();
+  });
+
+  it("plays a listening question's clip as soon as it shows (quick 067)", async () => {
+    const urls: string[] = [];
+    const play = vi.fn(() => Promise.resolve());
+    vi.stubGlobal(
+      "Audio",
+      class {
+        constructor(url: string) {
+          urls.push(url);
+        }
+        play = play;
+        pause = vi.fn();
+      },
+    );
+    const instance = buildListeningChoice({ target, pool }, 1)!;
+    await act(async () => {
+      setup([{ key: "l", type: "exercise", instance, seed: 1 }]);
+    });
+    expect(play).toHaveBeenCalled();
+    expect(urls.at(-1)).toMatch(new RegExp(`/${instance.audio}\\.mp3$`));
   });
 
   it("asks before leaving once the learner has started", async () => {
@@ -164,6 +186,31 @@ describe("moving on by itself after a checked answer (quick 056)", () => {
     fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
     act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS * 2));
     expect(screen.getByText("1/2")).toBeInTheDocument();
+  });
+
+  it("pauses while the mouse is over Tiếp tục and resumes where it stopped (quick 065)", async () => {
+    vi.useFakeTimers();
+    setup(steps);
+    await check(true);
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS / 2));
+    const button = screen.getByRole("button", { name: "Tiếp tục" });
+    fireEvent.pointerEnter(button, { pointerType: "mouse" });
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS * 2));
+    expect(screen.getByText("1/2")).toBeInTheDocument();
+    fireEvent.pointerLeave(button, { pointerType: "mouse" });
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS / 2 - 1));
+    expect(screen.getByText("1/2")).toBeInTheDocument();
+    act(() => vi.advanceTimersByTime(1));
+    expect(screen.getByText("2/2")).toBeInTheDocument();
+  });
+
+  it("does not pause for a touch on Tiếp tục", async () => {
+    vi.useFakeTimers();
+    setup(steps);
+    await check(true);
+    fireEvent.pointerEnter(screen.getByRole("button", { name: "Tiếp tục" }), { pointerType: "touch" });
+    act(() => vi.advanceTimersByTime(AUTO_CONTINUE_MS));
+    expect(screen.getByText("2/2")).toBeInTheDocument();
   });
 });
 
@@ -325,7 +372,7 @@ describe("finishing", () => {
     expect(reveal).toHaveTextContent("hoàng tử");
   });
 
-  describe("pronouncing the word after a right multiple-choice answer", () => {
+  describe("pronouncing the right word after a checked multiple-choice answer (quick 066)", () => {
     function stubAudio() {
       const play = vi.fn(() => Promise.resolve());
       const urls: string[] = [];
@@ -381,15 +428,19 @@ describe("finishing", () => {
       expect(urls[1]).toMatch(/\/c{64}\.mp3$/);
     });
 
-    it("stays quiet after a wrong answer, and when answer sounds are off", async () => {
+    it("says the right word after a wrong answer too", async () => {
+      vi.useFakeTimers();
+      const { play, urls } = stubAudio();
+      await answer(false);
+      expect(urls).toEqual([expect.stringMatching(new RegExp(`/${mcq.audio}\\.mp3$`))]);
+      expect(play).toHaveBeenCalledTimes(1);
+    });
+
+    it("stays quiet when answer sounds are off", async () => {
       vi.useFakeTimers();
       const { play } = stubAudio();
-      await answer(false);
-      expect(play).not.toHaveBeenCalled();
-
-      cleanup();
       vi.mocked(isSoundEnabled).mockReturnValueOnce(false);
-      await answer(true);
+      await answer(false);
       expect(play).not.toHaveBeenCalled();
     });
   });

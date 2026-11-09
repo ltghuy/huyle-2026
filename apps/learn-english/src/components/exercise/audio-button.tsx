@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Loader2, Volume2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ export function audioUrl(source: AudioSource, key: string): string {
 }
 
 /**
- * Plays a clip once without a button (the word after a right answer). It stays
+ * Plays a clip once without a button (the right word after a checked answer). It stays
  * quiet when answer sounds are off or the clip can't play; returns a stop function.
  */
 export function playClipOnce(source: AudioSource, key: string, delayMs = 0): () => void {
@@ -45,12 +45,25 @@ interface AudioButtonProps {
   className?: string;
   /** Called when the clip can't be loaded (the runner swaps listening for recall). */
   onError?: () => void;
+  /** Plays the clip once as soon as the button shows (listening questions, quick 067). */
+  autoPlay?: boolean;
 }
 
 /** Plays one clip in the app's single voice. */
-export function AudioButton({ audioKey, source, label, size = "default", className, onError }: AudioButtonProps) {
+export function AudioButton({ audioKey, source, label, size = "default", className, onError, autoPlay = false }: AudioButtonProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!autoPlay || !audioKey) return;
+    const audio = new Audio(audioUrl(source, audioKey));
+    audioRef.current = audio;
+    // The browser may refuse to start audio on its own; the button still works, and a tap reports failures.
+    Promise.resolve()
+      .then(() => audio.play())
+      .catch(() => {});
+    return () => audio.pause();
+  }, [autoPlay, audioKey, source]);
 
   async function handlePlay() {
     if (!audioKey) return;

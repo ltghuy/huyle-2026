@@ -44,20 +44,20 @@ function WordReveal({ headword, ipa, meaningsVi }: { headword: string; ipa: stri
   );
 }
 
-/** After the "correct" chime has played (see `answer-sound.ts`). */
+/** After the right or wrong chime has played (see `answer-sound.ts`). */
 const PRONOUNCE_DELAY_MS = 450;
 
-/** Says the word once when the checked answer is right; stops if the learner moves on. */
-function usePronounceWhenRight(result: GradeResult | null, audio: string) {
-  const correct = result?.correct === true;
+/** Says the right word once the answer is checked, right or wrong (quick 066); stops if the learner moves on. */
+function usePronounceWhenChecked(result: GradeResult | null, audio: string) {
+  const checked = result !== null;
   useEffect(() => {
-    if (correct) return playClipOnce("word", audio, PRONOUNCE_DELAY_MS);
-  }, [correct, audio]);
+    if (checked) return playClipOnce("word", audio, PRONOUNCE_DELAY_MS);
+  }, [checked, audio]);
 }
 
 export function McqView({ instance, answer, onAnswer, result }: ExerciseViewProps<McqInstance, number>) {
   const toVietnamese = instance.direction === "en-vi";
-  usePronounceWhenRight(result, instance.audio);
+  usePronounceWhenChecked(result, instance.audio);
 
   return (
     <div className="grid gap-6">
@@ -80,7 +80,7 @@ export function ListeningChoiceView({ instance, answer, onAnswer, result, onAudi
     <div className="grid gap-6">
       <Instruction>Nghe và chọn từ bạn nghe được</Instruction>
       <div className="flex justify-center">
-        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
+        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} autoPlay />
       </div>
       <OptionList
         label="Các lựa chọn"
@@ -100,7 +100,7 @@ export function ListeningTypingView({ instance, answer, onAnswer, result, onAudi
     <div className="grid gap-6">
       <Instruction>Nghe và gõ lại từ</Instruction>
       <div className="flex justify-center">
-        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} />
+        <AudioButton source="word" audioKey={instance.audio} label="từ cần nghe" size="lg" onError={onAudioError} autoPlay />
       </div>
       <EnglishInput
         aria-label="Từ bạn nghe được"
@@ -114,7 +114,7 @@ export function ListeningTypingView({ instance, answer, onAnswer, result, onAudi
 }
 
 export function RecallView({ instance, answer, onAnswer, result }: ExerciseViewProps<RecallInstance, string>) {
-  usePronounceWhenRight(result, instance.audio);
+  usePronounceWhenChecked(result, instance.audio);
   return (
     <div className="grid gap-6">
       <Instruction>Gõ từ tiếng Anh có nghĩa là</Instruction>
@@ -166,7 +166,7 @@ export function GrammarGapView({ instance, answer, onAnswer, result }: ExerciseV
  */
 export function MissingLettersView({ instance, onAnswer, result, seed }: ExerciseViewProps<MissingLettersInstance, string[]>) {
   const tiles = useMemo(() => letterChoices(instance, seed), [instance, seed]);
-  usePronounceWhenRight(result, instance.audio);
+  usePronounceWhenChecked(result, instance.audio);
   // Which tile fills each blank (index into `tiles`), left to right.
   const [filled, setFilled] = useState<(number | null)[]>(() => instance.answer.map(() => null));
   const locked = result !== null;

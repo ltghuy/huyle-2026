@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useRef, useState, type FormEvent } from "react";
+import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type PointerEvent } from "react";
 import { RotateCcw, X } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import type { GradeResult } from "@/learning/exercises/types";
@@ -20,6 +20,7 @@ import { Progress } from "@/components/ui/progress";
 import { submitClaim } from "@/claims/claims-client";
 import { hasUsableAiKey } from "@/lib/ai-keys";
 import { playAnswerSound } from "@/lib/answer-sound";
+import { cn } from "@/lib/utils";
 import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
 import { StudyCard, type StudyItem } from "./study-card";
@@ -108,6 +109,8 @@ export function ExerciseRunner({
   const [swapped, setSwapped] = useState<Record<string, boolean>>({});
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [confirmExit, setConfirmExit] = useState(false);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const autoLeft = useRef<{ result: GradeResult | null; ms: number }>({ result: null, ms: AUTO_CONTINUE_MS });
   // A wrong answer that can still be claimed (feature 016) is recorded only
   // once the learner moves on, claims it or leaves, so a claim never has to
   // undo a saved wrong attempt.
@@ -137,15 +140,23 @@ export function ExerciseRunner({
   }, [index, instance]);
 
   // A checked answer, right or wrong, moves on by itself after a few seconds; study cards
-  // wait for the learner. The leave dialog pauses it (quick 056).
+  // wait for the learner. The leave dialog and a mouse over "Tiếp tục" pause it (quick 056, 065).
   // An AI review of a paragraph takes a while to read, so the learner moves on themselves (feature 036, AC-005).
-  const autoContinue = step?.type === "exercise" && result !== null && !result.writingReview && !finished && !confirmExit;
+  const autoContinue = step?.type === "exercise" && result !== null && !result.writingReview && !finished;
+  const autoRunning = autoContinue && !confirmExit && !hoverPaused;
   const onAutoContinue = useEffectEvent(() => handleContinue());
   useEffect(() => {
-    if (!autoContinue) return;
-    const timer = setTimeout(onAutoContinue, AUTO_CONTINUE_MS);
-    return () => clearTimeout(timer);
-  }, [autoContinue, step?.key]);
+    if (!autoRunning) return;
+    // What's left of the wait for this answer, so a pause resumes instead of starting over.
+    if (autoLeft.current.result !== result) autoLeft.current = { result, ms: AUTO_CONTINUE_MS };
+    const left = autoLeft.current;
+    const startedAt = performance.now();
+    const timer = setTimeout(onAutoContinue, left.ms);
+    return () => {
+      clearTimeout(timer);
+      left.ms -= performance.now() - startedAt;
+    };
+  }, [autoRunning, result]);
 
   if (!step) return null;
 
@@ -250,8 +261,15 @@ export function ExerciseRunner({
     onExit();
   }
 
+  /** Only a real mouse pauses the wait: a tap fires pointerenter too, and presses the button anyway. */
+  function handleContinuePointerEnter(event: PointerEvent<HTMLButtonElement>) {
+    if (event.pointerType === "mouse") setHoverPaused(true);
+  }
+
   function handleContinue() {
     if (finished || saving.current) return;
+    // The next step's "Tiếp tục" starts unpaused; the button is re-entered to pause it again.
+    setHoverPaused(false);
     const recording = held.current ? flushHeld() : null;
     // Move on at once; only finishing waits, so the last answer is saved before the lesson completes.
     if (recording && index + 1 >= steps.length) void recording.then(advance);
@@ -386,12 +404,21 @@ export function ExerciseRunner({
                 Đang lưu…
               </Button>
             ) : step.type === "study" || result ? (
-              <Button type="submit" size="lg" className="relative h-12 w-full overflow-hidden text-base">
+              <Button
+                type="submit"
+                size="lg"
+                className="relative h-12 w-full overflow-hidden text-base"
+                onPointerEnter={handleContinuePointerEnter}
+                onPointerLeave={() => setHoverPaused(false)}
+              >
                 {autoContinue ? (
                   <span
                     key={step.key}
                     aria-hidden
-                    className="absolute inset-0 origin-left bg-primary-foreground/15 motion-safe:animate-auto-continue motion-reduce:hidden"
+                    className={cn(
+                      "absolute inset-0 origin-left bg-primary-foreground/15 motion-safe:animate-auto-continue motion-reduce:hidden",
+                      !autoRunning && "[animation-play-state:paused]",
+                    )}
                   />
                 ) : null}
                 <span className="relative">Tiếp tục</span>
