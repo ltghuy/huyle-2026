@@ -22,6 +22,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { SidebarFriends } from "@/components/social/sidebar-friends";
+import { SidebarResizeHandle } from "./sidebar-resize-handle";
 import { LIBRARY_GROUP, NAV_ITEMS, type NavItem, isActive } from "./nav";
 
 const inLibrary = (href: string) => (LIBRARY_GROUP.hrefs as readonly string[]).includes(href);
@@ -155,6 +156,7 @@ export function AppSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
+      <SidebarResizeHandle />
     </Sidebar>
   );
 }

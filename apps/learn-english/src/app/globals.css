@@ -345,3 +345,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* While the sidebar's edge is dragged (quick 064): the width follows the
+   pointer with no transition lag, and dragging never selects text. */
+[data-sidebar-resizing] {
+  cursor: col-resize;
+  user-select: none;
+}
+[data-sidebar-resizing] :is([data-slot="sidebar-gap"], [data-slot="sidebar-container"]) {
+  transition: none;
+}
