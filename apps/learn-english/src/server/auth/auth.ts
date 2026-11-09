@@ -37,6 +37,8 @@ export function authOptions(env: AuthEnv, db: Db) {
       additionalFields: {
         // Set by the progress sync from the learner's "Gửi thống kê ẩn danh" setting (AC-028), never by the client directly.
         statsOptOut: { type: "boolean", defaultValue: false, input: false },
+        // Shows the "Quản trị" link (feature 038). Never input; the admin routes re-read it from D1.
+        isAdmin: { type: "boolean", defaultValue: false, input: false },
       },
     },
     // Must be last: it lets the auth API set cookies from route handlers.

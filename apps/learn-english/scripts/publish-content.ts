@@ -52,6 +52,13 @@ export interface ExistingRow {
   sort: number;
   body: string;
   deleted: number;
+  /** Set when the row was changed on the admin page and not yet pulled into git (feature 038). */
+  admin_edited_at?: number | null;
+}
+
+/** Ids changed on the admin page and not yet pulled (feature 038, AC-019): publishing would undo them. */
+export function unpulledEdits(rows: readonly ExistingRow[]): string[] {
+  return rows.filter((row) => row.admin_edited_at != null).map((row) => row.id);
 }
 
 /** FNV-1a, 32-bit: seeds the placement shuffles from stable ids. */
@@ -347,7 +354,7 @@ export function buildSqlFiles(plan: PublishPlan, version: number, publishedAt: n
 
 // ---- I/O ----
 
-async function readSourceFiles(contentDir: string): Promise<SourceFile[]> {
+export async function readSourceFiles(contentDir: string): Promise<SourceFile[]> {
   const files: SourceFile[] = [];
   for (const kind of CONTENT_KINDS) {
     const dir = path.join(contentDir, kind);
@@ -364,12 +371,12 @@ async function readSourceFiles(contentDir: string): Promise<SourceFile[]> {
   return files;
 }
 
-function wrangler(args: string[]): string {
+export function wrangler(args: string[]): string {
   const bin = path.join(process.cwd(), "node_modules/.bin/wrangler");
   return execFileSync(bin, ["d1", "execute", DB_NAME, ...args], { encoding: "utf8", maxBuffer: 512 * 1024 * 1024 });
 }
 
-function query<T>(target: string[], sql: string): T[] {
+export function query<T>(target: string[], sql: string): T[] {
   const output = JSON.parse(wrangler([...target, "--json", "--command", sql])) as { results: T[] }[];
   return output[0]?.results ?? [];
 }
@@ -429,7 +436,14 @@ async function main() {
   }
 
   const items = [...approved, ...placement];
-  const existing = query<ExistingRow>(target, "SELECT id, kind, level, topic, sort, body, deleted FROM content_items");
+  const existing = query<ExistingRow>(target, "SELECT id, kind, level, topic, sort, body, deleted, admin_edited_at FROM content_items");
+  const unpulled = unpulledEdits(existing);
+  if (unpulled.length > 0) {
+    console.error(`Publish aborted: ${unpulled.length} item(s) were changed on the admin page and aren't in the content files yet (${unpulled.slice(0, 5).join(", ")}${unpulled.length > 5 ? ", …" : ""}).`);
+    console.error(`Run \`pnpm content:pull${values.remote ? " --remote" : ""}\` first, commit the files, then publish.`);
+    process.exitCode = 1;
+    return;
+  }
   const plan = planPublish(items, existing, levels);
   console.log(`${items.length} approved (${placement.length} placement generated), ${drafts} draft(s) skipped`);
   console.log(`${plan.upserts.length} to upsert, ${plan.tombstones.length} to tombstone`);

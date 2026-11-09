@@ -21,6 +21,7 @@
     "content:ipa": "tsx scripts/build-ipa.ts",
     "content:draft": "tsx scripts/draft-content.ts",
     "content:publish": "tsx scripts/publish-content.ts",
+    "content:pull": "tsx scripts/pull-content.ts",
     "content:review": "tsx scripts/review.ts",
     "content:claims": "tsx scripts/claims.ts",
     "stats:report": "tsx scripts/stats-report.ts",

@@ -15,6 +15,9 @@ export const contentItems = sqliteTable(
     body: text("body", { mode: "json" }).notNull(),
     deleted: integer("deleted", { mode: "boolean" }).notNull().default(false),
     updatedVersion: integer("updated_version").notNull(),
+    // When the item was last changed on the admin page (feature 038); null when it matches the
+    // content JSON in git. `pnpm content:pull` clears it, and `content:publish` refuses to run while any is set.
+    adminEditedAt: integer("admin_edited_at"),
   },
   (table) => [index("content_items_kind_level").on(table.kind, table.level, table.deleted)],
 );
@@ -118,6 +121,8 @@ export const user = sqliteTable("user", {
   emailVerified: integer("email_verified", { mode: "boolean" }).notNull().default(false),
   image: text("image"),
   statsOptOut: integer("stats_opt_out", { mode: "boolean" }).notNull().default(false),
+  // Opens /admin (feature 038). Set by the owner with SQL only; no request can change it.
+  isAdmin: integer("is_admin", { mode: "boolean" }).notNull().default(false),
   createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
 });

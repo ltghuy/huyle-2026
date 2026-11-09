@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ChevronRight, GraduationCap, Info } from "lucide-react";
+import { ChevronRight, GraduationCap, Info, ShieldCheck } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   Sidebar,
@@ -22,6 +22,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { SidebarFriends } from "@/components/social/sidebar-friends";
+import { useAccount } from "@/hooks/use-account";
 import { SidebarResizeHandle } from "./sidebar-resize-handle";
 import { LIBRARY_GROUP, NAV_ITEMS, type NavItem, isActive } from "./nav";
 
@@ -99,6 +100,25 @@ function LibraryGroup({ pathname }: { pathname: string }) {
 }
 
 
+/** "Quản trị", for admins only (feature 038, AC-004): read from the live session, never the cached account. */
+function AdminLink({ pathname }: { pathname: string }) {
+  const { session } = useAccount();
+  if (!session?.isAdmin) return null;
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        render={<Link href="/admin" />}
+        isActive={isActive(pathname, "/admin")}
+        tooltip="Quản trị"
+        className="text-xs text-muted-foreground group-data-[collapsible=icon]:justify-center"
+      >
+        <ShieldCheck aria-hidden />
+        <span className="group-data-[collapsible=icon]:hidden">Quản trị</span>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  );
+}
+
 export function AppSidebar() {
   const pathname = usePathname();
   const { state } = useSidebar();
@@ -139,6 +159,7 @@ export function AppSidebar() {
       <SidebarFooter>
         {/* A menu row like the items above, so its icon and label line up with theirs (quick 015). */}
         <SidebarMenu>
+          <AdminLink pathname={pathname} />
           <SidebarMenuItem>
             <SidebarMenuButton
               render={<Link href="/credits" />}

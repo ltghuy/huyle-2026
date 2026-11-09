@@ -9,6 +9,8 @@ export interface SessionAccount {
   name: string;
   email: string;
   image: string | null;
+  /** Shows the "Quản trị" link (feature 038); the admin routes check it again themselves. */
+  isAdmin?: boolean;
 }
 
 /** Thrown when the session can't be read (offline, server down); a guest is `null`, not an error. */
@@ -28,10 +30,10 @@ export async function fetchSession(): Promise<SessionAccount | null> {
     throw new SessionUnavailableError(cause);
   }
   if (!response.ok) throw new SessionUnavailableError(response.status);
-  const body = (await response.json()) as { user?: { id: string; name: string; email: string; image?: string | null } } | null;
+  const body = (await response.json()) as { user?: { id: string; name: string; email: string; image?: string | null; isAdmin?: boolean } } | null;
   if (!body?.user) return null;
-  const { id, name, email, image } = body.user;
-  return { userId: id, name, email, image: image ?? null };
+  const { id, name, email, image, isAdmin } = body.user;
+  return { userId: id, name, email, image: image ?? null, ...(isAdmin ? { isAdmin: true } : {}) };
 }
 
 /** The query parameter Better Auth adds to the page it returns to when sign-in fails or is cancelled. */
