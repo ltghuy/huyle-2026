@@ -110,21 +110,15 @@ describe("the Arena hub (feature 024)", () => {
   });
 });
 
-describe("friends on the hub (feature 031)", () => {
-  it("shows the friends list to signed-in learners on phones only (AC-017)", async () => {
+describe("no friends on the hub (feature 032)", () => {
+  it("shows no friends section to signed-in learners, who find friends on /friends (AC-006)", async () => {
     stubFetch(true);
     handler = (url) => (url === "/api/social/pulse" ? Response.json({ now: 1, friends: [{ id: "lan", name: "Lan", image: null, online: true, lastSeenAt: 1 }], outgoing: [], incoming: [], unread: 0 }) : undefined);
     render(<ArenaPage />);
-    const section = await screen.findByRole("region", { name: "Bạn bè" });
-    expect(await within(section).findByText("Lan")).toBeInTheDocument();
-    expect(section.parentElement).toHaveClass("md:hidden");
-  });
-
-  it("shows no friends to guests", async () => {
-    stubFetch(false);
-    render(<ArenaPage />);
-    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/auth/get-session", expect.anything()));
+    // Signed in once the match history is asked for.
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith("/api/arena/matches", expect.anything()));
     expect(screen.queryByRole("region", { name: "Bạn bè" })).not.toBeInTheDocument();
+    expect(fetch).not.toHaveBeenCalledWith("/api/social/pulse", expect.anything());
   });
 });
 

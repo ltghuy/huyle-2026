@@ -10,6 +10,7 @@ import {
   Settings,
   Swords,
   TriangleAlert,
+  Users,
 } from "lucide-react";
 
 export interface NavItem {
@@ -49,6 +50,12 @@ export const LIBRARY_GROUP = {
  */
 export const MOBILE_PRIMARY = ["/", "/vocabulary", "/arena", "/review"] as const;
 export const MOBILE_CENTER = "/arena";
+
+/**
+ * Phones only, at the end of the "Thêm" sheet: the desktop sidebar shows friends as its own
+ * section under the navigation instead (feature 032).
+ */
+export const MOBILE_MORE_EXTRA = [{ href: "/friends", label: "Bạn bè", icon: Users, tour: "friends" }] as const satisfies readonly NavItem[];
 
 export function isActive(pathname: string, href: string): boolean {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);

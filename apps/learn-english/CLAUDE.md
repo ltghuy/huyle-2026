@@ -17,7 +17,9 @@ Commands (in this folder, or from the root with `pnpm --filter learn-english …
 
 Local content: `pnpm dev` reads the local D1 database, so load the approved
 content into it with `pnpm content:publish --local` (audio plays from the
-deployed audio Workers).
+deployed audio Workers). To see the Arena friends list, the bell and online dots locally,
+run `pnpm db:seed:social`: it adds sample friends to every account in the local D1
+(never the remote one, which has your real friends). `pnpm db:unseed:social` removes them.
 
 Specs live at the repo root in `.artifacts/features/learn-english/` (feature
 001 is the app itself: spec, decisions, design, tasks); knowledge in

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, Swords, Users } from "lucide-react";
-import { ArenaFriendsCard } from "@/components/social/arena-friends-card";
 import { cn } from "@/lib/utils";
 import { ArenaHistoryCard } from "./arena-history-card";
 import { JoinRoom } from "./join-room";
@@ -58,9 +57,6 @@ export function ArenaHub() {
       </div>
 
       <JoinRoom className="sm:col-span-2" />
-
-      {/* Phones have no sidebar, so friends show here (feature 031). */}
-      <ArenaFriendsCard className="sm:col-span-2" />
 
       <ArenaHistoryCard className="sm:col-span-2" />
     </div>

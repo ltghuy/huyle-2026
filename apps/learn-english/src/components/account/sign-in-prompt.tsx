@@ -4,7 +4,7 @@ import { Mascot, type MascotMood } from "@/components/mascot/mascot";
 import { SignInButton } from "./sign-in-button";
 
 /** The areas guests can't open (feature 022, AC-009, AC-010, AC-011). */
-export type LockedArea = "lesson" | "streak" | "review" | "hard-words" | "profile" | "grammar" | "exercises" | "irregular-verbs" | "arena";
+export type LockedArea = "lesson" | "streak" | "review" | "hard-words" | "profile" | "grammar" | "exercises" | "irregular-verbs" | "arena" | "friends";
 
 const COPY: Record<LockedArea, { title: string; text: string; mood: MascotMood }> = {
   lesson: { title: "Đăng nhập để học bài hôm nay", text: "Mỗi ngày một bài ngắn: ôn từ cũ, học từ mới và luyện câu. Tiến độ được lưu vào tài khoản, học trên máy nào cũng tiếp tục được.", mood: "cheer" },
@@ -16,6 +16,7 @@ const COPY: Record<LockedArea, { title: string; text: string; mood: MascotMood }
   exercises: { title: "Đăng nhập để làm bài tập", text: "Mọi bộ bài tập đều mở sau khi bạn đăng nhập.", mood: "cheer" },
   "irregular-verbs": { title: "Đăng nhập để luyện động từ", text: "Bạn vẫn xem được bảng động từ. Đăng nhập để luyện các dạng của chúng.", mood: "think" },
   arena: { title: "Đăng nhập để vào Đấu trường", text: "Thách đấu bạn bè bằng mã phòng: cùng một câu hỏi, ai trả lời đúng trước thì ghi điểm.", mood: "cheer" },
+  friends: { title: "Đăng nhập để xem bạn bè", text: "Kết bạn với người bạn đã đấu cùng ở Đấu trường và xem ai đang trực tuyến.", mood: "happy" },
 };
 
 /**

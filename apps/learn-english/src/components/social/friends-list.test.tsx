@@ -46,11 +46,11 @@ describe("FriendsList (feature 031)", () => {
     expect(screen.getByText("1/3 đang trực tuyến")).toBeInTheDocument();
   });
 
-  it("shows the empty state with a way to the Arena (AC-016)", async () => {
+  it("shows the empty card without a link (AC-016)", async () => {
     pulse.mockResolvedValue({ ...DATA, friends: [] });
     render(<FriendsList />);
     expect(await screen.findByText("Bạn chưa có bạn bè nào.")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Vào Đấu trường" })).toHaveAttribute("href", "/arena");
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
   it("shows nothing to guests and sends no pulse (AC-018)", () => {

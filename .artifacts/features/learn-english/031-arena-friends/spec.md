@@ -74,8 +74,8 @@ Requests often go to someone who isn't online, for example when a learner goes b
 - [x] AC-013: WHEN a friend has no tab open THEN system SHALL show them as offline with a grey dot and how long ago they were last active, in Vietnamese ("Vừa mới hoạt động", "Hoạt động 5 phút trước", "Hoạt động 3 giờ trước", "Hoạt động hôm qua", "Hoạt động 4 ngày trước"), and the date for anything older than a week
 - [x] AC-014: WHEN the list shows THEN system SHALL put online friends first, then offline friends from most recently active, and SHALL show the count online ("2/7 đang trực tuyến")
 - [x] AC-015: WHEN a friend opens or closes the app THEN system SHALL update their status in the learner's list within two minutes, without the learner reloading
-- [x] AC-016: WHEN a learner has no friends THEN system SHALL show a short empty state that says friends come from the Arena, with a link to Đấu trường
-- [x] AC-017: WHEN the screen is too narrow for the sidebar (phones) THEN system SHALL show the same friends list as a section on the Đấu trường page
+- [x] AC-016: WHEN a learner has no friends THEN system SHALL show a small empty card that says friends come from the Arena, with no link (changed by quick 060)
+- [x] AC-017: WHEN the screen is too narrow for the sidebar (phones) THEN system SHALL show the same friends list on its own page, reached from the Thêm sheet (changed by feature 032; it was a section on the Đấu trường page)
 - [x] AC-018: WHEN a guest uses the app THEN system SHALL show no friends section
 
 ### P1: Notification bell

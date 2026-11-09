@@ -21,7 +21,8 @@ export function MatchDetails({ match, name, when }: { match: ArenaMatch; name: s
   return (
     <DialogContent className="sm:max-w-md">
       <DialogHeader>
-        <div className="flex items-center gap-3">
+        {/* pr-8 keeps the friend button clear of the dialog's close button in the corner. */}
+        <div className="flex items-center gap-3 pr-8">
           <OpponentAvatar match={match} />
           <div className="grid min-w-0 gap-0.5">
             <DialogTitle className="tabular-nums">

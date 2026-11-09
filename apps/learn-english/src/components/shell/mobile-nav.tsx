@@ -6,11 +6,11 @@ import { useState } from "react";
 import { Ellipsis, Info } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { MOBILE_CENTER, MOBILE_PRIMARY, NAV_ITEMS, isActive } from "./nav";
+import { MOBILE_CENTER, MOBILE_MORE_EXTRA, MOBILE_PRIMARY, NAV_ITEMS, isActive } from "./nav";
 
 // In the bar's own order, not the sidebar's.
 const PRIMARY = MOBILE_PRIMARY.map((href) => NAV_ITEMS.find((item) => item.href === href)!);
-const MORE = NAV_ITEMS.filter((item) => !(MOBILE_PRIMARY as readonly string[]).includes(item.href));
+const MORE = [...NAV_ITEMS.filter((item) => !(MOBILE_PRIMARY as readonly string[]).includes(item.href)), ...MOBILE_MORE_EXTRA];
 
 // One-line labels: "Đấu trường" would otherwise wrap on a 320 px phone.
 const tabClass = "flex min-h-14 flex-1 flex-col items-center justify-center gap-1 text-xs font-medium whitespace-nowrap";

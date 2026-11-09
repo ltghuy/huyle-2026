@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useId, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { MoreHorizontal, RotateCw, UserMinus, Users } from "lucide-react";
@@ -26,7 +25,7 @@ import { lastActive } from "./last-active";
 import { SOCIAL_KEY, sortFriends, useSocial } from "./use-social";
 
 // The learner's friends with who is online (feature 031, AC-010 to AC-020): in the sidebar on
-// wide screens and on the Đấu trường page on phones. Friend requests live in the bell.
+// wide screens and on the /friends page, which phones reach from the Thêm sheet (feature 032). Friend requests live in the bell.
 
 export const LOAD_FAILED = "Không tải được danh sách bạn bè.";
 const REMOVE_FAILED = "Chưa xóa được. Bạn thử lại nhé.";
@@ -49,10 +48,10 @@ export function FriendAvatar({ friend, className }: { friend: Friend; className?
   );
 }
 
-function FriendRow({ friend, now, onRemove }: { friend: Friend; now: number; onRemove: (friend: Friend) => void }) {
+function FriendRow({ friend, now, roomy, onRemove }: { friend: Friend; now: number; roomy: boolean; onRemove: (friend: Friend) => void }) {
   const status = friend.online ? "Đang trực tuyến" : lastActive(friend.lastSeenAt, now);
   return (
-    <li className="group/friend flex min-h-12 items-center gap-2.5 rounded-md px-2 py-1.5 hover:bg-sidebar-accent">
+    <li className={cn("group/friend flex items-center gap-2.5 rounded-md px-2 py-1.5", roomy ? "min-h-16 hover:bg-muted" : "min-h-12 hover:bg-sidebar-accent")}>
       <FriendAvatar friend={friend} />
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium">{friend.name}</p>
@@ -60,7 +59,7 @@ function FriendRow({ friend, now, onRemove }: { friend: Friend; now: number; onR
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger
-          render={<Button variant="ghost" size="icon-sm" aria-label={`Tùy chọn cho ${friend.name}`} className="shrink-0 text-muted-foreground" />}
+          render={<Button variant="ghost" size="icon-sm" aria-label={`Tùy chọn cho ${friend.name}`} className={cn("shrink-0 text-muted-foreground", roomy && "size-11")} />}
         >
           <MoreHorizontal aria-hidden />
         </DropdownMenuTrigger>
@@ -96,9 +95,11 @@ interface FriendsListProps {
   className?: string;
   /** Classes for the scrolling list itself (the sidebar caps its height). */
   listClassName?: string;
+  /** Taller rows and 44 px menu buttons, for the full friends page on phones (feature 032). */
+  roomy?: boolean;
 }
 
-export function FriendsList({ heading = true, className, listClassName }: FriendsListProps) {
+export function FriendsList({ heading = true, className, listClassName, roomy = false }: FriendsListProps) {
   const { signedIn, query } = useSocial();
   const queryClient = useQueryClient();
   const [removing, setRemoving] = useState<Friend | null>(null);
@@ -152,19 +153,17 @@ export function FriendsList({ heading = true, className, listClassName }: Friend
       ) : !data ? (
         <LoadingRows />
       ) : friends.length === 0 ? (
-        <div className="grid justify-items-start gap-1.5 px-2 py-1 text-sm text-muted-foreground">
-          <p className="flex items-center gap-1.5">
-            <Users aria-hidden className="size-4" /> Bạn chưa có bạn bè nào.
-          </p>
-          <p>Kết bạn với người bạn đã đấu cùng ở Đấu trường nhé.</p>
-          <Link href="/arena" className="font-medium text-primary underline-offset-4 hover:underline">
-            Vào Đấu trường
-          </Link>
+        <div className="mx-2 grid self-start justify-items-center gap-2 rounded-lg border border-dashed px-3 py-4 text-center">
+          <span className="flex size-9 items-center justify-center rounded-full bg-muted text-muted-foreground">
+            <Users aria-hidden className="size-4" />
+          </span>
+          <p className="text-sm font-medium">Bạn chưa có bạn bè nào.</p>
+          <p className="text-xs text-muted-foreground">Kết bạn với người bạn đã đấu cùng ở Đấu trường nhé.</p>
         </div>
       ) : (
         <ul className={cn("grid min-h-0 content-start gap-0.5 overflow-y-auto overscroll-contain", listClassName)}>
           {friends.map((friend) => (
-            <FriendRow key={friend.id} friend={friend} now={data.now} onRemove={setRemoving} />
+            <FriendRow key={friend.id} friend={friend} now={data.now} roomy={roomy} onRemove={setRemoving} />
           ))}
         </ul>
       )}
