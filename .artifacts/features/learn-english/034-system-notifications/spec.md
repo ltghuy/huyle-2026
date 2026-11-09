@@ -3,7 +3,7 @@ id: 034
 feature: system-notifications
 type: brownfield
 scope: medium
-status: to-review
+status: done
 branch: main
 created: 2026-11-09
 ---
@@ -16,8 +16,8 @@ The bell in the page header (feature 031) lists only personal notifications: fri
 
 ## Goals
 
-- [ ] Every signed-in learner sees the AI grading announcement in the bell, with an unread mark, the next time they open the app
-- [ ] Personal notifications behave as before, now under "Cá nhân"
+- [x] Every signed-in learner sees the AI grading announcement in the bell, with an unread mark, the next time they open the app
+- [x] Personal notifications behave as before, now under "Cá nhân"
 
 ## Out of Scope
 
@@ -66,8 +66,8 @@ The bell in the page header (feature 031) lists only personal notifications: fri
 
 ## Success Criteria
 
-- [ ] A signed-in learner on a new device sees a bell number of at least 1 and the AI announcement under "Hệ thống", and the number goes once they open that tab
-- [ ] Bell tests, lint, typecheck and build pass
+- [x] A signed-in learner on a new device sees a bell number of at least 1 and the AI announcement under "Hệ thống", and the number goes once they open that tab
+- [x] Bell tests, lint, typecheck and build pass
 
 ## Open Questions
 
@@ -76,6 +76,7 @@ The bell in the page header (feature 031) lists only personal notifications: fri
 ## Notes
 
 - Verified 2026-11-09: bell tests (the feature 031 ones unchanged, plus 6 for the tabs), announcements unit tests, device clear test, typecheck, lint. Checked in a built preview signed in as `e2e-thu`, at 1280 px light and 375 px dark: the bell opens on "Hệ thống" for a learner with no friend notifications, the announcement shows with its unread mark, and its link closes the bell and lands on `/settings#cham-bang-ai` with the section visible. AC-010 is covered by the `clearDevice` test.
+- Audit 2026-11-09: all goals and success criteria met. Evidence: the preview check above (a fresh device signed in as `e2e-thu` had an unread bell and the announcement under "Hệ thống"), the bell test that the number returns to plain "Thông báo" once "Hệ thống" is opened, the unchanged feature 031 bell tests, and the full gates (1402 tests, lint, typecheck, build).
 - Requested by the owner on 2026-11-09 with a screenshot of the bell.
 - Choices made without asking the owner: announcements ship in the app's code with a release (no database); "read" is kept per device and cleared on sign-out; the bell opens on "Cá nhân" unless only "Hệ thống" has something unread.
 - Related: feature 031 (the bell and friend notifications), feature 033 (AI grading).

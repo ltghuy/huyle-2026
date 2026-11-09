@@ -20,10 +20,10 @@ This changes a standing decision. Feature 001 chose no AI in the running app, an
 
 ## Goals
 
-- [ ] A learner with at least one working key gets a fair verdict on a translation that means the same as the reference in different words, without having to claim it
-- [ ] A learner whose key runs out mid-session keeps studying with no action on their part: the next key takes over, and when none is left the exercise falls back to today's matching
-- [ ] Keys never reach the Tuxedo English server, its backups or its sync, and the app's hosting stays within the free plan
-- [ ] Wordings the AI accepts reach the owner's claim queue, so the accepted answers grow for learners without a key too
+- [x] A learner with at least one working key gets a fair verdict on a translation that means the same as the reference in different words, without having to claim it
+- [x] A learner whose key runs out mid-session keeps studying with no action on their part: the next key takes over, and when none is left the exercise falls back to today's matching
+- [x] Keys never reach the Tuxedo English server, its backups or its sync, and the app's hosting stays within the free plan
+- [x] Wordings the AI accepts reach the owner's claim queue, so the accepted answers grow for learners without a key too
 
 ## Out of Scope
 
@@ -119,10 +119,10 @@ This changes a standing decision. Feature 001 chose no AI in the running app, an
 ## Success Criteria
 
 - [ ] The three overview wordings of "Ngày mai tôi sẽ đi siêu thị với anh trai" are graded correct with a working key, and a wrong-tense answer is graded wrong with a Vietnamese explanation
-- [ ] With key 1 out of quota, an answer is graded by key 2 with no prompt to the learner; with every key out, the answer is graded by matching within the same step
-- [ ] No request to the Tuxedo English server carries a key (checked in the network log and in the backup and sync payloads), and the feature adds no server requests beyond the existing claim submission
-- [ ] An AI-accepted wording shows up in the owner's claim review marked as accepted by AI
-- [ ] Typecheck, lint, unit tests, build and the end-to-end flow (add key, AI verdict with a stubbed Google, failover, fallback) pass
+- [x] With key 1 out of quota, an answer is graded by key 2 with no prompt to the learner; with every key out, the answer is graded by matching within the same step
+- [x] No request to the Tuxedo English server carries a key (checked in the network log and in the backup and sync payloads), and the feature adds no server requests beyond the existing claim submission
+- [x] An AI-accepted wording shows up in the owner's claim review marked as accepted by AI
+- [x] Typecheck, lint, unit tests, build and the end-to-end flow (add key, AI verdict with a stubbed Google, failover, fallback) pass
 
 ## Open Questions
 
@@ -131,7 +131,8 @@ This changes a standing decision. Feature 001 chose no AI in the running app, an
 ## Notes
 
 - Verified 2026-11-09: 1392 unit tests (new: `translate-ai`, `ai-keys`, `gemini-client`, the settings card; extended: runner, claims client and service, claims route, snapshot, device clear, Arena questions, claim script and sheet), typecheck, lint, build, and `e2e/specs/translate.spec.ts` 4/4 with Google stubbed (key check, AI-correct wording with daily-quota failover to key 2, every key out falls back to matching, no request to the app's server carries a key). `content:claims pull --no-ai` against the local D1 showed "AI accepted 1" for a seeded AI claim. The settings card was checked at 375 px in light and dark mode with no horizontal scroll. AC-019 has no test of its own: a rejection is handled by the same claims-client code for both sources, which ignores `source`. AC-020 was checked by reading the privacy page.
-- Not run against the real Google API: no key was available, so the JSON-output field form is handled by trying one form and switching to the other on a request-shape error (design.md, T001). The first real call will show which one sticks.
+- Audit 2026-11-09: the owner graded real answers with their own key on localhost (`pnpm dev`, local D1) and confirmed the AI judged a differently worded answer correct; the local D1 then held 4 claims with `source: "ai"` (10:24 to 10:27 UTC). Production had migration 0009 applied and the code deployed, but no AI-graded answer yet. Still open: the first success criterion (the three overview wordings plus a wrong-tense answer with its explanation) has not been tried as such.
+- Not run against the real Google API before the audit: no key was available, so the JSON-output field form is handled by trying one form and switching to the other on a request-shape error (design.md, T001). The first real call will show which one sticks.
 - Research on 2026-11-09 (`.artifacts/research/learn-english-gemini-byok-grading.md`): Google counts free quota per Google Cloud project, not per key, so extra keys only help when they come from different accounts; Google advises against keys in browser code because the user can read them, which is acceptable here since each learner holds only their own key.
 - Requested by the owner on 2026-11-09, inspired by the profile page of engdailystreak.com. The owner asked for keys in "Local Storage"; the requirement kept here is that they stay on the device and are never sent to the server. Where in the browser they are stored is a design choice.
 - Decisions taken with the owner on 2026-11-09: lessons, Ôn tập and the exercise library only (not the Arena); an AI-accepted answer counts as a normal correct answer and goes to the claim queue; a wrong AI verdict shows a short Vietnamese explanation and keeps the claim action; keys are managed in Cài đặt. See decisions.md.
