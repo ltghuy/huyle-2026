@@ -30,7 +30,7 @@ This changes a standing decision. Feature 001 chose no AI in the running app, an
 | Feature | Reason |
 |---------|--------|
 | AI grading in the Arena | Both players must be judged the same way, and an AI call would eat into the question timer (owner, 2026-11-09) |
-| AI grading for other exercise types (dictation, find the error, free writing) | Only "Dịch câu" was asked for; the others have one right answer or are self-checked |
+| AI grading for other exercise types (dictation, find the error, free writing) | Only "Dịch câu" was asked for; the others have one right answer or are self-checked. Free writing ("Bài viết") got an AI review later, in feature 036 |
 | An app-provided key or a paid AI plan | The app keeps no AI running cost; only learners' own keys are used |
 | AI providers other than Google AI Studio | The proposal is built on Google's free per-account quota |
 | Syncing keys between devices | Keys stay in the browser where they were added; the learner adds them again on another device |

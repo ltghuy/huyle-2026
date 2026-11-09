@@ -40,7 +40,9 @@ export function FeedbackPanel({ result, relatedLink }: { result: GradeResult; re
 
   if (hidden) return null;
   const Icon = TONE_ICONS[tone];
-  const title = TONE_TITLES[tone];
+  // A reviewed paragraph: the notes and the corrected text are in the exercise above (feature 036).
+  const reviewed = Boolean(result.writingReview);
+  const title = reviewed ? (result.correct ? "Bài viết đạt" : "Bài viết cần sửa") : TONE_TITLES[tone];
   return (
     <div
       role="status"
@@ -52,7 +54,9 @@ export function FeedbackPanel({ result, relatedLink }: { result: GradeResult; re
       <Icon className={cn("mt-0.5 size-6 shrink-0", tone === "wrong" ? "text-destructive" : "text-success")} aria-hidden />
       <div className="grid gap-1">
         <p className="font-semibold">{title}</p>
-        {tone === "claimed" ? (
+        {reviewed ? (
+          <p>{result.correct ? "Xem nhận xét và bài đã sửa ở trên nhé." : "Xem chỗ cần sửa và bài đã sửa ở trên nhé."}</p>
+        ) : tone === "claimed" ? (
           <p>Câu của bạn sẽ được kiểm tra sau. Nếu chưa đúng, bạn sẽ được báo lại.</p>
         ) : tone === "ai-correct" ? (
           <p>

@@ -16,4 +16,6 @@ export interface ExerciseViewProps<Instance, Answer> {
   onClaim?: () => void;
   /** True while AI grading is deciding the answer (feature 033); renderers keep the answer locked. */
   checking?: boolean;
+  /** Set once an AI review was tried and no key could answer (feature 036): the view falls back to its own check. */
+  aiUnavailable?: boolean;
 }

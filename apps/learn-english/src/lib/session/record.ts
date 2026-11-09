@@ -23,8 +23,10 @@ interface RecordInput {
  */
 export async function recordOutcome({ outcome, context, now, lessonPosition }: RecordInput): Promise<void> {
   const { result, ms, itemId, exercise } = outcome;
-  const selfMarked = exercise === "writing";
-  const rating = rate({ correct: result.correct, ms, hinted: Boolean(result.hinted), typo: Boolean(result.typo), selfMarked });
+  // Writing is never timed: a paragraph takes as long as it takes. The learner marks it unless the AI reviewed it (feature 036, AC-004).
+  const untimed = exercise === "writing";
+  const selfMarked = untimed && !result.aiGraded;
+  const rating = rate({ correct: result.correct, ms: untimed ? 0 : ms, hinted: Boolean(result.hinted), typo: Boolean(result.typo), selfMarked });
 
   let card: StoredCard | undefined;
   if (isCardId(itemId)) {

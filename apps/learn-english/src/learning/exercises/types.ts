@@ -1,5 +1,6 @@
 // Types shared by the exercise generators.
 import type { ContentItemOf } from "../../content/schema";
+import type { WritingReview } from "./writing-ai";
 
 export type WordItem = ContentItemOf<"word">;
 export type GrammarItem = ContentItemOf<"grammar">;
@@ -22,4 +23,6 @@ export interface GradeResult {
   aiGraded?: boolean;
   /** Set by the runner: AI grading was tried but no key could answer, so matching decided (feature 033). */
   aiUnavailable?: boolean;
+  /** Set by the runner: the AI's review of a "Bài viết" paragraph (feature 036); `aiGraded` is set too. */
+  writingReview?: WritingReview;
 }

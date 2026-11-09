@@ -196,7 +196,7 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
     }
     case "writing":
       return item.kind === "writing"
-        ? exerciseStep(key, seed, { kind: "writing", writingId: item.id, promptVi: item.body.promptVi, modelAnswers: item.body.modelAnswers })
+        ? exerciseStep(key, seed, { kind: "writing", writingId: item.id, level: item.level, promptVi: item.body.promptVi, modelAnswers: item.body.modelAnswers })
         : null;
   }
 }

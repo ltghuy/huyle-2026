@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, screen, within } from "@testing-library/react";
 import { render } from "@/test-utils/render";
 import { buildMcq } from "@/learning/exercises/mcq";
 import { buildMissingLetters } from "@/learning/exercises/missing-letters";
@@ -267,7 +267,7 @@ describe("sentence exercises", () => {
   });
 
   it("self-checks free writing against the model answers", async () => {
-    const instance = { kind: "writing" as const, writingId: "writing:a1-1", promptVi: "Viết về gia đình bạn.", modelAnswers: ["I have a small family."] };
+    const instance = { kind: "writing" as const, writingId: "writing:a1-1", level: "A1" as const, promptVi: "Viết về gia đình bạn.", modelAnswers: ["I have a small family."] };
     const { onOutcome } = setup([{ key: "wr", type: "exercise", instance, seed: 1 }]);
     fireEvent.change(screen.getByRole("textbox", { name: "Bài viết của bạn" }), { target: { value: "My family is small." } });
     fireEvent.click(screen.getByRole("button", { name: "Xem bài mẫu" }));
@@ -788,5 +788,100 @@ describe("translate with AI grading (feature 033)", () => {
     now.mockReturnValue(20_000);
     await act(async () => resolve({ correct: true, explanationVi: "" }));
     expect(onOutcome.mock.calls[0][1].ms).toBe(2000);
+  });
+});
+
+describe("AI review of Bài viết (feature 036)", () => {
+  const WRITING = { kind: "writing" as const, writingId: "writing:a1-10", level: "A1" as const, promptVi: "Viết 3 câu về cuối tuần của bạn.", modelAnswers: ["On Saturday, I clean my house."] };
+  const PARAGRAPH = "Last weekend I go to the park. I play football.";
+  const REVIEW = {
+    passed: true,
+    grammar: { ok: false, noteVi: "\"I go\" nên là \"I went\" vì đây là chuyện đã xảy ra." },
+    vocabulary: { ok: true, noteVi: "Bạn dùng từ đúng và tự nhiên." },
+    meaning: { ok: true, noteVi: "Bài trả lời đúng đề." },
+    correctedEn: "Last weekend I went to the park. I played football.",
+  };
+
+  async function withKey(review: typeof REVIEW | null | Promise<typeof REVIEW | null>) {
+    const { addAiKey, resetAiKeysForTest } = await import("@/lib/ai-keys");
+    localStorage.clear();
+    resetAiKeysForTest();
+    addAiKey("key-1");
+    const client = await import("@/ai-grading/gemini-client");
+    return vi.spyOn(client, "reviewWritingWithAi").mockImplementation(() => Promise.resolve(review));
+  }
+
+  async function write(text = PARAGRAPH) {
+    fireEvent.change(screen.getByRole("textbox", { name: "Bài viết của bạn" }), { target: { value: text } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+  }
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+    localStorage.clear();
+  });
+
+  it("asks the AI with no self-check, and shows the three areas, the corrected text and the samples (AC-001 to AC-003)", async () => {
+    const review = await withKey(REVIEW);
+    const { onOutcome } = setup([{ key: "wr", type: "exercise", instance: WRITING, seed: 1 }]);
+    expect(screen.queryByRole("button", { name: "Xem bài mẫu" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Kiểm tra" })).toBeDisabled();
+    await write();
+    expect(review).toHaveBeenCalledWith({ promptVi: WRITING.promptVi, level: "A1" }, PARAGRAPH, expect.any(AbortSignal));
+    expect(screen.getByText("Bài viết đạt")).toBeInTheDocument();
+    expect(screen.getByText("Chấm bằng AI")).toBeInTheDocument();
+    const details = screen.getByRole("region", { name: "Nhận xét của AI" });
+    for (const label of ["Ngữ pháp", "Từ vựng", "Ý nghĩa"]) expect(within(details).getByText(label)).toBeInTheDocument();
+    expect(within(details).getByText(REVIEW.grammar.noteVi)).toBeInTheDocument();
+    expect(within(details).getByText(": cần sửa")).toBeInTheDocument();
+    expect(within(details).getByText(REVIEW.correctedEn)).toBeInTheDocument();
+    expect(within(details).getByText("On Saturday, I clean my house.")).toBeInTheDocument();
+    expect(onOutcome.mock.calls[0][1]).toMatchObject({ exercise: "writing", result: { correct: true, aiGraded: true } });
+  });
+
+  it("records a paragraph the AI doesn't pass as wrong, and says nothing needed fixing when it is unchanged (AC-004)", async () => {
+    await withKey({ ...REVIEW, passed: false, correctedEn: PARAGRAPH });
+    const { onOutcome } = setup([{ key: "wr", type: "exercise", instance: WRITING, seed: 1 }]);
+    await write();
+    expect(screen.getByText("Bài viết cần sửa")).toBeInTheDocument();
+    expect(screen.getByText("Bài của bạn không cần sửa gì.")).toBeInTheDocument();
+    expect(onOutcome.mock.calls[0][1].result.correct).toBe(false);
+  });
+
+  it("waits for the learner instead of moving on by itself (AC-005)", async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    await withKey(REVIEW);
+    setup([{ key: "wr", type: "exercise", instance: WRITING, seed: 1 }, { key: "st", type: "study", item: target, examples: [] }]);
+    await write();
+    await act(() => vi.advanceTimersByTimeAsync(15_000));
+    expect(screen.getByText("Bài viết đạt")).toBeInTheDocument();
+  });
+
+  it("falls back to the self-check, keeping the paragraph, when no key can answer (AC-008)", async () => {
+    await withKey(null);
+    const { onOutcome } = setup([{ key: "wr", type: "exercise", instance: WRITING, seed: 1 }]);
+    await write();
+    expect(onOutcome).not.toHaveBeenCalled();
+    expect(screen.getByText(/chưa chấm bằng AI được, bạn tự so với bài mẫu/)).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Bài viết của bạn" })).toHaveValue(PARAGRAPH);
+    expect(screen.getByRole("button", { name: "Kiểm tra" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Xem bài mẫu" }));
+    fireEvent.click(screen.getByRole("button", { name: /Còn lỗi/ }));
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    expect(onOutcome.mock.calls[0][1].result).toMatchObject({ correct: false });
+    expect(onOutcome.mock.calls[0][1].result.aiGraded).toBeUndefined();
+  });
+
+  it("keeps today's self-check without a key (AC-007)", async () => {
+    localStorage.clear();
+    (await import("@/lib/ai-keys")).resetAiKeysForTest();
+    const client = await import("@/ai-grading/gemini-client");
+    const review = vi.spyOn(client, "reviewWritingWithAi");
+    setup([{ key: "wr", type: "exercise", instance: WRITING, seed: 1 }]);
+    fireEvent.change(screen.getByRole("textbox", { name: "Bài viết của bạn" }), { target: { value: PARAGRAPH } });
+    expect(screen.getByRole("button", { name: "Xem bài mẫu" })).toBeInTheDocument();
+    expect(screen.queryByText(/chưa chấm bằng AI được/)).not.toBeInTheDocument();
+    expect(review).not.toHaveBeenCalled();
   });
 });

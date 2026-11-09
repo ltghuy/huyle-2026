@@ -28,7 +28,7 @@ describe("AiGradingSetting (033)", () => {
   it("explains what is sent where, the free-tier terms and links to a free key (AC-001)", () => {
     render(<AiGradingSetting />);
     expect(screen.getByText(/chỉ lưu trên thiết bị này, không gửi lên máy chủ/)).toBeInTheDocument();
-    expect(screen.getByText(/câu tiếng Việt và câu bạn viết được gửi thẳng tới Google/)).toBeInTheDocument();
+    expect(screen.getByText(/đề bài tiếng Việt và bài bạn viết được gửi thẳng tới Google/)).toBeInTheDocument();
     expect(screen.getByText(/18 tuổi trở lên/)).toBeInTheDocument();
     expect(screen.getByText(/cùng một tài khoản dùng chung lượt/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Tạo khóa miễn phí" })).toHaveAttribute("href", "https://aistudio.google.com/apikey");

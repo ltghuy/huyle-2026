@@ -81,16 +81,26 @@ export interface GradingPrompt {
 
 /** The generateContent body for one answer. No sampling parameters: newer models reject them. */
 export function buildGradingRequest({ vi, en }: GradingPrompt, answer: string, format: OutputFormat) {
-  const text = `Vietnamese sentence: ${vi}\nReference translation: ${en}\n<answer>${answer.trim().replace(/<\/?answer>/gi, "")}</answer>`;
+  const text = `Vietnamese sentence: ${vi}\nReference translation: ${en}\n${wrapLearnerText("answer", answer)}`;
+  return buildJsonRequest(SYSTEM_PROMPT, text, VERDICT_SCHEMA, format, 256);
+}
+
+/** A generateContent body asking for JSON in `schema`, in either output field form. Shared with the writing review (feature 036). */
+export function buildJsonRequest(systemPrompt: string, text: string, schema: object, format: OutputFormat, maxOutputTokens: number) {
   const output =
     format === "json-schema"
-      ? { responseMimeType: "application/json", responseJsonSchema: VERDICT_SCHEMA }
-      : { responseFormat: { text: { mimeType: "APPLICATION_JSON", schema: VERDICT_SCHEMA } } };
+      ? { responseMimeType: "application/json", responseJsonSchema: schema }
+      : { responseFormat: { text: { mimeType: "APPLICATION_JSON", schema } } };
   return {
-    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    systemInstruction: { parts: [{ text: systemPrompt }] },
     contents: [{ role: "user", parts: [{ text }] }],
-    generationConfig: { ...output, thinkingConfig: { thinkingLevel: "minimal" }, maxOutputTokens: 256 },
+    generationConfig: { ...output, thinkingConfig: { thinkingLevel: "minimal" }, maxOutputTokens },
   };
+}
+
+/** Learner text for a prompt: trimmed, with any tag that would close its wrapper removed. */
+export function wrapLearnerText(tag: string, text: string): string {
+  return `<${tag}>${text.trim().replace(new RegExp(`</?${tag}>`, "gi"), "")}</${tag}>`;
 }
 
 const replySchema = z.object({
@@ -107,8 +117,8 @@ const replySchema = z.object({
 
 const verdictSchema = z.object({ correct: z.boolean(), explanationVi: z.string().default("") });
 
-/** The verdict in a 200 reply, or null when it was blocked, cut off or isn't the JSON asked for. */
-export function parseGradingReply(body: unknown): Verdict | null {
+/** The JSON object in a 200 reply, or null when it was blocked, cut off or isn't JSON. Shared with the writing review (feature 036). */
+export function replyJson(body: unknown): unknown {
   const reply = replySchema.safeParse(body);
   if (!reply.success || reply.data.promptFeedback?.blockReason) return null;
   const candidate = reply.data.candidates?.[0];
@@ -121,12 +131,17 @@ export function parseGradingReply(body: unknown): Verdict | null {
     .replace(/^```(?:json)?\s*/i, "")
     .replace(/\s*```$/, "");
   try {
-    const verdict = verdictSchema.safeParse(JSON.parse(text));
-    if (!verdict.success) return null;
-    return { correct: verdict.data.correct, explanationVi: verdict.data.correct ? "" : verdict.data.explanationVi.trim() };
+    return JSON.parse(text);
   } catch {
     return null;
   }
+}
+
+/** The verdict in a 200 reply, or null when it was blocked, cut off or isn't the JSON asked for. */
+export function parseGradingReply(body: unknown): Verdict | null {
+  const verdict = verdictSchema.safeParse(replyJson(body));
+  if (!verdict.success) return null;
+  return { correct: verdict.data.correct, explanationVi: verdict.data.correct ? "" : verdict.data.explanationVi.trim() };
 }
 
 const errorSchema = z.object({

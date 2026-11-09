@@ -147,3 +147,28 @@ describe("checkAiKey (033)", () => {
     await expect(checkAiKey("nope")).resolves.toEqual({ ok: false, reason: "offline" });
   });
 });
+
+describe("reviewWritingWithAi (feature 036)", () => {
+  const REVIEW = {
+    passed: false,
+    grammar: { ok: false, noteVi: "Sai thì." },
+    vocabulary: { ok: true, noteVi: "Tốt." },
+    meaning: { ok: true, noteVi: "Đúng đề." },
+    correctedEn: "I went to the park.",
+  };
+  const reviewReply = () => json(200, { candidates: [{ finishReason: "STOP", content: { parts: [{ text: JSON.stringify(REVIEW) }] } }] });
+
+  it("takes over to the next key like grading does, and returns the review", async () => {
+    const { reviewWritingWithAi } = await import("./gemini-client");
+    fetchMock.mockResolvedValueOnce(dayQuota()).mockResolvedValueOnce(reviewReply());
+    expect(await reviewWritingWithAi({ promptVi: "Viết về cuối tuần.", level: "A1" }, "I go to the park.", undefined, () => NOW)).toEqual(REVIEW);
+    expect(fetchMock.mock.calls.map(keyOf)).toEqual(["key-1", "key-2"]);
+    expect(JSON.parse((fetchMock.mock.calls[1][1] as RequestInit).body as string).contents[0].parts[0].text).toContain("<paragraph>I go to the park.</paragraph>");
+  });
+
+  it("gives up with null when no reply can be read", async () => {
+    const { reviewWritingWithAi } = await import("./gemini-client");
+    fetchMock.mockImplementation(async () => json(200, { candidates: [] }));
+    expect(await reviewWritingWithAi({ promptVi: "x", level: "A1" }, "y", undefined, () => NOW)).toBeNull();
+  });
+});

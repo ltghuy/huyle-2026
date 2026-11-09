@@ -13,6 +13,7 @@ import {
   type OutputFormat,
   type Verdict,
 } from "@/learning/exercises/translate-ai";
+import { buildWritingRequest, parseWritingReply, WRITING_BUDGET_MS, type WritingPrompt, type WritingReview } from "@/learning/exercises/writing-ai";
 import { getAiKeys, updateAiKey } from "@/lib/ai-keys";
 
 // Calls Google straight from the browser with the learner's own key (feature
@@ -65,21 +66,28 @@ export async function checkAiKey(key: string, signal?: AbortSignal): Promise<Key
   }
 }
 
-type Attempt = { verdict: Verdict } | { retry: "format" | "transient" } | { next: true };
+type Attempt<T> = { value: T } | { retry: "format" | "transient" } | { next: true };
+
+/** One request: its body for an output format, how to read a 200 reply, and how long to wait in all. */
+interface AiTask<T> {
+  body: (format: OutputFormat) => unknown;
+  parse: (body: unknown) => T | null;
+  budgetMs: number;
+}
 
 /** One call with one key; updates the key's status from Google's answer. */
-async function attempt(id: string, key: string, prompt: GradingPrompt, answer: string, signal: AbortSignal, now: () => number): Promise<Attempt> {
+async function attempt<T>(id: string, key: string, task: AiTask<T>, signal: AbortSignal, now: () => number): Promise<Attempt<T>> {
   const response = await fetch(AI_GENERATE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-    body: JSON.stringify(buildGradingRequest(prompt, answer, format)),
+    body: JSON.stringify(task.body(format)),
     signal,
     referrerPolicy: "no-referrer",
   });
   const body = await readJson(response);
   if (response.ok) {
-    const verdict = parseGradingReply(body);
-    return verdict ? { verdict } : { retry: "transient" };
+    const value = task.parse(body);
+    return value ? { value } : { retry: "transient" };
   }
   const failure = classifyFailure(response.status, body);
   switch (failure.kind) {
@@ -100,14 +108,13 @@ async function attempt(id: string, key: string, prompt: GradingPrompt, answer: s
 }
 
 /**
- * Grades one answer with the learner's keys, in order, within AI_BUDGET_MS
- * (AC-008, AC-013 to AC-016). A refused key hands over to the next one; a
- * reply that can't be read, or a server error, gets one more key at most, so
- * a bad model day can't use up every key. Returns null when no verdict came:
- * the caller grades by matching instead.
+ * Runs one task with the learner's keys, in order, within its budget
+ * (feature 033 AC-008, AC-013 to AC-016). A refused key hands over to the next
+ * one; a reply that can't be read, or a server error, gets one more key at
+ * most, so a bad model day can't use up every key. Null when nothing came back.
  */
-export async function gradeWithAi(prompt: GradingPrompt, answer: string, signal?: AbortSignal, now: () => number = Date.now): Promise<Verdict | null> {
-  const timed = withTimeout(signal, AI_BUDGET_MS);
+async function runWithKeys<T>(task: AiTask<T>, signal: AbortSignal | undefined, now: () => number): Promise<T | null> {
+  const timed = withTimeout(signal, task.budgetMs);
   let transientLeft = 2;
   let formatSwitched = false;
   try {
@@ -115,15 +122,15 @@ export async function gradeWithAi(prompt: GradingPrompt, answer: string, signal?
     while (!timed.signal.aborted) {
       const next = usableKeys(getAiKeys(), now()).find((key) => !tried.has(key.id));
       if (!next) return null;
-      let result: Attempt;
+      let result: Attempt<T>;
       try {
-        result = await attempt(next.id, next.key, prompt, answer, timed.signal, now);
+        result = await attempt(next.id, next.key, task, timed.signal, now);
       } catch {
         // Offline, aborted or timed out.
         if (timed.signal.aborted) return null;
         result = { retry: "transient" };
       }
-      if ("verdict" in result) return timed.signal.aborted ? null : result.verdict;
+      if ("value" in result) return timed.signal.aborted ? null : result.value;
       if ("retry" in result && result.retry === "format" && !formatSwitched) {
         // Same key again with the other output field form.
         formatSwitched = true;
@@ -137,6 +144,16 @@ export async function gradeWithAi(prompt: GradingPrompt, answer: string, signal?
   } finally {
     timed.done();
   }
+}
+
+/** Grades one "Dịch câu" answer (feature 033); null means grade by matching instead. */
+export function gradeWithAi(prompt: GradingPrompt, answer: string, signal?: AbortSignal, now: () => number = Date.now): Promise<Verdict | null> {
+  return runWithKeys({ body: (f) => buildGradingRequest(prompt, answer, f), parse: parseGradingReply, budgetMs: AI_BUDGET_MS }, signal, now);
+}
+
+/** Reviews one "Bài viết" paragraph (feature 036); null means fall back to the self-check. */
+export function reviewWritingWithAi(prompt: WritingPrompt, paragraph: string, signal?: AbortSignal, now: () => number = Date.now): Promise<WritingReview | null> {
+  return runWithKeys({ body: (f) => buildWritingRequest(prompt, paragraph, f), parse: parseWritingReply, budgetMs: WRITING_BUDGET_MS }, signal, now);
 }
 
 /** Test only: back to the first output format. */

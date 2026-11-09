@@ -1,14 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
 import type { ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
 import type { SentenceGapInstance } from "@/learning/exercises/sentence-gap";
 import type { Tile } from "@/learning/exercises/tiles";
 import type { WordOrderInstance } from "@/learning/exercises/word-order";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
 import { AudioButton } from "./audio-button";
 import { EnglishInput } from "./english-input";
 import { OptionList } from "./option-list";
@@ -168,91 +164,4 @@ export function ChooseSentenceView({ instance, answer, onAnswer, result }: Exerc
       />
     </div>
   );
-}
-
-/** Free writing, self-checked: write, compare with model answers, then mark yourself. */
-export interface WritingInstance {
-  kind: "writing";
-  writingId: string;
-  promptVi: string;
-  modelAnswers: string[];
-}
-
-export interface WritingAnswer {
-  text: string;
-  correct: boolean;
-}
-
-export function WritingView({ instance, onAnswer, result }: ExerciseViewProps<WritingInstance, WritingAnswer>) {
-  const [text, setText] = useState("");
-  const [revealed, setRevealed] = useState(false);
-  const [mark, setMark] = useState<boolean | null>(null);
-
-  function handleMark(correct: boolean) {
-    setMark(correct);
-    onAnswer({ text, correct });
-  }
-
-  return (
-    <div className="grid gap-6">
-      <Instruction>Bài viết</Instruction>
-      <p className="text-xl">{instance.promptVi}</p>
-      <Textarea
-        lang="en"
-        spellCheck={false}
-        autoCorrect="off"
-        autoCapitalize="sentences"
-        aria-label="Bài viết của bạn"
-        value={text}
-        onChange={(event) => setText(event.target.value)}
-        disabled={revealed}
-        className="min-h-36 text-lg"
-      />
-      {!revealed ? (
-        <Button type="button" variant="secondary" size="lg" className="h-12" disabled={!text.trim()} onClick={() => setRevealed(true)}>
-          Xem bài mẫu
-        </Button>
-      ) : (
-        <div className="grid gap-4">
-          <div className="grid gap-2">
-            <p className="font-medium">Bài mẫu</p>
-            {instance.modelAnswers.map((model) => (
-              <p key={model} className="rounded-xl bg-muted p-4 text-lg" lang="en">
-                {model}
-              </p>
-            ))}
-          </div>
-          <div className="grid gap-2">
-            <p className="font-medium">So với bài mẫu, bài của bạn thế nào?</p>
-            <div className="grid grid-cols-2 gap-3">
-              <Button
-                type="button"
-                variant="outline"
-                className={cn("h-12", mark === true && "border-success bg-success/10")}
-                aria-pressed={mark === true}
-                disabled={result !== null}
-                onClick={() => handleMark(true)}
-              >
-                <ThumbsUp aria-hidden /> Mình viết đúng
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                className={cn("h-12", mark === false && "border-destructive bg-destructive/10")}
-                aria-pressed={mark === false}
-                disabled={result !== null}
-                onClick={() => handleMark(false)}
-              >
-                <ThumbsDown aria-hidden /> Còn lỗi
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export function gradeWriting(instance: WritingInstance, answer: WritingAnswer) {
-  return { correct: answer.correct, expected: instance.modelAnswers[0] ?? "" };
 }

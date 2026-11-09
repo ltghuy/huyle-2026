@@ -68,7 +68,7 @@ const SECTIONS: LegalSection[] = [
     list: [
       "Google, để bạn đăng nhập;",
       "Cloudflare, nơi chạy ứng dụng và lưu dữ liệu. Máy chủ của Google và Cloudflare có thể đặt ngoài Việt Nam;",
-      "Google AI Studio, chỉ khi bạn tự thêm khóa API của mình trong Cài đặt để chấm bài “Dịch câu” bằng AI: câu tiếng Việt và câu bạn viết được gửi thẳng từ trình duyệt của bạn tới Google, dưới khóa và theo điều khoản Google của chính bạn. Ở gói miễn phí, Google có thể dùng và cho người đọc nội dung này để cải thiện sản phẩm. Khóa chỉ nằm trên thiết bị của bạn, không bao giờ được gửi tới máy chủ của ứng dụng, và bị xóa khi bạn đăng xuất hoặc xóa tài khoản;",
+      "Google AI Studio, chỉ khi bạn tự thêm khóa API của mình trong Cài đặt để chấm bài “Dịch câu” và “Bài viết” bằng AI: câu hoặc đề bài tiếng Việt và bài bạn viết được gửi thẳng từ trình duyệt của bạn tới Google, dưới khóa và theo điều khoản Google của chính bạn. Ở gói miễn phí, Google có thể dùng và cho người đọc nội dung này để cải thiện sản phẩm. Khóa chỉ nằm trên thiết bị của bạn, không bao giờ được gửi tới máy chủ của ứng dụng, và bị xóa khi bạn đăng xuất hoặc xóa tài khoản;",
       "MoMo hoặc ngân hàng của bạn, chỉ khi bạn tự chuyển tiền ủng hộ qua mã QR: ứng dụng không nhận hay lưu thông tin thanh toán, còn chủ ứng dụng thấy tên người chuyển và lời nhắn như mọi giao dịch chuyển tiền;",
       "cơ quan nhà nước có thẩm quyền, chỉ khi có yêu cầu hợp lệ theo quy định của pháp luật.",
     ],

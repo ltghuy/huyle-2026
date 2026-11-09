@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { gradeWithAi } from "@/ai-grading/gemini-client";
+import { gradeWithAi, reviewWritingWithAi } from "@/ai-grading/gemini-client";
 import type { Verdict } from "@/learning/exercises/translate-ai";
 import { gradeChooseSentence, type ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
 import {
@@ -27,14 +27,8 @@ import { claimOfTranslate, gradeTranslate, type ClaimDraft, type TranslateAnswer
 import { gradeWordOrder, type WordOrderInstance } from "@/learning/exercises/word-order";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ExerciseKind } from "@/learning/types";
-import {
-  ChooseSentenceView,
-  gradeWriting,
-  SentenceGapView,
-  WordOrderView,
-  WritingView,
-  type WritingInstance,
-} from "./sentence-exercises";
+import { ChooseSentenceView, SentenceGapView, WordOrderView } from "./sentence-exercises";
+import { gradeWriting, WritingView, type WritingAnswer, type WritingInstance } from "./writing-exercise";
 import { FormsGapView, FormsListeningView, FormsTypingView } from "./forms-exercises";
 import { DictationView } from "./dictation-exercise";
 import { FindErrorView } from "./find-error-exercise";
@@ -76,11 +70,26 @@ interface Entry<I, A> {
   claimOf?: (instance: I, answer: A) => ClaimDraft | null;
   /** Kinds AI grading can judge when matching says wrong (feature 033): the verdict, or null when no key could answer. */
   aiGrade?: (instance: I, answer: A, signal: AbortSignal) => Promise<Verdict | null>;
+  /**
+   * Kinds the AI decides on its own, before any matching (feature 036): `wants` says whether this answer
+   * was written for the AI; `run` gives the result, or null when no key could answer and the view
+   * must fall back to its own check.
+   */
+  aiReview?: { wants: (answer: A) => boolean; run: (instance: I, answer: A, signal: AbortSignal) => Promise<GradeResult | null> };
 }
 
 function aiGradeTranslate(instance: TranslateInstance, answer: TranslateAnswer, signal: AbortSignal) {
   return gradeWithAi({ vi: instance.vi, en: instance.en }, answer.text, signal);
 }
+
+const WRITING_REVIEW: NonNullable<Entry<WritingInstance, WritingAnswer>["aiReview"]> = {
+  wants: (answer) => answer.mode === "ai",
+  async run(instance, answer, signal) {
+    const review = await reviewWritingWithAi({ promptVi: instance.promptVi, level: instance.level }, answer.text, signal);
+    if (!review) return null;
+    return { correct: review.passed, expected: instance.modelAnswers[0] ?? "", aiGraded: true, writingReview: review };
+  },
+};
 
 // Each entry pairs a renderer with its grader; `entryFor` picks by kind and mode.
 const entry = <I, A>(value: Entry<I, A>) => value as unknown as Entry<ExerciseInstance, unknown>;
@@ -106,7 +115,7 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
     case "choose-sentence":
       return entry({ exercise: "choose-sentence", View: ChooseSentenceView, grade: gradeChooseSentence });
     case "writing":
-      return entry({ exercise: "writing", View: WritingView, grade: gradeWriting });
+      return entry({ exercise: "writing", View: WritingView, grade: gradeWriting, aiReview: WRITING_REVIEW });
     case "find-error":
       return entry({ exercise: "find-error", View: FindErrorView, grade: gradeFindError });
     case "dictation":

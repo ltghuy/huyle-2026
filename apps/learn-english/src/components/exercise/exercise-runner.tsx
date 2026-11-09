@@ -122,6 +122,8 @@ export function ExerciseRunner({
   // meanwhile, and leaving the runner aborts the call so a late verdict is dropped.
   const [checking, setChecking] = useState(false);
   const aiCall = useRef<AbortController | null>(null);
+  // Steps whose AI review found no key that could answer: their view falls back to its own check (feature 036).
+  const [aiFallback, setAiFallback] = useState<Record<string, boolean>>({});
 
   useEffect(() => () => aiCall.current?.abort(), []);
 
@@ -136,7 +138,8 @@ export function ExerciseRunner({
 
   // A checked answer, right or wrong, moves on by itself after a few seconds; study cards
   // wait for the learner. The leave dialog pauses it (quick 056).
-  const autoContinue = step?.type === "exercise" && result !== null && !finished && !confirmExit;
+  // An AI review of a paragraph takes a while to read, so the learner moves on themselves (feature 036, AC-005).
+  const autoContinue = step?.type === "exercise" && result !== null && !result.writingReview && !finished && !confirmExit;
   const onAutoContinue = useEffectEvent(() => handleContinue());
   useEffect(() => {
     if (!autoContinue) return;
@@ -168,13 +171,35 @@ export function ExerciseRunner({
     return { ...matched, correct: true, aiGraded: true };
   }
 
+  /**
+   * A kind the AI decides on its own (feature 036): the result, "fallback" when no key could
+   * answer (the view then checks by itself), or null when the runner was left meanwhile.
+   */
+  async function reviewByAi(review: NonNullable<ReturnType<typeof entryFor>["aiReview"]>, current: ExerciseInstance): Promise<GradeResult | "fallback" | null> {
+    if (!hasUsableAiKey()) return "fallback";
+    const controller = new AbortController();
+    aiCall.current = controller;
+    setChecking(true);
+    const reviewed = await review.run(current, answer, controller.signal);
+    if (controller.signal.aborted) return null;
+    aiCall.current = null;
+    setChecking(false);
+    return reviewed ?? "fallback";
+  }
+
   async function handleCheck() {
     if (step.type !== "exercise" || !instance || answer === null || result || checking) return;
     const entry = entryFor(instance);
     // The learner's time, before any wait for AI: a slow verdict mustn't rate the answer hard.
     const ms = Math.round(performance.now() - shownAt.current);
-    const graded = await gradeByAi(entry, instance, entry.grade(instance, answer));
+    const graded = entry.aiReview?.wants(answer) ? await reviewByAi(entry.aiReview, instance) : await gradeByAi(entry, instance, entry.grade(instance, answer));
     if (!graded) return;
+    if (graded === "fallback") {
+      // The view keeps what was written and asks for its own check instead (AC-008).
+      setAiFallback((current) => ({ ...current, [step.key]: true }));
+      setAnswer(null);
+      return;
+    }
     playAnswerSound(graded.correct);
     setResult(graded);
     if (retryWrong && !graded.correct) setWrong((current) => [...current, retryStep(step, Boolean(swapped[step.key]), round + 1)]);
@@ -348,6 +373,7 @@ export function ExerciseRunner({
               onAudioError={handleAudioError}
               onClaim={canClaim ? handleClaim : undefined}
               checking={checking}
+              aiUnavailable={Boolean(aiFallback[step.key])}
             />
           ) : null}
         </main>
