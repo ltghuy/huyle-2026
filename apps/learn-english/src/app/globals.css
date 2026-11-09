@@ -13,7 +13,7 @@
   --animate-score-pop: score-pop 300ms ease-out;
   --animate-confetti: confetti 1.2s ease-in forwards;
   /* "Tiếp tục" fills while the runner waits to move on after a checked answer (quick 056); keep in step with AUTO_CONTINUE_MS. */
-  --animate-auto-continue: auto-continue 3s linear forwards;
+  --animate-auto-continue: auto-continue 10s linear forwards;
   @keyframes auto-continue {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }

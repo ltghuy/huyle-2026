@@ -17,7 +17,7 @@ The full-screen player that the daily lesson, extra lessons, review sessions, Li
 ### Checking and moving on
 
 - An exercise step shows "Kiểm tra", enabled once the learner has an answer. Submitting grades the answer, plays the right or wrong sound and shows the feedback panel; "Chính xác!" fades after 2 seconds, while a wrong answer keeps the right answer on screen.
-- After checking, the button becomes "Tiếp tục" and fills over 3 seconds (`AUTO_CONTINUE_MS`; not animated with reduced motion). The runner then moves on by itself, right answer or wrong, unless the leave dialog is open; pressing the button or Enter moves on sooner (quick 056).
+- After checking, the button becomes "Tiếp tục" and fills over 10 seconds (`AUTO_CONTINUE_MS`; not animated with reduced motion). The runner then moves on by itself, right answer or wrong, unless the leave dialog is open; pressing the button or Enter moves on sooner (quick 056; 3 seconds until quick 063).
 - When matching marks a "Dịch câu" answer wrong, the answer could be claimed and the learner has a usable Google AI key (feature 033), the runner asks the AI before showing a result: the button reads "Đang chấm…" and the answer stays locked. The time used for the rating is taken when "Kiểm tra" is pressed, so the wait doesn't count. Leaving meanwhile aborts the call and drops the late verdict.
 - A study card shows "Tiếp tục" straight away and records no outcome.
 - On the last step, "Tiếp tục" finishes once (a second press shows "Đang lưu…" and does nothing). With `retryWrong`, the wrong answers come back in rounds before finishing (feature 006).
@@ -53,7 +53,7 @@ The full-screen player that the daily lesson, extra lessons, review sessions, Li
 | Setting | Purpose | Current |
 |---------|---------|---------|
 | `CORRECT_FEEDBACK_MS` | how long "Chính xác!" stays | 2000 ms |
-| `AUTO_CONTINUE_MS` | wait before moving on after a checked answer; the `auto-continue` animation in `globals.css` matches it | 3000 ms |
+| `AUTO_CONTINUE_MS` | wait before moving on after a checked answer; the `auto-continue` animation in `globals.css` matches it | 10000 ms |
 
 ## Gaps
 

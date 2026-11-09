@@ -24,8 +24,8 @@ import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
 import { StudyCard, type StudyItem } from "./study-card";
 
-/** How long the runner waits after a checked answer before moving on by itself (quick 056); the button's fill (`animate-auto-continue`) lasts as long. */
-export const AUTO_CONTINUE_MS = 3000;
+/** How long the runner waits after a checked answer before moving on by itself (quick 056, 10 s since quick 063); the button's fill (`animate-auto-continue`) lasts as long. */
+export const AUTO_CONTINUE_MS = 10_000;
 
 /** Words and grammar an exercise practises: linked after a wrong answer and brought forward in review. */
 export interface RelatedItems {
