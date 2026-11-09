@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ClipboardCheck, Compass } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AiGradingSetting } from "@/components/settings/ai-grading-setting";
 import { AppearanceSetting } from "@/components/settings/appearance-setting";
 import { DeleteAccount } from "@/components/settings/delete-account";
 import { BackupPanel } from "@/components/settings/backup-panel";
@@ -18,14 +19,14 @@ import { SyncPanel } from "@/components/settings/sync-panel";
 import { PageHeader } from "@/components/shell/page-header";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/settings", description: "Tên, trình độ, giao diện, âm thanh, sao lưu, đồng bộ, bảng xếp hạng và hướng dẫn.", index: false });
+export const metadata: Metadata = pageMetadata({ title: "Cài đặt", path: "/settings", description: "Tên, trình độ, giao diện, âm thanh, chấm điểm bằng AI, sao lưu, đồng bộ, bảng xếp hạng và hướng dẫn.", index: false });
 
 const LINK_BUTTON = cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-4");
 
 export default function SettingsPage() {
   return (
     <>
-      <PageHeader title="Cài đặt" description="Tài khoản, tên, trình độ, giao diện, âm thanh, sao lưu, bảng xếp hạng và hướng dẫn." />
+      <PageHeader title="Cài đặt" description="Tài khoản, tên, trình độ, giao diện, âm thanh, chấm điểm bằng AI, sao lưu, bảng xếp hạng và hướng dẫn." />
       <div className="mx-auto grid w-full max-w-3xl gap-4 px-4 md:mx-0 md:px-8">
         <AccountCard />
         <BackupReminder />
@@ -70,6 +71,15 @@ export default function SettingsPage() {
           </CardHeader>
           <CardContent>
             <SoundToggle />
+          </CardContent>
+        </Card>
+
+        <Card id="cham-bang-ai" className="scroll-mt-20">
+          <CardHeader>
+            <CardTitle>Chấm điểm bằng AI</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <AiGradingSetting />
           </CardContent>
         </Card>
 

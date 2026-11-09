@@ -53,7 +53,7 @@ export async function submitClaims(db: Db, input: ClaimsRequest, salt: string, n
     db
       .insert(claims)
       .select(
-        sql`SELECT ${claim.id}, ${claim.sentenceId}, ${claim.answer}, ${deviceHash}, ${day}, ${now}, 'pending', NULL, NULL
+        sql`SELECT ${claim.id}, ${claim.sentenceId}, ${claim.answer}, ${deviceHash}, ${day}, ${now}, 'pending', NULL, NULL, ${claim.source}
           WHERE (SELECT COUNT(*) FROM ${claims} WHERE ${claims.deviceHash} = ${deviceHash} AND ${claims.day} = ${day}) < ${MAX_CLAIMS_PER_DAY}`,
       )
       .onConflictDoNothing(),

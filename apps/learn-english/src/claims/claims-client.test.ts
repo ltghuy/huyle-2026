@@ -48,9 +48,21 @@ describe("claims client (feature 016)", () => {
     await flushClaims(DAY1);
 
     expect(fetchMock.mock.calls[0][0]).toBe(CLAIMS_URL);
-    expect(bodyOf(0)).toEqual({ deviceId: DEVICE, claims: [{ id: claim.id, sentenceId: "sentence:sea", answer: input.answer }] });
+    expect(bodyOf(0)).toEqual({ deviceId: DEVICE, claims: [{ id: claim.id, sentenceId: "sentence:sea", answer: input.answer, source: "learner" }] });
     expect(JSON.stringify(bodyOf(0))).not.toContain("Lan");
     expect((await getClaims())[0]).toMatchObject({ status: "pending", sentAt: DAY1, checkedAt: DAY1 });
+  });
+
+  it("marks a wording AI grading accepted, and never sends the AI key (033 AC-017)", async () => {
+    localStorage.setItem("learn-english:ai-keys", JSON.stringify([{ id: "k", key: "AIza-secret-key", status: "working" }]));
+    await queueClaim({ ...input, source: "ai" }, DAY1);
+    const [claim] = await getClaims();
+    expect(claim).toMatchObject({ source: "ai" });
+    fetchMock.mockResolvedValueOnce(json({ accepted: [claim.id] }));
+    await flushClaims(DAY1);
+    expect(bodyOf(0).claims).toEqual([{ id: claim.id, sentenceId: "sentence:sea", answer: input.answer, source: "ai" }]);
+    expect(JSON.stringify(fetchMock.mock.calls)).not.toContain("AIza-secret-key");
+    localStorage.clear();
   });
 
   it("keeps claims when offline or the server fails, and sends them later (AC-008)", async () => {

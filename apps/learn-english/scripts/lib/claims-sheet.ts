@@ -28,7 +28,8 @@ function sentenceHtml(group: ClaimGroup): string {
 
 function headHtml(group: ClaimGroup): string {
   const level = group.sentence ? `<span class="tag">${escapeHtml(group.sentence.level)}</span>` : "";
-  return `<div class="head"><span class="tag">${group.count} claim${group.count === 1 ? "" : "s"}</span>${level}<span class="muted">${escapeHtml(group.sentenceId)}</span></div>`;
+  const ai = group.aiCount ? `<span class="tag">AI accepted ${group.aiCount}</span>` : "";
+  return `<div class="head"><span class="tag">${group.count} claim${group.count === 1 ? "" : "s"}</span>${ai}${level}<span class="muted">${escapeHtml(group.sentenceId)}</span></div>`;
 }
 
 function openHtml(group: ClaimGroup): string {

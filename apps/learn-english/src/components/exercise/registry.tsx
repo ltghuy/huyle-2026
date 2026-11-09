@@ -1,4 +1,6 @@
 import type { ComponentType } from "react";
+import { gradeWithAi } from "@/ai-grading/gemini-client";
+import type { Verdict } from "@/learning/exercises/translate-ai";
 import { gradeChooseSentence, type ChooseSentenceInstance } from "@/learning/exercises/choose-sentence";
 import {
   gradeFormsGap,
@@ -21,7 +23,7 @@ import { gradeMcq, type McqInstance } from "@/learning/exercises/mcq";
 import { gradeMissingLetters, type MissingLettersInstance } from "@/learning/exercises/missing-letters";
 import { gradeRecall, type RecallInstance } from "@/learning/exercises/recall";
 import { gradeSentenceGap, type SentenceGapInstance } from "@/learning/exercises/sentence-gap";
-import { claimOfTranslate, gradeTranslate, type ClaimDraft, type TranslateInstance } from "@/learning/exercises/translate";
+import { claimOfTranslate, gradeTranslate, type ClaimDraft, type TranslateAnswer, type TranslateInstance } from "@/learning/exercises/translate";
 import { gradeWordOrder, type WordOrderInstance } from "@/learning/exercises/word-order";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { ExerciseKind } from "@/learning/types";
@@ -72,6 +74,12 @@ interface Entry<I, A> {
   grade: (instance: I, answer: A) => GradeResult;
   /** Kinds whose wrong answers can be claimed as also correct (feature 016): the claim, or null when this answer can't be. */
   claimOf?: (instance: I, answer: A) => ClaimDraft | null;
+  /** Kinds AI grading can judge when matching says wrong (feature 033): the verdict, or null when no key could answer. */
+  aiGrade?: (instance: I, answer: A, signal: AbortSignal) => Promise<Verdict | null>;
+}
+
+function aiGradeTranslate(instance: TranslateInstance, answer: TranslateAnswer, signal: AbortSignal) {
+  return gradeWithAi({ vi: instance.vi, en: instance.en }, answer.text, signal);
 }
 
 // Each entry pairs a renderer with its grader; `entryFor` picks by kind and mode.
@@ -104,7 +112,7 @@ export function entryFor(instance: ExerciseInstance): Entry<ExerciseInstance, un
     case "dictation":
       return entry({ exercise: "dictation", View: DictationView, grade: gradeDictation });
     case "translate":
-      return entry({ exercise: "translate", View: TranslateView, grade: gradeTranslate, claimOf: claimOfTranslate });
+      return entry({ exercise: "translate", View: TranslateView, grade: gradeTranslate, claimOf: claimOfTranslate, aiGrade: aiGradeTranslate });
     case "forms-typing":
       return entry({ exercise: "forms-typing", View: FormsTypingView, grade: gradeFormsTyping });
     case "forms-gap":

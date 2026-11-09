@@ -672,3 +672,121 @@ describe("translate (feature 016)", () => {
     expect(onExit).toHaveBeenCalled();
   });
 });
+
+describe("translate with AI grading (feature 033)", () => {
+  const OTHER = "Shut your eyes and picture the sea.";
+
+  async function translateStep(key = "t") {
+    const { buildTranslate } = await import("@/learning/exercises/translate");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("sea", { tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."], vi: "Nhắm mắt lại và tưởng tượng biển cả." });
+    return { key, type: "exercise" as const, instance: buildTranslate({ sentence: item })!, seed: 1, related: { cardIds: ["word:sea" as const] } };
+  }
+
+  async function answer(text: string) {
+    fireEvent.change(screen.getByRole("textbox", { name: "Câu tiếng Anh của bạn" }), { target: { value: text } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+  }
+
+  async function mocks(verdict: { correct: boolean; explanationVi: string } | null | Promise<{ correct: boolean; explanationVi: string } | null>) {
+    const { addAiKey, resetAiKeysForTest } = await import("@/lib/ai-keys");
+    localStorage.clear();
+    resetAiKeysForTest();
+    addAiKey("key-1");
+    const client = await import("@/ai-grading/gemini-client");
+    const claims = await import("@/claims/claims-client");
+    return {
+      grade: vi.spyOn(client, "gradeWithAi").mockImplementation(() => Promise.resolve(verdict)),
+      submit: vi.spyOn(claims, "submitClaim").mockImplementation(() => {}),
+    };
+  }
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+    localStorage.clear();
+  });
+
+  it("doesn't call the AI for an answer that matches (AC-007)", async () => {
+    const { grade } = await mocks({ correct: true, explanationVi: "" });
+    setup([await translateStep()]);
+    await answer("close your eyes and imagine the sea");
+    expect(screen.getByText("Chính xác!")).toBeInTheDocument();
+    expect(grade).not.toHaveBeenCalled();
+  });
+
+  it("marks a different right wording correct with a normal rating and sends it to the owner as AI-accepted (AC-008, AC-009, AC-011, AC-017)", async () => {
+    const { grade, submit } = await mocks({ correct: true, explanationVi: "" });
+    const { onOutcome } = setup([await translateStep()]);
+    await answer(OTHER);
+    expect(grade).toHaveBeenCalledWith({ vi: "Nhắm mắt lại và tưởng tượng biển cả.", en: "Close your eyes and imagine the sea." }, OTHER, expect.any(AbortSignal));
+    expect(screen.getByText("Chính xác!")).toBeInTheDocument();
+    expect(screen.getByText("Chấm bằng AI")).toBeInTheDocument();
+    expect(screen.getByText(/Một cách nói khác/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Câu của mình cũng đúng" })).not.toBeInTheDocument();
+    expect(onOutcome).toHaveBeenCalledTimes(1);
+    const { result } = onOutcome.mock.calls[0][1];
+    expect(result).toMatchObject({ correct: true, aiGraded: true });
+    expect(result.hinted).toBeUndefined();
+    expect(submit).toHaveBeenCalledWith(expect.objectContaining({ sentenceId: "sentence:sea", answer: OTHER, source: "ai", related: ["word:sea"] }));
+  });
+
+  it("shows the AI's explanation on a wrong answer and keeps the claim (AC-010)", async () => {
+    const { submit } = await mocks({ correct: false, explanationVi: "Bạn dùng sai động từ." });
+    const { onOutcome } = setup([await translateStep()]);
+    await answer(OTHER);
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.getByText("Bạn dùng sai động từ.")).toBeInTheDocument();
+    expect(screen.getByText("Chấm bằng AI")).toBeInTheDocument();
+    expect(onOutcome).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Câu của mình cũng đúng" }));
+    expect(submit).toHaveBeenCalledWith(expect.not.objectContaining({ source: "ai" }));
+  });
+
+  it("falls back to matching with a notice when no key could answer (AC-016)", async () => {
+    await mocks(null);
+    setup([await translateStep()]);
+    await answer(OTHER);
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.getByText(/chưa chấm bằng AI được/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Câu của mình cũng đúng" })).toBeInTheDocument();
+  });
+
+  it("uses matching only when the learner has no key (AC-006)", async () => {
+    const { grade } = await mocks({ correct: true, explanationVi: "" });
+    localStorage.clear();
+    (await import("@/lib/ai-keys")).resetAiKeysForTest();
+    setup([await translateStep()]);
+    await answer(OTHER);
+    expect(grade).not.toHaveBeenCalled();
+    expect(screen.getByText("Chưa đúng")).toBeInTheDocument();
+    expect(screen.queryByText(/chưa chấm bằng AI được/)).not.toBeInTheDocument();
+  });
+
+  it("locks the answer while grading and drops a late verdict after leaving", async () => {
+    let resolve!: (verdict: { correct: boolean; explanationVi: string }) => void;
+    const { grade } = await mocks(new Promise((done) => (resolve = done)));
+    const { onOutcome, onExit } = setup([await translateStep()]);
+    await answer(OTHER);
+    expect(screen.getByRole("button", { name: "Đang chấm…" })).toBeDisabled();
+    expect(screen.getByRole("textbox", { name: "Câu tiếng Anh của bạn" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Thoát" }));
+    expect(onExit).toHaveBeenCalled();
+    cleanup();
+    expect(grade.mock.calls[0][2]?.aborted).toBe(true);
+    await act(async () => resolve({ correct: true, explanationVi: "" }));
+    expect(onOutcome).not.toHaveBeenCalled();
+  });
+
+  it("rates on the learner's time, not the wait for AI (AC-011)", async () => {
+    let resolve!: (verdict: { correct: boolean; explanationVi: string }) => void;
+    await mocks(new Promise((done) => (resolve = done)));
+    const now = vi.spyOn(performance, "now");
+    now.mockReturnValue(1000);
+    const { onOutcome } = setup([await translateStep()]);
+    now.mockReturnValue(3000);
+    await answer(OTHER);
+    now.mockReturnValue(20_000);
+    await act(async () => resolve({ correct: true, explanationVi: "" }));
+    expect(onOutcome.mock.calls[0][1].ms).toBe(2000);
+  });
+});

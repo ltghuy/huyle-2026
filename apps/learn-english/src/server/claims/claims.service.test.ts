@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it } from "vitest";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
-import { MAX_CLAIMS_PER_DAY, type ClaimsRequest } from "./claims.schema";
+import { claimsRequestSchema, MAX_CLAIMS_PER_DAY, type ClaimsRequest } from "./claims.schema";
 import { CLEANUP_LIMIT, claimStatuses, RETENTION_MS, submitClaims } from "./claims.service";
 
 const DAY = 86_400_000;
@@ -15,7 +15,7 @@ let sqlite: ReturnType<typeof sqliteDb>["sqlite"];
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
 const request = (deviceId: string, ids: number[]): ClaimsRequest => ({
   deviceId,
-  claims: ids.map((n) => ({ id: id(n), sentenceId: "sentence:greet-1", answer: `Answer ${n}` })),
+  claims: ids.map((n) => ({ id: id(n), sentenceId: "sentence:greet-1", answer: `Answer ${n}`, source: "learner" })),
 });
 const range = (from: number, count: number) => Array.from({ length: count }, (_, i) => from + i);
 const rowCount = () => (sqlite.prepare("SELECT COUNT(*) AS n FROM claims").get() as { n: number }).n;
@@ -37,9 +37,21 @@ describe("submitClaims (016)", () => {
   it("stores a pending claim with a hashed device id and the UTC day", async () => {
     expect(await submitClaims(db, request(DEVICE_A, [1]), SALT, NOW)).toEqual([id(1)]);
     const row = sqlite.prepare("SELECT * FROM claims").get() as Record<string, unknown>;
-    expect(row).toMatchObject({ id: id(1), sentence_id: "sentence:greet-1", answer: "Answer 1", day: "2026-11-20", created_at: NOW, status: "pending" });
+    expect(row).toMatchObject({ id: id(1), sentence_id: "sentence:greet-1", answer: "Answer 1", day: "2026-11-20", created_at: NOW, status: "pending", source: "learner" });
     expect(row.device_hash).toMatch(/^[0-9a-f]{64}$/);
     expect(JSON.stringify(row)).not.toContain(DEVICE_A);
+  });
+
+  it("stores who accepted the wording: the learner or AI grading (033 AC-017)", async () => {
+    const ai: ClaimsRequest = { deviceId: DEVICE_A, claims: [{ id: id(2), sentenceId: "sentence:greet-1", answer: "Hi", source: "ai" }] };
+    expect(await submitClaims(db, ai, SALT, NOW)).toEqual([id(2)]);
+    expect(sqlite.prepare("SELECT source FROM claims WHERE id = ?").get(id(2))).toEqual({ source: "ai" });
+  });
+
+  it("defaults a claim from an older client to the learner", () => {
+    const parsed = claimsRequestSchema.parse({ deviceId: DEVICE_A, claims: [{ id: id(3), sentenceId: "sentence:greet-1", answer: "Hi" }] });
+    expect(parsed.claims[0]!.source).toBe("learner");
+    expect(claimsRequestSchema.safeParse({ deviceId: DEVICE_A, claims: [{ id: id(3), sentenceId: "sentence:greet-1", answer: "Hi", source: "bot" }] }).success).toBe(false);
   });
 
   it("accepts 30 claims per device per day and refuses the 31st (AC-010)", async () => {
@@ -65,7 +77,7 @@ describe("submitClaims (016)", () => {
 
   it("ignores a duplicate id, keeping the first claim and reporting it accepted", async () => {
     await submitClaims(db, request(DEVICE_A, [1]), SALT, NOW);
-    expect(await submitClaims(db, { deviceId: DEVICE_A, claims: [{ id: id(1), sentenceId: "sentence:other", answer: "Changed" }] }, SALT, NOW)).toEqual([id(1)]);
+    expect(await submitClaims(db, { deviceId: DEVICE_A, claims: [{ id: id(1), sentenceId: "sentence:other", answer: "Changed", source: "learner" }] }, SALT, NOW)).toEqual([id(1)]);
     // A resend the next day (new daily hash) must not be dropped by the device.
     expect(await submitClaims(db, request(DEVICE_A, [1]), SALT, NOW + 86_400_000)).toEqual([id(1)]);
     expect(sqlite.prepare("SELECT sentence_id, answer FROM claims").all()).toEqual([{ sentence_id: "sentence:greet-1", answer: "Answer 1" }]);

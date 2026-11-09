@@ -14,4 +14,6 @@ export interface ExerciseViewProps<Instance, Answer> {
   onAudioError?: () => void;
   /** Set only while a wrong answer can be claimed as also correct (feature 016). */
   onClaim?: () => void;
+  /** True while AI grading is deciding the answer (feature 033); renderers keep the answer locked. */
+  checking?: boolean;
 }

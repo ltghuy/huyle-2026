@@ -86,6 +86,9 @@ export type LessonPartKind = "review" | "new-words" | "grammar" | "sentences" | 
  */
 export const CLAIM_STATUSES = ["unsent", "pending", "approved", "dropped", "rejected", "shown"] as const;
 export type ClaimStatus = (typeof CLAIM_STATUSES)[number];
+/** Who said the answer was right: the learner, or AI grading with their own key (feature 033). */
+export const CLAIM_SOURCES = ["learner", "ai"] as const;
+export type ClaimSource = (typeof CLAIM_SOURCES)[number];
 
 /** A wrong translate answer the learner said is also correct (feature 016). */
 export interface StoredClaim {
@@ -106,6 +109,8 @@ export interface StoredClaim {
   status: ClaimStatus;
   /** The owner's explanation of a rejection. */
   explanationVi?: string;
+  /** "ai" when AI grading accepted the answer (feature 033); missing means the learner claimed it. */
+  source?: ClaimSource;
   updatedAt: number;
 }
 

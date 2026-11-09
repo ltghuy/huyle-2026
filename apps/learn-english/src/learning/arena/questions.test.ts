@@ -148,4 +148,12 @@ describe("isCorrect (AC-015)", () => {
     expect(isCorrect(q, { text: "I have no work today" })).toBe(true);
     expect(isCorrect(q, { text: "I work today." })).toBe(false);
   });
+
+  it("never uses AI grading: a right wording that isn't accepted stays wrong, keys or not (033 AC-012)", () => {
+    localStorage.setItem("learn-english:ai-keys", JSON.stringify([{ id: "k", key: "AIza-key", status: "working" }]));
+    const today = sentence("today", { tokens: ["Today", "I", "don't", "work."] });
+    const [q] = buildRound({ words, sentences: [today], wordings: new Map() }, "write", 1, 1);
+    expect(isCorrect(q, { text: "I'm off work today." })).toBe(false);
+    localStorage.clear();
+  });
 });

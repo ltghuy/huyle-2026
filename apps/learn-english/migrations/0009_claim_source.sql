@@ -1,0 +1,1 @@
+ALTER TABLE `claims` ADD `source` text DEFAULT 'learner' NOT NULL;

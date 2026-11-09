@@ -64,6 +64,7 @@ Decisions on gray areas and ambiguities resolved during discussion.
 - **Decision (revised 2026-10-26):** No AI in the running app. Sentence construction is generated at random from reviewed example sentences (word order, missing word, pick the correct sentence, translate with word tiles) and checked against accepted answers. Free writing is self-checked against model answers.
 - **Rationale:** First chosen as AI feedback. The owner dropped it to reduce complexity; it also removed the running cost, rate limits and bot check.
 - **Caveats:** No feedback on free-form mistakes. Accepted alternative word orders must be listed in the content.
+- **Narrowed 2026-11-09 by feature 033:** the app still runs and pays for no AI, but a learner may add their own Google AI Studio keys, and the browser then calls Google directly to grade "Dịch câu" answers that matching marks wrong. See `.artifacts/features/learn-english/033-ai-translation-grading/`.
 
 ### Starting level
 

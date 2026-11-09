@@ -4,6 +4,7 @@ import { hardWords } from "./hard-words";
 import { NAME_MAX_LENGTH } from "./name";
 import { pointsBalance } from "./points";
 import {
+  CLAIM_SOURCES,
   CLAIM_STATUSES,
   EXERCISE_KINDS,
   LEVELS,
@@ -166,6 +167,7 @@ const claimSchema = z.object({
   checkedAt: time.optional(),
   status: z.enum(CLAIM_STATUSES),
   explanationVi: z.string().optional(),
+  source: z.enum(CLAIM_SOURCES).optional(),
   updatedAt: time,
 }) satisfies z.ZodType<StoredClaim>;
 

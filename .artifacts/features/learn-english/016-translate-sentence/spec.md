@@ -29,7 +29,7 @@ The exercise uses the course's existing reviewed sentences (all levels, every gr
 
 | Feature | Reason |
 |---------|--------|
-| Judging free answers with AI while the learner studies | The app has no AI at runtime; claims are judged later, outside the app |
+| Judging free answers with AI while the learner studies | The app has no AI at runtime; claims are judged later, outside the app. Since feature 033, a learner who adds their own Google AI key gets AI grading in the browser |
 | Partial credit or highlighting which words were wrong | The answer is right or wrong as a whole, like dictation; word-level diffs are a separate feature |
 | Writing new prompt sentences for this exercise | It reuses the reviewed sentences; dedicated prompts can be a later feature |
 | English → Vietnamese translation | Only Vietnamese → English was asked for |

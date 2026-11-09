@@ -18,4 +18,8 @@ export interface GradeResult {
   explanationVi?: string;
   /** Set by the runner, never a grader: the learner claimed a wrong answer is also correct (feature 016). */
   claimed?: boolean;
+  /** Set by the runner: AI grading with the learner's own key made the verdict (feature 033). */
+  aiGraded?: boolean;
+  /** Set by the runner: AI grading was tried but no key could answer, so matching decided (feature 033). */
+  aiUnavailable?: boolean;
 }

@@ -101,6 +101,8 @@ export const claims = sqliteTable(
     status: text("status", { enum: ["pending", "approved", "rejected", "dropped"] }).notNull().default("pending"),
     explanationVi: text("explanation_vi"),
     decidedAt: integer("decided_at"),
+    // "ai" when the learner's own AI key accepted the wording (feature 033).
+    source: text("source", { enum: ["learner", "ai"] }).notNull().default("learner"),
   },
   (table) => [index("claims_status").on(table.status), index("claims_device_day").on(table.deviceHash, table.day)],
 );

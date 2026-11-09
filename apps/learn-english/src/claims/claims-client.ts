@@ -1,6 +1,6 @@
 import { localDate } from "@/learning/attendance";
 import { claimKey, type ClaimDraft } from "@/learning/exercises/translate";
-import type { CardItemId, StoredClaim } from "@/learning/types";
+import type { CardItemId, ClaimSource, StoredClaim } from "@/learning/types";
 import { bringForward } from "@/lib/session/record";
 import {
   claimsResponseSchema,
@@ -25,6 +25,8 @@ export const FORGET_AFTER_MS = 120 * 86_400_000;
 
 export interface ClaimInput extends ClaimDraft {
   related: CardItemId[];
+  /** "ai" when AI grading accepted the answer (feature 033); defaults to the learner. */
+  source?: ClaimSource;
 }
 
 const chunks = <T>(items: readonly T[], size: number): T[][] =>
@@ -64,7 +66,7 @@ export async function flushClaims(now: number = Date.now()): Promise<void> {
     for (const batch of chunks(unsent, MAX_CLAIMS_PER_REQUEST)) {
       const response = await postJson(CLAIMS_URL, {
         deviceId: profile.deviceId,
-        claims: batch.map(({ id, sentenceId, answer }) => ({ id, sentenceId, answer })),
+        claims: batch.map(({ id, sentenceId, answer, source }) => ({ id, sentenceId, answer, source: source ?? "learner" })),
       });
       // Too many requests or a server error: try again later.
       if (response.status === 429 || response.status >= 500) return;

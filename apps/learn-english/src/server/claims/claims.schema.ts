@@ -29,10 +29,16 @@ export const SENTENCE_ID_PATTERN = /^sentence:[a-z0-9][a-z0-9-]*$/;
 export const CLAIM_STATUSES = ["pending", "approved", "rejected", "dropped"] as const;
 export type ClaimStatus = (typeof CLAIM_STATUSES)[number];
 
+/** Who said the answer was right: the learner's tap, or AI grading with their own key (feature 033). */
+export const CLAIM_SOURCES = ["learner", "ai"] as const;
+export type ClaimSource = (typeof CLAIM_SOURCES)[number];
+
 const claimSchema = z.object({
   id: z.uuid(),
   sentenceId: z.string().regex(SENTENCE_ID_PATTERN),
   answer: z.string().trim().min(1).max(MAX_ANSWER_LENGTH),
+  // Clients older than feature 033 don't send it.
+  source: z.enum(CLAIM_SOURCES).default("learner"),
 });
 
 export const claimsRequestSchema = z.object({

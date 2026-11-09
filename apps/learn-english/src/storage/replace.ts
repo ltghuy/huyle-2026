@@ -50,11 +50,12 @@ export async function replaceAll(state: LearnerState): Promise<void> {
 const DEVICE_KEYS = [
   "learn-english:sync-fingerprint", // src/sync/sync-client.ts: what was last synced
   "learn-english:backup-reminder-dismissed", // src/components/settings/backup-reminder.tsx
+  "learn-english:ai-keys", // src/lib/ai-keys.ts: the learner's Google AI keys (feature 033)
 ] as const;
 
 /**
  * Clears this device after signing out or deleting the account (feature 022, AC-005, AC-023):
- * all progress and its device-only notes go, so the next learner starts clean. The content cache,
+ * all progress and its device-only notes (Google AI keys included, feature 033) go, so the next learner starts clean. The content cache,
  * sound and colour preferences stay.
  */
 export async function clearDevice(now: number): Promise<Profile> {

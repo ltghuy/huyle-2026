@@ -16,6 +16,7 @@ function file(): ClaimsFile {
         answer: EVIL,
         claimIds: ["a", "b"],
         count: 2,
+        aiCount: 1,
         sentence,
         suggestion: { verdict: "reject", reasonVi: `Bạn viết sai ${EVIL}`, noteEn: EVIL },
       },
@@ -44,6 +45,7 @@ describe("buildClaimsSheet", () => {
   it("lists open groups with actions and prefilled rejection text, and automatic ones read-only", () => {
     const html = buildClaimsSheet(file());
     expect(html.match(/<article data-key=/g)).toHaveLength(2);
+    expect(html.match(/AI accepted 1/g)).toHaveLength(1); // feature 033
     expect(html).toContain('data-suggest="reject"');
     expect(html).toMatch(/<textarea[^>]*>Bạn viết sai &lt;\/script&gt;/);
     expect(html).toContain('<article class="auto">');

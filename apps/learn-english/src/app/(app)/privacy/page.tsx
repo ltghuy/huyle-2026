@@ -15,7 +15,7 @@ const AUTHOR_SITE = AUTHOR.url.replace(/^https?:\/\//, "");
 // account tables and progress (src/server/db/schema.ts), anonymous stats, claims, the board and Arena,
 // and the per-IP limiters (src/server/auth/throttle.ts), which never store the IP.
 // Change UPDATED whenever the text changes.
-const UPDATED = "08/11/2026";
+const UPDATED = "09/11/2026";
 
 const SECTIONS: LegalSection[] = [
   {
@@ -33,7 +33,7 @@ const SECTIONS: LegalSection[] = [
       "Ứng dụng lưu tiến độ học trong tài khoản: từ và chủ điểm ngữ pháp đã học cùng lịch ôn tập, các bài học, chuỗi ngày học và điểm, câu trả lời trong bài tập (dùng để tìm từ khó), cùng các cài đặt học như trình độ, bộ từ đang học và tên gọi.",
       "Khi bạn đấu ở Đấu trường, ứng dụng lưu số trận thắng, thua cùng 50 trận gần nhất của bạn: kết quả, điểm từng hiệp, thời gian, và tên cùng ảnh đại diện mà đối thủ dùng trong trận.",
       "Khi bạn kết bạn ở Đấu trường, ứng dụng lưu danh sách bạn bè, các lời mời kết bạn đã gửi và nhận, thông báo trong mục chuông, và lần cuối bạn mở ứng dụng (để bạn bè biết bạn đang trực tuyến hay không).",
-      "Khi bạn báo một câu dịch bị chấm sai, câu trả lời đó và câu gốc được gửi cho chủ ứng dụng xem lại, không kèm tên hay email của bạn.",
+      "Khi bạn báo một câu dịch bị chấm sai, câu trả lời đó và câu gốc được gửi cho chủ ứng dụng xem lại, không kèm tên hay email của bạn. Câu mà AI chấm là đúng (xem mục Bên thứ ba) cũng được gửi như vậy, kèm ghi chú là do AI chấm.",
       "Khi “Gửi thống kê ẩn danh” đang bật (trong Cài đặt), ứng dụng đếm số bài học hoàn thành, số bài kiểm tra trình độ, số câu đã làm theo từng dạng bài và những từ hay bị trả lời sai. Mỗi thiết bị chỉ được nhận diện bằng một mã đã mã hóa, đổi mỗi ngày. Với tài khoản, ứng dụng ghi thêm những tuần bạn có học và trên bao nhiêu thiết bị (mỗi thiết bị là một mã đã mã hóa).",
       "Để biết bạn còn đăng nhập, trình duyệt giữ một cookie phiên. Địa chỉ IP của bạn chỉ được dùng để chặn việc gửi quá nhiều yêu cầu trong thời gian ngắn (đăng nhập, ghi bảng xếp hạng, tạo hoặc vào phòng đấu, gửi lời mời kết bạn) và không được lưu lại.",
     ],
@@ -68,6 +68,7 @@ const SECTIONS: LegalSection[] = [
     list: [
       "Google, để bạn đăng nhập;",
       "Cloudflare, nơi chạy ứng dụng và lưu dữ liệu. Máy chủ của Google và Cloudflare có thể đặt ngoài Việt Nam;",
+      "Google AI Studio, chỉ khi bạn tự thêm khóa API của mình trong Cài đặt để chấm bài “Dịch câu” bằng AI: câu tiếng Việt và câu bạn viết được gửi thẳng từ trình duyệt của bạn tới Google, dưới khóa và theo điều khoản Google của chính bạn. Ở gói miễn phí, Google có thể dùng và cho người đọc nội dung này để cải thiện sản phẩm. Khóa chỉ nằm trên thiết bị của bạn, không bao giờ được gửi tới máy chủ của ứng dụng, và bị xóa khi bạn đăng xuất hoặc xóa tài khoản;",
       "MoMo hoặc ngân hàng của bạn, chỉ khi bạn tự chuyển tiền ủng hộ qua mã QR: ứng dụng không nhận hay lưu thông tin thanh toán, còn chủ ứng dụng thấy tên người chuyển và lời nhắn như mọi giao dịch chuyển tiền;",
       "cơ quan nhà nước có thẩm quyền, chỉ khi có yêu cầu hợp lệ theo quy định của pháp luật.",
     ],

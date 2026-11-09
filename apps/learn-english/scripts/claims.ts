@@ -51,6 +51,8 @@ export interface ClaimRow {
   sentence_id: string;
   answer: string;
   created_at: number;
+  /** "ai" when the learner's own AI key accepted the wording (feature 033). Missing in rows read before migration 0009. */
+  source?: string;
 }
 
 /** What the script needs to know about one approved sentence. */
@@ -82,6 +84,8 @@ export interface ClaimGroup {
   answer: string;
   claimIds: string[];
   count: number;
+  /** How many of the claims AI grading accepted while the learner studied (feature 033). Missing in files pulled before it. */
+  aiCount?: number;
   /** Missing when the sentence is gone. */
   sentence?: { level: string; vi: string; en: string };
   /** Decided without the owner. */
@@ -168,8 +172,9 @@ export function groupClaims(rows: readonly ClaimRow[]): ClaimGroup[] {
     if (group) {
       group.claimIds.push(row.id);
       group.count++;
+      if (row.source === "ai") group.aiCount = (group.aiCount ?? 0) + 1;
     } else {
-      groups.set(key, { key, sentenceId: row.sentence_id, answer: row.answer.trim(), claimIds: [row.id], count: 1 });
+      groups.set(key, { key, sentenceId: row.sentence_id, answer: row.answer.trim(), claimIds: [row.id], count: 1, aiCount: row.source === "ai" ? 1 : 0 });
     }
   }
   return [...groups.values()];
@@ -372,7 +377,7 @@ export interface Io {
   log: (line: string) => void;
 }
 
-export const PENDING_SQL = "SELECT id, sentence_id, answer, created_at FROM claims WHERE status = 'pending' ORDER BY created_at";
+export const PENDING_SQL = "SELECT id, sentence_id, answer, created_at, source FROM claims WHERE status = 'pending' ORDER BY created_at";
 
 async function readJsonDir(dir: string): Promise<{ name: string; data: unknown }[]> {
   if (!existsSync(dir)) return [];
@@ -405,6 +410,8 @@ export async function pull(target: Target, io: Io): Promise<ClaimsFile | null> {
   await writeFile(path.join(dir, `${date}.html`), buildClaimsSheet(file));
 
   const count = (status: AutoStatus) => groups.filter((group) => group.auto?.status === status).length;
+  const aiClaims = groups.reduce((sum, group) => sum + (group.aiCount ?? 0), 0);
+  if (aiClaims) io.log(`${aiClaims} claim(s) were accepted by the learner's AI grading; they are marked "AI" in the sheet.`);
   io.log(`${rows.length} pending claim(s) in ${groups.length} group(s): ${open} for you, ${count("approved")} already accepted, ${count("dropped")} dropped, ${count("rejected")} rejected automatically`);
   const failed = groups.filter((group) => group.suggestionError).length;
   if (failed) io.log(`${failed} group(s) have no suggestion (the model call failed); decide them yourself.`);

@@ -144,7 +144,7 @@ describe("buildSnapshot", () => {
     });
     const claims = [
       claim("unsent", "unsent", NOW - 60 * DAY),
-      claim("pending", "pending"),
+      { ...claim("pending", "pending"), source: "ai" as const }, // feature 033: kept through a backup
       claim("approved", "approved"),
       claim("dropped", "dropped"),
       claim("rejected", "rejected", NOW - 60 * DAY),
@@ -154,6 +154,7 @@ describe("buildSnapshot", () => {
     const snapshot = buildSnapshot({ ...state, claims }, NOW, TZ);
     expect(snapshot.data.claims.map((c) => c.id)).toEqual(["unsent", "pending", "rejected", "shown-recent"]);
     expect(parseSnapshot(JSON.stringify(snapshot))).toEqual({ ok: true, snapshot });
+    expect(snapshot.data.claims.find((c) => c.id === "pending")?.source).toBe("ai");
   });
 
   it("never exports the sync code or sync bookkeeping", () => {

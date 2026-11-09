@@ -9,7 +9,7 @@ import { CorrectSentence } from "./sentence-exercises";
 import type { ExerciseViewProps } from "./types";
 
 /** Dịch câu (feature 016): read the Vietnamese, type the English; a wrong answer can be claimed as also correct. */
-export function TranslateView({ instance, answer, onAnswer, result, onClaim }: ExerciseViewProps<TranslateInstance, TranslateAnswer>) {
+export function TranslateView({ instance, answer, onAnswer, result, onClaim, checking = false }: ExerciseViewProps<TranslateInstance, TranslateAnswer>) {
   const [text, setText] = useState(answer?.text ?? "");
 
   function handleChange(value: string) {
@@ -21,10 +21,10 @@ export function TranslateView({ instance, answer, onAnswer, result, onClaim }: E
     <div className="grid gap-6">
       <h2 className="text-lg font-medium text-muted-foreground">Dịch câu sau sang tiếng Anh</h2>
       <p className="text-xl">{instance.vi}</p>
-      <EnglishInput aria-label="Câu tiếng Anh của bạn" value={text} onChange={(event) => handleChange(event.target.value)} disabled={result !== null} />
+      <EnglishInput aria-label="Câu tiếng Anh của bạn" value={text} onChange={(event) => handleChange(event.target.value)} disabled={result !== null || checking} />
       {result ? (
         <div className="grid gap-4">
-          {!result.correct || result.claimed ? (
+          {!result.correct || result.claimed || result.aiGraded ? (
             <p className="text-muted-foreground">
               Câu của bạn:{" "}
               <span className="font-medium text-foreground" lang="en">

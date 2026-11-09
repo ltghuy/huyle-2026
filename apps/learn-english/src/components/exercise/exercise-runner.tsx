@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { submitClaim } from "@/claims/claims-client";
+import { hasUsableAiKey } from "@/lib/ai-keys";
 import { playAnswerSound } from "@/lib/answer-sound";
 import { FeedbackPanel } from "./feedback-panel";
 import { entryFor, itemIdOf, type ExerciseInstance } from "./registry";
@@ -117,6 +118,12 @@ export function ExerciseRunner({
   // second tap must not finish (and award) twice.
   const [finished, setFinished] = useState(false);
   const shownAt = useRef(0);
+  // AI grading of the current answer (feature 033): the button reads "Đang chấm…"
+  // meanwhile, and leaving the runner aborts the call so a late verdict is dropped.
+  const [checking, setChecking] = useState(false);
+  const aiCall = useRef<AbortController | null>(null);
+
+  useEffect(() => () => aiCall.current?.abort(), []);
 
   const steps = round === 0 ? firstSteps : retrySteps;
   const retrying = round > 0;
@@ -139,10 +146,35 @@ export function ExerciseRunner({
 
   if (!step) return null;
 
+  /**
+   * Second opinion on an answer matching marked wrong (feature 033), when the
+   * kind supports it, the answer could be claimed and the learner has a key.
+   * Returns null when the runner was left meanwhile.
+   */
+  async function gradeByAi(entry: ReturnType<typeof entryFor>, current: ExerciseInstance, matched: GradeResult): Promise<GradeResult | null> {
+    const claim = entry.claimOf?.(current, answer);
+    if (matched.correct || !entry.aiGrade || !claim || !hasUsableAiKey()) return matched;
+    const controller = new AbortController();
+    aiCall.current = controller;
+    setChecking(true);
+    const verdict = await entry.aiGrade(current, answer, controller.signal);
+    if (controller.signal.aborted) return null;
+    aiCall.current = null;
+    setChecking(false);
+    if (!verdict) return { ...matched, aiUnavailable: true };
+    if (!verdict.correct) return { ...matched, aiGraded: true, ...(verdict.explanationVi ? { explanationVi: verdict.explanationVi } : {}) };
+    // Right in other words: a normal correct answer, and the wording goes to the owner's review (AC-009, AC-017).
+    submitClaim({ ...claim, source: "ai", related: step.type === "exercise" ? (step.related?.cardIds ?? []) : [] });
+    return { ...matched, correct: true, aiGraded: true };
+  }
+
   async function handleCheck() {
-    if (step.type !== "exercise" || !instance || answer === null || result) return;
+    if (step.type !== "exercise" || !instance || answer === null || result || checking) return;
     const entry = entryFor(instance);
-    const graded = entry.grade(instance, answer);
+    // The learner's time, before any wait for AI: a slow verdict mustn't rate the answer hard.
+    const ms = Math.round(performance.now() - shownAt.current);
+    const graded = await gradeByAi(entry, instance, entry.grade(instance, answer));
+    if (!graded) return;
     playAnswerSound(graded.correct);
     setResult(graded);
     if (retryWrong && !graded.correct) setWrong((current) => [...current, retryStep(step, Boolean(swapped[step.key]), round + 1)]);
@@ -153,7 +185,7 @@ export function ExerciseRunner({
       itemId: itemIdOf(instance),
       exercise: entry.exercise,
       result: graded,
-      ms: Math.round(performance.now() - shownAt.current),
+      ms,
       related: step.related?.cardIds ?? [],
     };
     if (!graded.correct && entry.claimOf?.(instance, answer)) held.current = outcome;
@@ -315,6 +347,7 @@ export function ExerciseRunner({
               seed={step.seed}
               onAudioError={handleAudioError}
               onClaim={canClaim ? handleClaim : undefined}
+              checking={checking}
             />
           ) : null}
         </main>
@@ -338,8 +371,8 @@ export function ExerciseRunner({
                 <span className="relative">Tiếp tục</span>
               </Button>
             ) : (
-              <Button type="submit" size="lg" className="h-12 w-full text-base" disabled={!canCheck}>
-                Kiểm tra
+              <Button type="submit" size="lg" className="h-12 w-full text-base" disabled={!canCheck || checking}>
+                {checking ? "Đang chấm…" : "Kiểm tra"}
               </Button>
             )}
           </div>

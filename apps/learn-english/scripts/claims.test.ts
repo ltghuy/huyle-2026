@@ -45,7 +45,7 @@ const WORDINGS = [
   { id: "wording:fx-friday", kind: "wording", level: "A1", sort: 0, body: { sentenceId: "sentence:fx-friday", accepted: ["Friday is the deadline."] }, status: "approved" },
 ];
 
-const row = (id: string, sentenceId: string, answer: string, at = 1): ClaimRow => ({ id, sentence_id: sentenceId, answer, created_at: at });
+const row = (id: string, sentenceId: string, answer: string, at = 1, source = "learner"): ClaimRow => ({ id, sentence_id: sentenceId, answer, created_at: at, source });
 
 describe("sentencesFrom / wordingsFrom", () => {
   it("keeps approved sentences with their accepted orders, and approved wordings", () => {
@@ -69,6 +69,19 @@ describe("groupClaims", () => {
       ["sentence:fx-dinner", "Friday is the deadline", ["c"]],
     ]);
     expect(groups[0].count).toBe(3);
+  });
+
+  it("counts the claims AI grading accepted (033 AC-018)", () => {
+    const groups = groupClaims([
+      row("a", "sentence:fx-friday", "It is not the deadline", 1, "ai"),
+      row("b", "sentence:fx-friday", "it isn't the deadline", 2),
+      row("c", "sentence:fx-friday", "It is not the deadline.", 3, "ai"),
+      row("d", "sentence:fx-dinner", "Friday is the deadline", 4),
+    ]);
+    expect(groups.map((g) => [g.count, g.aiCount])).toEqual([
+      [3, 2],
+      [1, 0],
+    ]);
   });
 });
 

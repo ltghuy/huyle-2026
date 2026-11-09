@@ -23,3 +23,10 @@ INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `us
 INSERT INTO `arena_matches` (`match_id`, `user_id`, `opponent_id`, `opponent_name`, `opponent_image`, `won`, `forfeit`, `rounds_won`, `opponent_rounds_won`, `rounds`, `mode`, `level`, `best_of`, `ended_at`) VALUES
   ('e2e-friends-match', 'e2e-khoa', 'e2e-hoa', 'Hoa', NULL, 1, 0, 1, 0, '[{"round":1,"mine":7,"theirs":5,"won":true,"suddenDeath":false,"onTime":false}]', 'listen', 'A2', 1, 1767225600000),
   ('e2e-friends-match', 'e2e-hoa', 'e2e-khoa', 'Khoa', NULL, 0, 0, 0, 1, '[{"round":1,"mine":5,"theirs":7,"won":false,"suddenDeath":false,"onTime":false}]', 'listen', 'A2', 1, 1767225600000);
+
+-- A learner for the AI grading tests in the translate spec (feature 033), so they need no one else's account.
+INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt_out`, `created_at`, `updated_at`) VALUES
+  ('e2e-thu', 'Thư', 'thu@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000);
+
+INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
+  ('e2e-session-thu', 'e2e-thu', 'e2e-token-thu', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);

@@ -65,7 +65,7 @@ describe("POST /api/claims", () => {
     expect(await response.json()).toEqual({ accepted: [ID] });
     expect(service.submitClaims).toHaveBeenCalledWith(
       db,
-      { deviceId: DEVICE, claims: [{ ...BODY.claims[0], answer: "Hello there" }] },
+      { deviceId: DEVICE, claims: [{ ...BODY.claims[0], answer: "Hello there", source: "learner" }] }, // an older client: source defaults (033)
       SALT,
       expect.any(Number),
     );
