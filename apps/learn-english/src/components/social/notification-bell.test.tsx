@@ -1,5 +1,7 @@
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { ANNOUNCEMENTS_SEEN_KEY, markAnnouncementsSeen, resetAnnouncementsForTest } from "@/lib/announcements";
+import { AI_KEYS_KEY, resetAiKeysForTest } from "@/lib/ai-keys";
 import { SocialError } from "@/lib/social-client";
 import type { NotificationsResponse, PulseResponse } from "@/server/social/social.schema";
 import { render } from "@/test-utils/render";
@@ -28,6 +30,11 @@ const ACCEPTED = { id: "n0", kind: "friend_accepted" as const, actor: { id: "kho
 
 beforeEach(() => {
   status = "signed-in";
+  localStorage.clear();
+  resetAnnouncementsForTest();
+  resetAiKeysForTest();
+  // The feature 031 tests are about personal notifications: the announcements are already read.
+  markAnnouncementsSeen();
   pulse.mockReset().mockResolvedValue(pulseData(1));
   fetchNotifications.mockReset().mockResolvedValue({ now: NOW, items: [REQUEST, ACCEPTED] });
   markNotificationsRead.mockReset().mockResolvedValue(undefined);
@@ -97,6 +104,72 @@ describe("NotificationBell (feature 031)", () => {
   });
 
   it("is absent for guests (AC-030)", () => {
+    status = "guest";
+    render(<NotificationBell />);
+    expect(screen.queryByRole("button", { name: /Thông báo/ })).not.toBeInTheDocument();
+  });
+});
+
+describe("NotificationBell tabs (feature 034)", () => {
+  beforeEach(() => {
+    localStorage.removeItem(ANNOUNCEMENTS_SEEN_KEY);
+    resetAnnouncementsForTest();
+  });
+
+  it("counts unread announcements on the bell and in the tab, and opens on Cá nhân while it has unread items (AC-001, AC-003, AC-004)", async () => {
+    render(<NotificationBell />);
+    expect(await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" })).toHaveTextContent("2");
+    const dialog = await openBell();
+    expect(within(dialog).getByRole("tab", { name: /Cá nhân/ })).toHaveAttribute("aria-selected", "true");
+    expect(within(dialog).getByRole("tab", { name: /Hệ thống/ })).toHaveTextContent("1");
+    expect(await within(dialog).findByText("Minh Anh")).toBeInTheDocument();
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBeNull();
+  });
+
+  it("opens on Hệ thống when only it has something unread, shows the AI announcement and counts it read (AC-003, AC-006, AC-007, AC-009)", async () => {
+    pulse.mockResolvedValue(pulseData(0));
+    render(<NotificationBell />);
+    expect(await screen.findByRole("button", { name: "Thông báo, 1 chưa đọc" })).toBeInTheDocument();
+    const dialog = await openBell();
+    expect(within(dialog).getByRole("tab", { name: /Hệ thống/ })).toHaveAttribute("aria-selected", "true");
+    const row = within(dialog).getByRole("listitem");
+    expect(row).toHaveTextContent("Mới: chấm bài “Dịch câu” bằng AI");
+    expect(row).toHaveTextContent("Google AI Studio");
+    expect(within(row).getByLabelText("Chưa đọc")).toBeInTheDocument();
+    expect(within(row).getByRole("link", { name: "Thêm khóa trong Cài đặt" })).toHaveAttribute("href", "/settings#cham-bang-ai");
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-ai-grading");
+    await waitFor(() => expect(screen.getByRole("button", { name: "Thông báo" })).toBeInTheDocument());
+  });
+
+  it("marks announcements read when the learner switches to Hệ thống (AC-009)", async () => {
+    render(<NotificationBell />);
+    await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" });
+    const dialog = await openBell();
+    fireEvent.click(within(dialog).getByRole("tab", { name: /Hệ thống/ }));
+    expect(await within(dialog).findByText("Mới: chấm bài “Dịch câu” bằng AI")).toBeInTheDocument();
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-ai-grading");
+  });
+
+  it("says AI grading is on when the learner already has a key (AC-008)", async () => {
+    localStorage.setItem(AI_KEYS_KEY, JSON.stringify([{ id: "k", key: "AIza-key", status: "working" }]));
+    pulse.mockResolvedValue(pulseData(0));
+    render(<NotificationBell />);
+    const dialog = await openBell();
+    expect(within(dialog).getByText("Bạn đã bật chấm điểm bằng AI.")).toBeInTheDocument();
+    expect(within(dialog).queryByRole("link", { name: "Thêm khóa trong Cài đặt" })).not.toBeInTheDocument();
+  });
+
+  it("still shows Hệ thống when the friend notifications fail to load", async () => {
+    fetchNotifications.mockRejectedValue(new Error("offline"));
+    render(<NotificationBell />);
+    await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" });
+    const dialog = await openBell();
+    expect(await within(dialog).findByText("Không tải được thông báo.")).toBeInTheDocument();
+    fireEvent.click(within(dialog).getByRole("tab", { name: /Hệ thống/ }));
+    expect(await within(dialog).findByText("Mới: chấm bài “Dịch câu” bằng AI")).toBeInTheDocument();
+  });
+
+  it("stays hidden for guests (AC-005)", () => {
     status = "guest";
     render(<NotificationBell />);
     expect(screen.queryByRole("button", { name: /Thông báo/ })).not.toBeInTheDocument();

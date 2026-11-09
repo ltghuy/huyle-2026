@@ -1,5 +1,6 @@
 import { screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { markAnnouncementsSeen, resetAnnouncementsForTest } from "@/lib/announcements";
 import { render } from "@/test-utils/render";
 import { AccountLink } from "./account-link";
 
@@ -15,6 +16,10 @@ vi.mock("@/lib/social-client", async (original) => ({
 }));
 
 beforeEach(() => {
+  // Only friend notifications here: the app's announcements (feature 034) are already read.
+  localStorage.clear();
+  resetAnnouncementsForTest();
+  markAnnouncementsSeen();
   status = "signed-in";
 });
 

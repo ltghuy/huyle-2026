@@ -86,6 +86,7 @@ describe("clearDevice", () => {
     localStorage.setItem("learn-english:backup-reminder-dismissed", "1");
     localStorage.setItem("learn-english:accent", "teal");
     localStorage.setItem("learn-english:ai-keys", "[]");
+    localStorage.setItem("learn-english:announcements-seen", "x");
 
     const profile = await clearDevice(5);
 
@@ -97,6 +98,7 @@ describe("clearDevice", () => {
     expect(localStorage.getItem("learn-english:sync-fingerprint")).toBeNull();
     expect(localStorage.getItem("learn-english:backup-reminder-dismissed")).toBeNull();
     expect(localStorage.getItem("learn-english:ai-keys")).toBeNull();
+    expect(localStorage.getItem("learn-english:announcements-seen")).toBeNull();
     expect(localStorage.getItem("learn-english:accent")).toBe("teal");
     expect(await getContentCache("word", "A1")).not.toBeUndefined();
   });

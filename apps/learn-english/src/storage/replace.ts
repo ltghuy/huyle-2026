@@ -51,6 +51,7 @@ const DEVICE_KEYS = [
   "learn-english:sync-fingerprint", // src/sync/sync-client.ts: what was last synced
   "learn-english:backup-reminder-dismissed", // src/components/settings/backup-reminder.tsx
   "learn-english:ai-keys", // src/lib/ai-keys.ts: the learner's Google AI keys (feature 033)
+  "learn-english:announcements-seen", // src/lib/announcements.ts: announcements read in the bell (feature 034)
 ] as const;
 
 /**
