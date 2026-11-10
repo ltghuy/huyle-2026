@@ -14,7 +14,7 @@ import { ArenaError, createRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
 import { ArenaRecord } from "./arena-record";
 import { GameGuide } from "./game-guide";
-import { roomPath } from "./join-room";
+  import { roomPath } from "./join-room";
 import { PlayerAvatar } from "./players";
 import { SettingsFields, useSettingsDraft } from "./settings-fields";
 

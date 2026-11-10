@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type PointerEvent } from "react";
+  import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type PointerEvent } from "react";
 import { RotateCcw, X } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
 import type { GradeResult } from "@/learning/exercises/types";
