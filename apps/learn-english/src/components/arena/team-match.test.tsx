@@ -76,13 +76,10 @@ describe("TeamMatch top bar (AC-017)", () => {
     expect(screen.getByRole("timer", { name: "Hiệp còn 1:30" })).toBeInTheDocument();
   });
 
-  it("says time is up, with the last or the extra question (AC-027, AC-028)", () => {
-    const { unmount } = match(inQuestion({ roundEndsAt: NOW - 1_000 }));
+  it("says time is up at zero, with no last or extra question (AC-027)", () => {
+    match(inQuestion({ roundEndsAt: NOW - 1_000 }));
     expect(screen.getByText("Hết giờ")).toBeInTheDocument();
-    expect(screen.getByText("Câu cuối")).toBeInTheDocument();
-    unmount();
-    match(inQuestion({ roundEndsAt: NOW - 1_000, stage: "extra", turn: { team: "B", userId: "lan" } }));
-    expect(screen.getByText("Câu bù cho Đội B")).toBeInTheDocument();
+    expect(screen.queryByText(/Câu cuối|Câu bù/)).not.toBeInTheDocument();
   });
 
   it("shows the sudden-death pair instead of the clock (AC-037)", () => {
@@ -186,12 +183,17 @@ describe("TeamMatch reveal, pause and round end", () => {
     expect(screen.getByText("happy")).toBeInTheDocument();
   });
 
-  it("shows a wrong answer", () => {
-    const room = inQuestion({ phase: "reveal", reveal: { answer: "happy", answeredBy: null, correct: false, by: HOST } });
-    match(room, "lan");
+  it("shows a wrong pick as Sai and a question that ran out of time as Hết giờ (AC-027)", () => {
+    const wrong = inQuestion({ phase: "reveal", lockedOut: true, reveal: { answer: "happy", answeredBy: null, correct: false, by: HOST } });
+    const { unmount } = match(wrong, "lan");
     expect(screen.getByText("Sai")).toBeInTheDocument();
     expect(screen.queryByText(/\+1/)).not.toBeInTheDocument();
-    expect(teamAnnouncement(room, "lan")).toBe("Sai. Đáp án: happy.");
+    expect(teamAnnouncement(wrong, "lan")).toBe("Sai. Đáp án: happy.");
+    unmount();
+    const late = inQuestion({ phase: "reveal", reveal: { answer: "happy", answeredBy: null, correct: false, by: HOST } });
+    match(late, "lan");
+    expect(screen.getByRole("region", { name: "Đáp án" })).toHaveTextContent("Hết giờ");
+    expect(teamAnnouncement(late, "lan")).toBe("Hết giờ. Đáp án: happy.");
   });
 
   it("waits for a dropped team (AC-045)", () => {

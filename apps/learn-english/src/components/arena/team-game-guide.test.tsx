@@ -32,7 +32,7 @@ describe("TeamGameGuide (AC-048)", () => {
     expect(within(dialog).getByText(/chủ phòng xếp từng người vào Đội A hoặc Đội B/)).toBeInTheDocument();
     expect(within(dialog).getByText(/Đội A, Đội B, Đội A/)).toBeInTheDocument();
     expect(within(dialog).getByText(/5, 10, 15 phút/)).toBeInTheDocument();
-    expect(within(dialog).getByText(/Đội B được thêm một câu/)).toBeInTheDocument();
+    expect(within(dialog).getByText(/Đồng hồ về 0 là hiệp kết thúc ngay/)).toBeInTheDocument();
     expect(within(dialog).getByText(/“happy” thành “h\*\*\*\*”/)).toBeInTheDocument();
     expect(within(dialog).getByText(/nhờ gợi ý vẫn được 1 điểm/)).toBeInTheDocument();
     expect(within(dialog).getByText(/Sau 3 cặp câu vẫn hòa/)).toBeInTheDocument();

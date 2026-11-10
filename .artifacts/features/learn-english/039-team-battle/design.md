@@ -191,7 +191,7 @@ Room → client: `team-state { room: PublicTeamRoom, serverNow }`, and the exist
 | Same `ArenaRoom` DO and binding; it dispatches on `state.kind` (`"team"` vs absent). A small `engine` object per kind gives `reduce`, `nextAlarm`, `toFrame`, `needsPool` | One class means no new DO migration, the socket route and tickets stay as they are, and codes share one namespace |
 | Questions live outside the state: one deck per round in `deck:{r}`, built for all rounds when the countdown ends (pool loaded once), passed into `reduceTeam` | A 15-minute round needs up to ~230 questions; keeping them in the `room` value would rewrite hundreds of KB on every answer, risking the 10 ms CPU limit |
 | Deck length from the round length (`MIN_TURN_MS = 4 s`), wrapping if exceeded | A fixed count can't fit a timed round; wrapping avoids ending a round early |
-| The match clock is `roundEndsAt`; the alarm still follows the question deadline. The round ends only at a reveal's end, never mid-question | AC-027/028 make the clock a soft limit checked after each reveal, so no extra alarm is needed |
+| The match clock is `roundEndsAt`, a hard limit (changed 2026-11-10): while a question is open the alarm is the earlier of its deadline and `roundEndsAt`; at zero the question is revealed with no point and no other question opens | AC-027 (owner, after the first real match); AC-028 removed |
 | Turn pick: from `cursor[team]`, the next member who is connected and not `left`; the cursor moves past them | Skips offline players (AC-042) and puts a returning player back in their place (AC-044) with no reordering |
 | A whole team offline → phase `paused`, clock frozen in `roundLeftMs`, 30 s alarm → forfeit | AC-045; freezing keeps the other team from playing alone against the clock |
 | Turn player drops mid-question → same question reopens for the next connected teammate with full time | AC-043 |
@@ -288,7 +288,8 @@ sequenceDiagram
 | AC-022–AC-024 | answer handling | team-machine.ts (questions.ts `isCorrect`) | Planned |
 | AC-025 | 2 s reveal, next turn | team-machine.ts | Planned |
 | AC-026 | public view | team-machine.ts `toPublicTeam` | Planned |
-| AC-027, AC-028 | extra question | team-machine.ts | Planned |
+| AC-027 | round ends at zero | team-machine.ts, team-match.tsx | Done |
+| AC-052–AC-054 | history tabs, team rows | match-history.tsx, match-row.tsx | Done |
 | AC-029 | round result | team-machine.ts, team-match.tsx | Planned |
 | AC-030, AC-031, AC-035, AC-036 | hint counts | team-machine.ts | Planned |
 | AC-032 | hint button | team-match.tsx | Planned |

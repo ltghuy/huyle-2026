@@ -7,11 +7,12 @@ function oneVsOne(settings = {}) {
   return new TeamDriver(settings).fill(1).teams(["minh"], ["lan"]).begin();
 }
 
-/** Ends the round level at `points` each: both teams right `points` times, then the clock is up after B. */
+/** Ends the round level at `points` each: both teams right `points` times, the clock reaching zero during B's last reveal. */
 function levelRound(room: TeamDriver, points = 1) {
   for (let i = 0; i < points - 1; i++) room.turn(true).turn(true);
   room.turn(true);
-  room.timeUp().turn(true);
+  room.answer(true);
+  room.timeUp().tick();
   return room;
 }
 
@@ -50,7 +51,7 @@ describe("the match result (AC-038 to AC-041)", () => {
     room.turn(true).timeUp().turn(false);
     expect(room.state.phase).toBe("round-end");
     room.tick(); // round 2: B opens
-    room.turn(false).timeUp().turn(true);
+    room.turn(false).turn(true).timeUp().turn(true); // B's last question closes at zero, unscored
     expect(room.state).toMatchObject({ phase: "match-end", winner: "A", roundsWon: { A: 2, B: 0 } });
     expect(room.state.rounds).toHaveLength(2);
   });
@@ -80,8 +81,8 @@ describe("the match result (AC-038 to AC-041)", () => {
 
   it("counts each player's turns and right answers (AC-041)", () => {
     const room = new TeamDriver().fill(2).teams(["minh", "hoa"], ["lan"]).begin();
-    room.turn(true).turn(false).turn(false);
-    room.timeUp().turn(true);
+    room.turn(true).turn(true).turn(false);
+    room.timeUp().turn(true); // Lan's second turn closes at zero: no point
     const players = toPublicTeam(room.state).players;
     expect(players.find((p) => p.id === "minh")).toMatchObject({ answered: 1, correct: 1 });
     expect(players.find((p) => p.id === "lan")).toMatchObject({ answered: 2, correct: 1 });

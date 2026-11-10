@@ -27,7 +27,7 @@ export const TEAM_GRACE_MS = 30_000;
 export const TEAM_IDLE_MS = 10 * 60_000;
 /** The quickest a turn can take (a fast answer and the reveal): sets how many questions a round's deck holds. */
 export const MIN_TURN_MS = 4_000;
-/** Questions a deck keeps after the timed ones: the extra question and three sudden-death pairs. */
+/** Questions a deck keeps after the timed ones: three sudden-death pairs and one spare. */
 export const DECK_SPARE = 8;
 /** Sudden-death pairs before a round is a draw (AC-037). */
 export const MAX_SUDDEN_PAIRS = 3;
@@ -92,8 +92,6 @@ export interface TeamRoomState {
   deckIndex: number;
   /** Questions opened this round (1-based number of the open one). */
   number: number;
-  /** Timed questions each team answered this round (AC-028). */
-  asked: PerTeam<number>;
   turnTeam: Team | null;
   turnPlayer: string | null;
   scores: PerTeam<number>;
@@ -166,7 +164,7 @@ export interface TeamResult {
 const other = (team: Team): Team => (team === "A" ? "B" : "A");
 const perTeam = <T>(value: T): PerTeam<T> => ({ A: value, B: value });
 
-/** Questions one round's deck holds: enough for the quickest play, plus the extra and sudden-death ones. */
+/** Questions one round's deck holds: enough for the quickest play, plus the sudden-death ones. */
 export function deckSize(settings: Pick<TeamSettings, "minutes">): number {
   return Math.ceil(roundMs(settings) / MIN_TURN_MS) + DECK_SPARE;
 }
@@ -204,7 +202,6 @@ function freshMatch() {
     pairResults: perTeam<boolean | null>(null),
     deckIndex: -1,
     number: 0,
-    asked: perTeam(0),
     turnTeam: null,
     turnPlayer: null,
     scores: perTeam(0),
@@ -422,7 +419,6 @@ function startRound(state: TeamRoomState, round: number, now: number): TeamRoomS
     pairResults: perTeam(null),
     deckIndex: -1,
     number: 0,
-    asked: perTeam(0),
     scores: perTeam(0),
     hints: perTeam(1),
     roundEndsAt: now + roundMs(state.settings),
@@ -443,7 +439,6 @@ function reveal(state: TeamRoomState, correct: boolean, now: number): TeamRoomSt
     // A correct answer scores 1 point, hint or not, and earns the team a hint (AC-023, AC-031, AC-036).
     scores: correct ? { ...state.scores, [team]: state.scores[team] + 1 } : state.scores,
     hints: correct ? { ...state.hints, [team]: state.hints[team] + 1 } : state.hints,
-    asked: state.stage === "main" ? { ...state.asked, [team]: state.asked[team] + 1 } : state.asked,
     pairResults: state.stage === "sudden" ? { ...state.pairResults, [team]: correct } : state.pairResults,
   };
 }
@@ -453,6 +448,7 @@ function answer(state: TeamRoomState, userId: string, q: number, given: ArenaAns
   // Only the turn player, on the open question, in time (AC-021, edge cases).
   if (!question || state.phase !== "question" || q !== state.number || userId !== state.turnPlayer || state.lockedOut) return unchanged(state);
   if (state.deadline !== null && now >= state.deadline) return unchanged(state);
+  if (timeIsUp(state, now)) return unchanged(state);
   if (isCorrect(question, given)) return broadcast(reveal(state, true, now));
   // A wrong pick ends a listening question; typed answers can try again until time runs out (AC-022, AC-024).
   if (question.type === "listen") return broadcast(reveal({ ...state, lockedOut: true }, false, now));
@@ -476,17 +472,19 @@ function relayTyping(state: TeamRoomState, userId: string, q: number): TeamResul
   return { state, effects: [{ type: "send-others", except: userId, frame: { type: "typing", userId } }] };
 }
 
-/** After a reveal: the other team's turn, the extra question, sudden death, or the round's end. */
+/** The round clock has reached zero: the timed part of the round is over (AC-027). Sudden death has no clock. */
+function timeIsUp(state: TeamRoomState, now: number): boolean {
+  return state.stage !== "sudden" && state.roundEndsAt !== null && now >= state.roundEndsAt;
+}
+
+/** After a reveal: the other team's turn, sudden death, or the round's end. */
 function afterReveal(state: TeamRoomState, now: number): TeamResult {
   const last = state.turnTeam!;
-  if (state.stage === "main") {
-    if (state.roundEndsAt !== null && now < state.roundEndsAt) return broadcast(openTurn(state, other(last), now));
-    // Time is up. The second team gets one more if the first answered more (AC-028).
-    const second = other(state.starter);
-    if (state.asked[state.starter] > state.asked[second]) return broadcast(openTurn({ ...state, stage: "extra" }, second, now));
+  if (state.stage !== "sudden") {
+    // No question opens once the clock is at zero, whoever answered last (AC-027).
+    if (!timeIsUp(state, now)) return broadcast(openTurn(state, other(last), now));
     return endOfTime(state, now);
   }
-  if (state.stage === "extra") return endOfTime(state, now);
 
   // Sudden death (AC-037): each team answers once per pair.
   const { A, B } = state.pairResults;
@@ -650,6 +648,9 @@ function tick(state: TeamRoomState, now: number, ctx: TeamContext): TeamResult {
     return { state: rest.state, effects: [...removed.effects, ...rest.effects] };
   }
 
+  // The round clock reached zero during a question: it ends at once, with no point (AC-027).
+  if (state.phase === "question" && timeIsUp(state, now)) return broadcast(reveal(state, false, now));
+
   if (state.deadline === null || now < state.deadline) return unchanged(state);
   switch (state.phase) {
     case "countdown": {
@@ -714,7 +715,9 @@ export function reduceTeam(state: TeamRoomState, event: TeamRoomEvent, now: numb
 export function nextTeamAlarm(state: TeamRoomState): number | null {
   if (state.phase === "closed") return null;
   const graces = state.phase === "lobby" ? state.players.map((p) => (p.connected ? null : p.goneAt)) : [];
-  const times = [state.deadline, state.idleUntil, ...graces].filter((t): t is number => t !== null);
+  // A question can end early: when the round clock reaches zero (AC-027).
+  const roundEnd = state.phase === "question" && state.stage !== "sudden" ? state.roundEndsAt : null;
+  const times = [state.deadline, state.idleUntil, roundEnd, ...graces].filter((t): t is number => t !== null);
   return times.length > 0 ? Math.min(...times) : null;
 }
 

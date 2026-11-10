@@ -73,8 +73,8 @@ export function parseTeamFrame(raw: string): TeamClientFrame | null {
 export const TEAM_PHASES = ["lobby", "countdown", "question", "reveal", "round-end", "paused", "match-end", "closed"] as const;
 export type TeamPhase = (typeof TEAM_PHASES)[number];
 
-/** Where a round is: the timed questions, the extra one for the second team (AC-028), or sudden death (AC-037). */
-export const STAGES = ["main", "extra", "sudden"] as const;
+/** Where a round is: the timed questions, or sudden death after a tie (AC-037). */
+export const STAGES = ["main", "sudden"] as const;
 export type Stage = (typeof STAGES)[number];
 
 const scores = z.object({ A: z.number().int(), B: z.number().int() });

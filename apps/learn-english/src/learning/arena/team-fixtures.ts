@@ -86,12 +86,9 @@ export class TeamDriver {
 
   /** The turn player answers (or the question times out when `right` is null), then the reveal ends. */
   turn(right: boolean | null, after = 1_000): this {
-    if (right === null) this.tick();
-    else if (right || this.question.type === "listen") this.answer(right, after);
-    else {
-      this.answer(false, after);
-      this.tick();
-    }
+    if (right !== null) this.answer(right, after);
+    // Still open: a typed wrong answer, no answer, or an answer after the round clock reached zero.
+    if (this.state.phase === "question") this.tick();
     this.tick();
     return this;
   }

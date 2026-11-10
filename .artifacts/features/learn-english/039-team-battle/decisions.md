@@ -31,8 +31,9 @@ The owner described the mode on 2026-11-10 and answered the gray areas below the
 ### End of the clock
 
 - **Question:** Time running out can leave Team A one question ahead.
-- **Decision:** A question in progress when the clock hits zero plays out. If Team A answered the last one, Team B gets one more so both teams answered the same number.
-- **Rationale:** Fair to both teams; Team A always starting would otherwise favour it.
+- **Decision (changed 2026-11-10):** The round ends exactly at zero: the open question closes with no point, its answer shows, and no other question opens. The teams may have answered one question apart.
+- **Rationale:** In the first real match the clock said "Hết giờ" while play went on for up to ~50 s (the open question, then the second team's extra one), which read as a bug. The owner prefers a clock that means what it shows.
+- **Caveats:** Replaces the first decision (the open question played out, and the second team got one more so both answered the same number). Team A opens rounds 1 and 3, so it can have one more turn in those rounds.
 
 ### Tied rounds
 
@@ -61,6 +62,12 @@ The owner described the mode on 2026-11-10 and answered the gray areas below the
 - **Question:** Does a team match change wins, losses and best streak?
 - **Decision:** No. Team matches appear in "Lịch sử đấu" only.
 - **Rationale:** The record stays a 1-1 measure.
+
+### Team matches in the history
+
+- **Question:** How should team matches show among duels in "Lịch sử đấu"? (2026-11-10)
+- **Decision:** Tabs "Tất cả · Đấu 1-1 · Đấu đội", and team rows show both teams' players as overlapping avatars with names.
+- **Rationale:** The first team row showed only an "A" badge, which said little about who played.
 
 ## Tentative
 

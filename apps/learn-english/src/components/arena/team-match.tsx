@@ -65,7 +65,7 @@ export function teamAnnouncement(room: PublicTeamRoom, me: string): string {
     }
     case "reveal": {
       if (!room.reveal) return "";
-      const who = room.reveal.correct ? `${nameOf(room, room.reveal.by, me)} trả lời đúng.` : "Sai.";
+      const who = room.reveal.correct ? `${nameOf(room, room.reveal.by, me)} trả lời đúng.` : room.lockedOut ? "Sai." : "Hết giờ.";
       return `${who} Đáp án: ${room.reveal.answer}.`;
     }
     case "round-end": {
@@ -89,15 +89,8 @@ function RoundClock({ room, offset }: { room: PublicTeamRoom; offset: number }) 
   const frozen = room.phase === "paused" ? room.roundLeftMs : null;
   if (frozen === null && room.roundEndsAt === null) return null;
   const left = frozen ?? live;
-  if (left <= 0) {
-    const note = room.stage === "extra" && room.turn ? `Câu bù cho ${TEAM_NAME[room.turn.team]}` : "Câu cuối";
-    return (
-      <p className="grid leading-tight">
-        <span className="text-lg font-bold text-destructive">Hết giờ</span>
-        <span className="text-xs text-muted-foreground">{note}</span>
-      </p>
-    );
-  }
+  // At zero the round is over (AC-027): the open question has just closed.
+  if (left <= 0) return <p className="text-lg font-bold text-destructive">Hết giờ</p>;
   const clock = formatClock(left);
   return (
     <p role="timer" aria-label={`Hiệp còn ${clock}`} className="text-2xl font-bold tabular-nums">
@@ -239,16 +232,17 @@ function TurnBanner({ handle, me }: TeamMatchProps) {
   );
 }
 
-/** Right or wrong, and the answer, for about 2 s (AC-025). */
+/** "Đúng!", "Sai" (a wrong pick) or "Hết giờ" (the question's or the round's time ran out), and the answer, for about 2 s (AC-025, AC-027). */
 function TeamReveal({ room, me }: { room: PublicTeamRoom; me: string }) {
   const reveal = room.reveal;
   if (!reveal) return null;
   const team = room.turn?.team ?? null;
+  const verdict = reveal.correct ? "Đúng!" : room.lockedOut ? "Sai" : "Hết giờ";
   return (
     <section aria-label="Đáp án" className="grid justify-items-center gap-2 rounded-xl border bg-muted/40 p-4 text-center">
       <p className={cn("flex items-center gap-2 text-lg font-bold", reveal.correct ? "text-success" : "text-destructive")}>
         {reveal.correct ? <Check aria-hidden className="size-5" /> : <X aria-hidden className="size-5" />}
-        {reveal.correct ? "Đúng!" : "Sai"}
+        {verdict}
         {reveal.correct && team ? <span className="animate-score-pop rounded-md bg-success px-1.5 text-sm text-background">{`+1 ${TEAM_NAME[team]}`}</span> : null}
       </p>
       <p className="text-sm text-muted-foreground">{`${nameOf(room, reveal.by, me)}${team ? ` · ${TEAM_NAME[team]}` : ""}`}</p>

@@ -182,12 +182,46 @@ describe("Team matches in Lịch sử đấu (feature 039, AC-040)", () => {
   it("lists a team match as Đấu đội with the result and both teams' rounds from the learner's side", async () => {
     render(<ArenaHistoryPage />);
     const rows = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
-    expect(rows[0]).toHaveAccessibleName(/^Thắng Đội B 2–1 Đội A, Đấu đội, \d\d:\d\d hôm nay$/);
-    expect(within(rows[0]).getByText("Đấu đội")).toBeInTheDocument();
+    await waitFor(() => expect(rows[0]).toHaveAccessibleName(/^Thắng Đội B 2–1 Đội A, Đấu đội: Bạn, Khoa với Lan, Hoa, \d\d:\d\d hôm nay$/));
+    expect(within(rows[0]).getByText(/^Đấu đội ·/)).toBeInTheDocument();
     expect(within(rows[0]).getByText("Đội B 2–1 Đội A")).toBeInTheDocument();
     expect(within(rows[1]).getByText("Hòa")).toBeInTheDocument();
     // The duel entry is unchanged.
     expect(rows[2]).toHaveAccessibleName(/^Thắng 2–1 với Lan, \d\d:\d\d hôm nay$/);
+  });
+
+  it("shows both teams' players on a team row, the learner first as Bạn (AC-054)", async () => {
+    render(<ArenaHistoryPage />);
+    const rows = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
+    await waitFor(() => expect(within(rows[0]).getByText(/Bạn, Khoa/)).toBeInTheDocument());
+    expect(within(rows[0]).getByText(/Lan, Hoa/)).toBeInTheDocument();
+  });
+
+  it("splits the list into Tất cả, Đấu 1-1 and Đấu đội tabs (AC-052, AC-053)", async () => {
+    render(<ArenaHistoryPage />);
+    const all = await screen.findByRole("list", { name: "Các trận gần đây" });
+    expect(screen.getByRole("tab", { name: "Tất cả" })).toHaveAttribute("aria-selected", "true");
+    const total = within(all).getAllByRole("button").length;
+
+    fireEvent.click(screen.getByRole("tab", { name: "Đấu 1-1" }));
+    const duels = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
+    expect(duels.length).toBe(total - 2);
+    for (const row of duels) expect(row).toHaveAccessibleName(/ với /);
+    expect(screen.getByText(/thắng · \d+ thua · \d+ trận gần nhất/)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("tab", { name: "Đấu đội" }));
+    const teams = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
+    expect(teams).toHaveLength(2);
+    expect(screen.getByText("1 thắng · 0 thua · 1 hòa")).toBeInTheDocument();
+  });
+
+  it("says so when a tab has no match (AC-052)", async () => {
+    history = respond({ stats: STATS, matches: [WON] });
+    render(<ArenaHistoryPage />);
+    await screen.findByRole("list", { name: "Các trận gần đây" });
+    fireEvent.click(screen.getByRole("tab", { name: "Đấu đội" }));
+    expect(await screen.findByText("Bạn chưa có trận đấu đội nào được lưu.")).toBeInTheDocument();
+    expect(screen.getByText("0 thắng · 0 thua · 0 hòa")).toBeInTheDocument();
   });
 
   it("opens a team match to show each round and both teams' players, the learner's marked", async () => {

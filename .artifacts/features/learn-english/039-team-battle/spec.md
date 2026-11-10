@@ -97,8 +97,8 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 - [x] AC-024: WHEN the player answers wrong in "Nghe và chọn từ" or the question's time runs out THEN no team SHALL get a point, and the other team SHALL NOT get a chance at that question
 - [x] AC-025: WHEN a question ends THEN every screen SHALL show the correct answer and whether it was right for about 2 seconds, then the next question SHALL open for the other team right away
 - [x] AC-026: WHEN a question is on screen THEN system SHALL NOT have sent its answer to any browser
-- [x] AC-027: WHEN the round clock reaches zero during a question THEN that question SHALL play out to its end
-- [x] AC-028: WHEN the round clock has reached zero and Team A answered the round's last question THEN Team B SHALL get one more question so both teams answered the same number; then the round SHALL end
+- [x] AC-027: WHEN the round clock reaches zero THEN the open question SHALL end at once with no point and its answer shown, no further question SHALL open, and the round SHALL end (a tie goes to sudden death, AC-037) (changed 2026-11-10: the open question used to play out)
+- ~~AC-028~~: Removed 2026-11-10 (owner): there is no extra question for the second team once the clock reaches zero; the teams may have answered one question apart
 - [x] AC-029: WHEN a round ends THEN system SHALL show both teams' points, and the team with more points SHALL win the round
 
 ### P1: Team hints
@@ -152,7 +152,7 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 
 **Acceptance Criteria:**
 
-- [x] AC-048: WHEN the learner presses the help button on the team screen THEN system SHALL open a guide covering teams, turns, the round clock and the extra question at the end, hints, scoring, rounds and sudden death, and disconnects
+- [x] AC-048: WHEN the learner presses the help button on the team screen THEN system SHALL open a guide covering teams, turns, the round clock and what happens when it reaches zero, hints, scoring, rounds and sudden death, and disconnects
 
 ### P2: Change settings before the match
 
@@ -162,6 +162,18 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 
 - [x] AC-049: WHEN the room is in the lobby THEN the host SHALL be able to change mode, level, round length, time per question and rounds ("Đổi cài đặt"), and everyone else SHALL see "Chủ phòng đã đổi cài đặt: {cài đặt}"
 - [x] AC-050: WHEN the host lowers the room size below the number of players present THEN system SHALL refuse it
+
+### P2: Find team matches in the history
+
+- As a player, I want to tell team matches from duels in "Lịch sử đấu" and see who played so that I can look back at a match with my group
+- **Why P2:** Team matches are saved from the first match (AC-040); this makes them readable among duels
+- **Independent Test:** With duels and a team match saved, switch to "Đấu đội" and see only the team match, with both teams' players
+
+**Acceptance Criteria:**
+
+- [x] AC-052: WHEN a signed-in learner opens "Lịch sử đấu" THEN system SHALL offer three tabs, "Tất cả", "Đấu 1-1" and "Đấu đội", "Tất cả" selected, each listing only its kind of match; a tab with no match SHALL say so in Vietnamese
+- [x] AC-053: WHEN the "Đấu đội" tab is open THEN the record line SHALL count that tab's matches as wins, losses and draws (e.g. "2 thắng · 1 thua · 1 hòa"); the other tabs SHALL keep the Arena record line (1-1 duels only, AC-040)
+- [x] AC-054: WHEN a team match shows as a row THEN system SHALL show the learner's team against the other team as overlapping avatars with their names (e.g. "Bạn, Lan" and "Vy, Hoa"), the result and "Đội A 2–1 Đội B" from the learner's side, instead of a single team badge
 
 ### P3: Play again
 
@@ -174,7 +186,7 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 ## Edge Cases
 
 - WHEN a level has fewer usable questions of a mode than a 15-minute round could need THEN system SHALL reuse questions only after all have been asked in that match, and SHALL not offer a mode a level can't fill at all
-- WHEN a player sends an answer when it isn't their turn, or after the question ended THEN system SHALL ignore it
+- WHEN a player sends an answer when it isn't their turn, after the question ended, or after the round clock reached zero THEN system SHALL ignore it
 - WHEN a player asks for a hint when it isn't their turn, the team has 0 hints, or the question already took one THEN system SHALL refuse it
 - WHEN a player opens the same team room in a second tab THEN system SHALL keep only the newest connection and tell the old tab
 - WHEN a team room stays in the lobby for 10 minutes without starting THEN system SHALL close it and its code SHALL stop working
@@ -189,7 +201,7 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 
 - [ ] A 3-round team match with 6 players on separate devices finishes with matching scores, hint counts and result on every screen in 5 out of 5 test runs
 - [ ] A turn change (answer revealed, next question shown) reaches every screen within 1 second on a normal connection
-- [x] Unit tests cover turn rotation with uneven teams and offline players, the end-of-clock extra question, hint earning and spending, hint masking, sudden-death pairs and draws
+- [x] Unit tests cover turn rotation with uneven teams and offline players, the round ending at zero, hint earning and spending, hint masking, sudden-death pairs and draws
 - [ ] Running team matches stays within the Cloudflare Workers free plan
 - [ ] Lint, typecheck, unit tests and the Arena e2e tests pass
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { sentence, word } from "../exercises/fixtures";
 import { errorTo, TeamDriver } from "./team-fixtures";
-import { deckSize, TEAM_MESSAGES, TEAM_REVEAL_MS, TEAM_ROUND_RESULT_MS, toPublicTeam } from "./team-machine";
+import { deckSize, nextTeamAlarm, TEAM_MESSAGES, TEAM_REVEAL_MS, TEAM_ROUND_RESULT_MS, toPublicTeam } from "./team-machine";
 
 /** Host + 4: A = minh, lan, hoa; B = khoa, an (3 vs 2). */
 function threeVsTwo(settings = {}) {
@@ -109,59 +109,57 @@ describe("answers (AC-022 to AC-026)", () => {
   });
 });
 
-describe("the end of the clock (AC-027 to AC-029)", () => {
-  it("lets the open question finish, then gives team B the extra question", () => {
+describe("the end of the clock (AC-027, AC-029)", () => {
+  it("closes the open question at zero with no point, and opens no other one", () => {
     const room = threeVsTwo();
-    room.turn(true); // A
-    room.turn(false); // B
+    room.turn(true); // A scores; B's question is open
     room.timeUp();
-    expect(room.state.phase).toBe("question"); // A's question is still open past the clock
-    room.answer(true);
-    room.tick();
-    expect(room.state).toMatchObject({ phase: "question", stage: "extra", turnTeam: "B", asked: { A: 2, B: 1 } });
-    room.turn(false);
-    expect(room.state).toMatchObject({ phase: "match-end", winner: "A" });
-  });
-
-  it("ends the round at once when both teams answered the same number", () => {
-    const room = threeVsTwo();
-    room.turn(true);
-    room.timeUp().turn(false); // B answered the last: asked 1-1
-    expect(room.state).toMatchObject({ phase: "match-end", winner: "A", rounds: [{ scores: { A: 1, B: 0 } }] });
-  });
-
-  it("gives the second team its extra question even after a time-out", () => {
-    const room = threeVsTwo();
-    room.turn(true).turn(false);
-    room.answer(true);
-    room.tick();
-    room.turn(false); // B: A 2-0, asked 2-2
-    room.timeUp();
+    room.answer(true, 0, "khoa"); // right, but the clock is at zero
     expect(room.state.phase).toBe("question");
-    room.turn(null); // A's question times out past the clock: asked A 3, B 2
-    expect(room.state.stage).toBe("extra");
-    room.turn(true); // B's extra question: asked 3-3, A 2-1
+    room.send({ type: "tick" }, 0);
+    expect(room.state).toMatchObject({ phase: "reveal", lastCorrect: false, scores: { A: 1, B: 0 } });
+    room.tick();
+    expect(room.state).toMatchObject({ phase: "match-end", winner: "A", rounds: [{ scores: { A: 1, B: 0 }, suddenDeath: false }] });
+  });
+
+  it("wakes the room when the round clock reaches zero before the question's own time", () => {
+    const room = threeVsTwo();
+    room.state = { ...room.state, roundEndsAt: room.now + 3_000 };
+    expect(nextTeamAlarm(room.state)).toBe(room.now + 3_000);
+  });
+
+  it("opens no question after a reveal that ends past zero, whoever answered last", () => {
+    const room = threeVsTwo();
+    room.answer(true); // A, reveal
+    room.timeUp().tick();
     expect(room.state).toMatchObject({ phase: "match-end", winner: "A" });
+  });
+
+  it("goes to sudden death when the clock stops on a tie", () => {
+    const room = threeVsTwo();
+    room.turn(true).turn(true); // 1-1, A's question open
+    room.timeUp().tick(); // closed at zero
+    room.tick();
+    expect(room.state).toMatchObject({ phase: "question", stage: "sudden", suddenPair: 1, turnTeam: "B" });
   });
 
   it("gives the round to the team with more points", () => {
     const room = new TeamDriver({ rounds: 3 }).fill(1).teams(["minh"], ["lan"]).begin();
-    room.turn(true).turn(false);
-    room.timeUp().turn(false); // A's last question: asked 2-1, so B gets the extra one
-    room.turn(false);
+    room.turn(true);
+    room.timeUp().turn(false); // B's question closes at zero
     expect(room.state.phase).toBe("round-end");
     expect(room.state.rounds).toEqual([{ round: 1, scores: { A: 1, B: 0 }, winner: "A", suddenDeath: false }]);
     expect(room.state.roundsWon).toEqual({ A: 1, B: 0 });
     expect(room.state.deadline).toBe(room.now + TEAM_ROUND_RESULT_MS);
   });
 
-  it("lets team B open round 2, with fresh points and hints", () => {
+  it("lets team B open round 2, with fresh points, hints and clock", () => {
     const room = new TeamDriver({ rounds: 3 }).fill(1).teams(["minh"], ["lan"]).begin();
-    room.turn(true).turn(true);
-    room.timeUp().turn(true); // A's last, then B's extra question
-    room.turn(false);
+    room.turn(true);
+    room.timeUp().turn(false);
     room.tick();
     expect(room.state).toMatchObject({ phase: "question", round: 2, turnTeam: "B", scores: { A: 0, B: 0 }, hints: { A: 1, B: 1 }, deckIndex: 0 });
+    expect(room.state.roundEndsAt).toBe(room.now + 5 * 60_000);
     expect(room.question.itemId).toBe(room.decks[1][0].itemId);
   });
 });

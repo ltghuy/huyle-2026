@@ -8,7 +8,7 @@ created: 2026-11-10
 
 ## Summary
 
-Total: 14 | Completed: 14 | Remaining: 0
+Total: 16 | Completed: 16 | Remaining: 0
 
 ## Execution Plan
 
@@ -96,6 +96,16 @@ Run after each task or batch (from the repo root):
   - full gates, AC checkboxes, edge cases, knowledge.md gotchas, spec status `to-review`
   - **Done when:** lint, typecheck, unit, build and e2e pass; every AC proven is `[x]` -- VERIFIED
 
+### Changes after the first real match (2026-11-10)
+
+- [x] T015 The round ends at zero
+  - rules: the clock is a hard deadline (alarm at the round end, the open question revealed with no point, answers after zero ignored, no extra question, `extra` stage gone); match screen and guide drop "Câu cuối"/"Câu bù"
+  - **Done when:** machine tests cover the reveal at zero, no further question, sudden death on a tie and late answers; screen and guide tests updated (AC-027, AC-048) -- VERIFIED
+
+- [x] T016 Tabs and team rows in "Lịch sử đấu"
+  - "Tất cả · Đấu 1-1 · Đấu đội" tabs, the team tab's own W/L/D line, team rows with both teams' overlapping avatars and names
+  - **Done when:** history tests cover each tab, the empty tab message, the team record line and the team row players (AC-052–AC-054) -- VERIFIED
+
 ## Requirements Coverage
 
 | Requirement | Tasks |
@@ -107,10 +117,11 @@ Run after each task or batch (from the repo root):
 | AC-006 | T009, T010 |
 | AC-007 | T009, T010 |
 | AC-008–AC-016 | T002, T010 |
-| AC-017–AC-029 | T003, T011 |
+| AC-017–AC-029 | T003, T011, T015 (AC-027) |
 | AC-030–AC-036 | T001, T003, T011 |
 | AC-037–AC-041 | T004, T005, T012 |
 | AC-042–AC-047 | T002, T004, T011 |
-| AC-048 | T009 |
+| AC-048 | T009, T015 |
+| AC-052–AC-054 | T016 |
 | AC-049, AC-050 | T002, T010 |
 | AC-051 | T004, T012 |

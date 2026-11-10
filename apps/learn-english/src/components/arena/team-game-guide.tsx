@@ -42,8 +42,7 @@ const SECTIONS: readonly GuideSection[] = [
     icon: Timer,
     points: [
       `Mỗi hiệp kéo dài ${ROUND_MINUTES.join(", ")} phút, tùy chủ phòng chọn. Trả lời càng nhanh thì càng được nhiều câu.`,
-      "Hết giờ thì câu đang trên màn hình vẫn được chơi đến hết.",
-      "Nếu Đội A vừa trả lời câu cuối, Đội B được thêm một câu để hai đội trả lời bằng số câu nhau.",
+      "Đồng hồ về 0 là hiệp kết thúc ngay: câu đang trả lời dừng lại, không tính điểm, và không có câu nào nữa.",
     ],
   },
   {
