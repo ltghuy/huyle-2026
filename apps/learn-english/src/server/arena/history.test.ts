@@ -1,7 +1,8 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it } from "vitest";
-import { historyEntries } from "@/learning/arena/history";
+import { historyEntries, teamHistoryEntries } from "@/learning/arena/history";
 import type { FinishedMatch } from "@/learning/arena/machine";
+import type { FinishedTeamMatch } from "@/learning/arena/team-machine";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
 import { listHistory, recordMatch } from "./history";
 import { recordResult } from "./stats";
@@ -103,5 +104,73 @@ describe("arena match history (feature 025)", () => {
     await save(match(NOW), "m1");
     sqlite.exec("UPDATE arena_matches SET rounds = 'oops' WHERE user_id = 'minh'");
     expect((await listHistory(db, "minh")).matches[0]).toMatchObject({ id: "m1", rounds: [] });
+  });
+});
+
+function teamMatch(endedAt: number, winner: "A" | "B" | "draw" = "A"): FinishedTeamMatch {
+  return {
+    endedAt,
+    reason: "won",
+    settings: { mode: "recall", level: "A2", rounds: 3, seconds: 25, size: 4, minutes: 5 },
+    winner,
+    teams: { A: [{ id: "minh", name: "Minh Anh", image: null }, { id: "khoa", name: "Khoa", image: null }], B: [{ id: "lan", name: "Lan", image: null }] },
+    roundsWon: { A: 2, B: 1 },
+    rounds: [
+      { round: 1, scores: { A: 9, B: 7 }, winner: "A", suddenDeath: false },
+      { round: 2, scores: { A: 4, B: 6 }, winner: "B", suddenDeath: false },
+      { round: 3, scores: { A: 6, B: 5 }, winner: "A", suddenDeath: true },
+    ],
+  };
+}
+
+const saveTeam = (m: FinishedTeamMatch, id: string) => {
+  const { entries, members } = teamHistoryEntries(m, id);
+  return recordMatch(db, entries, members);
+};
+
+describe("team match history (feature 039, AC-040)", () => {
+  it("saves a row per player with their team's side and both teams' players", async () => {
+    await saveTeam(teamMatch(NOW), "t1");
+    const lan = (await listHistory(db, "lan")).matches[0];
+    expect(lan).toMatchObject({
+      id: "t1",
+      won: false,
+      opponent: null,
+      score: { mine: 1, theirs: 2 },
+      settings: { mode: "recall", level: "A2", rounds: 3 },
+      team: { mine: "B", draw: false, members: { A: [{ id: "minh" }, { id: "khoa" }], B: [{ id: "lan", name: "Lan" }] } },
+    });
+    expect(lan.rounds[0]).toEqual({ round: 1, mine: 7, theirs: 9, won: false, suddenDeath: false, onTime: false });
+    expect((await listHistory(db, "khoa")).matches[0]).toMatchObject({ won: true, team: { mine: "A" } });
+  });
+
+  it("never touches the Arena record", async () => {
+    await saveTeam(teamMatch(NOW), "t1");
+    expect((await listHistory(db, "minh")).stats).toEqual({ wins: 0, losses: 0, streak: 0, bestStreak: 0 });
+  });
+
+  it("keeps a draw as neither won nor lost", async () => {
+    await saveTeam(teamMatch(NOW, "draw"), "t1");
+    expect((await listHistory(db, "minh")).matches[0]).toMatchObject({ won: false, team: { draw: true } });
+  });
+
+  it("leaves duel entries without a team", async () => {
+    await save(match(NOW), "m1");
+    expect((await listHistory(db, "minh")).matches[0].team).toBeUndefined();
+  });
+
+  it("drops a match's players once no owner keeps it", async () => {
+    await saveTeam(teamMatch(NOW), "t1");
+    sqlite.exec("DELETE FROM arena_matches WHERE match_id = 't1'");
+    await save(match(NOW + 1), "m1");
+    expect(sqlite.prepare("SELECT count(*) AS n FROM arena_match_players").get()).toEqual({ n: 0 });
+  });
+
+  it("removes a deleted learner from the teams others see", async () => {
+    await saveTeam(teamMatch(NOW), "t1");
+    sqlite.exec("DELETE FROM user WHERE id = 'lan'");
+    const minh = (await listHistory(db, "minh")).matches[0];
+    expect(minh.team?.members.B).toEqual([]);
+    expect(sqlite.prepare("SELECT count(*) AS n FROM arena_matches").get()).toEqual({ n: 2 });
   });
 });

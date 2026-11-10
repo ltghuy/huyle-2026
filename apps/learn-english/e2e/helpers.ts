@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, type BrowserContext, type Page } from "@playwright/test";
 
-/** Learners seeded by `e2e/fixtures/users.sql` (features 023, 031); keep in step with it. */
+/** Learners seeded by `e2e/fixtures/users.sql` (features 023, 031, 035, 039); keep in step with it. */
 export const E2E_USERS = {
   minh: { id: "e2e-minh", name: "Minh Anh", token: "e2e-token-minh" },
   lan: { id: "e2e-lan", name: "Lan", token: "e2e-token-lan" },
@@ -15,6 +15,10 @@ export const E2E_USERS = {
   // Only the challenge spec uses these two (feature 035).
   an: { id: "e2e-an", name: "An", token: "e2e-token-an" },
   binh: { id: "e2e-binh", name: "Bình", token: "e2e-token-binh" },
+  // Only the team match spec uses these three (feature 039).
+  tam: { id: "e2e-tam", name: "Tâm", token: "e2e-token-tam" },
+  uyen: { id: "e2e-uyen", name: "Uyên", token: "e2e-token-uyen" },
+  vy: { id: "e2e-vy", name: "Vy", token: "e2e-token-vy" },
 } as const;
 
 /** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */

@@ -3,12 +3,12 @@
 // in, as in `stats.ts`: the room has no Next.js request context.
 //
 // No `import "server-only"`: the room, bundled into `worker.ts`, imports this module.
-import { and, desc, eq, notInArray } from "drizzle-orm";
+import { and, desc, eq, inArray, notInArray, sql } from "drizzle-orm";
 import { z } from "zod";
-import { HISTORY_LIMIT, type HistoryEntry } from "@/learning/arena/history";
+import { HISTORY_LIMIT, type HistoryEntry, type HistoryMember } from "@/learning/arena/history";
 import type { MatchSettings } from "@/learning/arena/protocol";
 import type { Db } from "@/server/db";
-import { arenaMatches, arenaStats } from "@/server/db/schema";
+import { arenaMatchPlayers, arenaMatches, arenaStats } from "@/server/db/schema";
 import type { ArenaMatch, ArenaMatchesResponse } from "./arena.schema";
 import { NO_STATS } from "./stats";
 
@@ -19,10 +19,11 @@ const roundsSchema = z.array(
 const NEWEST = [desc(arenaMatches.endedAt), desc(arenaMatches.matchId)] as const;
 
 /**
- * Saves a match's entries and keeps each owner's newest {@link HISTORY_LIMIT}, in one batch. A
- * match already saved (same id) is left as it is.
+ * Saves a match's entries (and a team match's members, feature 039) and keeps each owner's newest
+ * {@link HISTORY_LIMIT}, in one batch. A match already saved (same id) is left as it is; members of
+ * matches no owner keeps any more go too.
  */
-export async function recordMatch(db: Db, entries: HistoryEntry[]): Promise<void> {
+export async function recordMatch(db: Db, entries: HistoryEntry[], members: HistoryMember[] = []): Promise<void> {
   const [first, ...rest] = entries.map((entry) => entry.userId);
   if (!first) return;
   const prune = (userId: string) =>
@@ -61,17 +62,24 @@ export async function recordMatch(db: Db, entries: HistoryEntry[]): Promise<void
           level: entry.settings.level,
           bestOf: entry.settings.rounds,
           endedAt: entry.endedAt,
+          kind: entry.team ? "team" : "duel",
+          team: entry.team ?? null,
+          draw: entry.draw ?? false,
         })),
       )
       .onConflictDoNothing(),
+    ...(members.length > 0 ? [db.insert(arenaMatchPlayers).values(members).onConflictDoNothing()] : []),
     prune(first),
     ...rest.map(prune),
+    // Matches only team rows point at: once no owner keeps one, its members go.
+    db.delete(arenaMatchPlayers).where(sql`NOT EXISTS (SELECT 1 FROM ${arenaMatches} WHERE ${arenaMatches.matchId} = ${arenaMatchPlayers.matchId})`),
   ]);
 }
 
-/** The learner's record and newest matches, in one round trip. */
+/** The learner's record and newest matches, with team matches' players, in one round trip. */
 export async function listHistory(db: Db, userId: string): Promise<ArenaMatchesResponse> {
-  const [stats, rows] = await db.batch([
+  const newest = db.select({ id: arenaMatches.matchId }).from(arenaMatches).where(eq(arenaMatches.userId, userId)).orderBy(...NEWEST).limit(HISTORY_LIMIT);
+  const [stats, rows, members] = await db.batch([
     db
       .select({ wins: arenaStats.wins, losses: arenaStats.losses, streak: arenaStats.streak, bestStreak: arenaStats.bestStreak })
       .from(arenaStats)
@@ -83,12 +91,24 @@ export async function listHistory(db: Db, userId: string): Promise<ArenaMatchesR
       .where(eq(arenaMatches.userId, userId))
       .orderBy(...NEWEST)
       .limit(HISTORY_LIMIT),
+    db.select().from(arenaMatchPlayers).where(inArray(arenaMatchPlayers.matchId, newest)).orderBy(arenaMatchPlayers.position),
   ]);
-  return { stats: stats[0] ?? NO_STATS, matches: rows.map(toMatch) };
+  return { stats: stats[0] ?? NO_STATS, matches: rows.map((row) => toMatch(row, members)) };
 }
 
-function toMatch(row: typeof arenaMatches.$inferSelect): ArenaMatch {
+type MemberRow = typeof arenaMatchPlayers.$inferSelect;
+
+function teamOf(row: typeof arenaMatches.$inferSelect, members: MemberRow[]): ArenaMatch["team"] {
+  if (row.kind !== "team" || (row.team !== "A" && row.team !== "B")) return undefined;
+  const of = (team: "A" | "B") =>
+    members.filter((m) => m.matchId === row.matchId && m.team === team).map((m) => ({ id: m.userId, name: m.name, image: m.image }));
+  return { mine: row.team, draw: row.draw, members: { A: of("A"), B: of("B") } };
+}
+
+function toMatch(row: typeof arenaMatches.$inferSelect, members: MemberRow[]): ArenaMatch {
+  const team = teamOf(row, members);
   return {
+    ...(team ? { team } : {}),
     id: row.matchId,
     endedAt: row.endedAt,
     won: row.won,

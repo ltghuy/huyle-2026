@@ -19,6 +19,7 @@ import { EditSettings } from "./edit-settings";
 import { Lobby } from "./lobby";
 import { isSpectating } from "./scoreboard";
 import { settingsLine } from "./settings-fields";
+import { LiveTeamRoom } from "./team-room";
 import { useArenaRoom } from "./use-arena-room";
 
 const BACK = "/arena";
@@ -36,13 +37,31 @@ function Message({ title, text }: { title: string; text?: string }) {
   );
 }
 
-/** The live room for a signed-in player: a fresh ticket, the socket, then the lobby or the duel. */
+/** The live room for a signed-in player: a fresh ticket, then a duel room or a team room (feature 039) by the ticket's kind. */
 function LiveRoom({ code, me, name }: { code: string; me: string; name?: string }) {
-  const router = useRouter();
   // A ticket lasts 60 s and is only ever kept in memory: fetched here, again on every reconnect.
   const ticket = useQuery({ queryKey: ["arena-ticket", code, me], queryFn: () => joinRoom(code, name), retry: false, staleTime: Infinity, gcTime: 0 });
   const refreshTicket = useCallback(() => joinRoom(code, name).then((fresh) => fresh.ticket), [code, name]);
-  const handle = useArenaRoom(code, ticket.data?.ticket ?? null, { refreshTicket });
+
+  if (ticket.isError) {
+    const message = ticket.error instanceof ArenaError ? ticket.error.message : "Không vào được phòng. Bạn thử lại nhé.";
+    return <Message title="Không vào được phòng" text={message} />;
+  }
+  if (ticket.data?.kind === "team") return <LiveTeamRoom code={code} me={me} ticket={ticket.data.ticket} refreshTicket={refreshTicket} />;
+  return <LiveDuelRoom code={code} me={me} ticket={ticket.data?.ticket ?? null} refreshTicket={refreshTicket} />;
+}
+
+interface LiveDuelRoomProps {
+  code: string;
+  me: string;
+  ticket: string | null;
+  refreshTicket: () => Promise<string>;
+}
+
+/** A duel room: the socket, then the lobby or the duel. */
+function LiveDuelRoom({ code, me, ticket, refreshTicket }: LiveDuelRoomProps) {
+  const router = useRouter();
+  const handle = useArenaRoom(code, ticket, { refreshTicket });
   // While this room is open, friends' challenges find the learner busy (feature 035, AC-007).
   const inRoom = handle.room !== null && handle.status !== "closed";
   useEffect(() => {
@@ -56,10 +75,6 @@ function LiveRoom({ code, me, name }: { code: string; me: string; name?: string 
     router.push(BACK);
   }
 
-  if (ticket.isError) {
-    const message = ticket.error instanceof ArenaError ? ticket.error.message : "Không vào được phòng. Bạn thử lại nhé.";
-    return <Message title="Không vào được phòng" text={message} />;
-  }
   if (handle.status === "closed" && !handle.room?.winnerId) return <Message title={handle.error ?? "Phòng đã đóng."} />;
   const room = handle.room;
   if (!room) {

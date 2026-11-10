@@ -17,6 +17,8 @@ interface LetterInputProps {
   mask: string;
   /** The word itself, when the learner may see it checked letter by letter (practice, not the Arena). */
   answer?: string;
+  /** A team match hint ("h****"): its first letter shows in the first empty tile (feature 039). */
+  hint?: string | null;
   value: string;
   onChange: (value: string) => void;
   disabled?: boolean;
@@ -30,7 +32,7 @@ interface LetterInputProps {
  * readers all work on the input, which takes focus as the question opens. Telex output is folded
  * back to ASCII before the tiles show it, and the input takes no more letters than there are tiles.
  */
-export function LetterInput({ mask, answer, value, onChange, disabled, invalid, "aria-label": label, ref }: LetterInputProps) {
+export function LetterInput({ mask, answer, hint, value, onChange, disabled, invalid, "aria-label": label, ref }: LetterInputProps) {
   const ownRef = useRef<HTMLInputElement>(null);
   const slots = mask.split("_").length - 1;
 
@@ -52,7 +54,7 @@ export function LetterInput({ mask, answer, value, onChange, disabled, invalid, 
   return (
     <div className="grid gap-2">
       <div className={cn("relative rounded-lg", invalid && "[&_[data-slot=tile]]:border-destructive")}>
-        <LetterSlots mask={mask} typed={normalize(value)} answer={answer} />
+        <LetterSlots mask={mask} typed={normalize(value)} answer={answer} hint={hint} />
         <input
           ref={setRefs}
           lang="en"

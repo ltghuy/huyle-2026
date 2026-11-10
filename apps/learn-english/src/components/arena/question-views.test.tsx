@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fillSlots } from "./letter-slots";
+import { fillSlots, withHint } from "./letter-slots";
 import { QuestionListen, QuestionRecall, QuestionWrite } from "./question-views";
 
 vi.mock("sonner", () => ({ toast: { error: vi.fn(), success: vi.fn() } }));
@@ -30,6 +30,13 @@ describe("fillSlots", () => {
     expect(fillSlots("___-_____", "icecr").map((s) => s.char).join("")).toBe("ice-cr");
     expect(fillSlots("___-_____", "ice-cream").map((s) => s.char).join("")).toBe("ice-cream");
     expect(fillSlots("____ _____", "lookafterX").map((s) => (s.kind === "gap" ? " " : s.char)).join("")).toBe("look after");
+  });
+
+  it("puts a hint's first letter in the first slot until a letter is typed there (feature 039)", () => {
+    expect(withHint(fillSlots("_____", ""), "h****").map((s) => s.char).join("")).toBe("h");
+    expect(withHint(fillSlots("_____", ""), "h****")[0].hinted).toBe(true);
+    expect(withHint(fillSlots("_____", "x"), "h****").map((s) => s.char).join("")).toBe("x");
+    expect(withHint(fillSlots("_____", ""), null).map((s) => s.char).join("")).toBe("");
   });
 });
 
@@ -94,6 +101,18 @@ describe("QuestionRecall", () => {
     expect(select).not.toHaveBeenCalled();
   });
 
+  it("shows a hint line and the hint's letter in the first tile, to a watcher too (feature 039)", () => {
+    render(<QuestionRecall question={{ ...RECALL, mask: "_____" }} wrongCount={0} closed={false} watching hint="h****" onAnswer={vi.fn()} onTyping={vi.fn()} />);
+    expect(screen.getByText("Gợi ý:")).toBeInTheDocument();
+    expect(screen.getByText("h****")).toBeInTheDocument();
+    expect(screen.getByText("h")).toHaveAttribute("data-hint", "true");
+  });
+
+  it("shows no hint line without a hint", () => {
+    render(<QuestionRecall question={RECALL} wrongCount={0} closed={false} onAnswer={vi.fn()} onTyping={vi.fn()} />);
+    expect(screen.queryByText("Gợi ý:")).not.toBeInTheDocument();
+  });
+
   it("can't send once the question is closed", () => {
     render(<QuestionRecall question={RECALL} wrongCount={0} closed onAnswer={vi.fn()} onTyping={vi.fn()} />);
     expect(screen.getByLabelText("Từ tiếng Anh")).toBeDisabled();
@@ -111,5 +130,10 @@ describe("QuestionWrite", () => {
     expect(onAnswer).not.toHaveBeenCalled();
     fireEvent.keyDown(box, { key: "Enter" });
     expect(onAnswer).toHaveBeenCalledWith("I like apples.");
+  });
+
+  it("shows a hint line above the answer box (feature 039)", () => {
+    render(<QuestionWrite question={WRITE} wrongCount={0} closed={false} hint="I l*** a*****." onAnswer={vi.fn()} onTyping={vi.fn()} />);
+    expect(screen.getByText("I l*** a*****.")).toBeInTheDocument();
   });
 });

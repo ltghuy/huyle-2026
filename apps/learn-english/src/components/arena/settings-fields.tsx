@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { Brain, Headphones, PenLine, Shuffle, type LucideIcon } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { contentQuery } from "@/content/queries";
@@ -77,9 +77,11 @@ interface SettingsFieldsProps {
   draft: SettingsDraft;
   /** Called after any change, e.g. to clear an error. */
   onChange?: () => void;
+  /** More timing fields shown first on the rounds and time row (team rooms add the round length, feature 039). */
+  timing?: ReactNode;
 }
 
-export function SettingsFields({ draft, onChange }: SettingsFieldsProps) {
+export function SettingsFields({ draft, onChange, timing }: SettingsFieldsProps) {
   const modeLabel = useId();
   const levelLabel = useId();
   const secondsLabel = useId();
@@ -151,6 +153,7 @@ export function SettingsFields({ draft, onChange }: SettingsFieldsProps) {
 
       {/* Rounds and time share a row, and wrap onto two on a narrow screen. */}
       <div className="flex flex-wrap gap-x-10 gap-y-6">
+        {timing}
         <fieldset className="grid gap-2">
           <legend className="mb-2 text-sm font-medium">Số hiệp</legend>
           <div className="flex h-11 items-center gap-5">

@@ -132,6 +132,57 @@ export function letterMask(headword: string): string {
   return headword.replace(/[\p{L}\p{N}]/gu, "_");
 }
 
+/** What a hint hides each letter with ("h****"). */
+export const HINT_MARK = "*";
+
+/**
+ * A team-match hint (feature 039): "Nhớ lại từ" shows the word's first letter only ("happy" as "h****"),
+ * "Viết câu" the first letter of every word ("I am happy" as "I a* h****"). Spaces, hyphens, apostrophes
+ * and punctuation stay. Null for "Nghe và chọn từ", which has no hints.
+ */
+export function hintMask(question: ServerQuestion): string | null {
+  if (question.type === "listen") return null;
+  if (question.type === "recall") {
+    let shown = false;
+    return question.instance.headword.replace(/[\p{L}\p{N}]/gu, (char) => {
+      if (shown) return HINT_MARK;
+      shown = true;
+      return char;
+    });
+  }
+  return question.instance.en
+    .split(/(\s+)/)
+    .map((part) => {
+      let shown = false;
+      return part.replace(/[\p{L}\p{N}]/gu, (char) => {
+        if (shown) return HINT_MARK;
+        shown = true;
+        return char;
+      });
+    })
+    .join("");
+}
+
+/**
+ * A team round's questions (feature 039): `size` of them from the seed, in passes, so a level shorter
+ * than the round repeats its items rather than running out. Shorter than `size` only when the pool
+ * has nothing the mode can ask.
+ */
+export function buildDeck(pool: ArenaPool, mode: ArenaMode, seed: number, size: number, exclude: ReadonlySet<string> = new Set()): ServerQuestion[] {
+  const rng = createRng(seed);
+  const asked = new Set(exclude);
+  const deck: ServerQuestion[] = [];
+  while (deck.length < size) {
+    const pass = buildRound(pool, mode, randomInt(rng, 2 ** 31), size - deck.length, asked);
+    if (pass.length === 0) break;
+    for (const question of pass) {
+      asked.add(question.itemId);
+      deck.push(question);
+    }
+  }
+  return deck;
+}
+
 /** What players see while the question is open (AC-019). */
 export function publicView(question: ServerQuestion): PublicQuestion {
   if (question.type === "listen") return { type: "listen", audio: question.instance.audio, options: [...question.instance.options] };

@@ -40,3 +40,15 @@ INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt
 INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
   ('e2e-session-an', 'e2e-an', 'e2e-token-an', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
   ('e2e-session-binh', 'e2e-binh', 'e2e-token-binh', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);
+
+-- Three learners for the team match spec (feature 039), so it shares no account with the other
+-- Arena specs running in parallel.
+INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt_out`, `created_at`, `updated_at`) VALUES
+  ('e2e-tam', 'Tâm', 'tam@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000),
+  ('e2e-uyen', 'Uyên', 'uyen@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000),
+  ('e2e-vy', 'Vy', 'vy@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000);
+
+INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
+  ('e2e-session-tam', 'e2e-tam', 'e2e-token-tam', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
+  ('e2e-session-uyen', 'e2e-uyen', 'e2e-token-uyen', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
+  ('e2e-session-vy', 'e2e-vy', 'e2e-token-vy', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);

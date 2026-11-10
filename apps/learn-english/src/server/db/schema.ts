@@ -244,8 +244,32 @@ export const arenaMatches = sqliteTable(
     level: text("level").notNull(),
     bestOf: integer("best_of").notNull(),
     endedAt: integer("ended_at").notNull(),
+    /** "duel" or "team" (feature 039). Team rows have no opponent; rounds are the owner's team's side. */
+    kind: text("kind").notNull().default("duel"),
+    /** The owner's team in a team match ("A" or "B"); null for duels. */
+    team: text("team"),
+    /** A team match that ended level (feature 039); `won` is false then. */
+    draw: integer("draw", { mode: "boolean" }).notNull().default(false),
   },
   (table) => [primaryKey({ columns: [table.matchId, table.userId] }), index("arena_matches_user_ended").on(table.userId, table.endedAt)],
+);
+
+// Who played on which team in a team match (feature 039), in turn order. A row goes with its
+// player's account, so no snapshot of a deleted learner is kept; the room prunes these with the
+// matches no owner keeps any more.
+export const arenaMatchPlayers = sqliteTable(
+  "arena_match_players",
+  {
+    matchId: text("match_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    team: text("team").notNull(),
+    name: text("name").notNull(),
+    image: text("image"),
+    position: integer("position").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.matchId, table.userId] }), index("arena_match_players_match").on(table.matchId)],
 );
 
 // Arena friends (feature 031). A friendship is two mirrored rows, one per side, so a learner's

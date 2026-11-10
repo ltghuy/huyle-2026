@@ -1,4 +1,5 @@
 import type { ArenaSettings } from "@/learning/arena/protocol";
+import type { TeamSettings } from "@/learning/arena/team-protocol";
 import type { ApiError } from "@/lib/http";
 import type { DeliveryState } from "@/learning/arena/link";
 import { ARENA_MESSAGES, type ArenaMatchesResponse, type ArenaStatsResponse, type LinkTicket, type RoomTicket } from "@/server/arena/arena.schema";
@@ -39,6 +40,11 @@ function post<T>(url: string, body: unknown): Promise<T> {
 /** A new room with these settings; `name` is the learner's chosen name, if any. */
 export function createRoom(settings: ArenaSettings, name?: string): Promise<RoomTicket> {
   return post<RoomTicket>("/api/arena/rooms", { ...settings, ...(name ? { name } : {}) });
+}
+
+/** A new team room ("Đấu đội", feature 039) with these settings. */
+export function createTeamRoom(settings: TeamSettings, name?: string): Promise<RoomTicket> {
+  return post<RoomTicket>("/api/arena/teams", { ...settings, ...(name ? { name } : {}) });
 }
 
 /** A ticket into the room with this code (also a fresh one for a player already seated). */

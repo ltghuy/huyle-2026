@@ -9,7 +9,15 @@ import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { fetchArenaMatches } from "@/lib/arena-client";
 import { cn } from "@/lib/utils";
 import { ARENA_MATCHES_KEY, DELETED_PLAYER, HISTORY_PATH, MATCHES_STALE_MS, resultLabel, scoreLabel } from "./match-parts";
+import { teamResultLabel, teamScoreLabel } from "./match-details";
 import { matchWhen } from "./match-when";
+import type { ArenaMatch } from "@/server/arena/arena.schema";
+
+/** "Thắng 2–1 · Lan" for a duel, "Đấu đội · Hòa · Đội A 1–1 Đội B" for a team match (feature 039). */
+function latestLine(match: ArenaMatch): string {
+  if (match.team) return `Đấu đội · ${teamResultLabel(match, match.team)} · ${teamScoreLabel(match, match.team)}`;
+  return `${resultLabel(match)} ${scoreLabel(match)} · ${match.opponent?.name ?? DELETED_PLAYER}`;
+}
 
 const GUEST = "Đăng nhập để lưu lại các trận đã đấu: tỉ số, đối thủ và thời gian.";
 
@@ -38,7 +46,7 @@ export function ArenaHistoryCard({ className }: { className?: string }) {
         ) : null}
         {latest ? (
           <span className="block">
-            Trận gần nhất: {resultLabel(latest)} {scoreLabel(latest)} · {latest.opponent?.name ?? DELETED_PLAYER} · {matchWhen(latest.endedAt)}
+            Trận gần nhất: {latestLine(latest)} · {matchWhen(latest.endedAt)}
           </span>
         ) : (
           <span className="block">Bạn chưa có trận nào được lưu. Đấu trận đầu tiên, nó sẽ hiện ở đây.</span>

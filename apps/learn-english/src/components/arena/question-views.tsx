@@ -115,6 +115,20 @@ interface TypedProps {
   watching?: boolean;
   onAnswer: (text: string) => void;
   onTyping: () => void;
+  /** A team match hint, once used ("h****", "I a* h****"): shown above the answer to everyone (feature 039). */
+  hint?: string | null;
+}
+
+/** The hint as a monospace line, one mark per hidden letter (AC-033, AC-034). */
+function HintLine({ hint }: { hint: string }) {
+  return (
+    <p className="flex flex-wrap items-baseline justify-center gap-x-2 text-center">
+      <span className="text-sm font-medium text-muted-foreground">Gợi ý:</span>
+      <span lang="en" className="font-mono text-lg font-semibold tracking-widest break-all">
+        {hint}
+      </span>
+    </p>
+  );
 }
 
 function WrongNote({ show }: { show: boolean }) {
@@ -126,7 +140,7 @@ function WrongNote({ show }: { show: boolean }) {
 }
 
 /** "Nhớ lại từ": the meaning, then the word typed into letter slots (AC-014: retries until someone is right). */
-export function QuestionRecall({ question, wrongCount, closed, watching = false, onAnswer, onTyping }: TypedProps & { question: Of<"recall"> }) {
+export function QuestionRecall({ question, wrongCount, closed, watching = false, onAnswer, onTyping, hint = null }: TypedProps & { question: Of<"recall"> }) {
   const { text, change, send, inputRef, wrongTry } = useTypedAnswer({ wrongCount, onSend: onAnswer, onTyping });
 
   function handleSubmit(event: React.FormEvent) {
@@ -142,8 +156,9 @@ export function QuestionRecall({ question, wrongCount, closed, watching = false,
         </Badge>
         <p className="text-2xl font-semibold text-balance">{question.meaningsVi.join("; ")}</p>
       </div>
+      {hint ? <HintLine hint={hint} /> : null}
       <div data-shake className="grid gap-1">
-        <LetterInput ref={inputRef} aria-label="Từ tiếng Anh" mask={question.mask} value={text} onChange={change} disabled={closed || watching} invalid={wrongTry > 0} />
+        <LetterInput ref={inputRef} aria-label="Từ tiếng Anh" mask={question.mask} hint={hint} value={text} onChange={change} disabled={closed || watching} invalid={wrongTry > 0} />
         {watching ? null : (
           <div className="flex items-center justify-between gap-2">
             <WrongNote show={wrongTry > 0} />
@@ -158,7 +173,7 @@ export function QuestionRecall({ question, wrongCount, closed, watching = false,
 }
 
 /** "Viết câu": read the Vietnamese, type the English; Enter sends, Shift+Enter is a new line. */
-export function QuestionWrite({ question, wrongCount, closed, watching = false, onAnswer, onTyping }: TypedProps & { question: Of<"write"> }) {
+export function QuestionWrite({ question, wrongCount, closed, watching = false, onAnswer, onTyping, hint = null }: TypedProps & { question: Of<"write"> }) {
   const { text, change, send, inputRef, wrongTry } = useTypedAnswer({ wrongCount, onSend: onAnswer, onTyping });
 
   function handleSubmit(event: React.FormEvent) {
@@ -179,6 +194,7 @@ export function QuestionWrite({ question, wrongCount, closed, watching = false, 
         <p className="text-xs font-medium text-muted-foreground">Dịch sang tiếng Anh</p>
         <p className="mt-1 text-xl font-semibold text-balance">{question.vi}</p>
       </div>
+      {hint ? <HintLine hint={hint} /> : null}
       {watching ? null : (
         <div data-shake className="grid gap-1">
           <Textarea

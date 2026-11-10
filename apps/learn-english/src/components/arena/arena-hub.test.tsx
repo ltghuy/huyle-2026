@@ -61,18 +61,17 @@ describe("codeFrom", () => {
 });
 
 describe("the Arena hub (feature 024)", () => {
-  it("shows the two kinds of match: 1-1 opens its screen, teams are coming soon (AC-001 to AC-003)", () => {
+  it("shows the two kinds of match, each opening its screen (AC-001 to AC-003, 039 AC-001)", () => {
     render(<ArenaPage />);
     const duel = screen.getByRole("link", { name: "Đấu 1-1" });
     expect(duel).toHaveAttribute("href", "/arena/1v1");
     expect(duel).toHaveAccessibleDescription(/ai trả lời đúng trước thì ghi điểm/);
 
-    const team = screen.getByRole("group", { name: "Đấu đội" });
-    expect(team).toHaveAttribute("aria-disabled", "true");
-    expect(team).toHaveAccessibleDescription(/chưa mở/);
-    expect(within(team).getByText("Sắp ra mắt")).toBeInTheDocument();
-    expect(within(team).queryByRole("link")).not.toBeInTheDocument();
-    expect(within(team).queryByRole("button")).not.toBeInTheDocument();
+    const team = screen.getByRole("link", { name: "Đấu đội" });
+    expect(team).toHaveAttribute("href", "/arena/team");
+    expect(team).not.toHaveAttribute("aria-disabled");
+    expect(team).toHaveAccessibleDescription(/Chia đội cùng bạn bè/);
+    expect(screen.queryByText("Sắp ra mắt")).not.toBeInTheDocument();
   });
 
   it("joins by code from the hub, and says why when the code is wrong (AC-005, quick 059)", async () => {

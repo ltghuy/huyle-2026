@@ -33,7 +33,8 @@ async function isFriend(db: Db, me: string, other: string): Promise<boolean> {
 export async function sendChallenge(db: Db, rooms: Rooms, links: Links, input: { code: string; friendId: string; host: ChallengeFrom }): Promise<ChallengeResult> {
   const [friend, status] = await Promise.all([isFriend(db, input.host.id, input.friendId), rooms.getByName(input.code).status()]);
   if (!friend) return { ok: false, reason: "not-friend" };
-  if (!status || status.creatorId !== input.host.id || status.phase !== "lobby") return { ok: false, reason: "not-host" };
+  // Team rooms take no challenges (feature 039, Out of Scope).
+  if (!status || status.kind === "team" || status.creatorId !== input.host.id || status.phase !== "lobby") return { ok: false, reason: "not-host" };
   if (status.playerIds.includes(input.friendId) || status.spectatorIds.includes(input.friendId)) return { ok: true, state: "here" };
   if (status.playerIds.length >= 2) return { ok: false, reason: "seat-taken" };
   const state = await links.getByName(input.friendId).deliver({ from: input.host, code: input.code, settings: status.settings });

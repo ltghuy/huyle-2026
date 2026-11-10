@@ -5,6 +5,10 @@
 // leaves memory while its players stay connected; the state is reloaded from
 // storage in the constructor.
 //
+// Team rooms (feature 039) live in the same class: the stored state's `kind`
+// picks the rules (`team-machine.ts` for "team", the duel machine otherwise),
+// and a team room keeps each round's questions under its own key (`deck:{r}`).
+//
 // No `import "server-only"`: this module is bundled by wrangler into the custom
 // worker, where that package's default export throws (knowledge.md, 023).
 import { DurableObject } from "cloudflare:workers";
@@ -22,8 +26,24 @@ import {
   type RoomState,
 } from "@/learning/arena/machine";
 import { CLOSE_CODES, DEFAULT_QUESTION_TIME, MAX_FRAME_BYTES, parseClientFrame, type ArenaSettings, type ClientFrame, type RoomFrame } from "@/learning/arena/protocol";
-import { historyEntries } from "@/learning/arena/history";
-import type { ArenaPool } from "@/learning/arena/questions";
+import { historyEntries, teamHistoryEntries } from "@/learning/arena/history";
+import type { ArenaPool, ServerQuestion } from "@/learning/arena/questions";
+import {
+  buildTeamDecks,
+  createTeamRoom,
+  deckRound,
+  nextTeamAlarm,
+  reduceTeam,
+  teamNeedsDecks,
+  toPublicTeam,
+  type TeamEffect,
+  type TeamIdentity,
+  type TeamResult,
+  type TeamRoomEvent,
+  type TeamRoomState,
+} from "@/learning/arena/team-machine";
+import { parseTeamFrame, type TeamClientFrame, type TeamSettings, type TeamStateFrame } from "@/learning/arena/team-protocol";
+import { MAX_ANSWERS_PER_SECOND } from "@/learning/arena/machine";
 import type { Db } from "@/server/db";
 import * as schema from "@/server/db/schema";
 import { loadArenaPool } from "./content";
@@ -32,6 +52,11 @@ import { recordMatch } from "./history";
 import { recordResult } from "./stats";
 
 const STATE_KEY = "room";
+/** A team room's round deck (feature 039). */
+const deckKey = (round: number) => `deck:${round}`;
+
+type AnyState = RoomState | TeamRoomState;
+const isTeam = (state: AnyState | null): state is TeamRoomState => state !== null && "kind" in state && state.kind === "team";
 
 interface Attachment {
   userId: string;
@@ -39,14 +64,26 @@ interface Attachment {
 }
 
 /** What the join route needs to know before handing out a ticket. */
-export interface RoomStatus {
-  phase: RoomState["phase"];
-  creatorId: string;
-  playerIds: string[];
-  /** Who is watching (feature 026). */
-  spectatorIds: string[];
-  settings: ArenaSettings;
-}
+export type RoomStatus =
+  | {
+      /** Absent on statuses read before feature 039: a duel. */
+      kind?: "duel";
+      phase: RoomState["phase"];
+      creatorId: string;
+      playerIds: string[];
+      /** Who is watching (feature 026). */
+      spectatorIds: string[];
+      settings: ArenaSettings;
+    }
+  | {
+      /** A team room (feature 039): no spectators, `settings.size` seats. */
+      kind: "team";
+      phase: TeamRoomState["phase"];
+      creatorId: string;
+      playerIds: string[];
+      spectatorIds: string[];
+      settings: TeamSettings;
+    };
 
 function toEvent(userId: string, frame: ClientFrame): RoomEvent {
   switch (frame.type) {
@@ -65,23 +102,47 @@ function toEvent(userId: string, frame: ClientFrame): RoomEvent {
   }
 }
 
+function toTeamEvent(userId: string, frame: TeamClientFrame): TeamRoomEvent {
+  switch (frame.type) {
+    case "answer":
+      return { type: "answer", userId, q: frame.q, answer: { text: frame.text } };
+    case "choose":
+      return { type: "answer", userId, q: frame.q, answer: { choice: frame.choice } };
+    case "typing":
+    case "hint":
+      return { type: frame.type, userId, q: frame.q };
+    case "assign":
+      return { type: "assign", userId, target: frame.userId, team: frame.team };
+    case "order":
+      return { type: "order", userId, team: frame.team, ids: frame.ids };
+    case "settings":
+      return { type: "settings", userId, settings: frame.settings };
+    default:
+      return { type: frame.type, userId };
+  }
+}
+
 function randomSeed(): number {
   return crypto.getRandomValues(new Uint32Array(1))[0] & 0x7fffffff;
 }
 
 export class ArenaRoom extends DurableObject<CloudflareEnv> {
-  private state: RoomState | null = null;
+  private state: AnyState | null = null;
+  /** A team room's decks by round, kept while in memory; read back from storage after a wake. */
+  private decks = new Map<number, ServerQuestion[]>();
+  /** Team rooms: when each player's recent answers arrived (flood limit), and who already signalled typing on which question. Memory only: nothing worth a write. */
+  private recentAnswers = new Map<string, number[]>();
+  private typed = new Set<string>();
   /** A level's content, kept while the object is in memory; loaded again only when the creator changes the level (AC-031). */
   private pool: { level: ArenaSettings["level"]; content: ArenaPool } | null = null;
 
   constructor(ctx: DurableObjectState, env: CloudflareEnv) {
     super(ctx, env);
     void ctx.blockConcurrencyWhile(async () => {
-      const stored = await ctx.storage.get<RoomState>(STATE_KEY);
-      // Rooms saved before feature 026 have no spectators list, before 028 no question time.
-      this.state = stored
-        ? { ...stored, spectators: stored.spectators ?? [], settings: { ...stored.settings, seconds: stored.settings.seconds ?? DEFAULT_QUESTION_TIME } }
-        : null;
+      const stored = await ctx.storage.get<AnyState>(STATE_KEY);
+      // Rooms saved before feature 026 have no spectators list, before 028 no question time, before 039 no kind (a duel).
+      if (!stored || isTeam(stored)) this.state = stored ?? null;
+      else this.state = { ...stored, spectators: stored.spectators ?? [], settings: { ...stored.settings, seconds: stored.settings.seconds ?? DEFAULT_QUESTION_TIME } };
     });
   }
 
@@ -93,10 +154,24 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     return true;
   }
 
-  /** RPC from the join route: the room's phase, seats and spectators, or null when there is no open room. */
+  /** RPC from the team create route (feature 039): claims this code for a new team room. False when it is in use. */
+  async createTeam(input: { code: string; settings: TeamSettings; host: TeamIdentity }): Promise<boolean> {
+    if (this.state && this.state.phase !== "closed") return false;
+    this.pool = null;
+    this.decks.clear();
+    await this.apply({ state: createTeamRoom({ ...input, seed: randomSeed(), now: Date.now() }), effects: [] });
+    return true;
+  }
+
+  /** RPC from the join route: the room's kind, phase, seats and spectators, or null when there is no open room. */
   status(): RoomStatus | null {
     if (!this.state || this.state.phase === "closed") return null;
+    if (isTeam(this.state)) {
+      const { phase, hostId, players, settings } = this.state;
+      return { kind: "team", phase, creatorId: hostId, playerIds: players.map((p) => p.id), spectatorIds: [], settings };
+    }
     return {
+      kind: "duel",
       phase: this.state.phase,
       creatorId: this.state.creatorId,
       playerIds: this.state.players.map((p) => p.id),
@@ -124,6 +199,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
       socket.close(CLOSE_CODES.roomClosed, "closed");
       return;
     }
+    if (isTeam(this.state)) return this.applyTeam({ type: "join", player });
     await this.apply(reduce(this.state, { type: "join", player }, Date.now()));
   }
 
@@ -131,6 +207,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     const userId = userOf(socket);
     if (!userId || !this.state) return;
     const raw = typeof message === "string" ? message : new TextDecoder().decode(message);
+    if (isTeam(this.state)) return this.teamMessage(socket, userId, raw);
     const frame = parseClientFrame(raw);
     if (!frame) {
       if (new TextEncoder().encode(raw).length > MAX_FRAME_BYTES) socket.close(CLOSE_CODES.tooBig, "too big");
@@ -149,6 +226,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
 
   async alarm(): Promise<void> {
     if (!this.state) return;
+    if (isTeam(this.state)) return this.teamAlarm();
     // Load content first, then read the state: messages handled while D1 answers must not be lost.
     const pool = needsPool(this.state) ? await this.loadPool(this.state.settings.level) : undefined;
     if (!this.state) return;
@@ -161,7 +239,67 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     if (!userId || !this.state) return;
     const others = this.ctx.getWebSockets(userId).filter((other) => other !== socket && other.readyState === WebSocket.OPEN);
     if (others.length > 0) return;
+    if (isTeam(this.state)) return this.applyTeam({ type: "disconnect", userId });
     await this.apply(reduce(this.state, { type: "disconnect", userId }, Date.now()));
+  }
+
+  // ── Team rooms (feature 039) ────────────────────────────────────────────────
+
+  private async teamMessage(socket: WebSocket, userId: string, raw: string): Promise<void> {
+    const frame = parseTeamFrame(raw);
+    if (!frame) {
+      if (new TextEncoder().encode(raw).length > MAX_FRAME_BYTES) socket.close(CLOSE_CODES.tooBig, "too big");
+      return;
+    }
+    const now = Date.now();
+    if (frame.type === "answer" || frame.type === "choose" || frame.type === "hint") {
+      // Faster than a person could type: dropped, without touching storage (spec edge case).
+      const recent = (this.recentAnswers.get(userId) ?? []).filter((at) => now - at < 1_000);
+      if (recent.length >= MAX_ANSWERS_PER_SECOND) return;
+      this.recentAnswers.set(userId, [...recent, now]);
+    }
+    if (frame.type === "typing") {
+      // One typing signal per player and question.
+      const key = `${userId}:${(this.state as TeamRoomState).round}:${frame.q}`;
+      if (this.typed.has(key)) return;
+      this.typed.add(key);
+    }
+    await this.applyTeam(toTeamEvent(userId, frame));
+  }
+
+  private async teamAlarm(): Promise<void> {
+    let sizes: number[] | undefined;
+    if (isTeam(this.state) && teamNeedsDecks(this.state)) {
+      // Load content first, then read the state again: messages handled while D1 answers must not be lost.
+      const pool = await this.loadPool(this.state.settings.level);
+      if (!isTeam(this.state) || !teamNeedsDecks(this.state)) return;
+      const decks = buildTeamDecks(this.state, pool);
+      this.decks.clear();
+      for (const [index, deck] of decks.entries()) {
+        this.decks.set(index + 1, deck);
+        await this.ctx.storage.put(deckKey(index + 1), deck);
+      }
+      sizes = decks.map((deck) => deck.length);
+    }
+    await this.applyTeam({ type: "tick" }, sizes);
+  }
+
+  /** A round's deck, from memory or, after a wake, from storage. */
+  private async deck(round: number): Promise<ServerQuestion[] | undefined> {
+    if (round < 1) return undefined;
+    let deck = this.decks.get(round);
+    if (!deck) {
+      deck = await this.ctx.storage.get<ServerQuestion[]>(deckKey(round));
+      if (deck) this.decks.set(round, deck);
+    }
+    return deck;
+  }
+
+  private async applyTeam(event: TeamRoomEvent, deckSizes?: number[]): Promise<void> {
+    if (!isTeam(this.state)) return;
+    const deck = await this.deck(deckRound(this.state));
+    if (!isTeam(this.state)) return;
+    await this.apply(reduceTeam(this.state, event, Date.now(), { deck, deckSizes }));
   }
 
   private async loadPool(level: ArenaSettings["level"]): Promise<ArenaPool> {
@@ -174,10 +312,12 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   }
 
   /** Saves the new state, carries out the effects and keeps the alarm in step. */
-  private async apply(result: Result): Promise<void> {
+  private async apply(result: Result | TeamResult): Promise<void> {
     const changed = result.state !== this.state;
     this.state = result.state;
     if (changed) await this.ctx.storage.put(STATE_KEY, result.state);
+    // A new team match builds new decks: drop the last match's from memory.
+    if (isTeam(this.state) && this.state.deckSizes.length === 0) this.decks.clear();
     for (const effect of result.effects) await this.run(effect);
     await this.syncAlarm();
     if (this.state?.phase === "closed") {
@@ -185,11 +325,12 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
       await this.ctx.storage.deleteAll();
       this.state = null;
       this.pool = null;
+      this.decks.clear();
     }
   }
 
   private async syncAlarm(): Promise<void> {
-    const next = this.state ? nextAlarm(this.state) : null;
+    const next = !this.state ? null : isTeam(this.state) ? nextTeamAlarm(this.state) : nextAlarm(this.state);
     const current = await this.ctx.storage.getAlarm();
     if (next === current) return;
     // Each setAlarm is a row written on the free plan: only when the time changes.
@@ -197,11 +338,13 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     else await this.ctx.storage.setAlarm(next);
   }
 
-  private async run(effect: Effect): Promise<void> {
+  private async run(effect: Effect | TeamEffect): Promise<void> {
     switch (effect.type) {
       case "broadcast": {
         if (!this.state) return;
-        const frame: RoomFrame = { type: "state", room: toPublic(this.state), serverNow: Date.now() };
+        const frame: RoomFrame | TeamStateFrame = isTeam(this.state)
+          ? { type: "team-state", room: toPublicTeam(this.state, this.decks.get(this.state.round)), serverNow: Date.now() }
+          : { type: "state", room: toPublic(this.state), serverNow: Date.now() };
         for (const socket of this.ctx.getWebSockets()) sendTo(socket, frame);
         return;
       }
@@ -241,6 +384,15 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
           console.error("Arena history not saved:", error);
         }
         return;
+      case "record-team":
+        // History only: a team match never changes the Arena record (AC-040).
+        try {
+          const { entries, members } = teamHistoryEntries(effect.match, crypto.randomUUID());
+          await recordMatch(this.db(), entries, members);
+        } catch (error) {
+          console.error("Arena team history not saved:", error);
+        }
+        return;
     }
   }
 }
@@ -263,7 +415,7 @@ function connectedAt(socket: WebSocket): number {
   return (socket.deserializeAttachment() as Attachment | null)?.connectedAt ?? 0;
 }
 
-function sendTo(socket: WebSocket, frame: RoomFrame): void {
+function sendTo(socket: WebSocket, frame: RoomFrame | TeamStateFrame): void {
   try {
     socket.send(JSON.stringify(frame));
   } catch {

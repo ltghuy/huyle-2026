@@ -32,6 +32,27 @@ const WON: ArenaMatch = {
 const LOST_BY_FORFEIT: ArenaMatch = { ...WON, id: "m1", endedAt: NOW - 60_000, won: false, forfeit: true, score: { mine: 0, theirs: 0 }, opponent: { id: "khoa", name: "Khoa", image: null }, rounds: [] };
 const DELETED: ArenaMatch = { ...WON, id: "m0", endedAt: NOW - 120_000, forfeit: true, opponent: null, settings: { mode: "listen", level: "A1", rounds: 1 }, score: { mine: 1, theirs: 0 }, rounds: [{ round: 1, mine: 6, theirs: 6, won: true, suddenDeath: true, onTime: true }] };
 
+const TEAM_WIN: ArenaMatch = {
+  id: "t1",
+  endedAt: NOW - 30_000,
+  won: true,
+  forfeit: false,
+  score: { mine: 2, theirs: 1 },
+  opponent: null,
+  settings: { mode: "write", level: "A2", rounds: 3 },
+  rounds: [
+    { round: 1, mine: 9, theirs: 7, won: true, suddenDeath: false, onTime: false },
+    { round: 2, mine: 4, theirs: 6, won: false, suddenDeath: false, onTime: false },
+    { round: 3, mine: 6, theirs: 5, won: true, suddenDeath: true, onTime: false },
+  ],
+  team: {
+    mine: "B",
+    draw: false,
+    members: { A: [{ id: "lan", name: "Lan", image: null }, { id: "hoa", name: "Hoa", image: null }], B: [{ id: "minh", name: "Minh Anh", image: null }, { id: "khoa", name: "Khoa", image: null }] },
+  },
+};
+const TEAM_DRAW: ArenaMatch = { ...TEAM_WIN, id: "t0", won: false, score: { mine: 0, theirs: 0 }, settings: { ...TEAM_WIN.settings, rounds: 1 }, rounds: [{ round: 1, mine: 5, theirs: 5, won: false, suddenDeath: true, onTime: false }], team: { ...TEAM_WIN.team!, draw: true } };
+
 let history: () => Response;
 let signedIn = true;
 
@@ -150,6 +171,48 @@ describe("Lịch sử đấu page (feature 025)", () => {
     render(<ArenaHistoryPage />);
     expect(await screen.findByText("Đăng nhập để vào Đấu trường")).toBeInTheDocument();
     expect(screen.queryByRole("list", { name: "Các trận gần đây" })).not.toBeInTheDocument();
+  });
+});
+
+describe("Team matches in Lịch sử đấu (feature 039, AC-040)", () => {
+  beforeEach(() => {
+    history = respond({ stats: STATS, matches: [TEAM_WIN, TEAM_DRAW, WON] });
+  });
+
+  it("lists a team match as Đấu đội with the result and both teams' rounds from the learner's side", async () => {
+    render(<ArenaHistoryPage />);
+    const rows = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
+    expect(rows[0]).toHaveAccessibleName(/^Thắng Đội B 2–1 Đội A, Đấu đội, \d\d:\d\d hôm nay$/);
+    expect(within(rows[0]).getByText("Đấu đội")).toBeInTheDocument();
+    expect(within(rows[0]).getByText("Đội B 2–1 Đội A")).toBeInTheDocument();
+    expect(within(rows[1]).getByText("Hòa")).toBeInTheDocument();
+    // The duel entry is unchanged.
+    expect(rows[2]).toHaveAccessibleName(/^Thắng 2–1 với Lan, \d\d:\d\d hôm nay$/);
+  });
+
+  it("opens a team match to show each round and both teams' players, the learner's marked", async () => {
+    render(<ArenaHistoryPage />);
+    const rows = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
+    fireEvent.click(rows[0]);
+    const dialog = await screen.findByRole("dialog");
+    expect(within(dialog).getByText("Thắng Đội B 2–1 Đội A")).toBeInTheDocument();
+    const rounds = within(within(dialog).getByRole("list", { name: "Điểm từng hiệp" })).getAllByRole("listitem");
+    expect(rounds.map((r) => r.textContent)).toEqual(["Hiệp 19–7Đội B thắng", "Hiệp 24–6Đội A thắng", "Hiệp 36–5Đội B thắng · Có đấu phụ"]);
+    const mine = within(dialog).getByRole("region", { name: /Đội B/ });
+    expect(mine).toHaveTextContent("(đội bạn)");
+    expect(mine).toHaveTextContent("Minh Anh");
+    const other = within(dialog).getByRole("region", { name: /^Đội A/ });
+    expect(other).toHaveTextContent("Lan");
+    expect(other).toHaveTextContent("Hoa");
+    expect(other).not.toHaveTextContent("(đội bạn)");
+    expect(within(dialog).queryByRole("button", { name: "Kết bạn" })).not.toBeInTheDocument();
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+
+    fireEvent.click(rows[1]);
+    const draw = await screen.findByRole("dialog");
+    expect(within(draw).getByText("Hòa Đội B 0–0 Đội A")).toBeInTheDocument();
+    expect(within(within(draw).getByRole("list", { name: "Điểm từng hiệp" })).getByRole("listitem")).toHaveTextContent("Hòa · Có đấu phụ");
   });
 });
 

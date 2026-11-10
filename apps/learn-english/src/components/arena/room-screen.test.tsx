@@ -18,6 +18,8 @@ let handle: ArenaRoomHandle = roomHandle(null, { status: "connecting" });
 const useArenaRoom = vi.fn<(...args: unknown[]) => ArenaRoomHandle>(() => handle);
 vi.mock("./use-arena-room", () => ({ useArenaRoom: (...args: unknown[]) => useArenaRoom(...args) }));
 
+vi.mock("./team-room", () => ({ LiveTeamRoom: ({ ticket }: { ticket: string }) => <p>Phòng đấu đội ({ticket})</p> }));
+
 let joinResponse: Response = Response.json({ code: "K7P2QX", ticket: "ticket-1", settings: {} });
 
 function stubFetch(signedIn: boolean) {
@@ -62,6 +64,14 @@ describe("the room page", () => {
     render(<ArenaRoomPage />);
     expect(await screen.findByText(/Đang vào phòng K7P2QX/)).toBeInTheDocument();
     await vi.waitFor(() => expect(useArenaRoom).toHaveBeenLastCalledWith("K7P2QX", "ticket-1", expect.anything()));
+  });
+
+  it("opens a team room when the ticket is for one (feature 039, AC-004)", async () => {
+    joinResponse = Response.json({ code: "K7P2QX", ticket: "ticket-team", kind: "team", settings: {} });
+    stubFetch(true);
+    render(<ArenaRoomPage />);
+    expect(await screen.findByText("Phòng đấu đội (ticket-team)")).toBeInTheDocument();
+    expect(useArenaRoom).not.toHaveBeenCalledWith("K7P2QX", "ticket-team", expect.anything());
   });
 
   it("says why it can't join, in Vietnamese (AC-005)", async () => {

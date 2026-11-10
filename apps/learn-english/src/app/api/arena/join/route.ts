@@ -5,9 +5,10 @@ import { ARENA_MESSAGES as MESSAGES, joinBodySchema } from "@/server/arena/arena
 import { joinRoom, playerName } from "@/server/arena/arena.service";
 import { error, isThrottled, json, readBody } from "@/server/arena/request";
 
-const REFUSED: Record<"not-found" | "full", { message: string; status: number }> = {
+const REFUSED: Record<"not-found" | "full" | "started", { message: string; status: number }> = {
   "not-found": { message: MESSAGES.notFound, status: 404 },
   full: { message: MESSAGES.full, status: 409 },
+  started: { message: MESSAGES.started, status: 409 },
 };
 
 // Joins an Arena room by code (feature 023, AC-004, AC-005): a ticket to open its socket, or why not.

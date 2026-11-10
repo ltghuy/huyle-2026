@@ -3,6 +3,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POOL, rightAnswer } from "@/learning/arena/fixtures";
 import { currentQuestion, type RoomState } from "@/learning/arena/machine";
 import { CLOSE_CODES, type PublicRoom, type RoomFrame } from "@/learning/arena/protocol";
+import type { ServerQuestion } from "@/learning/arena/questions";
+import type { TeamRoomState } from "@/learning/arena/team-machine";
+import type { PublicTeamRoom } from "@/learning/arena/team-protocol";
 import { sqliteDb } from "@/test-utils/sqlite-d1";
 import { ArenaRoom } from "./room";
 
@@ -269,5 +272,89 @@ describe("ArenaRoom", () => {
     expect(fake.storage.size).toBe(0);
     expect(fake.alarm()).toBeNull();
     expect(room.status()).toBeNull();
+  });
+});
+
+describe("ArenaRoom team rooms (feature 039)", () => {
+  const TEAM = { mode: "recall", level: "A1", rounds: 1, seconds: 15, size: 4, minutes: 5 } as const;
+
+  function lastTeamRoom(socket: FakeSocket): PublicTeamRoom {
+    const states = (socket.sent as unknown as { type: string; room: PublicTeamRoom }[]).filter((f) => f.type === "team-state");
+    return states[states.length - 1].room;
+  }
+
+  async function startedTeamRoom() {
+    await room.createTeam({ code: "K7P2QX", settings: TEAM, host: MINH });
+    const minh = await connect(MINH);
+    const lan = await connect(LAN);
+    await send(minh, { type: "assign", userId: "minh", team: "A" });
+    await send(minh, { type: "assign", userId: "lan", team: "B" });
+    await send(minh, { type: "start" });
+    await fireAlarm();
+    return { minh, lan };
+  }
+
+  const teamState = () => fake.storage.get("room") as TeamRoomState;
+
+  it("claims a code and reports itself as a team room with its size", async () => {
+    expect(await room.createTeam({ code: "K7P2QX", settings: TEAM, host: MINH })).toBe(true);
+    expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: LAN })).toBe(false);
+    expect(room.status()).toEqual({ kind: "team", phase: "lobby", creatorId: "minh", playerIds: ["minh"], spectatorIds: [], settings: TEAM });
+  });
+
+  it("builds and stores the round decks once, and sends team views without the answer", async () => {
+    const { lan } = await startedTeamRoom();
+    expect(fake.storage.get("deck:1")).toHaveLength(83);
+    const view = lastTeamRoom(lan);
+    expect(view).toMatchObject({ kind: "team", phase: "question", turn: { team: "A", userId: "minh" }, reveal: null });
+    expect(view.question?.type).toBe("recall");
+  });
+
+  it("plays on after hibernation, reading the deck back from storage", async () => {
+    const { minh } = await startedTeamRoom();
+    const deck = fake.storage.get("deck:1") as ServerQuestion[];
+    await newRoom();
+    await send(minh, { type: "answer", q: 1, text: (rightAnswer(deck[0]) as { text: string }).text });
+    expect(teamState()).toMatchObject({ phase: "reveal", scores: { A: 1, B: 0 } });
+  });
+
+  it("writes nothing for typing or a wrong typed answer", async () => {
+    const { minh } = await startedTeamRoom();
+    const before = teamState();
+    await send(minh, { type: "typing", q: 1 });
+    await send(minh, { type: "answer", q: 1, text: "zzzz" });
+    expect(teamState()).toEqual(before);
+    expect(minh.sent.at(-1)).toEqual({ type: "wrong", userId: "minh" });
+  });
+
+  it("drops answers faster than a person could type, without writing", async () => {
+    const { minh } = await startedTeamRoom();
+    for (let i = 0; i < 8; i++) await send(minh, { type: "answer", q: 1, text: `zzzz${i}` });
+    expect(minh.sent.filter((f) => f.type === "wrong")).toHaveLength(5);
+  });
+
+  it("saves the finished match to history only", async () => {
+    const { minh } = await startedTeamRoom();
+    const deck = fake.storage.get("deck:1") as ServerQuestion[];
+    await send(minh, { type: "answer", q: 1, text: (rightAnswer(deck[0]) as { text: string }).text });
+    // Let the round clock run out, then play the turns it takes to end.
+    for (let i = 0; i < 400 && teamState().phase !== "match-end"; i++) await fireAlarm();
+    expect(teamState()).toMatchObject({ phase: "match-end", winner: "A" });
+    expect(database.sqlite.prepare("SELECT user_id, kind, team, won FROM arena_matches ORDER BY user_id").all()).toEqual([
+      { user_id: "lan", kind: "team", team: "B", won: 0 },
+      { user_id: "minh", kind: "team", team: "A", won: 1 },
+    ]);
+    expect(database.sqlite.prepare("SELECT count(*) AS n FROM arena_match_players").get()).toEqual({ n: 2 });
+    expect(database.sqlite.prepare("SELECT count(*) AS n FROM arena_stats").get()).toEqual({ n: 0 });
+  });
+
+  it("ends on a forfeit when a whole team leaves, then deletes the decks when the room closes", async () => {
+    const { minh } = await startedTeamRoom();
+    await send(minh, { type: "leave" });
+    expect(teamState()).toMatchObject({ phase: "paused", pausedTeam: "A" });
+    await fireAlarm();
+    expect(teamState()).toMatchObject({ phase: "match-end", winner: "B", endReason: "forfeit" });
+    await fireAlarm(); // the idle close
+    expect(fake.storage.size).toBe(0);
   });
 });

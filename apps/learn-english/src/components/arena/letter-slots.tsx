@@ -67,14 +67,31 @@ function letterState(char: string, verdict: LetterVerdict | null) {
 
 const VERDICT_TEXT: Record<LetterVerdict, string> = { right: "text-success", wrong: "text-destructive" };
 
+/** A team match hint's first letter ("h****"), or null without a hint. */
+function hintLetter(hint: string | null | undefined): string | null {
+  return hint ? ([...hint].find((char) => LETTER.test(char)) ?? null) : null;
+}
+
+/**
+ * With a hint (team match, feature 039 AC-033), the first letter slot shows the hint's letter until
+ * the learner types a letter there.
+ */
+export function withHint(slots: Slot[], hint: string | null | undefined): (Slot & { hinted?: boolean })[] {
+  const letter = hintLetter(hint);
+  const first = slots.findIndex((slot) => slot.kind === "letter");
+  if (letter === null || first < 0 || slots[first].char) return slots;
+  return slots.map((slot, i) => (i === first ? { ...slot, char: letter, hinted: true } : slot));
+}
+
 /**
  * One empty tile per letter of the answer, filling as the learner types (the word-puzzle moment).
  * With `answer` (practice only; the Arena never sends it), each letter shows green when it is
  * right in that slot and red when it is not. Decorative: the input has the label.
  */
-export function LetterSlots({ mask, typed, answer }: { mask: string; typed: string; answer?: string }) {
-  const slots = fillSlots(mask, typed);
-  const verdicts = answer === undefined ? null : letterVerdicts(slots, answer);
+export function LetterSlots({ mask, typed, answer, hint }: { mask: string; typed: string; answer?: string; hint?: string | null }) {
+  const slots = withHint(fillSlots(mask, typed), hint);
+  // A hinted letter isn't the learner's, so it gets no verdict.
+  const verdicts = answer === undefined ? null : letterVerdicts(slots.map((slot) => (slot.hinted ? { ...slot, char: "" } : slot)), answer);
   const indexed = slots.map((slot, i) => ({ ...slot, verdict: verdicts?.[i] ?? null }));
   const words = slotWords(indexed);
   const single = words.length === 1;
@@ -93,7 +110,8 @@ export function LetterSlots({ mask, typed, answer }: { mask: string; typed: stri
                 size={single ? "md" : "sm"}
                 state={letterState(slot.char, slot.verdict)}
                 data-verdict={slot.verdict ?? undefined}
-                className={cn("lowercase", slot.verdict && VERDICT_TEXT[slot.verdict], wordTileClass(single))}
+                data-hint={slot.hinted || undefined}
+                className={cn("lowercase", slot.verdict && VERDICT_TEXT[slot.verdict], slot.hinted && "text-muted-foreground", wordTileClass(single))}
               >
                 {slot.char || "·"}
               </Tile>

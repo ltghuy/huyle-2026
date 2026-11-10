@@ -20,10 +20,12 @@ vi.mock("@/server/social/request", async (original) => ({
   isThrottled: async () => throttled,
 }));
 const createRoom = vi.fn();
+const createTeamRoom = vi.fn();
 const joinRoom = vi.fn();
 vi.mock("@/server/arena/arena.service", async (original) => ({
   ...(await original<typeof import("@/server/arena/arena.service")>()),
   createRoom: (...args: unknown[]) => createRoom(...args),
+  createTeamRoom: (...args: unknown[]) => createTeamRoom(...args),
   joinRoom: (...args: unknown[]) => joinRoom(...args),
 }));
 const getStats = vi.fn();
@@ -40,6 +42,7 @@ vi.mock("@/server/arena/challenge.service", async (original) => ({
 }));
 
 const rooms = await import("./rooms/route");
+const teams = await import("./teams/route");
 const challenges = await import("./challenges/route");
 const cancel = await import("./challenges/cancel/route");
 const link = await import("./link/route");
@@ -92,6 +95,33 @@ describe("POST /api/arena/rooms", () => {
   });
 });
 
+describe("POST /api/arena/teams (feature 039)", () => {
+  const TEAM = { mode: "recall", level: "A2", rounds: 1, seconds: 25, size: 6, minutes: 10 };
+
+  it("refuses guests and settings outside the choices (AC-002, AC-006)", async () => {
+    expect((await post(teams, { ...TEAM, size: 11 })).status).toBe(422);
+    expect((await post(teams, { ...TEAM, minutes: 20 })).status).toBe(422);
+    signedIn = false;
+    expect((await post(teams, TEAM)).status).toBe(401);
+  });
+
+  it("creates a team room with the chosen name and answers its ticket", async () => {
+    const ticket = { kind: "team", code: "K7P2QX", ticket: "t.s", settings: TEAM };
+    createTeamRoom.mockResolvedValue(ticket);
+    const response = await post(teams, { ...TEAM, name: "Minh" });
+    expect(response.status).toBe(201);
+    expect(await response.json()).toEqual(ticket);
+    expect(createTeamRoom.mock.calls[0][1]).toMatchObject({ settings: TEAM, name: "Minh" });
+  });
+
+  it("is throttled, and answers 503 when the room fails", async () => {
+    createTeamRoom.mockRejectedValue(new Error("down"));
+    expect((await post(teams, TEAM)).status).toBe(503);
+    throttled = true;
+    expect((await post(teams, TEAM)).status).toBe(429);
+  });
+});
+
 describe("POST /api/arena/join", () => {
   it("forgives case and spaces in a typed code", async () => {
     joinRoom.mockResolvedValue({ ok: true, value: TICKET });
@@ -108,6 +138,7 @@ describe("POST /api/arena/join", () => {
     for (const [reason, status, message] of [
       ["not-found", 404, "Không tìm thấy phòng. Bạn kiểm tra lại mã nhé."],
       ["full", 409, "Phòng đã đủ người."],
+      ["started", 409, "Trận đấu đã bắt đầu, bạn không vào được nữa."],
     ] as const) {
       joinRoom.mockResolvedValue({ ok: false, reason });
       const response = await post(join, { code: "K7P2QX" });

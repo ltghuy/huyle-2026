@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it, vi } from "vitest";
 import type { RoomStatus } from "./room";
-import { CODE_ALPHABET, createRoom, joinRoom, playerName, randomCode } from "./arena.service";
+import { CODE_ALPHABET, createRoom, createTeamRoom, joinRoom, playerName, randomCode } from "./arena.service";
 import { verifyTicket } from "./ticket";
 
 const SECRET = "s".repeat(32);
@@ -9,7 +9,7 @@ const NOW = 1_800_000_000_000;
 const MINH = { id: "minh", name: "Minh Anh", email: "minh@example.com", image: "https://example.test/minh.png" };
 const SETTINGS = { mode: "mixed", level: "A1", rounds: 3, seconds: 15 } as const;
 
-function rooms(stub: { create?: (input: unknown) => Promise<boolean>; status?: () => Promise<RoomStatus | null> }) {
+function rooms(stub: { create?: (input: unknown) => Promise<boolean>; createTeam?: (input: unknown) => Promise<boolean>; status?: () => Promise<RoomStatus | null> }) {
   const getByName = vi.fn(() => stub);
   return { rooms: { getByName } as unknown as CloudflareEnv["ARENA_ROOM"], getByName };
 }
@@ -88,6 +88,27 @@ describe("joinRoom (AC-004, AC-005; feature 026)", () => {
   });
 
   it("always lets a seated player back in, even mid-match", async () => {
+    expect((await join(status("paused", ["minh", "lan"]))).ok).toBe(true);
+  });
+});
+
+describe("team rooms (feature 039)", () => {
+  const TEAM = { mode: "recall", level: "A2", rounds: 1, seconds: 15, size: 3, minutes: 5 } as const;
+  const LAN = { id: "lan", name: "Lan", email: "lan@example.com", image: null };
+  const status = (phase: RoomStatus["phase"], playerIds: string[]): RoomStatus => ({ kind: "team", phase: phase as "lobby", creatorId: "minh", playerIds, spectatorIds: [], settings: TEAM });
+  const join = (room: RoomStatus | null) => joinRoom(rooms({ status: async () => room }).rooms, { code: "K7P2QX", user: LAN, name: "Lan", secret: SECRET, now: NOW });
+
+  it("creates a team room with the host seated and a team ticket (AC-002, AC-003)", async () => {
+    const createTeam = vi.fn(async () => true);
+    const room = await createTeamRoom(rooms({ createTeam }).rooms, { settings: TEAM, user: MINH, name: "Minh", secret: SECRET, now: NOW });
+    expect(room).toMatchObject({ kind: "team", settings: TEAM });
+    expect(createTeam).toHaveBeenCalledWith({ code: room!.code, settings: TEAM, host: { id: "minh", name: "Minh", image: MINH.image } });
+  });
+
+  it("joins up to the room size, never once the match is on, and always lets a seated player back (AC-004, AC-005)", async () => {
+    expect(await join(status("lobby", ["minh", "hoa"]))).toMatchObject({ ok: true, value: { kind: "team", settings: TEAM } });
+    expect(await join(status("lobby", ["minh", "hoa", "khoa"]))).toEqual({ ok: false, reason: "full" });
+    expect(await join(status("question", ["minh", "hoa"]))).toEqual({ ok: false, reason: "started" });
     expect((await join(status("paused", ["minh", "lan"]))).ok).toBe(true);
   });
 });
