@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 import { Check, CircleAlert, Lightbulb, Minus, Plus, Snail, Volume2, X } from "lucide-react";
 import { toast } from "sonner";
 import { compareDictation, dictationSummary, dictationWords, type DictationAnswer, type DictationInstance, type DictationMark } from "@/learning/exercises/dictation";
@@ -63,6 +63,38 @@ function useSentenceAudio(audioKey: string, onError?: () => void) {
   }
 
   return { playingRate, play };
+}
+
+/**
+ * Calls `onTap` when Shift is pressed and released on its own (quick 068), even while typing in
+ * the answer box. Shift held for a capital or a symbol, Shift with another modifier and key repeat
+ * don't count, so typing never replays the clip.
+ */
+function useShiftTap(onTap: () => void, enabled: boolean) {
+  const handleTap = useEffectEvent(onTap);
+
+  useEffect(() => {
+    if (!enabled) return;
+    let armed = false;
+    function handleKeyDown(event: KeyboardEvent) {
+      armed = event.key === "Shift" && !event.repeat && !event.ctrlKey && !event.altKey && !event.metaKey;
+    }
+    function handleKeyUp(event: KeyboardEvent) {
+      if (event.key === "Shift" && armed) handleTap();
+      armed = false;
+    }
+    function handleBlur() {
+      armed = false;
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("blur", handleBlur);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("blur", handleBlur);
+    };
+  }, [enabled]);
 }
 
 function Instruction({ children }: { children: React.ReactNode }) {
@@ -135,6 +167,7 @@ export function DictationView({ instance, answer, onAnswer, result, onAudioError
   const { playingRate, play } = useSentenceAudio(instance.audio, onAudioError);
   const [text, setText] = useState(answer?.text ?? "");
   const [hinted, setHinted] = useState(answer?.hinted ?? false);
+  useShiftTap(() => play(1), result === null);
 
   function handleChange(value: string) {
     setText(value);
@@ -150,12 +183,26 @@ export function DictationView({ instance, answer, onAnswer, result, onAudioError
     <div className="grid gap-6">
       <Instruction>Nghe và chép lại câu</Instruction>
       <div className="flex flex-wrap justify-center gap-3">
-        <Button type="button" variant="outline" size="lg" className="h-12 rounded-full px-5" onClick={() => play(1)} aria-pressed={playingRate === 1}>
+        <Button
+          type="button"
+          variant="outline"
+          size="lg"
+          className="h-12 rounded-full px-5"
+          onClick={() => play(1)}
+          aria-pressed={playingRate === 1}
+          aria-keyshortcuts={result === null ? "Shift" : undefined}
+        >
           <Volume2 aria-hidden /> Nghe lại
         </Button>
         <Button type="button" variant="outline" size="lg" className="h-12 rounded-full px-5" onClick={() => play(SLOW_RATE)} aria-pressed={playingRate === SLOW_RATE}>
           <Snail aria-hidden /> Nghe chậm
         </Button>
+        {result === null ? (
+          // Only where there is likely a keyboard; phones have no Shift to tap.
+          <p className="hidden w-full text-center text-sm text-muted-foreground pointer-fine:block" aria-hidden>
+            Bấm <kbd className="rounded border bg-muted px-1.5 py-0.5 font-sans text-xs">Shift</kbd> để nghe lại
+          </p>
+        ) : null}
       </div>
       <WordSlots total={instance.wordCount} typed={dictationWords(text).length} />
       <EnglishInput aria-label="Câu bạn nghe được" value={text} onChange={(event) => handleChange(event.target.value)} disabled={result !== null} />
