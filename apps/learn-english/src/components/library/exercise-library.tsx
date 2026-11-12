@@ -4,7 +4,7 @@ import { SignInPrompt } from "@/components/account/sign-in-prompt";
 import { canUseLockedAreas, useAccount } from "@/hooks/use-account";
 import { useCallback, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { BookA, PenLine, Puzzle } from "lucide-react";
+import { BookA, Flame, Headphones, PenLine, Puzzle } from "lucide-react";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import type { Level } from "@/learning/types";
@@ -14,23 +14,32 @@ import { ContentError, EmptyState, ListSkeleton } from "@/components/shell/load-
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AiKeyNotice } from "./ai-key-notice";
 import { ExerciseRun } from "./exercise-run";
 import { buildSetSteps, isSetType, levelOfSetId, listSetCards, SENTENCE_TYPES, TYPE_LABELS, WORD_TAB_SENTENCE_TYPES, WORD_TYPES, type ExerciseSet, type SetCard, type SetGroup, type SetType } from "./exercise-sets";
 import { LevelTabs } from "./level-tabs";
 
 const ALL = "all";
 
-const GROUPS: { group: SetGroup; title: string; icon: typeof BookA }[] = [
+/** `hot` tabs carry a "Hot" badge (quick 069). */
+const GROUPS: { group: SetGroup; title: string; icon: typeof BookA; hot?: boolean }[] = [
   { group: "word", title: "Từ vựng", icon: BookA },
   { group: "grammar", title: "Ngữ pháp", icon: Puzzle },
-  { group: "sentence", title: "Viết câu", icon: PenLine },
+  { group: "sentence", title: "Viết câu", icon: PenLine, hot: true },
+  { group: "dictation", title: "Nghe chép", icon: Headphones, hot: true },
 ];
 
 /**
- * The exercise types each tab offers in its type filter; Ngữ pháp and Viết câu have one type, so no filter.
- * Từ vựng also holds the other sentence types (feature 018), so `?type=dictation` opens there.
+ * The exercise types each tab offers in its type filter; Ngữ pháp, Viết câu and Nghe chép have one type, so no filter.
+ * Từ vựng also holds the other sentence types (feature 018), so `?type=word-order` opens there; `?type=dictation`
+ * opens Nghe chép (feature 040).
  */
-const GROUP_TYPES: Record<SetGroup, readonly SetType[]> = { word: [...WORD_TYPES, ...WORD_TAB_SENTENCE_TYPES], grammar: ["grammar-gap"], sentence: ["translate"] };
+const GROUP_TYPES: Record<SetGroup, readonly SetType[]> = {
+  word: [...WORD_TYPES, ...WORD_TAB_SENTENCE_TYPES],
+  grammar: ["grammar-gap"],
+  sentence: ["translate"],
+  dictation: ["dictation"],
+};
 
 /** "Viết câu" sets are all "Dịch câu", so their button and run say what the tab is for (feature 018). */
 const WRITING_LABEL = "Luyện viết";
@@ -69,8 +78,9 @@ function findSet(cards: readonly SetCard[], id: string | null) {
 }
 
 /**
- * `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029), in three tabs:
- * Từ vựng, Ngữ pháp and Viết câu (`?tab=`, quick task 036; Viết câu has one Dịch câu set per topic, feature 018).
+ * `/exercises`: exercise sets for every level, topic and grammar point, with filters (AC-026, AC-029), in four tabs:
+ * Từ vựng, Ngữ pháp, Viết câu and Nghe chép (`?tab=`, quick task 036; Viết câu has one Dịch câu set per topic,
+ * feature 018, and Nghe chép one dictation set per topic, feature 040).
  */
 export function ExerciseLibrary() {
   const params = useSearchParams();
@@ -114,7 +124,7 @@ export function ExerciseLibrary() {
   const setCount = (group: SetGroup) => cards.filter((card) => card.group === group).reduce((sum, card) => sum + card.sets.length, 0);
 
   function handleTabChange(next: unknown) {
-    // Types belong to one tab; the topic is kept, since Từ vựng and Viết câu share topics.
+    // Types belong to one tab; the topic is kept, since Từ vựng, Viết câu and Nghe chép share topics.
     if (isSetGroup(String(next))) updateSearchParams({ tab: String(next), type: null });
   }
 
@@ -153,16 +163,20 @@ export function ExerciseLibrary() {
 
   return (
     <Tabs value={tab} onValueChange={handleTabChange} className="gap-5 px-4 md:px-8">
-      <TabsList variant="line" aria-label="Nhóm bài tập" className="w-full justify-start gap-0 border-b group-data-horizontal/tabs:h-12 min-[360px]:gap-1 sm:gap-4">
-        {GROUPS.map(({ group, title, icon: Icon }) => (
-          // Three tabs share a phone: they split the width there and the icons drop out. Below 360 px
-          // the gaps and the badge padding shrink too, so they fit a 320 px screen (quick 050).
-          <TabsTrigger key={group} value={group} className="gap-1 px-0.5 text-sm min-[360px]:gap-1.5 min-[360px]:px-1 sm:flex-none sm:px-2 sm:text-base">
-            <Icon className="max-sm:hidden" aria-hidden /> {title}
-            <span className="rounded-full bg-muted px-1 py-0.5 text-xs tabular-nums text-muted-foreground min-[360px]:px-1.5">{setCount(group)}</span>
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      {/* The tabs follow the row's own width, not the screen's, since the sidebar takes part of a wide
+          screen (quick 069). Measured needs for the four tabs: names 277 px, with counts 442, with icons
+          633, with the "Hot" pills 744. Narrower, the tabs split the row and the gaps shrink (quick 050). */}
+      <div className="@container">
+        <TabsList variant="line" aria-label="Nhóm bài tập" className="w-full justify-start gap-0 border-b group-data-horizontal/tabs:h-12 @min-[328px]:gap-1 @min-[640px]:gap-4">
+          {GROUPS.map(({ group, title, icon: Icon, hot }) => (
+            <TabsTrigger key={group} value={group} className="gap-1 px-0.5 text-sm @min-[328px]:gap-1.5 @min-[328px]:px-1 @min-[640px]:flex-none @min-[640px]:px-2 @min-[640px]:text-base">
+              <Icon className="@max-[639px]:hidden" aria-hidden /> {title}
+              <span className="rounded-full bg-muted px-1 py-0.5 text-xs tabular-nums text-muted-foreground @max-[447px]:hidden @min-[328px]:px-1.5">{setCount(group)}</span>
+              {hot ? <HotBadge /> : null}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
 
       <div className="grid gap-3 lg:flex lg:flex-wrap lg:items-center">
         <LevelTabs value={level} onChange={handleLevelChange} />
@@ -199,6 +213,8 @@ export function ExerciseLibrary() {
       </div>
 
       <TabsContent value={tab}>
+        {/* Viết câu is graded better with an AI key (feature 033); guests must sign in first (quick 070). */}
+        {tab === "sentence" && !guest ? <AiKeyNotice className="mb-4" /> : null}
         {tabCards.length === 0 ? (
           <EmptyState mood="think" title={`Chưa có bài tập ${GROUPS.find((entry) => entry.group === tab)?.title.toLowerCase()} trình độ ${level}`}>
             <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>
@@ -222,6 +238,25 @@ export function ExerciseLibrary() {
 
       {active && index && !guest ? <ExerciseRun key={active.set.id} shuffled title={active.title} buildSteps={buildSteps} onClose={handleCloseRun} /> : null}
     </Tabs>
+  );
+}
+
+/**
+ * A pill after the count when the tab row has room for it (760 px). Narrower, a flame sits on the
+ * tab's corner instead and takes no width (quick 069).
+ */
+function HotBadge() {
+  return (
+    <>
+      <span className="inline-flex items-center gap-0.5 rounded-full bg-streak/15 px-1.5 py-0.5 text-[0.6875rem] leading-none font-semibold text-streak uppercase @max-[759px]:hidden">
+        <Flame className="size-3" aria-hidden />
+        Hot
+      </span>
+      <span className="absolute top-1 right-0 text-streak @min-[760px]:hidden">
+        <Flame className="size-3" aria-hidden />
+        <span className="sr-only">Hot</span>
+      </span>
+    </>
   );
 }
 

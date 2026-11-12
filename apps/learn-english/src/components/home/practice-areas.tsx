@@ -7,7 +7,7 @@ const AREAS: { href: string; icon: LucideIcon; title: string; text: string }[] =
   { href: "/vocabulary", icon: BookOpenText, title: "Từ vựng", text: "Từ A1 đến C1 theo chủ đề, kèm phiên âm, audio và ví dụ." },
   { href: "/grammar", icon: NotebookPen, title: "Ngữ pháp", text: "12 thì và các điểm ngữ pháp, giải thích bằng tiếng Việt." },
   { href: "/exercises?tab=sentence", icon: PenLine, title: "Viết câu", text: "Dịch 10 câu theo chủ đề và trình độ bạn chọn." },
-  { href: "/exercises?type=dictation", icon: Headphones, title: "Nghe chép", text: "Nghe một câu rồi gõ lại đúng từng chữ." },
+  { href: "/exercises?tab=dictation", icon: Headphones, title: "Nghe chép", text: "Nghe một câu rồi gõ lại đúng từng chữ." },
   { href: "/irregular-verbs", icon: Shuffle, title: "Động từ bất quy tắc", text: "Ba dạng của động từ, nhóm theo quy luật để dễ nhớ." },
   { href: "/review", icon: RotateCcw, title: "Ôn tập", text: "Những từ đến hạn ôn hôm nay, trước khi bạn quên." },
 ];

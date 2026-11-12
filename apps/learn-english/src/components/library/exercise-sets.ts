@@ -18,16 +18,18 @@ import { compareTopics, grammarSlug, grammarTopicMeta, OTHER_TOPIC, topicOf, top
 // sentence's topic is its first word's that has one. The other sentence types,
 // over all of a level's sentences, sit at the end of "Từ vựng" in "Chủ đề khác",
 // together with the word types over the level's words those sentences use.
+// Feature 040: "Nghe chép" has its own tab too, one dictation set per topic
+// found the same way, so dictation is no longer in "Từ vựng".
 
 type Grammar = ContentItemOf<"grammar">;
 
 export const WORD_TYPES = ["mcq", "missing-letters", "listening", "recall"] as const;
 export const SENTENCE_TYPES = ["word-order", "sentence-gap", "choose-sentence", "dictation", "find-error", "translate"] as const;
-/** The sentence types of the all-sentences card in "Từ vựng"; "Dịch câu" has its own tab, "Viết câu" (feature 018). */
-export const WORD_TAB_SENTENCE_TYPES = SENTENCE_TYPES.filter((type) => type !== "translate");
+/** The sentence types of the all-sentences card in "Từ vựng"; "Dịch câu" and "Nghe chép" have their own tabs (features 018, 040). */
+export const WORD_TAB_SENTENCE_TYPES = SENTENCE_TYPES.filter((type) => type !== "translate" && type !== "dictation");
 export const SET_TYPES = [...WORD_TYPES, "grammar-gap", ...SENTENCE_TYPES] as const;
 export type SetType = (typeof SET_TYPES)[number];
-export type SetGroup = "word" | "grammar" | "sentence";
+export type SetGroup = "word" | "grammar" | "sentence" | "dictation";
 
 export const TYPE_LABELS: Record<SetType, string> = {
   mcq: "Trắc nghiệm nghĩa",
@@ -193,18 +195,31 @@ function buildSetCards(index: ContentIndex, level: Level): SetCard[] {
     });
   }
 
-  // "Viết câu": one "Dịch câu" set per topic, the sentences with no topic last (AC-002).
+  // "Viết câu": one "Dịch câu" set per topic, the sentences with no topic last (018 AC-002).
+  cards.push(...topicCards(sentences, index, level, "translate", "sentence"));
+  // "Nghe chép": one dictation set per topic, grouped the same way (040 AC-002).
+  cards.push(...topicCards(sentences, index, level, "dictation", "dictation"));
+  return cards;
+}
+
+/** One card per topic, each with one `type` set over the sentences of that topic that can make the exercise. */
+function topicCards(sentences: readonly ContentItemOf<"sentence">[], index: ContentIndex, level: Level, type: SetType, group: SetGroup): SetCard[] {
   const byTopic = new Map<string, string[]>();
   for (const sentence of sentences) {
-    if (!canPrepareSentenceStep("translate", sentence.id, index)) continue;
+    if (!canPrepareSentenceStep(type as ExerciseKind, sentence.id, index)) continue;
     const topic = sentenceTopic(sentence, index);
     byTopic.set(topic, [...(byTopic.get(topic) ?? []), sentence.id]);
   }
-  for (const [topic, itemIds] of [...byTopic.entries()].sort((a, b) => compareTopics(a[0], b[0]))) {
-    const set: ExerciseSet = { id: `translate.${level}.${topic}`, type: "translate", group: "sentence", level, scope: topic, itemIds };
-    cards.push({ key: `sentence.${topic}`, group: "sentence", scope: topic, title: topicTitle(topic), count: itemIds.length, sets: [set] });
-  }
-  return cards;
+  return [...byTopic.entries()]
+    .sort((a, b) => compareTopics(a[0], b[0]))
+    .map(([topic, itemIds]) => ({
+      key: `${group}.${topic}`,
+      group,
+      scope: topic,
+      title: topicTitle(topic),
+      count: itemIds.length,
+      sets: [{ id: `${type}.${level}.${topic}`, type, group, level, scope: topic, itemIds }],
+    }));
 }
 
 /**

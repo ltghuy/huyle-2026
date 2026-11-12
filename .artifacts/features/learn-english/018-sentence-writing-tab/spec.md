@@ -52,6 +52,8 @@ The third tab of the exercise library, "Mẫu câu", holds a single card, "Chủ
 - [x] AC-005: WHEN "Từ vựng" is shown for a level THEN system SHALL list, after the word topics, a "Chủ đề khác" card with every sentence of the level, one button per word exercise type (meaning quiz, missing letters, listening, recall) over the level's words those sentences use, and one button per sentence exercise type except "Dịch câu" (word order, gap, choose the sentence, dictation, find the error), which the topic filter ("Chủ đề khác") and the type filter (those types are added to it) reach. The card reads "N từ · M câu" (word types added by quick 045 on 2026-11-04)
 - [x] AC-006: WHEN a learner follows an old link to a per-type sentence set (`?id=word-order.A1.khac`, `?type=dictation`) THEN system SHALL open that set or filter in "Từ vựng"; `?type=translate` and `?id=translate.A1.khac` open in "Viết câu"
 
+> Feature 040 (2026-11-12) moved dictation to its own "Nghe chép" tab: the "Chủ đề khác" card of AC-005 no longer has a dictation button, and `?type=dictation` (AC-006) now opens "Nghe chép".
+
 ## Edge Cases
 
 - WHEN none of a sentence's words has a topic (or none is loaded at that level) THEN system SHALL put it in the "Chủ đề khác" card of "Viết câu"

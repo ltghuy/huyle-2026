@@ -6,6 +6,7 @@ import { buildContentIndex } from "@/lib/session/content-index";
 import { getAllAttempts } from "@/storage/attempts";
 import { getCard } from "@/storage/cards";
 import { resetStorage } from "@/storage/test-utils";
+import { addAiKey, AI_KEYS_KEY, resetAiKeysForTest } from "@/lib/ai-keys";
 import { buildSetSteps, hashString, listSetCards, SET_SIZE, TYPE_LABELS } from "./exercise-sets";
 import { ExerciseLibrary } from "./exercise-library";
 
@@ -26,7 +27,8 @@ const items = [
   { ...word("kitchen", { meaningsVi: ["nhà bếp"] }), topic: "home" },
   { ...word("table", { meaningsVi: ["cái bàn"] }), topic: "home" },
   { ...toBe, body: { ...toBe.body, titleEn: "The verb to be", titleVi: "Động từ to be" } },
-  { ...sentence("home-1", { tokens: ["The", "kitchen", "is", "big"], gapCandidates: [1] }), topic: "home" },
+  // With a clip, so it makes a Nghe chép set too (feature 040).
+  { ...sentence("home-1", { tokens: ["The", "kitchen", "is", "big"], gapCandidates: [1], audio: "a".repeat(64) }), topic: "home" },
 ];
 const index = buildContentIndex(items);
 
@@ -43,8 +45,8 @@ function visit(search: string) {
 describe("exercise sets", () => {
   it("builds sets per topic and type, skipping sentence types the content can't support", () => {
     const cards = listSetCards(index, "A1");
-    expect(cards.map((card) => card.key)).toEqual(["word.people-family", "word.home", "grammar.to-be", "word.sentences", "sentence.home"]);
-    // Every sentence, per type but Dịch câu, in Từ vựng (018 AC-005). No wrong variants → no "choose the correct sentence".
+    expect(cards.map((card) => card.key)).toEqual(["word.people-family", "word.home", "grammar.to-be", "word.sentences", "sentence.home", "dictation.home"]);
+    // Every sentence, per type but Dịch câu and Nghe chép, in Từ vựng (018 AC-005, 040 AC-004). No wrong variants → no "choose the correct sentence".
     expect(cards[3]).toMatchObject({ group: "word", scope: "khac", title: "Chủ đề khác", count: 1 });
     expect(cards[3].sets.map((set) => set.id)).toEqual(["word-order.A1.khac", "sentence-gap.A1.khac"]);
     expect(cards[4].sets).toMatchObject([{ id: "translate.A1.home", type: "translate", group: "sentence", itemIds: ["sentence:home-1"] }]);
@@ -97,12 +99,39 @@ describe("exercise sets", () => {
     expect(idsOf(4)).not.toEqual(idsOf(3));
   });
 
-  it("lists Nghe chép for sentences with audio (010 AC-011)", () => {
-    const heard = buildContentIndex([...items, { ...sentence("home-2", { tokens: ["The", "table", "is", "new."], audio: "c".repeat(64) }), topic: "home" }]);
-    const card = listSetCards(heard, "A1").find((c) => c.key === "word.sentences")!;
-    const dictation = card.sets.find((set) => set.type === "dictation");
-    expect(dictation).toMatchObject({ id: "dictation.A1.khac", itemIds: ["sentence:home-2"] });
+  it("groups Nghe chép by topic, over sentences with audio only, and leaves it out of Từ vựng (010 AC-011, 040 AC-002, AC-004)", () => {
+    const heard = (slug: string, wordIds: string[], audio = "") => sentence(slug, { tokens: ["My", "mother", "is", "kind."], wordIds, audio });
+    const local = buildContentIndex([
+      ...items,
+      heard("family-1", ["word:mother"], "b".repeat(64)),
+      heard("family-2", ["word:father"]),
+      heard("loose-1", ["word:missing"], "c".repeat(64)),
+    ]);
+    const cards = listSetCards(local, "A1");
+    const dictation = cards.filter((card) => card.group === "dictation");
+    // family-2 has no clip, so it can't make a dictation step; a sentence with no topic goes to Chủ đề khác, last.
+    expect(dictation.map((card) => [card.title, card.count, card.sets.map((set) => [set.id, set.type, set.itemIds])])).toEqual([
+      ["Con người & gia đình", 1, [["dictation.A1.people-family", "dictation", ["sentence:family-1"]]]],
+      ["Nhà cửa", 1, [["dictation.A1.home", "dictation", ["sentence:home-1"]]]],
+      ["Chủ đề khác", 1, [["dictation.A1.khac", "dictation", ["sentence:loose-1"]]]],
+    ]);
+    expect(cards.find((card) => card.key === "word.sentences")!.sets.some((set) => set.type === "dictation")).toBe(false);
     expect(TYPE_LABELS.dictation).toBe("Nghe chép");
+  });
+
+  it("runs up to 10 Nghe chép steps from one topic, new ones each round (040 AC-003)", () => {
+    const ADJECTIVES = ["big", "small", "clean", "warm", "cold", "bright", "dark", "new", "old", "quiet", "busy", "nice", "tidy", "modern"];
+    const many = ADJECTIVES.map((adjective, i) => ({
+      ...sentence(`home-${i + 10}`, { tokens: ["The", "kitchen", "is", "very", `${adjective}.`], audio: String(i % 10).repeat(64) }),
+      topic: "home",
+    }));
+    const local = buildContentIndex([...items, ...many]);
+    const set = listSetCards(local, "A1").find((card) => card.key === "dictation.home")!.sets[0];
+    const idsOf = (round: number) => buildSetSteps(set, local, round).map((step) => (step.type === "exercise" && step.instance.kind === "dictation" ? step.instance.sentenceId : ""));
+    expect(idsOf(3)).toHaveLength(SET_SIZE);
+    expect(new Set(idsOf(3)).size).toBe(SET_SIZE);
+    expect(idsOf(3)).not.toContain("");
+    expect(idsOf(4)).not.toEqual(idsOf(3));
   });
 
   it("lists Tìm lỗi sai for sentences with a usable wrong version (011 AC-009)", () => {
@@ -131,16 +160,21 @@ describe("ExerciseLibrary", () => {
 
   afterEach(() => vi.restoreAllMocks());
 
-  it("splits the sets into Từ vựng, Ngữ pháp and Viết câu tabs (quick 036, 018 AC-001)", async () => {
+  it("splits the sets into Từ vựng, Ngữ pháp, Viết câu and Nghe chép tabs (quick 036, 018 AC-001, 040 AC-001)", async () => {
     visit("?level=A1");
     const tabs = await screen.findByRole("tablist", { name: "Nhóm bài tập" });
     expect(within(tabs).getByRole("tab", { name: /Từ vựng/ })).toHaveTextContent("10");
     expect(within(tabs).getByRole("tab", { name: /Ngữ pháp/ })).toHaveTextContent("1");
     expect(within(tabs).getByRole("tab", { name: /Viết câu/ })).toHaveTextContent("1");
+    expect(within(tabs).getByRole("tab", { name: /Nghe chép/ })).toHaveTextContent("1");
+    expect(within(tabs).getAllByRole("tab").map((tab) => tab.textContent?.replace(/\d+(Hot)*$/, "").trim())).toEqual(["Từ vựng", "Ngữ pháp", "Viết câu", "Nghe chép"]);
+    // Viết câu and Nghe chép are marked hot (quick 069).
+    expect(within(tabs).getAllByRole("tab").map((tab) => tab.textContent?.includes("Hot"))).toEqual([false, false, true, true]);
     expect(within(tabs).getByRole("tab", { name: /Từ vựng/ })).toHaveAttribute("aria-selected", "true");
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(10);
     expect(screen.getByRole("button", { name: "Bắt đầu Sắp xếp câu: Chủ đề khác" })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Bắt đầu Dịch câu: Chủ đề khác" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Bắt đầu Nghe chép: Chủ đề khác" })).not.toBeInTheDocument();
 
     fireEvent.click(within(tabs).getByRole("tab", { name: /Ngữ pháp/ }));
     expect(window.location.search).toBe("?level=A1&tab=grammar");
@@ -152,6 +186,13 @@ describe("ExerciseLibrary", () => {
     fireEvent.click(within(tabs).getByRole("tab", { name: /Viết câu/ }));
     expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);
     expect(screen.getByRole("button", { name: "Bắt đầu Luyện viết: Nhà cửa" })).toBeInTheDocument();
+    expect(screen.getByRole("combobox", { name: "Lọc theo chủ đề" })).toBeInTheDocument();
+    expect(screen.queryByRole("combobox", { name: "Lọc theo dạng bài" })).not.toBeInTheDocument();
+
+    fireEvent.click(within(tabs).getByRole("tab", { name: /Nghe chép/ }));
+    expect(window.location.search).toBe("?level=A1&tab=dictation");
+    expect(screen.getAllByRole("button", { name: /^Bắt đầu/ })).toHaveLength(1);
+    expect(screen.getByRole("button", { name: "Bắt đầu Nghe chép: Nhà cửa" })).toBeInTheDocument();
     expect(screen.getByRole("combobox", { name: "Lọc theo chủ đề" })).toBeInTheDocument();
     expect(screen.queryByRole("combobox", { name: "Lọc theo dạng bài" })).not.toBeInTheDocument();
   });
@@ -166,6 +207,15 @@ describe("ExerciseLibrary", () => {
     cleanup();
     visit("?id=word-order.A1.khac");
     expect(await screen.findByRole("region", { name: "Sắp xếp câu: Chủ đề khác" })).toBeInTheDocument();
+  });
+
+  it("opens dictation links in Nghe chép (040 AC-005)", async () => {
+    visit("?level=A1&type=dictation");
+    expect(await screen.findByRole("tab", { name: /Nghe chép/ })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("button", { name: "Bắt đầu Nghe chép: Nhà cửa" })).toBeInTheDocument();
+    cleanup();
+    visit("?id=dictation.A1.home");
+    expect(await screen.findByRole("region", { name: "Nghe chép: Nhà cửa" })).toBeInTheDocument();
   });
 
   it("picks the tab from a type link, and narrows it with the topic and type filters (AC-026)", async () => {
@@ -234,6 +284,52 @@ describe("ExerciseLibrary", () => {
       cleanup();
       vi.restoreAllMocks();
     }
+  });
+});
+
+describe("AI key notice in Viết câu (quick 070)", () => {
+  beforeEach(() => {
+    localStorage.removeItem(AI_KEYS_KEY);
+    resetAiKeysForTest();
+  });
+
+  afterEach(() => {
+    account.status = "signed-in";
+  });
+
+  const notice = () => screen.queryByRole("note", { name: "Gợi ý thêm khóa AI" });
+
+  it("suggests adding a key in Viết câu only, linking to the AI card in Cài đặt, until one is added", async () => {
+    visit("?level=A1&tab=sentence");
+    await screen.findByRole("button", { name: "Bắt đầu Luyện viết: Nhà cửa" });
+    expect(within(notice()!).getByRole("link", { name: "Thêm khóa AI" })).toHaveAttribute("href", "/settings#cham-bang-ai");
+    act(() => {
+      addAiKey("AIza-test-key");
+    });
+    expect(notice()).not.toBeInTheDocument();
+    cleanup();
+    localStorage.removeItem(AI_KEYS_KEY);
+    resetAiKeysForTest();
+    visit("?level=A1&tab=dictation");
+    await screen.findByRole("button", { name: "Bắt đầu Nghe chép: Nhà cửa" });
+    expect(notice()).not.toBeInTheDocument();
+  });
+
+  it("hides when dismissed, and shows again on coming back to the tab without a key", async () => {
+    visit("?level=A1&tab=sentence");
+    fireEvent.click(await screen.findByRole("button", { name: "Ẩn gợi ý" }));
+    expect(notice()).not.toBeInTheDocument();
+    const tabs = screen.getByRole("tablist", { name: "Nhóm bài tập" });
+    fireEvent.click(within(tabs).getByRole("tab", { name: /Nghe chép/ }));
+    fireEvent.click(within(tabs).getByRole("tab", { name: /Viết câu/ }));
+    expect(notice()).toBeInTheDocument();
+  });
+
+  it("isn't shown to guests", async () => {
+    account.status = "guest";
+    visit("?level=A1&tab=sentence");
+    await screen.findByRole("button", { name: "Bắt đầu Luyện viết: Nhà cửa" });
+    expect(notice()).not.toBeInTheDocument();
   });
 });
 
