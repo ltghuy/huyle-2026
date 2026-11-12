@@ -54,6 +54,8 @@ export const teamClientFrameSchema = z.discriminatedUnion("type", [
   /** "Chơi lại" (AC-051). */
   z.object({ type: z.literal("again") }),
   z.object({ type: z.literal("leave") }),
+  /** The host lists the lobby in "Cộng đồng" (feature 041). */
+  z.object({ type: z.literal("publish") }),
 ]);
 export type TeamClientFrame = z.infer<typeof teamClientFrameSchema>;
 
@@ -142,6 +144,8 @@ export const publicTeamRoomSchema = z.object({
   pausedTeam: team.nullable(),
   winner: z.union([team, z.literal("draw")]).nullable(),
   endReason: z.enum(["won", "forfeit", "cancelled"]).nullable(),
+  /** Listed in "Cộng đồng" (feature 041); absent from rooms before it. */
+  public: z.boolean().default(false),
 });
 export type PublicTeamRoom = z.infer<typeof publicTeamRoomSchema>;
 

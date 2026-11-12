@@ -33,6 +33,8 @@ export interface ArenaRoomHandle {
   pickOpponent: (userId: string) => void;
   /** The creator's new settings for the next match (AC-031). */
   changeSettings: (settings: ArenaSettings) => void;
+  /** The creator lists the lobby in "Cộng đồng" (feature 041). */
+  publish: () => void;
   leave: () => void;
 }
 
@@ -82,6 +84,7 @@ export function useArenaRoom(code: string, ticket: string | null, options: UseAr
   const pickOpponent = useCallback((userId: string) => send({ type: "pick", userId }), [send]);
   const changeSettings = useCallback((settings: ArenaSettings) => send({ type: "settings", settings }), [send]);
   const leave = useCallback(() => send({ type: "leave" }), [send]);
+  const publish = useCallback(() => send({ type: "publish" }), [send]);
   const answer = useCallback((text: string) => {
     if (currentQuestion !== null && text.trim()) send({ type: "answer", q: currentQuestion, text: text.trim() });
   }, [currentQuestion, send]);
@@ -96,5 +99,5 @@ export function useArenaRoom(code: string, ticket: string | null, options: UseAr
     send({ type: "typing", q: currentQuestion });
   }, [currentQuestion, room, send]);
 
-  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, pickOpponent, changeSettings, leave };
+  return { status, room, offset, typing, wrong, error, ready, start, answer, choose, typingStarted, rematch, pickOpponent, changeSettings, publish, leave };
 }

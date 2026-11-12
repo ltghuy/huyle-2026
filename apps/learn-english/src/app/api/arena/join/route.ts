@@ -27,6 +27,7 @@ export async function POST(request: Request) {
       name: playerName(body.data.name, session.user),
       secret: getArenaEnv().ARENA_SECRET,
       now: Date.now(),
+      seatOnly: body.data.seatOnly,
     });
     if (!result.ok) return error(REFUSED[result.reason].message, REFUSED[result.reason].status);
     return json(result.value, 200);

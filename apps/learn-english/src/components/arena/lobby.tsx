@@ -10,6 +10,7 @@ import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
 import { FriendButton } from "@/components/social/friend-button";
 import { PlayerRow } from "./players";
+import { PublishRoom } from "./publish-room";
 import { isSpectating } from "./scoreboard";
 import { sameSettings, settingsLine } from "./settings-fields";
 import type { ArenaRoomHandle } from "./use-arena-room";
@@ -96,10 +97,11 @@ function PlayerLobby({ handle, me }: LobbyProps) {
         </ul>
       </section>
 
-      {/* While the seat is free, the host can challenge an online friend (feature 035). */}
+      {/* While the seat is free, the host can challenge an online friend (feature 035) or list the room in "Cộng đồng" (feature 041). */}
       {isCreator && !rival && room.phase === "lobby" ? (
         <ChallengeFriends code={room.code} hostName={you?.name} inRoom={[...room.players.map((p) => p.id), ...room.spectators.map((s) => s.id)]} />
       ) : null}
+      <PublishRoom isPublic={room.public} isHost={isCreator} freeSeat={!rival && room.phase === "lobby"} onPublish={handle.publish} />
 
       {windowOpen ? (
         <section aria-label="Sẵn sàng" className="grid justify-items-center gap-3">

@@ -31,6 +31,8 @@ export interface TeamRoomHandle {
   typingStarted: () => void;
   changeSettings: (settings: TeamSettings) => void;
   again: () => void;
+  /** The host lists the lobby in "Cộng đồng" (feature 041). */
+  publish: () => void;
   leave: () => void;
 }
 
@@ -78,6 +80,7 @@ export function useTeamRoom(code: string, ticket: string | null, options: RoomSo
   const changeSettings = useCallback((settings: TeamSettings) => send({ type: "settings", settings }), [send]);
   const again = useCallback(() => send({ type: "again" }), [send]);
   const leave = useCallback(() => send({ type: "leave" }), [send]);
+  const publish = useCallback(() => send({ type: "publish" }), [send]);
   const answer = useCallback((text: string) => {
     if (open !== null && text.trim()) send({ type: "answer", q: open, text: text.trim() });
   }, [open, send]);
@@ -95,5 +98,5 @@ export function useTeamRoom(code: string, ticket: string | null, options: RoomSo
     send({ type: "typing", q: open });
   }, [open, room, send]);
 
-  return { status, room, offset, typing, wrong, error, assign, order, shuffle, start, answer, choose, hint, typingStarted, changeSettings, again, leave };
+  return { status, room, offset, typing, wrong, error, assign, order, shuffle, start, answer, choose, hint, typingStarted, changeSettings, again, publish, leave };
 }

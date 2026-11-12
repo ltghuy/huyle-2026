@@ -100,6 +100,8 @@ export interface RoomState {
   rematch: string[];
   /** People watching, connected ones only: they leave the list as soon as their socket closes (feature 026). */
   spectators: PlayerIdentity[];
+  /** The creator listed this lobby in "Cộng đồng" (feature 041); cleared when a match starts. Absent on rooms saved before 041. */
+  public?: boolean;
 }
 
 export type RoomEvent =
@@ -113,6 +115,7 @@ export type RoomEvent =
   | { type: "rematch"; userId: string }
   | { type: "pick"; userId: string; opponentId: string }
   | { type: "settings"; userId: string; settings: ArenaSettings }
+  | { type: "publish"; userId: string }
   | { type: "tick" };
 
 export type Effect =
@@ -252,8 +255,15 @@ function pressReady(state: RoomState, userId: string, now: number): Result {
   const next = withPlayer(state, userId, (p) => ({ ...p, ready: !p.ready }));
   const allReady = next.players.length === 2 && next.players.every((p) => p.ready && p.connected);
   if (!allReady) return broadcast(next);
-  // Both ready: the match is on, the room no longer idles (AC-008).
-  return broadcast({ ...next, phase: "countdown", deadline: now + COUNTDOWN_MS, idleUntil: null });
+  // Both ready: the match is on, the room no longer idles (AC-008) and leaves "Cộng đồng" for good (041 AC-004).
+  return broadcast({ ...next, phase: "countdown", deadline: now + COUNTDOWN_MS, idleUntil: null, public: false });
+}
+
+/** The creator lists the lobby in "Cộng đồng" while the second seat is free (feature 041, AC-001, AC-002). */
+function publish(state: RoomState, userId: string): Result {
+  if (state.phase !== "lobby" || state.players.length >= 2 || state.public) return unchanged(state);
+  if (userId !== state.creatorId) return unchanged(state);
+  return broadcast({ ...state, public: true });
 }
 
 function sameSettings(a: ArenaSettings, b: ArenaSettings): boolean {
@@ -558,6 +568,8 @@ export function reduce(state: RoomState, event: RoomEvent, now: number, pool?: A
       return pickOpponent(state, event.userId, event.opponentId, now);
     case "settings":
       return changeSettings(state, event.userId, event.settings, now);
+    case "publish":
+      return publish(state, event.userId);
     case "ready":
       return pressReady(state, event.userId, now);
     case "start": {
@@ -607,5 +619,6 @@ export function toPublic(state: RoomState): PublicRoom {
     endReason: state.endReason,
     rematch: [...state.rematch],
     spectators: state.spectators.map(({ id, name }) => ({ id, name })),
+    public: state.public ?? false,
   };
 }

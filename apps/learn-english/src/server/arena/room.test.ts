@@ -275,6 +275,72 @@ describe("ArenaRoom", () => {
   });
 });
 
+describe("ArenaRoom in Cộng đồng (feature 041)", () => {
+  const DUEL = { mode: "recall", level: "A1", rounds: 1, seconds: 15 } as const;
+  const rows = () => database.sqlite.prepare("SELECT code, kind, level, taken, seats FROM arena_community").all();
+  /** SQL statements that wrote to the community table since `countWrites()`. */
+  let writes = 0;
+  const countWrites = () => {
+    writes = 0;
+    const prepare = database.d1.prepare.bind(database.d1);
+    database.d1.prepare = ((sql: string) => {
+      if (/^(insert|delete|update)/i.test(sql.trim()) && sql.includes("arena_community")) writes++;
+      return prepare(sql);
+    }) as typeof database.d1.prepare;
+  };
+
+  it("lists a published lobby, takes it off when the seat fills, and writes nothing for other changes", async () => {
+    await room.create({ code: "K7P2QX", settings: DUEL, creator: MINH });
+    const minh = await connect(MINH);
+    countWrites();
+    expect(rows()).toEqual([]);
+    await send(minh, { type: "publish" });
+    expect(rows()).toEqual([{ code: "K7P2QX", kind: "duel", level: "A1", taken: 1, seats: 2 }]);
+    expect(minh.lastRoom().public).toBe(true);
+    await send(minh, { type: "publish" });
+    // One write: the upsert and the prune of stale rows, in one batch.
+    expect(writes).toBe(2);
+
+    await send(minh, { type: "settings", settings: { ...DUEL, level: "B1" } });
+    expect(rows()).toMatchObject([{ level: "B1" }]);
+
+    await connect(LAN);
+    expect(rows()).toEqual([]);
+  });
+
+  it("removes the row when the room closes, even after a wake", async () => {
+    await room.create({ code: "K7P2QX", settings: DUEL, creator: MINH });
+    const minh = await connect(MINH);
+    await send(minh, { type: "publish" });
+    await newRoom();
+    // After the wake the room doesn't know its row; the host leaves before anyone joins: the room closes.
+    await send(minh, { type: "leave" });
+    expect(rows()).toEqual([]);
+  });
+
+  it("never touches the list for a room that wasn't made public", async () => {
+    await room.create({ code: "K7P2QX", settings: DUEL, creator: MINH });
+    countWrites();
+    const minh = await connect(MINH);
+    await connect(LAN);
+    await send(minh, { type: "ready" });
+    expect(writes).toBe(0);
+    expect(rows()).toEqual([]);
+  });
+
+  it("lists a public team room with its seats", async () => {
+    await room.createTeam({ code: "K7P2QX", settings: { ...DUEL, size: 4, minutes: 5 }, host: MINH });
+    const minh = await connect(MINH);
+    await send(minh, { type: "publish" });
+    await connect(LAN);
+    expect(rows()).toEqual([{ code: "K7P2QX", kind: "team", level: "A1", taken: 2, seats: 4 }]);
+    await send(minh, { type: "assign", userId: "minh", team: "A" });
+    await send(minh, { type: "assign", userId: "lan", team: "B" });
+    await send(minh, { type: "start" });
+    expect(rows()).toEqual([]);
+  });
+});
+
 describe("ArenaRoom team rooms (feature 039)", () => {
   const TEAM = { mode: "recall", level: "A1", rounds: 1, seconds: 15, size: 4, minutes: 5 } as const;
 

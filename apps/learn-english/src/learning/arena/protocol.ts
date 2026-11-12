@@ -68,6 +68,8 @@ export const clientFrameSchema = z.discriminatedUnion("type", [
   /** The creator changes the room's settings before a match (AC-031). */
   z.object({ type: z.literal("settings"), settings: settingsSchema }),
   z.object({ type: z.literal("leave") }),
+  /** The creator lists the lobby in "Cộng đồng" (feature 041). */
+  z.object({ type: z.literal("publish") }),
 ]);
 export type ClientFrame = z.infer<typeof clientFrameSchema>;
 
@@ -160,6 +162,8 @@ export const publicRoomSchema = z.object({
   rematch: z.array(z.string()),
   /** People watching without playing (feature 026); they can't answer or change anything. */
   spectators: z.array(z.object({ id: z.string(), name: z.string() })),
+  /** Listed in "Cộng đồng" (feature 041); absent from rooms before it. */
+  public: z.boolean().default(false),
 });
 export type PublicRoom = z.infer<typeof publicRoomSchema>;
 

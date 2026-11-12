@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Swords, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ArenaHistoryCard } from "./arena-history-card";
+import { CommunityCard } from "./community-card";
 import { JoinRoom } from "./join-room";
 
 export const DUEL_PATH = "/arena/1v1";
@@ -9,7 +10,7 @@ export const TEAM_PATH = "/arena/team";
 
 const CARD = "relative isolate flex min-h-52 flex-col gap-4 overflow-hidden rounded-2xl border bg-card p-6";
 
-/** The Arena's home (feature 024): pick a kind of match, join a friend's room by code (quick 059), look back at past ones (feature 025), and on phones see friends (feature 031). Team matches since feature 039. */
+/** The Arena's home (feature 024): pick a kind of match, find a public room in "Cộng đồng" (feature 041), join a friend's room by code (quick 059), look back at past ones (feature 025), and on phones see friends (feature 031). Team matches since feature 039. */
 export function ArenaHub() {
   return (
     <div className="grid gap-4 px-4 pb-10 sm:grid-cols-2 md:px-8">
@@ -66,6 +67,8 @@ export function ArenaHub() {
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />
         </span>
       </Link>
+
+      <CommunityCard className="sm:col-span-2" />
 
       <JoinRoom className="sm:col-span-2" />
 

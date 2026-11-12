@@ -76,7 +76,10 @@ export async function createTeamRoom(
  * (back from a drop) or already watching may always come back. Once both seats are taken, up to three more
  * people get in to watch; the room itself decides who plays and who watches, and refuses a late sixth.
  */
-export async function joinRoom(rooms: Rooms, input: { code: string; user: SessionUser; name: string; secret: string; now: number }): Promise<JoinResult> {
+export async function joinRoom(
+  rooms: Rooms,
+  input: { code: string; user: SessionUser; name: string; secret: string; now: number; seatOnly?: boolean },
+): Promise<JoinResult> {
   const status = await rooms.getByName(input.code).status();
   if (!status) return { ok: false, reason: "not-found" };
   if (status.kind === "team") {
@@ -89,6 +92,7 @@ export async function joinRoom(rooms: Rooms, input: { code: string; user: Sessio
   }
   const known = status.playerIds.includes(input.user.id) || status.spectatorIds.includes(input.user.id);
   const freeSeat = status.phase === "lobby" && status.playerIds.length < 2;
-  if (!known && !freeSeat && status.spectatorIds.length >= MAX_SPECTATORS) return { ok: false, reason: "full" };
+  // From "Cộng đồng" (feature 041) a learner wants the seat: a full duel refuses them instead of seating them as a spectator.
+  if (!known && !freeSeat && (input.seatOnly || status.spectatorIds.length >= MAX_SPECTATORS)) return { ok: false, reason: "full" };
   return { ok: true, value: await ticketFor(input.user, input.name, input.code, status.settings, input.secret, input.now) };
 }

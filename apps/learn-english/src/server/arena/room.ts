@@ -26,6 +26,7 @@ import {
   type RoomState,
 } from "@/learning/arena/machine";
 import { CLOSE_CODES, DEFAULT_QUESTION_TIME, MAX_FRAME_BYTES, parseClientFrame, type ArenaSettings, type ClientFrame, type RoomFrame } from "@/learning/arena/protocol";
+import { listingOf, sameListing, type CommunityListing } from "@/learning/arena/community";
 import { historyEntries, teamHistoryEntries } from "@/learning/arena/history";
 import type { ArenaPool, ServerQuestion } from "@/learning/arena/questions";
 import {
@@ -46,6 +47,7 @@ import { parseTeamFrame, type TeamClientFrame, type TeamSettings, type TeamState
 import { MAX_ANSWERS_PER_SECOND } from "@/learning/arena/machine";
 import type { Db } from "@/server/db";
 import * as schema from "@/server/db/schema";
+import { removeListing, writeListing } from "./community";
 import { loadArenaPool } from "./content";
 import { ARENA_PROTOCOL, PLAYER_HEADER } from "./socket-route";
 import { recordMatch } from "./history";
@@ -135,6 +137,8 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   private typed = new Set<string>();
   /** A level's content, kept while the object is in memory; loaded again only when the creator changes the level (AC-031). */
   private pool: { level: ArenaSettings["level"]; content: ArenaPool } | null = null;
+  /** The "Cộng đồng" row last written for this room (feature 041); undefined after a wake, when it isn't known. */
+  private listed: CommunityListing | null | undefined = undefined;
 
   constructor(ctx: DurableObjectState, env: CloudflareEnv) {
     super(ctx, env);
@@ -313,6 +317,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
 
   /** Saves the new state, carries out the effects and keeps the alarm in step. */
   private async apply(result: Result | TeamResult): Promise<void> {
+    const before = this.state;
     const changed = result.state !== this.state;
     this.state = result.state;
     if (changed) await this.ctx.storage.put(STATE_KEY, result.state);
@@ -320,6 +325,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     if (isTeam(this.state) && this.state.deckSizes.length === 0) this.decks.clear();
     for (const effect of result.effects) await this.run(effect);
     await this.syncAlarm();
+    if (changed) await this.syncListing(Boolean(before?.public || this.state.public));
     if (this.state?.phase === "closed") {
       // Nothing left to keep: free the code and the storage.
       await this.ctx.storage.deleteAll();
@@ -327,6 +333,27 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
       this.pool = null;
       this.decks.clear();
     }
+  }
+
+  /**
+   * Keeps this room's "Cộng đồng" row in step (feature 041): written when what the list shows
+   * changes, deleted when the room stops being listed. Only a room that is or was public touches
+   * D1. A failed write is logged and retried on the next change; the room plays on either way.
+   */
+  private async syncListing(touchedPublic: boolean): Promise<void> {
+    const next = listingOf(this.state);
+    if (this.listed === undefined ? next === null && !touchedPublic : sameListing(this.listed, next)) return;
+    try {
+      if (next) await writeListing(this.db(), next, Date.now());
+      else await removeListing(this.db(), this.code());
+      this.listed = next;
+    } catch (error) {
+      console.error("Arena community listing not saved:", error);
+    }
+  }
+
+  private code(): string {
+    return this.state?.code ?? this.ctx.id.name ?? "";
   }
 
   private async syncAlarm(): Promise<void> {

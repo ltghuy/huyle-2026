@@ -1,4 +1,4 @@
-import { fireEvent, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { render } from "@/test-utils/render";
 import { TeamLobby } from "./team-lobby";
@@ -93,5 +93,26 @@ describe("TeamLobby (feature 039)", () => {
     expect(screen.queryByRole("button", { name: /Chia ngẫu nhiên/ })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /Bắt đầu/ })).not.toBeInTheDocument();
     expect(screen.getByText("Chờ chủ phòng bắt đầu…")).toBeInTheDocument();
+  });
+
+  it("lets only the host make the room public while a seat is free, and tells everyone (feature 041)", () => {
+    const handle = lobby({ players: FIVE });
+    fireEvent.click(screen.getByRole("button", { name: "Công khai lên Cộng đồng" }));
+    expect(handle.publish).toHaveBeenCalledTimes(1);
+  });
+
+  it("shows players the public line, and nothing to the others before it (041 AC-002)", () => {
+    lobby({ players: FIVE }, "lan");
+    expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Phòng đang hiện trên Cộng đồng/)).not.toBeInTheDocument();
+    cleanup();
+    lobby({ players: FIVE, public: true }, "lan");
+    expect(screen.getByText(/Phòng đang hiện trên Cộng đồng/)).toBeInTheDocument();
+  });
+
+  it("hides both once every seat is taken (041 AC-003)", () => {
+    lobby({ players: [...FIVE, player("binh")], public: true });
+    expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Phòng đang hiện trên Cộng đồng/)).not.toBeInTheDocument();
   });
 });

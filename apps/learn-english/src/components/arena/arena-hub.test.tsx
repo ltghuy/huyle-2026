@@ -74,6 +74,15 @@ describe("the Arena hub (feature 024)", () => {
     expect(screen.queryByText("Sắp ra mắt")).not.toBeInTheDocument();
   });
 
+  it("shows Cộng đồng under the two kinds of match, leading to the community page (041 AC-006)", () => {
+    render(<ArenaPage />);
+    const links = screen.getAllByRole("link").map((link) => link.getAttribute("href"));
+    const community = screen.getByRole("link", { name: "Cộng đồng" });
+    expect(community).toHaveAttribute("href", "/arena/community");
+    expect(community).toHaveAccessibleDescription(/không cần mã/);
+    expect(links.indexOf("/arena/community")).toBeGreaterThan(links.indexOf("/arena/team"));
+  });
+
   it("joins by code from the hub, and says why when the code is wrong (AC-005, quick 059)", async () => {
     stubFetch(true);
     handler = (url, init) => {

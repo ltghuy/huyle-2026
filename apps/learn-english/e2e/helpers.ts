@@ -19,6 +19,9 @@ export const E2E_USERS = {
   tam: { id: "e2e-tam", name: "Tâm", token: "e2e-token-tam" },
   uyen: { id: "e2e-uyen", name: "Uyên", token: "e2e-token-uyen" },
   vy: { id: "e2e-vy", name: "Vy", token: "e2e-token-vy" },
+  // Only the community spec uses these two (feature 041).
+  quang: { id: "e2e-quang", name: "Quang", token: "e2e-token-quang" },
+  phuong: { id: "e2e-phuong", name: "Phương", token: "e2e-token-phuong" },
 } as const;
 
 /** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */

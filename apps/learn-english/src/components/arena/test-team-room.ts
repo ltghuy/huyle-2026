@@ -40,6 +40,7 @@ export function teamRoom(overrides: Partial<PublicTeamRoom> = {}): PublicTeamRoo
     pausedTeam: null,
     winner: null,
     endReason: null,
+    public: false,
     ...overrides,
   };
 }
@@ -63,6 +64,7 @@ export function teamHandle(room: PublicTeamRoom, overrides: Partial<Omit<TeamRoo
     typingStarted: vi.fn(),
     changeSettings: vi.fn(),
     again: vi.fn(),
+    publish: vi.fn(),
     leave: vi.fn(),
     ...overrides,
   };

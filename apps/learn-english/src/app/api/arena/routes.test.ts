@@ -32,6 +32,8 @@ const getStats = vi.fn();
 vi.mock("@/server/arena/stats", () => ({ getStats: (...args: unknown[]) => getStats(...args) }));
 const listHistory = vi.fn();
 vi.mock("@/server/arena/history", () => ({ listHistory: (...args: unknown[]) => listHistory(...args) }));
+const listCommunity = vi.fn();
+vi.mock("@/server/arena/community", () => ({ listCommunity: (...args: unknown[]) => listCommunity(...args) }));
 
 const sendChallenge = vi.fn();
 const cancelChallenge = vi.fn();
@@ -49,6 +51,7 @@ const link = await import("./link/route");
 const join = await import("./join/route");
 const stats = await import("./stats/route");
 const matches = await import("./matches/route");
+const community = await import("./community/route");
 
 const post = (route: { POST: (r: Request) => Promise<Response> }, body: unknown) =>
   route.POST(new Request("https://english.huyle.work/api/arena", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }));
@@ -132,6 +135,13 @@ describe("POST /api/arena/join", () => {
 
   it("refuses a malformed code", async () => {
     expect((await post(join, { code: "K7P2Q0" })).status).toBe(422);
+  });
+
+  it("asks for a seat only when the join comes from Cộng đồng (feature 041, AC-011)", async () => {
+    joinRoom.mockResolvedValue({ ok: true, value: TICKET });
+    await post(join, { code: "K7P2QX", seatOnly: true });
+    await post(join, { code: "K7P2QX" });
+    expect(joinRoom.mock.calls.map((call) => (call[1] as { seatOnly?: boolean }).seatOnly)).toEqual([true, undefined]);
   });
 
   it("says in Vietnamese why it can't join (AC-005)", async () => {
@@ -240,3 +250,37 @@ describe("challenges (feature 035)", () => {
   });
 });
 
+
+describe("GET /api/arena/community (feature 041)", () => {
+  const get = (search = "") => community.GET(new Request(`https://english.huyle.work/api/arena/community${search}`));
+
+  beforeEach(() => {
+    listCommunity.mockReset().mockResolvedValue([]);
+  });
+
+  it("refuses guests (AC-014)", async () => {
+    signedIn = false;
+    expect((await get()).status).toBe(401);
+    expect(listCommunity).not.toHaveBeenCalled();
+  });
+
+  it("passes the filters on and never caches (AC-008)", async () => {
+    const response = await get("?kind=team&level=B1");
+    expect(response.status).toBe(200);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ rooms: [] });
+    expect(listCommunity.mock.calls[0][1]).toEqual({ kind: "team", level: "B1" });
+    await get();
+    expect(listCommunity.mock.calls[1][1]).toEqual({});
+  });
+
+  it("refuses an unknown filter", async () => {
+    expect((await get("?kind=solo")).status).toBe(422);
+    expect((await get("?level=Z9")).status).toBe(422);
+  });
+
+  it("answers 503 when the database fails", async () => {
+    listCommunity.mockRejectedValue(new Error("D1 down"));
+    expect((await get()).status).toBe(503);
+  });
+});

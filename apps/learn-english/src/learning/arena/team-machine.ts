@@ -117,6 +117,8 @@ export interface TeamRoomState {
   rounds: TeamRoundResult[];
   winner: Team | "draw" | null;
   endReason: "won" | "forfeit" | "cancelled" | null;
+  /** The host listed this lobby in "Cộng đồng" (feature 041); cleared when a match starts. Absent on rooms saved before 041. */
+  public?: boolean;
 }
 
 export type TeamRoomEvent =
@@ -132,6 +134,7 @@ export type TeamRoomEvent =
   | { type: "answer"; userId: string; q: number; answer: ArenaAnswer }
   | { type: "hint"; userId: string; q: number }
   | { type: "again"; userId: string }
+  | { type: "publish"; userId: string }
   | { type: "tick" };
 
 /** A team match as history keeps it (AC-040). */
@@ -341,9 +344,18 @@ function start(state: TeamRoomState, userId: string, now: number): TeamResult {
     phase: "countdown",
     deadline: now + TEAM_COUNTDOWN_MS,
     idleUntil: null,
+    // Started: out of "Cộng đồng" for good (feature 041, AC-004).
+    public: false,
     cursor: perTeam(0),
     players: state.players.map((p) => ({ ...p, answered: 0, correct: 0, left: false })),
   });
+}
+
+/** The host lists the lobby in "Cộng đồng" while a seat is free (feature 041, AC-001, AC-002). */
+function publish(state: TeamRoomState, userId: string): TeamResult {
+  if (state.phase !== "lobby" || userId !== state.hostId || state.public) return unchanged(state);
+  if (state.players.length >= state.settings.size) return unchanged(state);
+  return broadcast({ ...state, public: true });
 }
 
 // ── Play and hints (T003) ─────────────────────────────────────────────────────
@@ -706,6 +718,8 @@ export function reduceTeam(state: TeamRoomState, event: TeamRoomEvent, now: numb
       return spendHint(state, event.userId, event.q, ctx.deck);
     case "again":
       return playAgain(state, event.userId, now);
+    case "publish":
+      return publish(state, event.userId);
     case "tick":
       return tick(state, now, ctx);
   }
@@ -752,5 +766,6 @@ export function toPublicTeam(state: TeamRoomState, deck?: readonly ServerQuestio
     pausedTeam: state.pausedTeam,
     winner: state.winner,
     endReason: state.endReason,
+    public: state.public ?? false,
   };
 }

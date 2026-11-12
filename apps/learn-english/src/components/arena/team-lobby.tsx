@@ -7,6 +7,7 @@ import { startProblem } from "@/learning/arena/team-machine";
 import type { PublicTeamRoom, Team } from "@/learning/arena/team-protocol";
 import { cn } from "@/lib/utils";
 import { InvitePanel } from "./invite-panel";
+import { PublishRoom } from "./publish-room";
 import { PlayerAvatar } from "./players";
 import { TEAM_NAME, TEAM_TONE, TeamBadge, teamPlayer, type TeamPlayerView } from "./team-parts";
 import type { TeamRoomHandle } from "./use-team-room";
@@ -163,6 +164,8 @@ export function TeamLobby({ handle, me }: TeamLobbyProps) {
         <Users aria-hidden className="size-4" />
         {room.players.length}/{room.settings.size} người
       </p>
+
+      <PublishRoom isPublic={room.public} isHost={isHost} freeSeat={room.phase === "lobby" && room.players.length < room.settings.size} onPublish={handle.publish} />
 
       {isHost ? (
         <div className="flex flex-wrap items-center justify-between gap-2">

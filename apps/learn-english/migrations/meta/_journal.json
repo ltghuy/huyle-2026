@@ -85,6 +85,13 @@
       "when": 1794299846930,
       "tag": "0011_team_battle",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1794499443448,
+      "tag": "0012_arena_community",
+      "breakpoints": true
     }
   ]
 }

@@ -52,3 +52,12 @@ INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `us
   ('e2e-session-tam', 'e2e-tam', 'e2e-token-tam', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
   ('e2e-session-uyen', 'e2e-uyen', 'e2e-token-uyen', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
   ('e2e-session-vy', 'e2e-vy', 'e2e-token-vy', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);
+
+-- Two learners for the community spec (feature 041), so it shares no account with the other Arena specs.
+INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt_out`, `created_at`, `updated_at`) VALUES
+  ('e2e-quang', 'Quang', 'quang@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000),
+  ('e2e-phuong', 'Phương', 'phuong@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000);
+
+INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
+  ('e2e-session-quang', 'e2e-quang', 'e2e-token-quang', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
+  ('e2e-session-phuong', 'e2e-phuong', 'e2e-token-phuong', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);

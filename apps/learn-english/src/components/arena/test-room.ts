@@ -34,6 +34,7 @@ export function publicRoom(overrides: Partial<PublicRoom> = {}): PublicRoom {
     endReason: null,
     rematch: [],
     spectators: [],
+    public: false,
     ...overrides,
   };
 }
@@ -55,6 +56,7 @@ export function roomHandle(room: PublicRoom | null, overrides: Partial<ArenaRoom
     rematch: vi.fn(),
     pickOpponent: vi.fn(),
     changeSettings: vi.fn(),
+    publish: vi.fn(),
     leave: vi.fn(),
     ...overrides,
   };

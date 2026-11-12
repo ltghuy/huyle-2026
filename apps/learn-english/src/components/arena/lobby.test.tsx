@@ -103,4 +103,23 @@ describe("Lobby", () => {
     lobby({ phase: "ready", players: [player(ME), player(RIVAL, { connected: false })], deadline: Date.now() + 10_000 });
     expect(screen.getByText("Mất kết nối")).toBeInTheDocument();
   });
+
+  it("lets the host make a waiting room public, then says so (feature 041, AC-001, AC-002)", () => {
+    const handle = lobby();
+    fireEvent.click(screen.getByRole("button", { name: "Công khai lên Cộng đồng" }));
+    expect(handle.publish).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole("button", { name: "Công khai lên Cộng đồng" })).toBeDisabled();
+  });
+
+  it("shows the public line instead of the button once listed, and neither when the seat is taken (041)", () => {
+    lobby({ public: true });
+    expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
+    expect(screen.getByText(/Phòng đang hiện trên Cộng đồng/)).toBeInTheDocument();
+  });
+
+  it("offers nothing to publish once the opponent is seated (041 AC-003)", () => {
+    lobby({ players: [player(ME), player(RIVAL)], public: true });
+    expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Phòng đang hiện trên Cộng đồng/)).not.toBeInTheDocument();
+  });
 });

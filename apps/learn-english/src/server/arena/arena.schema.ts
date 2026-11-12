@@ -2,7 +2,9 @@
 // `server-only`: the browser's Arena client shares these types and messages.
 import { z } from "zod";
 import { CODE_PATTERN, settingsSchema, type ArenaSettings, type MatchSettings } from "@/learning/arena/protocol";
+import type { CommunityListing } from "@/learning/arena/community";
 import { teamSettingsSchema, type TeamSettings } from "@/learning/arena/team-protocol";
+import { LEVELS } from "@/learning/types";
 
 export const ARENA_MESSAGES = {
   invalidJson: "Dữ liệu gửi lên không đúng định dạng.",
@@ -35,6 +37,8 @@ export const joinBodySchema = z.object({
     .transform((code) => code.replace(/\s+/g, "").toUpperCase())
     .pipe(z.string().regex(CODE_PATTERN)),
   name: chosenName,
+  /** From "Cộng đồng" (feature 041): a seat or nothing, never a spectator's place in a full duel. */
+  seatOnly: z.boolean().optional(),
 });
 export type JoinBody = z.infer<typeof joinBodySchema>;
 
@@ -93,4 +97,18 @@ export interface ArenaMatchMember {
 export interface ArenaMatchesResponse {
   stats: ArenaStatsResponse;
   matches: ArenaMatch[];
+}
+
+/** "Cộng đồng" filters (feature 041, AC-008); both optional. */
+export const communityQuerySchema = z.object({
+  kind: z.enum(["duel", "team"]).optional(),
+  level: z.enum(LEVELS).optional(),
+});
+export type CommunityQuery = z.infer<typeof communityQuerySchema>;
+
+/** A public room as "Cộng đồng" lists it (AC-007); kept a union, so `kind` still picks the settings type. */
+export type CommunityRoom = CommunityListing extends infer L ? (L extends CommunityListing ? Omit<L, "level"> & { updatedAt: number } : never) : never;
+
+export interface CommunityResponse {
+  rooms: CommunityRoom[];
 }

@@ -272,6 +272,30 @@ export const arenaMatchPlayers = sqliteTable(
   (table) => [primaryKey({ columns: [table.matchId, table.userId] }), index("arena_match_players_match").on(table.matchId)],
 );
 
+// "Cộng đồng" (feature 041): the Arena lobbies their host made public that still have a free
+// seat. Each room keeps its own row in step (`ArenaRoom`, `listingOf`) and deletes it when the
+// room fills, starts or closes; rows not updated for 2 hours are skipped and pruned.
+export const arenaCommunity = sqliteTable(
+  "arena_community",
+  {
+    code: text("code").primaryKey(),
+    /** "duel" | "team". */
+    kind: text("kind").notNull(),
+    level: text("level").notNull(),
+    hostId: text("host_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    hostName: text("host_name").notNull(),
+    hostImage: text("host_image"),
+    /** JSON `ArenaSettings` or `TeamSettings`. */
+    settings: text("settings").notNull(),
+    taken: integer("taken").notNull(),
+    seats: integer("seats").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [index("arena_community_updated").on(table.updatedAt)],
+);
+
 // Arena friends (feature 031). A friendship is two mirrored rows, one per side, so a learner's
 // list is one indexed read. Both sides' rows go with either account.
 export const friendships = sqliteTable(

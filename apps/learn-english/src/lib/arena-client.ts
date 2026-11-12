@@ -2,7 +2,15 @@ import type { ArenaSettings } from "@/learning/arena/protocol";
 import type { TeamSettings } from "@/learning/arena/team-protocol";
 import type { ApiError } from "@/lib/http";
 import type { DeliveryState } from "@/learning/arena/link";
-import { ARENA_MESSAGES, type ArenaMatchesResponse, type ArenaStatsResponse, type LinkTicket, type RoomTicket } from "@/server/arena/arena.schema";
+import {
+  ARENA_MESSAGES,
+  type ArenaMatchesResponse,
+  type ArenaStatsResponse,
+  type CommunityQuery,
+  type CommunityResponse,
+  type LinkTicket,
+  type RoomTicket,
+} from "@/server/arena/arena.schema";
 
 // Browser side of the Arena routes (feature 023): create a room, join one by
 // code, and read the learner's record and match history. Each answers in Vietnamese on failure.
@@ -47,9 +55,21 @@ export function createTeamRoom(settings: TeamSettings, name?: string): Promise<R
   return post<RoomTicket>("/api/arena/teams", { ...settings, ...(name ? { name } : {}) });
 }
 
-/** A ticket into the room with this code (also a fresh one for a player already seated). */
-export function joinRoom(code: string, name?: string): Promise<RoomTicket> {
-  return post<RoomTicket>("/api/arena/join", { code, ...(name ? { name } : {}) });
+/**
+ * A ticket into the room with this code (also a fresh one for a player already seated). From
+ * "Cộng đồng", `seatOnly` refuses a full duel instead of seating the learner as a spectator (feature 041).
+ */
+export function joinRoom(code: string, name?: string, options: { seatOnly?: boolean } = {}): Promise<RoomTicket> {
+  return post<RoomTicket>("/api/arena/join", { code, ...(name ? { name } : {}), ...(options.seatOnly ? { seatOnly: true } : {}) });
+}
+
+/** The public lobbies with a free seat, newest first (feature 041). */
+export function fetchCommunity(query: CommunityQuery): Promise<CommunityResponse> {
+  const params = new URLSearchParams();
+  if (query.kind) params.set("kind", query.kind);
+  if (query.level) params.set("level", query.level);
+  const search = params.toString();
+  return request<CommunityResponse>(`/api/arena/community${search ? `?${search}` : ""}`);
 }
 
 export function fetchArenaStats(): Promise<ArenaStatsResponse> {
