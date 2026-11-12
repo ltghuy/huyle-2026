@@ -39,7 +39,7 @@ The home page is a plain dashboard: a "Bài học hôm nay" title, the streak an
 
 **Acceptance Criteria:**
 
-- [x] AC-001: WHEN a learner opens `/` THEN system SHALL show a hero with the "Streak Daily" wordmark (plain foreground text, no gradient since quick 042) as the page's only `h1`, a short Vietnamese tagline, a "Vào bài hôm nay" button to `/lesson`, a "Xem cách học" button to the benefits section, and a "Miễn phí · Không cần tài khoản" note
+- [x] AC-001: WHEN a learner opens `/` THEN system SHALL show a hero with the "Streak Daily" wordmark (plain foreground text, no gradient since quick 042) as the page's only `h1`, a short Vietnamese tagline, a "Vào bài hôm nay" button to `/lesson`, and a "Xem cách học" button to the benefits section (the "Miễn phí" note under them was removed on 2026-11-12)
 - [x] AC-002: WHEN the hero is shown THEN system SHALL show today's lesson section ("Bài học hôm nay", the streak and points, and the lesson card, unchanged in behavior) right below it, keeping the tour targets
 
 ### P2: Learn how it works and find the practice areas

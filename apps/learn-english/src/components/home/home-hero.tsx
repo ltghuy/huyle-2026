@@ -13,28 +13,46 @@ import { MascotShowcase } from "./mascot-showcase";
  */
 export function HomeHero() {
   return (
-    <section aria-labelledby="page-title" className="relative isolate overflow-hidden px-4 pt-[4.25rem] pb-8 md:px-8 md:pt-[4.75rem] md:pb-10">
+    <section
+      aria-labelledby="page-title"
+      className="relative isolate overflow-hidden px-4 pt-[4.25rem] pb-8 md:px-8 md:pt-[4.75rem] md:pb-10"
+    >
       {/* A soft glow in the theme's accent colour, behind the cat from lg; decoration only. */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-64 max-w-3xl rounded-full bg-primary/15 blur-3xl lg:inset-x-auto lg:top-10 lg:right-0 lg:h-88 lg:w-[36rem]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-64 max-w-3xl rounded-full bg-primary/15 blur-3xl lg:inset-x-auto lg:top-10 lg:right-0 lg:h-88 lg:w-[36rem]"
+      />
       <div className="grid items-center gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10">
         <MascotShowcase className="lg:order-last lg:mr-12 xl:mr-24" />
         <div className="text-center lg:text-left">
           <HeroBadge icon={Flame} text="Mỗi ngày một chút, nhớ lâu hơn" />
-          <h1 id="page-title" className="mt-4 pb-1 text-5xl font-extrabold tracking-tight md:text-7xl">
+          <h1
+            id="page-title"
+            className="mt-4 pb-1 text-5xl font-extrabold tracking-tight md:text-7xl"
+          >
             {SITE_NAME}
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground md:text-lg lg:mx-0">
-            Học từ vựng, ngữ pháp và viết câu tiếng Anh trong một bài ngắn mỗi ngày. Lịch ôn tập nhắc lại từ đúng lúc bạn sắp quên.
+            Học từ vựng, ngữ pháp và viết câu tiếng Anh trong một bài ngắn mỗi
+            ngày. Lịch ôn tập nhắc lại từ đúng lúc bạn sắp quên.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <Link href="/lesson" className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}>
+            <Link
+              href="/lesson"
+              className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}
+            >
               Vào bài hôm nay <ArrowRight aria-hidden />
             </Link>
-            <Link href="#how" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 px-5")}>
+            <Link
+              href="#how"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "h-11 px-5",
+              )}
+            >
               Xem cách học
             </Link>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">Miễn phí · Đăng nhập bằng Google</p>
         </div>
       </div>
     </section>
