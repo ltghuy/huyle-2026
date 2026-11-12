@@ -177,9 +177,11 @@ export function ExerciseRunner({
     setChecking(false);
     if (!verdict) return { ...matched, aiUnavailable: true };
     if (!verdict.correct) return { ...matched, aiGraded: true, ...(verdict.explanationVi ? { explanationVi: verdict.explanationVi } : {}) };
-    // Right in other words: a normal correct answer, and the wording goes to the owner's review (AC-009, AC-017).
-    submitClaim({ ...claim, source: "ai", related: step.type === "exercise" ? (step.related?.cardIds ?? []) : [] });
-    return { ...matched, correct: true, aiGraded: true };
+    // Right in other words: a normal correct answer, and the wording goes to the owner's review (AC-009, AC-017),
+    // with the AI's reason, which the learner reads at once (feature 042, AC-001, AC-007).
+    const reason = verdict.explanationVi || undefined;
+    submitClaim({ ...claim, source: "ai", aiExplanationVi: reason, related: step.type === "exercise" ? (step.related?.cardIds ?? []) : [] });
+    return { ...matched, correct: true, aiGraded: true, ...(reason ? { explanationVi: reason } : {}) };
   }
 
   /**

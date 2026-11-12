@@ -311,12 +311,13 @@ export function upsertWordings(files: readonly WordingFile[], additions: readonl
     }
     const index = home.items.findIndex((item) => item.id === id);
     const current = index >= 0 ? home.items[index] : undefined;
-    const body = (current?.body ?? {}) as { accepted?: unknown };
+    const body = (current?.body ?? {}) as Record<string, unknown> & { accepted?: unknown };
     const accepted = Array.isArray(body.accepted) ? body.accepted.filter((text): text is string => typeof text === "string") : [];
     if (current && accepted.some((text) => claimKey(text) === claimKey(answer))) continue;
     const item = {
       ...(current ?? { id, kind: "wording", level, sort: 0 }),
-      body: { sentenceId, accepted: [...accepted, answer] },
+      // The rest of the body (the explanations of feature 042) stays as it is.
+      body: { ...body, sentenceId, accepted: [...accepted, answer] },
       status: "approved",
     };
     if (index >= 0) home.items[index] = item;

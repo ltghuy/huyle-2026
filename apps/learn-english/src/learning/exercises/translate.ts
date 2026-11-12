@@ -23,6 +23,8 @@ export interface TranslateInstance {
   wordIds: readonly string[];
   /** Answer keys of every accepted wording. */
   accepted: string[];
+  /** Answer key of an approved wording → why it is right (feature 042); never a key of the course's own English. */
+  explanations?: Record<string, string>;
 }
 
 export interface TranslateAnswer {
@@ -33,6 +35,8 @@ export interface TranslateInput {
   sentence: SentenceItem;
   /** Wordings the owner approved for this sentence. */
   wordings?: readonly string[];
+  /** Why an approved wording is right, by its text (feature 042). */
+  explanationsVi?: Readonly<Record<string, string>>;
   cardId?: CardItemId;
 }
 
@@ -84,10 +88,19 @@ export function canTranslate(sentence: SentenceItem): boolean {
   return sentence.body.vi.trim() !== "" && answerKeys(sentence.body.en).length > 0;
 }
 
-export function buildTranslate({ sentence, wordings = [], cardId }: TranslateInput): TranslateInstance | null {
+export function buildTranslate({ sentence, wordings = [], explanationsVi = {}, cardId }: TranslateInput): TranslateInstance | null {
   if (!canTranslate(sentence)) return null;
   const { body } = sentence;
-  const texts = [body.en, ...body.acceptedOrders.map((order) => acceptedText(body, order)), ...wordings];
+  const own = [body.en, ...body.acceptedOrders.map((order) => acceptedText(body, order))];
+  const texts = [...own, ...wordings];
+  // An answer that is the course's own English never shows a wording's explanation (AC-008).
+  const ownKeys = new Set(own.flatMap(answerKeys));
+  const explanations: Record<string, string> = {};
+  for (const text of wordings) {
+    const reason = explanationsVi[text];
+    if (!reason) continue;
+    for (const key of answerKeys(text)) if (!ownKeys.has(key)) explanations[key] ??= reason;
+  }
   return {
     kind: "translate",
     sentenceId: sentence.id,
@@ -98,12 +111,17 @@ export function buildTranslate({ sentence, wordings = [], cardId }: TranslateInp
     tokens: body.tokens,
     wordIds: body.wordIds,
     accepted: [...new Set(texts.flatMap(answerKeys))],
+    ...(Object.keys(explanations).length > 0 ? { explanations } : {}),
   };
 }
 
+/** Right when any key of the answer is accepted; an approved wording's explanation comes with it (feature 042, AC-006). */
 export function gradeTranslate(instance: TranslateInstance, answer: TranslateAnswer): GradeResult {
   const accepted = new Set(instance.accepted);
-  return { correct: answerKeys(answer.text).some((key) => accepted.has(key)), expected: instance.en };
+  const keys = answerKeys(answer.text);
+  const correct = keys.some((key) => accepted.has(key));
+  const reason = correct ? keys.map((key) => instance.explanations?.[key]).find(Boolean) : undefined;
+  return { correct, expected: instance.en, ...(reason ? { explanationVi: reason } : {}) };
 }
 
 /** What a claim needs from the exercise; the runner adds the related cards. */

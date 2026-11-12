@@ -32,11 +32,13 @@ export function FeedbackPanel({ result, relatedLink }: { result: GradeResult; re
   const tone = toneOf(result);
   const [hidden, setHidden] = useState(false);
 
+  // A right answer with an explanation to read (an approved wording, feature 042) stays like the others.
+  const plain = tone === "correct" && !result.explanationVi;
   useEffect(() => {
-    if (tone !== "correct") return;
+    if (!plain) return;
     const timer = setTimeout(() => setHidden(true), CORRECT_FEEDBACK_MS);
     return () => clearTimeout(timer);
-  }, [tone]);
+  }, [plain]);
 
   if (hidden) return null;
   const Icon = TONE_ICONS[tone];

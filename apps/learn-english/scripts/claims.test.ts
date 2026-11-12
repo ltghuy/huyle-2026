@@ -197,6 +197,16 @@ describe("upsertWordings", () => {
     expect(out.map((f) => f.level)).toEqual(["B1"]);
     expect(files[0].items[0].body.accepted).toEqual(["Friday is the deadline."]);
   });
+
+  it("keeps the explanations already on an item (feature 042)", () => {
+    const explained = { ...WORDINGS[0], body: { ...WORDINGS[0].body, explanationsVi: { "Friday is the deadline.": "Đảo chủ ngữ vẫn đúng." } } };
+    const [file] = upsertWordings([{ level: "A1", items: [explained] }], [{ sentenceId: "sentence:fx-friday", level: "A1", answer: "It is due on Friday." }]);
+    expect(file.items[0].body).toEqual({
+      sentenceId: "sentence:fx-friday",
+      accepted: ["Friday is the deadline.", "It is due on Friday."],
+      explanationsVi: { "Friday is the deadline.": "Đảo chủ ngữ vẫn đúng." },
+    });
+  });
 });
 
 describe("decisionSql", () => {

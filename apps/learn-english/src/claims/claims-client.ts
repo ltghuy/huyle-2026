@@ -27,6 +27,8 @@ export interface ClaimInput extends ClaimDraft {
   related: CardItemId[];
   /** "ai" when AI grading accepted the answer (feature 033); defaults to the learner. */
   source?: ClaimSource;
+  /** Why the AI accepted it (feature 042). */
+  aiExplanationVi?: string;
 }
 
 const chunks = <T>(items: readonly T[], size: number): T[][] =>
@@ -66,7 +68,13 @@ export async function flushClaims(now: number = Date.now()): Promise<void> {
     for (const batch of chunks(unsent, MAX_CLAIMS_PER_REQUEST)) {
       const response = await postJson(CLAIMS_URL, {
         deviceId: profile.deviceId,
-        claims: batch.map(({ id, sentenceId, answer, source }) => ({ id, sentenceId, answer, source: source ?? "learner" })),
+        claims: batch.map(({ id, sentenceId, answer, source, aiExplanationVi }) => ({
+          id,
+          sentenceId,
+          answer,
+          source: source ?? "learner",
+          ...(aiExplanationVi ? { aiExplanationVi } : {}),
+        })),
       });
       // Too many requests or a server error: try again later.
       if (response.status === 429 || response.status >= 500) return;

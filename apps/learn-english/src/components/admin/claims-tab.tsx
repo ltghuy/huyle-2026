@@ -24,14 +24,17 @@ export const DECIDED: Record<ClaimDecision["decision"], string> = {
 };
 const ALREADY = "Nhóm này đã được quyết định ở nơi khác.";
 
+/** Approve and reject ask for a reason in a dialog: optional and prefilled with the AI's on approve (feature 042), required on reject. */
+type Asked = "approve" | "reject";
+
 interface GroupCardProps {
   group: AdminClaimGroup;
   busy: boolean;
-  onDecide: (group: AdminClaimGroup, decision: ClaimDecision["decision"]) => void;
-  onReject: (group: AdminClaimGroup) => void;
+  onDrop: (group: AdminClaimGroup) => void;
+  onAsk: (group: AdminClaimGroup, decision: Asked) => void;
 }
 
-function GroupCard({ group, busy, onDecide, onReject }: GroupCardProps) {
+function GroupCard({ group, busy, onDrop, onAsk }: GroupCardProps) {
   return (
     <li className="grid gap-3 rounded-xl border bg-card p-4">
       <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
@@ -62,18 +65,26 @@ function GroupCard({ group, busy, onDecide, onReject }: GroupCardProps) {
       <p className="rounded-lg bg-muted px-3 py-2 text-lg" lang="en">
         {group.answer}
       </p>
+      {group.aiExplanationVi ? (
+        <div className="grid gap-1 rounded-lg border border-dashed px-3 py-2 text-sm">
+          <p className="flex items-center gap-1.5 font-medium text-muted-foreground">
+            <Sparkles aria-hidden className="size-4" /> AI giải thích
+          </p>
+          <p>{group.aiExplanationVi}</p>
+        </div>
+      ) : null}
       <div className="flex flex-wrap gap-2">
         {group.sentence ? (
           <>
-            <Button className="h-11 gap-1.5" disabled={busy} onClick={() => onDecide(group, "approve")}>
+            <Button className="h-11 gap-1.5" disabled={busy} onClick={() => onAsk(group, "approve")}>
               <Check aria-hidden /> Duyệt
             </Button>
-            <Button variant="outline" className="h-11 gap-1.5" disabled={busy} onClick={() => onReject(group)}>
+            <Button variant="outline" className="h-11 gap-1.5" disabled={busy} onClick={() => onAsk(group, "reject")}>
               <X aria-hidden /> Từ chối
             </Button>
           </>
         ) : (
-          <Button variant="outline" className="h-11 gap-1.5" disabled={busy} onClick={() => onDecide(group, "drop")}>
+          <Button variant="outline" className="h-11 gap-1.5" disabled={busy} onClick={() => onDrop(group)}>
             <Trash2 aria-hidden /> Bỏ qua
           </Button>
         )}
@@ -85,31 +96,39 @@ function GroupCard({ group, busy, onDecide, onReject }: GroupCardProps) {
 export function ClaimsTab() {
   const queryClient = useQueryClient();
   const claims = useQuery({ queryKey: CLAIMS_KEY, queryFn: fetchClaimGroups, retry: false });
-  const [rejecting, setRejecting] = useState<AdminClaimGroup | null>(null);
+  const [asking, setAsking] = useState<{ group: AdminClaimGroup; decision: Asked } | null>(null);
   const [explanation, setExplanation] = useState("");
   const decide = useMutation({
     mutationFn: decideClaimGroup,
     onSuccess: (result, decision) => {
       toast(result.changed > 0 ? DECIDED[decision.decision] : ALREADY);
-      setRejecting(null);
+      setAsking(null);
       setExplanation("");
       void queryClient.invalidateQueries({ queryKey: ["admin"] });
     },
     onError: (error) => toast.error(error.message),
   });
 
-  function handleDecide(group: AdminClaimGroup, decision: ClaimDecision["decision"]) {
-    decide.mutate({ ids: group.ids, decision });
+  function handleDrop(group: AdminClaimGroup) {
+    decide.mutate({ ids: group.ids, decision: "drop" });
   }
 
-  function handleRejectSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleAsk(group: AdminClaimGroup, decision: Asked) {
+    setAsking({ group, decision });
+    // Approving starts from the AI's reason, if it gave one (AC-003); a rejection is written fresh.
+    setExplanation(decision === "approve" ? (group.aiExplanationVi ?? "") : "");
+  }
+
+  function handleAskSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!rejecting || !explanation.trim()) return;
-    decide.mutate({ ids: rejecting.ids, decision: "reject", explanationVi: explanation.trim() });
+    if (!asking) return;
+    const text = explanation.trim();
+    if (asking.decision === "reject" && !text) return;
+    decide.mutate({ ids: asking.group.ids, decision: asking.decision, ...(text ? { explanationVi: text } : {}) });
   }
 
   function handleDialogChange(open: boolean) {
-    if (!open) setRejecting(null);
+    if (!open) setAsking(null);
   }
 
   if (claims.isPending) {
@@ -134,24 +153,37 @@ export function ClaimsTab() {
       ) : (
         <ul className="grid gap-3 lg:grid-cols-2">
           {groups.map((group) => (
-            <GroupCard key={group.key} group={group} busy={decide.isPending} onDecide={handleDecide} onReject={setRejecting} />
+            <GroupCard key={group.key} group={group} busy={decide.isPending} onDrop={handleDrop} onAsk={handleAsk} />
           ))}
         </ul>
       )}
-      <Dialog open={rejecting !== null} onOpenChange={handleDialogChange}>
+      <Dialog open={asking !== null} onOpenChange={handleDialogChange}>
         <DialogContent>
-          <form onSubmit={handleRejectSubmit} className="grid gap-4">
+          <form onSubmit={handleAskSubmit} className="grid gap-4">
             <DialogHeader>
-              <DialogTitle>Từ chối câu này?</DialogTitle>
-              <DialogDescription lang="en">{rejecting?.answer}</DialogDescription>
+              <DialogTitle>{asking?.decision === "approve" ? "Duyệt câu này?" : "Từ chối câu này?"}</DialogTitle>
+              <DialogDescription lang="en">{asking?.group.answer}</DialogDescription>
             </DialogHeader>
             <div className="grid gap-2">
-              <Label htmlFor="reject-why">Vì sao chưa đúng (người học sẽ đọc)</Label>
-              <Textarea id="reject-why" value={explanation} onChange={(event) => setExplanation(event.target.value)} maxLength={500} required className="min-h-24" />
+              <Label htmlFor="decide-why">{asking?.decision === "approve" ? "Vì sao câu này đúng (người học sẽ đọc)" : "Vì sao chưa đúng (người học sẽ đọc)"}</Label>
+              <Textarea
+                id="decide-why"
+                value={explanation}
+                onChange={(event) => setExplanation(event.target.value)}
+                maxLength={500}
+                required={asking?.decision === "reject"}
+                aria-describedby={asking?.decision === "approve" ? "decide-why-hint" : undefined}
+                className="min-h-24"
+              />
+              {asking?.decision === "approve" ? (
+                <p id="decide-why-hint" className="text-sm text-muted-foreground">
+                  Người học viết đúng câu này sẽ thấy lời giải thích. Để trống nếu không cần.
+                </p>
+              ) : null}
             </div>
             <DialogFooter>
-              <Button type="submit" className="h-11" disabled={!explanation.trim() || decide.isPending}>
-                Từ chối
+              <Button type="submit" className="h-11" disabled={(asking?.decision === "reject" && !explanation.trim()) || decide.isPending}>
+                {asking?.decision === "approve" ? "Duyệt" : "Từ chối"}
               </Button>
             </DialogFooter>
           </form>

@@ -128,10 +128,18 @@ export const formsBodySchema = z.object({
  * Other English wordings of one sentence, approved by the owner from learners'
  * claims (feature 016). The id mirrors the sentence: `wording:<sentence slug>`.
  */
-export const wordingBodySchema = z.object({
-  sentenceId: idOf("sentence"),
-  accepted: z.array(nonEmpty).min(1),
-});
+export const wordingBodySchema = z
+  .object({
+    sentenceId: idOf("sentence"),
+    accepted: z.array(nonEmpty).min(1),
+    /** Why an accepted wording is right, by its text (feature 042); shown to a learner whose answer matches it. */
+    explanationsVi: z.record(nonEmpty, z.string().trim().min(1).max(500)).optional(),
+  })
+  .superRefine((body, ctx) => {
+    for (const text of Object.keys(body.explanationsVi ?? {})) {
+      if (!body.accepted.includes(text)) ctx.addIssue({ code: "custom", path: ["explanationsVi", text], message: "Explanation for a wording that isn't accepted" });
+    }
+  });
 
 const base = { level: levelSchema, topic: z.string().optional(), sort: z.number().int().default(0) };
 

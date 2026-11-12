@@ -48,6 +48,21 @@ describe("submitClaims (016)", () => {
     expect(sqlite.prepare("SELECT source FROM claims WHERE id = ?").get(id(2))).toEqual({ source: "ai" });
   });
 
+  it("keeps the AI's reason with an AI-accepted claim, and none for the others (042 AC-001)", async () => {
+    const body: ClaimsRequest = {
+      deviceId: DEVICE_A,
+      claims: [
+        { id: id(3), sentenceId: "sentence:greet-1", answer: "Hey", source: "ai", aiExplanationVi: "“Hey” là cách chào thân mật." },
+        { id: id(4), sentenceId: "sentence:greet-1", answer: "Yo", source: "learner" },
+      ],
+    };
+    await submitClaims(db, body, SALT, NOW);
+    expect(sqlite.prepare("SELECT id, ai_explanation_vi AS reason FROM claims WHERE id IN (?, ?) ORDER BY id").all(id(3), id(4))).toEqual([
+      { id: id(3), reason: "“Hey” là cách chào thân mật." },
+      { id: id(4), reason: null },
+    ]);
+  });
+
   it("defaults a claim from an older client to the learner", () => {
     const parsed = claimsRequestSchema.parse({ deviceId: DEVICE_A, claims: [{ id: id(3), sentenceId: "sentence:greet-1", answer: "Hi" }] });
     expect(parsed.claims[0]!.source).toBe("learner");

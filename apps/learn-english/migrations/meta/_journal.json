@@ -92,6 +92,13 @@
       "when": 1794499443448,
       "tag": "0012_arena_community",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1794501143136,
+      "tag": "0013_claim_explanations",
+      "breakpoints": true
     }
   ]
 }

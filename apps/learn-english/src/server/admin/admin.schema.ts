@@ -50,6 +50,7 @@ export const claimDecisionSchema = z
   .object({
     ids: z.array(z.string().min(1).max(100)).min(1).max(200),
     decision: z.enum(["approve", "reject", "drop"]),
+    // A rejection's reason for the learner; on approve, why the wording is right, kept with it (feature 042, AC-003, AC-004).
     explanationVi: z.string().trim().max(500).optional(),
   })
   .refine((body) => body.decision !== "reject" || Boolean(body.explanationVi), { message: "Cần lời giải thích khi từ chối.", path: ["explanationVi"] });
@@ -64,6 +65,8 @@ export interface AdminClaimGroup {
   count: number;
   /** True when any claim in the group came from the learner's own AI grading. */
   ai: boolean;
+  /** Why the AI accepted it: the first claim of the group that has a reason (feature 042, AC-002). */
+  aiExplanationVi: string | null;
   firstAt: number;
   /** Null when the sentence is gone. */
   sentence: { vi: string; en: string; level: string } | null;

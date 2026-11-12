@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contentItemSchema, sourceItemSchema } from "./schema";
+import { contentItemSchema, sourceItemSchema, wordingBodySchema } from "./schema";
 
 const word = {
   id: "word:homework-n",
@@ -141,5 +141,20 @@ describe("sourceItemSchema", () => {
   it("requires a review status", () => {
     expect(sourceItemSchema.safeParse(word).success).toBe(false);
     expect(sourceItemSchema.safeParse({ ...word, status: "draft" }).success).toBe(true);
+  });
+});
+
+describe("wording explanations (feature 042)", () => {
+  const wording = (explanationsVi?: Record<string, string>) =>
+    wordingBodySchema.safeParse({ sentenceId: "sentence:sea", accepted: ["Picture the sea."], ...(explanationsVi ? { explanationsVi } : {}) });
+
+  it("takes an explanation for an accepted wording, or none", () => {
+    expect(wording().success).toBe(true);
+    expect(wording({ "Picture the sea.": "“Picture” cũng là tưởng tượng." }).success).toBe(true);
+  });
+
+  it("refuses an explanation for a wording that isn't accepted, or an empty one", () => {
+    expect(wording({ "Imagine the ocean.": "Sai chỗ." }).success).toBe(false);
+    expect(wording({ "Picture the sea.": "  " }).success).toBe(false);
   });
 });

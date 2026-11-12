@@ -106,6 +106,8 @@ export const claims = sqliteTable(
     decidedAt: integer("decided_at"),
     // "ai" when the learner's own AI key accepted the wording (feature 033).
     source: text("source", { enum: ["learner", "ai"] }).notNull().default("learner"),
+    // Why the AI accepted it (feature 042); null for learner claims and older clients.
+    aiExplanationVi: text("ai_explanation_vi"),
   },
   (table) => [index("claims_status").on(table.status), index("claims_device_day").on(table.deviceHash, table.day)],
 );

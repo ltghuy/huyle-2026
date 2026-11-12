@@ -37,6 +37,7 @@ const GROUP: AdminClaimGroup = {
   answer: "Shut your eyes and picture the sea.",
   count: 2,
   ai: true,
+  aiExplanationVi: "“Shut” và “picture” cũng đúng nghĩa ở đây.",
   firstAt: 1,
   sentence: { vi: "Nhắm mắt lại và tưởng tượng biển cả.", en: "Close your eyes and imagine the sea.", level: "A2" },
   accepted: ["Close your eyes and imagine the sea."],
@@ -97,8 +98,17 @@ describe("admin page (feature 038)", () => {
     render(<AdminScreen />);
     expect(await screen.findByText("Shut your eyes and picture the sea.")).toBeInTheDocument();
     expect(screen.getByText("AI chấm đúng")).toBeInTheDocument();
+    // The AI's reason is on the card and prefilled, editable, when approving (feature 042, AC-002, AC-003).
+    expect(screen.getByText("AI giải thích")).toBeInTheDocument();
+    expect(screen.getByText("“Shut” và “picture” cũng đúng nghĩa ở đây.")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Duyệt" }));
-    await waitFor(() => expect(client.decideClaimGroup.mock.calls[0]?.[0]).toEqual({ ids: ["c1", "c2"], decision: "approve" }));
+    const approving = await screen.findByRole("dialog");
+    const why = within(approving).getByLabelText(/Vì sao câu này đúng/);
+    expect(why).toHaveValue("“Shut” và “picture” cũng đúng nghĩa ở đây.");
+    fireEvent.change(why, { target: { value: "“Shut” nghĩa là “close”." } });
+    fireEvent.click(within(approving).getByRole("button", { name: "Duyệt" }));
+    await waitFor(() => expect(client.decideClaimGroup.mock.calls[0]?.[0]).toEqual({ ids: ["c1", "c2"], decision: "approve", explanationVi: "“Shut” nghĩa là “close”." }));
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
 
     fireEvent.click(screen.getByRole("button", { name: "Từ chối" }));
     const dialog = await screen.findByRole("dialog");
@@ -106,6 +116,17 @@ describe("admin page (feature 038)", () => {
     fireEvent.change(within(dialog).getByLabelText(/Vì sao chưa đúng/), { target: { value: "Sai nghĩa." } });
     fireEvent.click(within(dialog).getByRole("button", { name: "Từ chối" }));
     await waitFor(() => expect(client.decideClaimGroup.mock.calls[1]?.[0]).toEqual({ ids: ["c1", "c2"], decision: "reject", explanationVi: "Sai nghĩa." }));
+  });
+
+  it("approves a claim with no AI reason, with or without one written by the owner (042 AC-003)", async () => {
+    tab = "claims";
+    client.fetchClaimGroups.mockResolvedValue({ groups: [{ ...GROUP, ai: false, aiExplanationVi: null }] });
+    render(<AdminScreen />);
+    fireEvent.click(await screen.findByRole("button", { name: "Duyệt" }));
+    const dialog = await screen.findByRole("dialog");
+    expect(within(dialog).getByLabelText(/Vì sao câu này đúng/)).toHaveValue("");
+    fireEvent.click(within(dialog).getByRole("button", { name: "Duyệt" }));
+    await waitFor(() => expect(client.decideClaimGroup.mock.calls[0]?.[0]).toEqual({ ids: ["c1", "c2"], decision: "approve" }));
   });
 
   it("only offers to drop a claim whose sentence is gone (AC-012)", async () => {

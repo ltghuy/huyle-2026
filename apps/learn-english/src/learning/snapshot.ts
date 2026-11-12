@@ -168,6 +168,7 @@ const claimSchema = z.object({
   status: z.enum(CLAIM_STATUSES),
   explanationVi: z.string().optional(),
   source: z.enum(CLAIM_SOURCES).optional(),
+  aiExplanationVi: z.string().optional(),
   updatedAt: time,
 }) satisfies z.ZodType<StoredClaim>;
 

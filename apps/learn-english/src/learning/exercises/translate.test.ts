@@ -44,6 +44,23 @@ describe("translate (016)", () => {
     expect(grade("shut your eyes and picture the sea", withWording).correct).toBe(true);
   });
 
+  it("explains an approved wording when the answer matches it, never the course's own English (042 AC-006, AC-008)", () => {
+    const reason = "“Shut” = “close”, “picture” = “imagine”.";
+    const instance = buildTranslate({
+      sentence: eyes,
+      wordings: ["Shut your eyes and picture the sea.", "Close your eyes and picture the sea."],
+      explanationsVi: { "Shut your eyes and picture the sea.": reason },
+    })!;
+    expect(grade("shut your eyes, and picture the sea", instance)).toEqual({ correct: true, expected: "Close your eyes and imagine the sea.", explanationVi: reason });
+    // An approved wording without an explanation, and the own English: just right.
+    expect(grade("Close your eyes and picture the sea.", instance)).not.toHaveProperty("explanationVi");
+    expect(grade("Close your eyes and imagine the sea.", instance)).not.toHaveProperty("explanationVi");
+    expect(grade("Shut the door.", instance)).toEqual({ correct: false, expected: "Close your eyes and imagine the sea." });
+    // A wording explained under the own English's key never explains the own English.
+    const same = buildTranslate({ sentence: eyes, wordings: ["Close your eyes and imagine the sea"], explanationsVi: { "Close your eyes and imagine the sea": "x" } })!;
+    expect(same).not.toHaveProperty("explanations");
+  });
+
   it("keeps the reviewed card in Ôn tập", () => {
     expect(buildTranslate({ sentence: eyes, cardId: "word:sea" })).toMatchObject({ cardId: "word:sea" });
     expect(buildTranslate({ sentence: eyes })).not.toHaveProperty("cardId");

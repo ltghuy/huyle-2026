@@ -62,4 +62,30 @@ describe("admin claims (feature 038)", () => {
   it("refuses to approve claims of two sentences at once", async () => {
     expect(await decideClaims(handle.db, { ids: ["c1", "c4"], decision: "approve" }, NOW)).toEqual({ ok: false, reason: "mixed" });
   });
+
+  it("shows the AI's reason on the group and keeps the owner's version with the approved wording (042 AC-002 to AC-004)", async () => {
+    handle.sqlite.prepare("UPDATE claims SET ai_explanation_vi = ? WHERE id = 'c2'").run("“Shut” và “picture” cũng đúng nghĩa.");
+    const [group] = await listClaimGroups(handle.db);
+    expect(group.aiExplanationVi).toBe("“Shut” và “picture” cũng đúng nghĩa.");
+    expect((await listClaimGroups(handle.db))[1].aiExplanationVi).toBeNull();
+
+    await decideClaims(handle.db, { ids: group.ids, decision: "approve", explanationVi: "  “Shut” = “close”, “picture” = “imagine”.  " }, NOW);
+    expect(JSON.parse(wording()!.body)).toEqual({
+      sentenceId: "sentence:sea",
+      accepted: ["Shut your eyes and picture the sea."],
+      explanationsVi: { "Shut your eyes and picture the sea.": "“Shut” = “close”, “picture” = “imagine”." },
+    });
+    // Approving another wording without a reason keeps the first one's.
+    await decideClaims(handle.db, { ids: ["c3"], decision: "approve" }, NOW + 1);
+    expect(JSON.parse(wording()!.body).explanationsVi).toEqual({ "Shut your eyes and picture the sea.": "“Shut” = “close”, “picture” = “imagine”." });
+    // Claims are approved, with no rejection text for learners.
+    expect(status("c2")).toEqual({ status: "approved", why: null, at: NOW });
+  });
+
+  it("leaves the content alone when an approved wording is already accepted, even with a reason (042 AC-005)", async () => {
+    await decideClaims(handle.db, { ids: ["c1"], decision: "approve" }, NOW);
+    const before = wording()!.body;
+    await decideClaims(handle.db, { ids: ["c2"], decision: "approve", explanationVi: "Đúng." }, NOW + 1);
+    expect(wording()!.body).toBe(before);
+  });
 });

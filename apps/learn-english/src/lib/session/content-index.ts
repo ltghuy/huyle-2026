@@ -27,6 +27,8 @@ export interface ContentIndex {
   setsByWord: ReadonlyMap<string, readonly string[]>;
   /** Sentence id → other English wordings the owner approved (feature 016). */
   wordings: ReadonlyMap<string, readonly string[]>;
+  /** Sentence id → why each approved wording is right, by its text (feature 042). */
+  wordingExplanations: ReadonlyMap<string, Readonly<Record<string, string>>>;
   lesson: LessonContent;
 }
 
@@ -76,6 +78,7 @@ export function buildContentIndex(items: readonly ContentItem[], tombstones: Rea
     sets,
     setsByWord,
     wordings: new Map(live.flatMap((item) => (item.kind === "wording" ? [[item.body.sentenceId, item.body.accepted]] : []))),
+    wordingExplanations: new Map(live.flatMap((item) => (item.kind === "wording" && item.body.explanationsVi ? [[item.body.sentenceId, item.body.explanationsVi]] : []))),
     lesson: {
       wordsByLevel,
       grammarByLevel,

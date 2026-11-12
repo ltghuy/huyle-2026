@@ -1,0 +1,1 @@
+ALTER TABLE `claims` ADD `ai_explanation_vi` text;

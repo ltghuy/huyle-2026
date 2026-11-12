@@ -41,12 +41,14 @@ describe("buildGradingRequest (033)", () => {
 describe("parseGradingReply (033)", () => {
   it("reads a JSON verdict, plain or in a code fence", () => {
     expect(parseGradingReply(reply('{"correct": true, "explanationVi": ""}'))).toEqual({ correct: true, explanationVi: "" });
+    expect(parseGradingReply(reply(`{"correct": true, "explanationVi": "  ${"a".repeat(600)}  "}`))?.explanationVi).toHaveLength(500);
     expect(parseGradingReply(reply('```json\n{"correct": false, "explanationVi": "Sai thì."}\n```'))).toEqual({ correct: false, explanationVi: "Sai thì." });
   });
 
   it("drops an explanation on a correct verdict and skips thought parts", () => {
     const body = { candidates: [{ finishReason: "STOP", content: { parts: [{ text: "thinking", thought: true }, { text: '{"correct":true,"explanationVi":"Tốt"}' }] } }] };
-    expect(parseGradingReply(body)).toEqual({ correct: true, explanationVi: "" });
+    // A right answer keeps its reason (feature 042, AC-001).
+    expect(parseGradingReply(body)).toEqual({ correct: true, explanationVi: "Tốt" });
   });
 
   it("returns null for blocked, cut off or malformed replies", () => {

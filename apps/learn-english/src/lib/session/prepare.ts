@@ -175,7 +175,7 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
       const sentence = item.kind === "sentence" ? item : index.byId.get(descriptor.itemIds[1] ?? "");
       if (sentence?.kind !== "sentence" || (item.kind !== "sentence" && item.kind !== "word" && item.kind !== "grammar")) return null;
       const cardId = item.kind === "sentence" ? undefined : (item.id as CardItemId);
-      return exerciseStep(key, seed, buildTranslate({ sentence, wordings: index.wordings.get(sentence.id), cardId }), { related: sentenceRelated(index, sentence) });
+      return exerciseStep(key, seed, buildTranslate({ sentence, wordings: index.wordings.get(sentence.id), explanationsVi: index.wordingExplanations.get(sentence.id), cardId }), { related: sentenceRelated(index, sentence) });
     }
     case "find-error":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildFindError({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;

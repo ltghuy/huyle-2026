@@ -111,6 +111,8 @@ export interface StoredClaim {
   explanationVi?: string;
   /** "ai" when AI grading accepted the answer (feature 033); missing means the learner claimed it. */
   source?: ClaimSource;
+  /** Why the AI accepted it (feature 042), sent with the claim for the owner. */
+  aiExplanationVi?: string;
   updatedAt: number;
 }
 

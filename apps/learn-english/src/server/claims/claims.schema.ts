@@ -39,6 +39,8 @@ const claimSchema = z.object({
   answer: z.string().trim().min(1).max(MAX_ANSWER_LENGTH),
   // Clients older than feature 033 don't send it.
   source: z.enum(CLAIM_SOURCES).default("learner"),
+  // Why the AI accepted it (feature 042); clients cut it to 500 characters, older ones don't send it.
+  aiExplanationVi: z.string().trim().max(500).optional(),
 });
 
 export const claimsRequestSchema = z.object({

@@ -68,6 +68,7 @@ export async function listClaimGroups(db: Db): Promise<AdminClaimGroup[]> {
       group.ids.push(row.id);
       group.count++;
       group.ai ||= row.source === "ai";
+      group.aiExplanationVi ??= row.aiExplanationVi;
       continue;
     }
     const sentence = sentenceById.get(row.sentenceId);
@@ -79,6 +80,7 @@ export async function listClaimGroups(db: Db): Promise<AdminClaimGroup[]> {
       answer: row.answer.trim(),
       count: 1,
       ai: row.source === "ai",
+      aiExplanationVi: row.aiExplanationVi,
       firstAt: row.createdAt,
       sentence: sentence ? { vi: sentence.body.vi, en: sentence.body.en, level: sentence.level } : null,
       accepted: sentence ? acceptedOf(sentence, wording && !wording.deleted ? wording.body : undefined) : [],
@@ -123,12 +125,16 @@ export async function decideClaims(db: Db, decision: ClaimDecision, now: number)
     await mark;
     return { ok: true, changed: ids.length };
   }
+  // The owner's (possibly edited) reason goes with the new wording (feature 042, AC-004).
+  const kept = wording && !wording.deleted ? wording.body.explanationsVi : undefined;
+  const reason = decision.explanationVi?.trim();
+  const explanationsVi = reason ? { ...kept, [answer]: reason } : kept;
   const item: ContentItemOf<"wording"> = {
     id: wording?.id ?? `wording:${sentence.id.replace(/^sentence:/, "")}`,
     kind: "wording",
     level: (wording?.level ?? sentence.level) as ContentItemOf<"wording">["level"],
     sort: 0,
-    body: { sentenceId: sentence.id, accepted: [...current, answer] },
+    body: { sentenceId: sentence.id, accepted: [...current, answer], ...(explanationsVi ? { explanationsVi } : {}) },
   };
   await db.batch([...writeItemStatements(db, item, now), mark]);
   return { ok: true, changed: ids.length };

@@ -347,6 +347,21 @@ describe("finishing", () => {
     expect(screen.getByRole("button", { name: "Tiếp tục" })).toBeInTheDocument();
   });
 
+  it("keeps \"Chính xác!\" up with the explanation of an approved wording the answer matches (042 AC-006)", async () => {
+    vi.useFakeTimers();
+    const { buildTranslate } = await import("@/learning/exercises/translate");
+    const { sentence } = await import("@/learning/exercises/fixtures");
+    const item = sentence("sea", { tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."], vi: "Nhắm mắt lại và tưởng tượng biển cả." });
+    const reason = "“Picture” cũng có nghĩa là tưởng tượng.";
+    const instance = buildTranslate({ sentence: item, wordings: ["Close your eyes and picture the sea."], explanationsVi: { "Close your eyes and picture the sea.": reason } })!;
+    setup([{ key: "t", type: "exercise", instance, seed: 1 }]);
+    fireEvent.change(screen.getByRole("textbox", { name: "Câu tiếng Anh của bạn" }), { target: { value: "Close your eyes and picture the sea" } });
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Kiểm tra" })));
+    act(() => vi.advanceTimersByTime(CORRECT_FEEDBACK_MS));
+    expect(screen.getByText("Chính xác!")).toBeInTheDocument();
+    expect(screen.getByText(reason)).toBeInTheDocument();
+  });
+
   it("plays the wrong sound and keeps the right answer on screen", async () => {
     vi.useFakeTimers();
     setup([{ key: "s1", type: "exercise", instance: mcq, seed: 1 }]);
@@ -779,6 +794,16 @@ describe("translate with AI grading (feature 033)", () => {
     expect(result).toMatchObject({ correct: true, aiGraded: true });
     expect(result.hinted).toBeUndefined();
     expect(submit).toHaveBeenCalledWith(expect.objectContaining({ sentenceId: "sentence:sea", answer: OTHER, source: "ai", related: ["word:sea"] }));
+  });
+
+  it("shows the AI's reason for a right wording at once and sends it with the claim (042 AC-001, AC-007)", async () => {
+    const reason = "“Picture” cũng có nghĩa là tưởng tượng, nên câu của bạn vẫn đúng.";
+    const { submit } = await mocks({ correct: true, explanationVi: reason });
+    setup([await translateStep()]);
+    await answer(OTHER);
+    expect(screen.getByText(/Một cách nói khác/)).toBeInTheDocument();
+    expect(screen.getByText(reason)).toBeInTheDocument();
+    expect(submit).toHaveBeenCalledWith(expect.objectContaining({ source: "ai", aiExplanationVi: reason }));
   });
 
   it("shows the AI's explanation on a wrong answer and keeps the claim (AC-010)", async () => {
