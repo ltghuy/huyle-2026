@@ -8,25 +8,21 @@ import { AccountAvatar } from "@/components/account/account-avatar";
 import { SignInButton } from "@/components/account/sign-in-button";
 import { NotificationBell } from "@/components/social/notification-bell";
 import { useAccount } from "@/hooks/use-account";
-import { learnerName } from "@/lib/learner-name";
-import { useProfile } from "@/hooks/use-profile";
 import { cn } from "@/lib/utils";
 import { isActive } from "./nav";
 
 /**
- * "Chào {tên}!" and the link to the profile, pinned to the top-right corner
+ * The notification bell and the profile link (the learner's picture), pinned to the top-right corner
  * of every page with navigation while it scrolls (quick 012). The zero-height
  * sticky row keeps it out of the page flow; PageHeader leaves room for it.
  * Behind it, a blurred band as tall as that room covers the content that
  * scrolls up under the corner (quick 018); it doesn't take clicks. The
  * notification bell sits first in the pill for signed-in learners (feature 031).
+ * The "Chào {tên}!" greeting moved to the home cat's bubble (quick 073).
  */
 export function AccountLink() {
   const pathname = usePathname();
-  const profile = useProfile();
   const { status, account } = useAccount();
-  // The name the learner chose, else their Google name (feature 022, AC-002).
-  const name = learnerName(profile.status === "ready" ? profile.data.displayName : undefined, account?.name);
   const active = isActive(pathname, "/profile");
   const guest = status === "guest";
 
@@ -40,14 +36,6 @@ export function AccountLink() {
         {guest ? <SignInButton size="sm" className="h-9 rounded-full border-0 shadow-none md:h-8" /> : null}
         {/* Friend requests and replies, signed-in learners only (feature 031). */}
         <NotificationBell />
-        {!guest && name ? (
-          <p className="flex min-w-0 items-center gap-1.5 pl-2 font-medium">
-            <span className="inline-block origin-[70%_70%] animate-wave" aria-hidden>
-              👋
-            </span>
-            <span className="truncate">Chào {name}!</span>
-          </p>
-        ) : null}
         <Link
           href="/profile"
           data-tour="profile"

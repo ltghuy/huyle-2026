@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { preload } from "react-dom";
 import { Mascot } from "@/components/mascot/mascot";
+import { useAccount } from "@/hooks/use-account";
+import { useProfile } from "@/hooks/use-profile";
+import { learnerName } from "@/lib/learner-name";
 import { cn } from "@/lib/utils";
 
 /** The owner's 3D tuxedo cat, optimised (feature 030; `designs/group_cat_tail.mjs` has the commands). */
@@ -39,13 +42,27 @@ function whenIdle(task: () => void): () => void {
 /**
  * The home hero's cat (features 021, 030): the SVG cat at once, then the owner's 3D model in its place once
  * three.js and the model have loaded (AC-003). Without WebGL, or if loading fails, the SVG stays (AC-004).
+ * Its speech bubble greets a signed-in learner by name (quick 073).
  */
 export function MascotShowcase({ className }: { className?: string }) {
   const stage = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const profile = useProfile();
+  const { status, account } = useAccount();
+  const name =
+    status === "guest"
+      ? undefined
+      : learnerName(
+          profile.status === "ready" ? profile.data.displayName : undefined,
+          account?.name,
+        );
   // Download the model with the page at low priority (quick 041), so it is in hand by the time three.js
   // loads instead of starting after it. Same mode and credentials as the fetch below, so that reuses it.
-  preload(MODEL_URL, { as: "fetch", crossOrigin: "anonymous", fetchPriority: "low" });
+  preload(MODEL_URL, {
+    as: "fetch",
+    crossOrigin: "anonymous",
+    fetchPriority: "low",
+  });
 
   useEffect(() => {
     const container = stage.current;
@@ -53,9 +70,12 @@ export function MascotShowcase({ className }: { className?: string }) {
     let cancelled = false;
     let dispose: (() => void) | undefined;
     const cancelIdle = whenIdle(() => {
-      const wag = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const wag = !window.matchMedia("(prefers-reduced-motion: reduce)")
+        .matches;
       Promise.all([import("./mascot-scene"), fetchModel()])
-        .then(([{ mountMascotScene }, model]) => mountMascotScene(container, { wag, model }))
+        .then(([{ mountMascotScene }, model]) =>
+          mountMascotScene(container, { wag, model }),
+        )
         .then((scene) => {
           if (cancelled) scene.dispose();
           else {
@@ -75,19 +95,49 @@ export function MascotShowcase({ className }: { className?: string }) {
   }, []);
 
   return (
-    <div role="img" aria-label={LABEL} className={cn("relative mx-auto h-48 w-40 md:h-56 md:w-48 lg:h-[25rem] lg:w-[22rem]", className)}>
+    <div
+      role="img"
+      aria-label={LABEL}
+      className={cn(
+        "relative mx-auto h-48 w-40 md:h-56 md:w-48 lg:h-[25rem] lg:w-[22rem]",
+        className,
+      )}
+    >
       {/* A disc and a floor shadow so the cat stands somewhere (from lg). */}
-      <div aria-hidden className="absolute inset-x-2 top-6 bottom-10 hidden rounded-full bg-linear-to-b from-primary/25 to-primary/0 lg:block" />
-      <div aria-hidden className="absolute bottom-3 left-1/2 h-4 w-1/2 -translate-x-1/2 rounded-[100%] bg-foreground/15 blur-md" />
-      <p aria-hidden className="absolute top-16 -left-24 z-10 hidden rounded-2xl rounded-br-sm border bg-card px-3 py-2 text-sm font-medium shadow-sm lg:block">
-        <span lang="en">Hello!</span> Cùng học nhé
+      <div
+        aria-hidden
+        className="absolute inset-x-2 top-6 bottom-10 hidden rounded-full bg-linear-to-b from-primary/25 to-primary/0 lg:block"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-3 left-1/2 h-4 w-1/2 -translate-x-1/2 rounded-[100%] bg-foreground/15 blur-md"
+      />
+      <p
+        aria-hidden
+        className="absolute top-16 -left-28 z-10 hidden w-max max-w-60 rounded-2xl rounded-br-sm border bg-card px-3 py-2 text-sm font-medium shadow-sm lg:block"
+      >
+        <span>Xin chào{name ? ` ${name}` : ""}!</span>
+        <br />
+        Cùng cải thiện tiếng Anh nhé!
       </p>
-      <div className={cn("absolute inset-0 flex items-end justify-center transition-opacity duration-500", ready && "opacity-0")} aria-hidden>
+      <div
+        className={cn(
+          "absolute inset-0 flex items-end justify-center transition-opacity duration-500",
+          ready && "opacity-0",
+        )}
+        aria-hidden
+      >
         <Mascot size={136} className="mb-2 md:hidden" />
         <Mascot size={160} className="mb-2 max-md:hidden lg:hidden" />
         <Mascot size={288} className="mb-4 max-lg:hidden" />
       </div>
-      <div ref={stage} className={cn("absolute inset-0 opacity-0 transition-opacity duration-500", ready && "opacity-100")} />
+      <div
+        ref={stage}
+        className={cn(
+          "absolute inset-0 opacity-0 transition-opacity duration-500",
+          ready && "opacity-100",
+        )}
+      />
     </div>
   );
 }

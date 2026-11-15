@@ -122,11 +122,10 @@ describe("AccountLink (the top-right corner)", () => {
     expect(screen.queryByText(/Chào/)).not.toBeInTheDocument();
   });
 
-  it("greets a signed-in learner and shows initials without a Google picture (AC-002)", async () => {
+  it("shows a signed-in learner's initials without a Google picture (AC-002)", async () => {
     stubSession(USER);
     render(<AccountLink />);
-    expect(await screen.findByText("Chào Minh!")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Hồ sơ" })).toHaveTextContent("MA");
+    await waitFor(() => expect(screen.getByRole("link", { name: "Hồ sơ" })).toHaveTextContent("MA"));
     expect(screen.queryByRole("button", { name: SIGN_IN_LABEL })).not.toBeInTheDocument();
   });
 

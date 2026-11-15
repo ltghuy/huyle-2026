@@ -24,10 +24,11 @@ beforeEach(() => {
 });
 
 describe("AccountLink bell (feature 031)", () => {
-  it("shows the bell next to the greeting for signed-in learners (AC-022)", async () => {
+  it("shows the bell next to the picture for signed-in learners, with no greeting (AC-022, quick 073)", async () => {
     render(<AccountLink />);
     expect(await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" })).toBeInTheDocument();
-    expect(screen.getByText("Chào Minh!")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Hồ sơ" })).toBeInTheDocument();
+    expect(screen.queryByText(/Chào/)).not.toBeInTheDocument();
   });
 
   it("shows no bell to guests (AC-030)", async () => {

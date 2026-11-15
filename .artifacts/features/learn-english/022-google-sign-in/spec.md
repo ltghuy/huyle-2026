@@ -47,7 +47,7 @@ This reverses feature 001's decision "Users and progress storage" (no sign-in). 
 **Acceptance Criteria:**
 
 - [ ] AC-001: WHEN a guest opens any page THEN system SHALL offer "Đăng nhập với Google" in the top-right corner (where the greeting is today) and in Settings
-- [ ] AC-002: WHEN a guest chooses to sign in and picks a Google account THEN system SHALL bring them back to the page they started from, signed in, greeted by their Google name (or the name they chose in Settings, which is optional once signed in) with their Google picture, or their initials, in the top-right corner
+- [ ] AC-002: WHEN a guest chooses to sign in and picks a Google account THEN system SHALL bring them back to the page they started from, signed in, with their Google picture, or their initials, in the top-right corner; the home cat's bubble greets them by their Google name (or the name they chose in Settings, which is optional once signed in; quick 073 moved the greeting there from the top-right corner)
 - [ ] AC-003: WHEN the learner cancels or refuses on Google's screen THEN system SHALL bring them back as a guest with a short Vietnamese message, and change nothing
 - [ ] AC-004: WHEN a signed-in learner reloads, closes the browser or comes back days later THEN system SHALL keep them signed in until they sign out, or until 30 days pass without any activity: each visit or action renews the 30 days
 - [ ] AC-005: WHEN a signed-in learner chooses "Đăng xuất" and confirms THEN system SHALL sign them out, remove that account's progress from this device and show the app as a guest. Their progress stays safe in the account

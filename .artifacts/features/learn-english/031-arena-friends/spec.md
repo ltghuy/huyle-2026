@@ -86,7 +86,7 @@ Requests often go to someone who isn't online, for example when a learner goes b
 
 **Acceptance Criteria:**
 
-- [x] AC-022: WHEN a signed-in learner is on any app page, on desktop or phone THEN system SHALL show a bell button in the page header next to their greeting and picture, labelled "Thông báo" for screen readers
+- [x] AC-022: WHEN a signed-in learner is on any app page, on desktop or phone THEN system SHALL show a bell button in the page header next to their picture (the greeting left the header in quick 073), labelled "Thông báo" for screen readers
 - [x] AC-023: WHEN a learner has unread notifications THEN system SHALL show their number on the bell (shown as "9+" above nine), and no number when there are none
 - [x] AC-024: WHEN the learner opens the bell THEN system SHALL show their notifications, newest first, each with a picture, a short text and how long ago it arrived ("5 phút trước", "hôm qua"), unread ones marked, and SHALL count them all as read (since feature 034 these are the bell's "Cá nhân" tab; "Hệ thống" holds app announcements)
 - [x] AC-025: WHEN the learner has no notifications THEN system SHALL show "Chưa có thông báo nào."

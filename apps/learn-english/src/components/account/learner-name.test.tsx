@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { render } from "@/test-utils/render";
-import { AccountLink } from "@/components/shell/account-link";
+import { MascotShowcase } from "@/components/home/mascot-showcase";
 import { NameSetting } from "@/components/settings/name-setting";
 import { learnerName } from "@/lib/learner-name";
 import { createDefaultProfile, getProfile, saveProfile } from "@/storage/meta";
@@ -32,10 +32,11 @@ describe("learnerName", () => {
 });
 
 describe("signed in without a chosen name", () => {
-  it("greets by the Google name", async () => {
+  it("greets by the Google name in the home cat's bubble (quick 073)", async () => {
     stubSession(true);
-    render(<AccountLink />);
-    expect(await screen.findByText("Chào Huy Le!")).toBeInTheDocument();
+    render(<MascotShowcase />);
+    expect(await screen.findByText("Xin chào Huy Le!")).toBeInTheDocument();
+    expect(screen.getByText(/Cùng cải thiện tiếng Anh nhé!/)).toBeInTheDocument();
   });
 
   it("lets the chosen name be cleared in Settings, going back to the Google name", async () => {

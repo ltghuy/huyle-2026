@@ -50,7 +50,7 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 
 **Acceptance Criteria:**
 
-- [x] AC-006: WHEN a learner with a name opens any page with navigation THEN system SHALL greet them by name ("Chào {tên}!") in the top-right corner of the page header, left of the profile link (moved from above the home lesson card in quick task 010), and the first-visit welcome dialog SHALL address them by name
+- [x] AC-006: WHEN a learner with a name opens any page with navigation THEN system SHALL greet them by name in the home cat's speech bubble ("Xin chào {tên}!" then "Cùng cải thiện tiếng Anh nhé!", shown from `lg`; quick 073 moved it there from the "Chào {tên}!" in the top-right corner, which had moved there from above the home lesson card in quick task 010), and the first-visit welcome dialog SHALL address them by name
 - [x] AC-007: WHEN the learner opens Settings THEN system SHALL show their name in an editable field labelled "Tên gọi (không bắt buộc)" and save a change with the same rules as AC-003, confirming with a Vietnamese message. An empty field clears the name, for guests and signed-in learners alike (quick 051)
 
 ## Edge Cases
@@ -70,7 +70,7 @@ The app has no idea who it is talking to: every screen says "bạn". The owner w
 - AC-001, AC-002, AC-005: retired; e2e `first-visit.spec.ts` "a fresh browser starts the placement test without being asked for a name"
 - AC-003: `src/components/name/name-form.test.tsx` (" 42 " rejected, "Minh Anh" saved)
 - AC-004: `name-form.test.tsx` (stored with a timestamp), `src/learning/snapshot.test.ts` (in backups), `settings.test.tsx` (import replaces it); stats send counts only
-- AC-006: `src/components/account/learner-name.test.tsx` ("Chào Huy Le!"); without a name the welcome dialog says "Chào mừng bạn" (e2e `first-visit.spec.ts`)
+- AC-006: `src/components/account/learner-name.test.tsx` ("Xin chào Huy Le!" in the home cat's bubble); without a name the welcome dialog says "Chào mừng bạn" (e2e `first-visit.spec.ts`)
 - AC-007: `name-form.test.tsx` NameSetting; `learner-name.test.tsx` (a guest clears the name)
 - Gates 2026-10-27: lint, typecheck, 518 unit tests, build, 10/10 e2e
 
