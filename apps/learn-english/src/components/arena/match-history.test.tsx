@@ -106,7 +106,7 @@ describe("Lịch sử đấu page (feature 025)", () => {
     expect(within(rows[1]).getByText("Bạn rời trận")).toBeInTheDocument();
     expect(within(rows[2]).getByText("Người chơi đã xóa tài khoản")).toBeInTheDocument();
     expect(within(rows[2]).getByText("Đối thủ rời trận")).toBeInTheDocument();
-    expect(screen.getByText("12 thắng · 5 thua · 3 trận gần nhất")).toBeInTheDocument();
+    expect(screen.getByText("2 thắng · 1 thua · 3 trận gần nhất")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Đấu trường/ })).toHaveAttribute("href", "/arena");
   });
 
@@ -202,12 +202,13 @@ describe("Team matches in Lịch sử đấu (feature 039, AC-040)", () => {
     const all = await screen.findByRole("list", { name: "Các trận gần đây" });
     expect(screen.getByRole("tab", { name: "Tất cả" })).toHaveAttribute("aria-selected", "true");
     const total = within(all).getAllByRole("button").length;
+    expect(screen.getByText("2 thắng · 0 thua · 1 hòa · 3 trận gần nhất")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("tab", { name: "Đấu 1-1" }));
     const duels = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");
     expect(duels.length).toBe(total - 2);
     for (const row of duels) expect(row).toHaveAccessibleName(/ với /);
-    expect(screen.getByText(/thắng · \d+ thua · \d+ trận gần nhất/)).toBeInTheDocument();
+    expect(screen.getByText("12 thắng · 5 thua · 1 trận gần nhất")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("tab", { name: "Đấu đội" }));
     const teams = within(await screen.findByRole("list", { name: "Các trận gần đây" })).getAllByRole("button");

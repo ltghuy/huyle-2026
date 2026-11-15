@@ -172,7 +172,7 @@ A host creates a team room for 2 to 10 players, waits for them to join, and puts
 **Acceptance Criteria:**
 
 - [x] AC-052: WHEN a signed-in learner opens "Lịch sử đấu" THEN system SHALL offer three tabs, "Tất cả", "Đấu 1-1" and "Đấu đội", "Tất cả" selected, each listing only its kind of match; a tab with no match SHALL say so in Vietnamese
-- [x] AC-053: WHEN the "Đấu đội" tab is open THEN the record line SHALL count that tab's matches as wins, losses and draws (e.g. "2 thắng · 1 thua · 1 hòa"); the other tabs SHALL keep the Arena record line (1-1 duels only, AC-040)
+- [x] AC-053: WHEN the "Đấu đội" tab is open THEN the record line SHALL count that tab's matches as wins, losses and draws (e.g. "2 thắng · 1 thua · 1 hòa"); on "Tất cả" it SHALL count every listed match the same way, draws only when there are any, plus the number listed (e.g. "5 thắng · 3 thua · 8 trận gần nhất"; quick 072); "Đấu 1-1" SHALL keep the Arena record line (1-1 duels only, AC-040)
 - [x] AC-054: WHEN a team match shows as a row THEN system SHALL show the learner's team against the other team as overlapping avatars with their names (e.g. "Bạn, Lan" and "Vy, Hoa"), the result and "Đội A 2–1 Đội B" from the learner's side, instead of a single team badge
 
 ### P3: Play again

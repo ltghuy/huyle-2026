@@ -108,12 +108,14 @@ const KEEP: Record<HistoryTab, (match: ArenaMatch) => boolean> = {
 };
 
 /**
- * The line above a tab's list (feature 039, AC-053): the Arena record (1-1 duels only) on "Tất cả"
- * and "Đấu 1-1", the listed team matches' wins, losses and draws on "Đấu đội".
+ * The line above a tab's list (feature 039, AC-053): the Arena record (1-1 duels only) on "Đấu 1-1";
+ * the listed matches' wins, losses and draws on "Đấu đội", and on "Tất cả" (duels and team matches, quick 072).
  */
 export function recordLine(tab: HistoryTab, stats: ArenaStatsResponse, shown: ArenaMatch[]): string {
-  if (tab !== "team") return `${stats.wins} thắng · ${stats.losses} thua · ${shown.length} trận gần nhất`;
+  if (tab === "duel") return `${stats.wins} thắng · ${stats.losses} thua · ${shown.length} trận gần nhất`;
   const draws = shown.filter((m) => m.team?.draw).length;
   const wins = shown.filter((m) => m.won).length;
-  return `${wins} thắng · ${shown.length - wins - draws} thua · ${draws} hòa`;
+  const record = `${wins} thắng · ${shown.length - wins - draws} thua`;
+  if (tab === "team") return `${record} · ${draws} hòa`;
+  return `${record}${draws > 0 ? ` · ${draws} hòa` : ""} · ${shown.length} trận gần nhất`;
 }
