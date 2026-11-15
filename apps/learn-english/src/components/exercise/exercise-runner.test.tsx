@@ -639,14 +639,20 @@ describe("find the error (feature 011)", () => {
 });
 
 describe("translate (feature 016)", () => {
-  async function translateStep(key = "t") {
+  async function translateStep(key = "t", withHint = false) {
     const { buildTranslate } = await import("@/learning/exercises/translate");
-    const { sentence } = await import("@/learning/exercises/fixtures");
-    const item = sentence("sea", { tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."], vi: "Nhắm mắt lại và tưởng tượng biển cả.", grammarSlug: "imperative" });
+    const { sentence, word } = await import("@/learning/exercises/fixtures");
+    const item = sentence("sea", {
+      tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."],
+      vi: "Nhắm mắt lại và tưởng tượng biển cả.",
+      grammarSlug: "imperative",
+      wrongVariants: [{ en: "Closing your eyes and imagine the sea.", explanationVi: "Câu mệnh lệnh dùng động từ nguyên mẫu." }],
+    });
+    const hintSources = { words: withHint ? [word("sea-n", { headword: "sea", pos: "noun", meaningsVi: ["biển"] })] : [] };
     return {
       key,
       type: "exercise" as const,
-      instance: buildTranslate({ sentence: item })!,
+      instance: buildTranslate({ sentence: item, hintSources })!,
       seed: 1,
       related: { cardIds: ["grammar:imperative" as const], link: { href: "/grammar?topic=imperative", label: "imperative" } },
     };
@@ -668,6 +674,90 @@ describe("translate (feature 016)", () => {
     expect(screen.getByText("Chính xác!")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Câu của mình cũng đúng" })).not.toBeInTheDocument();
     expect(onOutcome).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ itemId: "sentence:sea", exercise: "translate", result: expect.objectContaining({ correct: true }) }));
+  });
+
+  async function withAiKey(hints: string[] | null) {
+    const { addAiKey, resetAiKeysForTest } = await import("@/lib/ai-keys");
+    localStorage.clear();
+    resetAiKeysForTest();
+    addAiKey("key-1");
+    const client = await import("@/ai-grading/gemini-client");
+    return vi.spyOn(client, "hintWithAi").mockResolvedValue(hints);
+  }
+
+  async function withoutAiKey() {
+    localStorage.clear();
+    (await import("@/lib/ai-keys")).resetAiKeysForTest();
+  }
+
+  it("hides the hint until Gợi ý, then shows the words, asks for a key and records the answer hinted (043 AC-001 to AC-003, AC-008)", async () => {
+    await withoutAiKey();
+    const { onOutcome } = setup([await translateStep("t", true)]);
+    expect(screen.queryByText("biển")).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /^Gợi ý/ }));
+    const hint = screen.getByRole("region", { name: "Gợi ý" });
+    expect(within(hint).getByText("Từ vựng")).toBeInTheDocument();
+    expect(hint).toHaveTextContent("sea (noun): biển");
+    expect(within(hint).getByText(/Thêm khóa Google AI trong Cài đặt/)).toBeInTheDocument();
+    // The wrong variants' notes are corrections, not hints.
+    expect(within(hint).queryByText("Câu mệnh lệnh dùng động từ nguyên mẫu.")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^Gợi ý/ })).not.toBeInTheDocument();
+
+    await answer("Close your eyes and imagine the sea.");
+    expect(screen.queryByRole("region", { name: "Gợi ý" })).not.toBeInTheDocument();
+    expect(onOutcome).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ result: expect.objectContaining({ correct: true, hinted: true }) }));
+  });
+
+  it("shows the AI's grammar hints with a key, asking only once Gợi ý is pressed (043 AC-006)", async () => {
+    const hintWithAi = await withAiKey(["Dùng câu mệnh lệnh (Imperative) vì đây là lời khuyên."]);
+    setup([await translateStep()]);
+    expect(hintWithAi).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: /^Gợi ý/ }));
+    const hint = screen.getByRole("region", { name: "Gợi ý" });
+    expect(await within(hint).findByText("Dùng câu mệnh lệnh (Imperative) vì đây là lời khuyên.")).toBeInTheDocument();
+    expect(within(hint).queryByText("Từ vựng")).not.toBeInTheDocument();
+    expect(hintWithAi).toHaveBeenCalledWith({ vi: "Nhắm mắt lại và tưởng tượng biển cả.", en: "Close your eyes and imagine the sea." }, expect.anything());
+    vi.restoreAllMocks();
+    await withoutAiKey();
+  });
+
+  it("says so when the AI gives no hint (043 AC-008)", async () => {
+    await withAiKey(null);
+    setup([await translateStep("t", true)]);
+    fireEvent.click(screen.getByRole("button", { name: /^Gợi ý/ }));
+    expect(await screen.findByText("Lúc này chưa lấy được gợi ý ngữ pháp từ AI.")).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Gợi ý" })).toHaveTextContent("sea (noun): biển");
+    vi.restoreAllMocks();
+    await withoutAiKey();
+  });
+
+  it("allows three hints a run, then disables Gợi ý with a tooltip saying why (043 AC-009)", async () => {
+    await withoutAiKey();
+    const steps = await Promise.all(["a", "b", "c", "d"].map((key) => translateStep(key, true)));
+    setup(steps);
+    for (const left of [3, 2, 1]) {
+      fireEvent.click(screen.getByRole("button", { name: `Gợi ý · còn ${left}` }));
+      await answer("Close your eyes and imagine the sea.");
+      fireEvent.click(screen.getByRole("button", { name: "Tiếp tục" }));
+    }
+    const spent = await screen.findByRole("button", { name: "Gợi ý · hết lượt" });
+    expect(spent).toHaveAttribute("aria-disabled", "true");
+    fireEvent.click(spent);
+    expect(screen.queryByRole("region", { name: "Gợi ý" })).not.toBeInTheDocument();
+    expect(await screen.findByText(/Bạn đã dùng hết 3 lượt gợi ý của bài này/)).toBeInTheDocument();
+  });
+
+  it("offers no Gợi ý with nothing to show and no key, nor in the Arena (043 AC-004, AC-005)", async () => {
+    await withoutAiKey();
+    setup([await translateStep()]);
+    expect(screen.queryByRole("button", { name: /^Gợi ý/ })).not.toBeInTheDocument();
+    cleanup();
+    await withAiKey([]);
+    const arena = await translateStep();
+    setup([{ ...arena, instance: { ...arena.instance, hint: undefined } }]);
+    expect(screen.queryByRole("button", { name: /^Gợi ý/ })).not.toBeInTheDocument();
+    vi.restoreAllMocks();
+    await withoutAiKey();
   });
 
   it("shows the learner's answer, the reference and the grammar link after a wrong answer, and records it on Continue (AC-003)", async () => {

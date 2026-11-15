@@ -8,7 +8,22 @@ import type { CardItemId } from "../types";
 import { normalize } from "../normalize";
 import { expansions } from "./dictation";
 import { acceptedText } from "./tiles";
-import type { GradeResult, SentenceItem } from "./types";
+import type { GradeResult, GrammarItem, SentenceItem, WordItem } from "./types";
+
+/**
+ * Help for a stuck learner (feature 043): the words the sentence practises and its grammar lesson, from the
+ * content. The grammar hints themselves come from the learner's AI key when "Gợi ý" is pressed.
+ */
+export interface TranslateHint {
+  words: readonly { headword: string; pos: string; meaningsVi: readonly string[] }[];
+  /** The sentence's grammar lesson, when it has one. */
+  grammar?: { titleEn: string; titleVi: string };
+}
+
+/** At most this many meanings per word (AC-002). */
+export const HINT_MEANINGS = 2;
+/** "Gợi ý" presses one run of the runner allows (a 10-question set), to keep AI requests down (AC-009). */
+export const HINTS_PER_RUN = 3;
 
 export interface TranslateInstance {
   kind: "translate";
@@ -25,10 +40,14 @@ export interface TranslateInstance {
   accepted: string[];
   /** Answer key of an approved wording → why it is right (feature 042); never a key of the course's own English. */
   explanations?: Record<string, string>;
+  /** Behind "Gợi ý" (feature 043); absent in the Arena, where nobody gets a hint. */
+  hint?: TranslateHint;
 }
 
 export interface TranslateAnswer {
   text: string;
+  /** "Gợi ý" was pressed (feature 043, AC-003). */
+  hinted?: boolean;
 }
 
 export interface TranslateInput {
@@ -38,6 +57,15 @@ export interface TranslateInput {
   /** Why an approved wording is right, by its text (feature 042). */
   explanationsVi?: Readonly<Record<string, string>>;
   cardId?: CardItemId;
+  /** The sentence's words and grammar lesson, looked up by the caller (feature 043). */
+  hintSources?: { words: readonly WordItem[]; grammar?: GrammarItem };
+}
+
+/** The content part of a sentence's hint (AC-002); it may be empty, and then only the AI hints are left. */
+export function translateHint(sources: { words: readonly WordItem[]; grammar?: GrammarItem }): TranslateHint {
+  const words = sources.words.map(({ body }) => ({ headword: body.headword, pos: body.pos, meaningsVi: body.meaningsVi.slice(0, HINT_MEANINGS) }));
+  const grammar = sources.grammar ? { titleEn: sources.grammar.body.titleEn, titleVi: sources.grammar.body.titleVi } : undefined;
+  return { words, ...(grammar ? { grammar } : {}) };
 }
 
 /** A claim may be at most this many times the reference's length, and never longer than MAX_CLAIM_LENGTH. */
@@ -88,7 +116,7 @@ export function canTranslate(sentence: SentenceItem): boolean {
   return sentence.body.vi.trim() !== "" && answerKeys(sentence.body.en).length > 0;
 }
 
-export function buildTranslate({ sentence, wordings = [], explanationsVi = {}, cardId }: TranslateInput): TranslateInstance | null {
+export function buildTranslate({ sentence, wordings = [], explanationsVi = {}, cardId, hintSources }: TranslateInput): TranslateInstance | null {
   if (!canTranslate(sentence)) return null;
   const { body } = sentence;
   const own = [body.en, ...body.acceptedOrders.map((order) => acceptedText(body, order))];
@@ -96,6 +124,7 @@ export function buildTranslate({ sentence, wordings = [], explanationsVi = {}, c
   // An answer that is the course's own English never shows a wording's explanation (AC-008).
   const ownKeys = new Set(own.flatMap(answerKeys));
   const explanations: Record<string, string> = {};
+  const hint = hintSources ? translateHint(hintSources) : undefined;
   for (const text of wordings) {
     const reason = explanationsVi[text];
     if (!reason) continue;
@@ -112,6 +141,7 @@ export function buildTranslate({ sentence, wordings = [], explanationsVi = {}, c
     wordIds: body.wordIds,
     accepted: [...new Set(texts.flatMap(answerKeys))],
     ...(Object.keys(explanations).length > 0 ? { explanations } : {}),
+    ...(hint ? { hint } : {}),
   };
 }
 
@@ -121,7 +151,7 @@ export function gradeTranslate(instance: TranslateInstance, answer: TranslateAns
   const keys = answerKeys(answer.text);
   const correct = keys.some((key) => accepted.has(key));
   const reason = correct ? keys.map((key) => instance.explanations?.[key]).find(Boolean) : undefined;
-  return { correct, expected: instance.en, ...(reason ? { explanationVi: reason } : {}) };
+  return { correct, expected: instance.en, ...(reason ? { explanationVi: reason } : {}), ...(answer.hinted ? { hinted: true } : {}) };
 }
 
 /** What a claim needs from the exercise; the runner adds the related cards. */

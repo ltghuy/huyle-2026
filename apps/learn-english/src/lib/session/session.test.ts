@@ -91,6 +91,13 @@ describe("prepareStep", () => {
     expect(step?.type === "exercise" && step.instance).not.toHaveProperty("cardId");
   });
 
+  it("gives a translate step the sentence's words and grammar lesson as its hint (043 AC-002)", () => {
+    const step = prepareStep({ kind: "translate", itemIds: ["sentence:apple-1"], seed: 1 }, index, "k");
+    expect(step).toMatchObject({
+      instance: { hint: { words: [{ headword: "apple", meaningsVi: ["quả táo"] }], grammar: { titleEn: "present-simple" } } },
+    });
+  });
+
   it("records an Ôn tập translate step against the reviewed card (016 AC-019)", () => {
     const step = prepareStep({ kind: "translate", itemIds: ["word:apple", "sentence:apple-1"], seed: 1 }, index, "k");
     expect(step).toMatchObject({ type: "exercise", instance: { kind: "translate", sentenceId: "sentence:apple-1", cardId: "word:apple" } });

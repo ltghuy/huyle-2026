@@ -18,4 +18,8 @@ export interface ExerciseViewProps<Instance, Answer> {
   checking?: boolean;
   /** Set once an AI review was tried and no key could answer (feature 036): the view falls back to its own check. */
   aiUnavailable?: boolean;
+  /** "Gợi ý" presses left in this run (feature 043, AC-009); views with a hint count down from it. */
+  hintsLeft?: number;
+  /** Called when the learner opens a hint, so the runner can count it. */
+  onHint?: () => void;
 }

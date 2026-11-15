@@ -13,6 +13,7 @@ import {
   type OutputFormat,
   type Verdict,
 } from "@/learning/exercises/translate-ai";
+import { buildHintRequest, HINT_BUDGET_MS, parseHintReply, type HintPrompt } from "@/learning/exercises/hint-ai";
 import { buildWritingRequest, parseWritingReply, WRITING_BUDGET_MS, type WritingPrompt, type WritingReview } from "@/learning/exercises/writing-ai";
 import { getAiKeys, updateAiKey } from "@/lib/ai-keys";
 
@@ -154,6 +155,11 @@ export function gradeWithAi(prompt: GradingPrompt, answer: string, signal?: Abor
 /** Reviews one "Bài viết" paragraph (feature 036); null means fall back to the self-check. */
 export function reviewWritingWithAi(prompt: WritingPrompt, paragraph: string, signal?: AbortSignal, now: () => number = Date.now): Promise<WritingReview | null> {
   return runWithKeys({ body: (f) => buildWritingRequest(prompt, paragraph, f), parse: parseWritingReply, budgetMs: WRITING_BUDGET_MS }, signal, now);
+}
+
+/** Grammar hints for one "Dịch câu" sentence (feature 043); null when no key gave any. */
+export function hintWithAi(prompt: HintPrompt, signal?: AbortSignal, now: () => number = Date.now): Promise<string[] | null> {
+  return runWithKeys({ body: (f) => buildHintRequest(prompt, f), parse: (body) => parseHintReply(body, prompt.en), budgetMs: HINT_BUDGET_MS }, signal, now);
 }
 
 /** Test only: back to the first output format. */

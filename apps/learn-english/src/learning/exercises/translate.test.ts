@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { sentence } from "./fixtures";
-import { answerKeys, buildTranslate, canClaim, canTranslate, claimKey, gradeTranslate } from "./translate";
+import { grammar, sentence, word } from "./fixtures";
+import { answerKeys, buildTranslate, canClaim, canTranslate, claimKey, gradeTranslate, translateHint } from "./translate";
 
 const eyes = sentence("eyes", { tokens: ["Close", "your", "eyes", "and", "imagine", "the", "sea."], vi: "Nhắm mắt lại và tưởng tượng biển cả." });
 
@@ -86,5 +86,30 @@ describe("translate (016)", () => {
     expect(claimKey("Shut your eyes, and picture the sea!")).toBe(claimKey("shut your eyes and picture the sea"));
     expect(claimKey("I don't know.")).toBe(claimKey("I do not know"));
     expect(answerKeys("He's here")).toEqual(expect.arrayContaining(["hes here", "he is here", "he has here"]));
+  });
+});
+
+describe("translate hint (043)", () => {
+  const bumWord = word("bum-n", { headword: "bum", pos: "noun", meaningsVi: ["kẻ lười", "kẻ vô công rồi nghề", "ăn mày"] });
+  const imperative = grammar("imperative", []);
+
+  it("lists the words with two meanings and the grammar lesson (AC-002)", () => {
+    const lesson = { ...imperative, body: { ...imperative.body, titleEn: "Imperative", titleVi: "Câu mệnh lệnh" } };
+    expect(translateHint({ words: [bumWord], grammar: lesson })).toEqual({
+      words: [{ headword: "bum", pos: "noun", meaningsVi: ["kẻ lười", "kẻ vô công rồi nghề"] }],
+      grammar: { titleEn: "Imperative", titleVi: "Câu mệnh lệnh" },
+    });
+    expect(buildTranslate({ sentence: eyes, hintSources: { words: [bumWord] } })?.hint?.words).toHaveLength(1);
+  });
+
+  it("keeps an empty content hint for the AI, and gives none when the caller gives none, as the Arena does (AC-005)", () => {
+    expect(buildTranslate({ sentence: eyes, hintSources: { words: [] } })?.hint).toEqual({ words: [] });
+    expect(buildTranslate({ sentence: eyes })).not.toHaveProperty("hint");
+  });
+
+  it("marks a hinted answer hinted (AC-003)", () => {
+    const instance = buildTranslate({ sentence: eyes })!;
+    expect(gradeTranslate(instance, { text: "Close your eyes and imagine the sea", hinted: true })).toMatchObject({ correct: true, hinted: true });
+    expect(gradeTranslate(instance, { text: "Close your eyes and imagine the sea" })).not.toHaveProperty("hinted");
   });
 });

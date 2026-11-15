@@ -3,6 +3,7 @@
   import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type PointerEvent } from "react";
 import { RotateCcw, X } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
+import { HINTS_PER_RUN } from "@/learning/exercises/translate";
 import type { GradeResult } from "@/learning/exercises/types";
 import type { CardItemId, ExerciseKind } from "@/learning/types";
 import {
@@ -127,6 +128,8 @@ export function ExerciseRunner({
   const aiCall = useRef<AbortController | null>(null);
   // Steps whose AI review found no key that could answer: their view falls back to its own check (feature 036).
   const [aiFallback, setAiFallback] = useState<Record<string, boolean>>({});
+  // "Gợi ý" presses in this run, across retry rounds (feature 043, AC-009).
+  const [hintsUsed, setHintsUsed] = useState(0);
 
   useEffect(() => () => aiCall.current?.abort(), []);
 
@@ -241,6 +244,10 @@ export function ExerciseRunner({
     } finally {
       saving.current = false;
     }
+  }
+
+  function handleHint() {
+    setHintsUsed((used) => used + 1);
   }
 
   function handleClaim() {
@@ -394,6 +401,8 @@ export function ExerciseRunner({
               onClaim={canClaim ? handleClaim : undefined}
               checking={checking}
               aiUnavailable={Boolean(aiFallback[step.key])}
+              hintsLeft={Math.max(0, HINTS_PER_RUN - hintsUsed)}
+              onHint={handleHint}
             />
           ) : null}
         </main>

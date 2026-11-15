@@ -57,6 +57,16 @@ function grammarLink(grammar: Grammar): RelatedItems["link"] {
 }
 
 /** Cards a sentence practises, plus a link to the grammar point (or the first word). */
+/** What the Dịch câu hint is made of (feature 043): the sentence's live words and grammar lesson. */
+function hintSources(index: ContentIndex, sentence: Sentence) {
+  const words = sentence.body.wordIds.flatMap((id) => {
+    const word = index.byId.get(id);
+    return word?.kind === "word" ? [word] : [];
+  });
+  const grammar = sentence.body.grammarSlug ? index.byId.get(`grammar:${sentence.body.grammarSlug}`) : undefined;
+  return { words, grammar: grammar?.kind === "grammar" ? grammar : undefined };
+}
+
 function sentenceRelated(index: ContentIndex, sentence: Sentence): RelatedItems {
   const cardIds: CardItemId[] = sentence.body.wordIds.filter((id): id is CardItemId => id.startsWith("word:"));
   const grammar = sentence.body.grammarSlug ? index.byId.get(`grammar:${sentence.body.grammarSlug}`) : undefined;
@@ -175,7 +185,13 @@ export function prepareStep(descriptor: ExerciseDescriptor, index: ContentIndex,
       const sentence = item.kind === "sentence" ? item : index.byId.get(descriptor.itemIds[1] ?? "");
       if (sentence?.kind !== "sentence" || (item.kind !== "sentence" && item.kind !== "word" && item.kind !== "grammar")) return null;
       const cardId = item.kind === "sentence" ? undefined : (item.id as CardItemId);
-      return exerciseStep(key, seed, buildTranslate({ sentence, wordings: index.wordings.get(sentence.id), explanationsVi: index.wordingExplanations.get(sentence.id), cardId }), { related: sentenceRelated(index, sentence) });
+      return exerciseStep(key, seed, buildTranslate({
+          sentence,
+          wordings: index.wordings.get(sentence.id),
+          explanationsVi: index.wordingExplanations.get(sentence.id),
+          cardId,
+          hintSources: hintSources(index, sentence),
+        }), { related: sentenceRelated(index, sentence) });
     }
     case "find-error":
       return item.kind === "sentence" ? exerciseStep(key, seed, buildFindError({ sentence: item }, seed), { related: sentenceRelated(index, item) }) : null;
