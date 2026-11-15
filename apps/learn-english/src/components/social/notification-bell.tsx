@@ -20,9 +20,11 @@ import {
   unseenIds,
   type Announcement,
 } from "@/lib/announcements";
-import { fetchNotifications, markNotificationsRead, respondToRequest, SocialError } from "@/lib/social-client";
+import { useAccount } from "@/hooks/use-account";
+import { fetchAdminContact, fetchNotifications, markNotificationsRead, respondToRequest, SocialError } from "@/lib/social-client";
 import { cn } from "@/lib/utils";
 import { SOCIAL_MESSAGES, type NotificationItem, type NotificationsResponse, type PulseResponse } from "@/server/social/social.schema";
+import { FriendButton } from "./friend-button";
 import { timeAgo } from "./last-active";
 import { SOCIAL_KEY, useSocial } from "./use-social";
 
@@ -32,8 +34,17 @@ import { SOCIAL_KEY, useSocial } from "./use-social";
 // those notifications and "Hệ thống" with the app's announcements, read per device.
 
 export const NOTIFICATIONS_KEY = ["social", "notifications"] as const;
+export const ADMIN_CONTACT_KEY = ["social", "admin"] as const;
+/** The admin rarely changes: ask once an hour at most. */
+const ADMIN_CONTACT_STALE_MS = 60 * 60_000;
+const ADMIN_LOAD_FAILED = "Chưa tải được thông tin quản trị viên.";
 const LOAD_FAILED = "Không tải được thông báo.";
 const ANSWER_FAILED = "Chưa gửi được câu trả lời. Bạn thử lại nhé.";
+
+/** The time the bell opened; read in its open handler, never during render. */
+function openedNow(): number {
+  return Date.now();
+}
 
 /** "9+" above nine (AC-023). */
 export function badgeText(unread: number): string {
@@ -82,8 +93,32 @@ function NotificationRow({ item, now, gone, busy, onAnswer }: ItemProps) {
 
 type Tab = "personal" | "system";
 
+/** The admin's picture and name with the friend button (feature 044, AC-001, AC-002, AC-005). */
+function AdminFriendAction() {
+  const contact = useQuery({ queryKey: ADMIN_CONTACT_KEY, queryFn: fetchAdminContact, staleTime: ADMIN_CONTACT_STALE_MS, retry: false });
+  if (contact.isPending) return <Skeleton className="h-8 w-44" />;
+  if (contact.isError) return <p className="text-xs text-muted-foreground">{ADMIN_LOAD_FAILED}</p>;
+  const { admin } = contact.data;
+  if (!admin) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="flex min-w-0 items-center gap-2">
+        <AccountAvatar name={admin.name} image={admin.image} className="size-7 shrink-0" />
+        <span className="truncate text-sm font-medium">{admin.name}</span>
+      </span>
+      <FriendButton userId={admin.id} />
+    </div>
+  );
+}
+
+/** Admins don't see the item that asks them to befriend an admin (feature 044, AC-003). */
+function visibleAnnouncements(isAdmin: boolean): readonly Announcement[] {
+  return isAdmin ? ANNOUNCEMENTS.filter((announcement) => announcement.topic !== "admin-friend") : ANNOUNCEMENTS;
+}
+
 function AnnouncementAction({ announcement, onFollow }: { announcement: Announcement; onFollow: () => void }) {
   const keys = useSyncExternalStore(subscribeAiKeys, getAiKeys, getServerAiKeys);
+  if (announcement.topic === "admin-friend") return <AdminFriendAction />;
   if (announcement.topic !== "ai-grading") return null;
   if (keys.length > 0) return <p className="text-xs font-medium text-success">Bạn đã bật chấm điểm bằng AI.</p>;
   return (
@@ -144,6 +179,7 @@ function Loading() {
 
 export function NotificationBell({ className }: { className?: string }) {
   const { signedIn, query: social } = useSocial();
+  const isAdmin = Boolean(useAccount().session?.isAdmin);
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
   const [gone, setGone] = useState<ReadonlySet<string>>(new Set());
@@ -158,7 +194,8 @@ export function NotificationBell({ className }: { className?: string }) {
 
   if (!signedIn) return null;
   const personalUnread = social.data?.unread ?? 0;
-  const systemUnread = unseenIds(seen);
+  const announcements = visibleAnnouncements(isAdmin);
+  const systemUnread = unseenIds(seen, announcements);
   const unread = personalUnread + systemUnread.length;
 
   async function loadAndMarkRead() {
@@ -180,7 +217,7 @@ export function NotificationBell({ className }: { className?: string }) {
   function handleOpenChange(next: boolean) {
     setOpen(next);
     if (!next) return;
-    setOpenedAt(Date.now());
+    setOpenedAt(openedNow());
     setShownUnread(new Set(systemUnread));
     showTab(personalUnread === 0 && systemUnread.length > 0 ? "system" : "personal");
     void loadAndMarkRead();
@@ -275,7 +312,7 @@ export function NotificationBell({ className }: { className?: string }) {
           </TabsContent>
           <TabsContent value="system" className="max-h-[min(28rem,70vh)] overflow-y-auto overscroll-contain">
             <ul className="grid gap-0.5">
-              {ANNOUNCEMENTS.map((announcement) => (
+              {announcements.map((announcement) => (
                 <AnnouncementRow key={announcement.id} announcement={announcement} unread={shownUnread.has(announcement.id)} now={openedAt} onFollow={handleFollow} />
               ))}
             </ul>

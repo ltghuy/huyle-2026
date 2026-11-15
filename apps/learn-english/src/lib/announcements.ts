@@ -12,10 +12,17 @@ export interface Announcement {
   title: string;
   body: string;
   /** What the announcement is about; the bell picks the call to action from it. */
-  topic: "ai-grading";
+  topic: "ai-grading" | "admin-friend";
 }
 
 export const ANNOUNCEMENTS: readonly Announcement[] = [
+  {
+    id: "2026-11-admin-friend",
+    publishedAt: Date.UTC(2026, 10, 15, 3),
+    title: "Kết bạn với quản trị viên",
+    body: "Kết bạn với quản trị viên của Tuxedo English để cùng luyện tập và thách đấu trong Đấu trường. Lời mời sẽ được gửi thẳng tới quản trị viên.",
+    topic: "admin-friend",
+  },
   {
     id: "2026-11-ai-grading",
     publishedAt: Date.UTC(2026, 10, 9, 3),

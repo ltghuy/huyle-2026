@@ -32,7 +32,11 @@ vi.mock("@/server/social/notifications.service", () => ({
   markAllRead: (...args: unknown[]) => markAllRead(...args),
 }));
 
+const adminContact = vi.fn();
+vi.mock("@/server/social/admin-contact.service", () => ({ adminContact: (...args: unknown[]) => adminContact(...args) }));
+
 const pulseRoute = await import("./pulse/route");
+const adminRoute = await import("./admin/route");
 const leaveRoute = await import("./leave/route");
 const requestsRoute = await import("./requests/route");
 const respondRoute = await import("./requests/respond/route");
@@ -48,7 +52,7 @@ const get = (route: { GET: (r: Request) => Promise<Response> }) => route.GET(new
 beforeEach(() => {
   signedIn = true;
   throttled = false;
-  for (const mock of [pulse, leave, sendRequest, respond, removeFriend, listNotifications, markAllRead]) mock.mockReset();
+  for (const mock of [pulse, leave, sendRequest, respond, removeFriend, listNotifications, markAllRead, adminContact]) mock.mockReset();
   vi.spyOn(console, "error").mockImplementation(() => {});
 });
 
@@ -112,5 +116,25 @@ describe("social routes (feature 031)", () => {
   it("answer 503 when the database fails", async () => {
     pulse.mockRejectedValue(new Error("down"));
     expect((await post(pulseRoute)).status).toBe(503);
+  });
+});
+
+describe("admin contact route (feature 044)", () => {
+  it("answers signed-in learners only, for the session's id, never cached (AC-004)", async () => {
+    signedIn = false;
+    expect((await get(adminRoute)).status).toBe(401);
+    signedIn = true;
+    adminContact.mockResolvedValue({ admin: { id: "owner", name: "Huy Le", image: null } });
+    const response = await get(adminRoute);
+    expect(await response.json()).toEqual({ admin: { id: "owner", name: "Huy Le", image: null } });
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(adminContact).toHaveBeenCalledWith(expect.anything(), "minh");
+  });
+
+  it("answers 503 in Vietnamese when D1 fails", async () => {
+    adminContact.mockRejectedValue(new Error("D1 down"));
+    const response = await get(adminRoute);
+    expect(response.status).toBe(503);
+    expect(await response.json()).toEqual({ error: { message: "Bạn bè đang tạm nghỉ, bạn thử lại sau nhé." } });
   });
 });

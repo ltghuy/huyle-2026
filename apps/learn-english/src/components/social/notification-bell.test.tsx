@@ -8,19 +8,27 @@ import { render } from "@/test-utils/render";
 import { badgeText, NotificationBell } from "./notification-bell";
 
 let status = "signed-in";
+let isAdmin = false;
 vi.mock("@/hooks/use-account", () => ({
-  useAccount: () => ({ status, account: status === "signed-in" ? { userId: "lan", name: "Lan", email: "l@example.com", image: null } : null }),
+  useAccount: () => {
+    const account = status === "signed-in" ? { userId: "lan", name: "Lan", email: "l@example.com", image: null, ...(isAdmin ? { isAdmin } : {}) } : null;
+    return { status, account, session: account };
+  },
 }));
 const pulse = vi.fn<() => Promise<PulseResponse>>();
 const fetchNotifications = vi.fn<() => Promise<NotificationsResponse>>();
 const markNotificationsRead = vi.fn();
 const respondToRequest = vi.fn();
+const fetchAdminContact = vi.fn();
+const sendFriendRequest = vi.fn();
 vi.mock("@/lib/social-client", async (original) => ({
   ...(await original<typeof import("@/lib/social-client")>()),
   pulse: () => pulse(),
   fetchNotifications: () => fetchNotifications(),
   markNotificationsRead: () => markNotificationsRead(),
   respondToRequest: (id: string, accept: boolean) => respondToRequest(id, accept),
+  fetchAdminContact: () => fetchAdminContact(),
+  sendFriendRequest: (id: string) => sendFriendRequest(id),
 }));
 
 const NOW = new Date(2026, 10, 8, 15, 0).getTime();
@@ -28,8 +36,14 @@ const pulseData = (unread: number): PulseResponse => ({ now: NOW, friends: [], o
 const REQUEST = { id: "n1", kind: "friend_request" as const, actor: { id: "minh", name: "Minh Anh", image: null }, createdAt: NOW - 5 * 60_000, read: false, pending: true };
 const ACCEPTED = { id: "n0", kind: "friend_accepted" as const, actor: { id: "khoa", name: "Khoa", image: null }, createdAt: NOW - 86_400_000, read: true, pending: false };
 
+const ADMIN = { id: "owner", name: "Huy Le", image: null };
+const SEEN_ALL = "2026-11-admin-friend,2026-11-ai-grading";
+
 beforeEach(() => {
   status = "signed-in";
+  isAdmin = false;
+  fetchAdminContact.mockReset().mockResolvedValue({ admin: ADMIN });
+  sendFriendRequest.mockReset().mockResolvedValue({ state: "sent" });
   localStorage.clear();
   resetAnnouncementsForTest();
   resetAiKeysForTest();
@@ -118,10 +132,10 @@ describe("NotificationBell tabs (feature 034)", () => {
 
   it("counts unread announcements on the bell and in the tab, and opens on Cá nhân while it has unread items (AC-001, AC-003, AC-004)", async () => {
     render(<NotificationBell />);
-    expect(await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" })).toHaveTextContent("2");
+    expect(await screen.findByRole("button", { name: "Thông báo, 3 chưa đọc" })).toHaveTextContent("3");
     const dialog = await openBell();
     expect(within(dialog).getByRole("tab", { name: /Cá nhân/ })).toHaveAttribute("aria-selected", "true");
-    expect(within(dialog).getByRole("tab", { name: /Hệ thống/ })).toHaveTextContent("1");
+    expect(within(dialog).getByRole("tab", { name: /Hệ thống/ })).toHaveTextContent("2");
     expect(await within(dialog).findByText("Minh Anh")).toBeInTheDocument();
     expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBeNull();
   });
@@ -129,25 +143,25 @@ describe("NotificationBell tabs (feature 034)", () => {
   it("opens on Hệ thống when only it has something unread, shows the AI announcement and counts it read (AC-003, AC-006, AC-007, AC-009)", async () => {
     pulse.mockResolvedValue(pulseData(0));
     render(<NotificationBell />);
-    expect(await screen.findByRole("button", { name: "Thông báo, 1 chưa đọc" })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" })).toBeInTheDocument();
     const dialog = await openBell();
     expect(within(dialog).getByRole("tab", { name: /Hệ thống/ })).toHaveAttribute("aria-selected", "true");
-    const row = within(dialog).getByRole("listitem");
+    const row = within(dialog).getByText("Mới: chấm bài “Dịch câu” bằng AI").closest("li")!;
     expect(row).toHaveTextContent("Mới: chấm bài “Dịch câu” bằng AI");
     expect(row).toHaveTextContent("Google AI Studio");
     expect(within(row).getByLabelText("Chưa đọc")).toBeInTheDocument();
     expect(within(row).getByRole("link", { name: "Thêm khóa trong Cài đặt" })).toHaveAttribute("href", "/settings#cham-bang-ai");
-    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-ai-grading");
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe(SEEN_ALL);
     await waitFor(() => expect(screen.getByRole("button", { name: "Thông báo" })).toBeInTheDocument());
   });
 
   it("marks announcements read when the learner switches to Hệ thống (AC-009)", async () => {
     render(<NotificationBell />);
-    await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" });
+    await screen.findByRole("button", { name: "Thông báo, 3 chưa đọc" });
     const dialog = await openBell();
     fireEvent.click(within(dialog).getByRole("tab", { name: /Hệ thống/ }));
     expect(await within(dialog).findByText("Mới: chấm bài “Dịch câu” bằng AI")).toBeInTheDocument();
-    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-ai-grading");
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe(SEEN_ALL);
   });
 
   it("says AI grading is on when the learner already has a key (AC-008)", async () => {
@@ -162,11 +176,55 @@ describe("NotificationBell tabs (feature 034)", () => {
   it("still shows Hệ thống when the friend notifications fail to load", async () => {
     fetchNotifications.mockRejectedValue(new Error("offline"));
     render(<NotificationBell />);
-    await screen.findByRole("button", { name: "Thông báo, 2 chưa đọc" });
+    await screen.findByRole("button", { name: "Thông báo, 3 chưa đọc" });
     const dialog = await openBell();
     expect(await within(dialog).findByText("Không tải được thông báo.")).toBeInTheDocument();
     fireEvent.click(within(dialog).getByRole("tab", { name: /Hệ thống/ }));
     expect(await within(dialog).findByText("Mới: chấm bài “Dịch câu” bằng AI")).toBeInTheDocument();
+  });
+
+  it("offers learners to befriend the admin, sending the admin a request (044 AC-001, AC-002)", async () => {
+    pulse.mockResolvedValue(pulseData(0));
+    render(<NotificationBell />);
+    const dialog = await openBell();
+    const row = (await within(dialog).findByText("Kết bạn với quản trị viên")).closest("li")!;
+    expect(await within(row).findByText("Huy Le")).toBeInTheDocument();
+    // The server lists the request as outgoing from now on.
+    sendFriendRequest.mockImplementation(async () => {
+      pulse.mockResolvedValue({ ...pulseData(0), outgoing: ["owner"] });
+      return { state: "sent" };
+    });
+    fireEvent.click(within(row).getByRole("button", { name: "Kết bạn" }));
+    await waitFor(() => expect(sendFriendRequest).toHaveBeenCalledWith("owner"));
+    expect(await within(row).findByText("Đã gửi lời mời")).toBeInTheDocument();
+  });
+
+  it("shows Bạn bè when the learner is already the admin's friend (044 edge case)", async () => {
+    pulse.mockResolvedValue({ ...pulseData(0), friends: [{ id: "owner", name: "Huy Le", image: null, online: false, lastSeenAt: null }] });
+    render(<NotificationBell />);
+    const dialog = await openBell();
+    const row = (await within(dialog).findByText("Kết bạn với quản trị viên")).closest("li")!;
+    expect(await within(row).findByText("Bạn bè")).toBeInTheDocument();
+    expect(within(row).queryByRole("button", { name: "Kết bạn" })).not.toBeInTheDocument();
+  });
+
+  it("hides the admin item from admins and leaves it out of their count (044 AC-003)", async () => {
+    isAdmin = true;
+    pulse.mockResolvedValue(pulseData(0));
+    render(<NotificationBell />);
+    expect(await screen.findByRole("button", { name: "Thông báo, 1 chưa đọc" })).toBeInTheDocument();
+    const dialog = await openBell();
+    expect(within(dialog).getByText("Mới: chấm bài “Dịch câu” bằng AI")).toBeInTheDocument();
+    expect(within(dialog).queryByText("Kết bạn với quản trị viên")).not.toBeInTheDocument();
+    expect(fetchAdminContact).not.toHaveBeenCalled();
+  });
+
+  it("says so when the admin can't be loaded, and shows no button when there is none (044 AC-005)", async () => {
+    fetchAdminContact.mockRejectedValue(new Error("offline"));
+    pulse.mockResolvedValue(pulseData(0));
+    render(<NotificationBell />);
+    const dialog = await openBell();
+    expect(await within(dialog).findByText("Chưa tải được thông tin quản trị viên.")).toBeInTheDocument();
   });
 
   it("stays hidden for guests (AC-005)", () => {

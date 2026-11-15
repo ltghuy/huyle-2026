@@ -1,6 +1,7 @@
 import type { ApiError } from "@/lib/http";
 import {
   SOCIAL_MESSAGES,
+  type AdminContactResponse,
   type NotificationsResponse,
   type PulseResponse,
   type RequestState,
@@ -70,4 +71,9 @@ export async function fetchNotifications(): Promise<NotificationsResponse> {
 
 export function markNotificationsRead(): Promise<void> {
   return post("/api/social/notifications/read");
+}
+
+/** The admin to befriend from the bell (feature 044). */
+export async function fetchAdminContact(): Promise<AdminContactResponse> {
+  return (await request("/api/social/admin")).json() as Promise<AdminContactResponse>;
 }

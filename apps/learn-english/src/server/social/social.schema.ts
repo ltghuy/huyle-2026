@@ -71,5 +71,10 @@ export interface NotificationsResponse {
   items: NotificationItem[];
 }
 
+/** The admin a learner can befriend from the bell (feature 044); null for admins or when there is none. */
+export interface AdminContactResponse {
+  admin: { id: string; name: string; image: string | null } | null;
+}
+
 export type RequestState = "sent" | "friends";
 export type RespondState = "friends" | "declined";

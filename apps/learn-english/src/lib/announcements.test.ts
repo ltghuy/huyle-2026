@@ -9,8 +9,11 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("announcements (034)", () => {
-  it("lists the AI grading announcement, newest first, with unique ids", () => {
-    expect(ANNOUNCEMENTS[0]).toMatchObject({ id: "2026-11-ai-grading", topic: "ai-grading" });
+  it("lists the admin friend and AI grading announcements, newest first, with unique ids", () => {
+    expect(ANNOUNCEMENTS.map((a) => [a.id, a.topic])).toEqual([
+      ["2026-11-admin-friend", "admin-friend"],
+      ["2026-11-ai-grading", "ai-grading"],
+    ]);
     expect(new Set(ANNOUNCEMENTS.map((a) => a.id)).size).toBe(ANNOUNCEMENTS.length);
     expect(ANNOUNCEMENTS.map((a) => a.publishedAt)).toEqual(ANNOUNCEMENTS.map((a) => a.publishedAt).toSorted((a, b) => b - a));
   });
@@ -18,10 +21,10 @@ describe("announcements (034)", () => {
   it("is unread until marked, then read on this device (AC-009)", () => {
     const listener = vi.fn();
     subscribeAnnouncements(listener);
-    expect(unseenIds(getSeenAnnouncements())).toEqual(["2026-11-ai-grading"]);
+    expect(unseenIds(getSeenAnnouncements())).toEqual(["2026-11-admin-friend", "2026-11-ai-grading"]);
     markAnnouncementsSeen();
     expect(unseenIds(getSeenAnnouncements())).toEqual([]);
-    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-ai-grading");
+    expect(localStorage.getItem(ANNOUNCEMENTS_SEEN_KEY)).toBe("2026-11-admin-friend,2026-11-ai-grading");
     markAnnouncementsSeen();
     expect(listener).toHaveBeenCalledTimes(1);
   });
@@ -37,6 +40,6 @@ describe("announcements (034)", () => {
 
   it("treats a new announcement as unread even after older ones were read", () => {
     const newer = { ...ANNOUNCEMENTS[0]!, id: "later" };
-    expect(unseenIds("2026-11-ai-grading", [newer, ...ANNOUNCEMENTS])).toEqual(["later"]);
+    expect(unseenIds("2026-11-admin-friend,2026-11-ai-grading", [newer, ...ANNOUNCEMENTS])).toEqual(["later"]);
   });
 });
