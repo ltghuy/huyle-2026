@@ -29,9 +29,13 @@ const setBase = vocabSet("it", [deploy, items[0] as ReturnType<typeof word>]);
 const itSet = { ...setBase, body: { ...setBase.body, titleVi: "Công nghệ thông tin", descriptionVi: "Từ vựng cho người làm IT." } };
 const index = buildContentIndex([...items, itSet]);
 
+/** Levels whose content index is still loading (quick 074). */
+let indexLoading = new Set<string>();
 vi.mock("@/hooks/use-content-index", () => ({
   useContentIndex: (levels: string[] | null) =>
-    levels ? { status: "ready", index, version: 1, stale: false, retry: () => {} } : { status: "loading", retry: () => {} },
+    levels && !levels.some((level) => indexLoading.has(level))
+      ? { status: "ready", index, version: 1, stale: false, retry: () => {} }
+      : { status: "loading", retry: () => {} },
   levelsFor: () => ["A1", "A2"],
   fetchContentIndex: async () => ({ index, version: 1, stale: false }),
 }));
@@ -50,6 +54,7 @@ function visit(search: string) {
 describe("VocabularyBrowser", () => {
   beforeEach(async () => {
     await resetStorage();
+    indexLoading = new Set();
     allWords = { status: "ready", words: [...items.filter((item) => item.kind === "word"), deploy], setsByWord: new Map([[deploy.id, [itSet]]]) };
   });
 
@@ -67,6 +72,25 @@ describe("VocabularyBrowser", () => {
     fireEvent.click(screen.getByRole("button", { name: "Nhà cửa: đã học 0/1" }));
     expect(within(screen.getByRole("region", { name: "Danh sách từ" })).getAllByRole("link")).toHaveLength(1);
     expect(window.location.search).toBe("?level=A1&topic=home");
+  });
+
+  it("switches level at once from the words of every level, while that level's index still loads (AC-006, quick 074)", async () => {
+    indexLoading = new Set(["A2"]);
+    visit("?level=A1");
+    await screen.findByRole("region", { name: "Danh sách từ" });
+
+    fireEvent.click(screen.getByRole("tab", { name: "A2" }));
+    const list = screen.getByRole("region", { name: "Danh sách từ" });
+    expect(within(list).getAllByRole("link").map((link) => link.textContent)).toEqual([expect.stringContaining("travel")]);
+    expect(screen.queryByLabelText("Đang tải")).not.toBeInTheDocument();
+    expect(window.location.search).toBe("?level=A2");
+  });
+
+  it("waits for the words of every level before listing (quick 074)", async () => {
+    allWords = { status: "loading" };
+    visit("?level=A1");
+    await waitFor(() => expect(screen.queryByRole("region", { name: "Danh sách từ" })).not.toBeInTheDocument());
+    expect(screen.queryByRole("button", { name: /Tất cả: đã học/ })).not.toBeInTheDocument();
   });
 
   it("shows only unlearned words when asked, across topic changes (quick 032)", async () => {

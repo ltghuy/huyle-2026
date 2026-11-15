@@ -5,10 +5,12 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { useSearchParams } from "next/navigation";
 import { Check, ChevronDown } from "lucide-react";
 import type { ContentItemOf } from "@/content/schema";
+import { useAllWords } from "@/hooks/use-all-words";
 import { useContentIndex } from "@/hooks/use-content-index";
 import { useProfile } from "@/hooks/use-profile";
 import { LEVELS, type Level } from "@/learning/types";
 import { parseLevel, updateSearchParams } from "@/lib/search-params";
+import { bySortThenId } from "@/lib/session/content-index";
 import { compareTopics, topicOf, topicTitle } from "@/lib/topics";
 import { cn } from "@/lib/utils";
 import { LevelTabs } from "@/components/library/level-tabs";
@@ -55,6 +57,20 @@ function groupByTopic(words: readonly Word[], learned: ReadonlySet<string>): Top
 const EMPTY_SET: ReadonlySet<string> = new Set();
 
 /**
+ * Each level's course words in list order, from the words of every level (quick 074). Specialized words
+ * live only in their sets (feature 012), so they stay out of the level lists, as in the content index.
+ */
+function wordsByLevel(words: readonly Word[]): Partial<Record<Level, Word[]>> {
+  const byLevel: Partial<Record<Level, Word[]>> = {};
+  for (const word of words) {
+    if (word.body.source === "specialized") continue;
+    (byLevel[word.level] ??= []).push(word);
+  }
+  for (const list of Object.values(byLevel)) list.sort(bySortThenId);
+  return byLevel;
+}
+
+/**
  * The open word's place in the list it was opened from. With "unlearned only" on, the open word stays in the
  * sequence after it is marked learned, so "next" still works from it.
  */
@@ -70,6 +86,10 @@ function wordNav(list: readonly Word[], wordId: string | null, learned: Readonly
  * `/vocabulary`: search, words by level and topic, learned markers and the
  * word dialog (AC-006–AC-009; 002). `?view=sets` lists the specialized
  * vocabulary sets and `?set=<slug>` opens one (feature 012).
+ *
+ * The lists come from the words of every level, loaded once and shared with the search box and the irregular
+ * verbs, so switching level only filters them and shows at once (quick 074). The selected level's content
+ * index (example sentences, irregular forms, sets) loads behind it for the word dialog and "Chuyên ngành".
  */
 export function VocabularyBrowser() {
   const params = useSearchParams();
@@ -83,6 +103,7 @@ export function VocabularyBrowser() {
 
   const levels = useMemo(() => (level ? [level] : null), [level]);
   const content = useContentIndex(levels);
+  const allWords = useAllWords(true);
   const index = content.status === "ready" ? content.index : null;
   // A word linked from an exercise may sit at another level: load every level only then.
   const needsAllLevels = Boolean(wordId && index && !index.byId.has(wordId));
@@ -94,10 +115,11 @@ export function VocabularyBrowser() {
   const [unlearnedOnly, setUnlearnedOnly] = useState(false);
   const topicRow = useRef<HTMLDivElement>(null);
 
-  const words = useMemo(() => (index && level ? (index.wordsByLevel[level] ?? []) : []), [index, level]);
+  const byLevel = useMemo(() => (allWords.status === "ready" ? wordsByLevel(allWords.words) : null), [allWords]);
+  const words = useMemo(() => (byLevel && level ? (byLevel[level] ?? []) : []), [byLevel, level]);
   const groups = useMemo(() => groupByTopic(words, learned), [words, learned]);
 
-  const ready = content.status === "ready";
+  const ready = byLevel !== null;
   useEffect(() => {
     // On phones the topics scroll sideways: bring the selected one into view.
     const row = topicRow.current;
@@ -105,8 +127,7 @@ export function VocabularyBrowser() {
     if (row && chip && row.scrollWidth > row.clientWidth) row.scrollLeft = chip.offsetLeft - row.offsetLeft - 16;
   }, [topic, level, ready]);
 
-  if (!level || content.status === "loading") return <ListSkeleton rows={6} />;
-  if (content.status === "error") return <ContentError onRetry={content.retry} />;
+  if (!level) return <ListSkeleton rows={6} />;
 
   const search = params.toString();
   const followedSet = profile.status === "ready" ? profile.data.vocabSet : undefined;
@@ -117,12 +138,12 @@ export function VocabularyBrowser() {
   const collapsed = (group: TopicGroup, i: number) => !allTopics && i >= TOPICS_SHOWN && group.slug !== activeGroup?.slug;
   const hiddenTopics = groups.filter(collapsed).length;
 
-  const openSet = setSlug !== null ? content.index.sets.find((set) => set.item.id === `set:${setSlug}`) : undefined;
+  const openSet = setSlug !== null ? index?.sets.find((set) => set.item.id === `set:${setSlug}`) : undefined;
   const listWords = showSets ? (openSet?.words ?? []) : shown;
   const nav = wordNav(listWords, wordId, learned, unlearnedOnly);
 
   const lookup: WordLookup = wordId
-    ? lookupWord(wordId, [index, fallback.status === "ready" ? fallback.index : null], needsAllLevels && fallback.status === "loading")
+    ? lookupWord(wordId, [index, fallback.status === "ready" ? fallback.index : null], content.status === "loading" || (needsAllLevels && fallback.status === "loading"))
     : { status: "loading" };
 
   function handleTabChange(next: Level | typeof SETS_TAB) {
@@ -169,10 +190,14 @@ export function VocabularyBrowser() {
       </div>
 
       {showSets ? (
-        setSlug !== null ? (
+        content.status === "error" ? (
+          <ContentError onRetry={content.retry} />
+        ) : !index ? (
+          <ListSkeleton rows={6} />
+        ) : setSlug !== null ? (
           <SetView
             set={openSet}
-            index={content.index}
+            index={index}
             learned={learned}
             followed={followedSet === `set:${setSlug}`}
             search={search}
@@ -181,8 +206,12 @@ export function VocabularyBrowser() {
             onUnlearnedOnlyChange={setUnlearnedOnly}
           />
         ) : (
-          <SetList sets={content.index.sets} learned={learned} followed={followedSet} search={search} />
+          <SetList sets={index.sets} learned={learned} followed={followedSet} search={search} />
         )
+      ) : allWords.status === "error" ? (
+        <ContentError onRetry={allWords.retry} />
+      ) : !byLevel ? (
+        <ListSkeleton rows={6} />
       ) : words.length === 0 ? (
         <EmptyState mood="think" title={`Chưa có từ vựng trình độ ${level}`}>
           <p className="text-sm text-muted-foreground">Nội dung đang được biên soạn. Bạn chọn trình độ khác hoặc quay lại sau nhé.</p>

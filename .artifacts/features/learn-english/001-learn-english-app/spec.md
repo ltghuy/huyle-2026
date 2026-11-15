@@ -90,7 +90,7 @@ version of the app. Anonymous usage counts show how the app is used.
 
 **Acceptance Criteria:**
 
-- [x] AC-006: WHEN a learner browses vocabulary THEN system SHALL group words by CEFR level (A1, A2, B1, B2, C1) and by topic, and SHALL show which words the learner has already learned
+- [x] AC-006: WHEN a learner browses vocabulary THEN system SHALL group words by CEFR level (A1, A2, B1, B2, C1) and by topic, and SHALL show which words the learner has already learned; switching level SHALL show that level's words at once, with no loading state, because the words of every level load together the first time, like the irregular verbs list (quick 074)
 - [x] AC-007: WHEN a learner opens a word THEN system SHALL show the English word, American phonetic spelling, word type, Vietnamese meaning(s), and at least one English example sentence with its Vietnamese translation
 - [x] AC-008: WHEN a learner taps the play button on a word or example sentence THEN system SHALL play it in the app's voice within 1 second on a normal connection -- VERIFIED (2026-10-27 on production: first tap fetched the word and sentence clips in about 0.75 s; clips are cached for a year after that)
 - [x] AC-045: WHEN a learner opens the credits page THEN system SHALL list the sources of the word lists and pronunciation data with their licences and required attributions

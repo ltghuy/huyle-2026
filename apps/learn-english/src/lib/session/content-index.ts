@@ -32,7 +32,8 @@ export interface ContentIndex {
   lesson: LessonContent;
 }
 
-const bySortThenId = (a: ContentItem, b: ContentItem) => a.sort - b.sort || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+/** The order items are listed in: their `sort`, then their id. */
+export const bySortThenId = (a: ContentItem, b: ContentItem) => a.sort - b.sort || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 
 export function buildContentIndex(items: readonly ContentItem[], tombstones: ReadonlySet<string> = new Set()): ContentIndex {
   const live = items.filter((item) => !tombstones.has(item.id));
