@@ -164,6 +164,8 @@ export const publicRoomSchema = z.object({
   spectators: z.array(z.object({ id: z.string(), name: z.string() })),
   /** Listed in "Cộng đồng" (feature 041); absent from rooms before it. */
   public: z.boolean().default(false),
+  /** Created from the "Cộng đồng" links (feature 045); absent from rooms before it. */
+  fromCommunity: z.boolean().default(false),
 });
 export type PublicRoom = z.infer<typeof publicRoomSchema>;
 

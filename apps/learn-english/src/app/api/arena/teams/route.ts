@@ -14,10 +14,11 @@ export async function POST(request: Request) {
   if ("response" in body) return body.response;
   if (await isThrottled(request)) return error(MESSAGES.throttled, 429);
 
-  const { name, ...settings } = body.data;
+  const { name, fromCommunity, ...settings } = body.data;
   try {
     const room = await createTeamRoom(getCloudflareContext().env.ARENA_ROOM, {
       settings,
+      fromCommunity,
       user: session.user,
       name: playerName(name, session.user),
       secret: getArenaEnv().ARENA_SECRET,

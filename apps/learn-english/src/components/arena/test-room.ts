@@ -35,6 +35,7 @@ export function publicRoom(overrides: Partial<PublicRoom> = {}): PublicRoom {
     rematch: [],
     spectators: [],
     public: false,
+    fromCommunity: false,
     ...overrides,
   };
 }

@@ -29,9 +29,17 @@ describe("link protocol", () => {
 
   it("parses the frames a link sends", () => {
     const challenge = { type: "challenge", from: { id: "u1", name: "Evan", image: null }, code: "R2KS89", settings: SETTINGS };
-    expect(parseLinkFrame(JSON.stringify(challenge))).toEqual(challenge);
+    // A duel frame without a kind (as sent before feature 045) is a duel.
+    expect(parseLinkFrame(JSON.stringify(challenge))).toEqual({ ...challenge, kind: "duel" });
     expect(parseLinkFrame(JSON.stringify({ type: "reply", friendId: "u2", code: "R2KS89", accept: false }))).not.toBeNull();
     expect(parseLinkFrame(JSON.stringify({ type: "challenge-closed", hostId: "u1", code: "R2KS89" }))).not.toBeNull();
     expect(parseLinkFrame(JSON.stringify({ type: "state" }))).toBeNull();
+  });
+
+  it("parses a team room invite with its settings, and refuses one that doesn't fit its kind (feature 045, AC-008)", () => {
+    const team = { ...SETTINGS, size: 4, minutes: 5 };
+    const invite = { type: "challenge", kind: "team", from: { id: "u1", name: "Evan", image: null }, code: "R2KS89", settings: team };
+    expect(parseLinkFrame(JSON.stringify(invite))).toEqual(invite);
+    expect(parseLinkFrame(JSON.stringify({ ...invite, settings: SETTINGS }))).toBeNull();
   });
 });

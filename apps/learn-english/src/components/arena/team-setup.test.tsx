@@ -101,6 +101,25 @@ describe("the team screen (feature 039)", () => {
     expect(sent).toEqual({ mode: "write", level: "A2", rounds: 3, seconds: 30, size: 5, minutes: 10, name: "Minh" });
   });
 
+  it("marks a room opened from Cộng đồng (feature 045, AC-001)", async () => {
+    stubFetch(true);
+    let sent: Record<string, unknown> = {};
+    handler = (url, init) => {
+      if (url !== "/api/arena/teams") return undefined;
+      sent = JSON.parse(String(init?.body));
+      return Response.json({ code: "K7P2QX", ticket: "t", settings: sent }, { status: 201 });
+    };
+    window.history.replaceState(null, "", "/arena/team?from=community");
+    try {
+      render(<ArenaTeamPage />);
+      fireEvent.click(await screen.findByRole("button", { name: "Tạo phòng" }));
+      await waitFor(() => expect(push).toHaveBeenCalled());
+      expect(sent.fromCommunity).toBe(true);
+    } finally {
+      window.history.replaceState(null, "", "/");
+    }
+  });
+
   it("says why the room could not be made", async () => {
     stubFetch(true);
     handler = (url) => (url === "/api/arena/teams" ? Response.json({ error: { message: "Bạn đang ở trong một phòng khác." } }, { status: 409 }) : undefined);

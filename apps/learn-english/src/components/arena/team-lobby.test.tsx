@@ -5,6 +5,10 @@ import { TeamLobby } from "./team-lobby";
 import { HOST, teamHandle, teamPlayer as player, teamRoom } from "./test-team-room";
 
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
+vi.mock("@/lib/arena-client", async (original) => ({
+  ...(await original<typeof import("@/lib/arena-client")>()),
+  fetchOnline: async () => ({ learners: [{ id: "thu", name: "Thu", image: null, isFriend: true, lastSeenAt: 1 }] }),
+}));
 
 const FIVE = [player(HOST), player("lan"), player("hoa"), player("khoa", { connected: false }), player("an")];
 const team = (members: string[]) => ({ members, score: 0, hints: 0, roundsWon: 0 });
@@ -114,5 +118,28 @@ describe("TeamLobby (feature 039)", () => {
     lobby({ players: [...FIVE, player("binh")], public: true });
     expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
     expect(screen.queryByText(/Phòng đang hiện trên Cộng đồng/)).not.toBeInTheDocument();
+  });
+});
+
+describe("TeamLobby from Cộng đồng (feature 045)", () => {
+  it("lets the host invite online learners, friends marked, while a seat is free (AC-007)", async () => {
+    lobby({ fromCommunity: true, players: FIVE });
+    const row = (await screen.findByRole("button", { name: "Mời Thu" })).closest("li")!;
+    expect(within(row).getByText("Bạn bè")).toBeInTheDocument();
+  });
+
+  it("hides the list when the room is full, for other players, outside the lobby and in other rooms (AC-009, AC-010)", () => {
+    const hidden = () => expect(screen.queryByRole("heading", { name: "Đang trực tuyến" })).not.toBeInTheDocument();
+    lobby({ fromCommunity: true, players: [...FIVE, player("binh")] });
+    hidden();
+    cleanup();
+    lobby({ fromCommunity: true, players: FIVE }, "lan");
+    hidden();
+    cleanup();
+    lobby({ fromCommunity: true, players: FIVE, phase: "countdown" });
+    hidden();
+    cleanup();
+    lobby({ players: FIVE });
+    hidden();
   });
 });

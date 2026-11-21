@@ -124,8 +124,9 @@ describe("CommunityList (feature 041)", () => {
     fetchCommunity.mockResolvedValue({ rooms: [] });
     visit("?kind=duel&level=B1");
     expect(await screen.findByText("Không có phòng nào khớp bộ lọc")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Tạo phòng 1-1" })).toHaveAttribute("href", "/arena/1v1");
-    expect(screen.getByRole("link", { name: "Tạo phòng đội" })).toHaveAttribute("href", "/arena/team");
+    // Marked as opened from Cộng đồng, so the host can invite online learners (feature 045, AC-001).
+    expect(screen.getByRole("link", { name: "Tạo phòng 1-1" })).toHaveAttribute("href", "/arena/1v1?from=community");
+    expect(screen.getByRole("link", { name: "Tạo phòng đội" })).toHaveAttribute("href", "/arena/team?from=community");
     fireEvent.click(screen.getByRole("button", { name: "Bỏ lọc" }));
     expect(window.location.search).toBe("?level=all");
     expect(await screen.findByText("Chưa có phòng nào đang chờ")).toBeInTheDocument();

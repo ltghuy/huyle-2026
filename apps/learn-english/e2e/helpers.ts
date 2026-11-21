@@ -22,6 +22,9 @@ export const E2E_USERS = {
   // Only the community spec uses these two (feature 041).
   quang: { id: "e2e-quang", name: "Quang", token: "e2e-token-quang" },
   phuong: { id: "e2e-phuong", name: "Phương", token: "e2e-token-phuong" },
+  // Only the Cộng đồng invite spec uses these two (feature 045).
+  giang: { id: "e2e-giang", name: "Giang", token: "e2e-token-giang" },
+  hieu: { id: "e2e-hieu", name: "Hiếu", token: "e2e-token-hieu" },
 } as const;
 
 /** The preview's Better Auth secret: from the environment, else `.dev.vars` (which the preview reads). */

@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Toaster } from "sonner";
 import { CHALLENGE_MS, type LinkFrame } from "@/learning/arena/link";
 import type { Link } from "@/lib/link-client";
+import { teamSettingsLine } from "./team-settings-fields";
 import { LinkRunner } from "./link-runner";
 
 const push = vi.fn();
@@ -10,7 +11,7 @@ vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
 let status = "signed-in";
 vi.mock("@/hooks/use-account", () => ({ useAccount: () => ({ status }) }));
 
-const CHALLENGE: LinkFrame = { type: "challenge", from: { id: "evan", name: "Evan", image: null }, code: "R2KS89", settings: { mode: "mixed", level: "B1", rounds: 1, seconds: 15 } };
+const CHALLENGE: LinkFrame = { type: "challenge", kind: "duel", from: { id: "evan", name: "Evan", image: null }, code: "R2KS89", settings: { mode: "mixed", level: "B1", rounds: 1, seconds: 15 } };
 
 function fakeLink() {
   let listener: ((frame: LinkFrame) => void) | null = null;
@@ -63,6 +64,17 @@ describe("LinkRunner (feature 035)", () => {
     const { client, emit } = setup();
     emit(CHALLENGE);
     fireEvent.click(await screen.findByRole("button", { name: "Chấp nhận" }));
+    expect(client.answer).toHaveBeenCalledWith("evan", "R2KS89", true);
+    expect(push).toHaveBeenCalledWith("/arena/room?code=R2KS89");
+  });
+
+  it("shows a team room invite with the team settings, and accepting opens the room (feature 045, AC-008)", async () => {
+    const { client, emit } = setup();
+    const settings = { mode: "mixed", level: "B1", rounds: 1, seconds: 15, size: 4, minutes: 5 } as const;
+    emit({ type: "challenge", kind: "team", from: { id: "evan", name: "Evan", image: null }, code: "R2KS89", settings });
+    expect(await screen.findByText("Evan mời bạn vào phòng đội!")).toBeInTheDocument();
+    expect(screen.getByRole("alertdialog")).toHaveTextContent(teamSettingsLine(settings));
+    fireEvent.click(screen.getByRole("button", { name: "Chấp nhận" }));
     expect(client.answer).toHaveBeenCalledWith("evan", "R2KS89", true);
     expect(push).toHaveBeenCalledWith("/arena/room?code=R2KS89");
   });

@@ -8,7 +8,17 @@ vi.mock("@/server/auth/session", () => ({
       ? { user: { id: "minh", name: "Minh Anh", email: "minh@example.com", image: null } }
       : { response: Response.json({ error: { message: "Bạn cần đăng nhập để tiếp tục." } }, { status: 401 }) },
 }));
-vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env: { ARENA_ROOM: {}, LEARNER_LINK: {} } }) }));
+let roomStatus: unknown = null;
+let roomFails = false;
+const roomStub = {
+  getByName: () => ({
+    status: async () => {
+      if (roomFails) throw new Error("down");
+      return roomStatus;
+    },
+  }),
+};
+vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env: { ARENA_ROOM: roomStub, LEARNER_LINK: {} } }) }));
 vi.mock("@/server/db", () => ({ getDb: () => ({}) }));
 vi.mock("@/server/env", () => ({ getArenaEnv: () => ({ ARENA_SECRET: "s".repeat(32) }) }));
 vi.mock("@/server/arena/request", async (original) => ({
@@ -35,6 +45,12 @@ vi.mock("@/server/arena/history", () => ({ listHistory: (...args: unknown[]) => 
 const listCommunity = vi.fn();
 vi.mock("@/server/arena/community", () => ({ listCommunity: (...args: unknown[]) => listCommunity(...args) }));
 
+const listOnline = vi.fn();
+vi.mock("@/server/arena/online.service", async (original) => ({
+  ...(await original<typeof import("@/server/arena/online.service")>()),
+  listOnline: (...args: unknown[]) => listOnline(...args),
+}));
+
 const sendChallenge = vi.fn();
 const cancelChallenge = vi.fn();
 vi.mock("@/server/arena/challenge.service", async (original) => ({
@@ -52,6 +68,7 @@ const join = await import("./join/route");
 const stats = await import("./stats/route");
 const matches = await import("./matches/route");
 const community = await import("./community/route");
+const online = await import("./online/route");
 
 const post = (route: { POST: (r: Request) => Promise<Response> }, body: unknown) =>
   route.POST(new Request("https://english.huyle.work/api/arena", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }));
@@ -88,6 +105,15 @@ describe("POST /api/arena/rooms", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(await response.json()).toEqual(TICKET);
     expect(createRoom.mock.calls[0][1]).toMatchObject({ settings: { mode: "mixed", level: "A1", rounds: 3 }, name: "Minh" });
+    expect(createRoom.mock.calls[0][1].settings).not.toHaveProperty("fromCommunity");
+  });
+
+  it("passes on a room opened from Cộng đồng (feature 045, AC-001)", async () => {
+    createRoom.mockResolvedValue(TICKET);
+    expect((await post(rooms, { mode: "mixed", level: "A1", rounds: 3, fromCommunity: true })).status).toBe(201);
+    expect(createRoom.mock.calls[0][1]).toMatchObject({ settings: { mode: "mixed", level: "A1", rounds: 3 }, fromCommunity: true });
+    expect(createRoom.mock.calls[0][1].settings).not.toHaveProperty("fromCommunity");
+    expect((await post(rooms, { mode: "mixed", level: "A1", rounds: 3, fromCommunity: "yes" })).status).toBe(422);
   });
 
   it("answers 503 when no code is free or the room fails", async () => {
@@ -115,6 +141,12 @@ describe("POST /api/arena/teams (feature 039)", () => {
     expect(response.status).toBe(201);
     expect(await response.json()).toEqual(ticket);
     expect(createTeamRoom.mock.calls[0][1]).toMatchObject({ settings: TEAM, name: "Minh" });
+  });
+
+  it("passes on a team room opened from Cộng đồng (feature 045, AC-001)", async () => {
+    createTeamRoom.mockResolvedValue({ kind: "team", code: "K7P2QX", ticket: "t.s", settings: TEAM });
+    await post(teams, { ...TEAM, fromCommunity: true });
+    expect(createTeamRoom.mock.calls.at(-1)?.[1]).toMatchObject({ settings: TEAM, fromCommunity: true });
   });
 
   it("is throttled, and answers 503 when the room fails", async () => {
@@ -281,6 +313,49 @@ describe("GET /api/arena/community (feature 041)", () => {
 
   it("answers 503 when the database fails", async () => {
     listCommunity.mockRejectedValue(new Error("D1 down"));
+    expect((await get()).status).toBe(503);
+  });
+});
+
+describe("GET /api/arena/online (feature 045)", () => {
+  const LOBBY = { kind: "duel", phase: "lobby", creatorId: "minh", playerIds: ["minh"], spectatorIds: [], settings: { mode: "mixed", level: "A1", rounds: 3, seconds: 15 }, fromCommunity: true };
+  const get = (code = "K7P2QX") => online.GET(new Request(`https://english.huyle.work/api/arena/online?code=${code}`));
+  const LEARNER = { id: "lan", name: "Lan", image: null, isFriend: false, lastSeenAt: 1 };
+
+  beforeEach(() => {
+    roomStatus = LOBBY;
+    roomFails = false;
+    listOnline.mockReset();
+  });
+
+  it("lists online learners for the host of a waiting room from Cộng đồng (AC-002)", async () => {
+    listOnline.mockResolvedValue([LEARNER]);
+    const response = await get();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ learners: [LEARNER] });
+    expect(listOnline.mock.calls[0][1]).toBe("minh");
+  });
+
+  it("refuses guests and bad codes", async () => {
+    expect((await get("nope")).status).toBe(422);
+    signedIn = false;
+    expect((await get()).status).toBe(401);
+  });
+
+  it("refuses anyone but the host of a waiting room from Cộng đồng (AC-010)", async () => {
+    for (const next of [null, { ...LOBBY, creatorId: "lan" }, { ...LOBBY, fromCommunity: false }, { ...LOBBY, phase: "question" }]) {
+      roomStatus = next;
+      expect((await get()).status).toBe(403);
+    }
+    expect(listOnline).not.toHaveBeenCalled();
+  });
+
+  it("answers 503 when the room or the database fails", async () => {
+    roomFails = true;
+    expect((await get()).status).toBe(503);
+    roomFails = false;
+    listOnline.mockRejectedValue(new Error("down"));
     expect((await get()).status).toBe(503);
   });
 });

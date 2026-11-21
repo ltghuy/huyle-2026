@@ -61,3 +61,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt
 INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
   ('e2e-session-quang', 'e2e-quang', 'e2e-token-quang', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
   ('e2e-session-phuong', 'e2e-phuong', 'e2e-token-phuong', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);
+
+-- Two learners for the Cộng đồng invite spec (feature 045). Never friends, so the invite only works through the online list.
+INSERT INTO `user` (`id`, `name`, `email`, `email_verified`, `image`, `stats_opt_out`, `created_at`, `updated_at`) VALUES
+  ('e2e-giang', 'Giang', 'giang@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000),
+  ('e2e-hieu', 'Hiếu', 'hieu@e2e.test', 1, NULL, 0, 1767225600000, 1767225600000);
+
+INSERT INTO `session` (`id`, `user_id`, `token`, `expires_at`, `ip_address`, `user_agent`, `created_at`, `updated_at`) VALUES
+  ('e2e-session-giang', 'e2e-giang', 'e2e-token-giang', 4102444800000, NULL, NULL, 1767225600000, 1767225600000),
+  ('e2e-session-hieu', 'e2e-hieu', 'e2e-token-hieu', 4102444800000, NULL, NULL, 1767225600000, 1767225600000);

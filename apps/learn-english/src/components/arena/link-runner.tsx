@@ -11,12 +11,18 @@ import { CHALLENGE_MS, challengeKey, type LinkFrame } from "@/learning/arena/lin
 import { link as defaultLink, type Link } from "@/lib/link-client";
 import { SecondsLeft } from "./seconds-left";
 import { settingsLine } from "./settings-fields";
+import { teamSettingsLine } from "./team-settings-fields";
 
 // Keeps this tab's link open while signed in (feature 035) and shows a friend's
 // challenge as a toast on any page, lessons included (AC-004). The toast closes on
 // an answer, on the host's cancel or after 30 seconds, whichever comes first.
 
 type ChallengeFrame = Extract<LinkFrame, { type: "challenge" }>;
+
+/** A duel is a challenge; a team room is an invite (feature 045, AC-008). */
+export function challengeTitle(challenge: ChallengeFrame): string {
+  return challenge.kind === "team" ? `${challenge.from.name} mời bạn vào phòng đội!` : `${challenge.from.name} thách đấu bạn!`;
+}
 
 interface ChallengeToastProps {
   challenge: ChallengeFrame;
@@ -32,10 +38,10 @@ export function ChallengeToast({ challenge, deadline, onAnswer }: ChallengeToast
         <div className="min-w-0 flex-1">
           <p id="challenge-title" className="flex items-center gap-1.5 font-semibold">
             <Swords aria-hidden className="size-4 shrink-0 text-primary" />
-            <span className="truncate">{challenge.from.name} thách đấu bạn!</span>
+            <span className="truncate">{challengeTitle(challenge)}</span>
           </p>
           <p className="text-sm text-muted-foreground">
-            {settingsLine(challenge.settings)} · <SecondsLeft deadline={deadline} />
+            {challenge.kind === "team" ? teamSettingsLine(challenge.settings) : settingsLine(challenge.settings)} · <SecondsLeft deadline={deadline} />
           </p>
         </div>
       </div>

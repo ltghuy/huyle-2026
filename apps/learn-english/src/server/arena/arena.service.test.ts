@@ -40,7 +40,7 @@ describe("createRoom (AC-002, AC-003)", () => {
     const room = await createRoom(namespace, { settings: SETTINGS, user: MINH, name: "Minh", secret: SECRET, now: NOW });
     expect(room).toMatchObject({ code: expect.stringMatching(/^[A-Z2-9]{6}$/), settings: SETTINGS });
     expect(getByName).toHaveBeenCalledWith(room!.code);
-    expect(create).toHaveBeenCalledWith({ code: room!.code, settings: SETTINGS, creator: { id: "minh", name: "Minh", image: MINH.image } });
+    expect(create).toHaveBeenCalledWith({ code: room!.code, settings: SETTINGS, creator: { id: "minh", name: "Minh", image: MINH.image }, fromCommunity: false });
     expect(await verifyTicket(room!.ticket, SECRET, room!.code, NOW)).toMatchObject({ uid: "minh", name: "Minh" });
   });
 
@@ -102,7 +102,7 @@ describe("team rooms (feature 039)", () => {
     const createTeam = vi.fn(async () => true);
     const room = await createTeamRoom(rooms({ createTeam }).rooms, { settings: TEAM, user: MINH, name: "Minh", secret: SECRET, now: NOW });
     expect(room).toMatchObject({ kind: "team", settings: TEAM });
-    expect(createTeam).toHaveBeenCalledWith({ code: room!.code, settings: TEAM, host: { id: "minh", name: "Minh", image: MINH.image } });
+    expect(createTeam).toHaveBeenCalledWith({ code: room!.code, settings: TEAM, host: { id: "minh", name: "Minh", image: MINH.image }, fromCommunity: false });
   });
 
   it("joins up to the room size, never once the match is on, and always lets a seated player back (AC-004, AC-005)", async () => {

@@ -37,7 +37,7 @@ describe("sendChallenge (feature 035)", () => {
   it("delivers to the friend's link with the room's settings (AC-003)", async () => {
     expect(await challenge()).toEqual({ ok: true, state: "sent" });
     expect(linkByName).toHaveBeenCalledWith("lan");
-    expect(deliver).toHaveBeenCalledWith({ from: HOST, code: "R2KS89", settings: SETTINGS });
+    expect(deliver).toHaveBeenCalledWith({ kind: "duel", from: HOST, code: "R2KS89", settings: SETTINGS });
   });
 
   it("passes on what the link found (AC-007, AC-008)", async () => {
@@ -63,6 +63,49 @@ describe("sendChallenge (feature 035)", () => {
     expect(await challenge()).toEqual({ ok: false, reason: "seat-taken" });
     status = { ...LOBBY, playerIds: ["minh", "lan"] };
     expect(await challenge()).toEqual({ ok: true, state: "here" });
+    expect(deliver).not.toHaveBeenCalled();
+  });
+});
+
+describe("sendChallenge from a room opened from Cộng đồng (feature 045)", () => {
+  const TEAM = { ...SETTINGS, size: 3, minutes: 5 } as const;
+  const TEAM_LOBBY: RoomStatus = { kind: "team", phase: "lobby", creatorId: "minh", playerIds: ["minh"], spectatorIds: [], settings: TEAM };
+
+  it("invites a learner who isn't a friend to a duel (AC-002, AC-003)", async () => {
+    status = { ...LOBBY, fromCommunity: true };
+    expect(await challenge("thu")).toEqual({ ok: true, state: "sent" });
+    expect(linkByName).toHaveBeenCalledWith("thu");
+    expect(deliver).toHaveBeenCalledWith({ kind: "duel", from: HOST, code: "R2KS89", settings: SETTINGS });
+  });
+
+  it("invites anyone to a team room, with the team settings (AC-007, AC-008)", async () => {
+    status = { ...TEAM_LOBBY, fromCommunity: true };
+    expect(await challenge("thu")).toEqual({ ok: true, state: "sent" });
+    expect(await challenge("lan")).toEqual({ ok: true, state: "sent" });
+    expect(deliver).toHaveBeenCalledWith({ kind: "team", from: HOST, code: "R2KS89", settings: TEAM });
+  });
+
+  it("counts a team room's seats by its size, and says when the learner is already in it", async () => {
+    status = { ...TEAM_LOBBY, fromCommunity: true, playerIds: ["minh", "lan"] };
+    expect(await challenge("thu")).toEqual({ ok: true, state: "sent" });
+    status = { ...TEAM_LOBBY, fromCommunity: true, playerIds: ["minh", "lan", "hoa"] };
+    expect(await challenge("thu")).toEqual({ ok: false, reason: "seat-taken" });
+    expect(await challenge("lan")).toEqual({ ok: true, state: "here" });
+  });
+
+  it("still needs the caller to host a waiting room", async () => {
+    for (const next of [{ ...TEAM_LOBBY, fromCommunity: true, creatorId: "lan" }, { ...TEAM_LOBBY, fromCommunity: true, phase: "question" as const }]) {
+      status = next;
+      expect(await challenge("thu")).toEqual({ ok: false, reason: "not-host" });
+    }
+    expect(deliver).not.toHaveBeenCalled();
+  });
+
+  it("keeps other rooms to friends and duels (AC-011)", async () => {
+    status = { ...LOBBY, fromCommunity: false };
+    expect(await challenge("thu")).toEqual({ ok: false, reason: "not-friend" });
+    status = TEAM_LOBBY;
+    expect(await challenge("lan")).toEqual({ ok: false, reason: "not-host" });
     expect(deliver).not.toHaveBeenCalled();
   });
 });

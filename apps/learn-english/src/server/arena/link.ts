@@ -7,8 +7,7 @@
 // No `import "server-only"`: wrangler bundles this module into the custom
 // worker, where that package's default export throws (knowledge.md, 023).
 import { DurableObject } from "cloudflare:workers";
-import type { ArenaSettings } from "@/learning/arena/protocol";
-import { parseLinkClientFrame, type ChallengeFrom, type DeliveryState, type LinkFrame } from "@/learning/arena/link";
+import { parseLinkClientFrame, type ChallengeFrom, type ChallengeRoom, type DeliveryState, type LinkFrame } from "@/learning/arena/link";
 import { ARENA_PROTOCOL, PLAYER_HEADER } from "./socket-route";
 
 interface Attachment {
@@ -17,11 +16,8 @@ interface Attachment {
   room: string | null;
 }
 
-export interface Challenge {
-  from: ChallengeFrom;
-  code: string;
-  settings: ArenaSettings;
-}
+/** A challenge to a duel, or an invite to a team room (feature 045). */
+export type Challenge = { from: ChallengeFrom; code: string } & ChallengeRoom;
 
 export class LearnerLink extends DurableObject<CloudflareEnv> {
   fetch(request: Request): Response {

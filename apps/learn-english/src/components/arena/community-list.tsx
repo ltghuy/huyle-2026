@@ -18,6 +18,7 @@ import { parseLevel, updateSearchParams } from "@/lib/search-params";
 import { cn } from "@/lib/utils";
 import type { CommunityRoom } from "@/server/arena/arena.schema";
 import { DUEL_PATH, TEAM_PATH } from "./arena-hub";
+import { fromCommunity } from "./community-origin";
 import { roomPath } from "./join-room";
 import { PlayerAvatar } from "./players";
 import { settingsLine } from "./settings-fields";
@@ -161,10 +162,10 @@ export function CommunityList() {
         <EmptyState mood="think" title={filtered ? "Không có phòng nào khớp bộ lọc" : "Chưa có phòng nào đang chờ"} className={FLUSH}>
           <p className="text-sm text-muted-foreground">Tạo một phòng rồi công khai lên Cộng đồng, người khác sẽ thấy và vào đấu với bạn.</p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href={DUEL_PATH} className={buttonVariants({ className: "h-11 gap-2" })}>
+            <Link href={fromCommunity(DUEL_PATH)} className={buttonVariants({ className: "h-11 gap-2" })}>
               <Swords aria-hidden /> Tạo phòng 1-1
             </Link>
-            <Link href={TEAM_PATH} className={buttonVariants({ variant: "outline", className: "h-11 gap-2" })}>
+            <Link href={fromCommunity(TEAM_PATH)} className={buttonVariants({ variant: "outline", className: "h-11 gap-2" })}>
               <Users aria-hidden /> Tạo phòng đội
             </Link>
             {filtered ? (

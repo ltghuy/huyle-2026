@@ -12,6 +12,7 @@ import { DEFAULT_ROUND_MINUTES } from "@/learning/arena/team-protocol";
 import type { Level } from "@/learning/types";
 import { ArenaError, createTeamRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
+import { openedFromCommunity } from "./community-origin";
 import { roomPath } from "./join-room";
 import { TeamGameGuide } from "./team-game-guide";
 import { TeamSettingsFields, useTeamSettingsDraft } from "./team-settings-fields";
@@ -58,7 +59,7 @@ function CreatePanel({ learner }: { learner: Learner }) {
     setCreating(true);
     setError(null);
     try {
-      const room = await createTeamRoom(draft.settings, learner.name);
+      const room = await createTeamRoom(draft.settings, learner.name, { fromCommunity: openedFromCommunity() });
       router.push(roomPath(room.code));
     } catch (cause) {
       setError(cause instanceof ArenaError ? cause.message : "Không tạo được phòng. Bạn thử lại nhé.");

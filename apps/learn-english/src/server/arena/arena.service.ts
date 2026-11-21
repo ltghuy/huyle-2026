@@ -48,11 +48,12 @@ async function teamTicketFor(user: SessionUser, name: string, code: string, sett
 /** A new room with the creator seated (AC-002, AC-003); null when no free code was found. */
 export async function createRoom(
   rooms: Rooms,
-  input: { settings: ArenaSettings; user: SessionUser; name: string; secret: string; now: number; random?: () => number },
+  input: { settings: ArenaSettings; user: SessionUser; name: string; secret: string; now: number; fromCommunity?: boolean; random?: () => number },
 ): Promise<RoomTicket | null> {
   for (let attempt = 0; attempt < CREATE_ATTEMPTS; attempt++) {
     const code = randomCode(input.random);
-    const created = await rooms.getByName(code).create({ code, settings: input.settings, creator: { id: input.user.id, name: input.name, image: input.user.image } });
+    const creator = { id: input.user.id, name: input.name, image: input.user.image };
+    const created = await rooms.getByName(code).create({ code, settings: input.settings, creator, fromCommunity: input.fromCommunity ?? false });
     if (created) return ticketFor(input.user, input.name, code, input.settings, input.secret, input.now);
   }
   return null;
@@ -61,11 +62,12 @@ export async function createRoom(
 /** A new team room with the host seated (feature 039, AC-002, AC-003); null when no free code was found. */
 export async function createTeamRoom(
   rooms: Rooms,
-  input: { settings: TeamSettings; user: SessionUser; name: string; secret: string; now: number; random?: () => number },
+  input: { settings: TeamSettings; user: SessionUser; name: string; secret: string; now: number; fromCommunity?: boolean; random?: () => number },
 ): Promise<RoomTicket | null> {
   for (let attempt = 0; attempt < CREATE_ATTEMPTS; attempt++) {
     const code = randomCode(input.random);
-    const created = await rooms.getByName(code).createTeam({ code, settings: input.settings, host: { id: input.user.id, name: input.name, image: input.user.image } });
+    const host = { id: input.user.id, name: input.name, image: input.user.image };
+    const created = await rooms.getByName(code).createTeam({ code, settings: input.settings, host, fromCommunity: input.fromCommunity ?? false });
     if (created) return teamTicketFor(input.user, input.name, code, input.settings, input.secret, input.now);
   }
   return null;

@@ -172,6 +172,25 @@ describe("the 1-1 screen", () => {
     expect(sent).toEqual({ mode: "write", level: "A1", rounds: 1, seconds: 45, name: "Minh" });
   });
 
+  it("marks a room opened from Cộng đồng, and only then (feature 045, AC-001)", async () => {
+    stubFetch(true);
+    let sent: Record<string, unknown> = {};
+    handler = (url, init) => {
+      if (url !== "/api/arena/rooms") return undefined;
+      sent = JSON.parse(String(init?.body));
+      return Response.json({ code: "K7P2QX", ticket: "t", settings: sent }, { status: 201 });
+    };
+    window.history.replaceState(null, "", "/arena/1v1?from=community");
+    try {
+      render(<ArenaDuelPage />);
+      fireEvent.click(await screen.findByRole("button", { name: "Tạo phòng" }));
+      await waitFor(() => expect(push).toHaveBeenCalled());
+      expect(sent.fromCommunity).toBe(true);
+    } finally {
+      window.history.replaceState(null, "", "/");
+    }
+  });
+
   it("offers four question times with 15 s chosen, and no fixed time on the mode cards (feature 028, AC-001, AC-005)", async () => {
     stubFetch(true);
     render(<ArenaDuelPage />);

@@ -114,3 +114,30 @@ describe("making a team lobby public (041 AC-001 to AC-004)", () => {
     expect(room.effects).toEqual([]);
   });
 });
+
+describe("a room opened from Cộng đồng (feature 045, AC-001)", () => {
+  it("keeps the duel's flag through a started match, and shows it to the room", () => {
+    const created = createRoom({ code: "K7P2QX", settings: SETTINGS, creator: MINH, seed: 1, now: T0, fromCommunity: true });
+    const started = run(created, [
+      { type: "join", player: MINH },
+      { type: "join", player: LAN },
+    ]).state;
+    expect(started.fromCommunity).toBe(true);
+    expect(toPublic(started).fromCommunity).toBe(true);
+  });
+
+  it("is off by default, and for a duel saved before the flag existed", () => {
+    expect(toPublic(duel()).fromCommunity).toBe(false);
+    const old: Partial<RoomState> = { ...duel() };
+    delete old.fromCommunity;
+    expect(toPublic(old as RoomState).fromCommunity).toBe(false);
+  });
+
+  it("keeps the team room's flag in its view", () => {
+    const room = new TeamDriver();
+    expect(toPublicTeam(room.state).fromCommunity).toBe(false);
+    room.state = { ...room.state, fromCommunity: true };
+    room.fill(1).teams([HOST.id], [PEOPLE[0].id]).send({ type: "start", userId: HOST.id });
+    expect(toPublicTeam(room.state).fromCommunity).toBe(true);
+  });
+});

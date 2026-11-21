@@ -102,6 +102,8 @@ export interface RoomState {
   spectators: PlayerIdentity[];
   /** The creator listed this lobby in "Cộng đồng" (feature 041); cleared when a match starts. Absent on rooms saved before 041. */
   public?: boolean;
+  /** Created from the "Cộng đồng" links (feature 045): the host may invite any online learner. Never changes. */
+  fromCommunity?: boolean;
 }
 
 export type RoomEvent =
@@ -148,7 +150,7 @@ export interface Result {
   effects: Effect[];
 }
 
-export function createRoom(input: { code: string; settings: ArenaSettings; creator: PlayerIdentity; seed: number; now: number }): RoomState {
+export function createRoom(input: { code: string; settings: ArenaSettings; creator: PlayerIdentity; seed: number; now: number; fromCommunity?: boolean }): RoomState {
   return {
     code: input.code,
     settings: input.settings,
@@ -174,6 +176,7 @@ export function createRoom(input: { code: string; settings: ArenaSettings; creat
     pausedFrom: null,
     rematch: [],
     spectators: [],
+    fromCommunity: input.fromCommunity ?? false,
   };
 }
 
@@ -620,5 +623,6 @@ export function toPublic(state: RoomState): PublicRoom {
     rematch: [...state.rematch],
     spectators: state.spectators.map(({ id, name }) => ({ id, name })),
     public: state.public ?? false,
+    fromCommunity: state.fromCommunity ?? false,
   };
 }

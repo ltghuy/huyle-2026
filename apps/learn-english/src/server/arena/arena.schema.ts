@@ -24,11 +24,14 @@ export const ARENA_MESSAGES = {
 /** The learner's chosen name, if any; checked like a board name, else their Google name is used. */
 const chosenName = z.string().max(60).optional();
 
-export const createBodySchema = settingsSchema.extend({ name: chosenName });
+/** Set when the room is created from the "Cộng đồng" links (feature 045). */
+const fromCommunity = z.boolean().optional();
+
+export const createBodySchema = settingsSchema.extend({ name: chosenName, fromCommunity });
 export type CreateBody = z.infer<typeof createBodySchema>;
 
 /** "Đấu đội" (feature 039): the host's team room settings. */
-export const createTeamBodySchema = teamSettingsSchema.extend({ name: chosenName });
+export const createTeamBodySchema = teamSettingsSchema.extend({ name: chosenName, fromCommunity });
 
 export const joinBodySchema = z.object({
   // Typed codes are forgiven case and spaces ("k7p 2qx").
@@ -111,4 +114,21 @@ export type CommunityRoom = CommunityListing extends infer L ? (L extends Commun
 
 export interface CommunityResponse {
   rooms: CommunityRoom[];
+}
+
+/** "Đang trực tuyến" (feature 045): the room whose host asks. */
+export const onlineQuerySchema = z.object({ code: roomCode });
+
+/** A signed-in learner online now, as the host of a room from Cộng đồng sees them (AC-002, AC-007). */
+export interface OnlineLearner {
+  id: string;
+  name: string;
+  image: string | null;
+  /** The host's friend: hidden in a duel (listed under "Thách đấu bạn bè"), marked in a team room. */
+  isFriend: boolean;
+  lastSeenAt: number;
+}
+
+export interface OnlineResponse {
+  learners: OnlineLearner[];
 }

@@ -18,7 +18,7 @@ class FakeSocket {
   }
 }
 
-const CHALLENGE: Challenge = { from: { id: "evan", name: "Evan", image: null }, code: "R2KS89", settings: { mode: "mixed", level: "B1", rounds: 1, seconds: 15 } };
+const CHALLENGE: Challenge = { kind: "duel", from: { id: "evan", name: "Evan", image: null }, code: "R2KS89", settings: { mode: "mixed", level: "B1", rounds: 1, seconds: 15 } };
 
 let sockets: FakeSocket[];
 let hostReply: ReturnType<typeof vi.fn>;

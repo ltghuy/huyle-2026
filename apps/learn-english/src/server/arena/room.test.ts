@@ -114,7 +114,23 @@ describe("ArenaRoom", () => {
   it("claims a code once", async () => {
     expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH })).toBe(true);
     expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: LAN })).toBe(false);
-    expect(room.status()).toMatchObject({ phase: "lobby", creatorId: "minh", playerIds: ["minh"] });
+    expect(room.status()).toMatchObject({ phase: "lobby", creatorId: "minh", playerIds: ["minh"], fromCommunity: false });
+  });
+
+  it("remembers a room opened from Cộng đồng, also for its players' view (feature 045, AC-001)", async () => {
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH, fromCommunity: true });
+    expect(room.status()).toMatchObject({ fromCommunity: true });
+    const minh = await connect(MINH);
+    expect(minh.lastRoom().fromCommunity).toBe(true);
+  });
+
+  it("reads a room saved before feature 045 as not from Cộng đồng", async () => {
+    await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: MINH });
+    const old = stored() as Partial<RoomState>;
+    delete old.fromCommunity;
+    fake.storage.set("room", old);
+    await newRoom();
+    expect(room.status()).toMatchObject({ fromCommunity: false });
   });
 
   it("lets a spectator watch and keeps a room saved before spectators existed working (feature 026)", async () => {
@@ -365,7 +381,13 @@ describe("ArenaRoom team rooms (feature 039)", () => {
   it("claims a code and reports itself as a team room with its size", async () => {
     expect(await room.createTeam({ code: "K7P2QX", settings: TEAM, host: MINH })).toBe(true);
     expect(await room.create({ code: "K7P2QX", settings: { mode: "recall", level: "A1", rounds: 1, seconds: 15 }, creator: LAN })).toBe(false);
-    expect(room.status()).toEqual({ kind: "team", phase: "lobby", creatorId: "minh", playerIds: ["minh"], spectatorIds: [], settings: TEAM });
+    expect(room.status()).toEqual({ kind: "team", phase: "lobby", creatorId: "minh", playerIds: ["minh"], spectatorIds: [], settings: TEAM, fromCommunity: false });
+  });
+
+  it("remembers a team room opened from Cộng đồng (feature 045, AC-001)", async () => {
+    await room.createTeam({ code: "K7P2QX", settings: TEAM, host: MINH, fromCommunity: true });
+    expect(room.status()).toMatchObject({ kind: "team", fromCommunity: true });
+    expect(teamState().fromCommunity).toBe(true);
   });
 
   it("builds and stores the round decks once, and sends team views without the answer", async () => {

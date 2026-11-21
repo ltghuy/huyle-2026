@@ -5,6 +5,7 @@
 // keeps its own 30-second timer.
 import { z } from "zod";
 import { CODE_PATTERN, settingsSchema, type ArenaSettings } from "./protocol";
+import { teamSettingsSchema, type TeamSettings } from "./team-protocol";
 
 /** How long a challenge waits for an answer (decisions.md). */
 export const CHALLENGE_MS = 30_000;
@@ -29,21 +30,25 @@ export interface ChallengeFrom {
   image: string | null;
 }
 
+/** A challenge to a duel, or an invite to a team room (feature 045), with the room's settings. */
+export type ChallengeRoom = { kind: "duel"; settings: ArenaSettings } | { kind: "team"; settings: TeamSettings };
+
 /** What a link sends its tabs. */
 export type LinkFrame =
-  | { type: "challenge"; from: ChallengeFrom; code: string; settings: ArenaSettings }
+  | ({ type: "challenge"; from: ChallengeFrom; code: string } & ChallengeRoom)
   /** The host cancelled, or the learner answered in another tab. */
   | { type: "challenge-closed"; hostId: string; code: string }
   /** To the host: the friend's answer. */
   | { type: "reply"; friendId: string; code: string; accept: boolean };
 
-const linkFrameSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("challenge"),
-    from: z.object({ id: userId, name: z.string(), image: z.string().nullable() }),
-    code,
-    settings: settingsSchema,
-  }),
+const from = z.object({ id: userId, name: z.string(), image: z.string().nullable() });
+
+// A plain union: two "challenge" shapes share the type. The team one is tried first, since a
+// team room's settings are a duel's plus the size and minutes.
+const linkFrameSchema = z.union([
+  z.object({ type: z.literal("challenge"), kind: z.literal("team"), from, code, settings: teamSettingsSchema }),
+  // Frames before feature 045 had no kind: a duel.
+  z.object({ type: z.literal("challenge"), kind: z.literal("duel").default("duel"), from, code, settings: settingsSchema }),
   z.object({ type: z.literal("challenge-closed"), hostId: userId, code }),
   z.object({ type: z.literal("reply"), friendId: userId, code, accept: z.boolean() }),
 ]);

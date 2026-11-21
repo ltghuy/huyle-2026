@@ -7,6 +7,7 @@ import { startProblem } from "@/learning/arena/team-machine";
 import type { PublicTeamRoom, Team } from "@/learning/arena/team-protocol";
 import { cn } from "@/lib/utils";
 import { InvitePanel } from "./invite-panel";
+import { OnlineLearners } from "./online-learners";
 import { PublishRoom } from "./publish-room";
 import { PlayerAvatar } from "./players";
 import { TEAM_NAME, TEAM_TONE, TeamBadge, teamPlayer, type TeamPlayerView } from "./team-parts";
@@ -133,6 +134,7 @@ function PlayerList({ id, title, empty, children }: ListProps) {
 export function TeamLobby({ handle, me }: TeamLobbyProps) {
   const { room } = handle;
   const isHost = room.hostId === me;
+  const freeSeat = room.phase === "lobby" && room.players.length < room.settings.size;
   const placed = new Set([...room.teams.A.members, ...room.teams.B.members]);
   const unplaced = room.players.filter((p) => !placed.has(p.id));
   const problem = startProblem({ players: room.players, teams: { A: room.teams.A.members, B: room.teams.B.members } });
@@ -165,7 +167,12 @@ export function TeamLobby({ handle, me }: TeamLobbyProps) {
         {room.players.length}/{room.settings.size} người
       </p>
 
-      <PublishRoom isPublic={room.public} isHost={isHost} freeSeat={room.phase === "lobby" && room.players.length < room.settings.size} onPublish={handle.publish} />
+      <PublishRoom isPublic={room.public} isHost={isHost} freeSeat={freeSeat} onPublish={handle.publish} />
+
+      {/* A room opened from "Cộng đồng" lets the host invite anyone online, friends marked (feature 045, AC-007, AC-010). */}
+      {isHost && freeSeat && room.fromCommunity ? (
+        <OnlineLearners code={room.code} hostName={teamPlayer(room, me)?.name} inRoom={room.players.map((p) => p.id)} friends="mark" />
+      ) : null}
 
       {isHost ? (
         <div className="flex flex-wrap items-center justify-between gap-2">

@@ -8,6 +8,7 @@ import { READY_MS } from "@/learning/arena/machine";
 import { ChallengeFriends } from "./challenge-friends";
 import { CountdownRing } from "./countdown-ring";
 import { InvitePanel } from "./invite-panel";
+import { OnlineLearners } from "./online-learners";
 import { FriendButton } from "@/components/social/friend-button";
 import { PlayerRow } from "./players";
 import { PublishRoom } from "./publish-room";
@@ -63,6 +64,7 @@ function PlayerLobby({ handle, me }: LobbyProps) {
   const isCreator = room.creatorId === me;
   const windowOpen = room.phase === "ready";
   const bothHere = room.players.length === 2;
+  const inRoom = [...room.players.map((p) => p.id), ...room.spectators.map((s) => s.id)];
 
   // The opponent hears when the creator changes the settings (AC-031); adjusted while rendering, not in an effect.
   const [seen, setSeen] = useState(room.settings);
@@ -98,9 +100,9 @@ function PlayerLobby({ handle, me }: LobbyProps) {
       </section>
 
       {/* While the seat is free, the host can challenge an online friend (feature 035) or list the room in "Cộng đồng" (feature 041). */}
-      {isCreator && !rival && room.phase === "lobby" ? (
-        <ChallengeFriends code={room.code} hostName={you?.name} inRoom={[...room.players.map((p) => p.id), ...room.spectators.map((s) => s.id)]} />
-      ) : null}
+      {isCreator && !rival && room.phase === "lobby" ? <ChallengeFriends code={room.code} hostName={you?.name} inRoom={inRoom} /> : null}
+      {/* A room opened from "Cộng đồng" also lists everyone else online (feature 045, AC-002, AC-010). */}
+      {isCreator && !rival && room.phase === "lobby" && room.fromCommunity ? <OnlineLearners code={room.code} hostName={you?.name} inRoom={inRoom} friends="hide" /> : null}
       <PublishRoom isPublic={room.public} isHost={isCreator} freeSeat={!rival && room.phase === "lobby"} onPublish={handle.publish} />
 
       {windowOpen ? (

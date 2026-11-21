@@ -1,10 +1,14 @@
-import { fireEvent, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, screen, within } from "@testing-library/react";
 import { render } from "@/test-utils/render";
 import { describe, expect, it, vi } from "vitest";
 import { Lobby } from "./lobby";
 import { ME, RIVAL, player, publicRoom, roomHandle } from "./test-room";
 
 vi.mock("sonner", () => ({ toast: { success: vi.fn(), error: vi.fn() } }));
+vi.mock("@/lib/arena-client", async (original) => ({
+  ...(await original<typeof import("@/lib/arena-client")>()),
+  fetchOnline: async () => ({ learners: [{ id: "thu", name: "Thu", image: null, isFriend: false, lastSeenAt: 1 }] }),
+}));
 // Signed in as the viewer with no friends yet, so the friend button shows (feature 031).
 vi.mock("@/hooks/use-account", () => ({
   useAccount: () => ({ status: "signed-in", account: { userId: "minh", name: "Viewer", email: "v@example.com", image: null } }),
@@ -121,5 +125,25 @@ describe("Lobby", () => {
     lobby({ players: [player(ME), player(RIVAL)], public: true });
     expect(screen.queryByRole("button", { name: "Công khai lên Cộng đồng" })).not.toBeInTheDocument();
     expect(screen.queryByText(/Phòng đang hiện trên Cộng đồng/)).not.toBeInTheDocument();
+  });
+});
+
+describe("Lobby from Cộng đồng (feature 045)", () => {
+  it("lists online learners under the friends for the host while the seat is free (AC-002)", async () => {
+    lobby({ fromCommunity: true });
+    expect(await screen.findByRole("button", { name: "Mời Thu" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Thách đấu bạn bè" })).toBeInTheDocument();
+  });
+
+  it("shows no online list in other rooms, once the seat is taken, or to the guest (AC-010)", async () => {
+    lobby();
+    expect(await screen.findByRole("heading", { name: "Thách đấu bạn bè" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Đang trực tuyến" })).not.toBeInTheDocument();
+    cleanup();
+    lobby({ fromCommunity: true, players: [player(ME), player(RIVAL)] });
+    expect(screen.queryByRole("heading", { name: "Đang trực tuyến" })).not.toBeInTheDocument();
+    cleanup();
+    lobby({ fromCommunity: true, creatorId: RIVAL, players: [player(RIVAL), player(ME)] });
+    expect(screen.queryByRole("heading", { name: "Đang trực tuyến" })).not.toBeInTheDocument();
   });
 });

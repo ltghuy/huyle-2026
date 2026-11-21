@@ -76,6 +76,8 @@ export type RoomStatus =
       /** Who is watching (feature 026). */
       spectatorIds: string[];
       settings: ArenaSettings;
+      /** Created from "Cộng đồng" (feature 045): invites to any online learner. Absent means no. */
+      fromCommunity?: boolean;
     }
   | {
       /** A team room (feature 039): no spectators, `settings.size` seats. */
@@ -85,6 +87,7 @@ export type RoomStatus =
       playerIds: string[];
       spectatorIds: string[];
       settings: TeamSettings;
+      fromCommunity?: boolean;
     };
 
 function toEvent(userId: string, frame: ClientFrame): RoomEvent {
@@ -151,7 +154,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   }
 
   /** RPC from the create route: claims this code for a new room. False when the code is already in use. */
-  async create(input: { code: string; settings: ArenaSettings; creator: PlayerIdentity }): Promise<boolean> {
+  async create(input: { code: string; settings: ArenaSettings; creator: PlayerIdentity; fromCommunity?: boolean }): Promise<boolean> {
     if (this.state && this.state.phase !== "closed") return false;
     this.pool = null;
     await this.apply({ state: createRoom({ ...input, seed: randomSeed(), now: Date.now() }), effects: [] });
@@ -159,7 +162,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
   }
 
   /** RPC from the team create route (feature 039): claims this code for a new team room. False when it is in use. */
-  async createTeam(input: { code: string; settings: TeamSettings; host: TeamIdentity }): Promise<boolean> {
+  async createTeam(input: { code: string; settings: TeamSettings; host: TeamIdentity; fromCommunity?: boolean }): Promise<boolean> {
     if (this.state && this.state.phase !== "closed") return false;
     this.pool = null;
     this.decks.clear();
@@ -172,7 +175,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
     if (!this.state || this.state.phase === "closed") return null;
     if (isTeam(this.state)) {
       const { phase, hostId, players, settings } = this.state;
-      return { kind: "team", phase, creatorId: hostId, playerIds: players.map((p) => p.id), spectatorIds: [], settings };
+      return { kind: "team", phase, creatorId: hostId, playerIds: players.map((p) => p.id), spectatorIds: [], settings, fromCommunity: this.state.fromCommunity ?? false };
     }
     return {
       kind: "duel",
@@ -181,6 +184,7 @@ export class ArenaRoom extends DurableObject<CloudflareEnv> {
       playerIds: this.state.players.map((p) => p.id),
       spectatorIds: this.state.spectators.map((s) => s.id),
       settings: this.state.settings,
+      fromCommunity: this.state.fromCommunity ?? false,
     };
   }
 

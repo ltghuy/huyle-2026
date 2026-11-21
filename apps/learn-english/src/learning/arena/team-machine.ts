@@ -119,6 +119,8 @@ export interface TeamRoomState {
   endReason: "won" | "forfeit" | "cancelled" | null;
   /** The host listed this lobby in "Cộng đồng" (feature 041); cleared when a match starts. Absent on rooms saved before 041. */
   public?: boolean;
+  /** Created from the "Cộng đồng" links (feature 045): the host may invite any online learner. Never changes. */
+  fromCommunity?: boolean;
 }
 
 export type TeamRoomEvent =
@@ -172,7 +174,7 @@ export function deckSize(settings: Pick<TeamSettings, "minutes">): number {
   return Math.ceil(roundMs(settings) / MIN_TURN_MS) + DECK_SPARE;
 }
 
-export function createTeamRoom(input: { code: string; settings: TeamSettings; host: TeamIdentity; seed: number; now: number }): TeamRoomState {
+export function createTeamRoom(input: { code: string; settings: TeamSettings; host: TeamIdentity; seed: number; now: number; fromCommunity?: boolean }): TeamRoomState {
   return {
     kind: "team",
     code: input.code,
@@ -187,6 +189,7 @@ export function createTeamRoom(input: { code: string; settings: TeamSettings; ho
     ...freshMatch(),
     deadline: null,
     idleUntil: input.now + TEAM_IDLE_MS,
+    fromCommunity: input.fromCommunity ?? false,
   };
 }
 
@@ -767,5 +770,6 @@ export function toPublicTeam(state: TeamRoomState, deck?: readonly ServerQuestio
     winner: state.winner,
     endReason: state.endReason,
     public: state.public ?? false,
+    fromCommunity: state.fromCommunity ?? false,
   };
 }

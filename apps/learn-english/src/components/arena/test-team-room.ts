@@ -41,6 +41,7 @@ export function teamRoom(overrides: Partial<PublicTeamRoom> = {}): PublicTeamRoo
     winner: null,
     endReason: null,
     public: false,
+    fromCommunity: false,
     ...overrides,
   };
 }

@@ -8,6 +8,7 @@ import {
   type ArenaStatsResponse,
   type CommunityQuery,
   type CommunityResponse,
+  type OnlineResponse,
   type LinkTicket,
   type RoomTicket,
 } from "@/server/arena/arena.schema";
@@ -45,14 +46,23 @@ function post<T>(url: string, body: unknown): Promise<T> {
   return request<T>(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
 }
 
+/** How a room is created: `fromCommunity` when the learner came from Cộng đồng's links (feature 045). */
+export interface CreateOptions {
+  fromCommunity?: boolean;
+}
+
+function createBody<T extends object>(settings: T, name: string | undefined, options: CreateOptions) {
+  return { ...settings, ...(name ? { name } : {}), ...(options.fromCommunity ? { fromCommunity: true } : {}) };
+}
+
 /** A new room with these settings; `name` is the learner's chosen name, if any. */
-export function createRoom(settings: ArenaSettings, name?: string): Promise<RoomTicket> {
-  return post<RoomTicket>("/api/arena/rooms", { ...settings, ...(name ? { name } : {}) });
+export function createRoom(settings: ArenaSettings, name?: string, options: CreateOptions = {}): Promise<RoomTicket> {
+  return post<RoomTicket>("/api/arena/rooms", createBody(settings, name, options));
 }
 
 /** A new team room ("Đấu đội", feature 039) with these settings. */
-export function createTeamRoom(settings: TeamSettings, name?: string): Promise<RoomTicket> {
-  return post<RoomTicket>("/api/arena/teams", { ...settings, ...(name ? { name } : {}) });
+export function createTeamRoom(settings: TeamSettings, name?: string, options: CreateOptions = {}): Promise<RoomTicket> {
+  return post<RoomTicket>("/api/arena/teams", createBody(settings, name, options));
 }
 
 /**
@@ -61,6 +71,11 @@ export function createTeamRoom(settings: TeamSettings, name?: string): Promise<R
  */
 export function joinRoom(code: string, name?: string, options: { seatOnly?: boolean } = {}): Promise<RoomTicket> {
   return post<RoomTicket>("/api/arena/join", { code, ...(name ? { name } : {}), ...(options.seatOnly ? { seatOnly: true } : {}) });
+}
+
+/** The learners online now, for the host of a room opened from Cộng đồng (feature 045). */
+export function fetchOnline(code: string): Promise<OnlineResponse> {
+  return request<OnlineResponse>(`/api/arena/online?code=${encodeURIComponent(code)}`);
 }
 
 /** The public lobbies with a free seat, newest first (feature 041). */

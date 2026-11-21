@@ -14,7 +14,8 @@ import { ArenaError, createRoom } from "@/lib/arena-client";
 import { learnerName } from "@/lib/learner-name";
 import { ArenaRecord } from "./arena-record";
 import { GameGuide } from "./game-guide";
-  import { roomPath } from "./join-room";
+import { openedFromCommunity } from "./community-origin";
+import { roomPath } from "./join-room";
 import { PlayerAvatar } from "./players";
 import { SettingsFields, useSettingsDraft } from "./settings-fields";
 
@@ -67,7 +68,7 @@ function CreatePanel({ learner }: { learner: Learner }) {
     setCreating(true);
     setError(null);
     try {
-      const room = await createRoom(draft.settings, learner.name);
+      const room = await createRoom(draft.settings, learner.name, { fromCommunity: openedFromCommunity() });
       router.push(roomPath(room.code));
     } catch (cause) {
       setError(cause instanceof ArenaError ? cause.message : "Không tạo được phòng. Bạn thử lại nhé.");
